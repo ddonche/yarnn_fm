@@ -71,10 +71,10 @@ body {
 }
 
 .button_highlight {
-  background: #EE7964;
+  background: #DC2020;
   transition: background .4s ease-in-out;
   &:hover {
-   background: darken(#EE7964, 7.5%);
+   background: darken(#DC2020, 7.5%);
   }
 }
 
@@ -113,7 +113,7 @@ body {
           font-weight: 700;
           font-size: 0.9rem;
           &:hover {
-            color: #EE7964;
+            color: #DC2020;
           }
         }
       }
@@ -174,7 +174,7 @@ body {
     font-style: normal;
     color: #2C3135;
     &:hover {
-      background: #EE7964;
+      background: #DC2020;
       color: #FFFFFF;
     }
   }
@@ -185,7 +185,7 @@ body {
     }
   }
   .current {
-    background: #EE7964;
+    background: #DC2020;
     color: #FFFFFF;
   }
 }

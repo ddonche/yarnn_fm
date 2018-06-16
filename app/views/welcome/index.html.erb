@@ -13,16 +13,17 @@
           <% else %>
             <li><a href="#">Dashboard</a></li>
             <li><%= link_to "Explore", users_path %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <li><%= link_to "Create", new_album_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
       </nav>
     </div>
   </header>
   <div class="wrapper_skinny">
-    <h1>Discover your new favorite <span class="responsive_break">stories or poetry.</span></h1>
+    <h1>Entwine with amazing stories and poetry. <span class="responsive_break"></span></h1>
     <%= link_to "Create", new_album_path, class: "button button_highlight" %>
     <%= link_to "Explore", users_path, class: "button button_white" %>
   </div>
+  <%= render 'shared/footer' %>
 </div>

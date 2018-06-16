@@ -59,8 +59,7 @@ body {
   color: #FFFFFF;
   text-decoration: none;
   font-size: 1rem;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
+  padding: .7rem 2rem;
   outline: none;
   border: none;
 }
@@ -191,25 +190,31 @@ body {
 }
 
 #form {
-  padding: 3rem 3.5%;
-  background: #FFFFFF;
-  border-radius: .35rem;
+  padding: 1rem 2rem;
   .title {
-    color: #2C3135;
-    text-align: center;
+    color: #ffffff;
+    float: left;
+  }
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    float: right;
+    &:hover {
+      color: #DC2020;
+    }
   }
 }
 
 .field {
-  margin: .5rem 0 1.5rem 0;
+  margin: .5rem 0 1.4rem 0;
 }
 
 input[type="email"], input[type="text"], input[type="password"], textarea {
   width: 100%;
   height: 2.5rem;
   padding: .5rem 1rem;
-  background: #EDEFF5;
-  border: 1px solid darken(#EDEFF5, 5%);
+  background: #f2f4d5;
+  border: 1px solid darken(#f2f4d5, 5%);
   border-radius: .35rem;
   margin-top: .5rem;
 }

@@ -7,6 +7,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# gems I've installed my damn self
+gem 'devise', '~> 4.2'
+
 gem 'rails', '~> 5.0.7'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -15,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'sprockets', '~> 3.7.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri

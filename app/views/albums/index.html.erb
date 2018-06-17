@@ -7,21 +7,21 @@
 	<div class="wrapper">
 		<ul class="cf">
 			<% @albums.each do |album| %>
-				<%= link_to album do %>
 					<li>
-						<%= image_tag album.avatar.url(:large) %>
+						<%= link_to album do %>
+							<%= image_tag album.avatar.url(:large) %>
+						<% end %>
 						<div class="album_overview">
-							<h2><%= album.title %></h2> 
+							<h2><%= link_to album.title, album_path(album) %></h2> 
 							<p class="track_count"><%= link_to album.user.username, user_path(album.user) %></p>
 							<p class="track_count">10 Tracks | <%= album.year %></p> 
 							<p class="track_count">
 								<% album.tag_list.map.each do |tag| %>
-                  <span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></i></span>
+                  <span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i>
                 <% end %>
               </p>
 						</div>
 					</li>
-				<% end %>
 			<% end %>
 		</ul>
 

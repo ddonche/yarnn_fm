@@ -9,6 +9,15 @@ end
 
 # gems I've installed my damn self
 gem 'devise', '~> 4.2'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'carrierwave-audio', '~> 1.0', '>= 1.0.8'
+gem 'carrierwave-ffmpeg', '~> 1.0'
+gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
+gem 'acts-as-taggable-on', '~> 5.0'
+gem 'acts_as_votable', '~> 0.11.1'
+gem 'friendly_id', '~> 5.1.0'
+gem 'rmagick', '~> 2.16'
 
 gem 'rails', '~> 5.0.7'
 gem 'puma', '~> 3.0'

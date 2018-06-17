@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-	before_action :find_album, only: [:show, :dashboard]
+	before_action :find_album, only: [:show, :edit, :update, :dashboard]
 	before_action :find_track, only: [:show, :dashboard]
 
 	def index
@@ -11,6 +11,52 @@ class AlbumsController < ApplicationController
 
 	def dashboard
 	end
+	
+	def new
+    @album = current_user.albums.build
+    respond_to do |format| 
+      format.html
+      format.js
+    end
+	end
+
+  def edit
+  end
+
+  def create
+    @album = current_user.albums.build(album_params)
+    respond_to do |format|
+      if @album.save
+        format.html { redirect_to @album, notice: 'Album was successfully created.' }
+        format.json { render :show, status: :created, location: @album }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @album.update(album_params)
+        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
+        format.json { render :show, status: :ok, location: @album }
+      else
+        format.html { render :edit }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @album.destroy
+    respond_to do |format|
+      format.html { redirect_to albums_url, notice: 'Album was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end
 
 	private
 
@@ -25,4 +71,9 @@ class AlbumsController < ApplicationController
 			@album = Album.find(params[:id])
 		end
 	end
+	
+    def album_params
+      params.require(:album).permit(:title, :description, :user_id, 
+                                    :avatar, :year, :vocals)
+    end
 end

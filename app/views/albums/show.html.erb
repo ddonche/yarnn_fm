@@ -1,0 +1,44 @@
+<div id="album_show">
+	<div id="show_banner">
+		<div class="wrapper_skinny">
+			<h1><%= @album.title %></h1>
+			<p class="description"><%= @album.description %></p>
+		</div>
+	</div>
+
+	<div id="breadcrumb">
+		<%= link_to albums_path do %>
+			All Albums
+			<span>/</span>
+			<%= @album.title %>
+		<% end %>
+	</div>
+	
+	<div class="wrapper_skinny">
+	  <div class="album-image">
+	    <%= image_tag(@album.avatar.url, width: 250) %>
+	  </div>
+	</div>
+
+	<div id="tracks">
+		<div class="wrapper_skinny">
+			<ul class="cf">
+				<% @tracks.each do |track| %>
+					<li class="cf">
+						<div class="track_thumbnail">
+							<a href="#">
+								<%= image_tag track.avatar.url(:medium) %>
+							</a>
+						</div>
+						<div class="track_overview">
+							<h2><%= link_to track.title, track_path(track) %></h2>
+							<p class="description"><%= truncate(track.description, length: 160) %></p>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+
+			<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
+		</div>
+	</div>
+</div>

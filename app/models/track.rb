@@ -1,6 +1,6 @@
-class Album < ActiveRecord::Base
+class Track < ApplicationRecord
   belongs_to :user
-  has_many :tracks
+  belongs_to :album, optional: true
 
   mount_uploader :avatar, AvatarUploader
          

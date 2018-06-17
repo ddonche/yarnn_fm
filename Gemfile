@@ -18,6 +18,7 @@ gem 'acts-as-taggable-on', '~> 5.0'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'rmagick', '~> 2.16'
+gem 'will_paginate', '~> 3.1.0'
 
 gem 'rails', '~> 5.0.7'
 gem 'puma', '~> 3.0'

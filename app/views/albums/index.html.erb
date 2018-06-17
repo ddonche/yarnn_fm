@@ -1,0 +1,45 @@
+<div id="banner" class="albums_banner">
+
+  <header class="cf">
+    <div class="wrapper_wide">
+      <%= link_to root_path do %>
+    		<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
+    	<% end %>
+      <nav>
+        <ul>
+          <% unless user_signed_in? %>
+            <li><%= link_to "Explore", users_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% else %>
+            <li><a href="#">Dashboard</a></li>
+            <li><%= link_to "Explore", users_path %></li>
+            <li><%= link_to "Create", new_album_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <h1>Check out these tracks.</h1>
+</div>
+
+<div id="albums" class="cf">
+	<div class="wrapper">
+		<ul class="cf">
+			<% @albums.each do |album| %>
+				<%= link_to album do %>
+					<li>
+						<%= image_tag album.thumbnail.url(:medium) %>
+						<div class="album_overview">
+							<h2><%= album.title %></h2>
+							<p class="episode_count">1 Episode</p>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+
+		<%= will_paginate @albums, previous_label: "Previous", next_label: "Next" %>
+	</div>
+</div>

@@ -15,10 +15,10 @@
 	</div>
 	
 	<div class="wrapper_skinny">
-	  <div class="album-image">
-	    <%= image_tag(@album.avatar.url, width: 250) %>
-	  </div>
-	</div>
+	  <div id="album-image">
+      <%= image_tag @album.avatar.url(:large) %>
+    </div>
+  </div>
 
 	<div id="tracks">
 		<div class="wrapper_skinny">
@@ -27,7 +27,7 @@
 					<li class="cf">
 						<div class="track_thumbnail">
 							<a href="#">
-								<%= image_tag track.avatar.url(:medium) %>
+								<%= image_tag track.avatar.url(:thumb) %>
 							</a>
 						</div>
 						<div class="track_overview">

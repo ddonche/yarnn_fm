@@ -1,7 +1,6 @@
 <div id="banner" class="albums_banner">
-
   <%= render 'layouts/header' %>
-  <h1>Check out these tracks.</h1>
+  <h1>Check out these albums.</h1>
 </div>
 
 <div id="albums" class="cf">
@@ -10,10 +9,16 @@
 			<% @albums.each do |album| %>
 				<%= link_to album do %>
 					<li>
-						<%= image_tag album.thumbnail.url(:medium) %>
+						<%= image_tag album.avatar.url(:large) %>
 						<div class="album_overview">
-							<h2><%= album.title %></h2>
-							<p class="episode_count">1 Episode</p>
+							<h2><%= album.title %></h2> 
+							<p class="track_count"><%= link_to album.user.username, user_path(album.user) %></p>
+							<p class="track_count">10 Tracks | <%= album.year %></p> 
+							<p class="track_count">
+								<% album.tag_list.map.each do |tag| %>
+                  <span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></i></span>
+                <% end %>
+              </p>
 						</div>
 					</li>
 				<% end %>

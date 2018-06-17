@@ -1,0 +1,43 @@
+<%= form_for(@album) do |f| %>
+        <% if @album.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@album.errors.count, "error") %> prohibited this post from being saved:</h2>
+      
+            <ul>
+            <% @album.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+      	<div class="field">
+          <%= f.label :title, class: "title" %><br />
+          <%= f.text_field :title, :autofocus => true, required: true %>
+        </div>
+  
+        <div class="field">
+          <%= f.label :description, class: "title" %><br />
+          <%= f.text_area :description, autofocus: true %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :year, class: "title" %><br />
+          <%= f.text_field :year, autofocus: true %>
+        </div>
+
+        <div class="field">
+        <div class="title"><i> Add up to two genres. *Separate genres with commas. Example: 
+        "fantasy, romance"</i></div>
+        <%= f.text_field :tag_list, required: true, value: @album.tag_list.join(", ") %>
+        </div>
+        
+        <div class="field">
+          <%= f.label "Album image", class: "title"  %><br />
+          <%=  f.file_field :avatar %>
+        </div>
+  
+        <div class="actions">
+          <%= f.submit "Submit", class: "button button_highlight button_block" %>
+        </div>
+      <% end %>

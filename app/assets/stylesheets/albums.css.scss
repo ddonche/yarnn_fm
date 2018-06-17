@@ -26,8 +26,12 @@
         }
         .track_count {
           color: lighten(#2C3135, 50%);
-          font-size: .9rem;
+          font-size: .8rem;
           margin: .5rem 0 .25rem 0;
+        }
+        a {
+          text-decoration: none;
+          color: #2C3135;
         }
       }
       &:hover {
@@ -36,6 +40,9 @@
         }
         .album_overview {
           h2 {
+            color: #DC2020;
+          }
+          a {
             color: #DC2020;
           }
         }
@@ -78,9 +85,6 @@
       }
     }
   }
-  .album-image {
-    margin: 1rem auto;
-  }
   #breadcrumb {
     padding: 1rem 0;
     text-align: center;
@@ -94,6 +98,11 @@
     span {
       margin: 0 .5rem;
     }
+  }
+  #album-image {
+    margin: 1rem auto;
+    float: none;
+    display: table;
   }
   #tracks {
     padding: 3rem 0;

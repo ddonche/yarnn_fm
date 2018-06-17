@@ -3,7 +3,11 @@ class AlbumsController < ApplicationController
 	before_action :find_track, only: [:show, :dashboard]
 
 	def index
-		@albums = Album.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+    if params[:tag]
+      @albums = Album.tagged_with(params[:tag])
+    else
+      @albums = Album.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+    end
 	end
 
 	def show
@@ -74,6 +78,6 @@ class AlbumsController < ApplicationController
 	
     def album_params
       params.require(:album).permit(:title, :description, :user_id, 
-                                    :avatar, :year, :vocals)
+                                    :avatar, :year, :vocals, :tag_list)
     end
 end

@@ -8,7 +8,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     process :crop
-    resize_to_fill(100, 100)
+    resize_to_fill(250, 250)
   end
 
   version :tiny, from_version: :thumb do
@@ -16,7 +16,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    resize_to_limit(600, 600)
+    resize_to_fill(600, 600)
   end
 
   def crop

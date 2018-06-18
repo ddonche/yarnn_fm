@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   
   resources :users
   resources :albums
+  resources :tracks
   get 'genre/:tag', to: 'tags#show', as: :tag
 end

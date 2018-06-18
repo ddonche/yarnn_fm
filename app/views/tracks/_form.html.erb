@@ -1,0 +1,48 @@
+<%= form_for(@track) do |f| %>
+  <% if @track.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@track.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @track.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	<div class="field">
+    <%= f.label :title, class: "title" %><br />
+    <%= f.text_field :title, :autofocus => true, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, class: "title" %><br />
+    <%= f.text_area :description, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "Read by:", class: "title" %><br />
+    <%= f.text_field :vocals, autofocus: true %>
+  </div>
+
+  <div class="field">
+  <div class="title"><i> Add up to two genres. *Separate genres with commas. Example: 
+  "young adult, paranormal romance"</i></div>
+  <%= f.text_field :tag_list, required: true, value: @track.tag_list.join(", ") %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "Track image", class: "title"  %><br />
+    <%=  f.file_field :avatar %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "Audio file", class: "title"  %><br />
+    <%=  f.file_field :audio %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "button button_highlight button_block" %>
+  </div>
+<% end %>

@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import 'normalize';
 @import 'welcome';
 @import 'albums';
@@ -138,6 +140,37 @@ body {
 .albums_banner {
   background-image: image-url("albums_banner.jpg");
   margin-bottom: 4rem;
+  header {
+    color: #FFFFFF;
+    padding: 3rem 0;
+    #logo {
+      float: left;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    nav {
+      float: right;
+      ul {
+        list-style: none;
+        margin: 0;
+        li {
+          display: inline;
+          margin-left: 2.5rem;
+          position: relative;
+          a {
+            color: #FFFFFF;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.track_banner {
+  background-image: image-url("albums_banner.jpg");
   header {
     color: #FFFFFF;
     padding: 3rem 0;

@@ -22,6 +22,10 @@
   </div>
   
   <div class="field">
+     <%= f.collection_select(:album_id, current_user.albums, :id, :title, prompt: 'Select Anthology if there is one.') %><br />
+  </div>
+  
+  <div class="field">
     <%= f.label "Read by:", class: "title" %><br />
     <%= f.text_field :vocals, autofocus: true %>
   </div>

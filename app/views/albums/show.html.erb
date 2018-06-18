@@ -27,7 +27,11 @@
 					<li class="cf">
 						<div class="track_thumbnail">
 							<a href="#">
-								<%= image_tag track.avatar.url(:thumb) %>
+								<% if track.avatar? %>
+									<%= image_tag track.avatar.url(:thumb) %>
+								<% else %>
+									<%= image_tag 'default_track.jpg', width: 250, alt: 'default track image' %>
+								<% end %>
 							</a>
 						</div>
 						<div class="track_overview">

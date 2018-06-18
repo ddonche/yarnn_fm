@@ -8,15 +8,21 @@
 		<%= link_to tracks_path do %>
 			All Tracks
 			<span>/</span>
-			<%= link_to @track.title, track_path %>
+			<% if @track.album_id? %>
+			<%= link_to @track.album.title, album_path(@track.album_id) %>
 			<span>/</span>
+			<% end %>
 			<%= @track.title %>
 		<% end %>
 	</div>
 
 	<div id="track_content">
 		<div class="wrapper_skinny">
-			<%= image_tag @track.avatar.url, width: 250, class: "current_track_thumbnail" %>
+			<% if @track.avatar? %>
+				<%= image_tag @track.avatar.url, width: 250, class: "current_track_thumbnail" %>
+			<% else %>
+				<%= image_tag 'default_track.jpg', width: 250, class: "current_track_thumbnail", alt: 'default track image' %>
+			<% end %>
 			<h2><%= @track.title %></h2>
 			<p class="description"><%= @track.description %></p>
 

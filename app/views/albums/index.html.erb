@@ -13,7 +13,7 @@
 						<div class="album_overview">
 							<h2><%= link_to album.title, album_path(album) %></h2> 
 							<p class="track_count"><%= link_to album.user.name, user_path(album.user) %> | <%= link_to album.user.username, user_path(album.user) %></p>
-							<p class="track_count"><%= album.tracks.count %> Tracks | <%= album.year %></p> 
+							<p class="track_count"><%= pluralize( album.tracks.count, 'Track' ) %> | <%= album.year %></p> 
 							<p class="track_count">
 								<% album.tag_list.map.each do |tag| %>
                   <span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i>

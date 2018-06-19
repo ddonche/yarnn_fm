@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
     if params[:tag]
       @albums = Album.tagged_with(params[:tag])
     else
-      @albums = Album.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+      @albums = Album.joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
     end
 	end
 

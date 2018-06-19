@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
 	before_action :find_album, only: [:show, :edit, :update, :dashboard]
 	before_action :find_track, only: [:show, :dashboard]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
     if params[:tag]

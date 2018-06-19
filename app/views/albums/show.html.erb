@@ -1,14 +1,11 @@
 <div id="album_show">
-	<div id="show_banner">
-		<div class="wrapper_skinny">
-			<h1><%= @album.title %></h1>
-			<p class="description"><%= @album.description %></p>
-		</div>
+	<div id="banner" class="track_banner">
+		<%= render 'layouts/header' %>
 	</div>
 
 	<div id="breadcrumb">
 		<%= link_to albums_path do %>
-			All Albums
+			Anthologies
 			<span>/</span>
 			<%= @album.title %>
 		<% end %>
@@ -18,6 +15,7 @@
 	  <div id="album-image">
       <%= image_tag @album.avatar.url, width: 250 %>
     </div>
+    	<%= @album.description %>
   </div>
 
 	<div id="tracks">
@@ -28,15 +26,16 @@
 						<div class="track_thumbnail">
 							<a href="#">
 								<% if track.avatar? %>
-									<%= image_tag track.avatar.url(:thumb) %>
+									<%= image_tag track.avatar.url, width: 100 %>
 								<% else %>
-									<%= image_tag 'default_track.jpg', width: 250, alt: 'default track image' %>
+									<%= image_tag 'default_track.jpg', width: 100, alt: 'default track image' %>
 								<% end %>
 							</a>
 						</div>
 						<div class="track_overview">
 							<h2><%= link_to track.title, track_path(track) %></h2>
 							<p class="description"><%= truncate(track.description, length: 160) %></p>
+							<%= audio_tag track.audio.url, controls: true %>
 						</div>
 					</li>
 				<% end %>
@@ -46,3 +45,4 @@
 		</div>
 	</div>
 </div>
+

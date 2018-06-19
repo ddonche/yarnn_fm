@@ -1,6 +1,8 @@
 <header id="header" class="cf">
 	<div class="wrapper_wide">
-		<%= link_to "Yarnn.fm", root_path, id: "logo" %>
+		<%= link_to root_path do %>
+	  		<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
+	  	<% end %>
 		<nav>
 			<ul>
 				<% unless user_signed_in? %>
@@ -8,9 +10,8 @@
 					<li><%= link_to "Sign In", new_user_session_path %></li>
 					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				<% else %>
-					<li><%= link_to "Dashboard", root_path %></li>
 					<li><%= link_to "Explore", albums_path %></li>
-					<li><%= link_to "Create", new_album_path %></li>
+					<li><%= link_to "Create", new_track_path %></li>
 					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 				<% end %>
 			</ul>

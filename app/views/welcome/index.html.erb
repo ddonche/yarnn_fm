@@ -1,25 +1,6 @@
-<div id="background">
-  <header class="cf">
-    <div class="wrapper_wide">
-      <%= link_to root_path do %>
-	  		<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
-	  	<% end %>
-      <nav>
-        <ul>
-          <% unless user_signed_in? %>
-            <li><%= link_to "Explore", albums_path %></li>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <% else %>
-            <li><a href="#">Dashboard</a></li>
-            <li><%= link_to "Explore", albums_path %></li>
-            <li><%= link_to "Create", new_album_path %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<div id="welcome_background">
+  <%= render 'layouts/header' %>
+  <%= render 'shared/alert' %>
   <div class="wrapper_skinny">
     <h1>Entwine with amazing stories and poetry. <span class="responsive_break"></span></h1>
     <%= link_to "Create", new_album_path, class: "button button_highlight" %>

@@ -1,5 +1,6 @@
 class TracksController < ApplicationController
 	before_action :find_track, only: [:show, :edit, :update, :delete]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
     if params[:tag]
@@ -71,8 +72,8 @@ class TracksController < ApplicationController
 		end
 	end
 	
-    def track_params
-      params.require(:track).permit(:title, :description, :user_id, 
-                                    :avatar, :audio, :album_id, :vocals, :tag_list)
-    end
+  def track_params
+    params.require(:track).permit(:title, :description, :user_id, 
+                                  :avatar, :audio, :album_id, :vocals, :tag_list)
+  end
 end

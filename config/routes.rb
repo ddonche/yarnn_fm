@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   resources :users
-  resources :albums
+  resources :albums, :path => '/anthology'
   resources :tracks
+  resource  :subscription
+  
   get 'genre/:tag', to: 'tags#show', as: :tag
 end

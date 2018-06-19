@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180619042554) do
+ActiveRecord::Schema.define(version: 20180619200212) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -62,16 +62,24 @@ ActiveRecord::Schema.define(version: 20180619042554) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.string   "avatar",      default: "default_avatar.jpg"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "avatar",         default: "default_avatar.jpg"
     t.string   "title"
     t.text     "description"
     t.integer  "album_id"
     t.string   "vocals"
     t.integer  "user_id"
     t.string   "audio"
-    t.integer  "explicit",    default: 0
+    t.integer  "explicit",       default: 0
+    t.string   "amazon_url"
+    t.string   "kobo_url"
+    t.string   "audible_url"
+    t.string   "blurb_url"
+    t.string   "smashwords_url"
+    t.string   "buy_url"
+    t.string   "bn_url"
+    t.string   "apple_url"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 

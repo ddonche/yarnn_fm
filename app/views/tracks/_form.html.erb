@@ -38,6 +38,13 @@
   </div>
   
   <div class="field">
+    <%= f.radio_button :explicit, 'standard' %> 
+    <%= label :explicit_standard, 'Not explicit' %>
+    <%= f.radio_button :explicit, 'explicit' %>
+    <%= label :explicit_explicit, 'Explicit content' %>
+  </div>
+  
+  <div class="field">
     <%= f.label "Track image", class: "title"  %><br />
     <%=  f.file_field :avatar %>
   </div>

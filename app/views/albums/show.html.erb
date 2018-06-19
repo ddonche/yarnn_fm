@@ -33,7 +33,7 @@
 							</a>
 						</div>
 						<div class="track_overview">
-							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == 1 %>&nbsp;(explicit)<% end %></h2>
+							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
 							<p class="description"><%= truncate(track.description, length: 160) %></p>
 							<%= audio_tag track.audio.url, controls: true %>
 						</div>

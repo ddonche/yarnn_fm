@@ -78,7 +78,7 @@
         },
         "songs": [
           {
-            "name": "<%= @track.title %><% if @track.explicit == 1 %>&nbsp;(explicit)<% end %>",
+            "name": "<%= @track.title %><% if @track.explicit == "explicit" %>&nbsp;(explicit)<% end %>",
             "artist": "<%= @track.user.name %>",
             "album": "We Are to Answer",
             "url": "<%= @track.audio.url %>",

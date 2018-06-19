@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
   <head>
     <title><%= @track.title %></title>
 
@@ -39,9 +38,7 @@
 			<%= @track.title %>
 		<% end %>
 	</div>
-
-
-  <body>
+  <div class="wrapper_skinny">
     <div class="row">
       <div class="large-12 medium-12 small-12 columns">
         <div id="single-song-player">
@@ -69,6 +66,9 @@
         </div>
       </div>
     </div>
+    <%= render 'buy_links' %>
+    </div>
+  </div>
     <script type="text/javascript">
       Amplitude.init({
         "bindings": {
@@ -98,5 +98,3 @@
         Amplitude.setSongPlayedPercentage( ( parseFloat( x ) / parseFloat( this.offsetWidth) ) * 100 );
       });
     </script>
-  </body>
-</html>

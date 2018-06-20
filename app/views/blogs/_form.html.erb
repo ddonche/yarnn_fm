@@ -1,0 +1,38 @@
+<%= form_for(@blog) do |f| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	<div class="field">
+    <%= f.label :title, class: "title" %><br />
+    <%= f.text_field :title, :autofocus => true, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, class: "title" %><br />
+    <%= f.text_area :content, autofocus: true, required: true %>
+  </div>
+  
+  <%= f.radio_button :published_status, 'published' %> 
+  <%= label :published_status_published, 'Published' %>
+  <%= f.radio_button :published_status, 'draft' %>
+  <%= label :published_status_draft, 'Draft' %>
+
+  <div class="field">
+    <%= f.label "Blog image", class: "title"  %><br />
+    <%=  f.file_field :avatar %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Submit", class: "button button_highlight button_block" %>
+  </div>
+<% end %>
+

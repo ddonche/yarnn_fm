@@ -33,6 +33,9 @@
         a {
           text-decoration: none;
           color: #2C3135;
+          &:hover {
+            color: #00b8ac;
+          }
         }
       }
       &:hover {
@@ -76,6 +79,9 @@
             a {
               color: #FFFFFF;
               text-decoration: none;
+              &:hover {
+                color: #00b8ac;
+              }             
             }
           }
         }
@@ -119,6 +125,9 @@
     a {
       color: lighten(#2C3135, 45%);
       text-decoration: none;
+      &:hover {
+        color: #00b8ac;
+      }
     }
     span {
       margin: 0 .5rem;
@@ -159,6 +168,9 @@
             a {
               color: #2C3135;
               text-decoration: none;
+              &:hover {
+                color: #00b8ac;
+              }
             }
           }
           .description {

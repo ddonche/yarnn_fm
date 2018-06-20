@@ -1,0 +1,133 @@
+<% @audios.each do |audio| %>
+  <div class="main-content">
+    <div class="link row clearfix">
+      <div class="post-box">
+    		<div class="row">
+    	    <div class="col-md-2">
+    	    	<%= image_tag(audio.user.avatar.url, width: 55, class: "img-circle pull-left") %>
+    			</div>
+    			
+    			<div class="col-md-10-offset-2">
+    			  <% if audio.user == current_user %>
+            	<div class="btn-group pull-right">
+              <% unless audio.post_id? %>
+              	<%= link_to edit_post_path(audio), class: "btn btn-xs", style: "color: #039087;" do %>
+              		<span class="glyphicon glyphicon-cog"></span>
+              	<% end %>
+              <% end %>
+            	
+            	<%= link_to audio, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs", style: "color: #039087;" do %>
+            		<span class="glyphicon glyphicon-trash"></span>
+            	<% end %>
+            	</div>
+            <% end %>
+    		    <h5 style="margin-top: 0px">
+    		  	<% if audio.post_id? %>
+    		  	 <small class="author"><span class="glyphicon glyphicon-retweet"></span> Reposted by <%= link_to audio.user.username, user_path(audio.user) %> <span class="glyphicon glyphicon-star"></span> <%= post.user.reputation %>
+    		  	<% else %>
+    		  	<small class="author"><%= link_to audio.user.username, user_path(audio.user) %> <span class="glyphicon glyphicon-star"></span> <%= audio.user.reputation %>
+            <% end %> 
+             - <%= time_ago_in_words(audio.created_at) %> ago in
+      		  	<% audio.tag_list.map.each do |tag| %>
+                <div class="tags">
+                  <i><%= link_to tag, tag_path(tag) %></i>
+                </div>
+              <% end %>
+            <% if audio.post_id? %>
+              <br />Originally <%= link_to "posted", post_path(audio.post) %> by <%= link_to audio.post.user.username, user_path(audio.post.user) %> 
+              <span class="glyphicon glyphicon-star"></span> <%= audio.post.user.reputation %>
+              - <%= time_ago_in_words(audio.post.created_at) %> ago
+            <% end %>
+            </small></h5>
+
+            <div class="post-text">
+              <% if audio.post_id? %>
+        			  <%= if audio.post.image? 
+                  image_tag audio.post.image, class: "image"
+                end %>
+                <%= if audio.post.video? 
+                  video_tag audio.post.video, class: "image", :controls => true
+                end %>
+                <%= if audio.post.audio? 
+                  audio_tag audio.post.audio, class: "audio", :controls => true
+                end %>
+                <br />
+                <%= audio.post.content %>
+              <% else %>
+        			  <%= if audio.image? 
+                  image_tag audio.image, class: "image"
+                end %>
+                <%= if audio.video? 
+                  video_tag audio.video, class: "image", :controls => true
+                end %>
+                <%= if audio.audio? 
+                  audio_tag audio.audio, class: "audio", :controls => true
+                end %>
+                <br />
+                <%= audio.content %>
+              <% end %>
+            </div>
+            
+            <div class="post-buttons">
+              <div class="btn-group">
+            		<% if audio.url? %>
+            			<%= link_to audio.url do %>
+            				<%= image_tag("icons/link-blue.png", width: 24, alt: "link", style: "margin-right: 9px; text-decoration: none;") %>
+            			<% end %>
+            		<% else %>
+            			<%= link_to "#" do %>
+            				<%= image_tag("icons/link-blue.png", width: 24, alt: "link", style: "margin-right: 9px; text-decoration: none;") %>
+            			<% end %>
+            		<% end %>
+            		<% if audio.url? %>
+            			<%= link_to audio.url, class: "btn btn-primary btn-xs" do %>
+            				<span class="glyphicon glyphicon-globe" style="color: #ededed;"></span>
+            				<%= 1821 %>
+            			<% end %>
+            		<% else %>
+            			<%= link_to "#", class: "btn btn-default btn-xs", style: "color: #ccc;" do %>
+            				<span class="glyphicon glyphicon-globe"></span>
+            			<% end %>
+            		<% end %>
+          		</div>
+          		<div class="btn-group">
+          			<%= link_to audio, class: "btn btn-primary btn-xs" do %>
+          				<span class="glyphicon glyphicon-comment" style="color: #ededed;"></span>
+          				<span style="color: #ededed;"><%= audio.comments.count %></span>
+          			<% end %>
+          			<%= link_to audio, class: "btn btn-primary btn-xs" do %>
+          				<span class="glyphicon glyphicon-flash" style="color: #ededed;"></span>
+          				<%= 3 %>
+          			<% end %>
+          	  </div>
+          	
+              <div class="btn-group pull-right">
+                <%= link_to like_post_path(audio), method: :put, class: "btn btn-default btn-xs" do %>
+                  <span class="glyphicon glyphicon-chevron-up"></span>
+                  <%= audio.get_upvotes.size %>
+                <% end %>
+                <%= link_to dislike_post_path(audio), method: :put, class: "btn btn-default btn-xs" do %>
+                  <span class="glyphicon glyphicon-chevron-down"></span>
+                  <%= audio.get_downvotes.size %>
+                <% end %>
+                <% if audio.post_id? %>
+                <%= link_to repost_post_path(audio.post), method: :post, class: "btn btn-default btn-xs" do %>
+            				<span class="glyphicon glyphicon-retweet"></span>
+            				<%= audio.post.share_count %>
+              		<% end %>
+                <% else %>
+                  <%= link_to repost_post_path(audio), method: :post, class: "btn btn-default btn-xs" do %>
+            				<span class="glyphicon glyphicon-retweet"></span>
+            				<%= audio.share_count %>
+              		<% end %>
+            		<% end %>               
+            	</div>
+            </div>
+    	    </div>
+    		</div>
+        
+      </div>
+    </div>
+  </div>
+      
+<% end %>

@@ -8,10 +8,9 @@ class UsersController < ApplicationController
   
   def show
     @page_title = @user.username
-    @posts = @user.posts.order('created_at DESC')
+    @tracks = @user.tracks.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
     @users = @user.followers
     @followed_users = @user.following
-    @audios = @posts.where.not(audio: [nil, ""])
   end
   
   def following

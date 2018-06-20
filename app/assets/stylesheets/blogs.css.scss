@@ -3,6 +3,7 @@
     width: 55%;
     margin: 1rem auto;
     background: #e9e9e9;
+    border: 1px solid #e1e1e1;
     h1 {
       font-family: 'Libre Baskerville', serif;
       font-style: normal;
@@ -75,7 +76,7 @@
       }
     }
     .blog_content {
-      padding: 1rem 2rem;
+      padding: 1.8rem 2rem;
       line-height: 1.75rem;
       font-size: 14px;
       display: block;
@@ -83,6 +84,8 @@
       font-style: normal;
       color: rgba(0,0,0,.84);
       margin-bottom: .7rem;
+      word-break: break-word;
+      word-wrap: break-word;
       a {
         text-decoration: none;
         color: #DC2020;
@@ -95,12 +98,12 @@
     pre {
         font-size: 90%;
         line-height: 1.2em;
-        font-family: "Courier 10 Pitch", Courier, monospace; 
-        white-space: pre; 
-        white-space: pre-wrap; 
-        white-space: -moz-pre-wrap; 
-        white-space: -o-pre-wrap; 
-    
+        font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+        white-space: pre;
+      	word-spacing: normal;
+      	word-break: normal;
+      	word-wrap: normal;
+      	line-height: 1.5;
         height:1%;
         width: auto;
         display: block;
@@ -109,7 +112,7 @@
         padding: 1em 1em;
         margin: auto 40px auto 40px;
         background: #f4f4f4;
-        border: solid 1px #e1e1e1
+        border: solid 1px #e1e1e1;
     } 
     code { 
         font-size: 90%;
@@ -120,6 +123,9 @@
         color: #555555;
         padding: 1em 1em;
         background: #f4f4f4;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
     }
   }
 }

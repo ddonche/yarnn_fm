@@ -1,0 +1,16 @@
+<div class="main_avatar">
+
+    <div class="image">
+      <%= image_tag(@user.avatar.url, width: 225) %>
+    </div>
+    <h4><%= @user.username %> | 
+      <% if @user.name? %>
+        <%= @user.name %>
+      <% else %>
+        <%= "Mysterious Stranger" %>
+      <% end %>
+    </h4> 
+    <%= render 'shared/stats' %>
+    <%= render 'follow_form' if user_signed_in? %>
+    
+</div>

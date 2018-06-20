@@ -1,0 +1,15 @@
+<div class="side-box">
+  <div class="side-content">
+    <div class="center">
+      <p><b>Following</b></p>
+    </div>
+  <% if @followed_users.any? %>
+    <% @followed_users.each do |followed_user| %>
+      <%= link_to followed_user do %>
+      <%= image_tag(followed_user.avatar.url, width: 25, class: "img-circle", title: followed_user.username) %>
+      <% end %>
+    <% end %>
+  <% end %>
+      
+  </div>
+</div>

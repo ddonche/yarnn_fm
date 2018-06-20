@@ -193,6 +193,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    trix (0.10.1)
+      rails
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
@@ -242,6 +244,7 @@ DEPENDENCIES
   sqlite3
   streamio-ffmpeg (~> 3.0, >= 3.0.2)
   stripe!
+  trix
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

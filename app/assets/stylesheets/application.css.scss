@@ -12,12 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
  */
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import 'normalize';
-@import 'welcome';
-@import 'albums';
 
 * {
   box-sizing: border-box;
@@ -250,8 +248,9 @@ body {
 
 #form {
   padding: 1rem 2rem;
+  background: #d9d9d9;
   .title {
-    color: #ffffff;
+    color: #777777;
     float: left;
   }
   a {

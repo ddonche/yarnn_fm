@@ -35,6 +35,23 @@
   }
 }
 
+.side-box {
+  width: 87%;
+  margin: 2% auto;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  overflow: hidden;
+}
+
+.side-content {
+  margin: 15px;
+  font-size: .75em;
+  li {
+    list-style-type: none;
+    padding: 3px;
+  }
+}
+
 .tracks {
   padding: 3rem 0;
   ul {

@@ -1,9 +1,9 @@
 <% @user ||= current_user %>
 
 <div class="stat-box">
-    <span style="margin-right: 6%"><b><%= @user.following.count %><a href="<%= following_user_path(@user) %>"></b> following</a></span>
+    <span style="margin-right: 6%"><%= @user.following.count %><a href="<%= following_user_path(@user) %>"> following</a></span>
 
-    <b><div id="followers" style="display: inline;"><%= @user.followers.count %><a href="<%= followers_user_path(@user) %>"></div></b> followers</a>
+    <div id="followers" style="display: inline;"><%= @user.followers.count %><a href="<%= followers_user_path(@user) %>"></div> followers</a>
 
-    <span style="margin-left: 6%"><b><%= @user.tracks.count %><a href="<%= user_path(@user) %>"></b> tracks</a></span>
+    <span style="margin-left: 6%"><%= @user.tracks.count %><a href="<%= user_path(@user) %>"> tracks</a></span>
 </div>

@@ -3,17 +3,16 @@
     <div class="center">
       <p><b>Followers</b></p>
     </div>
-  <% if @users.any? %>
-    <% @users.each do |user| %>
-      <%= link_to user do %>
-        <% if user.avatar? %>
-          <%= image_tag(user.avatar.url, width: 35) %>
-        <% else %>
-          <%= image_tag 'default_track.jpg', width: 35 %> 
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+        <%= link_to user do %>
+          <% if user.avatar? %>
+            <%= image_tag(user.avatar.url, width: 25) %>
+          <% else %>
+            <%= image_tag 'default_track.jpg', width: 25 %> 
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
-      
   </div>
 </div>

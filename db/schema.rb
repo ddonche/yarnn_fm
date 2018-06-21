@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620223629) do
+ActiveRecord::Schema.define(version: 20180621061440) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20180620223629) do
     t.string   "slug"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "track_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["track_id"], name: "index_favorites_on_track_id"
+    t.index ["user_id", "track_id"], name: "index_favorites_on_user_id_and_track_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -85,9 +95,9 @@ ActiveRecord::Schema.define(version: 20180620223629) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.string   "avatar",         default: "default_avatar.jpg"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "avatar"
     t.string   "title"
     t.text     "description"
     t.integer  "album_id"

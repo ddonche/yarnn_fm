@@ -1,0 +1,5 @@
+<% if user_signed_in? && current_user.favorited?(@track) %>
+  <%= link_to "Unavorite", track_unfavorite_path(@track), method: :post %>
+<% else %>
+  <%= link_to "Favorite", track_favorite_path(@track), method: :post %>
+<% end %>

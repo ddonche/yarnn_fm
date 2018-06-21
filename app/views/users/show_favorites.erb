@@ -5,8 +5,6 @@
 
   <div class="wrapper_skinny_left">
     <%= render 'avatar' %>
-    <%= render 'followers' %>
-    <%= render 'following' %>
   </div>
       
   <div class="wrapper_wide_right">
@@ -16,11 +14,13 @@
 				<% @tracks.each do |track| %>
 					<li class="cf">
 						<div class="track_thumbnail">
-							<% if track.avatar? %>
-								<%= link_to image_tag(track.avatar.url), track_path(track), width: 100, title: track.title %>
-							<% else %>
-								<%= link_to image_tag(track.user.avatar.url), track_path(track), width: 100, title: track.title %>
-							<% end %>
+							<a href="#">
+								<% if track.avatar? %>
+									<%= image_tag track.avatar.url, width: 100 %>
+								<% else %>
+									<%= image_tag 'default_track.jpg', width: 100, alt: 'default track image' %>
+								<% end %>
+							</a>
 						</div>
 						<div class="track_overview">
 							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>

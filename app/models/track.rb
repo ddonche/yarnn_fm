@@ -1,6 +1,7 @@
 class Track < ApplicationRecord
   belongs_to :user
   belongs_to :album, optional: true
+  has_many :favorites
   enum explicit: { standard: 0, explicit: 1 }
 
   mount_uploader :avatar, AvatarUploader

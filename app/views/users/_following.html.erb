@@ -6,7 +6,13 @@
   <% if @followed_users.any? %>
     <% @followed_users.each do |followed_user| %>
       <%= link_to followed_user do %>
-      <%= image_tag(followed_user.avatar.url, width: 25, class: "img-circle", title: followed_user.username) %>
+      
+          <% if followed_user.avatar? %>
+            <%= image_tag(followed_user.avatar.url, width: 25, title: followed_user.username) %>
+          <% else %>
+            <%= image_tag 'default_track.jpg', width: 25, title: followed_user.username %> 
+          <% end %>
+      
       <% end %>
     <% end %>
   <% end %>

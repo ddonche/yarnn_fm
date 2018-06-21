@@ -1,8 +1,13 @@
 <div class="main_avatar">
 
     <div class="image">
-      <%= image_tag(@user.avatar.url, width: 225) %>
+      <% if @user.avatar? %>
+        <%= image_tag(@user.avatar.url, width: 225) %>
+      <% else %>
+        <%= image_tag 'default_track.jpg', width: 225, title: @user.username %>
+      <% end %>
     </div>
+    
     <h4><%= @user.username %> | 
       <% if @user.name? %>
         <%= @user.name %>
@@ -10,6 +15,7 @@
         <%= "Mysterious Stranger" %>
       <% end %>
     </h4> 
+    
     <%= render 'shared/stats' %>
     <%= render 'follow_form' if user_signed_in? %>
     

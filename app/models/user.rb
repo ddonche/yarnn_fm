@@ -17,6 +17,7 @@ class User < ApplicationRecord
   
   has_many :albums
   has_many :tracks
+  has_many :favorites
   has_many :blogs
   has_many :comments
   has_many :active_relationships, class_name: "Relationship",
@@ -41,6 +42,10 @@ class User < ApplicationRecord
   # Returns true is the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+  
+  def favorited?(track)
+    favorites.include?(track)
   end
   
   # Returns a user's status feed.

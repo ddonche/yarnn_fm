@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :albums
   has_many :tracks
   has_many :favorites
+  has_many :favorite_tracks, through: :favorites, class_name: "Track"
   has_many :blogs
   has_many :comments
   has_many :active_relationships, class_name: "Relationship",
@@ -45,7 +46,7 @@ class User < ApplicationRecord
   end
   
   def favorited?(track)
-    favorites.include?(track)
+    track.favorites.where(user_id: id).any?
   end
   
   # Returns a user's status feed.

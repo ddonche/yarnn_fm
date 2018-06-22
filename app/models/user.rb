@@ -56,4 +56,12 @@ class User < ApplicationRecord
     Track.where("user_id IN (#{following_ids})
               OR user_id = :user_id", user_id: id)
   end
+  
+  # Returns all of a user's favorited tracks.
+  def favorite_tracks
+    favorite_track_ids = "SELECT track_id FROM favorites
+                    WHERE user_id = :user_id"
+    Track.where("user_id IN (#{favorite_track_ids})
+              OR user_id = :user_id", user_id: id)
+  end
 end

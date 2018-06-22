@@ -52,8 +52,35 @@
   }
 }
 
+#index-nav-container {
+  width: 100%;
+  margin: 1rem auto 0 auto;
+  background: #f9faea;
+  border: 1px solid #e5e5e5;
+  a {
+    text-decoration: none;
+    color: #DC2020;
+    font-weight: 700;
+    &:hover {
+      color: #00b8ac;
+    }
+  }
+}
+
+.table-row {
+  display: table-row;
+  border-bottom: #e5e5e5 1px solid;
+}
+
+.table-cell, .table-head{
+  display: table-cell;
+  padding: 1em;
+  vertical-align: bottom;
+  text-align: center;
+}
+
 .tracks {
-  padding: 3rem 0;
+  padding: 1rem 0;
   ul {
     list-style: none;
     padding-left: 0;
@@ -93,6 +120,17 @@
             color: #DC2020;
             margin-right: 1rem;
           }
+        }
+        .icons-container {
+          display: block;
+        }
+        .icons {
+          display: inline-block;
+          float: left;
+          margin-right: .75rem;
+          color: #666666;
+          font-size: 0.8rem;
+          font-style: italic;
         }
       }
     }

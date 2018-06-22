@@ -13,9 +13,6 @@ class AlbumsController < ApplicationController
 
 	def show
 	end
-
-	def dashboard
-	end
 	
 	def new
     @album = current_user.albums.build

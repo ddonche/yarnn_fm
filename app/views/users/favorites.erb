@@ -1,0 +1,39 @@
+<div id="album_show">
+	<div id="banner" class="track_banner">
+		<%= render 'layouts/header' %>
+	</div>
+
+  <div class="wrapper_skinny_left">
+  </div>
+      
+  <div class="wrapper_wide_right">
+    
+    <div id="tracks">
+			<ul class="cf">
+				<% @favorite_items.each do |item| %>
+					<li class="cf">
+						<div class="track_thumbnail">
+							<% if item.avatar? %>
+								<%= link_to image_tag(item.avatar.url), track_path(item), width: 100, title: item.title %>
+							<% else %>
+								<%= link_to image_tag(item.user.avatar.url), track_path(item), width: 100, title: item.title %>
+							<% end %>
+							<p>Author: <%= link_to item.user.username, user_path(item.user) %>
+							<% if item.album_id? %>
+								| Album: <%= link_to item.album.title, album_path(item.album) %></p>
+							<% end %>
+						</div>
+						<div class="track_overview">
+							<h2><%= link_to item.title, track_path(item) %><% if item.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
+							<p class="description"><%= truncate(item.description, length: 160) %></p>
+							<%= audio_tag item.audio.url, controls: true %>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+    
+    			<%= will_paginate @favorite_items, previous_label: "Previous", next_label: "Next" %>
+    	</div>
+    
+  </div>
+</div>

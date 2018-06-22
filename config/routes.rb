@@ -8,13 +8,16 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      resources :blogs
       get :following, :followers
+      get :blogs
+      get :albums
+      get :tracks
     end
   end
+  resources :blogs
   resources :relationships, only: [:create, :destroy]
-  get 'station/:id', to: 'users#favorites', as: :username
-  resources :albums, :path => '/anthology'
+  get 'station/:id', to: 'users#favorites', as: :station
+  resources :albums, :path => '/albums'
   resources :tracks do
     post 'favorite', to: 'favorites#favorite'
     post 'unfavorite', to: 'favorites#unfavorite'

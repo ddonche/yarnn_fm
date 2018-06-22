@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @followed_users = @user.following
   end
   
+  def favorites
+    @favorite_items = @user.favorite_tracks.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+  end
+  
   def following
     @title = "Following"
     @users = @user.following
@@ -23,6 +27,12 @@ class UsersController < ApplicationController
     @title = "Followers"
     @users = @user.followers
     render 'show_follow'
+  end
+  
+  def blogs 
+    @users = @user.followers
+    @followed_users = @user.following
+    @blogs = @user.blogs.paginate(:page => params[:page], :per_page => 24)
   end
   
   private

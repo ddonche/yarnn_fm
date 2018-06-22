@@ -14,10 +14,13 @@
 }
 
 .main_avatar {
-	display: block;
 	margin: auto;
 	text-align: center;
 	padding: 6% 3%;
+	.image {
+    padding: 2%;
+    border: 1px solid #d9d9d9;
+  }
 }
 
 .stat-box {
@@ -52,11 +55,22 @@
   }
 }
 
+.invisible_box {
+  width: 80%;
+  margin: 1rem auto 0 auto;
+}
+
+.ib_content {
+  color: rgba(0,0,0,.84);
+  line-height: 1.5rem;
+  font-size: 16px;
+}
+
 #index-nav-container {
   width: 100%;
   margin: 1rem auto 0 auto;
-  background: #f9faea;
-  border: 1px solid #e5e5e5;
+  background: #e9e9e9;
+  border: 1px solid #e1e1e1;
   a {
     text-decoration: none;
     color: #DC2020;
@@ -97,7 +111,8 @@
         img {
           width: 10rem;
           max-width: 100%;
-          border-radius: .35rem;
+          padding: 2%;
+          border: 1px solid #e9e9e9;
         }
       }
       .track_overview {

@@ -43,6 +43,11 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
       
+    	<div class="field">
+        <%= f.label :bio, class: "title" %><span style="margin-left: 3px"><i class="title">limit of 250 characters</i></span><br />
+        <%= f.text_field :bio, :autofocus => true %>
+      </div>
+      
       <div class="field">
         <%= f.label :avatar, class: "title"  %><br />
         <%=  f.file_field :avatar %>
@@ -53,7 +58,7 @@
       <% end %>
     
       <div class="field">
-        <%= f.label :password, class: "title"  %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :password, class: "title"  %>&nbsp;<i class="title">(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>
         <% if @minimum_password_length %>
           <br />
@@ -67,7 +72,7 @@
       </div>
     
       <div class="field">
-        <%= f.label :current_password, class: "title"  %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password, class: "title"  %>&nbsp;<i class="title">(we need your current password to confirm your changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "off" %>
       </div>
     

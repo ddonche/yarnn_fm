@@ -2,9 +2,9 @@
 
     <div class="image">
       <% if @user.avatar? %>
-        <%= image_tag(@user.avatar.url, width: 225) %>
+        <%= image_tag(@user.avatar.url, width: 250, title: @user.username) %>
       <% else %>
-        <%= image_tag 'default_track.jpg', width: 225, title: @user.username %>
+        <%= image_tag('default_track.jpg', width: 250, title: @user.username) %>
       <% end %>
     </div>
     
@@ -15,8 +15,11 @@
         <%= "Mysterious Stranger" %>
       <% end %>
     </h4> 
-    
     <%= render 'shared/stats' %>
     <%= render 'follow_form' if user_signed_in? %>
-    
+    <div class="invisible_box">
+      <div class="ib_content">
+        <%= @user.bio %>
+      </div>
+    </div>
 </div>

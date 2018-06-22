@@ -12,7 +12,7 @@
           <%= image_tag @blog.user.avatar.url, width: 40 %>
         </div>
         <div class="blog_info_user_name"><%= link_to @blog.user.name, user_path(@blog.user) %></div>
-        <div class="blog_info_user_stats">- 36 followers / <%= pluralize( @blog.user.tracks.count, 'track' ) %> / <%= pluralize( @blog.user.albums.count, 'anthology' ) %></div>
+        <div class="blog_info_user_stats">- <%= pluralize( @blog.user.followers.count, 'follower' ) %> / <%= pluralize( @blog.user.tracks.count, 'track' ) %> / <%= pluralize( @blog.user.albums.count, 'anthology' ) %></div>
         <br />
         <div class="blog_info_date">
           <%= time_ago_in_words(@blog.created_at) %> ago

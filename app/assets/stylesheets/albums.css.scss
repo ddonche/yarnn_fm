@@ -159,6 +159,14 @@
             max-width: 100%;
             border-radius: .35rem;
           }
+          a {
+            text-decoration: none;
+            color: #DC2020;
+            font-weight: 700;
+            &:hover {
+              color: #00b8ac;
+            }
+          }
         }
         .track_overview {
           width: 76.5%;
@@ -186,6 +194,17 @@
           }
         }
       }
+    }
+    .icons-container {
+      display: block;
+    }
+    .icons {
+      display: inline-block;
+      float: left;
+      margin-right: .75rem;
+      color: #666666;
+      font-size: 0.8rem;
+      font-style: italic;
     }
     .jp-jplayer,.jp-audio {
       width: 100%;

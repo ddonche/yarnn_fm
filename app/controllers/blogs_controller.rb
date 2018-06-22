@@ -7,6 +7,9 @@ class BlogsController < ApplicationController
 	end
 
 	def show
+	  @user = @blog.user
+	  @users = @user.followers
+    @followed_users = @user.following
 	end
 	
 	def new

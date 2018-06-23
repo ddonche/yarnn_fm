@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stripe/stripe-ruby
-  revision: 1f18f24991a41c9d381705cd26c21294fd968eaa
+  revision: 89d1994f35fe8da65ffe8b9f801023b78a6f958f
   specs:
     stripe (3.15.0)
       faraday (~> 0.10)
@@ -143,7 +143,7 @@ GEM
     multi_json (1.13.1)
     multipart-post (2.0.0)
     nio4r (2.3.1)
-    nokogiri (1.8.2)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pg (1.0.0)
@@ -218,14 +218,14 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    trix (0.10.1)
-      rails
+    trix (0.11.1)
+      rails (> 4.1, < 5.2)
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.11)
+    uglifier (4.1.12)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)

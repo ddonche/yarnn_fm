@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:index]
 
   def index
-    @users = User.confirmed.order('created_at DESC')
+    @users = User.order('created_at DESC')
   end
   
   def show

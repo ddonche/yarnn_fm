@@ -8,7 +8,6 @@
       <% end %>
     </div>
     
-    <h4><%= @user.name %> | @<%= @user.username %></h4> 
     <%= render 'shared/stats' %>
     <%= render 'follow_form' if user_signed_in? %>
     <div class="invisible_box">

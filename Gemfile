@@ -11,6 +11,7 @@ end
 gem 'devise', '~> 4.2'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'carrierwave-aws', '~> 1.3'
 gem 'carrierwave-audio', '~> 1.0', '>= 1.0.8'
 gem 'carrierwave-ffmpeg', '~> 1.0'
 gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
@@ -31,7 +32,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'sprockets', '~> 3.7.1'
+gem 'sprockets', '~> 3.7.2'
+gem 'dotenv-rails', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri

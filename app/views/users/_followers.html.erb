@@ -6,8 +6,8 @@
     <% if @users.any? %>
       <% @users.each do |user| %>
         <%= link_to user do %>
-          <% if user.avatar? %>
-            <%= image_tag(user.avatar.url, width: 25) %>
+          <% if user.image? %>
+            <%= image_tag(user.image.url(:tiny)) %>
           <% else %>
             <%= image_tag 'default_track.jpg', width: 25 %> 
           <% end %>

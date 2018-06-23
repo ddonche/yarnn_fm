@@ -4,8 +4,10 @@ class Track < ApplicationRecord
   has_many :favorites
   enum explicit: { standard: 0, explicit: 1 }
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
+  validates :audio, file_size: { less_than: 10.megabytes }
+  validates :image, file_size: { less_than: 1.megabytes }
   
   acts_as_taggable
   ActsAsTaggableOn.force_lowercase = true
@@ -17,9 +19,9 @@ class Track < ApplicationRecord
   end
          
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  after_update :crop_avatar
+  after_update :crop_image
   
-  def crop_avatar
-    avatar.recreate_versions! if crop_x.present?
+  def crop_image
+    image.recreate_versions! if crop_x.present?
   end
 end

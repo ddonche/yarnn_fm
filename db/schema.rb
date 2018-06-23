@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623031411) do
+ActiveRecord::Schema.define(version: 20180623155826) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "avatar"
+    t.string   "image"
     t.string   "title"
     t.text     "description"
     t.integer  "year"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180623031411) do
     t.text     "content"
     t.integer  "published_status"
     t.integer  "user_id"
-    t.string   "avatar"
+    t.string   "image"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "slug"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20180623031411) do
   create_table "tracks", force: :cascade do |t|
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.string   "avatar"
+    t.string   "image"
     t.string   "title"
     t.text     "description"
     t.integer  "album_id"
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20180623031411) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
-    t.string   "avatar"
+    t.string   "image"
     t.string   "username",               limit: 22
     t.string   "name"
     t.integer  "user_type",                         default: 0

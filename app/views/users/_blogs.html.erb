@@ -3,10 +3,10 @@
 		<% @blogs.each do |blog| %>
 			<li class="cf">
 				<div class="track_thumbnail">
-					<% if blog.avatar? %>
-						<%= link_to image_tag(blog.avatar.url), blog_path(blog), width: 100, title: blog.title %>
+					<% if blog.image? %>
+						<%= link_to image_tag(blog.image.url(:thumb)), blog_path(blog), width: 100, title: blog.title %>
 					<% else %>
-						<%= link_to image_tag(blog.user.avatar.url), blog_path(blog), width: 100, title: blog.title %>
+						<%= link_to image_tag(blog.user.image.url(:thumb)), blog_path(blog), width: 100, title: blog.title %>
 					<% end %>
 				</div>
 				<div class="track_overview">

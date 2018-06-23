@@ -5,12 +5,13 @@ class Blog < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
+  validates :image, file_size: { less_than: 1.megabytes }
          
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  after_update :crop_avatar
+  after_update :crop_image
   
-  def crop_avatar
-    avatar.recreate_versions! if crop_x.present?
+  def crop_image
+    image.recreate_versions! if crop_x.present?
   end
 end

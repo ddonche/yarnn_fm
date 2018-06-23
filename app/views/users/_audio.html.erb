@@ -3,10 +3,10 @@
 		<% @tracks.each do |track| %>
 			<li class="cf">
 				<div class="track_thumbnail">
-					<% if track.avatar? %>
-						<%= link_to image_tag(track.avatar.url), track_path(track), width: 100, title: track.title %>
+					<% if track.image? %>
+						<%= link_to image_tag(track.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
 					<% else %>
-						<%= link_to image_tag(track.user.avatar.url), track_path(track), width: 100, title: track.title %>
+						<%= link_to image_tag(track.user.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
 					<% end %>
 				</div>
 				<div class="track_overview">

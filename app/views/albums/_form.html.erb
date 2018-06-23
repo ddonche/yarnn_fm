@@ -25,16 +25,10 @@
           <%= f.label :year, class: "title" %><br />
           <%= f.text_field :year, autofocus: true %>
         </div>
-
-        <div class="field">
-        <div class="title"><i> Add up to two genres. *Separate genres with commas. Example: 
-        "fantasy, romance"</i></div>
-        <%= f.text_field :tag_list, required: true, value: @album.tag_list.join(", ") %>
-        </div>
         
         <div class="field">
           <%= f.label "Album image", class: "title"  %><br />
-          <%=  f.file_field :avatar %>
+          <%=  f.file_field :image %>
         </div>
   
         <div class="actions">

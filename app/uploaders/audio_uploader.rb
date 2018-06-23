@@ -1,16 +1,9 @@
 class AudioUploader < CarrierWave::Uploader::Base
-   include CarrierWave::Audio
+  include CarrierWave::Audio
   storage :aws
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
   
   def extension_whitelist
     %w(mp3)
-  end
-  
-  def size_range
-    1..1.megabytes
   end
   
   def filename

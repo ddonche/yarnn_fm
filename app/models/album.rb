@@ -4,10 +4,11 @@ class Album < ActiveRecord::Base
   
   validates :title, presence: true
   validates :description, presence: true
-  validates :avatar, presence: true
+  validates :image, presence: true
   validates :tag_list, presence: true
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
+  validates :image, file_size: { less_than: 1.megabytes }
   
   acts_as_taggable
   ActsAsTaggableOn.force_lowercase = true
@@ -19,9 +20,9 @@ class Album < ActiveRecord::Base
   end
          
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  after_update :crop_avatar
+  after_update :crop_image
   
-  def crop_avatar
-    avatar.recreate_versions! if crop_x.present?
+  def crop_image
+    image.recreate_versions! if crop_x.present?
   end
 end

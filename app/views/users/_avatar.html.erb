@@ -1,8 +1,8 @@
 <div class="main_avatar">
 
     <div class="image">
-      <% if @user.avatar? %>
-        <%= image_tag(@user.avatar.url, width: 250, title: @user.username) %>
+      <% if @user.image? %>
+        <%= image_tag(@user.image.url(:thumb), title: @user.username) %>
       <% else %>
         <%= image_tag('default_track.jpg', width: 250, title: @user.username) %>
       <% end %>

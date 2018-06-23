@@ -3,18 +3,20 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
   extend FriendlyId
   friendly_id :username, use: :slugged
+  enum user_type: { standard: 0, pro: 1 }
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  after_update :crop_avatar
+  after_update :crop_image
   
-  def crop_avatar
-    avatar.recreate_versions! if crop_x.present?
+  def crop_image
+    image.recreate_versions! if crop_x.present?
   end
   validates :username, presence: true, length: { minimum: 4, maximum: 22 } 
   validates :name, presence: true
+  validates :image, file_size: { less_than: 1.megabytes }
   
   has_many :albums
   has_many :tracks

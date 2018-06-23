@@ -1,13 +1,9 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :aws
   
   def default_url(*args)
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_avatar.jpg"].compact.join('_'))
-  end
-  
-  def size_range
-    1..1.megabytes
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_track.jpg"].compact.join('_'))
   end
   
   def filename
@@ -24,7 +20,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :tiny, from_version: :thumb do
-    process resize_to_fill: [20, 20]
+    process resize_to_fill: [25, 25]
   end
 
   version :large do

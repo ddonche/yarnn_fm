@@ -13,7 +13,7 @@
 	
 	<div class="wrapper_skinny">
 	  <div id="album-image">
-      <%= image_tag @album.avatar.url, width: 250 %>
+      <%= image_tag @album.image.url(:thumb) %>
     </div>
     	<%= @album.description %>
   </div>
@@ -24,10 +24,10 @@
 				<% @tracks.each do |track| %>
 					<li class="cf">
 						<div class="track_thumbnail">
-							<% if track.avatar? %>
-								<%= link_to image_tag(track.avatar.url), track_path(track), width: 100, title: track.title %>
+							<% if track.image? %>
+								<%= link_to image_tag(track.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
 							<% else %>
-								<%= link_to image_tag(track.user.avatar.url), track_path(track), width: 100, title: track.title %>
+								<%= link_to image_tag(track.user.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
 							<% end %>
 							<%= link_to track.user.username, user_path(track.user) %>
 						</div>
@@ -35,6 +35,9 @@
 							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
 							<p class="description"><%= truncate(track.description, length: 160) %></p>
 							<div class="icons_container">
+							  <div id="favorites">
+							    <%= render 'albums/favorites', :track => track %>
+							  </div>
 						  </div>
 						</div>
 					</li>

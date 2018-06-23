@@ -4,6 +4,7 @@ class Album < ActiveRecord::Base
   
   validates :title, presence: true
   validates :description, presence: true
+  validates :avatar, presence: true
   validates :tag_list, presence: true
 
   mount_uploader :avatar, AvatarUploader

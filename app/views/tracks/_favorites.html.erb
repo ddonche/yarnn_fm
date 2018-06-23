@@ -1,5 +1,1 @@
-<% if user_signed_in? && current_user.favorited?(@track) %>
-  <%= link_to image_tag('icons/heart_full.svg', width: 20), track_unfavorite_path(@track), method: :post, remote: true %>
-<% else %>
-  <%= link_to image_tag('icons/heart_empty.svg', width: 20), track_favorite_path(@track), method: :post, remote: true %>
-<% end %>
+<%= link_to image_tag('icons/heart_empty.svg', width: 20), favorite_track_path(@track), method: :put, remote: true %>

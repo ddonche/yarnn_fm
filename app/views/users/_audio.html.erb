@@ -10,7 +10,7 @@
 					<% end %>
 				</div>
 				<div class="track_overview">
-					<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
+					<h4><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h4>
 					<p class="description"><%= truncate(track.description, length: 160) %></p>
 					<div class="icons_container">
 					  <div id="favorites">

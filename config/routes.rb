@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   get 'station/:id', to: 'users#favorites', as: :station
   resources :albums, :path => '/albums'
   resources :tracks do
-    post 'favorite', to: 'favorites#favorite'
-    post 'unfavorite', to: 'favorites#unfavorite'
   end
 
   get 'genre/:tag', to: 'tags#show', as: :tag

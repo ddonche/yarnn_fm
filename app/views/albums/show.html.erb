@@ -35,9 +35,6 @@
 							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
 							<p class="description"><%= truncate(track.description, length: 160) %></p>
 							<div class="icons_container">
-							  <div id="favorites">
-							    <%= render 'favorites', :track => track %>
-							  </div>
 						  </div>
 						</div>
 					</li>

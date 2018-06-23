@@ -6,14 +6,15 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   extend FriendlyId
   friendly_id :username, use: :slugged
-         
+
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :crop_avatar
   
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?
   end
-  validates :username, presence: true, length: { minimum: 4, maximum: 30 } 
+  validates :username, presence: true, length: { minimum: 4, maximum: 22 } 
+  validates :name, presence: true
   
   has_many :albums
   has_many :tracks

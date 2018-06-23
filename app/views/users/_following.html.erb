@@ -8,9 +8,9 @@
       <%= link_to followed_user do %>
       
           <% if followed_user.avatar? %>
-            <%= image_tag(followed_user.avatar.url, width: 25, title: followed_user.username) %>
+            <%= image_tag(followed_user.avatar.url, width: 25, title: followed_user.name) %>
           <% else %>
-            <%= image_tag 'default_track.jpg', width: 25, title: followed_user.username %> 
+            <%= image_tag 'default_track.jpg', width: 25, title: followed_user.name %> 
           <% end %>
       
       <% end %>

@@ -12,9 +12,6 @@ class TracksController < ApplicationController
 
 	def show
 	end
-
-	def dashboard
-	end
 	
 	def new
     @track = current_user.tracks.build
@@ -63,7 +60,6 @@ class TracksController < ApplicationController
   end
 
 	private
-
 	def find_track
 		if params[:id].nil?
 			@track = current_track

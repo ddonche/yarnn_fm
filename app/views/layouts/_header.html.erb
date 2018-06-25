@@ -7,13 +7,17 @@
 			<ul>
 				<% unless user_signed_in? %>
 					<li><%= link_to "Explore", albums_path %></li>
-					<li><%= link_to "Sign In", new_user_session_path %></li>
-					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+					<li><%= link_to "Login", new_user_session_path %></li>
+					<li><%= link_to "Register", new_user_registration_path %></li>
 				<% else %>
-					<li><%= link_to "Account", edit_user_registration_path %></li>
+					<li><i>Hello, <%= link_to current_user.username, user_path(current_user) %>!</i></li>
+					<li><%= link_to edit_registration_path(current_user) do %>
+								<%= image_tag'icons/gear_white.png', width: 12 %>
+							<% end %>
+					</li>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 					<li><%= link_to "Explore", albums_path %></li>
 					<li><%= link_to "Create", new_track_path %></li>
-					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 				<% end %>
 			</ul>
 		</nav>

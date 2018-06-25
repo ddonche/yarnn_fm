@@ -8,7 +8,7 @@
       
   <div class="wrapper_wide_right">
     
-    <div class="tracks">
+    <div id="tracks">
 			<ul class="cf">
 				<% @feed_items.each do |item| %>
 					<li class="cf">
@@ -18,11 +18,18 @@
 							<% else %>
 								<%= link_to image_tag(item.user.image.url(:thumb)), track_path(item), width: 100, title: item.title %>
 							<% end %>
+							<div class="icons" style="text-align:center">
+								@<%= link_to item.user.username, user_path(item.user) %> / <%= item.user.name %>
+							</div>
 						</div>
 						<div class="track_overview">
-							<h2><%= link_to item.title, track_path(item) %><% if item.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
+							<h2>
+								<%= link_to item.title, track_path(item) %><% if item.explicit == "explicit" %>&nbsp;(explicit)<% end %>
+								<% if item.album_id? %>
+									/ <%= link_to item.album.title, album_path(item.album_id) %>
+								<% end %>
+							</h2>
 							<p class="description"><%= truncate(item.description, length: 160) %></p>
-							<p class="description"><%= link_to item.user.username, user_path(item.user) %></p>
 							<div class="icons_container">
 							  <div id="favorites">
 							    <%= render 'albums/favorites', :track => item %>

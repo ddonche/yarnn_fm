@@ -28,15 +28,15 @@
 	</div>
   <%= render 'shared/alert' %>
 	<div id="breadcrumb">
-		<%= link_to tracks_path do %>
-		  Tracks
+	  <%= link_to @track.user.username, user_path(@track.user) %>
+	    <span>/</span>
+	  <%= @track.user.name %>
 			<span>/</span>
-			<% if @track.album_id? %>
+		<% if @track.album_id? %>
 			<%= link_to @track.album.title, album_path(@track.album_id) %>
-			<span>/</span>
-			<% end %>
-			<%= @track.title %>
+			  <span>/</span>
 		<% end %>
+			<%= @track.title %>
 	</div>
   <div class="wrapper_skinny">
     <%= render 'buy_links' %><br />

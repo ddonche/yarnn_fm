@@ -1,0 +1,5292 @@
+/* line 1, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums {
+  padding-bottom: 3rem;
+}
+/* line 3, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+/* line 7, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li {
+  width: 23%;
+  float: left;
+  margin: 0 1% 2rem 1%;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+  border-radius: .35rem;
+}
+/* line 14, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: .35rem .35rem 0 0;
+}
+/* line 19, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li .album_overview {
+  padding: 1rem 7.5%;
+  background: #ffffff;
+}
+/* line 22, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li .album_overview h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2C3135;
+}
+/* line 28, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li .album_overview .track_count {
+  color: #a9b1b7;
+  font-size: .8rem;
+  margin: .5rem 0 .25rem 0;
+}
+/* line 33, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li .album_overview a {
+  text-decoration: none;
+  color: #2C3135;
+}
+/* line 36, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li .album_overview a:hover {
+  color: #00b8ac;
+}
+/* line 42, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li:hover img {
+  opacity: .8;
+}
+/* line 46, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li:hover .album_overview h2 {
+  color: #DC2020;
+}
+/* line 49, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#albums ul li:hover .album_overview a {
+  color: #DC2020;
+}
+
+/* line 59, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner {
+  background: #2C3135;
+  text-align: center;
+  padding: 5rem 0;
+}
+/* line 63, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner header {
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+/* line 66, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner header #logo {
+  float: left;
+  text-decoration: none;
+}
+/* line 70, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner header nav {
+  float: right;
+}
+/* line 72, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 75, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner header nav ul li {
+  display: inline;
+  margin-left: 2.5rem;
+  position: relative;
+}
+/* line 79, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 82, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner header nav ul li a:hover {
+  color: #00b8ac;
+}
+/* line 90, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #FFFFFF;
+  margin: 0 0 .5rem 0;
+}
+/* line 96, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner .description {
+  width: 85%;
+  line-height: 1;
+  margin: 0 auto .5rem auto;
+  color: #5a656d;
+}
+/* line 102, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner .subscribe_link {
+  font-size: .6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  color: #FFFFFF;
+  display: inline;
+  background: #DC2020;
+  border-radius: 2rem;
+  padding: .5rem 1rem;
+  margin: 0 .5rem;
+  text-decoration: none;
+}
+/* line 114, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #show_banner .subscribe_link:hover {
+  background: #af1a1a;
+}
+/* line 119, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #breadcrumb {
+  padding: 1rem 0;
+  text-align: center;
+  border-bottom: 1px solid #eef0f1;
+  font-weight: 700;
+  font-size: .7rem;
+}
+/* line 125, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #breadcrumb a {
+  color: #9ba4ac;
+  text-decoration: none;
+}
+/* line 128, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #breadcrumb a:hover {
+  color: #00b8ac;
+}
+/* line 132, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #breadcrumb span {
+  margin: 0 .5rem;
+}
+/* line 136, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #album-image {
+  margin: 1rem auto;
+  border-radius: .35rem;
+  float: none;
+  display: table;
+}
+/* line 142, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks {
+  padding: 3rem 0;
+}
+/* line 144, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul {
+  list-style: none;
+  padding-left: 0;
+}
+/* line 147, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #b7bdc3;
+  margin-bottom: 2rem;
+}
+/* line 151, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li:last-child {
+  border-bottom: none;
+}
+/* line 154, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_thumbnail {
+  width: 22%;
+  float: left;
+}
+/* line 157, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_thumbnail img {
+  width: 10rem;
+  max-width: 100%;
+  padding: 2%;
+  border: 1px solid #e9e9e9;
+}
+/* line 163, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_thumbnail a {
+  text-decoration: none;
+  color: #DC2020;
+  font-weight: 700;
+}
+/* line 167, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_thumbnail a:hover {
+  color: #00b8ac;
+}
+/* line 172, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_overview {
+  width: 76.5%;
+  float: left;
+  margin-left: 1.5%;
+}
+/* line 177, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_overview h2 a {
+  color: #2C3135;
+  text-decoration: none;
+}
+/* line 180, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_overview h2 a:hover {
+  color: #00b8ac;
+}
+/* line 185, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_overview .description {
+  color: #66717b;
+}
+/* line 188, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_overview .authorized_links {
+  font-weight: 700;
+  font-size: .8rem;
+}
+/* line 191, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks ul li .track_overview .authorized_links a {
+  color: #DC2020;
+  margin-right: 1rem;
+}
+/* line 199, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .icons-container {
+  display: block;
+}
+/* line 202, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .icons {
+  display: inline-block;
+  float: left;
+  margin-right: .75rem;
+  color: #666666;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+/* line 209, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .icons a {
+  color: #DC2020;
+  font-weight: 700;
+  text-decoration: none;
+}
+/* line 213, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .icons a:hover {
+  color: #00b8ac;
+}
+/* line 218, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-jplayer, #album_show #tracks .jp-audio {
+  width: 100%;
+  margin: 1rem auto .5rem auto;
+}
+/* line 222, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-title {
+  font-size: 12px;
+  text-align: center;
+  color: #999;
+}
+/* line 227, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-title ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/* line 232, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-gui {
+  position: relative;
+  background: #DC2020;
+  transition: background .4s ease-in-out;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+/* line 240, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-controls {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "FontAwesome";
+}
+/* line 247, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-controls li {
+  display: inline;
+}
+/* line 251, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-controls a {
+  color: #fff;
+}
+/* line 254, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-play, #album_show #tracks .jp-pause {
+  width: 60px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 43px;
+  border-right: 1px solid #e54a4a;
+}
+/* line 263, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-controls .jp-play:hover, #album_show #tracks .jp-controls .jp-pause:hover {
+  background-color: #af1a1a;
+}
+/* line 267, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-mute, #album_show #tracks .jp-unmute {
+  position: absolute;
+  right: 59px;
+  top: -3px;
+  width: 20px;
+  height: 40px;
+  display: inline-block;
+  line-height: 46px;
+}
+/* line 277, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-mute {
+  text-align: left;
+}
+/* line 280, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-time-holder {
+  color: #FFF;
+  font-size: 12px;
+  line-height: 14px;
+  position: absolute;
+  right: 90px;
+  top: 14px;
+}
+/* line 288, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-progress {
+  background-color: #6d1010;
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  position: absolute;
+  right: 22%;
+  top: 15px;
+  width: 65%;
+}
+/* line 298, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-play-bar {
+  height: 12px;
+  background-color: #fff;
+  border-radius: 20px 20px 20px 20px;
+}
+/* line 304, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-volume-bar {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  width: 45px;
+  height: 8px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: #6d1010;
+  overflow: hidden;
+}
+/* line 315, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks .jp-volume-bar-value {
+  background-color: #fff;
+  height: 8px;
+  border-radius: 20px 20px 20px 20px;
+}
+/* line 320, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #tracks a {
+  text-decoration: none;
+}
+/* line 324, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eef0f1;
+}
+/* line 328, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .current_track_thumbnail {
+  display: block;
+  margin: 0 auto 2rem auto;
+  width: 10rem;
+  max-width: 100%;
+  border-radius: .35rem;
+}
+/* line 335, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content h2 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+/* line 339, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .description {
+  text-align: center;
+  font-size: .9rem;
+  line-height: 1.7;
+  color: #66717b;
+}
+/* line 345, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content a {
+  text-decoration: none;
+}
+/* line 348, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-jplayer, #album_show #track_content .jp-audio {
+  width: 70%;
+  margin: 1rem auto .5rem auto;
+}
+/* line 352, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-title {
+  font-size: 12px;
+  text-align: center;
+  color: #999;
+}
+/* line 357, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-title ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/* line 362, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-gui {
+  position: relative;
+  background: #DC2020;
+  transition: background .4s ease-in-out;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+/* line 370, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-controls {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "FontAwesome";
+}
+/* line 377, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-controls li {
+  display: inline;
+}
+/* line 381, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-controls a {
+  color: #fff;
+}
+/* line 384, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-play, #album_show #track_content .jp-pause {
+  width: 60px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 43px;
+  border-right: 1px solid #e54a4a;
+}
+/* line 393, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-controls .jp-play:hover, #album_show #track_content .jp-controls .jp-pause:hover {
+  background-color: #af1a1a;
+}
+/* line 397, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-mute, #album_show #track_content .jp-unmute {
+  position: absolute;
+  right: 59px;
+  top: -3px;
+  width: 20px;
+  height: 40px;
+  display: inline-block;
+  line-height: 46px;
+}
+/* line 407, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-mute {
+  text-align: left;
+}
+/* line 410, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-time-holder {
+  color: #FFF;
+  font-size: 12px;
+  line-height: 14px;
+  position: absolute;
+  right: 90px;
+  top: 14px;
+}
+/* line 418, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-progress {
+  background-color: #6d1010;
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  position: absolute;
+  right: 22%;
+  top: 15px;
+  width: 65%;
+}
+/* line 428, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-play-bar {
+  height: 12px;
+  background-color: #fff;
+  border-radius: 20px 20px 20px 20px;
+}
+/* line 434, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-volume-bar {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  width: 45px;
+  height: 8px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: #6d1010;
+  overflow: hidden;
+}
+/* line 445, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #track_content .jp-volume-bar-value {
+  background-color: #fff;
+  height: 8px;
+  border-radius: 20px 20px 20px 20px;
+}
+/* line 451, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #links {
+  padding: 2rem 0;
+}
+/* line 453, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #links ul {
+  list-style: none;
+  padding-left: 0;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eef0f1;
+}
+/* line 459, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #links ul li {
+  display: inline;
+  margin-right: 1rem;
+  font-weight: 700;
+}
+/* line 463, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #links ul li a {
+  color: #2C3135;
+  text-decoration: none;
+}
+/* line 466, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #links ul li a:hover {
+  color: #DC2020;
+}
+/* line 471, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show #links ul .current {
+  color: #DC2020;
+}
+/* line 477, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show .buy_links ul {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+/* line 481, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/albums.css.scss */
+#album_show .buy_links ul li {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: .35rem;
+}
+/* line 2, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper {
+  width: 100%;
+  margin: 1rem auto;
+  background: #e9e9e9;
+  border: 1px solid #e1e1e1;
+}
+/* line 7, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.84);
+  line-height: 48px;
+  letter-spacing: 0;
+  padding: 1rem 2rem;
+  margin-bottom: .7rem;
+}
+/* line 18, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper blockquote {
+  background: #e0dcdc;
+  padding: 1rem;
+  font-style: italic;
+  border-left: solid 15px #DC2020;
+  border-right: solid 3px #DC2020;
+  padding: 15px 20px 15px 56px;
+  margin: 0 0 20px;
+  position: relative;
+}
+/* line 28, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper blockquote::before {
+  content: "\201C";
+  /*Unicode for Left Double Quote*/
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+  position: absolute;
+  left: .5rem;
+  top: 1.5rem;
+}
+/* line 37, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info {
+  display: block;
+  padding-left: 2rem;
+}
+/* line 40, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_user_avatar {
+  float: left;
+}
+/* line 43, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_user_name {
+  display: inline-block;
+  font-size: .8rem;
+  margin-left: 1rem;
+}
+/* line 47, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_user_name a {
+  text-decoration: none;
+  color: #DC2020;
+  font-weight: 700;
+}
+/* line 51, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_user_name a:hover {
+  color: #00b8ac;
+}
+/* line 56, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_date {
+  display: inline-block;
+  font-size: .8rem;
+  color: #777777;
+  font-style: italic;
+  margin-left: 1rem;
+}
+/* line 62, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_date a {
+  text-decoration: none;
+  color: #DC2020;
+}
+/* line 65, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_date a:hover {
+  color: #00b8ac;
+}
+/* line 70, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_info .blog_info_user_stats {
+  display: inline-block;
+  font-size: .75rem;
+  color: #555555;
+  font-weight: 500;
+  margin-left: .4rem;
+}
+/* line 78, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_content {
+  padding: 1.8rem 2rem;
+  line-height: 1.75rem;
+  font-size: 14px;
+  display: block;
+  font-family: 'Libre Baskerville', serif;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.84);
+  margin-bottom: .7rem;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+/* line 89, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_content a {
+  text-decoration: none;
+  color: #DC2020;
+  font-weight: 700;
+}
+/* line 93, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper .blog_content a:hover {
+  color: #00b8ac;
+}
+/* line 98, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper pre {
+  font-size: 90%;
+  line-height: 1.2em;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  height: 1%;
+  width: auto;
+  display: block;
+  clear: both;
+  color: #555555;
+  padding: 1em 1em;
+  margin: auto 40px auto 40px;
+  background: #f4f4f4;
+  border: solid 1px #e1e1e1;
+}
+/* line 117, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/blogs.css.scss */
+#blog_show .blog_wrapper code {
+  font-size: 90%;
+  line-height: 1.2em;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  display: inline;
+  color: #555555;
+  padding: 1em 1em;
+  background: #f4f4f4;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+/* line 1, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/footer.css.scss */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  /* Height of the footer */
+}
+/* line 6, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/footer.css.scss */
+.footer ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 9, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/footer.css.scss */
+.footer ul li {
+  display: inline;
+  margin: 0 1rem;
+}
+/* line 12, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/footer.css.scss */
+.footer ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+/* line 17, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/footer.css.scss */
+.footer ul li a:hover {
+  color: #DC2020;
+}
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 10, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+/* line 20, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+/* line 34, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+/* line 55, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 68, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+/* line 78, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 90, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 98, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+/* line 110, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+/* line 118, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+/* line 127, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+/* line 136, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+h1 {
+  font-size: 2em;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 145, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 154, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 162, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 170, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 174, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+/* line 185, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+/* line 193, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+/* line 204, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 212, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+/* line 222, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+/* line 230, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+/* line 253, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+/* line 267, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+/* line 278, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 291, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 303, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 312, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 323, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/* line 335, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+/* line 347, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 358, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+/* line 371, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 380, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 391, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+/* line 400, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+/* line 409, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 420, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 425, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/normalize.css.scss */
+td,
+th {
+  padding: 0;
+}
+/* line 1, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player {
+  width: 460px;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 50px;
+}
+
+/* line 8, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player img[amplitude-song-info="cover_art_url"] {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+/* line 13, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container {
+  background-color: #202136;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* line 18, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress.amplitude-song-played-progress:not([value]) {
+  background-color: #313252;
+}
+
+/* line 21, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress.amplitude-song-played-progress {
+  background-color: #313252;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  display: block;
+  cursor: pointer;
+  border: none;
+}
+
+/* line 31, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress[value]::-webkit-progress-bar {
+  background-color: #313252;
+}
+
+/* line 34, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress[value]::-moz-progress-bar {
+  background-color: #00a0ff;
+}
+
+/* line 37, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress[value]::-webkit-progress-value {
+  background-color: #00a0ff;
+}
+
+/* line 40, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.time-container {
+  opacity: 0.5;
+  font-family: 'Open Sans';
+  font-weight: 100;
+  font-size: 12px;
+  color: #fff;
+  height: 15px;
+}
+
+/* line 48, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.time-container span.current-time {
+  float: left;
+  margin-left: 5px;
+}
+
+/* line 52, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.time-container span.duration {
+  float: right;
+  margin-right: 5px;
+}
+
+/* line 56, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 60, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.amplitude-play-pause {
+  width: 74px;
+  height: 74px;
+  cursor: pointer;
+  float: left;
+  margin-left: 10px;
+}
+
+/* line 67, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.amplitude-play-pause.amplitude-paused {
+  background: url(/assets/controls/play-cf27d57188013cd2af64ee60470e818226bb3e7ed53ddc99715c8aa35398306f.svg);
+}
+
+/* line 70, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.amplitude-play-pause.amplitude-playing {
+  background: url(/assets/controls/pause-e2222e84f659c5d0bfdef40eb037b9d14c709fbc0d648f5680ddb70d4363569b.svg);
+}
+
+/* line 73, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.meta-container {
+  float: left;
+  width: calc(100% - 84px);
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+}
+
+/* line 80, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.meta-container span[amplitude-song-info="name"] {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+}
+
+/* line 86, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.meta-container span[amplitude-song-info="artist"] {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  color: #fff;
+  display: block;
+}
+
+/* line 93, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 1, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.wrapper_skinny_left {
+  width: 27%;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  float: left;
+  background: #e9e9e9;
+  border: 1px solid #e1e1e1;
+}
+
+/* line 10, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.wrapper_wide_right {
+  width: 64%;
+  margin: 0 2rem;
+  float: left;
+}
+
+/* line 16, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.main_avatar {
+  margin: auto;
+  padding: 6% 3%;
+}
+/* line 19, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.main_avatar .image {
+  text-align: center;
+  padding: 2%;
+  border: 1px solid #d9d9d9;
+}
+
+/* line 26, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.stat-box {
+  text-align: center;
+  font-size: 12px;
+  margin: 1%;
+  padding: 1%;
+}
+/* line 31, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.stat-box a {
+  text-decoration: none;
+  color: #DC2020;
+  font-weight: 700;
+}
+/* line 35, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.stat-box a:hover {
+  color: #00b8ac;
+}
+
+/* line 41, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.side-box {
+  width: 87%;
+  margin: 2% auto;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  overflow: hidden;
+}
+
+/* line 49, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.side-content {
+  margin: 15px;
+  font-size: .75em;
+}
+/* line 52, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.side-content li {
+  list-style-type: none;
+  padding: 3px;
+}
+
+/* line 58, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.invisible_box {
+  width: 80%;
+  margin: 1rem auto 0 auto;
+}
+
+/* line 63, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.ib_content {
+  color: rgba(0, 0, 0, 0.84);
+  line-height: 1.5rem;
+  font-size: 16px;
+}
+
+/* line 69, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+#index-nav-container {
+  width: 100%;
+  margin: 1rem auto 0 auto;
+  background: #e9e9e9;
+  border: 1px solid #e1e1e1;
+}
+/* line 74, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+#index-nav-container a {
+  text-decoration: none;
+  color: #DC2020;
+  font-weight: 700;
+}
+/* line 78, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+#index-nav-container a:hover {
+  color: #00b8ac;
+}
+
+/* line 84, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.table-row {
+  display: table-row;
+  border-bottom: #e5e5e5 1px solid;
+}
+
+/* line 89, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.table-cell, .table-head {
+  display: table-cell;
+  padding: 1em;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+/* line 96, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks {
+  padding: 1rem 0;
+}
+/* line 98, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul {
+  list-style: none;
+  padding-left: 0;
+}
+/* line 101, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #b7bdc3;
+  margin-bottom: 2rem;
+}
+/* line 105, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li:last-child {
+  border-bottom: none;
+}
+/* line 108, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_thumbnail {
+  width: 22%;
+  float: left;
+}
+/* line 111, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_thumbnail img {
+  width: 10rem;
+  max-width: 100%;
+  padding: 2%;
+  border: 1px solid #e9e9e9;
+}
+/* line 118, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_overview {
+  width: 76.5%;
+  float: left;
+  margin-left: 1.5%;
+}
+/* line 123, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_overview h4 a {
+  color: #2C3135;
+  text-decoration: none;
+}
+/* line 128, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_overview .description {
+  color: #66717b;
+}
+/* line 131, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_overview .authorized_links {
+  font-weight: 700;
+  font-size: .8rem;
+}
+/* line 134, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_overview .authorized_links a {
+  color: #DC2020;
+  margin-right: 1rem;
+}
+/* line 139, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_overview .icons-container {
+  display: block;
+}
+/* line 142, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/users.css.scss */
+.tracks ul li .track_overview .icons {
+  display: inline-block;
+  float: left;
+  margin-right: .75rem;
+  color: #666666;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+/* line 1, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background {
+  height: 100vh;
+  background-image: url(/assets/welcome_background-21a531d8990b3ff606ea8faf01c85a39428140f4340b26971b7b0a6f22b5360e.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+/* line 7, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background header {
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+/* line 10, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background header #logo {
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 17, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background header nav {
+  float: right;
+}
+/* line 19, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 22, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background header nav ul li {
+  display: inline;
+  margin-left: 2.5rem;
+  position: relative;
+}
+/* line 26, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 34, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background h1 {
+  color: #FFFFFF;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 5rem 0 2rem 0;
+}
+/* line 41, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#welcome_background .button {
+  min-width: 8rem;
+  display: inline-block;
+  margin: 1.5rem 2.5% 0 2.5%;
+}
+
+/* line 48, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other {
+  height: 100vh;
+  background-image: url(/assets/login_background-fd21e69e266dd82a41328b200e31d0f67c775b68e59d52642b20f63f6e72023e.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+/* line 54, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other header {
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+/* line 57, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other header #logo {
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 64, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other header nav {
+  float: right;
+}
+/* line 66, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 69, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other header nav ul li {
+  display: inline;
+  margin-left: 2.5rem;
+  position: relative;
+}
+/* line 73, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 81, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other h1 {
+  color: #FFFFFF;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 5rem 0 2rem 0;
+}
+/* line 88, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-other .button {
+  min-width: 8rem;
+  display: inline-block;
+  margin: 1.5rem 2.5% 0 2.5%;
+}
+
+/* line 95, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register {
+  height: 100vh;
+  background-image: url(/assets/register_background-41a5f78841ee375762bc367340ecd080686fb072add05fe6d71236d2d8f67648.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+/* line 101, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register header {
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+/* line 104, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register header #logo {
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 111, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register header nav {
+  float: right;
+}
+/* line 113, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 116, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register header nav ul li {
+  display: inline;
+  margin-left: 2.5rem;
+  position: relative;
+}
+/* line 120, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 128, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register h1 {
+  color: #FFFFFF;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 5rem 0 2rem 0;
+}
+/* line 135, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#background-register .button {
+  min-width: 8rem;
+  display: inline-block;
+  margin: 1.5rem 2.5% 0 2.5%;
+}
+
+/* line 143, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner {
+  background: #2C3135;
+  text-align: center;
+  padding: 5rem 0;
+}
+/* line 147, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner header {
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+/* line 150, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner header #logo {
+  float: left;
+  text-decoration: none;
+}
+/* line 154, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner header nav {
+  float: right;
+}
+/* line 156, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 159, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner header nav ul li {
+  display: inline;
+  margin-left: 2.5rem;
+  position: relative;
+}
+/* line 163, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+/* line 166, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner header nav ul li a:hover {
+  color: #00b8ac;
+}
+/* line 174, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #FFFFFF;
+  margin: 0 0 .5rem 0;
+}
+/* line 180, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner .description {
+  width: 85%;
+  line-height: 1;
+  margin: 0 auto .5rem auto;
+  color: #5a656d;
+}
+/* line 186, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner .subscribe_link {
+  font-size: .6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  color: #FFFFFF;
+  display: inline;
+  background: #DC2020;
+  border-radius: 2rem;
+  padding: .5rem 1rem;
+  margin: 0 .5rem;
+  text-decoration: none;
+}
+/* line 198, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #show_banner .subscribe_link:hover {
+  background: #af1a1a;
+}
+/* line 203, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #breadcrumb {
+  padding: 1rem 0;
+  text-align: center;
+  border-bottom: 1px solid #eef0f1;
+  font-weight: 700;
+  font-size: .7rem;
+}
+/* line 209, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #breadcrumb a {
+  color: #9ba4ac;
+  text-decoration: none;
+}
+/* line 212, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #breadcrumb a:hover {
+  color: #00b8ac;
+}
+/* line 216, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #breadcrumb span {
+  margin: 0 .5rem;
+}
+/* line 220, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #album-image {
+  margin: 1rem auto;
+  border-radius: .35rem;
+  float: none;
+  display: table;
+}
+/* line 226, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks {
+  padding: 3rem 0;
+}
+/* line 228, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul {
+  list-style: none;
+  padding-left: 0;
+}
+/* line 231, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #b7bdc3;
+  margin-bottom: 2rem;
+}
+/* line 235, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li:last-child {
+  border-bottom: none;
+}
+/* line 238, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_thumbnail {
+  width: 22%;
+  float: left;
+}
+/* line 241, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_thumbnail img {
+  width: 10rem;
+  max-width: 100%;
+  padding: 2%;
+  border: 1px solid #e9e9e9;
+}
+/* line 247, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_thumbnail a {
+  text-decoration: none;
+  color: #DC2020;
+  font-weight: 700;
+}
+/* line 251, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_thumbnail a:hover {
+  color: #00b8ac;
+}
+/* line 256, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_overview {
+  width: 76.5%;
+  float: left;
+  margin-left: 1.5%;
+}
+/* line 261, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_overview h2 a {
+  color: #2C3135;
+  text-decoration: none;
+}
+/* line 264, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_overview h2 a:hover {
+  color: #00b8ac;
+}
+/* line 269, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_overview .description {
+  color: #66717b;
+}
+/* line 272, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_overview .authorized_links {
+  font-weight: 700;
+  font-size: .8rem;
+}
+/* line 275, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks ul li .track_overview .authorized_links a {
+  color: #DC2020;
+  margin-right: 1rem;
+}
+/* line 283, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks .icons-container {
+  display: block;
+}
+/* line 286, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks .icons {
+  display: inline-block;
+  float: left;
+  margin-right: .75rem;
+  color: #666666;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+/* line 293, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks .icons a {
+  color: #DC2020;
+  font-weight: 700;
+  text-decoration: none;
+}
+/* line 297, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks .icons a:hover {
+  color: #00b8ac;
+}
+/* line 302, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #tracks a {
+  text-decoration: none;
+}
+/* line 306, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #track_content {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eef0f1;
+}
+/* line 310, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #track_content .current_track_thumbnail {
+  display: block;
+  margin: 0 auto 2rem auto;
+  width: 10rem;
+  max-width: 100%;
+  border-radius: .35rem;
+}
+/* line 317, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #track_content h2 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+/* line 321, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #track_content .description {
+  text-align: center;
+  font-size: .9rem;
+  line-height: 1.7;
+  color: #66717b;
+}
+/* line 327, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #track_content a {
+  text-decoration: none;
+}
+/* line 331, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #links {
+  padding: 2rem 0;
+}
+/* line 333, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #links ul {
+  list-style: none;
+  padding-left: 0;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eef0f1;
+}
+/* line 339, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #links ul li {
+  display: inline;
+  margin-right: 1rem;
+  font-weight: 700;
+}
+/* line 343, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #links ul li a {
+  color: #2C3135;
+  text-decoration: none;
+}
+/* line 346, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #links ul li a:hover {
+  color: #DC2020;
+}
+/* line 351, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show #links ul .current {
+  color: #DC2020;
+}
+/* line 357, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show .buy_links ul {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+/* line 361, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/welcome.css.scss */
+#album_show .buy_links ul li {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: .35rem;
+}
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+ */
+/*!
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("/assets/font-awesome/fontawesome-webfont-e511891d3e01b0b27aed51a219ced5119e2c3d0460465af8242e9bff4cb61b77.eot");
+  src: url("/assets/font-awesome/fontawesome-webfont-e511891d3e01b0b27aed51a219ced5119e2c3d0460465af8242e9bff4cb61b77.eot?#iefix") format("embedded-opentype"), url("/assets/font-awesome/fontawesome-webfont-199411f659f41aaccb959bacb1b0de30e54f244352a48c6f9894e65ae0f8a9a1.woff") format("woff"), url("/assets/font-awesome/fontawesome-webfont-4d6eb9e9d852a2a6f74e7c428456a2f07fc63a1613d10192d8ed3401d9da5ffa.ttf") format("truetype"), url("/assets/font-awesome/fontawesome-webfont-d5b5636ebb2e124810436200086b74a60dff9e8a8be7f4a1088bf5d3458bc3c8.svg#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 4, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_core.scss */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* makes the font 33% larger relative to the icon container */
+/* line 5, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_larger.scss */
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+/* line 10, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_larger.scss */
+.fa-2x {
+  font-size: 2em;
+}
+
+/* line 11, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_larger.scss */
+.fa-3x {
+  font-size: 3em;
+}
+
+/* line 12, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_larger.scss */
+.fa-4x {
+  font-size: 4em;
+}
+
+/* line 13, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_larger.scss */
+.fa-5x {
+  font-size: 5em;
+}
+
+/* line 3, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_fixed-width.scss */
+.fa-fw {
+  width: 1.2857142857em;
+  text-align: center;
+}
+
+/* line 4, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_list.scss */
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.1428571429em;
+  list-style-type: none;
+}
+/* line 8, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_list.scss */
+.fa-ul > li {
+  position: relative;
+}
+
+/* line 10, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_list.scss */
+.fa-li {
+  position: absolute;
+  left: -2.1428571429em;
+  width: 2.1428571429em;
+  top: 0.1428571429em;
+  text-align: center;
+}
+/* line 16, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_list.scss */
+.fa-li.fa-lg {
+  left: -1.8571428571em;
+}
+
+/* line 4, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_bordered-pulled.scss */
+.fa-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eee;
+  border-radius: .1em;
+}
+
+/* line 10, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_bordered-pulled.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 11, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_bordered-pulled.scss */
+.pull-left {
+  float: left;
+}
+
+/* line 14, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_bordered-pulled.scss */
+.fa.pull-left {
+  margin-right: .3em;
+}
+/* line 15, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_bordered-pulled.scss */
+.fa.pull-right {
+  margin-left: .3em;
+}
+
+/* line 4, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_spinning.scss */
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/* line 4, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_rotated-flipped.scss */
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 5, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_rotated-flipped.scss */
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 6, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_rotated-flipped.scss */
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/* line 8, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_rotated-flipped.scss */
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+/* line 9, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_rotated-flipped.scss */
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/* line 14, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_rotated-flipped.scss */
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  filter: none;
+}
+
+/* line 4, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_stacked.scss */
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+/* line 12, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_stacked.scss */
+.fa-stack-1x, .fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 18, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_stacked.scss */
+.fa-stack-1x {
+  line-height: inherit;
+}
+
+/* line 19, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_stacked.scss */
+.fa-stack-2x {
+  font-size: 2em;
+}
+
+/* line 20, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_stacked.scss */
+.fa-inverse {
+  color: #fff;
+}
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+/* line 4, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-glass:before {
+  content: "";
+}
+
+/* line 5, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-music:before {
+  content: "";
+}
+
+/* line 6, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-search:before {
+  content: "";
+}
+
+/* line 7, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-envelope-o:before {
+  content: "";
+}
+
+/* line 8, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-heart:before {
+  content: "";
+}
+
+/* line 9, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-star:before {
+  content: "";
+}
+
+/* line 10, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-star-o:before {
+  content: "";
+}
+
+/* line 11, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-user:before {
+  content: "";
+}
+
+/* line 12, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-film:before {
+  content: "";
+}
+
+/* line 13, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-th-large:before {
+  content: "";
+}
+
+/* line 14, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-th:before {
+  content: "";
+}
+
+/* line 15, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-th-list:before {
+  content: "";
+}
+
+/* line 16, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-check:before {
+  content: "";
+}
+
+/* line 17, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: "";
+}
+
+/* line 20, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-search-plus:before {
+  content: "";
+}
+
+/* line 21, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-search-minus:before {
+  content: "";
+}
+
+/* line 22, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-power-off:before {
+  content: "";
+}
+
+/* line 23, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-signal:before {
+  content: "";
+}
+
+/* line 24, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-gear:before,
+.fa-cog:before {
+  content: "";
+}
+
+/* line 26, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-trash-o:before {
+  content: "";
+}
+
+/* line 27, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-home:before {
+  content: "";
+}
+
+/* line 28, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-o:before {
+  content: "";
+}
+
+/* line 29, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-clock-o:before {
+  content: "";
+}
+
+/* line 30, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-road:before {
+  content: "";
+}
+
+/* line 31, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-download:before {
+  content: "";
+}
+
+/* line 32, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-o-down:before {
+  content: "";
+}
+
+/* line 33, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-o-up:before {
+  content: "";
+}
+
+/* line 34, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-inbox:before {
+  content: "";
+}
+
+/* line 35, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-play-circle-o:before {
+  content: "";
+}
+
+/* line 36, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-rotate-right:before,
+.fa-repeat:before {
+  content: "";
+}
+
+/* line 38, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-refresh:before {
+  content: "";
+}
+
+/* line 39, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-list-alt:before {
+  content: "";
+}
+
+/* line 40, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-lock:before {
+  content: "";
+}
+
+/* line 41, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-flag:before {
+  content: "";
+}
+
+/* line 42, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-headphones:before {
+  content: "";
+}
+
+/* line 43, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-volume-off:before {
+  content: "";
+}
+
+/* line 44, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-volume-down:before {
+  content: "";
+}
+
+/* line 45, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-volume-up:before {
+  content: "";
+}
+
+/* line 46, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-qrcode:before {
+  content: "";
+}
+
+/* line 47, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-barcode:before {
+  content: "";
+}
+
+/* line 48, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tag:before {
+  content: "";
+}
+
+/* line 49, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tags:before {
+  content: "";
+}
+
+/* line 50, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-book:before {
+  content: "";
+}
+
+/* line 51, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bookmark:before {
+  content: "";
+}
+
+/* line 52, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-print:before {
+  content: "";
+}
+
+/* line 53, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-camera:before {
+  content: "";
+}
+
+/* line 54, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-font:before {
+  content: "";
+}
+
+/* line 55, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bold:before {
+  content: "";
+}
+
+/* line 56, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-italic:before {
+  content: "";
+}
+
+/* line 57, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-text-height:before {
+  content: "";
+}
+
+/* line 58, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-text-width:before {
+  content: "";
+}
+
+/* line 59, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-align-left:before {
+  content: "";
+}
+
+/* line 60, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-align-center:before {
+  content: "";
+}
+
+/* line 61, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-align-right:before {
+  content: "";
+}
+
+/* line 62, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-align-justify:before {
+  content: "";
+}
+
+/* line 63, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-list:before {
+  content: "";
+}
+
+/* line 64, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-dedent:before,
+.fa-outdent:before {
+  content: "";
+}
+
+/* line 66, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-indent:before {
+  content: "";
+}
+
+/* line 67, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-video-camera:before {
+  content: "";
+}
+
+/* line 68, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-photo:before,
+.fa-image:before,
+.fa-picture-o:before {
+  content: "";
+}
+
+/* line 71, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pencil:before {
+  content: "";
+}
+
+/* line 72, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-map-marker:before {
+  content: "";
+}
+
+/* line 73, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-adjust:before {
+  content: "";
+}
+
+/* line 74, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tint:before {
+  content: "";
+}
+
+/* line 75, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-edit:before,
+.fa-pencil-square-o:before {
+  content: "";
+}
+
+/* line 77, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-share-square-o:before {
+  content: "";
+}
+
+/* line 78, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-check-square-o:before {
+  content: "";
+}
+
+/* line 79, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrows:before {
+  content: "";
+}
+
+/* line 80, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-step-backward:before {
+  content: "";
+}
+
+/* line 81, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-fast-backward:before {
+  content: "";
+}
+
+/* line 82, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-backward:before {
+  content: "";
+}
+
+/* line 83, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-play:before {
+  content: "";
+}
+
+/* line 84, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pause:before {
+  content: "";
+}
+
+/* line 85, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-stop:before {
+  content: "";
+}
+
+/* line 86, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-forward:before {
+  content: "";
+}
+
+/* line 87, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-fast-forward:before {
+  content: "";
+}
+
+/* line 88, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-step-forward:before {
+  content: "";
+}
+
+/* line 89, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-eject:before {
+  content: "";
+}
+
+/* line 90, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-left:before {
+  content: "";
+}
+
+/* line 91, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-right:before {
+  content: "";
+}
+
+/* line 92, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-plus-circle:before {
+  content: "";
+}
+
+/* line 93, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-minus-circle:before {
+  content: "";
+}
+
+/* line 94, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-times-circle:before {
+  content: "";
+}
+
+/* line 95, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-check-circle:before {
+  content: "";
+}
+
+/* line 96, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-question-circle:before {
+  content: "";
+}
+
+/* line 97, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-info-circle:before {
+  content: "";
+}
+
+/* line 98, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-crosshairs:before {
+  content: "";
+}
+
+/* line 99, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-times-circle-o:before {
+  content: "";
+}
+
+/* line 100, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-check-circle-o:before {
+  content: "";
+}
+
+/* line 101, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ban:before {
+  content: "";
+}
+
+/* line 102, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-left:before {
+  content: "";
+}
+
+/* line 103, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-right:before {
+  content: "";
+}
+
+/* line 104, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-up:before {
+  content: "";
+}
+
+/* line 105, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-down:before {
+  content: "";
+}
+
+/* line 106, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-mail-forward:before,
+.fa-share:before {
+  content: "";
+}
+
+/* line 108, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-expand:before {
+  content: "";
+}
+
+/* line 109, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-compress:before {
+  content: "";
+}
+
+/* line 110, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-plus:before {
+  content: "";
+}
+
+/* line 111, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-minus:before {
+  content: "";
+}
+
+/* line 112, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-asterisk:before {
+  content: "";
+}
+
+/* line 113, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-exclamation-circle:before {
+  content: "";
+}
+
+/* line 114, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-gift:before {
+  content: "";
+}
+
+/* line 115, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-leaf:before {
+  content: "";
+}
+
+/* line 116, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-fire:before {
+  content: "";
+}
+
+/* line 117, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-eye:before {
+  content: "";
+}
+
+/* line 118, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-eye-slash:before {
+  content: "";
+}
+
+/* line 119, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-warning:before,
+.fa-exclamation-triangle:before {
+  content: "";
+}
+
+/* line 121, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-plane:before {
+  content: "";
+}
+
+/* line 122, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-calendar:before {
+  content: "";
+}
+
+/* line 123, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-random:before {
+  content: "";
+}
+
+/* line 124, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-comment:before {
+  content: "";
+}
+
+/* line 125, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-magnet:before {
+  content: "";
+}
+
+/* line 126, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-up:before {
+  content: "";
+}
+
+/* line 127, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-down:before {
+  content: "";
+}
+
+/* line 128, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-retweet:before {
+  content: "";
+}
+
+/* line 129, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-shopping-cart:before {
+  content: "";
+}
+
+/* line 130, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-folder:before {
+  content: "";
+}
+
+/* line 131, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-folder-open:before {
+  content: "";
+}
+
+/* line 132, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrows-v:before {
+  content: "";
+}
+
+/* line 133, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrows-h:before {
+  content: "";
+}
+
+/* line 134, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bar-chart-o:before,
+.fa-bar-chart:before {
+  content: "";
+}
+
+/* line 136, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-twitter-square:before {
+  content: "";
+}
+
+/* line 137, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-facebook-square:before {
+  content: "";
+}
+
+/* line 138, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-camera-retro:before {
+  content: "";
+}
+
+/* line 139, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-key:before {
+  content: "";
+}
+
+/* line 140, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-gears:before,
+.fa-cogs:before {
+  content: "";
+}
+
+/* line 142, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-comments:before {
+  content: "";
+}
+
+/* line 143, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-thumbs-o-up:before {
+  content: "";
+}
+
+/* line 144, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-thumbs-o-down:before {
+  content: "";
+}
+
+/* line 145, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-star-half:before {
+  content: "";
+}
+
+/* line 146, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-heart-o:before {
+  content: "";
+}
+
+/* line 147, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sign-out:before {
+  content: "";
+}
+
+/* line 148, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-linkedin-square:before {
+  content: "";
+}
+
+/* line 149, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-thumb-tack:before {
+  content: "";
+}
+
+/* line 150, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-external-link:before {
+  content: "";
+}
+
+/* line 151, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sign-in:before {
+  content: "";
+}
+
+/* line 152, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-trophy:before {
+  content: "";
+}
+
+/* line 153, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-github-square:before {
+  content: "";
+}
+
+/* line 154, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-upload:before {
+  content: "";
+}
+
+/* line 155, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-lemon-o:before {
+  content: "";
+}
+
+/* line 156, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-phone:before {
+  content: "";
+}
+
+/* line 157, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-square-o:before {
+  content: "";
+}
+
+/* line 158, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bookmark-o:before {
+  content: "";
+}
+
+/* line 159, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-phone-square:before {
+  content: "";
+}
+
+/* line 160, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-twitter:before {
+  content: "";
+}
+
+/* line 161, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-facebook:before {
+  content: "";
+}
+
+/* line 162, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-github:before {
+  content: "";
+}
+
+/* line 163, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-unlock:before {
+  content: "";
+}
+
+/* line 164, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-credit-card:before {
+  content: "";
+}
+
+/* line 165, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-rss:before {
+  content: "";
+}
+
+/* line 166, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-hdd-o:before {
+  content: "";
+}
+
+/* line 167, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bullhorn:before {
+  content: "";
+}
+
+/* line 168, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bell:before {
+  content: "";
+}
+
+/* line 169, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-certificate:before {
+  content: "";
+}
+
+/* line 170, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-hand-o-right:before {
+  content: "";
+}
+
+/* line 171, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-hand-o-left:before {
+  content: "";
+}
+
+/* line 172, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-hand-o-up:before {
+  content: "";
+}
+
+/* line 173, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-hand-o-down:before {
+  content: "";
+}
+
+/* line 174, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-left:before {
+  content: "";
+}
+
+/* line 175, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-right:before {
+  content: "";
+}
+
+/* line 176, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-up:before {
+  content: "";
+}
+
+/* line 177, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-down:before {
+  content: "";
+}
+
+/* line 178, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-globe:before {
+  content: "";
+}
+
+/* line 179, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-wrench:before {
+  content: "";
+}
+
+/* line 180, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tasks:before {
+  content: "";
+}
+
+/* line 181, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-filter:before {
+  content: "";
+}
+
+/* line 182, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-briefcase:before {
+  content: "";
+}
+
+/* line 183, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrows-alt:before {
+  content: "";
+}
+
+/* line 184, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-group:before,
+.fa-users:before {
+  content: "";
+}
+
+/* line 186, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chain:before,
+.fa-link:before {
+  content: "";
+}
+
+/* line 188, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cloud:before {
+  content: "";
+}
+
+/* line 189, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-flask:before {
+  content: "";
+}
+
+/* line 190, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cut:before,
+.fa-scissors:before {
+  content: "";
+}
+
+/* line 192, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-copy:before,
+.fa-files-o:before {
+  content: "";
+}
+
+/* line 194, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-paperclip:before {
+  content: "";
+}
+
+/* line 195, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-save:before,
+.fa-floppy-o:before {
+  content: "";
+}
+
+/* line 197, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-square:before {
+  content: "";
+}
+
+/* line 198, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+  content: "";
+}
+
+/* line 201, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-list-ul:before {
+  content: "";
+}
+
+/* line 202, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-list-ol:before {
+  content: "";
+}
+
+/* line 203, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-strikethrough:before {
+  content: "";
+}
+
+/* line 204, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-underline:before {
+  content: "";
+}
+
+/* line 205, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-table:before {
+  content: "";
+}
+
+/* line 206, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-magic:before {
+  content: "";
+}
+
+/* line 207, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-truck:before {
+  content: "";
+}
+
+/* line 208, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pinterest:before {
+  content: "";
+}
+
+/* line 209, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pinterest-square:before {
+  content: "";
+}
+
+/* line 210, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-google-plus-square:before {
+  content: "";
+}
+
+/* line 211, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-google-plus:before {
+  content: "";
+}
+
+/* line 212, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-money:before {
+  content: "";
+}
+
+/* line 213, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-caret-down:before {
+  content: "";
+}
+
+/* line 214, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-caret-up:before {
+  content: "";
+}
+
+/* line 215, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-caret-left:before {
+  content: "";
+}
+
+/* line 216, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-caret-right:before {
+  content: "";
+}
+
+/* line 217, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-columns:before {
+  content: "";
+}
+
+/* line 218, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-unsorted:before,
+.fa-sort:before {
+  content: "";
+}
+
+/* line 220, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-down:before,
+.fa-sort-desc:before {
+  content: "";
+}
+
+/* line 222, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-up:before,
+.fa-sort-asc:before {
+  content: "";
+}
+
+/* line 224, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-envelope:before {
+  content: "";
+}
+
+/* line 225, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-linkedin:before {
+  content: "";
+}
+
+/* line 226, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-rotate-left:before,
+.fa-undo:before {
+  content: "";
+}
+
+/* line 228, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-legal:before,
+.fa-gavel:before {
+  content: "";
+}
+
+/* line 230, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-dashboard:before,
+.fa-tachometer:before {
+  content: "";
+}
+
+/* line 232, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-comment-o:before {
+  content: "";
+}
+
+/* line 233, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-comments-o:before {
+  content: "";
+}
+
+/* line 234, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-flash:before,
+.fa-bolt:before {
+  content: "";
+}
+
+/* line 236, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sitemap:before {
+  content: "";
+}
+
+/* line 237, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-umbrella:before {
+  content: "";
+}
+
+/* line 238, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-paste:before,
+.fa-clipboard:before {
+  content: "";
+}
+
+/* line 240, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-lightbulb-o:before {
+  content: "";
+}
+
+/* line 241, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-exchange:before {
+  content: "";
+}
+
+/* line 242, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cloud-download:before {
+  content: "";
+}
+
+/* line 243, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cloud-upload:before {
+  content: "";
+}
+
+/* line 244, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-user-md:before {
+  content: "";
+}
+
+/* line 245, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-stethoscope:before {
+  content: "";
+}
+
+/* line 246, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-suitcase:before {
+  content: "";
+}
+
+/* line 247, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bell-o:before {
+  content: "";
+}
+
+/* line 248, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-coffee:before {
+  content: "";
+}
+
+/* line 249, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cutlery:before {
+  content: "";
+}
+
+/* line 250, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-text-o:before {
+  content: "";
+}
+
+/* line 251, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-building-o:before {
+  content: "";
+}
+
+/* line 252, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-hospital-o:before {
+  content: "";
+}
+
+/* line 253, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ambulance:before {
+  content: "";
+}
+
+/* line 254, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-medkit:before {
+  content: "";
+}
+
+/* line 255, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-fighter-jet:before {
+  content: "";
+}
+
+/* line 256, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-beer:before {
+  content: "";
+}
+
+/* line 257, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-h-square:before {
+  content: "";
+}
+
+/* line 258, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-plus-square:before {
+  content: "";
+}
+
+/* line 259, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-double-left:before {
+  content: "";
+}
+
+/* line 260, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-double-right:before {
+  content: "";
+}
+
+/* line 261, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-double-up:before {
+  content: "";
+}
+
+/* line 262, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-double-down:before {
+  content: "";
+}
+
+/* line 263, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-left:before {
+  content: "";
+}
+
+/* line 264, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-right:before {
+  content: "";
+}
+
+/* line 265, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-up:before {
+  content: "";
+}
+
+/* line 266, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angle-down:before {
+  content: "";
+}
+
+/* line 267, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-desktop:before {
+  content: "";
+}
+
+/* line 268, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-laptop:before {
+  content: "";
+}
+
+/* line 269, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tablet:before {
+  content: "";
+}
+
+/* line 270, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-mobile-phone:before,
+.fa-mobile:before {
+  content: "";
+}
+
+/* line 272, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-circle-o:before {
+  content: "";
+}
+
+/* line 273, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-quote-left:before {
+  content: "";
+}
+
+/* line 274, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-quote-right:before {
+  content: "";
+}
+
+/* line 275, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-spinner:before {
+  content: "";
+}
+
+/* line 276, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-circle:before {
+  content: "";
+}
+
+/* line 277, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-mail-reply:before,
+.fa-reply:before {
+  content: "";
+}
+
+/* line 279, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-github-alt:before {
+  content: "";
+}
+
+/* line 280, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-folder-o:before {
+  content: "";
+}
+
+/* line 281, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-folder-open-o:before {
+  content: "";
+}
+
+/* line 282, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-smile-o:before {
+  content: "";
+}
+
+/* line 283, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-frown-o:before {
+  content: "";
+}
+
+/* line 284, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-meh-o:before {
+  content: "";
+}
+
+/* line 285, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-gamepad:before {
+  content: "";
+}
+
+/* line 286, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-keyboard-o:before {
+  content: "";
+}
+
+/* line 287, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-flag-o:before {
+  content: "";
+}
+
+/* line 288, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-flag-checkered:before {
+  content: "";
+}
+
+/* line 289, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-terminal:before {
+  content: "";
+}
+
+/* line 290, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-code:before {
+  content: "";
+}
+
+/* line 291, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-mail-reply-all:before,
+.fa-reply-all:before {
+  content: "";
+}
+
+/* line 293, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-star-half-empty:before,
+.fa-star-half-full:before,
+.fa-star-half-o:before {
+  content: "";
+}
+
+/* line 296, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-location-arrow:before {
+  content: "";
+}
+
+/* line 297, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-crop:before {
+  content: "";
+}
+
+/* line 298, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-code-fork:before {
+  content: "";
+}
+
+/* line 299, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-unlink:before,
+.fa-chain-broken:before {
+  content: "";
+}
+
+/* line 301, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-question:before {
+  content: "";
+}
+
+/* line 302, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-info:before {
+  content: "";
+}
+
+/* line 303, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-exclamation:before {
+  content: "";
+}
+
+/* line 304, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-superscript:before {
+  content: "";
+}
+
+/* line 305, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-subscript:before {
+  content: "";
+}
+
+/* line 306, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-eraser:before {
+  content: "";
+}
+
+/* line 307, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-puzzle-piece:before {
+  content: "";
+}
+
+/* line 308, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-microphone:before {
+  content: "";
+}
+
+/* line 309, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-microphone-slash:before {
+  content: "";
+}
+
+/* line 310, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-shield:before {
+  content: "";
+}
+
+/* line 311, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-calendar-o:before {
+  content: "";
+}
+
+/* line 312, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-fire-extinguisher:before {
+  content: "";
+}
+
+/* line 313, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-rocket:before {
+  content: "";
+}
+
+/* line 314, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-maxcdn:before {
+  content: "";
+}
+
+/* line 315, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-circle-left:before {
+  content: "";
+}
+
+/* line 316, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-circle-right:before {
+  content: "";
+}
+
+/* line 317, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-circle-up:before {
+  content: "";
+}
+
+/* line 318, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-chevron-circle-down:before {
+  content: "";
+}
+
+/* line 319, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-html5:before {
+  content: "";
+}
+
+/* line 320, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-css3:before {
+  content: "";
+}
+
+/* line 321, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-anchor:before {
+  content: "";
+}
+
+/* line 322, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-unlock-alt:before {
+  content: "";
+}
+
+/* line 323, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bullseye:before {
+  content: "";
+}
+
+/* line 324, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ellipsis-h:before {
+  content: "";
+}
+
+/* line 325, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ellipsis-v:before {
+  content: "";
+}
+
+/* line 326, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-rss-square:before {
+  content: "";
+}
+
+/* line 327, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-play-circle:before {
+  content: "";
+}
+
+/* line 328, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ticket:before {
+  content: "";
+}
+
+/* line 329, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-minus-square:before {
+  content: "";
+}
+
+/* line 330, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-minus-square-o:before {
+  content: "";
+}
+
+/* line 331, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-level-up:before {
+  content: "";
+}
+
+/* line 332, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-level-down:before {
+  content: "";
+}
+
+/* line 333, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-check-square:before {
+  content: "";
+}
+
+/* line 334, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pencil-square:before {
+  content: "";
+}
+
+/* line 335, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-external-link-square:before {
+  content: "";
+}
+
+/* line 336, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-share-square:before {
+  content: "";
+}
+
+/* line 337, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-compass:before {
+  content: "";
+}
+
+/* line 338, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-toggle-down:before,
+.fa-caret-square-o-down:before {
+  content: "";
+}
+
+/* line 340, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-toggle-up:before,
+.fa-caret-square-o-up:before {
+  content: "";
+}
+
+/* line 342, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-toggle-right:before,
+.fa-caret-square-o-right:before {
+  content: "";
+}
+
+/* line 344, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-euro:before,
+.fa-eur:before {
+  content: "";
+}
+
+/* line 346, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-gbp:before {
+  content: "";
+}
+
+/* line 347, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-dollar:before,
+.fa-usd:before {
+  content: "";
+}
+
+/* line 349, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-rupee:before,
+.fa-inr:before {
+  content: "";
+}
+
+/* line 351, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cny:before,
+.fa-rmb:before,
+.fa-yen:before,
+.fa-jpy:before {
+  content: "";
+}
+
+/* line 355, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ruble:before,
+.fa-rouble:before,
+.fa-rub:before {
+  content: "";
+}
+
+/* line 358, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-won:before,
+.fa-krw:before {
+  content: "";
+}
+
+/* line 360, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bitcoin:before,
+.fa-btc:before {
+  content: "";
+}
+
+/* line 362, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file:before {
+  content: "";
+}
+
+/* line 363, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-text:before {
+  content: "";
+}
+
+/* line 364, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-alpha-asc:before {
+  content: "";
+}
+
+/* line 365, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-alpha-desc:before {
+  content: "";
+}
+
+/* line 366, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-amount-asc:before {
+  content: "";
+}
+
+/* line 367, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-amount-desc:before {
+  content: "";
+}
+
+/* line 368, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-numeric-asc:before {
+  content: "";
+}
+
+/* line 369, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sort-numeric-desc:before {
+  content: "";
+}
+
+/* line 370, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-thumbs-up:before {
+  content: "";
+}
+
+/* line 371, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-thumbs-down:before {
+  content: "";
+}
+
+/* line 372, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-youtube-square:before {
+  content: "";
+}
+
+/* line 373, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-youtube:before {
+  content: "";
+}
+
+/* line 374, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-xing:before {
+  content: "";
+}
+
+/* line 375, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-xing-square:before {
+  content: "";
+}
+
+/* line 376, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-youtube-play:before {
+  content: "";
+}
+
+/* line 377, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-dropbox:before {
+  content: "";
+}
+
+/* line 378, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-stack-overflow:before {
+  content: "";
+}
+
+/* line 379, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-instagram:before {
+  content: "";
+}
+
+/* line 380, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-flickr:before {
+  content: "";
+}
+
+/* line 381, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-adn:before {
+  content: "";
+}
+
+/* line 382, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bitbucket:before {
+  content: "";
+}
+
+/* line 383, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bitbucket-square:before {
+  content: "";
+}
+
+/* line 384, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tumblr:before {
+  content: "";
+}
+
+/* line 385, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tumblr-square:before {
+  content: "";
+}
+
+/* line 386, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-long-arrow-down:before {
+  content: "";
+}
+
+/* line 387, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-long-arrow-up:before {
+  content: "";
+}
+
+/* line 388, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-long-arrow-left:before {
+  content: "";
+}
+
+/* line 389, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-long-arrow-right:before {
+  content: "";
+}
+
+/* line 390, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-apple:before {
+  content: "";
+}
+
+/* line 391, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-windows:before {
+  content: "";
+}
+
+/* line 392, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-android:before {
+  content: "";
+}
+
+/* line 393, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-linux:before {
+  content: "";
+}
+
+/* line 394, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-dribbble:before {
+  content: "";
+}
+
+/* line 395, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-skype:before {
+  content: "";
+}
+
+/* line 396, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-foursquare:before {
+  content: "";
+}
+
+/* line 397, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-trello:before {
+  content: "";
+}
+
+/* line 398, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-female:before {
+  content: "";
+}
+
+/* line 399, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-male:before {
+  content: "";
+}
+
+/* line 400, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-gittip:before {
+  content: "";
+}
+
+/* line 401, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sun-o:before {
+  content: "";
+}
+
+/* line 402, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-moon-o:before {
+  content: "";
+}
+
+/* line 403, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-archive:before {
+  content: "";
+}
+
+/* line 404, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bug:before {
+  content: "";
+}
+
+/* line 405, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-vk:before {
+  content: "";
+}
+
+/* line 406, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-weibo:before {
+  content: "";
+}
+
+/* line 407, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-renren:before {
+  content: "";
+}
+
+/* line 408, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pagelines:before {
+  content: "";
+}
+
+/* line 409, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-stack-exchange:before {
+  content: "";
+}
+
+/* line 410, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-o-right:before {
+  content: "";
+}
+
+/* line 411, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-arrow-circle-o-left:before {
+  content: "";
+}
+
+/* line 412, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-toggle-left:before,
+.fa-caret-square-o-left:before {
+  content: "";
+}
+
+/* line 414, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-dot-circle-o:before {
+  content: "";
+}
+
+/* line 415, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-wheelchair:before {
+  content: "";
+}
+
+/* line 416, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-vimeo-square:before {
+  content: "";
+}
+
+/* line 417, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-turkish-lira:before,
+.fa-try:before {
+  content: "";
+}
+
+/* line 419, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-plus-square-o:before {
+  content: "";
+}
+
+/* line 420, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-space-shuttle:before {
+  content: "";
+}
+
+/* line 421, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-slack:before {
+  content: "";
+}
+
+/* line 422, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-envelope-square:before {
+  content: "";
+}
+
+/* line 423, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-wordpress:before {
+  content: "";
+}
+
+/* line 424, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-openid:before {
+  content: "";
+}
+
+/* line 425, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+  content: "";
+}
+
+/* line 428, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+  content: "";
+}
+
+/* line 430, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-yahoo:before {
+  content: "";
+}
+
+/* line 431, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-google:before {
+  content: "";
+}
+
+/* line 432, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-reddit:before {
+  content: "";
+}
+
+/* line 433, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-reddit-square:before {
+  content: "";
+}
+
+/* line 434, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-stumbleupon-circle:before {
+  content: "";
+}
+
+/* line 435, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-stumbleupon:before {
+  content: "";
+}
+
+/* line 436, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-delicious:before {
+  content: "";
+}
+
+/* line 437, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-digg:before {
+  content: "";
+}
+
+/* line 438, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pied-piper:before {
+  content: "";
+}
+
+/* line 439, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pied-piper-alt:before {
+  content: "";
+}
+
+/* line 440, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-drupal:before {
+  content: "";
+}
+
+/* line 441, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-joomla:before {
+  content: "";
+}
+
+/* line 442, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-language:before {
+  content: "";
+}
+
+/* line 443, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-fax:before {
+  content: "";
+}
+
+/* line 444, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-building:before {
+  content: "";
+}
+
+/* line 445, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-child:before {
+  content: "";
+}
+
+/* line 446, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-paw:before {
+  content: "";
+}
+
+/* line 447, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-spoon:before {
+  content: "";
+}
+
+/* line 448, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cube:before {
+  content: "";
+}
+
+/* line 449, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cubes:before {
+  content: "";
+}
+
+/* line 450, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-behance:before {
+  content: "";
+}
+
+/* line 451, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-behance-square:before {
+  content: "";
+}
+
+/* line 452, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-steam:before {
+  content: "";
+}
+
+/* line 453, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-steam-square:before {
+  content: "";
+}
+
+/* line 454, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-recycle:before {
+  content: "";
+}
+
+/* line 455, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-automobile:before,
+.fa-car:before {
+  content: "";
+}
+
+/* line 457, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cab:before,
+.fa-taxi:before {
+  content: "";
+}
+
+/* line 459, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tree:before {
+  content: "";
+}
+
+/* line 460, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-spotify:before {
+  content: "";
+}
+
+/* line 461, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-deviantart:before {
+  content: "";
+}
+
+/* line 462, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-soundcloud:before {
+  content: "";
+}
+
+/* line 463, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-database:before {
+  content: "";
+}
+
+/* line 464, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-pdf-o:before {
+  content: "";
+}
+
+/* line 465, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-word-o:before {
+  content: "";
+}
+
+/* line 466, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-excel-o:before {
+  content: "";
+}
+
+/* line 467, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-powerpoint-o:before {
+  content: "";
+}
+
+/* line 468, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: "";
+}
+
+/* line 471, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: "";
+}
+
+/* line 473, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: "";
+}
+
+/* line 475, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: "";
+}
+
+/* line 477, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-file-code-o:before {
+  content: "";
+}
+
+/* line 478, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-vine:before {
+  content: "";
+}
+
+/* line 479, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-codepen:before {
+  content: "";
+}
+
+/* line 480, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-jsfiddle:before {
+  content: "";
+}
+
+/* line 481, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-life-bouy:before,
+.fa-life-buoy:before,
+.fa-life-saver:before,
+.fa-support:before,
+.fa-life-ring:before {
+  content: "";
+}
+
+/* line 486, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-circle-o-notch:before {
+  content: "";
+}
+
+/* line 487, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ra:before,
+.fa-rebel:before {
+  content: "";
+}
+
+/* line 489, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ge:before,
+.fa-empire:before {
+  content: "";
+}
+
+/* line 491, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-git-square:before {
+  content: "";
+}
+
+/* line 492, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-git:before {
+  content: "";
+}
+
+/* line 493, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-hacker-news:before {
+  content: "";
+}
+
+/* line 494, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tencent-weibo:before {
+  content: "";
+}
+
+/* line 495, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-qq:before {
+  content: "";
+}
+
+/* line 496, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-wechat:before,
+.fa-weixin:before {
+  content: "";
+}
+
+/* line 498, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-send:before,
+.fa-paper-plane:before {
+  content: "";
+}
+
+/* line 500, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: "";
+}
+
+/* line 502, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-history:before {
+  content: "";
+}
+
+/* line 503, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-circle-thin:before {
+  content: "";
+}
+
+/* line 504, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-header:before {
+  content: "";
+}
+
+/* line 505, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-paragraph:before {
+  content: "";
+}
+
+/* line 506, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-sliders:before {
+  content: "";
+}
+
+/* line 507, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-share-alt:before {
+  content: "";
+}
+
+/* line 508, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-share-alt-square:before {
+  content: "";
+}
+
+/* line 509, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bomb:before {
+  content: "";
+}
+
+/* line 510, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-soccer-ball-o:before,
+.fa-futbol-o:before {
+  content: "";
+}
+
+/* line 512, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-tty:before {
+  content: "";
+}
+
+/* line 513, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-binoculars:before {
+  content: "";
+}
+
+/* line 514, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-plug:before {
+  content: "";
+}
+
+/* line 515, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-slideshare:before {
+  content: "";
+}
+
+/* line 516, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-twitch:before {
+  content: "";
+}
+
+/* line 517, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-yelp:before {
+  content: "";
+}
+
+/* line 518, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-newspaper-o:before {
+  content: "";
+}
+
+/* line 519, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-wifi:before {
+  content: "";
+}
+
+/* line 520, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-calculator:before {
+  content: "";
+}
+
+/* line 521, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-paypal:before {
+  content: "";
+}
+
+/* line 522, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-google-wallet:before {
+  content: "";
+}
+
+/* line 523, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cc-visa:before {
+  content: "";
+}
+
+/* line 524, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cc-mastercard:before {
+  content: "";
+}
+
+/* line 525, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cc-discover:before {
+  content: "";
+}
+
+/* line 526, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cc-amex:before {
+  content: "";
+}
+
+/* line 527, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cc-paypal:before {
+  content: "";
+}
+
+/* line 528, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cc-stripe:before {
+  content: "";
+}
+
+/* line 529, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bell-slash:before {
+  content: "";
+}
+
+/* line 530, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bell-slash-o:before {
+  content: "";
+}
+
+/* line 531, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-trash:before {
+  content: "";
+}
+
+/* line 532, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-copyright:before {
+  content: "";
+}
+
+/* line 533, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-at:before {
+  content: "";
+}
+
+/* line 534, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-eyedropper:before {
+  content: "";
+}
+
+/* line 535, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-paint-brush:before {
+  content: "";
+}
+
+/* line 536, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-birthday-cake:before {
+  content: "";
+}
+
+/* line 537, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-area-chart:before {
+  content: "";
+}
+
+/* line 538, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-pie-chart:before {
+  content: "";
+}
+
+/* line 539, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-line-chart:before {
+  content: "";
+}
+
+/* line 540, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-lastfm:before {
+  content: "";
+}
+
+/* line 541, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-lastfm-square:before {
+  content: "";
+}
+
+/* line 542, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-toggle-off:before {
+  content: "";
+}
+
+/* line 543, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-toggle-on:before {
+  content: "";
+}
+
+/* line 544, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bicycle:before {
+  content: "";
+}
+
+/* line 545, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-bus:before {
+  content: "";
+}
+
+/* line 546, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-ioxhost:before {
+  content: "";
+}
+
+/* line 547, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-angellist:before {
+  content: "";
+}
+
+/* line 548, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-cc:before {
+  content: "";
+}
+
+/* line 549, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-shekel:before,
+.fa-sheqel:before,
+.fa-ils:before {
+  content: "";
+}
+
+/* line 552, /usr/local/rvm/gems/ruby-2.3.0/gems/font-awesome-sass-4.2.2/assets/stylesheets/font-awesome/_icons.scss */
+.fa-meanpath:before {
+  content: "";
+}
+
+/* line 21, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 25, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+body {
+  font-family: ‘Lato’, sans-serif;
+  background-image: url(/assets/asanoha-f69be06d7d324b3be7a4d2f87840b306ee0c232668b0b62b17ebdfe2e017a48c.png);
+}
+
+/* line 30, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.wrapper_wide {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* line 35, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* line 40, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.wrapper_skinny {
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* line 45, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.form_wrapper_skinny {
+  width: 60%;
+  margin: 1rem auto;
+  background: #b9b9b9;
+  border-radius: .5rem;
+  box-shadow: 5px 5px 3px #999;
+}
+
+/* line 53, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.responsive_break {
+  white-space: nowrap;
+}
+
+/* line 57, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+/* line 63, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.cf:after {
+  clear: both;
+}
+
+/* line 67, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.button {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: .7rem 2rem;
+  outline: none;
+  border: none;
+}
+
+/* line 76, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.button_block {
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 81, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.button_highlight {
+  background: #DC2020;
+  transition: background .4s ease-in-out;
+}
+/* line 84, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.button_highlight:hover {
+  background: #bb1b1b;
+}
+
+/* line 89, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.button_white {
+  background: #FFFFFF;
+  color: #2C3135;
+  transition: background .4s ease-in-out;
+}
+/* line 93, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.button_white:hover {
+  background: #ececec;
+}
+
+/* line 98, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#main_header {
+  color: #2C3135;
+  background: #FFFFFF;
+  padding: 2.5rem 0;
+}
+/* line 102, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#main_header #logo {
+  float: left;
+  text-decoration: none;
+}
+/* line 106, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#main_header nav {
+  float: right;
+}
+/* line 108, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#main_header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 111, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#main_header nav ul li {
+  display: inline;
+  margin-left: 2rem;
+  position: relative;
+}
+/* line 115, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#main_header nav ul li a {
+  color: #2C3135;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+/* line 120, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#main_header nav ul li a:hover {
+  color: #DC2020;
+}
+
+/* line 129, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+/* line 133, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#banner h1 {
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+
+/* line 144, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.albums_banner {
+  background-image: url(/assets/albums_banner-167c1de71a086ca4b15ee5f31a2ab65845c05aeb49038f1cfea3bf301df95956.jpg);
+  margin-bottom: 4rem;
+}
+/* line 147, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.albums_banner header {
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+/* line 150, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.albums_banner header #logo {
+  float: left;
+  text-decoration: none;
+}
+/* line 154, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.albums_banner header nav {
+  float: right;
+}
+/* line 156, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.albums_banner header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 159, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.albums_banner header nav ul li {
+  display: inline;
+  margin-left: 2.5rem;
+  position: relative;
+}
+/* line 163, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.albums_banner header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* line 173, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.track_banner {
+  background-image: url(/assets/albums_banner-167c1de71a086ca4b15ee5f31a2ab65845c05aeb49038f1cfea3bf301df95956.jpg);
+}
+/* line 175, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.track_banner header {
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+/* line 178, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.track_banner header #logo {
+  float: left;
+  text-decoration: none;
+}
+/* line 182, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.track_banner header nav {
+  float: right;
+}
+/* line 184, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.track_banner header nav ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 187, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.track_banner header nav ul li {
+  display: inline;
+  margin-left: 2.5rem;
+  position: relative;
+}
+/* line 191, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.track_banner header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* line 201, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.sign_up_banner {
+  background-image: url(/images/sign_up_banner.jpg);
+}
+
+/* line 205, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.sign_in_banner {
+  background-image: url(/assets/sign_in_banner-dc00588e520ef19c097268a45ee51730d69ac14bc6cd8ceae5ace3a277a5d7da.jpg);
+}
+
+/* line 209, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination:before,
+.pagination:after {
+  content: “ “;
+  display: table;
+}
+
+/* line 215, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination:after {
+  clear: both;
+}
+
+/* line 219, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination {
+  text-align: center;
+  margin: 2rem 0;
+}
+/* line 222, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination a, .pagination .previous_page, .pagination .current, .pagination .next_page {
+  padding: 0.75rem 1rem;
+  margin: 0 .25rem;
+  border-radius: .15rem;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: #EDEFF5;
+  font-weight: 700;
+  font-size: .7rem;
+  font-style: normal;
+  color: #2C3135;
+}
+/* line 233, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination a:hover, .pagination .previous_page:hover, .pagination .current:hover, .pagination .next_page:hover {
+  background: #DC2020;
+  color: #FFFFFF;
+}
+/* line 238, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination .disabled {
+  color: #C0C0C0;
+}
+/* line 240, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination .disabled:hover {
+  color: #C0C0C0;
+}
+/* line 244, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.pagination .current {
+  background: #DC2020;
+  color: #FFFFFF;
+}
+
+/* line 250, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#form {
+  padding: 1rem 2rem;
+  background: #d9d9d9;
+}
+/* line 253, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#form .title {
+  color: #777777;
+  float: left;
+}
+/* line 257, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#form a {
+  text-decoration: none;
+  color: #ffffff;
+  float: right;
+}
+/* line 261, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+#form a:hover {
+  color: #DC2020;
+}
+
+/* line 267, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.field {
+  margin: .5rem 0 1rem 0;
+}
+
+/* line 271, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+input[type="email"], input[type="text"], input[type="password"], textarea, select {
+  width: 100%;
+  height: 2.5rem;
+  padding: .5rem 1rem;
+  background: #f2f4d5;
+  border: 1px solid #ecefc1;
+  margin-top: .5rem;
+}
+
+/* line 280, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+input[type=”file”] {
+  margin-top: .5rem;
+}
+
+/* line 284, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+textarea {
+  height: 8rem;
+}
+
+/* line 288, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.img-circle {
+  border-radius: 50%;
+}
+
+/* line 292, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.alert {
+  padding: 20px;
+  background-color: #e74337;
+  /* Red */
+  color: white;
+  margin: 10px auto;
+  width: 60%;
+}
+
+/* line 300, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.notice {
+  padding: 20px;
+  background-color: #00b8ac;
+  /* Red */
+  color: white;
+  margin: 10px auto;
+  width: 60%;
+}
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+/* line 312, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.StripeElement {
+  background-color: white;
+  height: 40px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+/* line 323, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+/* line 327, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+/* line 331, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/application.css.scss */
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+/*
+Trix 0.11.1
+Copyright © 2017 Basecamp, LLC
+http://trix-editor.org/*/
+
+trix-editor {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0.4em 0.6em;
+  min-height: 5em;
+  outline: none; }
+trix-toolbar * {
+  box-sizing: border-box; }
+trix-toolbar .trix-button-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between; }
+trix-toolbar .trix-button-group {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #bbb;
+  border-top-color: #ccc;
+  border-bottom-color: #888;
+  border-radius: 3px; }
+trix-toolbar .trix-button {
+  position: relative;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+  background: transparent; }
+  trix-toolbar .trix-button:not(:first-child) {
+    border-left: 1px solid #ccc; }
+  trix-toolbar .trix-button.trix-active {
+    background: #cbeefa;
+    color: black; }
+  trix-toolbar .trix-button:not(:disabled) {
+    cursor: pointer; }
+  trix-toolbar .trix-button:disabled {
+    color: rgba(0, 0, 0, 0.125); }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button {
+      letter-spacing: -0.01em;
+      padding: 0 0.3em; } }
+trix-toolbar .trix-button--icon {
+  font-size: inherit;
+  width: 2.6em;
+  height: 1.6em;
+  max-width: calc(0.8em + 4vw);
+  text-indent: -9999px; }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button--icon {
+      height: 2em;
+      max-width: calc(0.8em + 3.5vw); } }
+  trix-toolbar .trix-button--icon::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+    content: "";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; }
+    @media (max-device-width: 768px) {
+      trix-toolbar .trix-button--icon::before {
+        right: 6%;
+        left: 6%; } }
+  trix-toolbar .trix-button--icon.trix-active::before {
+    opacity: 1; }
+  trix-toolbar .trix-button--icon:disabled::before {
+    opacity: 0.125; }
+trix-toolbar .trix-button--icon-bold::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M15.6%2011.8c1-.7%201.6-1.8%201.6-2.8a4%204%200%200%200-4-4H7v14h7c2.1%200%203.7-1.7%203.7-3.8%200-1.5-.8-2.8-2.1-3.4zM10%207.5h3a1.5%201.5%200%201%201%200%203h-3v-3zm3.5%209H10v-3h3.5a1.5%201.5%200%201%201%200%203z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-italic::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M10%205v3h2.2l-3.4%208H6v3h8v-3h-2.2l3.4-8H18V5h-8z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-link::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M9.88%2013.7a4.3%204.3%200%200%201%200-6.07l3.37-3.37a4.26%204.26%200%200%201%206.07%200%204.3%204.3%200%200%201%200%206.06l-1.96%201.72a.91.91%200%201%201-1.3-1.3l1.97-1.71a2.46%202.46%200%200%200-3.48-3.48l-3.38%203.37a2.46%202.46%200%200%200%200%203.48.91.91%200%201%201-1.3%201.3z%22%2F%3E%3Cpath%20d%3D%22M4.25%2019.46a4.3%204.3%200%200%201%200-6.07l1.93-1.9a.91.91%200%201%201%201.3%201.3l-1.93%201.9a2.46%202.46%200%200%200%203.48%203.48l3.37-3.38c.96-.96.96-2.52%200-3.48a.91.91%200%201%201%201.3-1.3%204.3%204.3%200%200%201%200%206.07l-3.38%203.38a4.26%204.26%200%200%201-6.07%200z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-strike::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.73%2014l.28.14c.26.15.45.3.57.44.12.14.18.3.18.5%200%20.3-.15.56-.44.75-.3.2-.76.3-1.39.3A13.52%2013.52%200%200%201%207%2014.95v3.37a10.64%2010.64%200%200%200%204.84.88c1.26%200%202.35-.19%203.28-.56.93-.37%201.64-.9%202.14-1.57s.74-1.45.74-2.32c0-.26-.02-.51-.06-.75h-5.21zm-5.5-4c-.08-.34-.12-.7-.12-1.1%200-1.29.52-2.3%201.58-3.02%201.05-.72%202.5-1.08%204.34-1.08%201.62%200%203.28.34%204.97%201l-1.3%202.93c-1.47-.6-2.73-.9-3.8-.9-.55%200-.96.08-1.2.26-.26.17-.38.38-.38.64%200%20.27.16.52.48.74.17.12.53.3%201.05.53H7.23zM3%2013h18v-2H3v2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-quote::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M6%2017h3l2-4V7H5v6h3zm8%200h3l2-4V7h-6v6h3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-heading-1::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12%209v3H9v7H6v-7H3V9h9zM8%204h14v3h-6v12h-3V7H8V4z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-code::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.2%2012L15%2015.2l1.4%201.4L21%2012l-4.6-4.6L15%208.8l3.2%203.2zM5.8%2012L9%208.8%207.6%207.4%203%2012l4.6%204.6L9%2015.2%205.8%2012z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-bullet-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%204a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm4%203h14v-2H8v2zm0-6h14v-2H8v2zm0-8v2h14V5H8z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-number-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M2%2017h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1%203h1.8L2%2013.1v.9h3v-1H3.2L5%2010.9V10H2v1zm5-6v2h14V5H7zm0%2014h14v-2H7v2zm0-6h14v-2H7v2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-undo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.5%208c-2.6%200-5%201-6.9%202.6L2%207v9h9l-3.6-3.6A8%208%200%200%201%2020%2016l2.4-.8a10.5%2010.5%200%200%200-10-7.2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-redo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.4%2010.6a10.5%2010.5%200%200%200-16.9%204.6L4%2016a8%208%200%200%201%2012.7-3.6L13%2016h9V7l-3.6%203.6z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-decrease-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-8.3-.3l2.8%202.9L6%2014.2%204%2012l2-2-1.4-1.5L1%2012l.7.7zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-increase-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-6.9-1L1%2014.2l1.4%201.4L6%2012l-.7-.7-2.8-2.8L1%209.9%203.1%2012zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-dialogs {
+  position: relative; }
+trix-toolbar .trix-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 15px 10px;
+  background: #fff;
+  box-shadow: 0 0.3em 1em #ccc;
+  border-top: 2px solid #888;
+  border-radius: 5px;
+  z-index: 5; }
+trix-toolbar .trix-input--dialog {
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0.5em 0.8em;
+  margin: 0 10px 0 0;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+  trix-toolbar .trix-input--dialog.validate:invalid {
+    box-shadow: #F00 0px 0px 1.5px 1px; }
+trix-toolbar .trix-button--dialog {
+  font-size: inherit;
+  padding: 0.5em;
+  border-bottom: none; }
+trix-toolbar .trix-dialog--link {
+  max-width: 600px; }
+trix-toolbar .trix-dialog__link-fields {
+  display: flex;
+  align-items: baseline; }
+  trix-toolbar .trix-dialog__link-fields .trix-input {
+    flex: 1; }
+  trix-toolbar .trix-dialog__link-fields .trix-button-group {
+    flex: 0 0 content;
+    margin: 0; }
+trix-editor [data-trix-mutable=true] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  trix-editor [data-trix-mutable=true] img {
+    box-shadow: 0 0 0 2px highlight; }
+  trix-editor [data-trix-mutable=true].attachment.attachment--file {
+    box-shadow: 0 0 0 2px highlight;
+    border-color: transparent; }
+trix-editor [data-trix-mutable=true]::-moz-selection,
+trix-editor [data-trix-cursor-target]::-moz-selection {
+  background: none; }
+trix-editor [data-trix-mutable=true]::selection,
+trix-editor [data-trix-cursor-target]::selection {
+  background: none; }
+trix-editor .attachment:hover {
+  cursor: default; }
+trix-editor .attachment--preview .attachment__caption:hover {
+  cursor: text; }
+trix-editor .attachment__progress {
+  position: absolute;
+  z-index: 1;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: 5%;
+  width: 90%;
+  opacity: 0.9;
+  transition: opacity 200ms ease-in; }
+  trix-editor .attachment__progress[value="100"] {
+    opacity: 0; }
+trix-editor .attachment__caption-editor {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+trix-editor .attachment__remove {
+  cursor: pointer; }
+trix-editor .attachment__remove--icon {
+  text-indent: -9999px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  top: -1.1em;
+  left: calc(50% - 0.8em);
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  border-radius: 50%;
+  text-indent: -9999px;
+  background-color: #fff;
+  border: 2px solid highlight;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25); }
+  trix-editor .attachment__remove--icon::before {
+    display: inline-block;
+    position: absolute;
+    top: 0.1em;
+    right: 0.1em;
+    bottom: 0.1em;
+    left: 0.1em;
+    opacity: 0.75;
+    content: "";
+    background-image: url(data:image/svg+xml,%3Csvg%20height%3D%2224%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19%206.4L17.6%205%2012%2010.6%206.4%205%205%206.4l5.6%205.6L5%2017.6%206.4%2019l5.6-5.6%205.6%205.6%201.4-1.4-5.6-5.6z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; }
+  trix-editor .attachment__remove--icon:hover {
+    border-color: #333; }
+    trix-editor .attachment__remove--icon:hover::before {
+      opacity: 1; }
+@charset "UTF-8";
+.trix-content {
+  line-height: 1.5; }
+  .trix-content * {
+    box-sizing: border-box; }
+  .trix-content h1 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin: 0; }
+  .trix-content blockquote {
+    margin: 0 0 0 0.3em;
+    padding: 0 0 0 0.6em;
+    border-left: 0.3em solid #ccc; }
+  .trix-content pre {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-family: monospace;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.5em;
+    white-space: pre;
+    background-color: #eee;
+    overflow-x: auto; }
+  .trix-content ul, .trix-content ol, .trix-content li {
+    margin: 0;
+    padding: 0; }
+    .trix-content ul li, .trix-content ol li, .trix-content li li {
+      margin-left: 1em; }
+  .trix-content img {
+    max-width: 100%;
+    height: auto; }
+  .trix-content a[data-trix-attachment] {
+    color: inherit;
+    text-decoration: none; }
+    .trix-content a[data-trix-attachment]:hover, .trix-content a[data-trix-attachment]:visited:hover {
+      color: inherit; }
+  .trix-content .attachment {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0; }
+  .trix-content .attachment__caption {
+    padding: 0;
+    text-align: center; }
+    .trix-content .attachment__caption .attachment__name + .attachment__size::before {
+      content: ' · '; }
+  .trix-content .attachment--preview {
+    width: 100%;
+    text-align: center; }
+    .trix-content .attachment--preview .attachment__caption {
+      color: #666;
+      font-size: 0.9em;
+      line-height: 1.2; }
+  .trix-content .attachment--file {
+    color: #333;
+    line-height: 1;
+    margin: 0 2px 2px 0;
+    padding: 0.4em 1em;
+    border: 1px solid #bbb;
+    border-radius: 5px; }

@@ -1,4 +1,4 @@
-<div class="tracks">
+<div id="tracks">
 	<ul class="cf">
 		<% @tracks.each do |track| %>
 			<li class="cf">
@@ -10,7 +10,12 @@
 					<% end %>
 				</div>
 				<div class="track_overview">
-					<h4><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h4>
+					<h2>
+						<%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %>
+						<% if track.album_id? %>
+							/ <%= link_to track.album.title, album_path(track.album_id) %>
+						<% end %>
+					</h2>
 					<p class="description"><%= truncate(track.description, length: 160) %></p>
 					<div class="icons_container">
 					  <div id="favorites">

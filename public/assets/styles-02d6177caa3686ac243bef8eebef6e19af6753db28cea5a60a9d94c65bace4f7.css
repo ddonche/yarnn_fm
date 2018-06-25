@@ -1,0 +1,134 @@
+/* line 1, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player {
+  width: 460px;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 50px;
+}
+
+/* line 8, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player img[amplitude-song-info="cover_art_url"] {
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+/* line 13, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container {
+  background-color: #202136;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* line 18, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress.amplitude-song-played-progress:not([value]) {
+  background-color: #313252;
+}
+
+/* line 21, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress.amplitude-song-played-progress {
+  background-color: #313252;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  display: block;
+  cursor: pointer;
+  border: none;
+}
+
+/* line 31, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress[value]::-webkit-progress-bar {
+  background-color: #313252;
+}
+
+/* line 34, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress[value]::-moz-progress-bar {
+  background-color: #00a0ff;
+}
+
+/* line 37, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container progress[value]::-webkit-progress-value {
+  background-color: #00a0ff;
+}
+
+/* line 40, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.time-container {
+  opacity: 0.5;
+  font-family: 'Open Sans';
+  font-weight: 100;
+  font-size: 12px;
+  color: #fff;
+  height: 15px;
+}
+
+/* line 48, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.time-container span.current-time {
+  float: left;
+  margin-left: 5px;
+}
+
+/* line 52, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.time-container span.duration {
+  float: right;
+  margin-right: 5px;
+}
+
+/* line 56, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 60, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.amplitude-play-pause {
+  width: 74px;
+  height: 74px;
+  cursor: pointer;
+  float: left;
+  margin-left: 10px;
+}
+
+/* line 67, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.amplitude-play-pause.amplitude-paused {
+  background: url(/assets/controls/play-cf27d57188013cd2af64ee60470e818226bb3e7ed53ddc99715c8aa35398306f.svg);
+}
+
+/* line 70, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.amplitude-play-pause.amplitude-playing {
+  background: url(/assets/controls/pause-e2222e84f659c5d0bfdef40eb037b9d14c709fbc0d648f5680ddb70d4363569b.svg);
+}
+
+/* line 73, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.meta-container {
+  float: left;
+  width: calc(100% - 84px);
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+}
+
+/* line 80, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.meta-container span[amplitude-song-info="name"] {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+}
+
+/* line 86, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container div.meta-container span[amplitude-song-info="artist"] {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  color: #fff;
+  display: block;
+}
+
+/* line 93, /home/ubuntu/workspace/yarnn_fm/app/assets/stylesheets/styles.css.scss */
+div#single-song-player div.bottom-container div.control-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}

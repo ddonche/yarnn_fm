@@ -206,6 +206,14 @@
       color: #666666;
       font-size: 0.8rem;
       font-style: italic;
+      a {
+        color: #DC2020;
+        font-weight: 700;
+        text-decoration: none;
+        &:hover {
+          color: #00b8ac;
+        }
+      }
     }
     .jp-jplayer,.jp-audio {
       width: 100%;

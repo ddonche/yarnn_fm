@@ -162,6 +162,9 @@ body {
           a {
             color: #FFFFFF;
             text-decoration: none;
+            &:hover {
+              color: #00b8ac;
+            }
           }
         }
       }
@@ -190,6 +193,9 @@ body {
           a {
             color: #FFFFFF;
             text-decoration: none;
+            &:hover {
+              color: #00b8ac;
+            }
           }
         }
       }

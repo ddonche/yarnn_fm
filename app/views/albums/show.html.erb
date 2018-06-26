@@ -1,101 +1,118 @@
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title><%= @album.title %></title>
-       
-    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"><!-- icons -->
-    <%= stylesheet_link_tag    'player/jquery.mCustomScrollbar.css', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag    'player/artwork5.css"', media: 'all', 'data-turbolinks-track' => true %>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><%= @album.title %></title>
+     
+  <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"><!-- icons -->
+  <%= stylesheet_link_tag    'player/jquery.mCustomScrollbar.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'player/artwork5.css"', media: 'all', 'data-turbolinks-track' => true %>
 
-    <%= javascript_include_tag 'player/jquery-3.2.1.min.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'player/jquery.easing.1.3.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'player/jquery-ui.min.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'player/jquery.ui.touch-punch.min.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'player/jquery.mCustomScrollbar.concat.min.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'player/jsmediatags.min.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'player/hls.min.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'player/new.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery-3.2.1.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery.easing.1.3.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery-ui.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery.ui.touch-punch.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery.mCustomScrollbar.concat.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jsmediatags.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/hls.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/new.js', 'data-turbolinks-track': 'reload' %>
     
-<script type="text/javascript">
+  <script type="text/javascript">
 
-            var hap_player;  
-            jQuery(document).ready(function($){
-                
-                var settings = {
-                    instanceName:"artwork5",
-                    sourcePath:"",
-                    activePlaylist:"",
-                    activeItem:0,
-                    volume:0.5,
-                    autoPlay:true,
-                    preload:"auto",
-                    randomPlay:false,
-                    loopingOn:true,
-                    mediaEndAction:"next",
-                    soundCloudAppId:"",
-                    gDriveAppId:"",
-                    usePlaylistScroll:true,
-                    playlistScrollOrientation:"vertical",
-                    playlistScrollTheme:"dark-2",
-                    useKeyboardNavigationForPlayback:true,
-                    facebookAppId:"644413448983338",
-                    useNumbersInPlaylist: true,
-                    sortableTracks: false,
-                    playlistItemContent:"title"
-                };
+      var hap_player;  
+      //jQuery(document).addEventListener("turbolinks:load", function($) {
+      //jQuery(document).ready(function($){
+      jQuery( document ).on('turbolinks:load', function() {
+          
+          var settings = {
+              instanceName:"artwork5",
+              sourcePath:"",
+              activePlaylist:"",
+              activeItem:0,
+              volume:0.5,
+              autoPlay:false,
+              preload:"auto",
+              randomPlay:false,
+              loopingOn:true,
+              mediaEndAction:"next",
+              soundCloudAppId:"",
+              gDriveAppId:"",
+              usePlaylistScroll:true,
+              playlistScrollOrientation:"vertical",
+              playlistScrollTheme:"dark-2",
+              useKeyboardNavigationForPlayback:false,
+              facebookAppId:"644413448983338",
+              useNumbersInPlaylist: true,
+              sortableTracks: false,
+              playlistItemContent:"title"
+          };
 
-                hap_player = $("#hap-wrapper").hap(settings);
+          hap_player = $("#hap-wrapper").hap(settings);
 
-                $('.hap-playlist-toggle').on('click', function(){
+          $('.hap-playlist-toggle').on('click', function(){
 
-                    var playerHolder = $('.hap-player-holder'),
-                        ease = 'easeInOutCubic',
-                        time = 500,
-                        openValue = $("#hap-wrapper").width() - 50;
+              var playerHolder = $('.hap-player-holder'),
+                  ease = 'easeInOutCubic',
+                  time = 500,
+                  openValue = $("#hap-wrapper").width() - 50;
 
-                    if(!hap_player.playlistOpened){
-                        playerHolder.stop().animate({'left': openValue+'px'},{duration: time, easing: ease, complete:function(){
-                                playerHolder.addClass('hap-player-holder-opened');
-                            }
-                        });
-                    }else{
-                        playerHolder.css('left', playerHolder.css('left')).removeClass('hap-player-holder-opened').stop().animate({'left': 0+'px'},{duration: time, easing: ease});
-                    }   
-                    hap_player.playlistOpened = !hap_player.playlistOpened;
+              if(!hap_player.playlistOpened){
+                  playerHolder.stop().animate({'left': openValue+'px'},{duration: time, easing: ease, complete:function(){
+                          playerHolder.addClass('hap-player-holder-opened');
+                      }
+                  });
+              }else{
+                  playerHolder.css('left', playerHolder.css('left')).removeClass('hap-player-holder-opened').stop().animate({'left': 0+'px'},{duration: time, easing: ease});
+              }   
+              hap_player.playlistOpened = !hap_player.playlistOpened;
 
-                })
+          })
 
-            });
+      });
 
-        </script>
+  </script>
+</head>
 
-        
-	</head>
-
-
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
-
-	<div id="breadcrumb">
-		<%= link_to @album.user.username, user_path(@album.user) %>
-			<span>/</span>
-		<%= @album.user.name %>
-			<span>/</span>
-		<%= @album.title %>
-	</div>
+<body>
+  <div id="album_show">
+  	<div id="banner" class="track_banner">
+  		<%= render 'layouts/header' %>
+  	</div>
+  
+  	<div id="breadcrumb">
+  		<%= link_to @album.user.username, user_path(@album.user) %>
+  			<span>/</span>
+  		<%= @album.user.name %>
+  			<span>/</span>
+  		<%= @album.title %>
+  	</div>
 	
-	<div class="wrapper_skinny">
-	  <div id="album-image">
-      <%= image_tag @album.image.url(:thumb) %>
-    </div>
-    	<%= @album.description %>
-  </div>
+  	<div class="wrapper_skinny_left">
+      <div class="main_avatar">
+      
+    	  <div id="album-image">
+          <%= image_tag @album.image.url(:thumb) %>
+        </div>
 
-	<div id="tracks">
-		<div class="wrapper_skinny">
+        <div class="side-box">
+          <div class="side-content">
+						<div class="album_overview">
+							<p class="track_count"><h2><%= @album.title %></h2></p> 
+							<p class="track_count"><%= link_to @album.user.username, user_path(@album.user) %> / <%= @album.user.name %></p>
+							<p class="track_count"><%= pluralize( @album.tracks.count, 'Track' ) %><% if @album.year? %> | <%= @album.year %><% end %></p> 
+						</div>
+          </div>
+        </div>
+        <div class="side-box">
+          <div class="side-content">
+            <%= @album.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  	<div id="tracks">
+  		<div class="wrapper_wide_right">
 		  
-<div id="hap-wrapper">
+        <div id="hap-wrapper">
 
             <div class="hap-player-outer">
 
@@ -173,13 +190,43 @@
                       
                 </div>
 
-                </div> 
+            </div> 
 
-                <div class="hap-tooltip"><p></p></div>  
+          <div class="hap-tooltip"><p></p></div>  
 
-            </div>    
+        </div>    
+      </div>
+      
+      <div class="wrapper_wide_right" style="margin-top: 2rem">
+      <div id="tracks">
+			<ul class="cf">
+				<% @tracks.each do |track| %>
+					<li class="cf">
+						<div class="track_thumbnail">
+							<% if track.image? %>
+								<%= link_to image_tag(track.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
+							<% else %>
+								<%= link_to image_tag(track.user.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
+							<% end %>
+						</div>
+						<div class="track_overview">
+							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
+							<p class="description"><%= truncate(track.description, length: 160) %></p>
+							<p class="description"><i>Voiced by:</i> <%= track.vocals %></p>
+							<div class="icons_container">
+							  <div id="favorites">
+							    <%= render 'albums/favorites', :track => track %>
+							  </div>
+						  </div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
 
-		  
+			<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
+      </div>
+      </div>
+      
     </div>
   </div>
-</div>
+</body>

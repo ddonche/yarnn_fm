@@ -48,10 +48,23 @@
 
 .side-content {
   margin: 15px;
-  font-size: .75em;
+  font-size: .75rem;
+  line-height: 1.25rem;
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
   li {
     list-style-type: none;
     padding: 3px;
+  }
+  a {
+    color: #DC2020;
+    font-weight: 700;
+    text-decoration: none;
+    &:hover {
+      color: #00b8ac;
+    }
   }
 }
 

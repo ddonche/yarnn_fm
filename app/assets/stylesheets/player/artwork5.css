@@ -7,22 +7,10 @@
 a{ 
 	text-decoration: none; 
 }
-body {
-	background: #ccc;
-	-webkit-font-smoothing: subpixel-antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-	background: url("../data/pattern/art.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
 
 body, html{
 	/*height: 100%;*/
 }
-
 
 #hap-wrapper{
 	position: relative;
@@ -33,7 +21,7 @@ body, html{
     height: 100%;
     width:100%;
 
-    margin: 100px auto;
+  	margin: 0 auto;
 	max-width:800px;
 	height: 240px;
 }
@@ -131,7 +119,7 @@ body, html{
     transition: color 0.3s ease-in-out; 
 }
 .hap-icon-rollover-color{
-	color:#3FBAF3 !important;
+	color:#DC2020 !important;
 	-webkit-transition: color 0.3s ease-in-out;
     transition: color 0.3s ease-in-out; 
 }
@@ -177,7 +165,7 @@ body, html{
 }
 .hap-progress-level{
 	position:absolute;
-	background:#3FBAF3;
+	background:#DC2020;
 	top:0px;
 	height:5px;
 	width:0;
@@ -308,7 +296,7 @@ body, html{
 	left:10px;
 	width:0px;
 	height:4px;
-	background:#3FBAF3;
+	background:#DC2020;
 	-webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; 
 }
@@ -318,7 +306,7 @@ body, html{
     width: 21px;
     height: 21px;
 	border-radius: 100%;
-	background:#3FBAF3;
+	background:#DC2020;
 	-webkit-transform: scale( 0.5 );
     transform: scale( 0.5 );
 	-webkit-box-sizing: border-box; 
@@ -388,7 +376,7 @@ body, html{
 	border-bottom:none;
 }
 .hap-playlist-selected {
-	color:#3FBAF3;
+	color:#DC2020;
 	text-decoration: none; 
 }
 .hap-playlist-non-selected {
@@ -405,7 +393,7 @@ body, html{
 	color:inherit;
 }
 .hap-download:hover, .hap-link:hover{
-	color:#3FBAF3!important;
+	color:#DC2020!important;
 }
 .hap-playlist-title-num{
 	margin-left: 5px;
@@ -421,7 +409,7 @@ body, html{
 
 .hap-tooltip{
 	position:absolute;
-	background:#3FBAF3;
+	background:#DC2020;
 	color:#fff!important;
 	text-align:center;
 	z-index:10000;
@@ -450,7 +438,7 @@ body, html{
     height: 40px;
     margin-left:-20px;
 	margin-top:-20px;
-    background-color: #3FBAF3;
+    background-color: #DC2020;
     -webkit-animation: hap_preloader 1.2s infinite ease-in-out;
     animation: hap_preloader 1.2s infinite ease-in-out;
 }

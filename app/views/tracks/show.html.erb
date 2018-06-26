@@ -1,48 +1,29 @@
+<head>
+  <%= stylesheet_link_tag    'player/foundation.min.css', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet">
+  <%= javascript_include_tag 'player/amplitude', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/foundation.min.js', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <head>
-    <title><%= @track.title %></title>
-
-    <!-- Include Resource Stylesheets -->
-		<link rel="stylesheet" type="text/css" href="../resources/css/foundation.min.css"/>
-
-    <!-- Include font -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet">
-
-		<!-- Include Amplitude JS -->
-		<%= javascript_include_tag 'amplitude', 'data-turbolinks-track': 'reload' %>
-
-
-		<!--
-			Include UX functions JS
-			NOTE: These are for handling things outside of the scope of AmplitudeJS
-		-->
-		<script type="text/javascript" src="js/functions.js"></script>
-
-		<!-- Include Style Sheet -->
-		<%= stylesheet_link_tag    'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  <%= render 'shared/alert' %>
-	<div id="breadcrumb">
-	  <%= link_to @track.user.username, user_path(@track.user) %>
-	    <span>/</span>
-	  <%= @track.user.name %>
-			<span>/</span>
-		<% if @track.album_id? %>
-			<%= link_to @track.album.title, album_path(@track.album_id) %>
-			  <span>/</span>
-		<% end %>
-			<%= @track.title %>
-	</div>
-  <div class="wrapper_skinny">
-    <%= render 'buy_links' %><br />
-  </div>
-  <div class="wrapper_skinny">
-    <div class="row">
+  <div id="album_show">
+  	<div id="banner" class="track_banner">
+  	  <%= render 'layouts/header' %>
+  	</div>
+    <%= render 'shared/alert' %>
+  	<div id="breadcrumb">
+  	  <%= link_to @track.user.username, user_path(@track.user) %>
+  	    <span>/</span>
+  	  <%= @track.user.name %>
+  			<span>/</span>
+  		<% if @track.album_id? %>
+  			<%= link_to @track.album.title, album_path(@track.album_id) %>
+  			  <span>/</span>
+  		<% end %>
+  			<%= @track.title %>
+  	</div>
+    <div class="wrapper_skinny">
+      
+<div class="row">
       <div class="large-12 medium-12 small-12 columns">
         <div id="single-song-player">
           <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
@@ -81,8 +62,8 @@
         "songs": [
           {
             "name": "<%= @track.title %><% if @track.explicit == "explicit" %>&nbsp;(explicit)<% end %>",
-            "artist": "<%= @track.user.name %>",
-            "album": "We Are to Answer",
+            "artist": "<%= @track.user.username %> / <%= @track.user.name %>",
+            "album": "<% if @track.album_id? %><%= @track.album.title %><% end %>",
             "url": "<%= @track.audio.url %>",
             "cover_art_url": "<%= @track.image.url %>"
           }

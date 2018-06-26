@@ -163,7 +163,7 @@
 				<% @tracks.each do |track| %>
 					<li class="cf">
 						<div class="track_thumbnail">
-							<% if track.image? %>
+							<% if track.image.url? %>
 								<%= link_to image_tag(track.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
 							<% else %>
 								<%= link_to image_tag(track.user.image.url(:thumb)), track_path(track), width: 100, title: track.title %>

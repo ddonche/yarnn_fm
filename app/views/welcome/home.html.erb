@@ -19,7 +19,7 @@
 								<%= link_to image_tag(item.user.image.url(:thumb)), track_path(item), width: 100, title: item.title %>
 							<% end %>
 							<div class="icons" style="text-align:center">
-								@<%= link_to item.user.username, user_path(item.user) %> / <%= item.user.name %>
+								<%= link_to item.user.username, user_path(item.user) %> / <%= item.user.name %>
 							</div>
 						</div>
 						<div class="track_overview">

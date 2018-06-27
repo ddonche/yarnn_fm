@@ -1,10 +1,3 @@
-<head>
-  <%= stylesheet_link_tag    'player/foundation.min.css', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet">
-  <%= javascript_include_tag 'player/amplitude', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/foundation.min.js', 'data-turbolinks-track': 'reload' %>
-</head>
-
   <div id="album_show">
   	<div id="banner" class="track_banner">
   	  <%= render 'layouts/header' %>
@@ -21,63 +14,58 @@
   		<% end %>
   			<%= @track.title %>
   	</div>
-    <div class="wrapper_skinny">
+  	
+  	<div class="wrapper_skinny_left">
+      <div class="main_avatar">
       
-<div class="row">
-      <div class="large-12 medium-12 small-12 columns">
-        <div id="single-song-player">
-          <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
-          <div class="bottom-container">
-            <progress class="amplitude-song-played-progress" amplitude-main-song-played-progress="true" id="song-played-progress"></progress>
+    	  <div id="album-image">
+          <%= image_tag @track.image.url, width: 300 %>
+        </div>
 
-            <div class="time-container">
-              <span class="current-time">
-                <span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
-              </span>
-              <span class="duration">
-                <span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
-              </span>
-            </div>
-
-            <div class="control-container">
-              <div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
-              <div class="meta-container">
-                <span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span>
-                <span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
-              </div>
-            </div>
+        <div class="side-box">
+          <div class="side-content">
+						<div class="album_overview">
+							<p class="track_count"><h2><%= @track.title %><% if @track.explicit == "explicit" %> (explicit)<% end %>
+							<% if @track.user == current_user %>
+							  <%= link_to edit_track_path(@track) do %>
+								  <%= image_tag'icons/gear.svg', width: 12 %>
+							  <% end %>
+							<% end %></h2></p>
+							<p class="track_count"><%= link_to @track.user.username, user_path(@track.user) %> / <%= @track.user.name %></p>
+							<p class="track_count"><% if @track.album_id? %>
+									<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
+								<% end %></p>
+							<p class="track_count"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
+						</div>
+          </div>
+        </div>
+        <div class="side-box">
+          <div class="side-content">
+            <%= @track.description %>
+          </div>
+        </div>
+        <div class="side-box">
+          <div class="side-content">
+            <p class="track_count"><b><i>Genres:</i></b> <% @track.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
           </div>
         </div>
       </div>
     </div>
+  	
+    <div id="tracks">
+  		<div class="wrapper_wide_right" style="margin-top: 0">
+  		    <div class="side-box">
+  		      <div class="side-content">
+  		        <div class="icons">
+                <%= image_tag('icons/comments.svg', width: 20) %>&nbsp;51 comments
+              </div>
+  		      </div>
+  		    </div>
+    		  <div class="side-box">
+            <div class="side-content">
+              <%= audio_tag @track.audio.url, controls: true %>
+            </div>
+          </div>
+  		</div>
+  	</div>
   </div>
-</div>
-    <script type="text/javascript">
-      Amplitude.init({
-        "bindings": {
-          37: 'prev',
-          39: 'next',
-          32: 'play_pause'
-        },
-        "songs": [
-          {
-            "name": "<%= @track.title %><% if @track.explicit == "explicit" %>&nbsp;(explicit)<% end %>",
-            "artist": "<%= @track.user.username %> / <%= @track.user.name %>",
-            "album": "<% if @track.album_id? %><%= @track.album.title %><% end %>",
-            "url": "<%= @track.audio.url %>",
-            "cover_art_url": "<%= @track.image.url %>"
-          }
-        ]
-      });
-      window.onkeydown = function(e) {
-          return !(e.keyCode == 32);
-      };
-      /*
-        Handles a click on the song played progress bar.
-      */
-      document.getElementById('song-played-progress').addEventListener('click', function( e ){
-        var offset = this.getBoundingClientRect();
-        var x = e.pageX - offset.left;
-        Amplitude.setSongPlayedPercentage( ( parseFloat( x ) / parseFloat( this.offsetWidth) ) * 100 );
-      });
-    </script>

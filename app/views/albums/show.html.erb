@@ -95,7 +95,12 @@
         <div class="side-box">
           <div class="side-content">
 						<div class="album_overview">
-							<p class="track_count"><h2><%= @album.title %></h2></p> 
+							<p class="track_count"><h2><%= @album.title %>
+							<% if @album.user == current_user %>
+							  <%= link_to edit_album_path(@album) do %>
+								  <%= image_tag'icons/gear.svg', width: 12 %>
+							  <% end %>
+							<% end %></h2></p>
 							<p class="track_count"><%= link_to @album.user.username, user_path(@album.user) %> / <%= @album.user.name %></p>
 							<p class="track_count"><%= pluralize( @album.tracks.count, 'Track' ) %><% if @album.year? %> | <%= @album.year %><% end %></p> 
 						</div>

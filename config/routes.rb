@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   end
 
   get 'genre/:tag', to: 'tags#show', as: :tag
+  get 'generators', to: 'generators#show'
+  put 'ipsum', to: 'generators#ipsum'
+  get 'ipsum', to: 'generators#ipsum'
 end

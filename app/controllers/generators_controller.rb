@@ -71,110 +71,158 @@ class GeneratorsController < ApplicationController
       "Z-28"]
 
     capital_words2 = [
-      "Castle", "Cleric", "Cloak", "Dragon", "Dwarf", "Elf", "Halfling", "King", "Knight", "Magic", "Paladin", 
-      "Queen", "Spell", "Sword", "Wizard"
+      "Adventure", "Alchemist", "Castle", "Cleric", "Cloak", "Dragon", 
+      "Duke", "Dwarf", "Elf", "Enchantress", "Guild", "Halfling", 
+      "Jester", "King", "Knight", 
+      "Lord", "Lore", "Mage", "Magic", "Mythical", "Paladin", 
+      "Queen", "Rune", "Scepter", "Sorcery", "Spell", "Sword", "Void", "Wizard", "Wraith"
       ]
       
     words2 = [
-      "accursed", "alchemist", "ale", "ambassador", "amulet", "angel", "arcane", "aristocracy", "armor", "arrow", "artifact", 
-      "assassin", "aura", "axe", "baker", "bandage", "bandit", 
-      "bard", "baron", "baroness", "barrow", 
-      "battle", "battlefield", "beast", 
-      "beefeater", "berkserker", "bishop", "blessing", "bloodletter", "bone setter",
-      "boots", "bow", "brawler", "breastplate", "brew", "bronze", "camp", "cannibals", "captive", "cardinal", "cart", 
-      "catacombs", "cauldron", "causeway", "celestial",
-      "chain mail", "chamber pot", "charm", "chickens", "chisel", "chivalry", "compass", "conjurer", 
-      "consecration", "copper", "corridore", "cottage", "count", "countess", "coven", "crest",
-      "crone", "crossbow", "crystal", "curse", "cyclops", "dagger", 
-      "damsel", "deity", "demigod", "demon", "desecration", "devil", "diplomacy", "diplomat", "divine", "diviner", "druid", 
+      "acolyte", "accursed", "acrobat", "Admiral", "aegis", "aeronaut", "aether", "ale", "alloy", "altar", "ambassador", "amulet", 
+      "ancestral", "angel", "ankh", "anvil", "apocalypse", "arcane", 
+      "archangel", "archive", "aristocracy", "armaments", "armor", "arrow", "artesan", "artifact", "artifice",
+      "assassin", "astral", "augur", "aura", "automaton", "avatar", "axe", "baker", "bandage", "bandit", "banner",
+      "barbarian", "bard", "baron", "baroness", "barricade", "barrow", "battering ram", 
+      "battle", "battlefield", "battlements", "bazaar", "beast", 
+      "beefeater", "beer", "beguile", "behemoth", "berkserker", "bishop", "blacksmith", "blasphemy", "blessing", "bloodletter", 
+      "blood sausage", "bone setter", "book",
+      "boots", "bounty hunter", "bow", "brawler", "breastplate", "brew", "brigand", "bronze", "brood", "brothel", "buckler", 
+      "caltrips", "camp", "campfire", "candle", 
+      "cannibals", "cape",
+      "Captain", "captive", 
+      "cardinal", "cards", "cart", "cataclysm",
+      "catacombs", "catapult", "cattle", "cauldron", "causeway", "cavalier", "celestial", "ceremony",
+      "chain mail", "chamber pot", "champion", "channeler", "chaos", "charm", "chickens", "chieftain", 
+      "chimera", "chisel", "chivalry", "clan", 
+      "Chosen One", "clairvoyant",
+      "club", "cog", "Colonel", "compass", "conjurer", 
+      "consecration", "constable", "contraption", "copper", "corridore", "corsair", "cot", "cottage", "count", "countess", 
+      "court", "courtesan", "courtier", 
+      "coven", "cowl", "creature", "crest",
+      "crone", "crossbow", "crown", "crucible", "crusade", "crystal", "curse", "cutthroat", "cyclops", "daemon", "dagger", 
+      "damsel", "dancer", "deity", "demigod", "demon", "den", "desecration", "devil", "dice", "diplomacy", "diplomat", "disguise", 
+      "divine", "diviner", "dowager", "dowery",
+      "dragoon", "drawbridge", "dreadnought", "druid", 
       "drummer", "dryad",
-      "duchess", "duel", "duke", "dungeon", "eggs", "elemental", "enchantment", "envoy", "espionage", "evocation", "executioner", 
+      "duchess", "duel", "dungeon", "eggs", "elemental", "empath", "Emperor", "Empress", "enchantment", 
+      "engineer", "entrails", 
+      "envoy", "escort", "espionage", "ethereal", "evil", 
+      "evocation", "exalted", "executioner", 
       "exorcism", "faery", "falconer", 
-      "familiar", "feather", "fey", "figher", "fire", "flag", 
-      "flail", "fletcher", "fortifications", "fortress", "fortune teller",
-      "friar", "gambler", "gargoyle", "gateway", "gauntlet", "gear", "ghost", "ghoul", "giant", "glaive", "glory", "glyph", 
-      "gnome", 
+      "familiar", "feather", "fencing", "festival", "fey", "fighter", "fire", "fisherman", "fishmonger", "fishwife", "flag", 
+      "flail", "fleet", "fletcher", "flint", "flog", "flute", "forge", "fortifications", "fortress", "fortune teller", "foundry",
+      "friar", "gaelor", "galleon", "gambler", "gargoyle", "gates", "gateway", "gauntlet", "gear", "General", "ghost", "ghoul", "giant", "glaive", "glass", "glory", "glyph", 
+      "gnome", "goat's milk",
       "goblet", "goblin", "gods", "goddess",
-      "golom", "grail", "gravedigger", "grave robber", "griffon", "guard", "guild",
-      "hag", "hamlet", "hangman", "harp", "hatchling", 
-      "healer", "helm", "herald", "hermit", "hero", 
+      "golom", "gorgon", "grail", "gravedigger", "grave robber", "grieves", "griffon", "guard", "guest",
+      "hag", "halberd", "hamlet", "hammer", "hangman", "harbinger", "harp", "harvester", "hatchling", 
+      "healer", "heir", "helm", "herald", "herbalist", "heresy", "hermit", "hero", "heroic", "hexer",
       "highwayman", "hogs", "honor", "horn", "horse", "hound", "hourglass", "hubris",
-      "huntsman", "illusionist", "imp", "ink", "inn", "inquisitor", "invisibility", "iron", "joust", "knife", "lair", "lance", 
-      "leather", "legend", "levitate", "lich", "linament", "longbow", "loot", "lute", "lyre", "mace", "mage", "magus",
-      "maiden", "mainsail", "marksman", "martyr", "mead", "medicine", "merchant", "merrymaking", "milkmaid", "minotaur", 
-      "minstrel", "monarch", "monk",
-      "necromancer", "nightmare", "noble", "nomad", "noose", "nun", "nunnery", "nymph", "oarsman", "occultist", "ointment", 
+      "huntsman", "hut", "illusionist", "imp", "ink", "inn", "inquisitor", "invisibility", "iron", "joust",
+      "key", "knife", "lady", 
+      "lair", "lamp", "lance", 
+      "leather", "legend", "levitate", "Lieutenant", "lich", "linament", "lodestar", "longbow", "loot", "lumberjack", 
+      "lurker", "lute", "lyre", 
+      "mace", "magician", "magistrate", "magus",
+      "maiden", "mainsail", "map", "marionette", "market", "marksman", "martyr", "mask", "mausoleum", "mead", "medic", 
+      "medicine", "mercenary", "merchant", 
+      "merrymaking", "milkmaid", "mime", "minotaur", 
+      "minstrel", "mirror", "mirth", "mist", "moat", "monarch", "monk", "mysterious", 
+      "necromancer", "nephilim", "nightmare", "noble", "nock", "nomad", "noose", "nun", "nunnery", "nymph", 
+      "oarsman", "obsidian", "occultist", 
+      "ogre", "ointment", 
       "oracle", "orc", "parapet", 
-      "peasant", "petticoat", "phantom", "pirate", "plague", "plate mail",
-      "poison", "priest", "priestess", "prince", "princess", "prophesy", 
-      "protection", "puppeteer", "pyre", "quill", "rapier", "ranger", "raven", "resurrection", "ring", "rite", "robber", "robes", "roc", 
-      "rogue", "rune", "saber", "sack", "sage", 
-      "sailor", "salve", "satyr", "scribe", "scroll", 
-      "scrying", "secret passageway", 
-      "sentry", "sextant", 
-      "shaman", "shield", 
-      "shieldmaiden", "shroud", "siege", "sigil", "silk", "siren", "skeleton", "skirmish", "slavery", "soldier", "soothsayer", 
-      "sorcerer", "sow", "spear", "spellbook",
-      "spellcaster", "spirit", "spyglass", "squire", "stable", "staff", "steel", 
-      "storyteller", "studded leather", "summoner", "tanner", 
-      "tavern", "teleportation", "thief", "throne", "tinkerer", "tomb", "tome", "torture chamber", "tournament", "tower", "trade",
-      "transmutation", "trap", "trap door", "treasure", "trumpets", "tyranny", "undead", "vengeance", 
-      "venom", "vestments", "vicar", "vigilant", "village",
-      "wagon", "ward", "warrior", "watchman", "wight", "winch", "witch"
+      "peasant", "petticoat", "phantom", "pike", "piper", "pirate", "plague", "plane", "plate mail",
+      "poison", "pork", "portal", "priest", "priestess", "prince", "princess", "prison", "prophesy", 
+      "protection", "puppeteer", "pyre", "pyromancer", "quest", "quill", "quiver", "raider", "rapier", "ranger", "raven", "regent",
+      "religion", "resurrection", "ring", "rite", "ritual", "road", "robber", "robes", "roc", 
+      "rogue", "royal", "saber", "sack", "sacrifice", "sage", 
+      "sailor", "salvage", "salve", "sarcophagus", "satyr", "savage", "savant", "scavenger", "scimitar", "scion", 
+      "scout", "scribe", "scroll", 
+      "scrying", "seance", "secret passageway", "seer",
+      "sentry", "serf", "sextant", "shade", "shadow",
+      "shaman", "shapeshifter", "sheep", "shepherd", "shield", 
+      "shieldmaiden", "ship", "shrine", "shroud", "siege", "sigil", "silk", "sir", "siren", "skeleton", "skirmish", 
+      "skyship", "slavery", "smith", "smuggler", "soldier", "soothsayer", 
+      "sorcerer", "sow", "spear", "spectral", "spellbook",
+      "spellcaster", "spirit", "spy", "spyglass", "squire", "stable", "staff", "statue", "steel", 
+      "storyteller", "stowaway", "studded leather", "summoner", "swashbuckler", "swine", "tablet", "tanner", 
+      "tavern", "tax collector", "teleportation", "thief", "throne", "tinder", "tinkerer", "tomb", "tome", "torch", 
+      "torture chamber", "totem", 
+      "tournament", "tower", "trade",
+      "transmutation", "trap", "trap door", "traveler", "trebuchet", "treason", "treasure", "tribe", "troll", "trumpets", 
+      "tumbler", "turnkey", "tyranny", "undead", "undertaker", "urn", 
+      "valient", "Valkyrie", "vengeance", 
+      "venom", "vestments", "vial", "vicar", "vigilant", "vigor", "village", "vision",
+      "wagon", "ward", "wares", "warhammer", "warlock", "warlord", "warrior", "watchman", "weaver", "wedding", "whip", "wight", "winch", "wine", 
+      "wine skin", "witch", "wool"
       ]
       
     capital_words3 = [
       "Alpine", "Basin", "Bay", "Canyon", "Desert", "Forest", "Gulf", "Hill", "Island", "Jungle", 
-      "Lake", "Meadow", "Mountain", "Ocean", "Peak", 
+      "Lake", "Marsh", "Meadow", "Mountain", "Ocean", "Peak", 
       "Plains", "Pond", "Ridge", "River", "Sea", "Swamp",
       "Tundra"
       ]
       
     words3 = [
-      "acclivity", "algae", "apex", "arroyo", "ascent", "avalanche", "bank", "bark", "barrens", "bayou", "beach", "bedrock", "bluff", "boscage", "boulder", 
-      "bracken", "brake", "brambles", "branch", 
-      "breeze", "bridge", "brook", "brush", "bush", "butte", "cave",
-      "chaparral", "chill", "cliff", "climb", "clouds", "cobblestone", "cocoon", "continent", "coppice", "copse", "coral", 
+      "acclivity", "afternoon", "algae", "alp", "apex", "aquafer", "arroyo", "ascent", "avalanche", "bank", "bark", "barrens", "bayou", "beach", 
+      "bedrock", "blizzard", "blossom", "bluff", 
+      "bog", "boscage", "bottoms", "boulder", 
+      "bracken", "brake", "brambles", "branch", "break",
+      "breeze", "bridge", "brook", "brow", "brush", "bud", "bush", "butte", "cave",
+      "chaparral", "chill", "chinook", "cliff", "climb", "cloudburst", "clouds", "clover", "cluster", "cobblestone", "cocoon", "conifer", "continent", "cope", 
+      "coppice", "copse", "coral", 
       "crag", "crest", "crevasse", "crevice", "crust", "culvert", "current", 
-      "cyclone", "depression", "dirt",
+      "cyclone", "dawn", "deluge", "depression", "dew", "dirt", "dome",
       "downpour", 
       "drain", "draw", "driftwood", 
-      "drizzle", "dune", "dust devil", "earth",
-      "eddy", "elevation", "eminence", "esker", "fell", "fern", "fjord", "flakes", "flood", "flora", "flower", "flurry", "fog", "frost", "fruit",
+      "drizzle", "droplet", "dune", "dust devil", "earth", "earthquake", "eclipse",
+      "eddy", "elevation", "eminence", "eruption", "esker", "estuary", "evening", "eventide", "everglade", "evergreen", "fauna", "fell", "fen", "fern", 
+      "fjord", "flakes", "flock", "flood", 
+      "flora", "floret", "flower", "floweret", "flurry", "fog", "frost", "fruit", "gale",
       "garden", 
-      "glacier", "glade", "glen", "gradient", "gravel", "grit", "grove", "gully", "hail", "hardwood", "haze", "headland", "heap", "heat", 
-      "height", "highland", "hillock", "hilltop", "hole", "hollow", "hummock", "hurricane",
+      "glacier", "glade", "glen", "gloaming", "gradient", "gravel", "grit", "grove", "gully", "gust", "hail", 
+      "half-light", "hardwood", "haze", "headland", "heap", 
+      "heat", "heath",
+      "height", "herb", "herd", "highland", "hillock", "hilltop", "hinterland", "hive", "hole", "hollow", "hummock", "hurricane",
       "ice", "icycle", "inclination", "incline", "inlet", "isle",
-      "knoll", "lagoon", "land", "landslide", "lava", "leaves", "lightning", "loch", "lodge", "maze", "mesa",
-      "mesquite", "metal", "moon", "morass", "moss", "mound", "mouth", "mud", "mudslide", "mushrooms", "nettles", "oak", 
+      "knoll", "lagoon", "land", "landslide", "lava", "lea", "leaves", "lightning", "loch", "lodge", "lowland", "marshlands", "maze", "mesa",
+      "mesquite", "metal", "mire", "mist", "mistral", "monsoon", "moon", "moonlight", "moors", "morass", "morning", "moss", 
+      "mound", "mouth", "mud", "mudslide", 
+      "mushrooms", "nettles", "night", "nightfall", "oak", 
       "oasis", "ore",
-      "outback", "overgrowth", "pebble", "peninsula",
-      "permafrost", "pine cone", "pines", "pit",
-      "plant", "precipice", "prominence", "promontory", "protuberance", "pulp",
-      "quarry", "quicksand", "rain", 
-      "range",
+      "outback", "overgrowth", "overhang", "palisade", "pasture", "peat", "pebble", "peninsula", "perennials",
+      "permafrost", "pike", "pine cone", "pines", "pit",
+      "plant", "point", "posy", "precipice", "precipitation", "prominence", "promontory", "protuberance", "pulp",
+      "quag", "quagmire", "quake", "quarry", "quicksand", "rain", "rainfall",
+      "range", "rays",
       "reef", "rise", "riverbed", "rivulet", 
-      "rock", "rockslide", "rubble", "sahara", "sand", "sapling", "savannah", "sediment", "seedling", "seeds",
-      "shade tree", "shelf", "shrubbery", "skree", "slab", "slag", "sleet", "slope", "slush", "snow", "snowdrift", "spring", "spur", 
-      "squall", "stack", "storm", "stump", "summer", "summit", "sun", "sundown", 
-      "sunrise", "surf", "swelter", "talus", "tangle",
+      "rock", "rock face", "rockslide", "roof", "rubble", "sahara", "sand", "sapling", "savannah", "scarp", 
+      "sediment", "seedling", "seeds",
+      "shade tree", "sheer", "shelf", "shoot", "shower", "shrubbery", "sierra", "skree", "slab", "slag", "sleet", "slope", "slough", "slush", "snow", 
+      "snowdrift", "spate", "spike", "spray", "spring", "sprinkle", "spur", 
+      "squall", "stack", "starlight", "stars", "steppe", "storm", "stump", "summer", "summit", "sump", "sun", "sundown", 
+      "sunrise", "surf", "swelter", "talus", "tangle", "tempest",
       "thicket", "thorn", 
       "thunder",
-      "thunderclap", "timber", "topiary", "tor",
-      "tornado", "trees", "tropical", 
-      "typhoon", "underbrush", "undergrowth", "undertow", "upland", "vegetation", "vine", "waddy", "wash", "wasteland",
-      "water", "waves", "weald", "web", "weeds", "whirlwind", "wind", "winter", "woodland", "woods"
+      "thunderclap", "tide", "timber", "tip", "topiary", "tor",
+      "tornado", "torrent", "trees", "tremor", "tropical", "twilight", "twister", 
+      "typhoon", "underbrush", "undercurrent", "undergrowth", "undertow", "upland", "vegetation", "veldt", "vertex", "vine", 
+      "volcano", "waddy", "wash", "wasteland",
+      "water", "waves", "weald", "web", "weeds", "wetlands", "whirlwind", "wind", "windstorm", "winter", "woodland", "woods"
       ]
 
     ran_capital1 = capital_words.sample
     ran_capital2 = capital_words.sample
     ran_capital3 = capital_words.sample
     
-    sentence_len1 = rand(5...20)
+    sentence_len1 = rand(5...30)
     ran_words1 = words.sample(sentence_len1).map(&:inspect).join(' ')
-    sentence_len2 = rand(5...20)
+    sentence_len2 = rand(5...30)
     ran_words2 = words.sample(sentence_len2).map(&:inspect).join(' ')
-    sentence_len3 = rand(5...20)
+    sentence_len3 = rand(5...30)
     ran_words3 = words.sample(sentence_len3).map(&:inspect).join(' ')
     
     @ipsum1 = ran_capital1 + " " + ran_words1.delete('"') + ". " + ran_capital2 + " " + ran_words2.delete('"') + ". " + ran_capital3 + " " + ran_words3.delete('"') + "."
@@ -183,11 +231,11 @@ class GeneratorsController < ApplicationController
     fantasy_caps2 = capital_words2.sample
     fantasy_caps3 = capital_words2.sample
     
-    sentence2_len1 = rand(5...20)
+    sentence2_len1 = rand(5...30)
     fantasy1 = words2.sample(sentence2_len1).map(&:inspect).join(' ')
-    sentence2_len2 = rand(5...20)
+    sentence2_len2 = rand(5...30)
     fantasy2 = words2.sample(sentence2_len2).map(&:inspect).join(' ')
-    sentence2_len3 = rand(5...20)
+    sentence2_len3 = rand(5...30)
     fantasy3 = words2.sample(sentence2_len3).map(&:inspect).join(' ')
     
     @ipsum2 = fantasy_caps1 + " " + fantasy1.delete('"') + ". " + fantasy_caps2 + " " + fantasy2.delete('"') + ". " + fantasy_caps3 + " " + fantasy3.delete('"') + "."
@@ -196,11 +244,11 @@ class GeneratorsController < ApplicationController
     naturecaps2 = capital_words3.sample
     naturecaps3 = capital_words3.sample
     
-    sentence3_len1 = rand(5...20)
+    sentence3_len1 = rand(5...30)
     nature1 = words3.sample(sentence3_len1).map(&:inspect).join(' ')
-    sentence3_len2 = rand(5...20)
+    sentence3_len2 = rand(5...30)
     nature2 = words3.sample(sentence3_len2).map(&:inspect).join(' ')
-    sentence3_len3 = rand(5...20)
+    sentence3_len3 = rand(5...30)
     nature3 = words3.sample(sentence3_len3).map(&:inspect).join(' ')
     
     @ipsum3 = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + "."  
@@ -212,10 +260,10 @@ class GeneratorsController < ApplicationController
       "A.", "Abe", "Abraham", "Adam", "Adonis", "Aidan", "Al", "Albert", "Allen", "Alex", "Andrew", "Andy", 
       "Anson", "Anthony", "Antonio", 
       "Apollo", "Archer", "Archibald", "Archie", "Art", "Arthur", "August", "Augustus", "Austin",
-      "B.", "Bart", "Bartholomew", "Barry", "Ben", "Benjamin", "Benji", "Benson", "Bert", "Bill", "Billy", "Bishop", 
-      "Blake", "Bohdy", "Brad", "Bradley", "Bradon", "Brady",
-      "Bran", "Brandon", "Brian", "Brock", "Broderick", "Brody", 
-      "Bruce", "Bryan", "Butch",
+      "B.", "Bart", "Bartholomew", "Barry", "Beau", "Ben", "Benjamin", "Benji", "Benson", "Bert", "Bill", "Billy", "Bishop", 
+      "Blake", "Bo", "Bob", "Bobby", "Bohdy", "Brad", "Bradley", "Bradon", "Brady",
+      "Bran", "Brandon", "Bret", "Brian", "Brock", "Broderick", "Brody", 
+      "Bruce", "Bryan", "Bryce", "Butch",
       "C.", "Carl", "Cecil", "Chance", "Charles", "Chase", "Chuck", "Claude", "Clive", "Connor", "Cooper", "Cord", "Cordell", 
       "Cornelius", 
       "Cory", "Curt", "Curtis",
@@ -225,9 +273,9 @@ class GeneratorsController < ApplicationController
       "E.", "Earl", "Ed", "Eddie", "Edgar", "Eduardo", "Edward", "Elias", "Elmer", "Elvis", "Ender", "Ennis", 
       "Ernie", "Ernest", "Ernesto", "Eugene", "Evan",
       "Ezekiel", "Ezra",
-      "F.", "Fabio", "Favian", "Fernando", "Frank", "Franklin", "Fred", "Freddy",
+      "F.", "Fabio", "Favian", "Felipe", "Fernando", "Frank", "Franklin", "Fred", "Freddy",
       "G.", "Gabe", "Gabriel", "Garrett", "Gary", "Gavin", "Gene", "George", "Gerald", "Geraldo", "Glen", "Gordon", "Grant", "Greg", "Grover",
-      "H.", "Hal", "Hank", "Harlon", "Harrison", "Harvey", "Hawk", "Henry", "Higgins", "Holden", "Hunter",
+      "H.", "Hal", "Hank", "Harlon", "Harrison", "Harvey", "Hawk", "Henry", "Higgins", "Holden", "Hubert", "Hugh", "Hugo", "Hunter",
       "I.", "Ian", "Iggy", "Irving", "Iver", 
       "J.", "Jace", "Jack", "Jackson", "Jacob", "Jaden", "Jake", "James", "Jared", "Jason", "Jasper", "Jean-Claude", "Jeremiah", "Jeremy", 
       "Jerry", "Jesus", "Jim", "Jimmy", "Johan", 
@@ -241,7 +289,7 @@ class GeneratorsController < ApplicationController
       "Morgan", "Muhammad",
       "N.", "Nate", "Nathan", "Nicholas", "Nick", "Noel",
       "O.", "Odin", "Olaf", "Oliver", "Orion", "Orville", "Oscar", "Owen",
-      "P.", "Paddy", "Paul", "Perry", "Peter", "Phineas", "Potter", "Prince",
+      "P.", "Paddy", "Paul", "Perry", "Peter", "Phil", "Phillip", "Phineas", "Potter", "Prince",
       "Q.", "Quan", "Quincy", "Quin", "Quinn", 
       "R.", "Rafe", "Raphael", "Ray", "Rayburn", "Raylon", "Raymond", "Reg", "Reggie", "Reginald", "Rich", "Richard", 
       "Richie", "Rip", "River", 
@@ -275,9 +323,13 @@ class GeneratorsController < ApplicationController
       "Artemis", "Arwin", "Arya", "Asha", "Ashley", "Ashlyn", "Aspen", "Astrid", "Aubrey", "Audra", "Audrey",
       "Augustina", "Aurielle", "Aurora", "Autumn", "Ava", "Avalon", "Aya", "Azalia",
       
-      "B.", "Bea", "Becca", "Becky", "Belinda", "Bella", "Belle", "Bernadette", "Bertha", "Beth", "Bethany", "Betsy", "Blair", 
-      "Blake", "Blue", "Brandy", "Brenda", 
-      "Brianne", "Brienne", "Brin",
+      "B.", "Babette", "Bailey", "Bambi", "Barb", "Barbara", "Bea", "Beatrice", "Beatrix", "Becca", "Becky", "Belinda", "Belka", 
+      "Bella", "Belle", "Berkeley",
+      "Bernadette", "Bernadine", "Bernice", "Bertha", "Bess", "Beth", "Bethany", "Betsy", "Betty", "Beverly", "Bianca", 
+      "Bijou", "Blair", 
+      "Blake", "Blakeley", "Blanche", "Blessing", "Bliss", "Blithe", "Blondie", "Blossom", "Blue", "Bo", "Bobbi", 
+      "Bonnie", "Brandy", "Brea", "Brenda", 
+      "Brianne", "Bridget", "Brienne", "Brin", "Briony", "Brit", "Britney", "Brittany", "Brooke", "Brooklyn", 
       "C.", "Caitlin", "Candice", "Candi", "Cara", "Carey", "Carla", "Carly", "Carrie", "Carol", "Caroline", "Cat", "Catherine", 
       "Cathy", "Cecilia", 
       "Celeste", "Charity", "Charlene", 
@@ -285,11 +337,11 @@ class GeneratorsController < ApplicationController
       "Chevonne", "Chloe", "Cicilia", "Cicily", "Clarice", "Claudia", "Cora", "Coral", "Coraline", "Corey", "Corina",
       "Crystal", "Cynthia",
       "D.", "Dani", "Danielle", "Daphne", "Darby", "Darcy", "Darla", "Deb", "Debbie", "Deborah", "Dee", "Delilah", 
-      "Denise", "Dolores",
+      "Denise", "Destiny", "Dolores",
       "E.", "Eden", "Edith", "Elena", "Elizabeth", "Eloise", "Elowyn", "Emma", "Emerald", "Esme", "Esmerelda", "Eva", "Evan", 
       "Eve", "Evelyn", "Ever", 
       "F.", "Fae", "Faith", "Fawn", "Fay", "Fiona", "Flo", "Fran", "Francesca", 
-      "G.", "Gabby", "Gabrielle", "Gayle", "Georgia", "Ginger", "Glenda", "Gloria", "Glory", "Gretchen", 
+      "G.", "Gabby", "Gabrielle", "Gayle", "Georgia", "Ginger", "Glenda", "Gloria", "Glory", "Gretchen", "Gwyn", "Gwyndalyn", "Gwyneth", 
       "H.", "Hanna", "Hannah", "Hayley", "Hazel", "Helga", "Henrietta", "Hermione", "Holly", "Hope", "Hunter",
       "I.", "Imogen", "Ingrid", "Irene", "Ireland", "Irma", "Isabelle", "Ivy",
       "J.", "Jaime", "Jamie", "Janelle", "Janet", "Janice", "Janine", "January", "Jean", "Jen", "Jennifer", "Jenny", "Jude", "Judy", 
@@ -333,7 +385,7 @@ class GeneratorsController < ApplicationController
       "Daniels", "Danielson", "Davenport", "David", "Davidson", "Davis", "Dela Cruz", "Denver", "de Silva", "Dix", "Dixon", "Doherty", 
       "Donchesky", "Drew",
       "Ellis", "Ellison", "Elway", "Elwood", "Ender", "Esparza", "Espinosa", "Eugene", 
-      "Faber", "Fan", "Ferguson", "Fernando", "Finnegan", "Flake", "Ford", "Fox", "Franklin", "Friedman", "Fujiwara",
+      "Faber", "Fan", "Ferguson", "Fernando", "Finnegan", "Flake", "Ford", "Fowler", "Fox", "Franklin", "Frasier", "Friedman", "Fujiwara",
       "Gallagher", "Garber", "Garreth", "Garrett", "Garcia", "Gerber", "Gering", "Givens", "Goetze", "Gold", "Gomez", "Gonzalez", "Granden",
       "Grant", "Gray", "Green", "Grey", "Gurung",
       "Hamilton", "Hamm", "Hammond", "Harris", "Harrison", "Hawkins", "Hicks", "Hilton", "Hines", "Holt", "Hong", "Horne", "Horner", "Horton", 
@@ -341,14 +393,14 @@ class GeneratorsController < ApplicationController
       "Idder", "Ilton", "Ishida", "Ito", "Ivers", "Iverson",
       "Jackson", "James", "Jameson", "Jensen", "Jeffers", "Jefferson", "Jeong", "Johnson", "Jones", "Jordan", "Jovovich", "Justice", 
       "Kacey", "Kato", "Katz", "Kellogg", "Khadka", "Khan", "Khatun", "Kim", "Klein", "Kobayashi", "Kraft", "Kumar",
-      "Lance", "Landers", "Landon", "Larimore", "Le", "Lee", "Li", "Lincoln", "Liston", "London",
+      "Lance", "Landers", "Landon", "Larimore", "Le", "Lebowsky", "Leibowitz", "Lee", "Li", "Lincoln", "Liston", "London",
       "MacArthur", "Mader", "Martin", "Martinez", "Masters", "Masterson", "Masuda", "Mathern", "Mathers", "Matsumoto", 
       "May", "Mays", "McCarthy", "McCormick", 
       "McMillan", "Mendoza", 
       "Miller", "Millsaps", "Mitchell", "Morgan", "Morris", "Morrison", "Mueller", "Muridian", "Myer",
       "Nakamura", "Naples", "Nelson", "Ngo", "Nguyen", "Nixon", "Norrington", "Norris", "Nuberg",
       "Oakley", "Obermeyer", "O'Malley", "Ono", "O'Reilly", "Orville", "Oscara", "Owen", "Owens", "Overby",
-      "Pace", "Paris", "Park", "Patel", "Pepper", "Peterson", "Phan", "Phoenix", "Pitt", "Pittman", "Poe", "Popper", "Potter", 
+      "Pace", "Paris", "Park", "Patel", "Pepper", "Peterson", "Phan", "Phillips", "Phoenix", "Pitt", "Pittman", "Poe", "Popper", "Potter", 
       "Prince", "Princeton", "Pruitt", "Pryor",
       "Quill", "Quimby", "Quincy", 
       "Rafferty", "Ramos", "Rasmussen", "Red", "Redondo", "Reece", "Remington", "Reyes", "Reynolds", "Richard", "Richards", 

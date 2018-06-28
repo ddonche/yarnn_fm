@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   get 'generators', to: 'generators#show'
   put 'ipsum', to: 'generators#ipsum'
   get 'ipsum', to: 'generators#ipsum'
+  put 'names_gen', to: 'generators#names'
+  get 'names_gen', to: 'generators#names'
 end

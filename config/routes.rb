@@ -19,15 +19,14 @@ Rails.application.routes.draw do
   get 'station/:id', to: 'users#favorites', as: :station
   resources :albums, :path => '/albums'
   resources :tracks do
-    member do
-      put "favorite", to: 'tracks#favorite'
-    end
+    post 'favorite', to: 'favorites#favorite'
+    post 'unfavorite', to: 'favorites#unfavorite'
   end
 
   get 'genre/:tag', to: 'tags#show', as: :tag
-  get 'generators', to: 'generators#show'
-  put 'ipsum', to: 'generators#ipsum'
-  get 'ipsum', to: 'generators#ipsum'
-  put 'names_gen', to: 'generators#names'
-  get 'names_gen', to: 'generators#names'
+  get 'generators', to: 'ipsums#show'
+  put 'ipsum', to: 'ipsums#ipsum'
+  get 'ipsum', to: 'ipsums#ipsum'
+  put 'names_gen', to: 'ipsums#names'
+  get 'names_gen', to: 'ipsums#names'
 end

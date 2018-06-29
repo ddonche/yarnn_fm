@@ -1,4 +1,4 @@
-class GeneratorsController < ApplicationController
+class IpsumsController < ApplicationController
   def show
   end
 
@@ -255,13 +255,56 @@ class GeneratorsController < ApplicationController
       "sunrise", "surf", "swarm", "swelter", "talus", "tangle", "tempest",
       "thicket", "thorn", 
       "thunder",
-      "thunderclap", "tide", "timber", "tip", "topiary", "tor",
+      "thunderclap", "tidal wave", "tide", "timber", "tip", "topiary", "tor",
       "tornado", "torrent", "trees", "tremor", "tropical", "trunk", "tumbleweed", "twilight", "twister", 
       "typhoon", "underbrush", "undercurrent", "undergrowth", "undertow", "upland", "vegetation", "veldt", "vertex", "vine", 
       "volcano", "waddy", "wash", "wasteland",
-      "water", "waves", "weald", "web", "weeds", "wetlands", "whirlwind", "willow", 
+      "water", "waves", "weald", "web", "weeds", "wetlands", "whirlwind", "wild", "wilderness", "willow", 
       "wind", "windstorm", "winter", "woodland", "woods"
       ]
+      
+	capital_words4 = [
+      "Apocalypse", "Atlanta", "Contagion", "Epidemic", "Outbreak", "Pandemic", "Plague", "Quarantine", "Soldiers", "Virus"
+      ]
+      
+    words4 = [
+      "abandoned", "airwaves", "ammunition", "amputation", "antibiotics", "armageddon", "asteroid", "atomic", "axe", "axe handle",
+      "backpack", "barter", "baseball bat", "biohazard", "bottled water", "bunker", "burial site", "burning",
+      "cache", "camp", "campfire", "campsite", "candles", "canned goods", "cannibals", "canning", "capture", "cars", "carcass", 
+      "catastrophe", "cataclysm", "CDC", "checkpoint", "civilization", "climate", "clinic", 
+      "coffin", "collapse", "collision", "community", "cook", "corpse", "countdown", "crowbar", "crows",
+      "dagger", "dead", "death", "destruction", "disease", "divine retribution", "doctor", "dog", "doomed", "downfall", "dynamite",
+      "earthquakes", "electricity", "endangered species", "end of days", "end of the world", "end times", 
+      "engineer", "every man for himself", "explosives", "extinction",
+      "fallout", "fallout shelter", "famine", "FEMA camp", "field dressing", "fire", "firearms", "fishing", "fission", 
+      "flames", "flashlight", "food", "forage",
+      "four horsemen", "frontier", "fuel", "fusion",
+      "garden", "gas mask", "gasoline", "gather", "generator", "genetic mutation", "global", "global warming", 
+      "gravesite", "grid", "gunpowder", "guns", "gutted",
+      "hatchet", "hell on earth", "helmet", "hideaway", "hockey stick", "horse", "hospital", "hotwire", "humanity", "hunting", "hurricanes",
+      "ice age", "iodine", 
+      "judgment", "junk",
+      "kill or be killed", "knife",
+      "lamp", "light", "lighter", "live off the land",
+      "Mad Max", "magazine", "marksman", "mass graves", "matches", "medic", "medicine", "mercenary", "meteor shower", "MRE", "mutant",
+      "NATO", "navigate", "negotiation", "non-perishables", "nuclear", "nurse",
+      "outdoorsman",
+      "painkillers", "party", "peanut butter", "pillage", "pistol", "plague", "planting", "poison", "prepper", "quiet",
+      "radiation", "radiation suit", "radio", "raid", "raiders", "ransack", "rations", "ravagers", "rebuild", 
+      "renegade", "rescue", "respirator", "resources", "resupply", "rifle", "rotting", 
+      "rounds", "rovers",
+      "salvage", "savage", "sawed-off", "scavenge", "scientists", "scrap", "shallow grave", "shells", 
+      "shelter", "shotgun", "sinners", "siphon", "skin", "slavers", 
+      "sneak", "sniper", "solar flare", "supplies", "survival",
+      "starvation", "stash", "stitch", "storms", "suture",
+      "sword", "syringe", 
+      "tent", "tidal wave", "tinker", "together", "tracker", "trade", "transmission", "trapping", "travel", "tripwire", "truck", "tuna",
+      "undead", "unmarked grave", 
+      "vaccine", "vault", "vegetation", "vehicle", "ventilation", "veteran", "vulture",
+      "walker", "war", "warrior", "wasteland", "water", "wild", "wilderness", "wound",
+      "zombie"
+      ]
+      
 
     ran_capital1 = capital_words.sample
     ran_capital2 = capital_words.sample
@@ -300,7 +343,20 @@ class GeneratorsController < ApplicationController
     sentence3_len3 = rand(5...30)
     nature3 = words3.sample(sentence3_len3).map(&:inspect).join(' ')
     
-    @ipsum3 = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + "."  
+    @ipsum3 = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + "."
+    
+	apoccaps1 = capital_words4.sample
+    apoccaps2 = capital_words4.sample
+    apoccaps3 = capital_words4.sample
+    
+    sentence4_len1 = rand(5...30)
+    apoc1 = words4.sample(sentence4_len1).map(&:inspect).join(' ')
+    sentence4_len2 = rand(5...30)
+    apoc2 = words4.sample(sentence4_len2).map(&:inspect).join(' ')
+    sentence4_len3 = rand(5...30)
+    apoc3 = words4.sample(sentence4_len3).map(&:inspect).join(' ')
+    
+    @ipsum4 = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + "." 
   
   end
   
@@ -548,7 +604,6 @@ class GeneratorsController < ApplicationController
     @name22 = ran_female10 + " " + ran_surname22
     @name23 = ran_female11 + " " + ran_surname23
     @name24 = ran_female12 + " " + ran_surname24
-  
   
   end
 end

@@ -34,7 +34,7 @@ class IpsumsController < ApplicationController
       "gambler", "gander", "garden", "gasoline", "gator", "gelding", "George Strait", "Georgia", "gizzard", "glasspack", "Glock", 
       "goose", "gosh", "gospel", "grandpa", "granny", "gravy", "grits", "grizzly", "GTO Judge", "gumbo", "guns", 
       "gussied up", "gut",
-      "ham radio", "hard hat", "hay", "heaven", "hell", "Hemi", "henhouse", "herd", "hick", "hillbilly", "hissy fit", "hogs", 
+      "ham radio", "hard hat", "hay", "hale bales", "heaven", "hell", "Hemi", "henhouse", "herd", "hick", "hillbilly", "hissy fit", "hogs", 
       "holler", "Hollywood", "holster", "honky", "honky-tonk", "hood scoop", "hornet", "horse", 
       "horseshoe", "horsepower", "hotdog", "hotrod", "hound dog", "huntin", "hushpuppy", "hymnal", 
       "inbred", "iron sights",
@@ -60,10 +60,10 @@ class IpsumsController < ApplicationController
       "skedaddle", "skeeter", "Skoal", "slaughter", "slingshot", "slop", "small-block", "Smith & Wesson", "smoked", "smoothbore", 
       "snapping turtle", "Southern",
       "sow", "spark plug", "spitter", "spoiler", "spurs", "station wagon", "steak", "steel-toed", "steer",
-      "Stetson", "succotash", "supercharged", "supper", "swamp", "sweet tea", 
+      "Stetson", "succotash", "supercharged", "supper", "swamp", "swather", "sweet tea", 
       "Tabasco", "tackle", "tackle box", "tadpole", "tarnation", "tater", "Texas", "these parts", "throttle", "t-top", "ticks",
       "torque", "tractor", "tradition", 
-      "trailer", "train", "Trans-Am", "transmission", "trigger", "trolling", "tuckered", "turkey", "turnip greens",
+      "trailer", "train", "Trans-Am", "transmission", "trigger", "trolling", "tuckered", "turkey", "turnip greens", "twine",
       "uncle", "USA", "values", "varmint", "veterans", "Virginia",
       "waders", "wadn't", "wagon", "wagonwheel", "welder", "western", "West Virginia", "whiskey", "white lightning", "white trash", "whittle", 
       "Winchester", "work",
@@ -79,32 +79,34 @@ class IpsumsController < ApplicationController
       ]
       
     words2 = [
-      "acolyte", "accursed", "acrobat", "Admiral", "aegis", "aeronaut", "aether", "affliction", "ale", "alleyway", "alloy", 
+      "abbot", "acolyte", "accursed", "acrobat", "Admiral", "aegis", "aeronaut", "aether", "affliction", "ale", "alleyway", "alloy", 
       "altar", "ambassador", "amber", "amulet", 
-      "ancestral", "ancient", "angel", "ankh", "anvil", "apocalypse", 
+      "ancestral", "ancient", "angel", "ankh", "anvil", "apocalypse", "arbalest",
       "archangel", "architect", "archive", "arena", "aristocracy", "armaments", "armor", "armorer", 
-      "armory", "arrow", "arrowhead", "artesan", "artifact", "artifice",
-      "assassin", "assault", "astral", "asylum", "atonement", "augur", "aura", "automaton", "avatar", "axe", "baker", 
-      "band", "bandage", "bandit", "banner",
-      "barbarian", "barber", "bard", "baron", "baroness", "barricade", "barrow", "barter", "basket", "bat", "battering ram", 
+      "armory", "arrow", "arrowhead", "artesan", "artillator", "artifact", "artifice",
+      "assassin", "assault", "assembly", "astral", "asylum", "atonement", "augur", "aura", "automaton", "avatar", "axe", "baker", 
+      "band", "bandage", "bandit", "banner", "banquet",
+      "barbarian", "barber", "barbican", "bard", "baron", "baroness", "barricade", "barrow", "barter", 
+      "basilard", "basket", "bat", "baton", "battering ram", 
       "battle", "battlefield", "battlements", "bazaar", "bear", "beast", "beef",
       "beefeater", "beer", "beeswax", "beggar", "beguile", 
       "beheading", "behemoth", "belt", "berkserker", "bindings", "bishop", "blacksmith", "bladder",
       "blanket", "blasphemy", "blessing", "bloodletter", 
       "blood sausage", "boar", "boarding house", "boat", "bog", "bolt", "bones", "bone setter", "book",
-      "boots", "boson", "bounty hunter", "bow", "bracelet", "bracer", "brawl", "brawler", "brazier", "bread", "breastplate", 
+      "boots", "boson", "bounty hunter", "bow", "bowyer", "bracelet", "bracer", "brawl", "brawler", "brazier", "bread", "breastplate", 
       "breech", "brew", "brigand", "bristle",
       "bronze", "brood", "broth", "brothel", "buckler", "bull", "butcher",
       "caltrips", "camp", "campfire", "candle", "candlestick",
       "cannibals", "cape",
       "Captain", "captive", "captor", "caravan",
       "cardinal", "cards", "carnival", "carriage", "cart", "castaway", "cat", "cat o' nine tails", "cataclysm",
-      "catacombs", "catapult", "cathedral", "cattle", "cauldron", "causeway", "cavalier", "celestial", "cell", "ceremony",
-      "chain mail", "chains", "chamber pot", "champion", "channeler", "chaos", "chapel", "charismatic", "charm", "chickens", 
+      "catacombs", "catapult", "cathedral", "cattle", "cauldron", "causeway", "cavalier", "cavalry", "celestial", "cell", "ceremony",
+      "chain mail", "chains", "chamber pot", "chamfron", "champion", "channeler", "chaos", "chapel", "chariot", "charismatic", "charm", "chickens", 
       "chieftain", "chieftess",
       "chimera", "chimney", "chisel", "chivalry", "choir", "chopping block", 
       "Chosen One", "city", "clairvoyant", "clan", "claw", "cleaver", "clerk", "climb", "clinic", "clock tower", "cloth",
-      "club", "coals", "coat", "coffin", "cog", "Colonel", "coin", "coinpurse", "commodore", "commoner", "Common Tongue", "companion", 
+      "club", "coals", "coat", "coat of arms", "coffin", "cog", "coif", "Colonel", "coin", "coinpurse", "commodore", "commoner", 
+      "Common Tongue", "companion", 
       "company", "compass", "conflagration", "conjurer", 
       "consecration", "constable", "contract", "contraption", "cook", "copper", "corridore", "corsair", "cot", "cottage", "count", 
       "countess", "cough", "county", "coup",
@@ -114,7 +116,7 @@ class IpsumsController < ApplicationController
       "dancer", "dark", "darkness", "defend", "deity", "demigod", "demon", "den", "desecration", 
       "dethrone", "devil", "dice", "diplomacy", "diplomat",
       "dire wolf", "dirk", "disguise", 
-      "divine", "diviner", "doctor", "doctrine", "dowager", "dowery",
+      "divine", "diviner", "doctor", "doctrine", "doublet", "dowager", "dowery",
       "dragoon", "drawbridge", "dreadnought", "dress", "drifter", "drover", "druid", 
       "drummer", "dryad",
       "duchess", "duel", "dungeon", "economy", "eggs", "elemental", "embargo", "emissary", "empath", "emerald", 
@@ -129,7 +131,8 @@ class IpsumsController < ApplicationController
       "folk medicine", "forage", "foreigner", "forest", "forge", "fork", "fortifications", "fortress", "fortune teller", 
       "foundry", "fox", "fray",
       "friar", "funeral",
-      "gaelor", "galleon", "gallows", "gambler", "games", "garb", "gargoyle", "garrote", "garter", "gates", "gateway", "gauntlet", "gear", "gelding", 
+      "gaelor", "galleon", "gallows", "gambler", "games", "garb", "gargoyle", "garrote", "garter", "gates", 
+      "gatehouse", "gateway", "gauntlet", "gear", "gelding", 
       "gemstone", "General", "ghost", "ghoul", 
       "giant", "giant spider", "gibbet", "glaive", "glass", "glory", "glyph", 
       "gnome", "goat's milk",
@@ -137,40 +140,42 @@ class IpsumsController < ApplicationController
       "golom", "gorgon", "grail", "gravedigger", "grave robber", "graveyard", "gremlin", "grieves", "griffon", 
       "grinding wheel", "guard", "guardian", "guard tower", "guest",
       "guide", "guissarme",
-      "gypsy", "hag", "halberd", "ham", "hamlet", "hammer", "hangman", "harbinger", "harp", "harvest", "hatchet", "hatchling", 
+      "gypsy", "hag", "halberd", "ham", "hamlet", "hammer", "hangman", "harbinger", "harp", "harvest", "hatchet", "hatchling", "hauberk",
       "healer", "hearth", "heir", "helm", "helmsman", "herald", "herbalist", "heresy", "hermit", "hero", "heroic", "heroine", "hexer", 
       "hide", "highborn",
       "highwayman", "hilt", "history", "hoard", "hogs", "honor", "hood", "horn", "horse", "horseman", "host", "hound", "hourglass", "hubris",
       "huntsman", "hut", "icon", "illusionist", "imp", "infantry", "illness", "infiltrator", "ink", "inn", "inquisitor", "interim", 
       "interrogation", "invisibility", "iron", "javelin", "jeweler", "jewels",
       "joust", "judge",
-      "justice", "keel", "keelhauling", "key", "kindling", "kingdom", "knapsack", "knife", "knighthood", "knot", "kraken", "labyrinth", "Lady", 
-      "lair", "lamp", "lance", "lancet", "lantern", "lash", "law",
+      "justice", "keel", "keelhauling", "keep", "key", "kindling", "kingdom", "knapsack", "knife", "knighthood", "knot", "kraken", "labyrinth", "Lady", 
+      "lair", "lamellar", "lamp", "lance", "lancet", "lantern", "lash", "law",
       "leather", "leech", "legend", "leprechaun", "levitate", "Lieutenant", "lich", "light", "lighthouse", "linament", 
       "livery", "lock", "lockpick", "lodestar", "longbow", 
       "loot", "lowborn", "lumberjack", "lunar",
       "lurker", "lute", "lycanthrope", "lyre", 
-      "mace", "magician", "magistrate", "magus",
-      "maiden", "mainsail", "manservant", "mantle", "map", "mare", "marionette", "market", "marksman", "martyr", "mask",
-      "mast", "master", "mausoleum", 
+      "mace", "machicolation", "magician", "magistrate", "magus",
+      "maiden", "mainsail", "mangonel", "manservant", "mantle", "map", "mare", "marionette", "market", "marksman", "martyr", "mask",
+      "mast", "master", "maul", "mausoleum", 
       "mayor", "maze", "mead", "medic", 
       "medicine", "melee", "mercenary", "merchant", "mermaid",
       "merrymaking", "messenger", "milkmaid", "mime", "miner", "minotaur", 
       "minstrel", "mirror", "mirth", "mischief", "mist", "moat", "monacle", "monarch", "monk", 
-      "mount", "mule", "mysterious", "nails", "nanny", 
+      "mount", "mule", "mummer", "murder holes", "mysterious", "nails", "nanny", 
       "navigation", "necklace",
       "needle", "negotiation", "nephilim", "newt", "nightcap", "nightmare", "noble", "nock", "nomad", "noose", "nun", "nunnery", "nymph", 
       "oarsman", "obsidian", "occultist", 
-      "ogre", "ointment", "oligarchy", "onyx", "opal", "opaline", "orb", "orc", "ore", "orphanage", "outsider", "oven", "overthrow", "ox cart", "oxen", "pack", "parapet", "party",
-      "peasant", "peg", "penny", "petticoat", "phantom", "philosopher", "pickaxe", "pie", "pike", "pious", "pipe tobacco", "piper", 
+      "ogre", "ointment", "oligarchy", "onyx", "opal", "opaline", "orb", "orc", "ore", "orphanage", 
+      "oubliette", "outsider", "oven", "overthrow", "ox cart", "oxen", "pack", "parapet", "party", "passageway",
+      "peasant", "peg", "pell", "penny", "petticoat", "phantom", "philosopher", "pickaxe", "pie", "pike", "pious", "pipe tobacco", "piper", 
       "pirate", "pitch", "pitchfork", "plague", "plague doctor", "plane", 
       "plate mail", "platoon", "pocket", "poet",
       "poison", "polearm", "politics", "pony", "pork", "portal", 
       "portcullis", "powder", "powers", "predator", "priest", "priestess", "prince", "princess", 
       "prison", "proclamation", "prophesy", "property",
-      "protection", "protector", "psychic", "pulpit", "pup", "puppeteer", "pyre", "pyromancer", "quest", "quill", "quiver", "raft",
+      "protection", "protector", "psychic", "pulpit", "pup", "puppeteer", "pyre", "pyromancer", 
+      "quarterstaff", "quest", "quill", "quiver", "raft",
       "rags", "raid", "raider", "rail", "rampart", "ranger", "rapier",
-      "raven", "raze", "razor", "realm", "reanimate", "rebellion", "redemption", "regency", "regeneration", "regent", 
+      "raven", "raze", "razor", "realm", "reanimate", "rebellion", "rectory", "redemption", "regency", "regeneration", "regent", 
       "regiment", "registrar", "reincarnation", "reins",
       "religion", "remedy", "rescue", "resurrection", "rider", "riddle", "ring", "rite", "ritual", "road", "roar", "roast", "robber", "robes", "roc", 
       "rogue", "root", "rope", "royal", "royal seal", "ruby", "ruler", "saber", "saboteur", "sack", "sacrifice", "saddle", "sage", 
@@ -185,130 +190,160 @@ class IpsumsController < ApplicationController
       "skyship", "slaughter", "slavery", "sling",
       "slippers", "slums", "smith", "smuggler", "snake oil", "soap", "soar", "solar", "soldier", "soothsayer", 
       "sorcerer", "soup", "sow", "spear", "specter", "spectral", "spellbook",
-      "spellcaster", "spike", "spire", "spirit", "spoon", "spy", "spyglass", "squadron", "squire", "stable", "staff", "stallion", "statue", "steed", "steel",
+      "spellcaster", "spetum", "spike", "spinster", "spire", "spirit", "spoon", "spy", "spyglass", "squadron", "squire", "stable", "staff", "stallion", "statue", "steed", "steel",
       "steeple", "stew", "stirrups",
-      "storyteller", "stowaway", "studded leather", "summoner", "swashbuckler", "swindler", "swine", "tablet", "tallow",
+      "storyteller", "stowaway", "studded leather", "summoner", "surcoat", "swashbuckler", "swindler", "swine", "tabard", "tablet", "tallow",
       "talons", "tanner", "tapestry",
       "tariff",
       "tavern", "tax collector", "teleportation", "temple", "tent", "territory", "the rack", "thief", "thread", "throne", "tinder", 
       "tinkerer", "toga", "tomb", "tome", "top sail", "torch", 
       "torture chamber", "totem", 
       "tournament", "tower", "trade", "translator", "translucent",
-      "transmutation", "trap", "trap door", "trapper", "traveler", "trebuchet", "treason", "treasure", "tribe", "troll", "trousers", 
+      "transmutation", "trap", "trap door", "trapper", "traveler", "trebuchet", "treason", "treasure", "trial", "tribe", "tribunal", "troll", 
+      "troubadour", "trousers", 
       "trumpets", "trunk",
-      "tumbler", "turnkey", "tusk", "tyranny", "undead", "undertaker", "uprising", "urn", "usurper",
+      "tumbler", "turnkey", "turret", "tusk", "tyranny", "undead", "undertaker", "uprising", "urn", "usurper",
       "valient", "Valkyrie", "vampire", "veil", "vengeance", 
       "venom", "vestments", "vial", "vicar", "vigilant", "vigor", "village", "virgin", "vision", "voulge", "vow", "wager",
-      "wagon", "waistcoat", "wall", "wand", "ward", "wares", "warhammer", "warlock", "warlord", "war machine", "warrior", "watchman", "weaver", "wedding", "well",
+      "wagon", "waistcoat", "wall", "wand", "ward", "wares", "warhammer", "warlock", "warlord", "war machine", "warrior", 
+      "watchman", "watchtower", "weaver", "wedding", "well",
       "werewolf", "wetnurse", "wheel", "whetstone", "whip", "wicked", "wicker", "widow", "widower", "wight", "winch", "windmill", "wine", 
       "wine skin", "winged", "witch", "wolfpack", "wool", "wormwood", "woven", "writ", "wyrm", "yarn", "yoke"
       ]
       
     capital_words3 = [
-      "Alpine", "Basin", "Bay", "Canyon", "Desert", "Forest", "Gulf", "Hill", "Island", "Jungle", 
-      "Lake", "Marsh", "Meadow", "Mountain", "Ocean", "Peak", 
-      "Plains", "Pond", "Ridge", "River", "Sea", "Swamp",
+      "Alpine", "Basin", "Bay", "Canyon", "Cavern", "Creek", "Desert", "Estuary", "Evergreen", "Flower", "Forest", "Glacier", 
+      "Gulf", "Gully", "Harbor", "Hill", "Icycle", "Island", "Jungle", "Knoll",
+      "Lake", "Maple", "Marsh", "Meadow", "Mountain", "Nightfall", "Ocean", "Peak", 
+      "Plains", "Pond", "Ridge", "River", "Sea", "Shoal", "Swamp", "Treetops",
       "Tundra"
       ]
       
     words3 = [
-      "acclivity", "afternoon", "algae", "alp", "apex", "aquafer", "arroyo", "ascent", "avalanche", "bank", "bark", "barrens", "bayou", "beach", 
-      "bedrock", "blizzard", "blossom", "bluff", 
+      "acclivity", "afternoon", "alcove", "algae", "alkali", "alp", "anchorage", "apex", "aquafer", "archipelago", "arm",
+      "arroyo", "ascent", "ash", "atoll", "avalanche", "bank", "bar", "bark", "barrens", "bayou", "beach", "beck",
+      "bedrock", "bight", "billow", "blizzard", "blossom", "bluff", 
       "bog", "boscage", "bottoms", "boulder", 
-      "bracken", "brake", "brambles", "branch", "break",
-      "breeze", "bridge", "brook", "brow", "brush", "bud", "bush", "butte", "cave", "cavern",
-      "chaparral", "chill", "chinook", "cliff", "climb", "cloudburst", "clouds", "clover", "cluster", "coal",
-      "cobblestone", "cocoon", "conifer", "continent", "cope", 
-      "coppice", "copse", "coral", 
+      "bracken", "brake", "brambles", "branch", "brash", "break",
+      "breeze", "briar", "bridge", "brook", "brow", "brume", "brush", "bud", "bush", "butte", "cave", "cay", "ceiling",
+      "chaparral", "chill", "chinook", "cliff", "climb", "cloudburst", "cloudcover", "clouds", "clover", "cluster", "coal",
+      "cobblestone", "cocoon", "comet", "conifer", "continent", "cope", 
+      "coppice", "copse", "coral", "course", "cove",
       "crag", "crest", "crevasse", "crevice", "crust", "culvert", "current", 
-      "cyclone", "dawn", "deluge", "depression", "dew", "dirt", "dome",
+      "cyclone", "dawn", "deluge", "depression", "dew", "dimness", "dirt", "ditch", "dome",
       "downpour", 
-      "drain", "draw", "driftwood", 
+      "drain", "draw", "drift", "driftwood", 
       "drizzle", "droplet", "dune", "dust devil", "earth", "earthquake", "eclipse",
-      "eddy", "elevation", "eminence", "eruption", "esker", "estuary", "evening", "eventide", "everglade", "evergreen", "fauna", "fell", "fen", "fern", 
-      "fjord", "flakes", "flock", "flood", 
-      "flora", "floret", "flower", "floweret", "flurry", "fog", "foliage", "frost", "fruit", "fumes", "gale",
-      "garden", 
-      "glacier", "glade", "glen", "gloaming", "gold", "gradient", "gravel", "grit", "grove", "gully", "gust", "hail", 
-      "half-light", "hardwood", "haze", "headland", "heap", 
+      "eddy", "elevation", "eminence", "enclave", "eruption", "esker", "evening", "eventide", "everglade", "fauna", "fell", "fen", "fern", 
+      "film", "firth", "fjord", "flakes", "flats", "flock", "flood", "floor",
+      "flora", "floret", "flow", "floweret", "flurry", "fog", "foliage", "freshet", "frost", "fruit", "fumes", "galaxy", "gale",
+      "garden", "glade", "glen", "gloaming", "gloom", "gold", "gradient", "gravel", "grit", "grove", "gust", "hail", 
+      "half-light", "hardwood", "haven", "haze", "headland", "heap", 
       "heat", "heath",
       "height", "herb", "herd", "highland", "hillock", "hilltop", "hinterland", "hive", "hole", "hollow", "hummock", "hurricane",
-      "ice", "icycle", "inclination", "incline", "inlet", "isle",
-      "knoll", "knuckle", "lagoon", "land", "landslide", "lava", "lea", "leaves", "lightning", "loch", "lodge", "lowland", "maple",
+      "ice", "inclination", "incline", "inlet", "isle",
+      "knuckle", "lagoon", "land", "landslide", "lava", "lea", "leaves", "ledge", "lightning", "loam", "loch", "lodge", "lowland",
       "marshlands", "maze", "mesa",
-      "mesquite", "metal", "mineral", "mire", "mist", "mistral", "monsoon", "moon", "moonlight", "moors", "morass", "morning", "moss", 
-      "mound", "mouth", "mud", "mudslide", 
-      "mushrooms", "nettles", "night", "nightfall", "oak", 
+      "mesquite", "metal", "meteor", "mineral", "mire", "mist", "mistral", "monsoon", "moon", "moonlight", "moors", "morass", "morning", "moss", 
+      "mound", "mouth", "muck", "mud", "mudslide", "murk",
+      "mushrooms", "narrows", "natural", "nebula", "nettles", "night", "oak", 
       "oasis", "ore",
-      "outback", "overgrowth", "overhang", "palisade", "pasture", "peat", "pebble", "peninsula", "perennials",
+      "outback", "outcropping", "overcast", "overgrowth", "overhang", "palisade", "pasture", "peat", "pebble", "peninsula", "perennials",
       "permafrost", "pike", "pine cone", "pines", "pit",
-      "plant", "point", "posy", "precipice", "precipitation", "prominence", "promontory", "protuberance", "pulp",
-      "quag", "quagmire", "quake", "quarry", "quicksand", "rain", "rainfall",
+      "plant", "point", "posy", "pother", "precipice", "precipitation", "prominence", "promontory", "protuberance", "pulp",
+      "quag", "quagmire", "quake", "quarry", "quicksand", "race", "rain", "rainfall",
       "range", "rays",
-      "reef", "rise", "riverbed", "rivulet", 
-      "rock", "rock face", "rockslide", "roof", "rubble", "sahara", "sand", "sap", "sapling", "savannah", "scarp", 
+      "reef", "refuge", "retreat", "rill", "rindle", "rise", "riverbed", "rivulet", 
+      "rock", "rock face", "rockslide", "roof", "rubble", "run", "runnel", "rush", "sage", "sagebrush", "sahara", "sanctuary", "sand", 
+      "sandbar", "sap", "sapling", "savannah", "scarp", "scree", "scud", "scum",
       "sediment", "seedling", "seeds",
-      "shade tree", "sheer", "shelf", "shoot", "shower", "shrubbery", "sierra", "skree", "slab", "slag", "sleet", "slope", "slough", 
+      "shade tree", "sheer", "shelf", "shelter", "shoot", "shooting star", "shower", "shrubbery", "sierra", 
+      "skerry", "slab", "slag", "sleet", "slope", "slough", 
       "slush", "smoke", "snow", 
-      "snowdrift", "spark", "spate", "spike", "spray", "spring", "sprinkle", "spur", 
-      "squall", "stack", "starlight", "stars", "steppe", "storm", "stump", "summer", "summit", "sump", "sun", "sundown", 
+      "snowdrift", "soil", "sound", "spark", "spate", "spike", "spray", "spring", "sprinkle", "spritz", "spur", 
+      "squall", "stack", "starlight", "stars", "steam", "steppe", "storm", "strait", "stump", "summer", "summit", "sump", "sun", "sundown", 
       "sunrise", "surf", "swarm", "swelter", "talus", "tangle", "tempest",
-      "thicket", "thorn", 
+      "thicket", "thorn", "thorns",
       "thunder",
-      "thunderclap", "tidal wave", "tide", "timber", "tip", "topiary", "tor",
-      "tornado", "torrent", "trees", "tremor", "tropical", "trunk", "tumbleweed", "twilight", "twister", 
-      "typhoon", "underbrush", "undercurrent", "undergrowth", "undertow", "upland", "vegetation", "veldt", "vertex", "vine", 
+      "thunderclap", "thunderhead", "tidal wave", "tide", "timber", "tip", "topiary", "tor",
+      "tornado", "torrent", "trees", "tremor", "tributary", "tropical", "trunk", "tumbleweed", 
+      "tunnel", "twilight", "twister", 
+      "typhoon", "underbrush", "undercurrent", "undergrowth", "undertow", "upland", 
+      "vapor", "vegetation", "veldt", "Venus", "vertex", "vine", 
       "volcano", "waddy", "wash", "wasteland",
-      "water", "waves", "weald", "web", "weeds", "wetlands", "whirlwind", "wild", "wilderness", "willow", 
+      "water", "watercourse", "waterway", "waves", "weald", "web", "weeds", "wetlands", "whirlwind", "wild", "wilderness", "willow", 
       "wind", "windstorm", "winter", "woodland", "woods"
       ]
       
 	capital_words4 = [
-      "Apocalypse", "Atlanta", "Contagion", "Epidemic", "Outbreak", "Pandemic", "Plague", "Quarantine", "Soldiers", "Virus"
+      "Apocalypse", "Atlanta", "Atomic", "Batteries", "Biohazard", "Bottled water", "Bug-out bag", "Bunker", 
+      "Canned food", "Contagion", "Diesel", 
+      "Disease", "Doomsday",
+      "Double-barrel", "Emergency", "Epidemic", 
+      "End times", "Extinction", "Fallout", "Filter",
+      "Fuel", "Gas mask", "Gasoline", "Gear", "Gunpowder", "Hospital", "Humanity", "Iron sights", "Kit", 
+      "Loadout", "Mag", "Mutation", "Nuclear",
+      "Outbreak", "Pandemic", "Plague", "Radiation", "Repair", "Rifle", "Quarantine", "Scavenge", "Scrap",
+      "Shotgun", "Soldiers", "Supplies", "Virus", "Zombie"
       ]
       
     words4 = [
-      "abandoned", "airwaves", "ammunition", "amputation", "antibiotics", "armageddon", "asteroid", "atomic", "axe", "axe handle",
-      "backpack", "barter", "baseball bat", "biohazard", "bottled water", "bunker", "burial site", "burning",
-      "cache", "camp", "campfire", "campsite", "candles", "canned goods", "cannibals", "canning", "capture", "cars", "carcass", 
-      "catastrophe", "cataclysm", "CDC", "checkpoint", "civilization", "climate", "clinic", 
-      "coffin", "collapse", "collision", "community", "cook", "corpse", "countdown", "crowbar", "crows",
-      "dagger", "dead", "death", "destruction", "disease", "divine retribution", "doctor", "dog", "doomed", "downfall", "dynamite",
-      "earthquakes", "electricity", "endangered species", "end of days", "end of the world", "end times", 
-      "engineer", "every man for himself", "explosives", "extinction",
-      "fallout", "fallout shelter", "famine", "FEMA camp", "field dressing", "fire", "firearms", "fishing", "fission", 
+      "9mm", "12-gauge", "abandoned", "airwaves", "aluminum stove", "ammo", "ammo can", "ammunition", "amputation", 
+      "antibiotics", "armageddon", 
+      "armor-piercing", "army",
+      "arrows", "assembly", "asteroid", "atmosphere", "ATV", "axe", "axe handle",
+      "backpack", "barb wire", "barricade", "barter", "baseball bat", "beard", "binoculars", "blankets", 
+      "body armor", "bolt-action", "boots", 
+      "bow and arrow", "breech loader", "buckshot", "burial site", "burning",
+      "cache", "caliber", "camo", "camouflage", "camp", "campfire", "campsite", "candles", "cannibals", "canning", 
+      "canteen", "capture", "cars", "carcass", "cartridge",
+      "catastrophe", "cataclysm", "cauterize", "CB radio", "CDC", "chainsaw", "chamber", "charcoal", 
+      "charger", "checkpoint", "civilization", "climate", "clinic", "coat",
+      "coffin", "collapse", "collision", "community", "compass", "cook", "corpse", "countdown", "crossbow", "crowbar", "crows",
+      "dagger", "damage", "dead", "death", "destruction", "divine retribution", "doctor", "dog", 
+      "doomed", "downfall", "dust cover", "dynamite",
+      "earthquakes", "electricity", "endangered species", "end of days", "end of the world", 
+      "engineer", "E-tool", "every man for himself", "explosives", "fallout shelter", "famine", "FEMA camp", "field dressing", "fire", "firearms", 
+      "firing pin", "first aid kit", "fishing", "fission", "flak jacket",
       "flames", "flashlight", "food", "forage",
-      "four horsemen", "frontier", "fuel", "fusion",
-      "garden", "gas mask", "gasoline", "gather", "generator", "genetic mutation", "global", "global warming", 
-      "gravesite", "grid", "gunpowder", "guns", "gutted",
-      "hatchet", "hell on earth", "helmet", "hideaway", "hockey stick", "horse", "hospital", "hotwire", "humanity", "hunting", "hurricanes",
-      "ice age", "iodine", 
-      "judgment", "junk",
+      "four horsemen", "frontier", "full metal jacket", "fusion",
+      "garden", "gather", "generator", "genetic mutation", "global", "global warming", 
+      "gravesite", "grid", "guns", "gutted", "hacksaw", "hammer", "hat",
+      "hatchet", "headlamp", "hell on earth", "helmet", "hideaway", "hockey stick", "hollow-point", "horse", "hotwire", 
+      "humvee", "hunting", "hurricanes", "hygiene",
+      "ice age", "incendiary", "iodine",
+      "jack", "jacket", "JP-8", "Jeep", "judgment", "jumper cables", "junk",
       "kill or be killed", "knife",
-      "lamp", "light", "lighter", "live off the land",
-      "Mad Max", "magazine", "marksman", "mass graves", "matches", "medic", "medicine", "mercenary", "meteor shower", "MRE", "mutant",
-      "NATO", "navigate", "negotiation", "non-perishables", "nuclear", "nurse",
-      "outdoorsman",
-      "painkillers", "party", "peanut butter", "pillage", "pistol", "plague", "planting", "poison", "prepper", "quiet",
-      "radiation", "radiation suit", "radio", "raid", "raiders", "ransack", "rations", "ravagers", "rebuild", 
-      "renegade", "rescue", "respirator", "resources", "resupply", "rifle", "rotting", 
-      "rounds", "rovers",
-      "salvage", "savage", "sawed-off", "scavenge", "scientists", "scrap", "shallow grave", "shells", 
-      "shelter", "shotgun", "sinners", "siphon", "skin", "slavers", 
-      "sneak", "sniper", "solar flare", "supplies", "survival",
-      "starvation", "stash", "stitch", "storms", "suture",
+      "lamp", "lantern", "leather", "Leatherman", "lever action", "light", "lighter", "live off the land",
+      "Mad Max", "magazine", "magnum", "map", "marksman", "mass graves", "matches", "medic", "medicine", 
+      "mercenary", "meteor shower", "MRE", "mutant",
+      "NATO", "navigate", "negotiation", "non-perishables", "nurse", "NVGs", "nylon",
+      "oil", "outdoorsman",
+      "painkillers", "paracord", "party", "peanut butter", "pillage", "pistol", "planting", "plate carrier", "pliers", "poison", "pollution", 
+      "potassium", "prepper","propane", "provisions", "pump",
+      "pump-action", "purified water", "quiet", "radiation suit", "radio", "raid", "raiders", "ransack", "rations", 
+      "ravagers", "rebuild", "reckoning",
+      "renegade", "rescue", "respirator", "resources", "resupply", "rimfire", "rope", "rotting", 
+      "rounds", "rovers", "rucksack",
+      "salt", "salvage", "savage", "saw", "sawed-off", "scientists", "screwdriver", "shallow grave", "shells", 
+      "shelter", "shovel", "shrapnel", "silencer", "sinners", "siphon", "skin", "slavers", "slingshot",
+      "sneak", "sniper", "solar flare", "solar panel", "spigot", "survival",
+      "starvation", "stash", "stitch", "storms", "straps", "suture", "SUV",
       "sword", "syringe", 
-      "tent", "tidal wave", "tinker", "together", "tracker", "trade", "transmission", "trapping", "travel", "tripwire", "truck", "tuna",
-      "undead", "unmarked grave", 
+      "tank", "tanto", "tent", "tidal wave", "tinker", "tire iron", "together", "tools", "tracker", "trade", "transmission", "trapping", 
+      "travel", "tripwire", "truck", "tuna", "two-way radio",
+      "undead", "unmarked grave", "urban",
       "vaccine", "vault", "vegetation", "vehicle", "ventilation", "veteran", "vulture",
-      "walker", "war", "warrior", "wasteland", "water", "wild", "wilderness", "wound",
-      "zombie"
+      "walker", "walkie-talkie", "war", "warrior", "wasteland", "water", 
+      "water bag", "whetstone", "wild", "wilderness", "wire", "wound", "wrench"
       ]
       
 
     ran_capital1 = capital_words.sample
     ran_capital2 = capital_words.sample
     ran_capital3 = capital_words.sample
+    ran_capital4 = capital_words.sample
+    ran_capital5 = capital_words.sample
     
     sentence_len1 = rand(5...30)
     ran_words1 = words.sample(sentence_len1).map(&:inspect).join(' ')
@@ -316,12 +351,18 @@ class IpsumsController < ApplicationController
     ran_words2 = words.sample(sentence_len2).map(&:inspect).join(' ')
     sentence_len3 = rand(5...30)
     ran_words3 = words.sample(sentence_len3).map(&:inspect).join(' ')
+    sentence_len4 = rand(5...30)
+    ran_words4 = words.sample(sentence_len4).map(&:inspect).join(' ')
+    sentence_len5 = rand(5...30)
+    ran_words5 = words.sample(sentence_len5).map(&:inspect).join(' ')
     
-    @ipsum1 = ran_capital1 + " " + ran_words1.delete('"') + ". " + ran_capital2 + " " + ran_words2.delete('"') + ". " + ran_capital3 + " " + ran_words3.delete('"') + "."
+    @ipsum1 = ran_capital1 + " " + ran_words1.delete('"') + ". " + ran_capital2 + " " + ran_words2.delete('"') + ". " + ran_capital3 + " " + ran_words3.delete('"') + ". " + ran_capital4 + " " + ran_words4.delete('"') + ". " + ran_capital5 + " " + ran_words5.delete('"') + "."
     
     fantasy_caps1 = capital_words2.sample
     fantasy_caps2 = capital_words2.sample
     fantasy_caps3 = capital_words2.sample
+    fantasy_caps4 = capital_words2.sample
+    fantasy_caps5 = capital_words2.sample
     
     sentence2_len1 = rand(5...30)
     fantasy1 = words2.sample(sentence2_len1).map(&:inspect).join(' ')
@@ -329,12 +370,18 @@ class IpsumsController < ApplicationController
     fantasy2 = words2.sample(sentence2_len2).map(&:inspect).join(' ')
     sentence2_len3 = rand(5...30)
     fantasy3 = words2.sample(sentence2_len3).map(&:inspect).join(' ')
+    sentence2_len4 = rand(5...30)
+    fantasy4 = words2.sample(sentence2_len4).map(&:inspect).join(' ')
+    sentence2_len5 = rand(5...30)
+    fantasy5 = words2.sample(sentence2_len5).map(&:inspect).join(' ')
     
-    @ipsum2 = fantasy_caps1 + " " + fantasy1.delete('"') + ". " + fantasy_caps2 + " " + fantasy2.delete('"') + ". " + fantasy_caps3 + " " + fantasy3.delete('"') + "."
+    @ipsum2 = fantasy_caps1 + " " + fantasy1.delete('"') + ". " + fantasy_caps2 + " " + fantasy2.delete('"') + ". " + fantasy_caps3 + " " + fantasy3.delete('"') + ". "  + fantasy_caps4 + " " + fantasy4.delete('"') + ". "  + fantasy_caps5 + " " + fantasy5.delete('"') + "."
     
     naturecaps1 = capital_words3.sample
     naturecaps2 = capital_words3.sample
     naturecaps3 = capital_words3.sample
+    naturecaps4 = capital_words3.sample
+    naturecaps5 = capital_words3.sample
     
     sentence3_len1 = rand(5...30)
     nature1 = words3.sample(sentence3_len1).map(&:inspect).join(' ')
@@ -342,12 +389,18 @@ class IpsumsController < ApplicationController
     nature2 = words3.sample(sentence3_len2).map(&:inspect).join(' ')
     sentence3_len3 = rand(5...30)
     nature3 = words3.sample(sentence3_len3).map(&:inspect).join(' ')
+    sentence3_len4 = rand(5...30)
+    nature4 = words3.sample(sentence3_len4).map(&:inspect).join(' ')
+    sentence3_len5 = rand(5...30)
+    nature5 = words3.sample(sentence3_len5).map(&:inspect).join(' ')
     
-    @ipsum3 = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + "."
+    @ipsum3 = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + ". " + naturecaps4 + " " + nature4.delete('"') + ". " + naturecaps5 + " " + nature5.delete('"') + "."
     
-	apoccaps1 = capital_words4.sample
+	  apoccaps1 = capital_words4.sample
     apoccaps2 = capital_words4.sample
     apoccaps3 = capital_words4.sample
+    apoccaps4 = capital_words4.sample
+    apoccaps5 = capital_words4.sample
     
     sentence4_len1 = rand(5...30)
     apoc1 = words4.sample(sentence4_len1).map(&:inspect).join(' ')
@@ -355,8 +408,12 @@ class IpsumsController < ApplicationController
     apoc2 = words4.sample(sentence4_len2).map(&:inspect).join(' ')
     sentence4_len3 = rand(5...30)
     apoc3 = words4.sample(sentence4_len3).map(&:inspect).join(' ')
+    sentence4_len4 = rand(5...30)
+    apoc4 = words4.sample(sentence4_len4).map(&:inspect).join(' ')
+    sentence4_len5 = rand(5...30)
+    apoc5 = words4.sample(sentence4_len5).map(&:inspect).join(' ')
     
-    @ipsum4 = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + "." 
+    @ipsum4 = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + ". " + apoccaps4 + " " + apoc4.delete('"') + ". " + apoccaps5 + " " + apoc5.delete('"') + "."
   
   end
   

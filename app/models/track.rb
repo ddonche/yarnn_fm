@@ -10,6 +10,7 @@ class Track < ApplicationRecord
   validates :image, file_size: { less_than: 1.megabytes }
   validates :tag_list, presence: true
   
+  acts_as_votable
   acts_as_taggable
   ActsAsTaggableOn.force_lowercase = true
   ActsAsTaggableOn.force_parameterize = true

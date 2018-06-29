@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :albums
   has_many :tracks
   has_many :favorites
-  has_many :favorite_tracks, through: :favorites, class_name: "Track"
+  has_many :favorite_tracks, through: :favorites, source: :track
   has_many :blogs
   has_many :comments
   has_many :active_relationships, class_name: "Relationship",
@@ -60,11 +60,9 @@ class User < ApplicationRecord
               OR user_id = :user_id", user_id: id)
   end
   
-  # Returns all of a user's favorited tracks.
-  def favorite_tracks
-    favorite_track_ids = "SELECT track_id FROM favorites
-                    WHERE user_id = :user_id"
-    Track.where("user_id IN (#{favorite_track_ids})
-              OR user_id = :user_id", user_id: id)
+  # Defines Tracks that were favorited
+  def favorited_tracks
+    favorite << track
   end
+  
 end

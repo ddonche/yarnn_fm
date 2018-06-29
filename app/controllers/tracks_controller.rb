@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-	before_action :find_track, only: [:show, :edit, :update, :delete]
+	before_action :find_track, only: [:show, :edit, :update, :delete, :favorite]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -57,6 +57,11 @@ class TracksController < ApplicationController
       format.html { redirect_to albums_url, notice: 'Track was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+  
+  def favorite
+    @track.upvote_by current_user
+    redirect_to :back
   end
 
 	private

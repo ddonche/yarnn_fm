@@ -13,10 +13,10 @@
 				<% @favorite_items.each do |item| %>
 					<li class="cf">
 						<div class="track_thumbnail">
-							<% if item.avatar? %>
-								<%= link_to image_tag(item.avatar.url), track_path(item), width: 100, title: item.title %>
+							<% if item.image? %>
+								<%= link_to image_tag(item.image.url), track_path(item), width: 100, title: item.title %>
 							<% else %>
-								<%= link_to image_tag(item.user.avatar.url), track_path(item), width: 100, title: item.title %>
+								<%= link_to image_tag(item.user.image.url), track_path(item), width: 100, title: item.title %>
 							<% end %>
 							<p>Author: <%= link_to item.user.username, user_path(item.user) %>
 							<% if item.album_id? %>

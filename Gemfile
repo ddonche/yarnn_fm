@@ -23,6 +23,7 @@ gem 'acts-as-taggable-on', '~> 5.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'trix'
+gem 'acts_as_votable', '~> 0.11.1'
 
 gem 'rails', '~> 5.0.7'
 gem 'puma', '~> 3.0'

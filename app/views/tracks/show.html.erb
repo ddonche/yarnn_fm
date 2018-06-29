@@ -57,7 +57,8 @@
   		    <div class="side-box">
   		      <div class="side-content">
   		        <div class="icons">
-                <%= image_tag('icons/comments.svg', width: 20) %>&nbsp;51 comments
+  		          <%= link_to image_tag('icons/heart_empty.svg', width: 20), favorite_track_path(@track), method: :put %>&nbsp;<%= @track.get_upvotes.size %>
+                <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 20) %>&nbsp;51 comments
               </div>
   		      </div>
   		    </div>

@@ -185,11 +185,7 @@
 									<% end %>
 								</h2>
 								<p class="description"><%= truncate(item.description, length: 160) %></p>
-								<div class="icons_container">
-								  <div id="favorites">
-								    <%= render 'albums/favorites', :track => item %>
-								  </div>
-							  </div>
+							
 							</div>
 						</li>
 					<% end %>

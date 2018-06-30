@@ -241,7 +241,7 @@ class IpsumsController < ApplicationController
       "half-light", "hardwood", "haven", "haze", "headland", "heap", 
       "heat", "heath",
       "height", "herb", "herd", "highland", "hillock", "hilltop", "hinterland", "hive", "hole", "hollow", "hummock", "hurricane",
-      "ice", "inclination", "incline", "inlet", "isle",
+      "ice", "iceberg", "inclination", "incline", "inlet", "isle",
       "knuckle", "lagoon", "land", "landslide", "lava", "lea", "leaves", "ledge", "lightning", "loam", "loch", "lodge", "lowland",
       "marshlands", "maze", "mesa",
       "mesquite", "metal", "meteor", "mineral", "mire", "mist", "mistral", "monsoon", "moon", "moonlight", "moors", "morass", "morning", "moss", 
@@ -338,6 +338,118 @@ class IpsumsController < ApplicationController
       "water bag", "whetstone", "wild", "wilderness", "wire", "wound", "wrench"
       ]
       
+    capital_words5 = [
+      "Bodily fluids", "Clown", "Corpse", "Danger", "Dark", "Deceased", "Eaten", "Evil", "Fear", "Full moon", 
+      "Graveyard", "Hearse", "Hostel", "Killer", "Lure", "Maggots", 
+      "Manhunt", "Midnight", "Morgue", "Mutilated", "Odor", "Pain", "Panic", "Phobia", "Remains", "Scream", 
+      "Serial killer", "Shallow grave", 
+      "Silver bullet", "Skull", "Terror", "Toe tag", "Undertaker", "Victim", "Vulnerable"
+      ]
+      
+    words5 = [
+      "abandoned", "abduction", "abused", "acid", "accursed", "adopted", "after dark", "after hours", "alarm", "aliens", "alleyway", "alligators", 
+      "alone", "altar", "ambulance", "ammo", "ammunition", "amnesia",
+      "amputation", "anal cavity",
+      "angel", "angled", "antisocial", "apparition", "artery", "asleep", "asylum", "attacker", "attic", "attorney", "audible", "augur", 
+      "awakened", "axe",
+      "back roads", "backwoods", "bad luck", "bad moon", "bang", "banish", "barking", "basement", "bathtub", "bats", 
+      "battered", "beaten", "bears", 
+      "beast", "begging", "behavior", "beheaded", "belly-up",
+      "bible", "bigfoot", "bitten", "black light", "bled", "bleeding", "blessing", "blink", "blizzard", "blood", 
+      "blood-thirsty", "bloody", 
+      "bludgeon", "boathouse", "body", "boiled", "boiler room", "bones", "bonesaw", "boogeyman", "boonies", "boots", "bound", 
+      "brains", "breath", "bribe", "broken neck", "bruised", "bugs", "bump", "burial", "burial ground", "buried alive", "butcher",
+      "cabin", "cage", "candle", "cannibal", "captive", "capture", "carcus", "car jacking", "carnival", "carousel", "car stall", 
+      "carving", "case", "casket", "cat", "catacombs", "cave", "cellar", "cemetery", "chains", "chainsaw", "chamber", 
+      "charming", "chatter", "chemicals", "childhood", "chilling", "chills", "chloroform", "chopping block", "chupacabra", "church", "circumstantial", "circus", 
+      "circus tent", "clamor", "claustrophobic", "claws", "cleaners", "cloak", "closet", "cockroach", "coed", "coffin", "coma", 
+      "concrete", "confined", "consumed", "control",
+      "contusion", "convict", "conviction", "coroner", "corridor", "cough", "court",
+      "coven", "cowl", "crawl space", "crazy", "criminal",
+      "crawly", "creaking", "creature", "creepy", "cremation", "crime scene", "crone", "crucifix", "crutches", "cult", "curfew", "curse",
+      "cut",
+      "darkness", "dead", "death", "decay", "decomposition", "delight", "demon", "dentist", "deputy", 
+      "derailed", "deserted", "destiny", "details", 
+      "detective", "devil", 
+      "digested", "diner", "dirt road", "disappear", "disaster",
+      "disconcerted", "disease", 
+      "disembowel", "disfigured", "disguise", "dismember", "DNA", "doctor", "doll", "dollhouse", "dragged", "dreams", 
+      "dried blood", "drill", "driver",
+      "drowning", "drug", "duct tape", "dump", "dungeon",
+      "electric chair", "electrocuted", "embalming fluid", "emotional", "engorged", "entrails", "erratic", "escaped", "estate",
+      "ether", "evade", "evidence", "examine", "execution", "exorcism", "exorcist", 
+      "experiment", "eyelids", "eye patch", "eyes",
+      "fangs", "FBI", "feeding", "feds", "femur", "fetid", "filth", "fingernail", "fingerprints", "fire", "fireplace", 
+      "firing squad", "flashlight", "flat tire", "flesh", "flicker", "flies", 
+      "foaming", "fog",
+      "followed", "footprints", "fortune teller", "foster care", "foster home", "frail", "freak", "freakshow", "frightening", "froth", "frozen", 
+      "fugitive", "fumes", "funeral", "furnace",
+      "gagged", "gargoyle", "gas", "gas chamber", "gasoline", "gasp", "gas station", "genitals", "ghost", "ghoul", "gnaw", "goosebumps", "gooseflesh", "gorged", 
+      "government", "gratification", "gravestone", "graveyard", 
+      "graveyard shift", "grim reaper",
+      "groaning", "guns", "gunshot", "gut feeling", "guts", "gutted", "gypsy",
+      "hag","Halloween", "handcuffs", "hanged", "harlot", "harrowing", "hatchet", "haunted", "hazard", "headstone", "heart", "heartbeat", 
+      "hell", "hellscape", "help",
+      "hemorrhage", "hex", "hidden", "highway",
+      "hitchhiker", "hive", "holy water", "hood", "hook", "hooker", "horror", "horrorshow", "hospital", 
+      "hostile", "hovel", "howling", "hunger", "hunted", "hunter", "hurt",
+      "identify", "identity", "ignition", "ill-fated", "ill-meaning", "inbred", "incantation", "incinerate", 
+      "inheritance", "insane", "insects", 
+      "internment", "intestines", "intruder", "intuition", "investigation",
+      "jack-in-the-box", "jail cell", "jaws", "jogger", "jolted", "journalist", "judge", "jump", "jump start", "jury", "jutting",
+      "kidnapping", "killed", "knife", 
+      "laboratory", "lair", "lake", "lamb", "landfill", "lashed", "law", "leech", "leprechaun", 
+      "lethal injection", "light", "lightning", "Lilith", 
+      "lipstick", "liver", "locked", "lock-up", "locusts", "lost", "lotion", 
+      "Lucifer", "lunatic", "lurking", "lynching",
+      "machete", "maintenance crew", "manor", "marionette", "marshall", "mascara", "mask", "mass grave", "maul", "maw", "meat hook", "medical examiner", 
+      "medium", "mess", "methodical", "middle of nowhere", "mill", "mirror", "mist",
+      "moaning", "modus operandi", "moist", "molested", "monster", "moon", "moonlight", "mortuary", "most wanted", "motel", "moth",
+      "muffled", "mummifed", "murder", "murder weapon", "music box", "mysterious",
+      "neck", "needle", "neighborhood watch", "nerve-wracking", "nervous", "news", "newspaper", "nibble", "night", "nightmare", "night watchman", "noose", 
+      "nostrils", "note", "nurse",
+      "occult", "officer", "old", "omen", "open water", "operation", "oracle", "organ harvester", "organs", 
+      "orphanage", "Ouija board", 
+      "outhouse", "overdose", "overpowered",
+      "Pagan", "painting", "palm reading", "panel van", "panic room", "paralysis", "paramedic", "paranoia", "parking garage", 
+      "passageway", "passed away", "pattern",
+      "pentagram", "petrified", "pinched",
+      "plane crash", "plea bargain", "pleading", "pleasure", "pliers", "poisoned", 
+      "policeman", "poltergeist", "possessed", "pounce", "powerless",
+      "power outage", "prayer", "precognition", "pregnant", "premonition", "priest", "prison", "private investigator", 
+      "profiler", "prophesy", "prostitute", 
+      "psychic", "psychiatric hospital", "psycho", "psychologist", "pulp", "pump", "puppets", "pursued", "pyre",
+      "quiet", "quivering",
+      "rabies", "raid", "rain", "rancid", "ransom", "rasping", "rattling", "rats", "recruited", "reek", "reflection", "regurgitated", 
+      "removed",
+      "rest area", "restless", "revenge", "rickety", "rite", "ritual", 
+      "rope", "rot", "rubber gloves",
+      "sacrifice", "saint", "sarcophagus", "Satan", "Satanic", "scalp", "scarred", "scary", "scratching", "scrubs", "scythe", 
+      "seance", "search party", "seizure", "semen", "serrated", "sewer", "sewn shut", "shadows", "shambling", "shapeshifter",
+      "sharks", "shattered", "shells", "shelter",
+      "sheriff", "shipwreck", "shivering", "shock", "shrine", "shroud", "shudder", "shuffling", "sideshow", "sigh", "sighting",
+      "silence", "six feet under", "sixth sense", "skeleton", "skeleton crew", "skin",
+      "skinned alive", "slammed", "slasher", "slaughter",
+      "slenderman", "slimy", "smother", "smuggled", "snakes", "snout", "snowed in", "soil", "soiled",
+      "sole survivor", "solved", "soul", "soundproof", "spacecraft", "spell", "spiders", "spinal fluid", "spirit", "splatter", 
+      "spoiled", "spooky", "spray", "squallor", "stab", "stairs", "stalker", 
+      "static", "statue", "steel", "stench", "sting", "stitch", "storm", "storm drain", "straightjacket", "strange",
+      "stranger", "strangled", "street walker", "suicide", "summer camp", "surveillance",
+      "suspect", "swab", "swamp", "SWAT", "sweat", "swollen", "symbols", "syringe",
+      "talons", "tapping", "tarot", "tattered", "taxicab", "teeth", "temple", "tentacles", "terrified", 
+      "therapist", "throat", "thud", "thump", "tombstone", 
+      "tooth", "town drunk", 
+      "torture", "trafficking", "trailer", "trapped", "trash bags", "traumatized", "treachery", "tree branches", "trembling", "trenchcoat", 
+      "trial", "trigger", "troll", "troubled", "truck stop",
+      "trunk", "tunnel", "twins", "twisted", "twitch",
+      "UFO", "unconscious", "underground", "unknown", "unsolved", "unusual", "urn",
+      "vacation", "vampire", "van", "veins", "vengeful spirit", "venom", "violated", "virgin", "visions", "voodoo", "voodoo doll",
+      "ward", "warning", "warts", "weird", "wendigo", "werewolf", "wheelchair", "wheezing", "whimper", "wilderness", "wilted", "wind", 
+      "wind-up monkey", "witch", "witchcraft", 
+      "witch doctor", "withered", "witness", "wolves", "woods", "woodshed", "worms", "wreck", "wrong turn",
+      "zombie"
+      ]
+      
 
     ran_capital1 = capital_words.sample
     ran_capital2 = capital_words.sample
@@ -414,6 +526,26 @@ class IpsumsController < ApplicationController
     apoc5 = words4.sample(sentence4_len5).map(&:inspect).join(' ')
     
     @ipsum4 = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + ". " + apoccaps4 + " " + apoc4.delete('"') + ". " + apoccaps5 + " " + apoc5.delete('"') + "."
+    
+    horrcaps1 = capital_words5.sample
+    horrcaps2 = capital_words5.sample
+    horrcaps3 = capital_words5.sample
+    horrcaps4 = capital_words5.sample
+    horrcaps5 = capital_words5.sample
+    
+    sentence5_len1 = rand(5...30)
+    horr1 = words5.sample(sentence5_len1).map(&:inspect).join(' ')
+    sentence5_len2 = rand(5...30)
+    horr2 = words5.sample(sentence5_len2).map(&:inspect).join(' ')
+    sentence5_len3 = rand(5...30)
+    horr3 = words5.sample(sentence5_len3).map(&:inspect).join(' ')
+    sentence5_len4 = rand(5...30)
+    horr4 = words5.sample(sentence5_len4).map(&:inspect).join(' ')
+    sentence5_len5 = rand(5...30)
+    horr5 = words5.sample(sentence5_len5).map(&:inspect).join(' ')
+    
+    @ipsum5 = horrcaps1 + " " + horr1.delete('"') + ". " + horrcaps2 + " " + horr2.delete('"') + ". " + horrcaps3 + " " + horr3.delete('"') + ". " + horrcaps4 + " " + horr4.delete('"') + ". " + horrcaps5 + " " + horr5.delete('"') + "."
+    
   
   end
   

@@ -20,6 +20,7 @@ class User < ApplicationRecord
   
   has_many :albums
   has_many :tracks
+  has_many :topics
   has_many :favorites
   has_many :favorite_tracks, through: :favorites, source: :track
   has_many :blogs

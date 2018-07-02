@@ -1,0 +1,37 @@
+<div id="album_show">
+	
+	<div id="banner" class="track_banner">
+		<%= render 'layouts/header' %>
+	</div>
+	
+	<div id="breadcrumb">
+		Goodies
+			<span>/</span>
+		<%= link_to 'Generators', generators_path %>
+			<span>/</span>
+		Fantasy Portal
+	</div>
+	
+	<div class="wrapper_left">
+	  <div class="side-box">
+	    <div class="side-content">
+	    	<div class="ipsum">
+	      	<h2>Tavern and Inn Names</h2>
+	        <%= @taverns %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="wrapper_wide_right">
+	  <div class="side-box">
+	    <div class="side-content">
+	      <div class="ipsum">
+	        <h2>Fantasy Ipsum</h2>
+	        <%= @fantasy_ipsum %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+</div>

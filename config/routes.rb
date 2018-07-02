@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resources :blogs
+  resources :topics
   resources :relationships, only: [:create, :destroy]
   get 'station/:id', to: 'users#favorites', as: :station
   resources :albums, :path => '/albums'
@@ -24,9 +25,14 @@ Rails.application.routes.draw do
   end
 
   get 'genre/:tag', to: 'tags#show', as: :tag
+  
   get 'generators', to: 'ipsums#show'
-  put 'ipsum', to: 'ipsums#ipsum'
   get 'ipsum', to: 'ipsums#ipsum'
-  put 'names_gen', to: 'ipsums#names'
+  get 'apocalpyse', to: 'ipsums#apocalypse'
+  get 'fantasy', to: 'ipsums#fantasy'
+  get 'horror', to: 'ipsums#horror'
+  get 'nature', to: 'ipsums#nature'
+  get 'modern', to: 'ipsums#modern'
+  get 'sci-fi', to: 'ipsums#scifi'
   get 'names_gen', to: 'ipsums#names'
 end

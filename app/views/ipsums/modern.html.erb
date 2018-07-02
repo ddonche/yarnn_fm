@@ -2,14 +2,19 @@
 	<div id="banner" class="track_banner">
 		<%= render 'layouts/header' %>
 	</div>
+	
   <div id="breadcrumb">
-		Goodies
-			<span>/</span>
-		<%= link_to 'Generators', generators_path %>
-			<span>/</span>
-		Ipsum
-	</div>
+  	Goodies
+  		<span>/</span>
+  	<%= link_to 'Generators', generators_path %>
+  		<span>/</span>
+  	Modern Portal
+  </div>
+
 	<div class="wrapper_skinny_left">
 	  <%= render 'names' %>
+	</div>
+	<div class="wrapper_wide_right">
+	  <%= render 'modern' %>
 	</div>
 </div>

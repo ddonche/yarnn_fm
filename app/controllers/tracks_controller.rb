@@ -76,7 +76,6 @@ class TracksController < ApplicationController
   def track_params
     params.require(:track).permit(:title, :description, :user_id, :explicit,
                                   :image, :audio, :album_id, :vocals, :tag_list, 
-                                  :amazon_url, :buy_url, :bn_url, :kobo_url, :blurb_url,
-                                  :audible_url, :smashwords_url, :apple_url)
+                                  :buy_url)
   end
 end

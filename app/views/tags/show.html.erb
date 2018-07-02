@@ -78,7 +78,8 @@
   	</div>
   
   	<div id="breadcrumb">
-  		<%= request.path %>
+  		<%= request.path %><br />
+  		<%= @test_genre %>
   	</div>
 	
   	<div class="wrapper_skinny_left">
@@ -90,6 +91,19 @@
 							<p class="track_count"><h2><%= request.path %></h2></p> 
 							<p class="track_count"><%= pluralize( @tag_count, 'Track' ) %></p> 
 						</div>
+          </div>
+        </div>
+        <div class="side-box">
+          <div class="side-content">
+            <% if user_signed_in?  %>
+              <h2>New Topic For This Genre</h2>
+              <%= render "topics/quick_form" %>
+          	<% end %> 
+          </div>
+        </div>
+        <div class="side-box">
+          <div class="side-content">
+            <%= render 'topics' %>
           </div>
         </div>
       </div>

@@ -16,7 +16,6 @@
   <%= javascript_include_tag 'player/new.js', 'data-turbolinks-track': 'reload' %>
     
   <script type="text/javascript">
-
       var hap_player;  
       //jQuery(document).addEventListener("turbolinks:load", function($) {
       //jQuery(document).ready(function($){
@@ -44,16 +43,12 @@
               sortableTracks: false,
               playlistItemContent:"title"
           };
-
           hap_player = $("#hap-wrapper").hap(settings);
-
           $('.hap-playlist-toggle').on('click', function(){
-
               var playerHolder = $('.hap-player-holder'),
                   ease = 'easeInOutCubic',
                   time = 500,
                   openValue = $("#hap-wrapper").width() - 50;
-
               if(!hap_player.playlistOpened){
                   playerHolder.stop().animate({'left': openValue+'px'},{duration: time, easing: ease, complete:function(){
                           playerHolder.addClass('hap-player-holder-opened');
@@ -63,11 +58,8 @@
                   playerHolder.css('left', playerHolder.css('left')).removeClass('hap-player-holder-opened').stop().animate({'left': 0+'px'},{duration: time, easing: ease});
               }   
               hap_player.playlistOpened = !hap_player.playlistOpened;
-
           })
-
       });
-
   </script>
 </head>
 

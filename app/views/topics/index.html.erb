@@ -1,0 +1,7 @@
+<div class="wrapper_wide_right">
+  <% @topics.each do |topic| %>
+    <h1><%= topic.title %></h1>
+    <%= topic.content %><br />
+    <%= link_to topic.user.username, user_path(topic.user_id) %>
+  <% end %>
+</div>

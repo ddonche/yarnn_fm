@@ -1,11 +1,468 @@
 class IpsumsController < ApplicationController
   def show
   end
+  
+  def fantasy
+    capital_words2 = [
+      "Adventure", "Alchemist", "Amulet", "Apprentice", "Arcane", "Armor", "Broadsword", "Castle", 
+      "Champion", "Cleric", "Cloak", "Damsel", "Dragon", "Druid",
+      "Duke", "Dwarf", "Elf", "Enchantress", "Faerie", "Foe", "Forest", "Guild", "Halfling", "Innkeep",
+      "Jester", "King", "Knight", "Legion", "Lord", "Lore", "Mage", "Magic", "Mythical", "Necromancer", 
+      "Oracle", "Paladin", "Potion", "Queen", "Relic", "Rune", "Scepter", 
+      "Shire", "Sorcery", "Spell", "Sword", "Townsfolk", 
+      "Unicorn", "Void", "Warlock", "Warrior", "Wizard", "Wraith"
+      ]
+      
+    words2 = [
+      "abbot", "acolyte", "accursed", "acrobat", "Admiral", "aegis", "aeronaut", "aether", "affliction", "ale", "alleyway", "alloy", 
+      "altar", "ambassador", "amber", 
+      "ancestral", "ancient", "angel", "ankh", "anvil", "apocalypse", "arbalest",
+      "archangel", "architect", "archive", "arena", "aristocracy", "armaments", "armorer", 
+      "armory", "arrow", "arrowhead", "artesan", "Arthur", "artillator", "artifact", "artifice", "Asgard",
+      "assassin", "assault", "assembly", "astral", "asylum", "Atlantis", "atonement", "augur", "aura", "automaton", 
+      "avatar", "axe", "Azeroth",
+      "baker", "balrog",
+      "band", "bandage", "bandit", "banner", "banquet",
+      "barbarian", "barber", "barbican", "bard", "baron", "baroness", "barricade", "barrow", "barter", 
+      "basilard", "basket", "bat", "baton", "battering ram", 
+      "battle", "battlefield", "battlements", "bazaar", "bear", "beast", "beef",
+      "beefeater", "beer", "beeswax", "beggar", "beguile", 
+      "beheading", "behemoth", "belt", "berkserker", "bindings", "bishop", "blacksmith", "bladder",
+      "blanket", "blasphemy", "blessing", "bloodletter", 
+      "blood sausage", "boar", "boarding house", "boat", "bog", "bolt", "bones", "bone setter", "book",
+      "boots", "boson", "bounty hunter", "bow", "bowyer", "bracelet", "bracer", "brawl", "brawler", "brazier", "bread", "breastplate", 
+      "breech", "brew", "brigand", "bristle",
+      "bronze", "brood", "broth", "brothel", "buckler", "bull", "butcher",
+      "caltrips", "Camelot", "camp", "campfire", "candle", "candlestick",
+      "cannibals", "cape",
+      "Captain", "captive", "captor", "caravan",
+      "cardinal", "cards", "carnival", "carriage", "cart", "castaway", "cat", "cat o' nine tails", "cataclysm",
+      "catacombs", "catapult", "cathedral", "cattle", "cauldron", "causeway", "cavalier", "cavalry", "celestial", "cell", "ceremony",
+      "chain mail", "chains", "chamber pot", "chamfron", "channeler", "chaos", "chapel", "chariot", "charismatic", "charm", "chickens", 
+      "chieftain", "chieftess",
+      "chimera", "chimney", "chisel", "chivalry", "choir", "chopping block", 
+      "Chosen One", "city", "clairvoyant", "clan", "claw", "cleaver", "clerk", "climb", "clinic", "clock tower", "cloth",
+      "club", "coals", "coat", "coat of arms", "cobbler", "cobblestone", "coffin", "cog", "coif", "Colonel", "coin", "coinpurse", "commodore", "commoner", 
+      "Common Tongue", "companion", 
+      "company", "compass", "conflagration", "conjurer", 
+      "consecration", "constable", "contract", "contraption", "cook", "copper", "corridore", "corsair", "cot", "cottage", "count", 
+      "countess", "cough", "county", "coup",
+      "court", "courtesan", "courtier", 
+      "coven", "covenant", "cow", "cowl", "cream", "creature", "crest",
+      "crone", "crossbow", "crow", "crow's nest", "crown", "crucible", "crusade", "crystal", "cup", "curse", "cutthroat", "cyclops", "daemon", "dagger", 
+      "dancer", "dark", "darkness", "defend", "deity", "demigod", "demon", "den", "desecration", 
+      "dethrone", "devil", "dice", "diplomacy", "diplomat",
+      "dire wolf", "dirk", "disguise", 
+      "divine", "diviner", "doctor", "doctrine", "doublet", "dowager", "dowery",
+      "dragoon", "drawbridge", "dreadnought", "dress", "drifter", "drover", 
+      "drummer", "dryad",
+      "duchess", "duel", "Dumbledore", "dungeon", "Earthsea", "economy", "eggs", "elemental", "embargo", "emissary", "empath", "emerald", 
+      "Emperor", "Empress", "enchantment", 
+      "engineer", "enigma", "Ensign", "entrails", 
+      "envoy", "escape", "escort", "espionage", "ethereal", "Everwind", "evil", 
+      "evocation", "exalted", "Excalibur", "executioner", 
+      "exorcism", "exorcist", "expedition", "fairy dust", "falconer", 
+      "familiar", "fang", "Fantasia", "farmer", "fauchard", "feather", "fence", "fencing", "festival", "fey", "fighter", "fire", "firewood", 
+      "fireplace", "fisherman", "fish hook", "fishmonger", "fishwife", "flag", 
+      "flail", "flask", "fleet", "fletcher", "flint", "flog", "flute", "fly", "folk magic",
+      "folk medicine", "forage", "foreigner", "forge", "fork", "fortifications", "fortress", "fortune teller", 
+      "foundry", "fox", "fray",
+      "friar", "Frodo", "funeral",
+      "gaelor", "galleon", "gallows", "gambler", "games", "Gandalf", "garb", "gargoyle", "garrote", "garter", "Gary Gygax", "gates", 
+      "gatehouse", "gateway", "gauntlet", "gear", "gelding", 
+      "gemstone", "General", "ghost", "ghoul", 
+      "giant", "giant spider", "gibbet", "glaive", "glass", "glory", "glyph", 
+      "gnome", "goat's milk",
+      "goblet", "goblin", "gods", "goddess", "gold",
+      "golom", "gorgon", "grail", "gravedigger", "grave robber", "graveyard", "gremlin", "grieves", "griffon", 
+      "grinding wheel", "guard", "guardian", "guard tower", "guest",
+      "guide", "guissarme",
+      "gypsy", "hag", "halberd", "ham", "hamlet", "hammer", "hangman", "harbinger", "harp", 
+      "Harry Potter", "harvest", "hatchet", "hatchling", "hauberk",
+      "healer", "hearth", "heir", "helm", "helmsman", "herald", "herbalist", "heresy", "hermit", "hero", "heroic", "heroine", "hexer", 
+      "hide", "highborn",
+      "highwayman", "hilt", "history", "hoard", "hogs", "Hogwarts", "honor", "hood", "horn", "horse", "horseman", "host", "hound", "hourglass", "hubris",
+      "huntsman", "hut", "icon", "illusionist", "imp", "infantry", "illness", "infiltrator", "ink", "inn", "inquisitor", "interim", 
+      "interrogation", "invisibility", "iron", "javelin", "jeweler", "jewels", "Jon Snow",
+      "joust", "judge",
+      "justice", "keel", "keelhauling", "keep", "key", "kindling", "kingdom", "Kingslayer", "knapsack", "knave", "knife", "knighthood", 
+      "knot", "kraken", "Kvothe", "labyrinth", "Lady", 
+      "lair", "lamellar", "lamp", "lance", "lancet", "Lannister", "lantern", "lash", "law",
+      "leather", "leech", "legend", "leprechaun", "levitate", "Lieutenant", "lich", "light", "lighthouse", "linament", 
+      "livery", "lock", "lockpick", "lodestar", "longbow", 
+      "loot", "lowborn", "lumberjack", "lunar",
+      "lurker", "lute", "lycanthrope", "lyre", 
+      "mace", "machicolation", "magician", "magistrate", "magus",
+      "maiden", "mainsail", "mangonel", "manservant", "mantle", "map", "mare", "marionette", "market", "marksman", "martyr", "mask",
+      "mason", "mast", "master", "maul", "mausoleum", 
+      "mayor", "maze", "mead", "medic", 
+      "medicine", "melee", "mercenary", "merchant", "Merlin", "mermaid",
+      "merrymaking", "messenger", "Middle Earth", "milkmaid", "mime", "miner", "minotaur", 
+      "minstrel", "mirror", "mirth", "mischief", "mist", "Mistborn", "moat", "monacle", "monarch", "monk", "Mordor",
+      "mount", "mule", "mummer", "murder holes", "mysterious", "nails", "nanny", "Narnia",
+      "navigation", "necklace",
+      "needle", "negotiation", "nephilim", "Neverland", "newt", "nightcap", "nightmare", 
+      "Night's Watch", "noble", "nock", "nomad", "noose", "nun", "nunnery", "nymph", 
+      "oarsman", "obsidian", "occultist", 
+      "ogre", "ointment", "oligarchy", "onyx", "opal", "opaline", "orb", "orc", "ore", "orphanage", 
+      "oubliette", "outsider", "oven", "overthrow", "ox cart", "oxen", "Oz", "pack", "parapet", "party", "passageway",
+      "peasant", "peg", "pell", "penny", "petticoat", "phantom", "philosopher", "pickaxe", "pie", "pike", "pious", "pipe tobacco", "piper", 
+      "pirate", "pitch", "pitchfork", "plague", "plague doctor", "plane", 
+      "plate mail", "platoon", "pocket", "poet",
+      "poison", "polearm", "politics", "pony", "pork", "portal", 
+      "portcullis", "powder", "powers", "predator", "priest", "priestess", "prince", "princess", 
+      "prison", "proclamation", "prophesy", "property",
+      "protection", "protector", "psychic", "pulpit", "pup", "puppeteer", "pyre", "pyromancer", 
+      "quarterstaff", "quest", "quill", "quiver", "raft",
+      "rags", "raid", "raider", "rail", "rampart", "ranger", "rapier",
+      "raven", "raze", "razor", "realm", "reanimate", "rebellion", "rectory", "redemption", "regency", "regeneration", "regent", 
+      "regiment", "registrar", "reincarnation", "reins",
+      "religion", "remedy", "rescue", "resurrection", "rider", "riddle", "ring", "rite", "ritual", "road", "roar", "roast", "robber", "robes", "roc", 
+      "rogue", "root", "rope", "Round Table", "royal", "royal seal", "ruby", "ruler", "saber", "saboteur", "sack", "sacrifice", "saddle", "sage", 
+      "sailor", "salvage", "salt", "salt pork", "salve", "sanctuary", "sandals", "sapphire", "sarcophagus", "satchel", 
+      "satyr", "Sauron", "savage", 
+      "savant", "scabbard", "scaled", "scavenger", "scimitar", "scion", "scourge",
+      "scout", "scribe", "scroll", 
+      "scrying", "scullery", "scythe", "seance", "secret passageway", "seer", "seminary",
+      "sentry", "serf", "servant", "sextant", "shackles", "shade", "shadow", "shaft",
+      "shaman", "Shannara", "shapeshifter", "sheep", "shepherd", "shield", 
+      "shieldmaiden", "shimmer", "ship", "shrine", "shroud", "sickle", "siege", "sigil", "silk", "silver", "Sir", "siren", "skeleton", "skinner", 
+      "skirmish", "skull",
+      "skyship", "slaughter", "slavery", "sling",
+      "slippers", "slums", "smith", "smuggler", "snake oil", "soap", "soar", "solar", "soldier", "soothsayer", 
+      "sorcerer", "soup", "sow", "spear", "specter", "spectral", "spellbook",
+      "spellcaster", "spetum", "spike", "spinster", "spire", "spirit", "spoon", "spy", "spyglass", "squadron", "squire", 
+      "stable", "staff", "stallion", "Stark", "statue", "steed", "steel",
+      "steeple", "stew", "stirrups",
+      "storyteller", "stowaway", "studded leather", "summoner", "surcoat", "swashbuckler", "swindler", "swine", "tabard", "tablet", "tallow",
+      "talons", "tanner", "tapestry", "Targaryen",
+      "tariff",
+      "tavern", "tax collector", "teleportation", "temple", "tent", "territory", "Terry Brooks", "the rack", "thief", "thread", "throne", "tinder", 
+      "tinkerer", "toga", "Tolkien", "tomb", "tome", "top sail", "torch", 
+      "torture chamber", "totem", 
+      "tournament", "tower", "trade", "translator", "translucent",
+      "transmutation", "trap", "trap door", "trapper", "traveler", "trebuchet", "treason", "treasure", "trial", "tribe", "tribunal", "troll", 
+      "troubadour", "trousers", 
+      "trumpets", "trunk",
+      "tumbler", "turnkey", "turret", "tusk", "tyranny", "Tyrion", "undead", "undertaker", "uprising", "urn", "usurper",
+      "valient", "Valkyrie", "vampire", "veil", "vengeance", 
+      "venom", "vestments", "vial", "vicar", "vigilant", "vigor", "village", "virgin", "vision", "Voldemort", "voulge", "vow", "wager",
+      "wagon", "waistcoat", "wall", "wand", "ward", "wares", "warhammer", "warlord", "war machine",
+      "watchman", "watchtower", "weaver", "wedding", "well",
+      "werewolf", "Westeros", "wetnurse", "wheel", "Wheel of Time", "whetstone", "whip", "wicked", "wicker", "widow", "widower", "wight", "winch", "windmill", "wine", 
+      "wine skin", "winged", "witch", "wolfpack", "Wonderland", "wool", "wormwood", "woven", "writ", "wyrm", "yarn", "yoke"
+      ]
+    
+    fantasy_caps1 = capital_words2.sample
+    fantasy_caps2 = capital_words2.sample
+    fantasy_caps3 = capital_words2.sample
+    fantasy_caps4 = capital_words2.sample
+    fantasy_caps5 = capital_words2.sample
+    
+    sentence2_len1 = rand(5...30)
+    fantasy1 = words2.sample(sentence2_len1).map(&:inspect).join(' ')
+    sentence2_len2 = rand(5...30)
+    fantasy2 = words2.sample(sentence2_len2).map(&:inspect).join(' ')
+    sentence2_len3 = rand(5...30)
+    fantasy3 = words2.sample(sentence2_len3).map(&:inspect).join(' ')
+    sentence2_len4 = rand(5...30)
+    fantasy4 = words2.sample(sentence2_len4).map(&:inspect).join(' ')
+    sentence2_len5 = rand(5...30)
+    fantasy5 = words2.sample(sentence2_len5).map(&:inspect).join(' ')
+    
+    @fantasy_ipsum = fantasy_caps1 + " " + fantasy1.delete('"') + ". " + fantasy_caps2 + " " + fantasy2.delete('"') + ". " + fantasy_caps3 + " " + fantasy3.delete('"') + ". "  + fantasy_caps4 + " " + fantasy4.delete('"') + ". "  + fantasy_caps5 + " " + fantasy5.delete('"') + "."
+    
+    tavern_first = [ "Abandoned", "Able", "Alabaster", "Amber", "Angry", "Anchored", "Ancient", "Arguing", 
+      "Armored", "Asking", "Auburn", "Banded", "Bare", "Battered", "Beguilded", "Bewildered", "Big", 
+      "Black", "Blaring", "Blazing", "Bleeding",
+      "Blessed", "Blind", "Blue", "Blurry", "Blustery", "Boastful", "Boiling",
+      "Boisterous", "Bony", "Braided", "Branded", "Brass", "Bratty", "Brave", "Brawling", "Brazen", "Brick", "Bright", 
+      "Brindle", "Broken", "Bronze", "Brown", "Buried",
+      "Burly", "Burning", "Burnt", "Busy", "Buxum", "Caged", "Captured", "Careless", "Caring",
+      "Chaotic", "Charming", "Charred", "Cheap", "Chilly", "Chosen", "Clean", "Climbing", "Clinging", "Clothed", "Clumsy", 
+      "Cluttered", "Cobblestone", "Cold", 
+      "Common", "Cooking", "Copper", "Cotton", "Courageous", "Covered", "Cowardly", "Cracked", "Crafty", 
+      "Craven", "Crazy", "Crisp", "Crawling", "Crooked", "Crowded", "Crying", "Curly", "Cursed", "Dancing", "Dark", 
+      "Darkened", "Dawn", "Dead", "Deadly", "Deaf", "Delightful", "Deserted", "Dim", "Dirty", "Dismal", "Drab", "Dragged", 
+      "Drifting", "Drowned", "Drowning", "Drunken", 
+      "Dry", "Dusky", "Dusty", "Dying", "Eccentric", "Eager", "Early", "Eighth", "Emerald", "Empty", "Enchanted", "Evil",
+      "Faithful", "Fallen", "Falling", "Famous", "Fat", "Feathered", "Fifth", "Filthy", "First", 
+      "Fleet", "Flying", "Foreign", "Forgetful", "Forgotten", "Forsaken", "Fortunate", "Fourth", "Freckled", "Frail", "Frayed", 
+      "Freezing", "Friendly", "Frothy", "Frozen", 
+      "Full", "Gabby", "Galloping", "Gambling", "Gentle", "Giant", "Giddy", "Giggling", "Gilded", "Ginger", "Glass", "Golden", "Good", 
+      "Graceful", "Greedy", "Green", 
+      "Grey", "Groaning", "Haggling", "Half", "Handsome", "Happy",
+      "Hateful", "Headless", "Hidden", "Hiding", "Hooded", "Hopeful", "Hot", "Howling", "Hungry", "Husky", "Icy", "Idle", 
+      "Inside", "Iron", "Ivory", "Jade", "Jolly", "Joyous", "Jumping", 
+      "Knocking", "Last", "Late", "Laughing", "Lazy",
+      "Leaky", "Listening", "Little", "Loitering", "Looking", "Loose", "Loping",
+      "Lost", "Loud", "Lucky", "Lying", "Mad", "Marble", "Marching", "Mean", "Melancholy", "Merciful", "Metal", "Mirthful", "Miserly", "Misty", "Mobile", 
+      "Moaning", "Moping", "Morning", "Muddy", "Muggy", "Murky", "Muttering", "Mysterious", 
+      "Nagging", "Naked", "Needy", "New", "Ninth",
+      "Old", "Onyx", "Opal", "Opaline", "Orange", "Orphaned", "Outside", "Painful", "Painted", "Paltry", "Parched", "Pearl", 
+      "Pearly", "Penned", "Piddly", "Pink", "Pious", "Pitched", "Plain", "Poisoned", "Poor", "Powerful", 
+      "Pretty", "Pulled", "Purple", "Putrid", "Questing", "Questioning", "Quiet", "Quivering", 
+      "Ragged", "Rare", "Raw", "Rebellious", "Reborn", "Red", "Remembering", "Resting", "Restless", "Rich", "Roasted", 
+      "Rock", "Rooted", "Rotten", "Rough",
+      "Roving", "Rowdy", "Ruddy", "Rueful", "Running", "Rusted", "Rusty", "Sable", "Sad",
+      "Sapphire", "Scared", "Scarlet", "Scarred", "Scented", "Screaming", "Second", "Seedy", "Seventh",
+      "Shady", "Shaking", "Shaky", "Shifting", "Shifty", "Shimmering", "Shivering", "Shrunken", "Sickly",
+      "Sighing", "Silly", "Silver", "Sinful", "Sixth", "Skinny", "Skirted", "Sleeping", "Sleepy", "Slender",
+      "Small", "Smelly", "Smoking", "Smoky", "Smooth", "Sneaky", "Snowy", "Soaring", "Sold", "Sorrowful", "Speckled", 
+      "Speedy", "Spinning", 
+      "Spirited", "Spoiled", "Spying", "Stale", "Standing", "Starry",
+      "Steamy", "Steel", "Stiff", "Still", "Stilted", "Stinging", "Stingy", "Stolen", "Stone", "Strange", "Striped", 
+      "Strong", "Stumbling", "Stuttering", "Swarthy", "Swaying",
+      "Swollen", "Tabby", "Tan", "Tarred", "Tarrying", "Tasty", "Tattered", "Teal",
+      "Tenth", "Testy", "Thin", "Third", "Thirsty", "Threadbare", "Thrown", "Tilted", "Tiny", 
+      "Torn", "Traveling", "Treacherous", "Tricky", "Truthful", "Tumbling", "Twilight", "Ugly", "Undone", "Unlikely", 
+      "Unlucky", "Vein", 
+      "Violet", "Wailing", "Waking", "Walking", "Wandering", "Watchful", "Watching", "Wax",
+      "Weak", "Wee", "Wet", "Whispering", "White", "Wicked", "Wicker", "Winsome", "Wise", "Wishful", "Withered", "Wooden", 
+      "Woven", "Yelling", "Yellow", "Young", "Youthful"
+      ]
+      
+    tavern_second = [ "Abbot", "Admiral", "Altar", "Amulet", "Anchor", "Angel", "Antler", "Anvil", "Apple", "Apprentice", "Archer", 
+      "Arrow", "Attic", "Aunt", 
+      "Axe", "Badger",
+      "Ball", "Banner", "Bard", "Baron", "Baroness", "Barrel",
+      "Bat", "Bear", "Beard", "Bed", "Bee", "Beet", "Beggar",
+      "Belly", "Bird", "Bishop", "Blade", "Boar", "Boat", "Bone", "Book", "Boot", 
+      "Boulder", "Bounty", "Bow", "Boy", "Bracelet", "Braid", "Branch", "Breath", "Breed", "Broom", 
+      "Bronco", "Brothel", "Brother", "Buckle", "Bugler", "Bull", 
+      "Butterfly", "Button", "Cabbage", "Candle", 
+      "Cap", "Cape", "Captain", "Card", "Cardinal", "Carriage", "Carrot", "Cart", "Casket", "Castle", "Cat", "Cathedral", 
+      "Cauldron", "Cave",
+      "Cellar", "Chair", "Chamber", "Chapel", "Charm", "Chicken", "Child", "Church", "Claw", "Cloak", "Clock", "Clover", "Clown", "Club", "Coal",
+      "Coat", "Coattail", "Cobbler", "Cock", "Coffin", "Coin", "Company", "Compass", "Concubine", "Condor", "Coral", "Count", "Cove", "Cow", "Coward", 
+      "Crane", "Crest", 
+      "Crew", "Crock", "Crone",
+      "Cross", "Crow", "Cup", "Curtain", "Dagger", "Damsel", "Dancer", "Daughter", "Deck", "Deer", "Delight", "Demon", "Den", "Diamond", "Dice",
+      "Dish", "Dock", "Dog", "Donkey", "Doom", "Door", "Dove", "Dragon", "Dream", "Dress", 
+      "Drifter", 
+      "Druid", "Drum", "Drummer", "Dryad", "Duke", "Dunce", "Dungeon", "Dwarf", "Eagle", "Ear", "Earl", "Edge", "Eel", "Egg",
+      "Elephant", "Elf", "Ember", "Emblem", "Eye", "Face", "Faerie", "Fang", "Farmer", "Father", "Feather", "Fencer",
+      "Fern", "Fiddle", "Fighter", "Fin", "Finch", "Finger", "Fire", "Fish", 
+      "Fisherman", "Flag", "Flame", "Flask", "Flower", 
+      "Fool", "Foot", "Forge", "Foreigner", "Fork", "Fortress", "Fortune", "Fox", "Frog",
+      "Furnace", "Galleon", "Galley", "Gambler", "Gander", "Garden", "Gauntlet", "Gem", "General",
+      "Ghost", "Ghoul", "Giant", "Girl", "Gizzard", "Glass", "Glove", "Gnome", "Goat", "Goblin", "Goose", "Gourd", 
+      "Grave", "Guard", "Guest", "Hag", "Hammer", 
+      "Hand", "Handle", "Hangman", "Harlot", 
+      "Harness", "Harp", "Harpy", "Harvest", "Hasp", "Hat", "Hatter", "Hawk", "Heart", "Heel", 
+      "Heifer", "Helm", "Helmsman", "Hen", "Hide",
+      "Hilt", "Hind", "Hitch", "Hog", "Hole", "Hollow", "Hood",
+      "Hoof", "Hook", "Horn", "Hornet", "Horse", "Horseman", "Hound", "House", "Hovel", "Hunter", "Hut", "Inferno", "Ink", "Jester", 
+      "Jewel", "Jug", "Keel", "Key", 
+      "King", "Kitchen", "Kitten", "Knave", "Knife", "Knight", "Knot",
+      "Knuckle", "Kraken", "Lad", "Lady", "Lair", "Lance", "Lane", "Lass", "Laugh", "Leaf",
+      "Leaves", "Legion", "Letter", "Light", "Lightning", "Lion", "Lizard", "Lock", "Locust", "Lord", "Lover", "Lyre", "Mage", "Magician",
+      "Maid", "Mare", "Mark", "Mason", "Mast", "Master", "Mate", "Melon", "Mercenary", "Merchant", "Mermaid", "Milk", 
+      "Mime", "Minstrel", "Mitten", 
+      "Monk", "Monkey", "Monster", "Moon", "Moor", "Moth",
+      "Mother", "Mountain", "Mouth", "Mule", "Mummer", "Mutiny", "Mutt", "Nag", "Nail", "Necklace", 
+      "Needle", "Nest", "Net", "Nettle", "Night", "Noose", "Nose", "Nut", "Oar", "Oat", "Onion", "Oracle", "Orc", 
+      "Orchard", "Orchid", "Oxen", "Pack", "Palm", "Patch", "Paw", "Pawn", "Peak", "Pearl", "Perch", "Philosopher", "Pier", "Pig", 
+      "Pike", "Pillow", "Pint",
+      "Pipe", "Piper", "Piranha", "Plate", "Pocket", "Pod", "Poison", "Pool", "Pony", "Porch", "Porter", "Potion", "Powder", "Priest", 
+      "Priestess", "Prince", "Princess", "Privateer", "Puddle", "Pup", "Pyre", "Python", 
+      "Queen", "Quest", "Quill", "Quiver", "Rabbit", "Racer", "Rag", "Ram", "Raven", "Razor", "Rebel", "Revenge", "Reward", "Rider",
+      "Ring", "River", "Road", "Robber", "Rock", "Rod", "Rogue", "Room", "Rooster", "Root", "Rope",
+      "Rose", "Ruby", "Rumor", "Sack", "Saddle", "Sage",
+      "Sail", "Sailor", "Saint", "Scale", "Scout", "Scribe", "Seed", "Sentry",
+      "Serpent", "Shade", "Shadow", "Shaman", "Shamrock", "Sheep", "Shelf", "Shell", "Shepherd", "Shield", "Ship", "Shoe", "Shovel", 
+      "Shrine", "Sigil", "Singer", "Siren", "Sister",
+      "Skeleton", "Skull", "Slipper", "Smoke", "Snake", "Sock", "Son", "Sorcerer", "Soldier", "Spade", "Sparrow", "Spear", "Spice", "Spoon", "Spring", "Spur",
+      "Squid", "Squire", "Squirrel", "Staff", "Stag", "Stallion", "Stalk", "Stamp", "Star", "Statue", "Steed", "Stick", "Stitch", 
+      "Stove", "Stranger", "Stump", "Sun", "Supper", "Swallow", "Swamp", "Swan", "Swine", "Sword", "Table", "Tail", 
+      "Talon", "Tarpaulin", "Teet", "Tentacle",
+      "Thief", "Thorn", "Thread", "Throne", "Thumb", "Thunder", "Tiger", "Titan", "Toad", "Toe", "Tomb", "Tome", "Tongue", "Tooth", "Torch", "Trader", 
+      "Trapper", "Treader", "Tree", "Trident",
+      "Troll", "Trophy", "Trout", 
+      "Trumpet", "Trunk", "Tunic",
+      "Turtle", "Uncle", "Unicorn", "Vicar", "Vision", "Voyage", "Vulture", "Wagon", "Waistcoat",
+      "Warrior", "Wart", "Wasp", "Watchman", "Weed", "Well", "Wharf", "Wharg",
+      "Wheel", "Whisper", "Whore", "Widow", "Widower", "Wife", "Willow", "Window", "Wing", "Wish", "Witch", "Wizard", 
+      "Wolf", "Worm", "Yard"
+      ]
+      
+    tavern_third = [ "Alehouse", "Bar", "Boardinghouse", "Cask", "Cauldron", "Crossing", "Drinkery", 
+      "Hideaway", "Hole", "House", "Inn", "Keg", "Meadhouse", "Mill",
+      "Nook", "Parlour", "Post", "Pub", "Roadhouse", "Saloon", "Taproom", "Tavern", "Trading Post"
+      ]
+      
+    tav1_1 = tavern_first.sample
+    tav1_2 = tavern_first.sample
+    tav1_3 = tavern_first.sample
+    tav1_4 = tavern_first.sample
+    tav1_5 = tavern_first.sample
+    tav2_1 = tavern_second.sample
+    tav2_2 = tavern_second.sample
+    tav2_3 = tavern_second.sample
+    tav2_4 = tavern_second.sample
+    tav2_5 = tavern_second.sample
+    tav2_6 = tavern_second.sample
+    tav2_7 = tavern_second.sample
+    tav2_8 = tavern_second.sample
+    tav2_9 = tavern_second.sample
+    tav2_10 = tavern_second.sample
+    tav2_11 = tavern_second.sample
+    tav2_12 = tavern_second.sample
+    tav3_1 = tavern_third.sample
+    tav3_2 = tavern_third.sample
+    
+    @taverns = "The ".html_safe + tav1_1 + " " + tav2_1 + "<br>".html_safe + tav2_2 + " and " + tav2_3 + "<br>".html_safe + tav1_2 + " " + tav2_4 + " " + tav3_1 + "<br>".html_safe + "The " + tav2_5 + "'s" + " " + tav2_6 + "<br>".html_safe + "The ".html_safe + tav1_3 + " " + tav2_7 + "<br>".html_safe + tav2_8 + " and " + tav2_9 + "<br>".html_safe + tav1_4 + " " + tav2_10 + " " + tav3_2 + "<br>".html_safe + tav1_5 + " " + tav2_11 + "'s" + " " + tav2_12
 
-  def ipsum
+  end
+  
+  def horror
+    capital_words5 = [
+      "Bodily fluids", "Clown", "Corpse", "Danger", "Dark", "Deceased", "Eaten", "Evil", "Fear", "Full moon", 
+      "Graveyard", "Hearse", "Hostel", "Killer", "Lure", "Maggots", 
+      "Manhunt", "Midnight", "Morgue", "Mutilated", "Odor", "Pain", "Panic", "Paranormal", "Phobia", "Remains", "Scream", 
+      "Serial killer", "Shallow grave", 
+      "Silver bullet", "Skull", "Terror", "Toe tag", "Undertaker", "Victim", "Vulnerable"
+      ]
+      
+    words5 = [
+      "13", "abandoned", "abduction", "abused", "acid", "accursed", "adopted", "after dark", "after hours", "alarm", 
+      "Alfred Hitchcock", "Alien", "aliens", "alleyway", "alligators", 
+      "alone", "altar", "ambulance", "American Horror Story", "ammo", "ammunition", "amnesia",
+      "amputation", "anal cavity",
+      "angel", "angled", "antisocial", "apparition", "artery", "asleep", "asylum", "attacker", "attic", "attorney", "audible", "augur", 
+      "awakened", "axe",
+      "back roads", "backwoods", "bad luck", "bad moon", "bang", "banish", "barking", "basement", "bathtub", "bats", 
+      "battered", "beaten", "bears", 
+      "beast", "begging", "behavior", "beheaded", "belly-up",
+      "bible", "bigfoot", "bitten", "black light", "Black Mirror", "bled", "bleeding", "blessing", "blink", "blizzard", "blood", 
+      "blood-thirsty", "bloody", 
+      "bludgeon", "boathouse", "body", "boiled", "boiler room", "bones", "bonesaw", "boogeyman", "boonies", "boots", "bound", 
+      "brains", 
+      "Bram Stoker", "breath", "bribe", "broken neck", "bruised", "bugs", "bump", "burial", "burial ground", "buried alive", "butcher",
+      "cabin", "cage", "candle", "cannibal", "captive", "capture", "carcus", "car jacking", "carnival", "carousel", "car stall", 
+      "carving", "case", "casket", "castle", "cat", "catacombs", "cave", "cellar", "cemetery", "chains", "chainsaw", "chamber", 
+      "charming", "chateau", "chatter", "chemicals", "childhood", "chilling", "chills", "chloroform", "chopping block", "chupacabra", "church", "circumstantial", "circus", 
+      "circus tent", "clamor", "claustrophobic", "claws", "cleaners", "Clive Barker", "cloak", "closet", "cockroach", "coed", "coffin", "coma", 
+      "concrete", "confined", "consumed", "control",
+      "contusion", "convict", "conviction", "coroner", "corridor", "cough", "court",
+      "coven", "cowl", "crawl space", "crazy", "criminal",
+      "crawly", "creaking", "creature", "creepy", "cremation", "crime scene", "crone", "crucifix", "crutches", 
+      "Cthulhu", "cult", "curfew", "curse",
+      "cut",
+      "darkness", "dead", "death", "decay", "decomposition", "delight", "demon", "dentist", "deputy", 
+      "derailed", "deserted", "destiny", "details", 
+      "detective", "devil", 
+      "digested", "diner", "dirt road", "disappear", "disaster",
+      "disconcerted", "disease", 
+      "disembowel", "disfigured", "disguise", "dismember", "DNA", "doctor", "doll", "dollhouse", "Dracula", "dragged", "dreams", 
+      "dried blood", "drill", "driver",
+      "drowning", "drug", "duct tape", "dump", "dungeon", "Edgar Allan Poe", 
+      "electric chair", "electrocuted", "Eli Roth", "Elm Street", "embalming fluid", "emotional", "engorged", "entrails", "erratic", "escaped", "estate",
+      "ether", "evade", "evidence", "examine", "execution", "exorcism", "exorcist", 
+      "experiment", "eyelids", "eye patch", "eyes",
+      "fangs", "FBI", "feeding", "feds", "femur", "fetid", "filth", "fingernail", "fingerprints", "fire", "fireplace", 
+      "firing squad", "flashlight", "flat tire", "flesh", "flicker", "flies", 
+      "foaming", "fog",
+      "followed", "footprints", "fortune teller", "foster care", "foster home", "frail", "Frankenstein's monster", "freak", 
+      "freakshow", "Freddy Krueger",
+      "Friday the 13th", "frightening", "froth", "frozen", 
+      "fugitive", "fumes", "funeral", "furnace",
+      "gagged", "gargoyle", "gas", "gas chamber", "gasoline", "gasp", "gas station", "genitals", 
+      "George Romero", "ghost", "ghoul", "gnaw", 
+      "goosebumps", "gooseflesh", "gorged", "Gothic",
+      "government", "gratification", "gravestone", "graveyard", 
+      "graveyard shift", "grim reaper",
+      "groaning", "Guillermo Del Toro", "guns", "gunshot", "gut feeling", "guts", "gutted", "gypsy",
+      "hag","Halloween", "handcuffs", "hanged", "harlot", "harrowing", "hatchet", "haunted", "hazard", "headstone", "heart", "heartbeat", 
+      "hell", "hellhound", "hellscape", "help",
+      "hemorrhage", "hex", "hidden", "highway",
+      "hitchhiker", "hive", "holy water", "hood", "hook", "hooker", "horror", "horrorshow", "hospital", 
+      "hostile", "hovel", "howling", "H.P. Lovecraft", "hunger", "hunted", "hunter", "hurt",
+      "identify", "identity", "ignition", "ill-fated", "ill-meaning", "inbred", "incantation", "incinerate", "incubus",
+      "inheritance", "insane", "insects", "insomnia",
+      "internment", "intestines", "intruder", "intuition", "investigation",
+      "jack-in-the-box", "jail cell", "Jason Voorhees", "James Wan", "jaws", "jogger", 
+      "John Carpenter", "jolted", "journalist", "judge", "jump", "jump start", "jury", "jutting",
+      "kidnapping", "killed", "knife", 
+      "laboratory", "lair", "lake", "lamb", "landfill", "lashed", "law", "leech", "leprechaun", 
+      "lethal injection", "light", "lightning", "Lilith", 
+      "lipstick", "liver", "Living Dead", "Lizzie Borden", "locked", "lock-up", "locusts", "lost", "lotion", 
+      "Lucifer", "lunatic", "lurking", "lynching",
+      "machete", "maintenance crew", "manor", "mansion", "marionette", "marshall", "Mary Shelley", "mascara", "mask", "mass grave", "maul", "maw", "meat hook", "medical examiner", 
+      "medium", "mess", "methodical", "Michael Myers", "middle of nowhere", "mill", "mirror", "mist",
+      "moaning", "modus operandi", "moist", "molested", "monster", "moon", "moonlight", "mortuary", "most wanted", "motel", "moth",
+      "muffled", "mummifed", "murder", "murder weapon", "music box", "mysterious",
+      "neck", "needle", "neighborhood watch", "nerve-wracking", "nervous", "news", "newspaper", "nibble", "night", 
+      "nightmare", "night watchman", "noose", "Nosferatu",
+      "nostrils", "note", "nurse",
+      "occult", "officer", "old", "omen", "open water", "operation", "oracle", "organ harvester", "organs", 
+      "orphanage", "Ouija board", 
+      "outhouse", "overdose", "overpowered",
+      "Pagan", "painting", "palm reading", "panel van", "panic room", "paralysis", "paramedic", "paranoia", "parking garage", 
+      "passageway", "passed away", "pattern",
+      "pentagram", "petrified", "pinched",
+      "plane crash", "plea bargain", "pleading", "pleasure", "pliers", "poisoned", 
+      "policeman", "poltergeist", "possessed", "pounce", "powerless",
+      "power outage", "prayer", "precognition", "pregnant", "premonition", "priest", "prison", "private investigator", 
+      "profiler", "prophesy", "prostitute", 
+      "psychic", "psychiatric hospital", "psycho", "psychologist", "pulp", "pump", "puppets", "pursued", "pyre",
+      "quiet", "quivering",
+      "rabies", "raid", "rain", "rancid", "ransom", "rasping", "rattling", "rats", "recruited", "reek", "reflection", "regurgitated", 
+      "removed",
+      "rest area", "restless", "revenge", "Richard Matheson", "rickety", "rite", "ritual", "Rod Serling",
+      "rope", "rot", "rubber gloves",
+      "sacrifice", "saint", "sarcophagus", "Satan", "Satanic", "scalp", "scarred", "scary", "scratching", "scrubs", "scythe", 
+      "seance", "search party", "seizure", "semen", "serrated", "sewer", "sewn shut", "shadows", "shambling", "shapeshifter",
+      "sharks", "shattered", "shells", "shelter",
+      "sheriff", "shipwreck", "Shirley Jackson", "shivering", "shock", "shrine", "shroud", "shudder", "shuffling", "sideshow", "sigh", "sighting",
+      "silence", "six feet under", "sixth sense", "skeleton", "skeleton crew", "skin",
+      "skinned alive", "slammed", "slasher", "slaughter", "sleep", "sleepless",
+      "slenderman", "slimy", "smother", "smuggled", "snakes", "snout", "snowed in", "soil", "soiled",
+      "sole survivor", "solved", "soul", "soundproof", "spacecraft", "spell", "spiders", "spinal fluid", "spirit", "splatter", 
+      "spoiled", "spooky", "spray", "squallor", "stab", "stairs", "stalker", 
+      "static", "statue", "steel", "stench", "Stephen King", "sting", "stitch", "storm", "storm drain", "straightjacket", "strange",
+      "stranger", "strangled", "street walker", "succubus", "suicide", "summer camp", "supernatural", "surveillance",
+      "suspect", "swab", "swamp", "SWAT", "sweat", "swollen", "symbols", "syringe",
+      "talons", "tapping", "tarot", "tattered", "taxicab", "teeth", "temple", "tentacles", "terrified", 
+      "therapist", "throat", "thud", "thump", "Tobe Hooper", "tombstone", 
+      "tooth", "town drunk", 
+      "torture", "trafficking", "trailer", "trapped", "trash bags", "traumatized", "treachery", "tree branches", "trembling", "trenchcoat", 
+      "trial", "trigger", "troll", "troubled", "truck stop",
+      "trunk", "tunnel", "Twilight Zone", "twins", "twisted", "twitch",
+      "UFO", "unconscious", "underground", "unknown", "unsolved", "unusual", "urn",
+      "vacation", "vampire", "van", "veins", "vengeful spirit", "venom", "violated", "virgin", "visions", "voodoo", 
+      "voodoo doll", "The Walking Dead",
+      "ward", "warning", "warts", "weird", "wendigo", "werewolf", "Wes Craven", "wheelchair", "wheezing", "whimper", "wilderness", "wilted", "wind", 
+      "wind-up monkey", "witch", "witchcraft", 
+      "witch doctor", "withered", "witness", "wolves", "woods", "woodshed", "worms", "wreck", "wrong turn",
+      "zombie"
+      ]
+    
+    horrcaps1 = capital_words5.sample
+    horrcaps2 = capital_words5.sample
+    horrcaps3 = capital_words5.sample
+    horrcaps4 = capital_words5.sample
+    horrcaps5 = capital_words5.sample
+    
+    sentence5_len1 = rand(5...30)
+    horr1 = words5.sample(sentence5_len1).map(&:inspect).join(' ')
+    sentence5_len2 = rand(5...30)
+    horr2 = words5.sample(sentence5_len2).map(&:inspect).join(' ')
+    sentence5_len3 = rand(5...30)
+    horr3 = words5.sample(sentence5_len3).map(&:inspect).join(' ')
+    sentence5_len4 = rand(5...30)
+    horr4 = words5.sample(sentence5_len4).map(&:inspect).join(' ')
+    sentence5_len5 = rand(5...30)
+    horr5 = words5.sample(sentence5_len5).map(&:inspect).join(' ')
+    
+    @horror_ipsum = horrcaps1 + " " + horr1.delete('"') + ". " + horrcaps2 + " " + horr2.delete('"') + ". " + horrcaps3 + " " + horr3.delete('"') + ". " + horrcaps4 + " " + horr4.delete('"') + ". " + horrcaps5 + " " + horr5.delete('"') + "."
+    
+  end
+  
+  def modern
     capital_words = [
       "2nd Amendment", "Alabama", "America", "Bama", "Boss 302", "Boy Scouts", "Cajun", "Carhartt", "Chevy", 
-      "Copenhagen", "Dolly Parton", "Elvis", "Graceland", "Harley-Davidson", "Jack Daniels", "Jeep", "Kentucky", "Kid Rock", "Marlboro", 
+      "Copenhagen", "Country music", "Dolly Parton", "Elvis", "Graceland", "Harley-Davidson", "Jack Daniels", "Jeep", "Kentucky", "Kid Rock", "Marlboro", 
       "Mississippi", "Mustang", "NASCAR", "Nashville", "Reba", "Skoal", "Tennessee", 
       "Travis Tritt", "VFW"
       ]
@@ -16,12 +473,13 @@ class IpsumsController < ApplicationController
       "beer", "beer pong", "belt buckle", "big-block", "bless her heart", "bluegrass", "bolo tie", "bolt action",
       "bonfire", "boot camp", "boots", "booze", "bourbon", "bow hunting", "brambles", "breech-loaded",
       "britches", "bronco", "buck",
-      "buckskin", "Budweiser", "bull", "bull horns", "bullets", "bumpkin", "burgers", "burn rubber", "butter", "by God", 
+      "buckskin", "Budweiser", "bull", "bull horns", "bullets", "bumpkin", "burgers", "burn rubber", "Busch", "butch", 
+      "butter", "by God", 
       "cactus", "caliber", "Camaro", "camo", "camouflage", "camper", "camping", "carburetor", 
       "Carolina", "cartridge", "castrate", "catfish",
       "cattle", "CB radio", "center mass", "chainsaw", "chamber", "chaps", "Charlotte", "chew", "chickens", "chiggers",
       "chili", "Christian", "chuckwagon", "chum", "church",
-      "clodhopper", "clutch", "coal mine", "cockroaches", "Coke", "cole slaw", "collard greens", "community college", "confederate", 
+      "clodhopper", "clutch", "CMT", "coal mine", "cockroaches", "Coke", "cole slaw", "collard greens", "community college", "confederate", 
       "conniption", "conservative", "Constitution",
       "coon", "Coors", "copperhead", "cornbread", "corral", "Corvette", "cotton", "cottonmouth", "country", "cow", 
       "cowboy", "cracker", "crawdad", "creek", "Creole", "cross", "cud", "Cuda",
@@ -39,7 +497,7 @@ class IpsumsController < ApplicationController
       "horseshoe", "horsepower", "hotdog", "hotrod", "hound dog", "huntin", "hushpuppy", "hymnal", 
       "inbred", "iron sights",
       "jackrabbit", "jackknife", "jaw", "jambalaya", "Jesus", "job site", "John Deere", "John Wayne", "juggalo", "jukebox",
-      "keg", "kerosine", "ketchup", "kin", "kinfolk", "knee-high", "knife", "knuckle",
+      "KC HiLites", "keg", "kerosine", "ketchup", "kin", "kinfolk", "knee-high", "knife", "knuckle",
       "lever action", "lift kit", "lightning bugs", "Louisiana", "LSU", "Lucky Strikes", "lug nuts", "lunchbox", "lures", 
       "mag", "magazine", "magnum", "mama", "mare", "Marine Corps", "mayonnaise", "McRib", "Memphis", "Michelob", 
       "molasses", "moonshine", "mosquito",
@@ -66,158 +524,47 @@ class IpsumsController < ApplicationController
       "trailer", "train", "Trans-Am", "transmission", "trigger", "trolling", "tuckered", "turkey", "turnip greens", "twine",
       "uncle", "USA", "values", "varmint", "veterans", "Virginia",
       "waders", "wadn't", "wagon", "wagonwheel", "welder", "western", "West Virginia", "whiskey", "white lightning", "white trash", "whittle", 
-      "Winchester", "work",
+      "Winchester", "Winston", "work",
       "y'all", "yankee", "yeehaw", "yellow jacket", "yonder", "you betcha", 
-      "Z-28"]
+      "Z-28"
+    ]
+      
+    ran_capital1 = capital_words.sample
+    ran_capital2 = capital_words.sample
+    ran_capital3 = capital_words.sample
+    ran_capital4 = capital_words.sample
+    ran_capital5 = capital_words.sample
+    
+    sentence_len1 = rand(5...30)
+    ran_words1 = words.sample(sentence_len1).map(&:inspect).join(' ')
+    sentence_len2 = rand(5...30)
+    ran_words2 = words.sample(sentence_len2).map(&:inspect).join(' ')
+    sentence_len3 = rand(5...30)
+    ran_words3 = words.sample(sentence_len3).map(&:inspect).join(' ')
+    sentence_len4 = rand(5...30)
+    ran_words4 = words.sample(sentence_len4).map(&:inspect).join(' ')
+    sentence_len5 = rand(5...30)
+    ran_words5 = words.sample(sentence_len5).map(&:inspect).join(' ')
+    
+    @merican_ipsum = ran_capital1 + " " + ran_words1.delete('"') + ". " + ran_capital2 + " " + ran_words2.delete('"') + ". " + ran_capital3 + " " + ran_words3.delete('"') + ". " + ran_capital4 + " " + ran_words4.delete('"') + ". " + ran_capital5 + " " + ran_words5.delete('"') + "."
+    
+  end
+  
+  def nature 
+  end
+  
+  def scifi 
+  end
 
-    capital_words2 = [
-      "Adventure", "Alchemist", "Arcane", "Broadsword", "Castle", "Cleric", "Cloak", "Damsel", "Dragon", 
-      "Duke", "Dwarf", "Elf", "Enchantress", "Faerie", "Guild", "Halfling", "Innkeep",
-      "Jester", "King", "Knight", "Legion", "Lord", "Lore", "Mage", "Magic", "Mythical", "Necromancer", 
-      "Oracle", "Paladin", "Potion", "Queen", "Relic", "Rune", "Scepter", "Sorcery", "Spell", "Sword", "Townsfolk", 
-      "Unicorn", "Void", "Wizard", "Wraith"
-      ]
-      
-    words2 = [
-      "abbot", "acolyte", "accursed", "acrobat", "Admiral", "aegis", "aeronaut", "aether", "affliction", "ale", "alleyway", "alloy", 
-      "altar", "ambassador", "amber", "amulet", 
-      "ancestral", "ancient", "angel", "ankh", "anvil", "apocalypse", "arbalest",
-      "archangel", "architect", "archive", "arena", "aristocracy", "armaments", "armor", "armorer", 
-      "armory", "arrow", "arrowhead", "artesan", "artillator", "artifact", "artifice",
-      "assassin", "assault", "assembly", "astral", "asylum", "atonement", "augur", "aura", "automaton", "avatar", "axe", "baker", 
-      "band", "bandage", "bandit", "banner", "banquet",
-      "barbarian", "barber", "barbican", "bard", "baron", "baroness", "barricade", "barrow", "barter", 
-      "basilard", "basket", "bat", "baton", "battering ram", 
-      "battle", "battlefield", "battlements", "bazaar", "bear", "beast", "beef",
-      "beefeater", "beer", "beeswax", "beggar", "beguile", 
-      "beheading", "behemoth", "belt", "berkserker", "bindings", "bishop", "blacksmith", "bladder",
-      "blanket", "blasphemy", "blessing", "bloodletter", 
-      "blood sausage", "boar", "boarding house", "boat", "bog", "bolt", "bones", "bone setter", "book",
-      "boots", "boson", "bounty hunter", "bow", "bowyer", "bracelet", "bracer", "brawl", "brawler", "brazier", "bread", "breastplate", 
-      "breech", "brew", "brigand", "bristle",
-      "bronze", "brood", "broth", "brothel", "buckler", "bull", "butcher",
-      "caltrips", "camp", "campfire", "candle", "candlestick",
-      "cannibals", "cape",
-      "Captain", "captive", "captor", "caravan",
-      "cardinal", "cards", "carnival", "carriage", "cart", "castaway", "cat", "cat o' nine tails", "cataclysm",
-      "catacombs", "catapult", "cathedral", "cattle", "cauldron", "causeway", "cavalier", "cavalry", "celestial", "cell", "ceremony",
-      "chain mail", "chains", "chamber pot", "chamfron", "champion", "channeler", "chaos", "chapel", "chariot", "charismatic", "charm", "chickens", 
-      "chieftain", "chieftess",
-      "chimera", "chimney", "chisel", "chivalry", "choir", "chopping block", 
-      "Chosen One", "city", "clairvoyant", "clan", "claw", "cleaver", "clerk", "climb", "clinic", "clock tower", "cloth",
-      "club", "coals", "coat", "coat of arms", "coffin", "cog", "coif", "Colonel", "coin", "coinpurse", "commodore", "commoner", 
-      "Common Tongue", "companion", 
-      "company", "compass", "conflagration", "conjurer", 
-      "consecration", "constable", "contract", "contraption", "cook", "copper", "corridore", "corsair", "cot", "cottage", "count", 
-      "countess", "cough", "county", "coup",
-      "court", "courtesan", "courtier", 
-      "coven", "covenant", "cow", "cowl", "cream", "creature", "crest",
-      "crone", "crossbow", "crow", "crow's nest", "crown", "crucible", "crusade", "crystal", "cup", "curse", "cutthroat", "cyclops", "daemon", "dagger", 
-      "dancer", "dark", "darkness", "defend", "deity", "demigod", "demon", "den", "desecration", 
-      "dethrone", "devil", "dice", "diplomacy", "diplomat",
-      "dire wolf", "dirk", "disguise", 
-      "divine", "diviner", "doctor", "doctrine", "doublet", "dowager", "dowery",
-      "dragoon", "drawbridge", "dreadnought", "dress", "drifter", "drover", "druid", 
-      "drummer", "dryad",
-      "duchess", "duel", "dungeon", "economy", "eggs", "elemental", "embargo", "emissary", "empath", "emerald", 
-      "Emperor", "Empress", "enchantment", 
-      "engineer", "enigma", "Ensign", "entrails", 
-      "envoy", "escape", "escort", "espionage", "ethereal", "evil", 
-      "evocation", "exalted", "executioner", 
-      "exorcism", "exorcist", "expedition", "fairy dust", "falconer", 
-      "familiar", "fang", "farmer", "fauchard", "feather", "fence", "fencing", "festival", "fey", "fighter", "fire", "firewood", 
-      "fireplace", "fisherman", "fish hook", "fishmonger", "fishwife", "flag", 
-      "flail", "flask", "fleet", "fletcher", "flint", "flog", "flute", "fly", "folk magic",
-      "folk medicine", "forage", "foreigner", "forest", "forge", "fork", "fortifications", "fortress", "fortune teller", 
-      "foundry", "fox", "fray",
-      "friar", "funeral",
-      "gaelor", "galleon", "gallows", "gambler", "games", "garb", "gargoyle", "garrote", "garter", "gates", 
-      "gatehouse", "gateway", "gauntlet", "gear", "gelding", 
-      "gemstone", "General", "ghost", "ghoul", 
-      "giant", "giant spider", "gibbet", "glaive", "glass", "glory", "glyph", 
-      "gnome", "goat's milk",
-      "goblet", "goblin", "gods", "goddess", "gold",
-      "golom", "gorgon", "grail", "gravedigger", "grave robber", "graveyard", "gremlin", "grieves", "griffon", 
-      "grinding wheel", "guard", "guardian", "guard tower", "guest",
-      "guide", "guissarme",
-      "gypsy", "hag", "halberd", "ham", "hamlet", "hammer", "hangman", "harbinger", "harp", "harvest", "hatchet", "hatchling", "hauberk",
-      "healer", "hearth", "heir", "helm", "helmsman", "herald", "herbalist", "heresy", "hermit", "hero", "heroic", "heroine", "hexer", 
-      "hide", "highborn",
-      "highwayman", "hilt", "history", "hoard", "hogs", "honor", "hood", "horn", "horse", "horseman", "host", "hound", "hourglass", "hubris",
-      "huntsman", "hut", "icon", "illusionist", "imp", "infantry", "illness", "infiltrator", "ink", "inn", "inquisitor", "interim", 
-      "interrogation", "invisibility", "iron", "javelin", "jeweler", "jewels",
-      "joust", "judge",
-      "justice", "keel", "keelhauling", "keep", "key", "kindling", "kingdom", "knapsack", "knife", "knighthood", "knot", "kraken", "labyrinth", "Lady", 
-      "lair", "lamellar", "lamp", "lance", "lancet", "lantern", "lash", "law",
-      "leather", "leech", "legend", "leprechaun", "levitate", "Lieutenant", "lich", "light", "lighthouse", "linament", 
-      "livery", "lock", "lockpick", "lodestar", "longbow", 
-      "loot", "lowborn", "lumberjack", "lunar",
-      "lurker", "lute", "lycanthrope", "lyre", 
-      "mace", "machicolation", "magician", "magistrate", "magus",
-      "maiden", "mainsail", "mangonel", "manservant", "mantle", "map", "mare", "marionette", "market", "marksman", "martyr", "mask",
-      "mast", "master", "maul", "mausoleum", 
-      "mayor", "maze", "mead", "medic", 
-      "medicine", "melee", "mercenary", "merchant", "mermaid",
-      "merrymaking", "messenger", "milkmaid", "mime", "miner", "minotaur", 
-      "minstrel", "mirror", "mirth", "mischief", "mist", "moat", "monacle", "monarch", "monk", 
-      "mount", "mule", "mummer", "murder holes", "mysterious", "nails", "nanny", 
-      "navigation", "necklace",
-      "needle", "negotiation", "nephilim", "newt", "nightcap", "nightmare", "noble", "nock", "nomad", "noose", "nun", "nunnery", "nymph", 
-      "oarsman", "obsidian", "occultist", 
-      "ogre", "ointment", "oligarchy", "onyx", "opal", "opaline", "orb", "orc", "ore", "orphanage", 
-      "oubliette", "outsider", "oven", "overthrow", "ox cart", "oxen", "pack", "parapet", "party", "passageway",
-      "peasant", "peg", "pell", "penny", "petticoat", "phantom", "philosopher", "pickaxe", "pie", "pike", "pious", "pipe tobacco", "piper", 
-      "pirate", "pitch", "pitchfork", "plague", "plague doctor", "plane", 
-      "plate mail", "platoon", "pocket", "poet",
-      "poison", "polearm", "politics", "pony", "pork", "portal", 
-      "portcullis", "powder", "powers", "predator", "priest", "priestess", "prince", "princess", 
-      "prison", "proclamation", "prophesy", "property",
-      "protection", "protector", "psychic", "pulpit", "pup", "puppeteer", "pyre", "pyromancer", 
-      "quarterstaff", "quest", "quill", "quiver", "raft",
-      "rags", "raid", "raider", "rail", "rampart", "ranger", "rapier",
-      "raven", "raze", "razor", "realm", "reanimate", "rebellion", "rectory", "redemption", "regency", "regeneration", "regent", 
-      "regiment", "registrar", "reincarnation", "reins",
-      "religion", "remedy", "rescue", "resurrection", "rider", "riddle", "ring", "rite", "ritual", "road", "roar", "roast", "robber", "robes", "roc", 
-      "rogue", "root", "rope", "royal", "royal seal", "ruby", "ruler", "saber", "saboteur", "sack", "sacrifice", "saddle", "sage", 
-      "sailor", "salvage", "salt", "salt pork", "salve", "sanctuary", "sandals", "sapphire", "sarcophagus", "satchel", "satyr", "savage", 
-      "savant", "scabbard", "scaled", "scavenger", "scimitar", "scion", "scourge",
-      "scout", "scribe", "scroll", 
-      "scrying", "scullery", "scythe", "seance", "secret passageway", "seer", "seminary",
-      "sentry", "serf", "servant", "sextant", "shackles", "shade", "shadow", "shaft",
-      "shaman", "shapeshifter", "sheep", "shepherd", "shield", 
-      "shieldmaiden", "shimmer", "ship", "shrine", "shroud", "sickle", "siege", "sigil", "silk", "silver", "Sir", "siren", "skeleton", "skinner", 
-      "skirmish", "skull",
-      "skyship", "slaughter", "slavery", "sling",
-      "slippers", "slums", "smith", "smuggler", "snake oil", "soap", "soar", "solar", "soldier", "soothsayer", 
-      "sorcerer", "soup", "sow", "spear", "specter", "spectral", "spellbook",
-      "spellcaster", "spetum", "spike", "spinster", "spire", "spirit", "spoon", "spy", "spyglass", "squadron", "squire", "stable", "staff", "stallion", "statue", "steed", "steel",
-      "steeple", "stew", "stirrups",
-      "storyteller", "stowaway", "studded leather", "summoner", "surcoat", "swashbuckler", "swindler", "swine", "tabard", "tablet", "tallow",
-      "talons", "tanner", "tapestry",
-      "tariff",
-      "tavern", "tax collector", "teleportation", "temple", "tent", "territory", "the rack", "thief", "thread", "throne", "tinder", 
-      "tinkerer", "toga", "tomb", "tome", "top sail", "torch", 
-      "torture chamber", "totem", 
-      "tournament", "tower", "trade", "translator", "translucent",
-      "transmutation", "trap", "trap door", "trapper", "traveler", "trebuchet", "treason", "treasure", "trial", "tribe", "tribunal", "troll", 
-      "troubadour", "trousers", 
-      "trumpets", "trunk",
-      "tumbler", "turnkey", "turret", "tusk", "tyranny", "undead", "undertaker", "uprising", "urn", "usurper",
-      "valient", "Valkyrie", "vampire", "veil", "vengeance", 
-      "venom", "vestments", "vial", "vicar", "vigilant", "vigor", "village", "virgin", "vision", "voulge", "vow", "wager",
-      "wagon", "waistcoat", "wall", "wand", "ward", "wares", "warhammer", "warlock", "warlord", "war machine", "warrior", 
-      "watchman", "watchtower", "weaver", "wedding", "well",
-      "werewolf", "wetnurse", "wheel", "whetstone", "whip", "wicked", "wicker", "widow", "widower", "wight", "winch", "windmill", "wine", 
-      "wine skin", "winged", "witch", "wolfpack", "wool", "wormwood", "woven", "writ", "wyrm", "yarn", "yoke"
-      ]
-      
+  def ipsum
+
     capital_words3 = [
       "Alpine", "Basin", "Bay", "Canyon", "Cavern", "Creek", "Desert", "Estuary", "Evergreen", "Flower", "Forest", "Glacier", 
       "Gulf", "Gully", "Harbor", "Hill", "Icycle", "Island", "Jungle", "Knoll",
       "Lake", "Maple", "Marsh", "Meadow", "Mountain", "Nightfall", "Ocean", "Peak", 
       "Plains", "Pond", "Ridge", "River", "Sea", "Shoal", "Swamp", "Treetops",
       "Tundra"
-      ]
+    ]
       
     words3 = [
       "acclivity", "afternoon", "alcove", "algae", "alkali", "alp", "anchorage", "apex", "aquafer", "archipelago", "arm",
@@ -236,7 +583,8 @@ class IpsumsController < ApplicationController
       "drizzle", "droplet", "dune", "dust devil", "earth", "earthquake", "eclipse",
       "eddy", "elevation", "eminence", "enclave", "eruption", "esker", "evening", "eventide", "everglade", "fauna", "fell", "fen", "fern", 
       "film", "firth", "fjord", "flakes", "flats", "flock", "flood", "floor",
-      "flora", "floret", "flow", "floweret", "flurry", "fog", "foliage", "freshet", "frost", "fruit", "fumes", "galaxy", "gale",
+      "flora", "floret", "flow", "floweret", "flurry", "fog", "foliage", "freshet", "frost", "fruit", "fumes", "galaxy",
+      "gale",
       "garden", "glade", "glen", "gloaming", "gloom", "gold", "gradient", "gravel", "grit", "grove", "gust", "hail", 
       "half-light", "hardwood", "haven", "haze", "headland", "heap", 
       "heat", "heath",
@@ -271,11 +619,11 @@ class IpsumsController < ApplicationController
       "typhoon", "underbrush", "undercurrent", "undergrowth", "undertow", "upland", 
       "vapor", "vegetation", "veldt", "Venus", "vertex", "vine", 
       "volcano", "waddy", "wash", "wasteland",
-      "water", "watercourse", "waterway", "waves", "weald", "web", "weeds", "wetlands", "whirlwind", "wild", "wilderness", "willow", 
+      "water", "watercourse", "waterway", "waves", "weald", "web", "weeds", "wetlands", "wharf", "whirlwind", "wild", "wilderness", "willow", 
       "wind", "windstorm", "winter", "woodland", "woods"
-      ]
+    ]
       
-	capital_words4 = [
+	  capital_words4 = [
       "Apocalypse", "Atlanta", "Atomic", "Batteries", "Biohazard", "Bottled water", "Bug-out bag", "Bunker", 
       "Canned food", "Contagion", "Diesel", 
       "Disease", "Doomsday",
@@ -285,15 +633,15 @@ class IpsumsController < ApplicationController
       "Loadout", "Mag", "Mutation", "Nuclear",
       "Outbreak", "Pandemic", "Plague", "Radiation", "Repair", "Rifle", "Quarantine", "Scavenge", "Scrap",
       "Shotgun", "Soldiers", "Supplies", "Virus", "Zombie"
-      ]
+    ]
       
     words4 = [
-      "9mm", "12-gauge", "abandoned", "airwaves", "aluminum stove", "ammo", "ammo can", "ammunition", "amputation", 
+      "12 Monkeys", "28 Days", "9mm", "12-gauge", "abandoned", "A Boy and His Dog", "airwaves", "aluminum stove", "ammo", "ammo can", "ammunition", "amputation", 
       "antibiotics", "armageddon", 
       "armor-piercing", "army",
       "arrows", "assembly", "asteroid", "atmosphere", "ATV", "axe", "axe handle",
       "backpack", "barb wire", "barricade", "barter", "baseball bat", "beard", "binoculars", "blankets", 
-      "body armor", "bolt-action", "boots", 
+      "body armor", "bolt-action", "The Book of Eli", "boots", 
       "bow and arrow", "breech loader", "buckshot", "burial site", "burning",
       "cache", "caliber", "camo", "camouflage", "camp", "campfire", "campsite", "candles", "cannibals", "canning", 
       "canteen", "capture", "cars", "carcass", "cartridge",
@@ -303,7 +651,7 @@ class IpsumsController < ApplicationController
       "dagger", "damage", "dead", "death", "destruction", "divine retribution", "doctor", "dog", 
       "doomed", "downfall", "dust cover", "dynamite",
       "earthquakes", "electricity", "endangered species", "end of days", "end of the world", 
-      "engineer", "E-tool", "every man for himself", "explosives", "fallout shelter", "famine", "FEMA camp", "field dressing", "fire", "firearms", 
+      "engineer", "E-tool", "every man for himself", "explosives", "Falling Skies", "fallout shelter", "famine", "FEMA camp", "field dressing", "fire", "firearms", 
       "firing pin", "first aid kit", "fishing", "fission", "flak jacket",
       "flames", "flashlight", "food", "forage",
       "four horsemen", "frontier", "full metal jacket", "fusion",
@@ -311,15 +659,17 @@ class IpsumsController < ApplicationController
       "gravesite", "grid", "guns", "gutted", "hacksaw", "hammer", "hat",
       "hatchet", "headlamp", "hell on earth", "helmet", "hideaway", "hockey stick", "hollow-point", "horse", "hotwire", 
       "humvee", "hunting", "hurricanes", "hygiene",
-      "ice age", "incendiary", "iodine",
-      "jack", "jacket", "JP-8", "Jeep", "judgment", "jumper cables", "junk",
+      "I Am Legend", "ice age", "incendiary", "iodine",
+      "jack", "jacket", "Jericho", "JP-8", "Jeep", "Jeremiah", "judgment", "jumper cables", "junk",
       "kill or be killed", "knife",
-      "lamp", "lantern", "leather", "Leatherman", "lever action", "light", "lighter", "live off the land",
+      "lamp", "lantern", "The Last of Us", "leather", "Leatherman", "lever action", "light", "lighter", "live off the land",
+      "living dead",
       "Mad Max", "magazine", "magnum", "map", "marksman", "mass graves", "matches", "medic", "medicine", 
-      "mercenary", "meteor shower", "MRE", "mutant",
+      "mercenary", "meteor shower", "Metro 2033", "MRE", "mutant",
       "NATO", "navigate", "negotiation", "non-perishables", "nurse", "NVGs", "nylon",
-      "oil", "outdoorsman",
-      "painkillers", "paracord", "party", "peanut butter", "pillage", "pistol", "planting", "plate carrier", "pliers", "poison", "pollution", 
+      "oil", "Omega Man", "outdoorsman",
+      "painkillers", "paracord", "party", "patient zero", "peanut butter", "pillage", "pistol", 
+      "Planet of the Apes", "planting", "plate carrier", "pliers", "poison", "pollution", 
       "potassium", "prepper","propane", "provisions", "pump",
       "pump-action", "purified water", "quiet", "radiation suit", "radio", "raid", "raiders", "ransack", "rations", 
       "ravagers", "rebuild", "reckoning",
@@ -327,169 +677,17 @@ class IpsumsController < ApplicationController
       "rounds", "rovers", "rucksack",
       "salt", "salvage", "savage", "saw", "sawed-off", "scientists", "screwdriver", "shallow grave", "shells", 
       "shelter", "shovel", "shrapnel", "silencer", "sinners", "siphon", "skin", "slavers", "slingshot",
-      "sneak", "sniper", "solar flare", "solar panel", "spigot", "survival",
+      "sneak", "sniper", "solar flare", "solar panel", "Soylent Green", "spigot", "survival", "The Stand",
       "starvation", "stash", "stitch", "storms", "straps", "suture", "SUV",
       "sword", "syringe", 
-      "tank", "tanto", "tent", "tidal wave", "tinker", "tire iron", "together", "tools", "tracker", "trade", "transmission", "trapping", 
+      "tank", "tanto", "tent", "Terminator", "test subject", "tidal wave", "tinker", "tire iron", "together", "tools", "tracker", "trade", "transmission", "trapping", 
       "travel", "tripwire", "truck", "tuna", "two-way radio",
       "undead", "unmarked grave", "urban",
       "vaccine", "vault", "vegetation", "vehicle", "ventilation", "veteran", "vulture",
       "walker", "walkie-talkie", "war", "warrior", "wasteland", "water", 
-      "water bag", "whetstone", "wild", "wilderness", "wire", "wound", "wrench"
-      ]
+      "water bag", "Waterworld", "whetstone", "wild", "wilderness", "wire", "wound", "wrench"
+    ]
       
-    capital_words5 = [
-      "Bodily fluids", "Clown", "Corpse", "Danger", "Dark", "Deceased", "Eaten", "Evil", "Fear", "Full moon", 
-      "Graveyard", "Hearse", "Hostel", "Killer", "Lure", "Maggots", 
-      "Manhunt", "Midnight", "Morgue", "Mutilated", "Odor", "Pain", "Panic", "Paranormal", "Phobia", "Remains", "Scream", 
-      "Serial killer", "Shallow grave", 
-      "Silver bullet", "Skull", "Terror", "Toe tag", "Undertaker", "Victim", "Vulnerable"
-      ]
-      
-    words5 = [
-      "abandoned", "abduction", "abused", "acid", "accursed", "adopted", "after dark", "after hours", "alarm", "aliens", "alleyway", "alligators", 
-      "alone", "altar", "ambulance", "ammo", "ammunition", "amnesia",
-      "amputation", "anal cavity",
-      "angel", "angled", "antisocial", "apparition", "artery", "asleep", "asylum", "attacker", "attic", "attorney", "audible", "augur", 
-      "awakened", "axe",
-      "back roads", "backwoods", "bad luck", "bad moon", "bang", "banish", "barking", "basement", "bathtub", "bats", 
-      "battered", "beaten", "bears", 
-      "beast", "begging", "behavior", "beheaded", "belly-up",
-      "bible", "bigfoot", "bitten", "black light", "bled", "bleeding", "blessing", "blink", "blizzard", "blood", 
-      "blood-thirsty", "bloody", 
-      "bludgeon", "boathouse", "body", "boiled", "boiler room", "bones", "bonesaw", "boogeyman", "boonies", "boots", "bound", 
-      "brains", "breath", "bribe", "broken neck", "bruised", "bugs", "bump", "burial", "burial ground", "buried alive", "butcher",
-      "cabin", "cage", "candle", "cannibal", "captive", "capture", "carcus", "car jacking", "carnival", "carousel", "car stall", 
-      "carving", "case", "casket", "castle", "cat", "catacombs", "cave", "cellar", "cemetery", "chains", "chainsaw", "chamber", 
-      "charming", "chateau", "chatter", "chemicals", "childhood", "chilling", "chills", "chloroform", "chopping block", "chupacabra", "church", "circumstantial", "circus", 
-      "circus tent", "clamor", "claustrophobic", "claws", "cleaners", "cloak", "closet", "cockroach", "coed", "coffin", "coma", 
-      "concrete", "confined", "consumed", "control",
-      "contusion", "convict", "conviction", "coroner", "corridor", "cough", "court",
-      "coven", "cowl", "crawl space", "crazy", "criminal",
-      "crawly", "creaking", "creature", "creepy", "cremation", "crime scene", "crone", "crucifix", "crutches", "cult", "curfew", "curse",
-      "cut",
-      "darkness", "dead", "death", "decay", "decomposition", "delight", "demon", "dentist", "deputy", 
-      "derailed", "deserted", "destiny", "details", 
-      "detective", "devil", 
-      "digested", "diner", "dirt road", "disappear", "disaster",
-      "disconcerted", "disease", 
-      "disembowel", "disfigured", "disguise", "dismember", "DNA", "doctor", "doll", "dollhouse", "dragged", "dreams", 
-      "dried blood", "drill", "driver",
-      "drowning", "drug", "duct tape", "dump", "dungeon",
-      "electric chair", "electrocuted", "embalming fluid", "emotional", "engorged", "entrails", "erratic", "escaped", "estate",
-      "ether", "evade", "evidence", "examine", "execution", "exorcism", "exorcist", 
-      "experiment", "eyelids", "eye patch", "eyes",
-      "fangs", "FBI", "feeding", "feds", "femur", "fetid", "filth", "fingernail", "fingerprints", "fire", "fireplace", 
-      "firing squad", "flashlight", "flat tire", "flesh", "flicker", "flies", 
-      "foaming", "fog",
-      "followed", "footprints", "fortune teller", "foster care", "foster home", "frail", "freak", "freakshow", "frightening", "froth", "frozen", 
-      "fugitive", "fumes", "funeral", "furnace",
-      "gagged", "gargoyle", "gas", "gas chamber", "gasoline", "gasp", "gas station", "genitals", "ghost", "ghoul", "gnaw", 
-      "goosebumps", "gooseflesh", "gorged", "Gothic",
-      "government", "gratification", "gravestone", "graveyard", 
-      "graveyard shift", "grim reaper",
-      "groaning", "guns", "gunshot", "gut feeling", "guts", "gutted", "gypsy",
-      "hag","Halloween", "handcuffs", "hanged", "harlot", "harrowing", "hatchet", "haunted", "hazard", "headstone", "heart", "heartbeat", 
-      "hell", "hellhound", "hellscape", "help",
-      "hemorrhage", "hex", "hidden", "highway",
-      "hitchhiker", "hive", "holy water", "hood", "hook", "hooker", "horror", "horrorshow", "hospital", 
-      "hostile", "hovel", "howling", "hunger", "hunted", "hunter", "hurt",
-      "identify", "identity", "ignition", "ill-fated", "ill-meaning", "inbred", "incantation", "incinerate", "incubus",
-      "inheritance", "insane", "insects", 
-      "internment", "intestines", "intruder", "intuition", "investigation",
-      "jack-in-the-box", "jail cell", "jaws", "jogger", "jolted", "journalist", "judge", "jump", "jump start", "jury", "jutting",
-      "kidnapping", "killed", "knife", 
-      "laboratory", "lair", "lake", "lamb", "landfill", "lashed", "law", "leech", "leprechaun", 
-      "lethal injection", "light", "lightning", "Lilith", 
-      "lipstick", "liver", "Lizzie Borden", "locked", "lock-up", "locusts", "lost", "lotion", 
-      "Lucifer", "lunatic", "lurking", "lynching",
-      "machete", "maintenance crew", "manor", "mansion", "marionette", "marshall", "mascara", "mask", "mass grave", "maul", "maw", "meat hook", "medical examiner", 
-      "medium", "mess", "methodical", "middle of nowhere", "mill", "mirror", "mist",
-      "moaning", "modus operandi", "moist", "molested", "monster", "moon", "moonlight", "mortuary", "most wanted", "motel", "moth",
-      "muffled", "mummifed", "murder", "murder weapon", "music box", "mysterious",
-      "neck", "needle", "neighborhood watch", "nerve-wracking", "nervous", "news", "newspaper", "nibble", "night", "nightmare", "night watchman", "noose", 
-      "nostrils", "note", "nurse",
-      "occult", "officer", "old", "omen", "open water", "operation", "oracle", "organ harvester", "organs", 
-      "orphanage", "Ouija board", 
-      "outhouse", "overdose", "overpowered",
-      "Pagan", "painting", "palm reading", "panel van", "panic room", "paralysis", "paramedic", "paranoia", "parking garage", 
-      "passageway", "passed away", "pattern",
-      "pentagram", "petrified", "pinched",
-      "plane crash", "plea bargain", "pleading", "pleasure", "pliers", "poisoned", 
-      "policeman", "poltergeist", "possessed", "pounce", "powerless",
-      "power outage", "prayer", "precognition", "pregnant", "premonition", "priest", "prison", "private investigator", 
-      "profiler", "prophesy", "prostitute", 
-      "psychic", "psychiatric hospital", "psycho", "psychologist", "pulp", "pump", "puppets", "pursued", "pyre",
-      "quiet", "quivering",
-      "rabies", "raid", "rain", "rancid", "ransom", "rasping", "rattling", "rats", "recruited", "reek", "reflection", "regurgitated", 
-      "removed",
-      "rest area", "restless", "revenge", "rickety", "rite", "ritual", 
-      "rope", "rot", "rubber gloves",
-      "sacrifice", "saint", "sarcophagus", "Satan", "Satanic", "scalp", "scarred", "scary", "scratching", "scrubs", "scythe", 
-      "seance", "search party", "seizure", "semen", "serrated", "sewer", "sewn shut", "shadows", "shambling", "shapeshifter",
-      "sharks", "shattered", "shells", "shelter",
-      "sheriff", "shipwreck", "shivering", "shock", "shrine", "shroud", "shudder", "shuffling", "sideshow", "sigh", "sighting",
-      "silence", "six feet under", "sixth sense", "skeleton", "skeleton crew", "skin",
-      "skinned alive", "slammed", "slasher", "slaughter",
-      "slenderman", "slimy", "smother", "smuggled", "snakes", "snout", "snowed in", "soil", "soiled",
-      "sole survivor", "solved", "soul", "soundproof", "spacecraft", "spell", "spiders", "spinal fluid", "spirit", "splatter", 
-      "spoiled", "spooky", "spray", "squallor", "stab", "stairs", "stalker", 
-      "static", "statue", "steel", "stench", "sting", "stitch", "storm", "storm drain", "straightjacket", "strange",
-      "stranger", "strangled", "street walker", "succubus", "suicide", "summer camp", "supernatural", "surveillance",
-      "suspect", "swab", "swamp", "SWAT", "sweat", "swollen", "symbols", "syringe",
-      "talons", "tapping", "tarot", "tattered", "taxicab", "teeth", "temple", "tentacles", "terrified", 
-      "therapist", "throat", "thud", "thump", "tombstone", 
-      "tooth", "town drunk", 
-      "torture", "trafficking", "trailer", "trapped", "trash bags", "traumatized", "treachery", "tree branches", "trembling", "trenchcoat", 
-      "trial", "trigger", "troll", "troubled", "truck stop",
-      "trunk", "tunnel", "twins", "twisted", "twitch",
-      "UFO", "unconscious", "underground", "unknown", "unsolved", "unusual", "urn",
-      "vacation", "vampire", "van", "veins", "vengeful spirit", "venom", "violated", "virgin", "visions", "voodoo", "voodoo doll",
-      "ward", "warning", "warts", "weird", "wendigo", "werewolf", "wheelchair", "wheezing", "whimper", "wilderness", "wilted", "wind", 
-      "wind-up monkey", "witch", "witchcraft", 
-      "witch doctor", "withered", "witness", "wolves", "woods", "woodshed", "worms", "wreck", "wrong turn",
-      "zombie"
-      ]
-      
-
-    ran_capital1 = capital_words.sample
-    ran_capital2 = capital_words.sample
-    ran_capital3 = capital_words.sample
-    ran_capital4 = capital_words.sample
-    ran_capital5 = capital_words.sample
-    
-    sentence_len1 = rand(5...30)
-    ran_words1 = words.sample(sentence_len1).map(&:inspect).join(' ')
-    sentence_len2 = rand(5...30)
-    ran_words2 = words.sample(sentence_len2).map(&:inspect).join(' ')
-    sentence_len3 = rand(5...30)
-    ran_words3 = words.sample(sentence_len3).map(&:inspect).join(' ')
-    sentence_len4 = rand(5...30)
-    ran_words4 = words.sample(sentence_len4).map(&:inspect).join(' ')
-    sentence_len5 = rand(5...30)
-    ran_words5 = words.sample(sentence_len5).map(&:inspect).join(' ')
-    
-    @ipsum1 = ran_capital1 + " " + ran_words1.delete('"') + ". " + ran_capital2 + " " + ran_words2.delete('"') + ". " + ran_capital3 + " " + ran_words3.delete('"') + ". " + ran_capital4 + " " + ran_words4.delete('"') + ". " + ran_capital5 + " " + ran_words5.delete('"') + "."
-    
-    fantasy_caps1 = capital_words2.sample
-    fantasy_caps2 = capital_words2.sample
-    fantasy_caps3 = capital_words2.sample
-    fantasy_caps4 = capital_words2.sample
-    fantasy_caps5 = capital_words2.sample
-    
-    sentence2_len1 = rand(5...30)
-    fantasy1 = words2.sample(sentence2_len1).map(&:inspect).join(' ')
-    sentence2_len2 = rand(5...30)
-    fantasy2 = words2.sample(sentence2_len2).map(&:inspect).join(' ')
-    sentence2_len3 = rand(5...30)
-    fantasy3 = words2.sample(sentence2_len3).map(&:inspect).join(' ')
-    sentence2_len4 = rand(5...30)
-    fantasy4 = words2.sample(sentence2_len4).map(&:inspect).join(' ')
-    sentence2_len5 = rand(5...30)
-    fantasy5 = words2.sample(sentence2_len5).map(&:inspect).join(' ')
-    
-    @ipsum2 = fantasy_caps1 + " " + fantasy1.delete('"') + ". " + fantasy_caps2 + " " + fantasy2.delete('"') + ". " + fantasy_caps3 + " " + fantasy3.delete('"') + ". "  + fantasy_caps4 + " " + fantasy4.delete('"') + ". "  + fantasy_caps5 + " " + fantasy5.delete('"') + "."
-    
     naturecaps1 = capital_words3.sample
     naturecaps2 = capital_words3.sample
     naturecaps3 = capital_words3.sample
@@ -507,7 +705,7 @@ class IpsumsController < ApplicationController
     sentence3_len5 = rand(5...30)
     nature5 = words3.sample(sentence3_len5).map(&:inspect).join(' ')
     
-    @ipsum3 = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + ". " + naturecaps4 + " " + nature4.delete('"') + ". " + naturecaps5 + " " + nature5.delete('"') + "."
+    @nature_ipsum = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + ". " + naturecaps4 + " " + nature4.delete('"') + ". " + naturecaps5 + " " + nature5.delete('"') + "."
     
 	  apoccaps1 = capital_words4.sample
     apoccaps2 = capital_words4.sample
@@ -526,27 +724,7 @@ class IpsumsController < ApplicationController
     sentence4_len5 = rand(5...30)
     apoc5 = words4.sample(sentence4_len5).map(&:inspect).join(' ')
     
-    @ipsum4 = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + ". " + apoccaps4 + " " + apoc4.delete('"') + ". " + apoccaps5 + " " + apoc5.delete('"') + "."
-    
-    horrcaps1 = capital_words5.sample
-    horrcaps2 = capital_words5.sample
-    horrcaps3 = capital_words5.sample
-    horrcaps4 = capital_words5.sample
-    horrcaps5 = capital_words5.sample
-    
-    sentence5_len1 = rand(5...30)
-    horr1 = words5.sample(sentence5_len1).map(&:inspect).join(' ')
-    sentence5_len2 = rand(5...30)
-    horr2 = words5.sample(sentence5_len2).map(&:inspect).join(' ')
-    sentence5_len3 = rand(5...30)
-    horr3 = words5.sample(sentence5_len3).map(&:inspect).join(' ')
-    sentence5_len4 = rand(5...30)
-    horr4 = words5.sample(sentence5_len4).map(&:inspect).join(' ')
-    sentence5_len5 = rand(5...30)
-    horr5 = words5.sample(sentence5_len5).map(&:inspect).join(' ')
-    
-    @ipsum5 = horrcaps1 + " " + horr1.delete('"') + ". " + horrcaps2 + " " + horr2.delete('"') + ". " + horrcaps3 + " " + horr3.delete('"') + ". " + horrcaps4 + " " + horr4.delete('"') + ". " + horrcaps5 + " " + horr5.delete('"') + "."
-    
+    @apoc_ipsum = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + ". " + apoccaps4 + " " + apoc4.delete('"') + ". " + apoccaps5 + " " + apoc5.delete('"') + "."
   
   end
   

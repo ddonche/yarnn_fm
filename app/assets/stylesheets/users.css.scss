@@ -7,9 +7,15 @@
   border: 1px solid #e1e1e1;
 }
 
+.wrapper_left {
+  width: 27%;
+  margin: 0 0 0 4rem;
+  float: left;
+}
+
 .wrapper_wide_right {
   width: 64%;
-  margin: 0 2rem;
+  margin: 0 auto;
   float: left;
 }
 
@@ -47,14 +53,14 @@
 
 .side-box {
   width: 87%;
-  margin: 2% auto;
+  margin: 1rem auto;
   background: #fff;
   border: 1px solid #d9d9d9;
   overflow: hidden;
 }
 
 .side-content {
-  margin: 15px;
+  margin: 16px;
   font-size: .75rem;
   line-height: 1.25rem;
   h2 {
@@ -87,7 +93,7 @@
 }
 
 #index-nav-container {
-  width: 100%;
+  width: 94%;
   margin: 1rem auto 0 auto;
   background: #e9e9e9;
   border: 1px solid #e1e1e1;

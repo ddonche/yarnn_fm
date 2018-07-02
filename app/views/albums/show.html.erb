@@ -126,7 +126,7 @@
                             <% @tracks.each do |track| %>
                             <div class="hap-playlist-item" data-type="audio" data-mp3="<%= track.audio.url %>" data-thumb="<%= track.image.url(:thumb) %>">
                                 <a class="hap-playlist-non-selected" href="#">
-                                    <span class="hap-playlist-title"><%= track.user.username %> / <%= track.user.name %> - <%= track.title %></span>
+                                    <span class="hap-playlist-title"><%= track.title %> - <%= track.user.username %> / <%= track.user.name %></span>
                                 </a>
                             </div>
                             <% end %>

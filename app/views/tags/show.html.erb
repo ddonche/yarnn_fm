@@ -98,12 +98,18 @@
             <% if user_signed_in?  %>
               <h2>New Topic For This Genre</h2>
               <%= render "topics/quick_form" %>
+            <% else %>
+              <p style="color: #DC2020"><i><b>You must be logged in to create new posts.</b></i></p>
           	<% end %> 
           </div>
         </div>
         <div class="side-box">
           <div class="side-content">
-            <%= render 'topics' %>
+            <% if @topics.any? %>
+              <%= render 'topics' %>
+            <% else %>
+              <p>There are no topics in this genre.</p>
+            <% end %>
           </div>
         </div>
       </div>

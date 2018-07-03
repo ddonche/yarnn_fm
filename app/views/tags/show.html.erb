@@ -20,6 +20,11 @@
       var hap_player;  
       //jQuery(document).addEventListener("turbolinks:load", function($) {
       //jQuery(document).ready(function($){
+        document.documentElement.addEventListener('keydown', function (e) {
+            if ( ( e.keycode || e.which ) == 32) {
+                e.preventDefault();
+            }
+        }, false);
       jQuery( document ).on('turbolinks:load', function() {
           
           var settings = {
@@ -30,7 +35,7 @@
               volume:0.5,
               autoPlay:false,
               preload:"auto",
-              randomPlay:false,
+              randomPlay:true,
               loopingOn:true,
               mediaEndAction:"next",
               soundCloudAppId:"",
@@ -38,7 +43,7 @@
               usePlaylistScroll:true,
               playlistScrollOrientation:"vertical",
               playlistScrollTheme:"dark-2",
-              useKeyboardNavigationForPlayback:false,
+              useKeyboardNavigationForPlayback:true,
               facebookAppId:"644413448983338",
               useNumbersInPlaylist: true,
               sortableTracks: false,
@@ -90,6 +95,7 @@
 						<div class="album_overview">
 							<p class="track_count"><h2><%= request.path %></h2></p> 
 							<p class="track_count"><%= pluralize( @tag_count, 'Track' ) %></p> 
+							<p class="track_count"><%= pluralize( @topic_count, 'Discussion' ) %></p>
 						</div>
           </div>
         </div>

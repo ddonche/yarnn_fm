@@ -1,5 +1,9 @@
-  <% @topics.each do |topic| %>
-    <h1><%= topic.title %></h1>
-    <%= topic.content %><br />
-    <%= link_to topic.user.username, user_path(topic.user_id) %>
-  <% end %>
+<% @topics.each do |topic| %>
+  <div class="topics_index">
+    <h3><%= link_to topic.title, topic_path(topic) %></h3>
+      <%= truncate(topic.content, length: 92) %><br />
+      <%= link_to topic.user.username, user_path(topic.user_id) %> - 
+      <i><%= time_ago_in_words(topic.created_at) %> ago</i>
+  </div>
+<% end %>
+  

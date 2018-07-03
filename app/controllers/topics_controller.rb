@@ -18,6 +18,12 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @tag_count = Topic.tagged_with(params[:tag]).count
+    if params[:tag]
+      @topics = Topic.tagged_with(params[:tag])
+    else
+      @topics = Topic.all.order('created_at DESC')
+    end
   end
 
   def new

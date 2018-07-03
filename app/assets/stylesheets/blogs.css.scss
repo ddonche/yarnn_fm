@@ -129,3 +129,21 @@
     }
   }
 }
+
+#breadcrumb {
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid lighten(#2C3135, 75%);
+    font-weight: 700;
+    font-size: .7rem;
+    a {
+      color: lighten(#2C3135, 45%);
+      text-decoration: none;
+      &:hover {
+        color: #00b8ac;
+      }
+    }
+    span {
+      margin: 0 .5rem;
+    }
+  }

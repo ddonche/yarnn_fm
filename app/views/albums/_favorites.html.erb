@@ -9,9 +9,6 @@
   <%= image_tag('icons/comments.svg', width: 20) %>&nbsp;51 comments
 </div>
 <div class="icons">
-  <%= audio_tag track.audio.url, controls: true %>
-</div>
-<div class="icons">
   <% track.tag_list.map.each do |tag| %>
     <span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i>
   <% end %>

@@ -7,6 +7,7 @@ class TagsController < ApplicationController
   def show
     @tracks = Track.tagged_with(params[:tag]).order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
     @tag_count = Track.tagged_with(params[:tag]).count
+    @topics_count = Topic.tagged_with(params[:tag]).count
     @tag = ActsAsTaggableOn::Tag.name
     @genre = request.path.split('/').last
     def current_url
@@ -20,7 +21,7 @@ class TagsController < ApplicationController
       end
     end
     if params[:tag]
-      @topics = Topic.tagged_with(params[:tag])
+      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC')
     else
       @topics = Topic.all.order('created_at DESC')
     end

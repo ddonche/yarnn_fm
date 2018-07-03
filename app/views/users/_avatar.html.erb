@@ -9,7 +9,7 @@
     </div>
     
     <%= render 'shared/stats' %>
-    <%= render 'follow_form' if user_signed_in? %>
+    <%= render 'users/follow_form' if user_signed_in? %>
     <div class="invisible_box">
       <div class="ib_content">
         <%= @user.bio %>

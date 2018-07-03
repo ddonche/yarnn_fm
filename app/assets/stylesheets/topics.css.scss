@@ -1,7 +1,7 @@
-#blog_show {
+#topic_show {
   .blog_wrapper {
     width: 100%;
-    margin: 1rem auto;
+    margin-left: 2rem;
     background: #e9e9e9;
     border: 1px solid #e1e1e1;
     h1 {
@@ -77,10 +77,10 @@
     }
     .blog_content {
       padding: 1.8rem 2rem;
-      line-height: 1.75rem;
-      font-size: 14px;
+      line-height: 1.65rem;
+      font-size: 16px;
       display: block;
-      font-family: 'Libre Baskerville', serif;
+      font-family: 'Gudea', sans-serif;
       font-style: normal;
       color: rgba(0,0,0,.84);
       margin-bottom: .7rem;

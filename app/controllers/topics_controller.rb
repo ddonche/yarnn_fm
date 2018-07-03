@@ -18,7 +18,8 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @tag_count = Topic.tagged_with(params[:tag]).count
+    @tag = @topic.tag_list
+    @topics_count = Topic.tagged_with(@tag).count
     if params[:tag]
       @topics = Topic.tagged_with(params[:tag])
     else

@@ -15,7 +15,7 @@
           <div class="side-content">
 						<div class="album_overview">
 							<p class="track_count"><h2><% @topic.tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %></h2></p> 
-							<p class="track_count"><%= pluralize( @tag_count, 'Topics' ) %></p> 
+							<p class="track_count"><%= pluralize( @topics_count, 'Discussions' ) %></p> 
 						</div>
           </div>
         </div>

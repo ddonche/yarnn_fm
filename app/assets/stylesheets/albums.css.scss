@@ -56,6 +56,14 @@
 }
 
 #album_show {
+  h2 {
+    font-family: 'Teko', sans-serif;
+    font-style: normal;
+    font-size: 24px;
+    color: rgba(0,0,0,.84);
+    line-height: 34px;
+    //letter-spacing: ;
+  }
   #show_banner {
     background: #2C3135;
     text-align: center;
@@ -119,13 +127,16 @@
   #breadcrumb {
     padding: 1rem 0;
     text-align: center;
+    font-family: 'Teko', cursive;
+    font-size: 20px;
     border-bottom: 1px solid lighten(#2C3135, 75%);
-    font-weight: 700;
-    font-size: .7rem;
     a {
       color: lighten(#2C3135, 45%);
       text-decoration: none;
       &:hover {
+        color: #00b8ac;
+      }
+      &:visited {
         color: #00b8ac;
       }
     }
@@ -167,6 +178,9 @@
             &:hover {
               color: #00b8ac;
             }
+            &:visited {
+              color: #00b8ac;
+            }
           }
         }
         .track_overview {
@@ -180,6 +194,9 @@
               &:hover {
                 color: #00b8ac;
               }
+              &:visited {
+                color: #00b8ac;
+              }
             }
           }
           .description {
@@ -191,6 +208,12 @@
             a {
               color: #DC2020;
               margin-right: 1rem;
+            }
+            &:hover {
+              color: #00b8ac;
+            }
+            &:visited {
+              color: #00b8ac;
             }
           }
         }
@@ -214,111 +237,6 @@
           color: #00b8ac;
         }
       }
-    }
-    .jp-jplayer,.jp-audio {
-      width: 100%;
-      margin: 1rem auto .5rem auto;
-    }
-    .jp-title {
-      font-size: 12px;
-      text-align: center;
-      color: #999;
-    }
-    .jp-title ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-    .jp-gui {
-      position: relative;
-      background: #DC2020;
-      transition: background .4s ease-in-out;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-top: 10px;
-    }
-    .jp-controls {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      font-family: "FontAwesome";
-    }
-
-    .jp-controls li {
-      display: inline;
-    }
-
-    .jp-controls a {
-      color: #fff;
-    }
-    .jp-play,.jp-pause {
-      width: 60px;
-      height: 40px;
-      display: inline-block;
-      text-align: center;
-      line-height: 43px;
-      border-right: 1px solid lighten(#DC2020, 10%);
-    }
-
-    .jp-controls .jp-play:hover,.jp-controls .jp-pause:hover {
-      background-color: darken(#DC2020, 10%);
-    }
-
-    .jp-mute,.jp-unmute {
-      position: absolute;
-      right: 59px;
-      top: -3px;
-      width: 20px;
-      height: 40px;
-      display: inline-block;
-      line-height: 46px;
-    }
-
-    .jp-mute {
-      text-align: left;
-    }
-    .jp-time-holder {
-      color: #FFF;
-      font-size: 12px;
-      line-height: 14px;
-      position: absolute;
-      right: 90px;
-      top: 14px;
-    }
-    .jp-progress {
-      background-color: darken(#DC2020, 25%);
-      border-radius: 20px 20px 20px 20px;
-      overflow: hidden;
-      position: absolute;
-      right: 22%;
-      top: 15px;
-      width: 65%;
-    }
-
-    .jp-play-bar {
-      height: 12px;
-      background-color: #fff;
-      border-radius: 20px 20px 20px 20px;
-    }
-
-    .jp-volume-bar {
-      position: absolute;
-      right: 10px;
-      top: 17px;
-      width: 45px;
-      height: 8px;
-      border-radius: 20px 20px 20px 20px;
-      background-color: darken(#DC2020, 25%);
-      overflow: hidden;
-    }
-
-    .jp-volume-bar-value {
-      background-color: #fff;
-      height: 8px;
-      border-radius: 20px 20px 20px 20px;
-    }
-    a {
-      text-decoration: none;
     }
   }
   #track_content {
@@ -344,108 +262,6 @@
     }
     a {
       text-decoration: none;
-    }
-    .jp-jplayer,.jp-audio {
-      width: 70%;
-      margin: 1rem auto .5rem auto;
-    }
-    .jp-title {
-      font-size: 12px;
-      text-align: center;
-      color: #999;
-    }
-    .jp-title ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-    .jp-gui {
-      position: relative;
-      background: #DC2020;
-      transition: background .4s ease-in-out;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-top: 10px;
-    }
-    .jp-controls {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      font-family: "FontAwesome";
-    }
-
-    .jp-controls li {
-      display: inline;
-    }
-
-    .jp-controls a {
-      color: #fff;
-    }
-    .jp-play,.jp-pause {
-      width: 60px;
-      height: 40px;
-      display: inline-block;
-      text-align: center;
-      line-height: 43px;
-      border-right: 1px solid lighten(#DC2020, 10%);
-    }
-
-    .jp-controls .jp-play:hover,.jp-controls .jp-pause:hover {
-      background-color: darken(#DC2020, 10%);
-    }
-
-    .jp-mute,.jp-unmute {
-      position: absolute;
-      right: 59px;
-      top: -3px;
-      width: 20px;
-      height: 40px;
-      display: inline-block;
-      line-height: 46px;
-    }
-
-    .jp-mute {
-      text-align: left;
-    }
-    .jp-time-holder {
-      color: #FFF;
-      font-size: 12px;
-      line-height: 14px;
-      position: absolute;
-      right: 90px;
-      top: 14px;
-    }
-    .jp-progress {
-      background-color: darken(#DC2020, 25%);
-      border-radius: 20px 20px 20px 20px;
-      overflow: hidden;
-      position: absolute;
-      right: 22%;
-      top: 15px;
-      width: 65%;
-    }
-
-    .jp-play-bar {
-      height: 12px;
-      background-color: #fff;
-      border-radius: 20px 20px 20px 20px;
-    }
-
-    .jp-volume-bar {
-      position: absolute;
-      right: 10px;
-      top: 17px;
-      width: 45px;
-      height: 8px;
-      border-radius: 20px 20px 20px 20px;
-      background-color: darken(#DC2020, 25%);
-      overflow: hidden;
-    }
-
-    .jp-volume-bar-value {
-      background-color: #fff;
-      height: 8px;
-      border-radius: 20px 20px 20px 20px;
     }
   }
   #links {

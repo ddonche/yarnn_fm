@@ -76,15 +76,13 @@
   </script>
 </head>
 
-<body>
   <div id="album_show">
   	<div id="banner" class="track_banner">
   		<%= render 'layouts/header' %>
   	</div>
   
   	<div id="breadcrumb">
-  		<%= request.path %><br />
-  		<%= @test_genre %>
+  		genres / <%= @genre %> / all content
   	</div>
 	
   	<div class="wrapper_skinny_left">
@@ -93,7 +91,7 @@
         <div class="side-box">
           <div class="side-content">
 						<div class="album_overview">
-							<p class="track_count"><h2><%= request.path %></h2></p> 
+							<p class="track_count"><h2><%= request.path.split('/').last %></h2></p> 
 							<p class="track_count"><%= pluralize( @tag_count, 'Track' ) %></p> 
 							<p class="track_count"><%= pluralize( @topics_count, 'Discussion' ) %></p>
 						</div>
@@ -248,4 +246,3 @@
       
     </div>
   </div>
-</body>

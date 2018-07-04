@@ -26,6 +26,10 @@ body {
   background-image: image-url('asanoha.png');
 }
 
+#poetry {
+  background-image: image-url('asanoha.png');
+}
+
 .wrapper_wide {
   width: 90%;
   margin: 0 auto;
@@ -357,11 +361,4 @@ textarea {
 	h2 {
 	  margin-bottom: 1rem;
 	}
-}
-
-.topics_index {
-  line-height: 1.5;
-  margin-bottom: .5rem;
-  padding-bottom: .5rem;
-  border-bottom: 1px solid #e9e9e9;
 }

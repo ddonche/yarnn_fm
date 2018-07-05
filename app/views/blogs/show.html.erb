@@ -37,6 +37,12 @@
         <%= @blog.content.html_safe %>
       </div>
     </div>
+    
+    <div class="side-box">
+      <div class="side-content">
+        <%= render 'comments/comments', :commentable => @blog %>
+      </div>
+    </div>
   </div>
   
 </div>

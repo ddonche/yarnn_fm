@@ -1,4 +1,12 @@
 #blog_show {
+  h2 {
+    font-family: 'Teko', sans-serif;
+    font-style: normal;
+    font-size: 24px;
+    color: rgba(0,0,0,.84);
+    line-height: 34px;
+    //letter-spacing: ;
+  }
   .blog_wrapper {
     width: 100%;
     margin: 1rem auto;

@@ -10,6 +10,9 @@ class BlogsController < ApplicationController
 	  @user = @blog.user
 	  @users = @user.followers
     @followed_users = @user.following
+	  @commentable = @blog
+    @comments = @commentable.comments.order("created_at DESC")
+    @comment = Comment.new
 	end
 	
 	def new

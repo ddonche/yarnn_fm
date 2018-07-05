@@ -11,6 +11,9 @@ class TracksController < ApplicationController
 	end
 
 	def show
+	  @commentable = @track
+    @comments = @commentable.comments.order("created_at DESC")
+    @comment = Comment.new
 	end
 	
 	def new

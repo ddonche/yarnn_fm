@@ -20,6 +20,9 @@ class TopicsController < ApplicationController
   def show
     @tag = @topic.tag_list
     @topics_count = Topic.tagged_with(@tag).count
+	  @commentable = @topic
+    @comments = @commentable.comments.order("created_at DESC")
+    @comment = Comment.new
     if params[:tag]
       @topics = Topic.tagged_with(params[:tag])
     else

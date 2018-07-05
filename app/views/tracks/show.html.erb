@@ -57,13 +57,18 @@
   		    <div class="side-box">
   		      <div class="side-content">
   		        <div class="icons">
-                <div id="favorites"><%= render 'favorites' %></div><span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 20) %>&nbsp;51 comments
+                <div id="favorites"><%= render 'favorites' %></div><span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 20) %>&nbsp;<%= pluralize( @track.comments.count, 'Comment' ) %>
               </div>
   		      </div>
   		    </div>
     		  <div class="side-box">
             <div class="side-content">
               <%= audio_tag @track.audio.url, controls: true %>
+            </div>
+          </div>
+          <div class="side-box">
+  		      <div class="side-content">
+              <%= render 'comments/comments', :commentable => @track %>
             </div>
           </div>
   		</div>

@@ -2,6 +2,7 @@ class Track < ApplicationRecord
   belongs_to :user
   belongs_to :album, optional: true
   has_many :favorites
+  has_many :comments, as: :commentable
   enum explicit: { standard: 0, explicit: 1 }
 
   mount_uploader :image, ImageUploader

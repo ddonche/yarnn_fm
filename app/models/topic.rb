@@ -1,6 +1,6 @@
 class Topic < ApplicationRecord
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  has_many :comments, as: :commentable
 
   validates :content, presence: true, length: { minimum: 2, maximum: 10000 }
 

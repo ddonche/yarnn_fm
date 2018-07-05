@@ -57,6 +57,11 @@
           <%= @topic.content %>
         </div>
       </div>
+        <div class="side-box">
+		      <div class="side-content">
+            <%= render 'comments/comments', :commentable => @topic %>
+          </div>
+        </div>
     </div>
     
   </div>

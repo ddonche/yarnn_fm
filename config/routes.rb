@@ -14,12 +14,17 @@ Rails.application.routes.draw do
       get :tracks
     end
   end
-  resources :blogs
-  resources :topics
+  resources :blogs do
+    resources :comments
+  end
+  resources :topics do
+    resources :comments
+  end
   resources :relationships, only: [:create, :destroy]
   get 'station/:id', to: 'users#favorites', as: :station
   resources :albums, :path => '/albums'
   resources :tracks do
+    resources :comments
     post 'favorite', to: 'favorites#favorite'
     post 'unfavorite', to: 'favorites#unfavorite'
   end

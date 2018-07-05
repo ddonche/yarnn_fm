@@ -42,14 +42,16 @@
           <div class="blog_info_user_stats">- 
             <%= pluralize( @topic.user.followers.count, 'follower' ) %> / 
             <%= pluralize( @topic.user.tracks.count, 'track' ) %> / 
-            <%= pluralize( @topic.user.albums.count, 'album' ) %></div>
+            <%= pluralize( @topic.user.albums.count, 'album' ) %>
+          </div>
           <br />
           <div class="blog_info_date">
             <%= time_ago_in_words(@topic.created_at) %> ago
+            <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 13) %>&nbsp;<%= pluralize( @topic.comments.count, 'Comment' ) %>
             <% if @topic.user == current_user %>
               <br /><%= link_to "edit topic", edit_topic_path(@topic) %>
             <% end %>
-              
+          
           </div>
         </div>
         
@@ -59,6 +61,11 @@
       </div>
         <div class="side-box">
 		      <div class="side-content">
+		        <% if user_signed_in? %>
+              <%= render "comments/form" %><br/>
+            <% else %>
+              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
+            <% end %>
             <%= render 'comments/comments', :commentable => @topic %>
           </div>
         </div>

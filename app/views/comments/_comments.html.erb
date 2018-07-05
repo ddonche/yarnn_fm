@@ -1,12 +1,17 @@
 <h2>Comments</h2>
 <% @comments.each do |comment| %>
   <div class="comment_box">
-    <div class='comment_user_image'>
+    
+    <div class="comment_user_image">
     	<%= link_to user_path(comment.user) do
 	     	image_tag(comment.user.image.url, width: 40)
 	  	end %>
     </div>
+    
+    <div class="comment_content">
       <%= link_to comment.user.username, user_path(comment.user) %> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> <br />
       <%= comment.content %>
+    </div>
+    
   </div>
 <% end %>

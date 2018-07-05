@@ -1,76 +1,82 @@
-  <div id="album_show">
-  	<div id="banner" class="track_banner">
-  	  <%= render 'layouts/header' %>
-  	</div>
-    <%= render 'shared/alert' %>
-  	<div id="breadcrumb">
-  	  <%= link_to @track.user.username, user_path(@track.user) %>
-  	    <span>/</span>
-  	  <%= @track.user.name %>
-  			<span>/</span>
-  		<% if @track.album_id? %>
-  			<%= link_to @track.album.title, album_path(@track.album_id) %>
-  			  <span>/</span>
-  		<% end %>
-  			<%= @track.title %>
-  	</div>
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
+  <%= render 'shared/alert' %>
+	<div id="breadcrumb">
+	  <%= link_to @track.user.username, user_path(@track.user) %>
+	    <span>/</span>
+	  <%= @track.user.name %>
+			<span>/</span>
+		<% if @track.album_id? %>
+			<%= link_to @track.album.title, album_path(@track.album_id) %>
+			  <span>/</span>
+		<% end %>
+			<%= @track.title %>
+	</div>
   	
-  	<div class="wrapper_skinny_left">
-      <div class="main_avatar">
-      
-    	  <div id="album-image">
-          <%= image_tag @track.image.url, width: 300 %>
-        </div>
+	<div class="wrapper_skinny_left">
+    <div class="main_avatar">
+    
+  	  <div id="album-image">
+        <%= image_tag @track.image.url, width: 300 %>
+      </div>
 
-        <div class="side-box">
-          <div class="side-content">
-						<div class="album_overview">
-							<p class="track_count"><h2><%= @track.title %><% if @track.explicit == "explicit" %> (explicit)<% end %>
-							<% if @track.user == current_user %>
-							  <%= link_to edit_track_path(@track) do %>
-								  <%= image_tag'icons/gear.svg', width: 12 %>
-							  <% end %>
-							<% end %></h2></p>
-							<p class="track_count"><%= link_to @track.user.username, user_path(@track.user) %> / <%= @track.user.name %></p>
-							<p class="track_count"><% if @track.album_id? %>
-									<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
-								<% end %></p>
-							<p class="track_count"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
-						</div>
-          </div>
+      <div class="side-box">
+        <div class="side-content">
+					<div class="album_overview">
+						<p class="track_count"><h2><%= @track.title %><% if @track.explicit == "explicit" %> (explicit)<% end %>
+						<% if @track.user == current_user %>
+						  <%= link_to edit_track_path(@track) do %>
+							  <%= image_tag'icons/gear.svg', width: 12 %>
+						  <% end %>
+						<% end %></h2></p>
+						<p class="track_count"><%= link_to @track.user.username, user_path(@track.user) %> / <%= @track.user.name %></p>
+						<p class="track_count"><% if @track.album_id? %>
+								<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
+							<% end %></p>
+						<p class="track_count"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
+					</div>
         </div>
-        <div class="side-box">
-          <div class="side-content">
-            <%= @track.description %>
-          </div>
+      </div>
+      <div class="side-box">
+        <div class="side-content">
+          <%= @track.description %>
         </div>
-        <div class="side-box">
-          <div class="side-content">
-            <p class="track_count"><b><i>Genres:</i></b> <% @track.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
-          </div>
+      </div>
+      <div class="side-box">
+        <div class="side-content">
+          <p class="track_count"><b><i>Genres:</i></b> <% @track.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
         </div>
       </div>
     </div>
-  	
-    <div id="tracks">
-  		<div class="wrapper_wide_right" style="margin-top: 0">
-  		    <div class="side-box">
-  		      <div class="side-content">
-  		        <div class="icons">
-                <div id="favorites"><%= render 'favorites' %></div><span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 20) %>&nbsp;<%= pluralize( @track.comments.count, 'Comment' ) %>
-              </div>
-  		      </div>
-  		    </div>
-    		  <div class="side-box">
-            <div class="side-content">
-              <%= audio_tag @track.audio.url, controls: true %>
-            </div>
-          </div>
-          <div class="side-box">
-  		      <div class="side-content">
-              <%= render 'comments/comments', :commentable => @track %>
-            </div>
-          </div>
-  		</div>
-  	</div>
   </div>
+  	
+  <div id="tracks">
+		<div class="wrapper_wide_right" style="margin-top: 0">
+		    <div class="side-box">
+		      <div class="side-content">
+		        <div class="icons">
+              <div id="favorites"><%= render 'favorites' %></div><span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 20) %>&nbsp;<%= pluralize( @track.comments.count, 'Comment' ) %>
+            </div>
+		      </div>
+		    </div>
+  		  <div class="side-box">
+          <div class="side-content">
+            <%= audio_tag @track.audio.url, controls: true %>
+          </div>
+        </div>
+        <div class="side-box">
+		      <div class="side-content">
+		        <% if user_signed_in? %>
+              <%= render "comments/form" %><br/>
+            <% else %>
+              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
+            <% end %>
+            <%= render 'comments/comments', :commentable => @track %>
+          </div>
+        </div>
+		</div>
+	</div>
+  	
+</div>

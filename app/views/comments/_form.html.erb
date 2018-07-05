@@ -1,0 +1,22 @@
+
+<%= form_for [@commentable, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+      <div class="error_messages">
+        <h3>Please correct the following errors.</h3>
+        <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="field">
+      <%= f.text_area :content, placeholder: "what do you think about this?", rows: 4, columns: 6 %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Comment", class: "button button_highlight button_block" %>
+    </div>
+
+<% end %>

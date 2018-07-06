@@ -17,11 +17,7 @@
     
   <script type="text/javascript">
       var hap_player;  
-        document.documentElement.addEventListener('keydown', function (e) {
-            if ( ( e.keycode || e.which ) == 32) {
-                e.preventDefault();
-            }
-        }, false);
+
       jQuery( document ).on('turbolinks:load', function() {
           
           var settings = {
@@ -40,7 +36,7 @@
               usePlaylistScroll:true,
               playlistScrollOrientation:"vertical",
               playlistScrollTheme:"dark-2",
-              useKeyboardNavigationForPlayback:true,
+              useKeyboardNavigationForPlayback:false,
               facebookAppId:"644413448983338",
               useNumbersInPlaylist: true,
               sortableTracks: false,

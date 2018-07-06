@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:index]
 
   def index
-    @users = User.order('created_at DESC')
+    @users = User.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
   end
   
   def show

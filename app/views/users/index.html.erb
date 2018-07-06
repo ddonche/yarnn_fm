@@ -1,1 +1,40 @@
-<h1>Fix This Stupid Shit!</h1>
+<div id="album_show">
+	<div id="banner" class="track_banner">
+		<%= render 'layouts/header' %>
+	</div>
+
+  <div class="wrapper_skinny_left">
+    <h2>Some Intersting Stuff Here</h2>
+  </div>
+      
+    <div id="users">
+      <div class="wrapper_wide_right_right">
+			<ul class="cf">
+				<% @users.each do |user| %>
+					<li class="cf">
+						<div class="user_thumbnail">
+							<% if user.image? %>
+								<%= link_to image_tag(user.image.url(:thumb)), user_path(user), width: 50, title: user.username %>
+							<% else %>
+								<%= image_tag('default_track.jpg', width: 40, title: user.username) %>
+							<% end %>
+						</div>
+						<div class="user_overview">
+							<h2><%= link_to user.username, user_path(user) %> / <%= user.name %>
+							</h2>
+							<br />
+							<% if user.bio? %>
+							  <p class="description"><%= user.bio %></p><br />
+							<% else %>
+							  <p class="description">This user does not have a bio.</p><br />
+							<% end %>
+							<%= render 'users/stats', :user => user %>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+
+			<%= will_paginate @users, previous_label: "Previous", next_label: "Next" %>
+      </div>
+    </div>
+</div>

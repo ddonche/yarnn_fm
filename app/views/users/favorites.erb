@@ -173,9 +173,6 @@
 								<% else %>
 									<%= link_to image_tag(item.user.image.url(:thumb)), track_path(item), width: 100, title: item.title %>
 								<% end %>
-								<div class="icons" style="text-align:center">
-									<%= link_to item.user.username, user_path(item.user) %> / <%= item.user.name %>
-								</div>
 							</div>
 							<div class="track_overview">
 								<h2>
@@ -184,7 +181,16 @@
 										/ <%= link_to item.album.title, album_path(item.album_id) %>
 									<% end %>
 								</h2>
-								<p class="description"><%= truncate(item.description, length: 160) %></p>
+    							<div class="icons">
+    							    <%= link_to item.user.username, user_path(item.user) %> / <%= item.user.name %> / <i>Voiced by:</i> <%= item.vocals %>
+    							</div>
+    							<br /><br />
+								<p class="description"><%= truncate(item.description, length: 160) %></p><br />
+								<div class="icons_container">
+    							  <div id="favorites">
+    							    <%= render 'albums/favorites', :track => item %>
+    							  </div>
+    						    </div>
 							
 							</div>
 						</li>

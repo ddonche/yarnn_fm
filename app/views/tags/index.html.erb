@@ -1,0 +1,20 @@
+<div id="banner" class="albums_banner">
+  <%= render 'layouts/header' %>
+</div>
+<%= render 'shared/alert' %>
+<div id="albums" class="cf">
+	<div class="wrapper">
+		<ul class="cf">
+			<% @tags.each do |tag| %>
+					<li>
+						<div class="album_overview">
+							<h2><%= link_to tag.name, tag_path(tag.name) %> </h2>
+							<p class="track_count"><%= pluralize(tag.taggings_count, 'Item') %></p> 
+						</div>
+					</li>
+			<% end %>
+		</ul>
+
+		<%= will_paginate @tags, previous_label: "Previous", next_label: "Next" %>
+	</div>
+</div>

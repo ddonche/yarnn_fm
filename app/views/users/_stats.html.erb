@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+
+<div class="user-stat-box">
+    <span style="margin-right: .5rem"><%= user.following.count %><a href="<%= following_user_path(user) %>"> following</a></span>
+
+    <div id="followers" style="display: inline;"><%= user.followers.count %><a href="<%= followers_user_path(user) %>"></div> followers</a>
+
+    <span style="margin-left: .5rem"><%= user.tracks.count %> tracks</span>
+    
+    <span style="margin-left: .5rem"><%= user.albums.count %> albums</span>
+    
+    <span style="margin-left: .5rem"><%= user.blogs.count %> blogs</span>
+    
+    <span style="margin-left: .5rem"><%= image_tag('icons/station.svg', height: 11) %><span style="margin-left: .3rem"></span><%= link_to "Station", station_path(user) %></span>
+</div>

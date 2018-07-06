@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   
   def index
-    @tags = ActsAsTaggableOn::Tag.most_used(100)
+    @tags = ActsAsTaggableOn::Tag.most_used(100).paginate(:page => params[:page], :per_page => 24)
   end
   
   def show

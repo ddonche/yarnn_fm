@@ -11,12 +11,9 @@
       </div>
     <% end %>
     
-    <div class="field">
-      <%= f.text_area :content, placeholder: "what do you think about this?", rows: 4, columns: 6 %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Comment", class: "button button_highlight button_block" %>
+    <div class="field" style="overflow: hidden;">
+      <%= f.submit "Comment", class: "button button_highlight button_block", style: "float: right" %>
+      <%= f.text_area :content, placeholder: "what do you think about this?", rows: 1, cols: 86 %>
     </div>
 
 <% end %>

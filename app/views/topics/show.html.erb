@@ -9,7 +9,7 @@
     		genres / <% @topic.tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %> / topics
     	</div>
     
-    	<div class="wrapper_med_left">
+    	<div class="wrapper_skinny_left">
   
           <div class="side-box">
             <div class="side-content">
@@ -31,7 +31,7 @@
   
       </div>
   
-    <div class="wrapper_med_right_right">
+    <div class="wrapper_wide_right">
       <div class="blog_wrapper">
         <h1><%= @topic.title %></h1>
         <div class="blog_info">
@@ -59,10 +59,11 @@
           <%= @topic.content %>
         </div>
       </div>
-        <div class="side-box">
+      
+        <div class="comment_wrapper">
 		      <div class="side-content">
 		        <% if user_signed_in? %>
-              <%= render "comments/form" %><br/>
+              <%= render "comments/form" %>
             <% else %>
               <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
             <% end %>

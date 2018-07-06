@@ -5,11 +5,10 @@
     <%= link_to image_tag('icons/heart_empty.svg', width: 20), track_favorite_path(track), method: :post, remote: true %>
   <% end %>
 </div>
+
 <div class="icons">
-  <%= image_tag('icons/comments.svg', width: 20) %>&nbsp;51 comments
-</div>
-<div class="icons">
+  <%= image_tag('icons/comments.svg', width: 20) %><span style="margin-left: .5rem"></span><%= pluralize( track.comments.count, 'Comment' ) %>
   <% track.tag_list.map.each do |tag| %>
-    <span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i>
+    <span style="margin: 0 .5rem"><i><%= link_to tag, tag_path(tag) %></span></i>
   <% end %>
 </div>

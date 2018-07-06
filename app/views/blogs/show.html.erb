@@ -12,6 +12,7 @@
   </div>
 
   <div class="wrapper_wide_right_right">
+    
     <div class="blog_wrapper">
       <h1><%= @blog.title %></h1>
       <div class="blog_info">
@@ -38,11 +39,16 @@
       </div>
     </div>
     
-    <div class="side-box">
-      <div class="side-content">
-        <%= render 'comments/comments', :commentable => @blog %>
-      </div>
-    </div>
+        <div class="comment_wrapper">
+		      <div class="side-content">
+		        <% if user_signed_in? %>
+              <%= render "comments/form" %>
+            <% else %>
+              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
+            <% end %>
+            <%= render 'comments/comments', :commentable => @blog %>
+          </div>
+        </div>
   </div>
   
 </div>

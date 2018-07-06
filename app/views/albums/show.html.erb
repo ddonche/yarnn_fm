@@ -214,8 +214,12 @@
 						</div>
 						<div class="track_overview">
 							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
-							<p class="description"><%= truncate(track.description, length: 160) %></p>
-							<p class="description"><i>Voiced by:</i> <%= track.vocals %></p>
+							<div class="icons">
+							<i>Voiced by:</i> <%= track.vocals %>
+							</div>
+							<br />
+							<br />
+							<p class="description"><%= truncate(track.description, length: 160) %></p><br />
 							<div class="icons_container">
 							  <div id="favorites">
 							    <%= render 'albums/favorites', :track => track %>

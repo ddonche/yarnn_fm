@@ -86,7 +86,7 @@ body {
   color: #FFFFFF;
   text-decoration: none;
   font-size: 1rem;
-  padding: .7rem 2rem;
+  padding: .6rem 2rem;
   outline: none;
   border: none;
 }
@@ -292,13 +292,20 @@ body {
   margin: .5rem 0 1rem 0;
 }
 
-input[type="email"], input[type="text"], input[type="password"], textarea, select {
+input[type="email"], input[type="text"], input[type="password"], select {
   width: 100%;
   height: 2.5rem;
   padding: .5rem 1rem;
   background: #f2f4d5;
   border: 1px solid darken(#f2f4d5, 5%);
   margin-top: .5rem;
+}
+
+textarea {
+  padding: .5rem 1rem;
+  background: #f2f4d5;
+  border: 1px solid darken(#f2f4d5, 5%);
+  //margin-top: .5rem;
 }
 
 input[type=”file”] {

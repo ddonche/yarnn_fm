@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   end
   
   def favorites
+    @users = @user.followers
+    @followed_users = @user.following
     @favorite_items = @user.favorite_tracks.paginate(:page => params[:page], :per_page => 24)
   end
   

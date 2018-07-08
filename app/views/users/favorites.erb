@@ -219,10 +219,16 @@
 					<% end %>
 				</ul>
 	    	<%= will_paginate @favorite_items, previous_label: "Previous", next_label: "Next" %>
+	    	<%= render 'shared/content_footer' %>
 	    </div>
 	    <% else %>
   	    <div class="wrapper_wide_right_right">
-  	      <p>This user has not added anything to their station.</p>
+  	      <div class="side-box">
+		        <div class="side-content">
+  	          <p>This user has not added anything to their station.</p>
+  	        </div>
+  	       </div>
+  	      <%= render 'shared/content_footer' %>
   	    </div>
 	    <% end %>
     </div>

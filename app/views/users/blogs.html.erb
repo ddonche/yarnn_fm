@@ -22,6 +22,22 @@
           <%= link_to "station", station_path(@user) %></div>
       </div>
     </div>
+  </div>
+  <% if @blogs.any? %>
+  <div class="wrapper_wide_right_right">
     <%= render 'blogs' %>
   </div>
+  <% else %>
+  <div class="wrapper_wide_right_right">
+    <div class="side-box">
+      <div class="side-content">
+        <p>This user has not written any blog posts yet.</p>
+      </div>
+     </div>
+  </div>
+  <% end %>
 </div>
+
+  <div class="wrapper_wide_right_right">
+    <%= render 'shared/content_footer' %>
+  </div>

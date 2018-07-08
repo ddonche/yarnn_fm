@@ -26,6 +26,8 @@
       </div>
     </div>
   </div>
+  
+  <% if @albums.any? %>
   <div class="wrapper_wide_right_right">
     <div id="albums" class="cf">
     	<div class="wrapper">
@@ -47,6 +49,18 @@
     		<%= will_paginate @albums, previous_label: "Previous", next_label: "Next" %>
     	</div>
     </div>
-
+  </div>
+  <% else %>
+  <div class="wrapper_wide_right_right">
+    <div class="side-box">
+      <div class="side-content">
+        <p>This user has not created any albums yet.</p>
+      </div>
+     </div>
+  </div>
+  <% end %>
+</div>
+  <div class="wrapper_wide_right_right">
+    <%= render 'shared/content_footer' %>
   </div>
   

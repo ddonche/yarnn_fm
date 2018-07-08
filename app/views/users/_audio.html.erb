@@ -63,7 +63,8 @@
 </head>
 
 <body>
-		<div id="tracks">
+	<div id="tracks">
+		<% if @tracks.any? %>
   		<div class="wrapper_wide_right_right">
         <div id="hap-wrapper">
             <div class="hap-player-outer">
@@ -183,4 +184,13 @@
 
 			<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
       </div>
+    <% else %>
+      <div class="wrapper_wide_right_right">
+        <div class="side-box">
+          <div class="side-content">
+            <p>This user has not uploaded any tracks yet.</p>
+          </div>
+         </div>
+      </div>
+  <% end %>
 </body>

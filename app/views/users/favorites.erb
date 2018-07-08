@@ -99,6 +99,7 @@
 	
 		<div id="tracks">
 			
+		<% if @favorite_items.any? %>
   		<div class="wrapper_wide_right_right">
         <div id="hap-wrapper">
             <div class="hap-player-outer">
@@ -181,7 +182,7 @@
 
           <div class="hap-tooltip"><p></p></div>  
 
-        </div>    
+        </div>
       </div>
       
 	  	<div class="wrapper_wide_right_right">
@@ -219,6 +220,11 @@
 				</ul>
 	    	<%= will_paginate @favorite_items, previous_label: "Previous", next_label: "Next" %>
 	    </div>
+	    <% else %>
+  	    <div class="wrapper_wide_right_right">
+  	      <p>This user has not added anything to their station.</p>
+  	    </div>
+	    <% end %>
     </div>
    </div>
 </body>

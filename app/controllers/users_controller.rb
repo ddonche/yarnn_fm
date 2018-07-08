@@ -31,6 +31,12 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  def albums 
+    @users = @user.followers
+    @followed_users = @user.following
+    @albums = @user.albums.paginate(:page => params[:page], :per_page => 24)
+  end
+  
   def blogs 
     @users = @user.followers
     @followed_users = @user.following

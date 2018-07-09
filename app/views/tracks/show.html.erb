@@ -54,10 +54,10 @@
   	
   <div id="tracks">
 		<div class="wrapper_wide_right" style="margin-top: 0">
-		    <div class="side-box">
+		    <div class="side-box" style="margin-top: 0">
 		      <div class="side-content">
 		        <div class="icons">
-              <div id="favorites"><%= render 'favorites' %></div><span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 20) %>&nbsp;<%= pluralize( @track.comments.count, 'Comment' ) %>
+              <div id="favorites"><%= render 'favorites' %></div>
             </div>
 		      </div>
 		    </div>

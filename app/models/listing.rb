@@ -11,7 +11,7 @@ class Listing < ApplicationRecord
   validates :image, file_size: { less_than: 1.megabytes }
   validates :tag_list, presence: true
   validates :year, numericality: { only_integer: true }, :allow_nil => true
-  validates :isbn, numericality: { only_integer: true }, :allow_nil => true
+  validates :isbn, format: { with: /\A[\d-]*\d[\d-]*\z/ }, :allow_nil => true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   
   acts_as_taggable

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180709044111) do
+ActiveRecord::Schema.define(version: 20180709160142) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20180709044111) do
     t.string   "publisher"
     t.integer  "year"
     t.string   "language"
-    t.integer  "isbn"
+    t.string   "isbn"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(version: 20180709044111) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["merchant_id"], name: "index_products_on_merchant_id"
+  end
+
+  create_table "pseudonyms", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_pseudonyms_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|

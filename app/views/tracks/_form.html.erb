@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :description, class: "title" %><br />
-    <%= f.text_area :description, autofocus: true %>
+    <%= f.text_area :description, autofocus: true, cols: 87, rows: 4 %>
   </div>
   
   <div class="field">
@@ -52,6 +52,11 @@
   <div class="field">
     <%= f.label "Audio file", class: "title"  %><br />
     <%=  f.file_field :audio %>
+  </div>
+  
+  <div class="field">
+    <div class="title">Need to upload a new product listing for this?&nbsp;</div><%= link_to "Click here.", new_listing_path, class: "title" %><br />
+    <%= f.collection_select(:listing_id, current_user.listings, :id, :title, prompt: 'Select product listing if there is one.') %><br />
   </div>
   
 	<div class="field">

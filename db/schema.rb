@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180709032326) do
+ActiveRecord::Schema.define(version: 20180709044111) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20180709032326) do
     t.string   "audio"
     t.integer  "explicit",    default: 0
     t.string   "buy_url"
+    t.integer  "listing_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 

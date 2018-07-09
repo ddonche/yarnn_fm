@@ -12,6 +12,7 @@ class TracksController < ApplicationController
 
 	def show
 	  @commentable = @track
+	  @listing = Listing.find(@track.listing_id)
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
 	end
@@ -79,6 +80,6 @@ class TracksController < ApplicationController
   def track_params
     params.require(:track).permit(:title, :description, :user_id, :explicit,
                                   :image, :audio, :album_id, :vocals, :tag_list, 
-                                  :buy_url)
+                                  :buy_url, :listing_id)
   end
 end

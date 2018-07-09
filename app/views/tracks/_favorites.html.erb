@@ -3,3 +3,6 @@
 <% else %>
   <%= link_to image_tag('icons/heart_empty.svg', width: 20), track_favorite_path(@track), method: :post, remote: true %>
 <% end %>
+<% if @track.listing_id? %>
+  <%= link_to "Purchase", listing_path(@track.listing_id) %> this for only $<%= @listing.price %>
+<% end %>

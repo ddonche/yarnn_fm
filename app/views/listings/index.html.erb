@@ -1,0 +1,25 @@
+<div id="banner" class="albums_banner">
+  <%= render 'layouts/header' %>
+</div>
+<%= render 'shared/alert' %>
+<div id="listings" class="cf">
+	<div class="wrapper">
+		<ul class="cf">
+			<% @listings.each do |listing| %>
+					<li>
+						<%= link_to listing do %>
+							<%= image_tag listing.image.url(:thumb) %>
+						<% end %>
+						<div class="listing_overview">
+						  <p class="listing_type"><%= listing.filetype %></p>
+							<h2><%= link_to listing.title, listing_path(listing) %></h2> 
+							<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
+							<p class="listing_price"><b>$ <%= listing.price %></b></p> 
+						</div>
+					</li>
+			<% end %>
+		</ul>
+
+		<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+	</div>
+</div>

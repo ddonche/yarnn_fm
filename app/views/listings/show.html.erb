@@ -1,0 +1,79 @@
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
+  <%= render 'shared/alert' %>
+	<div id="breadcrumb">
+	  <%= link_to @listing.user.username, user_path(@listing.user) %>
+	    <span>/</span>
+	  <%= @listing.user.name %>
+			<span>/</span>
+		<%= @listing.title %>
+	</div>
+  	
+	<div class="wrapper_skinny_left">
+    <div class="main_avatar">
+    
+  	  <div id="album-image">
+        <%= image_tag @listing.image.url, width: 300 %>
+      </div>
+
+      <div class="side-box">
+        <div class="side-content">
+					<div class="album_overview">
+						<p class="track_count"><h2><%= @listing.title %>
+						<% if @listing.user == current_user %>
+						  <%= link_to edit_listing_path(@listing) do %>
+							  <%= image_tag'icons/gear.svg', width: 12 %>
+						  <% end %>
+						<% end %></h2></p>
+						<p class="track_count"><%= link_to @listing.user.username, user_path(@listing.user) %> / <%= @listing.user.name %></p>
+						<% if @listing.publisher? %>
+							<p class="track_count"><b><i>Publisher:</i></b> <%= @listing.publisher %></p>
+						<% end %>
+						<% if @listing.isbn? %>
+							<p class="track_count"><b><i>ISBN:</i></b> <%= @listing.isbn %></p>
+						<% end %>
+						<% if @listing.year? %>
+							<p class="track_count"><b><i>Year:</i></b> <%= @listing.year %></p>
+						<% end %>
+						<p class="track_count"><b><i>Format:</i></b><%= @listing.filetype %></p>
+					</div>
+        </div>
+      </div>
+      <div class="side-box">
+        <div class="side-content">
+          <%= @listing.description %>
+        </div>
+      </div>
+      <div class="side-box">
+        <div class="side-content">
+          <p class="track_count"><b><i>Genres:</i></b> <% @listing.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  	
+  <div id="tracks">
+		<div class="wrapper_wide_right" style="margin-top: 0">
+		    <div class="side-box">
+		      <div class="side-content">
+		        <div class="icons">
+              <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 20) %>&nbsp;<%= pluralize( @listing.comments.count, 'Review' ) %>
+            </div>
+		      </div>
+		    </div>
+        <div class="side-box">
+		      <div class="side-content">
+		        <% if user_signed_in? %>
+              <%= render "comments/form" %>
+            <% else %>
+              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to review.</strong></em></div>
+            <% end %>
+            <%= render 'comments/comments', :commentable => @listing %>
+          </div>
+        </div>
+		</div>
+	</div>
+  	
+</div>

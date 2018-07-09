@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     post 'favorite', to: 'favorites#favorite'
     post 'unfavorite', to: 'favorites#unfavorite'
   end
+  
+  resources :listings, :path => "marketplace/" do
+    resources :comments
+  end
 
   get 'genre/:tag', to: 'tags#show', as: :tag
   get 'genres', to: 'tags#index'

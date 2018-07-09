@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705173556) do
+ActiveRecord::Schema.define(version: 20180709032326) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -66,6 +66,47 @@ ActiveRecord::Schema.define(version: 20180705173556) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "price"
+    t.string   "publisher"
+    t.integer  "year"
+    t.string   "language"
+    t.integer  "isbn"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "filetype"
+    t.string   "file"
+    t.string   "image"
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "merchants", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "access_code"
+    t.string   "publishable_key"
+    t.decimal  "fee",             precision: 8, scale: 2, default: "0.0"
+    t.index ["user_id"], name: "index_merchants_on_user_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.decimal  "price"
+    t.integer  "merchant_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["merchant_id"], name: "index_products_on_merchant_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -126,28 +167,49 @@ ActiveRecord::Schema.define(version: 20180705173556) do
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "merchant_id"
+    t.integer  "product_id"
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.decimal  "total",         precision: 8, scale: 2, default: "0.0", null: false
+    t.decimal  "fee_charged",   precision: 8, scale: 2, default: "0.0"
+    t.boolean  "paid",                                  default: false
+    t.string   "stripe_charge"
+    t.index ["merchant_id"], name: "index_transactions_on_merchant_id"
+    t.index ["product_id"], name: "index_transactions_on_product_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             default: "", null: false
-    t.string   "encrypted_password",                default: "", null: false
+    t.string   "email",                                                     default: "",    null: false
+    t.string   "encrypted_password",                                        default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.integer  "sign_in_count",                                             default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                                                null: false
+    t.datetime "updated_at",                                                                null: false
     t.string   "image"
     t.string   "username",               limit: 22
     t.string   "name"
-    t.integer  "user_type",                         default: 0
+    t.integer  "user_type",                                                 default: 0
     t.string   "slug"
     t.string   "bio"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.decimal  "credit",                            precision: 8, scale: 2, default: "0.0", null: false
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "access_code"
+    t.string   "publishable_key"
+    t.string   "stripe_customer_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

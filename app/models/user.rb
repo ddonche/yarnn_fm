@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :image, file_size: { less_than: 1.megabytes }
   
+  has_many :listings
   has_many :albums
   has_many :tracks
   has_many :topics

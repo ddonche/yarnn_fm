@@ -1,0 +1,78 @@
+<%= form_for(@listing) do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	<div class="field">
+    <%= f.label :title, class: "title" %><br />
+    <%= f.text_field :title, :autofocus => true, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, class: "title" %><br />
+    <%= f.text_area :description, cols: 87, rows: 4, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :publisher, class: "title" %><br />
+    <%= f.text_field :publisher, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "ISBN", class: "title" %><br />
+    <%= f.text_field :isbn, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :year, class: "title" %><br />
+    <%= f.text_field :year, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :language, class: "title" %><br />
+    <%= f.text_field :language, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "Select File Type", class: "title" %><br />
+    <%= f.radio_button :filetype, 'ebook' %> 
+    <%= label :filetype_ebook, 'Ebook' %>
+    <%= f.radio_button :filetype, 'audio' %>
+    <%= label :filetype_audio, 'Audio' %>
+    <%= f.radio_button :filetype, 'video' %>
+    <%= label :filetype_video, 'Video' %>
+  </div>
+
+  <div class="field">
+  <div class="title"><i> Add up to two genres. *Separate genres with commas. Example: 
+  "young adult, paranormal romance"</i></div>
+  <%= f.text_field :tag_list, required: true, value: @listing.tag_list.join(", ") %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "Cover image", class: "title"  %><br />
+    <%=  f.file_field :image %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "File", class: "title"  %><br />
+    <%=  f.file_field :file %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :price, class: "title" %><br />
+    <%= f.text_field :price, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "button button_highlight button_block" %>
+  </div>
+<% end %>

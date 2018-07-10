@@ -1,0 +1,12 @@
+<div class="side-box" style="margin-top: 0">
+  <div class="side-content">
+    <ul>
+  		<% @pseudonyms.each do |pseudo| %>
+  			<li>
+  				  <h2>Pseudonyms:</h2>
+  					<p class="description"><%= pseudo.name %>
+  			</li>
+  		<% end %>
+  	</ul>
+  </div>
+</div>

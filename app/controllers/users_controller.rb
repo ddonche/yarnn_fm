@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @page_title = @user.username
     @tracks = @user.tracks.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
     @users = @user.followers

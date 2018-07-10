@@ -1,0 +1,24 @@
+<%= form_for(@pseudonym) do |f| %>
+  <% if @pseudonym.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pseudonym.errors.count, "error") %> prohibited this pseudonym from being saved:</h2>
+
+      <ul>
+      <% @pseudonym.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	<div class="field">
+    <%= f.label "Pseudonym", class: "title" %><br />
+    <%= f.text_field :name, :autofocus => true, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "button button_highlight button_block" %>
+  </div>
+<% end %>
+
+<%= link_to 'Cancel', 'javascript:history.back()' %><br />

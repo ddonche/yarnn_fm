@@ -7,6 +7,17 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails', '~> 5.0.7'
+gem 'puma', '~> 3.0'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.2'
+gem 'jquery-rails'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.5'
+gem 'sprockets', '~> 3.7.2'
+gem 'dotenv-rails', '~> 2.5'
+
 # gems I've installed my damn self
 gem 'devise', '~> 4.2'
 gem 'mini_magick'
@@ -23,17 +34,7 @@ gem 'acts-as-taggable-on', '~> 5.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'trix'
-
-gem 'rails', '~> 5.0.7'
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-gem 'sprockets', '~> 3.7.2'
-gem 'dotenv-rails', '~> 2.5'
+gem 'nested_form_fields'
 
 group :development, :test do
   gem 'byebug', platform: :mri

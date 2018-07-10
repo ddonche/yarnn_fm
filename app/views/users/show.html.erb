@@ -5,6 +5,9 @@
 
   <div class="wrapper_skinny_left">
     <%= render 'avatar' %>
+    <% if @pseudonyms.any? %>
+      <%= render 'pseudonyms' %>
+    <% end %>
     <%= render 'followers' %>
     <%= render 'following' %>
   </div>

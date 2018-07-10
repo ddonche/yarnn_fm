@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get :tracks
     end
   end
+  resources :pseudonyms
   resources :blogs do
     resources :comments
   end

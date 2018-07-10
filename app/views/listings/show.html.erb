@@ -6,7 +6,11 @@
 	<div id="breadcrumb">
 	  <%= link_to @listing.user.username, user_path(@listing.user) %>
 	    <span>/</span>
-	  <%= @listing.user.name %>
+	  <% if @listing.pseudo_id? %>
+	  	<%= @pseudo.name %>
+	  <% else %>
+	  	<%= @listing.user.name %>
+	  <% end %>
 			<span>/</span>
 		<%= @listing.title %>
 	</div>
@@ -27,7 +31,13 @@
 							  <%= image_tag'icons/gear.svg', width: 12 %>
 						  <% end %>
 						<% end %></h2></p>
-						<p class="track_count"><%= link_to @listing.user.username, user_path(@listing.user) %> / <%= @listing.user.name %></p>
+						<p class="track_count">
+							<%= link_to @listing.user.username, user_path(@listing.user) %> /
+							<% if @listing.pseudo_id? %>
+								<%= @pseudo.name %> 
+							<% else %>
+								<%= @listing.user.name %></p>
+							<% end %>
 						<% if @listing.publisher? %>
 							<p class="track_count"><b><i>Publisher:</i></b> <%= @listing.publisher %></p>
 						<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180709160142) do
+ActiveRecord::Schema.define(version: 20180710025911) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180709160142) do
     t.integer  "year"
     t.string   "vocals"
     t.integer  "user_id"
+    t.integer  "pseudo_id"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180709160142) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "slug"
+    t.integer  "pseudo_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 20180709160142) do
     t.integer  "filetype"
     t.string   "file"
     t.string   "image"
+    t.integer  "pseudo_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -158,6 +161,7 @@ ActiveRecord::Schema.define(version: 20180709160142) do
     t.datetime "updated_at", null: false
     t.string   "title"
     t.integer  "user_id"
+    t.integer  "pseudo_id"
   end
 
   create_table "tracks", force: :cascade do |t|
@@ -173,6 +177,7 @@ ActiveRecord::Schema.define(version: 20180709160142) do
     t.integer  "explicit",    default: 0
     t.string   "buy_url"
     t.integer  "listing_id"
+    t.integer  "pseudo_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 

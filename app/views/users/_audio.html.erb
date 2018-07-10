@@ -75,7 +75,12 @@
                             <% @tracks.each do |track| %>
                             <div class="hap-playlist-item" data-type="audio" data-mp3="<%= track.audio.url %>" data-thumb="<%= track.image.url(:thumb) %>">
                                 <a class="hap-playlist-non-selected" href="#">
-                                    <span class="hap-playlist-title"><%= track.user.username %> / <%= track.user.name %> - <%= track.title %></span>
+                                    <span class="hap-playlist-title"><%= track.user.username %> / 
+                                    <% if track.pseudo_id? %>
+                                      <%= @pseudo.name %>
+                                    <% else %>
+                                      <%= track.user.name %> 
+                                    <% end %> - <%= track.title %></span>
                                 </a>
                             </div>
                             <% end %>
@@ -168,7 +173,13 @@
     						<% end %>
 							</h2>
 							<div class="icons">
-							<%= link_to track.user.username, user_path(track.user) %> / <%= track.user.name %> / <i>Voiced by:</i> <%= track.vocals %>
+							<%= link_to track.user.username, user_path(track.user) %> /
+							<% if track.pseudo_id? %>
+								<%= @pseudo.name %> /
+							<% else %>
+								<%= track.user.name %> / 
+							<% end %>
+							   <i>Voiced by:</i> <%= track.vocals %>
 							</div>
 							<br /><br />
 							<p class="description"><%= truncate(track.description, length: 160) %></p><br />

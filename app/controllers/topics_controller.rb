@@ -18,6 +18,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @pseudo = Pseudonym.find(@topic.pseudo_id)
     @tag = @topic.tag_list
     @topics_count = Topic.tagged_with(@tag).count
 	  @commentable = @topic
@@ -86,6 +87,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:content, :title, :tag_list)
+      params.require(:topic).permit(:content, :title, :tag_list, :pseudo_id)
     end
 end

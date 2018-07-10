@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
+	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
     if params[:tag]
       @listings = Listing.tagged_with(params[:tag])
     else
@@ -11,6 +12,7 @@ class ListingsController < ApplicationController
 	end
 
 	def show
+	  @pseudo = Pseudonym.find(@listing.pseudo_id)
 	  @commentable = @listing
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
@@ -72,7 +74,7 @@ class ListingsController < ApplicationController
 	end
 	
   def listing_params
-    params.require(:listing).permit(:title, :description, :user_id, :isbn, :filetype,
+    params.require(:listing).permit(:title, :description, :user_id, :isbn, :filetype, :pseudo_id,
                                   :year, :price, :publisher, :language, :tag_list, :file, :image)
   end
 end

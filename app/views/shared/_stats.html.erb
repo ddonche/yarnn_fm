@@ -2,13 +2,16 @@
 
 <div class="stat-box">
      <h2><%= @user.name %> | @<%= @user.username %></h2> 
-    <span style="margin-right: .5rem"><%= @user.following.count %><a href="<%= following_user_path(@user) %>"> following</a></span>
-
-    <div id="followers" style="display: inline;"><%= @user.followers.count %><a href="<%= followers_user_path(@user) %>"></div> followers</a>
 
     <span style="margin-left: .5rem"><%= @user.tracks.count %><a href="<%= user_path(@user) %>"> tracks</a></span>
     
     <span style="margin-left: .5rem"><%= @user.albums.count %><a href="<%= user_path(@user) %>"> albums</a></span>
     
-    <span style="margin-left: .5rem"><%= @user.blogs.count %><a href="<%= user_path(@user) %>"> blogs</a></span>
+    <span style="margin-left: .5rem"><%= @user.listings.count %><a href="#"> listings</a></span>
+    
+    <span style="margin-left: .5rem"><%= @user.blogs.count %><a href="<%= user_path(@user) %>"> blog posts</a></span><br/><br />
+    
+    <span style="margin-right: .5rem"><%= @user.following.count %><a href="<%= following_user_path(@user) %>"> following</a></span>
+
+    <div id="followers" style="display: inline;"><%= @user.followers.count %><a href="<%= followers_user_path(@user) %>"></div> followers</a>
 </div>

@@ -11,6 +11,7 @@ class TracksController < ApplicationController
 	end
 
 	def show
+	  @pseudo = Pseudonym.find(@track.pseudo_id)
 	  @commentable = @track
 	  @listing = Listing.find(@track.listing_id)
     @comments = @commentable.comments.order("created_at DESC")
@@ -80,6 +81,6 @@ class TracksController < ApplicationController
   def track_params
     params.require(:track).permit(:title, :description, :user_id, :explicit,
                                   :image, :audio, :album_id, :vocals, :tag_list, 
-                                  :buy_url, :listing_id)
+                                  :buy_url, :listing_id, :pseudo_id)
   end
 end

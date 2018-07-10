@@ -6,7 +6,11 @@
 	<div id="breadcrumb">
 	  <%= link_to @track.user.username, user_path(@track.user) %>
 	    <span>/</span>
-	  <%= @track.user.name %>
+	  <% if @track.pseudo_id? %>
+	  	<%= @pseudo.name %>
+	  <% else %>
+	  	<%= @track.user.name %>
+	  <% end %>
 			<span>/</span>
 		<% if @track.album_id? %>
 			<%= link_to @track.album.title, album_path(@track.album_id) %>
@@ -31,7 +35,12 @@
 							  <%= image_tag'icons/gear.svg', width: 12 %>
 						  <% end %>
 						<% end %></h2></p>
-						<p class="track_count"><%= link_to @track.user.username, user_path(@track.user) %> / <%= @track.user.name %></p>
+						<p class="track_count"><%= link_to @track.user.username, user_path(@track.user) %> / 
+						<% if @track.pseudo_id? %>
+							<%= @pseudo.name %></p>
+						<% else %>
+							<%= @track.user.name %></p>
+						<% end %>
 						<p class="track_count"><% if @track.album_id? %>
 								<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
 							<% end %></p>

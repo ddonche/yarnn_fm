@@ -3,11 +3,12 @@ class BlogsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-     @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+    @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
 	end
 
 	def show
 	  @user = @blog.user
+	  @pseudo = Pseudonym.find(@blog.pseudo_id)
 	  @users = @user.followers
     @followed_users = @user.following
 	  @commentable = @blog
@@ -69,6 +70,6 @@ class BlogsController < ApplicationController
 	
   def blog_params
     params.require(:blog).permit(:title, :content, :user_id, :explicit,
-                                  :image, :published_status)
+                                  :pseudo_id, :image, :published_status)
   end
 end

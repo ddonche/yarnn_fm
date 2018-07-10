@@ -12,6 +12,7 @@ class AlbumsController < ApplicationController
 	end
 
 	def show
+	  @pseudo = Pseudonym.find(@album.pseudo_id)
 	end
 	
 	def new
@@ -75,7 +76,7 @@ class AlbumsController < ApplicationController
 	end
 	
     def album_params
-      params.require(:album).permit(:title, :description, :user_id, 
+      params.require(:album).permit(:title, :description, :user_id, :pseudo_id, 
                                     :image, :year, :vocals, :tag_list)
     end
 end

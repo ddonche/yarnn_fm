@@ -12,8 +12,12 @@
 						<% end %>
 						<div class="listing_overview">
 						  <p class="listing_type"><%= listing.filetype %></p>
-							<h2><%= link_to listing.title, listing_path(listing) %></h2> 
-							<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
+							<h2><%= link_to listing.title, listing_path(listing) %></h2>
+							<% if listing.pseudo_id? %>
+								<p class="listing_info"><%= link_to @pseudo.name, user_path(listing.user) %></p>
+							<% else %>
+								<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
+							<% end %>
 							<p class="listing_price"><b>$ <%= listing.price %></b></p> 
 						</div>
 					</li>

@@ -1,15 +1,17 @@
 <% @user ||= current_user %>
 
 <div class="user-stat-box">
-    <span style="margin-right: .5rem"><%= user.following.count %><a href="<%= following_user_path(user) %>"> following</a></span>
+    <span style="margin-right: .5rem"><%= link_to pluralize(user.following.count, "following"), following_user_path(user) %></span>
 
-    <div id="followers" style="display: inline;"><%= user.followers.count %><a href="<%= followers_user_path(user) %>"></div> followers</a>
+    <%= link_to pluralize(user.followers.count, "follower"), followers_user_path(user) %>
 
-    <span style="margin-left: .5rem"><%= user.tracks.count %> tracks</span>
+    <span style="margin-left: .5rem"><%= pluralize(user.tracks.count, "track") %></span>
     
-    <span style="margin-left: .5rem"><%= user.albums.count %> albums</span>
+    <span style="margin-left: .5rem"><%= pluralize(user.albums.count, "album") %></span>
     
-    <span style="margin-left: .5rem"><%= user.blogs.count %> blogs</span>
+    <span style="margin-left: .5rem"><%= pluralize(user.listings.count, "listing") %></span>
+    
+    <span style="margin-left: .5rem"><%= pluralize(user.blogs.count, "blog post") %></span>
     
     <span style="margin-left: .5rem"><%= image_tag('icons/station.svg', height: 11) %><span style="margin-left: .3rem"></span><%= link_to "Station", station_path(user) %></span>
 </div>

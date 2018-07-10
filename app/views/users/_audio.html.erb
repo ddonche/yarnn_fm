@@ -173,11 +173,8 @@
     						<% end %>
 							</h2>
 							<div class="icons">
-							<%= link_to track.user.username, user_path(track.user) %> /
 							<% if track.pseudo_id? %>
-								<%= @pseudo.name %> /
-							<% else %>
-								<%= track.user.name %> / 
+								<i>As: </i><%= @pseudo.name %> / 
 							<% end %>
 							   <i>Voiced by:</i> <%= track.vocals %>
 							</div>

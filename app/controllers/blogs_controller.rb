@@ -3,12 +3,15 @@ class BlogsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
+	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
     @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
 	end
 
 	def show
 	  @user = @blog.user
-	  @pseudo = Pseudonym.find(@blog.pseudo_id)
+    if @blog.pseudo_id?
+      @pseudo = Pseudonym.find(@blog.pseudo_id)
+    end
 	  @users = @user.followers
     @followed_users = @user.following
 	  @commentable = @blog

@@ -11,9 +11,13 @@ class TracksController < ApplicationController
 	end
 
 	def show
-	  @pseudo = Pseudonym.find(@track.pseudo_id)
+	  if @track.pseudo_id?
+	    @pseudo = Pseudonym.find(@track.pseudo_id)
+	  end
 	  @commentable = @track
-	  @listing = Listing.find(@track.listing_id)
+	  if @track.listing_id?
+	    @listing = Listing.find(@track.listing_id)
+	  end
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
 	end

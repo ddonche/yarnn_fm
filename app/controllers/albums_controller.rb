@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
+	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
     if params[:tag]
       @albums = Album.tagged_with(params[:tag])
     else
@@ -12,7 +13,10 @@ class AlbumsController < ApplicationController
 	end
 
 	def show
-	  @pseudo = Pseudonym.find(@album.pseudo_id)
+	  if @album.pseudo_id?
+	    @pseudo = Pseudonym.find(@album.pseudo_id)
+	  end
+	  @pseudonym = Pseudonym.find_by(params[:pseudo_id])
 	end
 	
 	def new

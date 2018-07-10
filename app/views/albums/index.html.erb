@@ -12,7 +12,12 @@
 						<% end %>
 						<div class="album_overview">
 							<h2><%= link_to album.title, album_path(album) %></h2> 
-							<p class="track_count"><%= link_to album.user.name, user_path(album.user) %> | @<%= link_to album.user.username, user_path(album.user) %></p>
+							<p class="track_count">@<%= link_to album.user.username, user_path(album.user) %> | 
+							<% if album.pseudo_id? %>
+								<%= @pseudo.name %></p>
+							<% else %>
+								<%= album.user.name %></p>
+							<% end %>
 							<p class="track_count"><%= pluralize( album.tracks.count, 'Track' ) %> | <%= album.year %></p> 
 						</div>
 					</li>

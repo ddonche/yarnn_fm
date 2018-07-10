@@ -15,10 +15,15 @@
           <%= f.label :title, class: "title" %><br />
           <%= f.text_field :title, :autofocus => true, required: true %>
         </div>
+        
+        <div class="field">
+          <div class="title">Do you want to make a new pseudonym for this?&nbsp;</div><%= link_to "Click here.", new_pseudonym_path, class: "title" %><br />
+          <%= f.collection_select(:pseudo_id, current_user.pseudonyms, :id, :name, prompt: 'Select pseudonym if you want. Ignore to use real name.') %><br />
+        </div>
   
         <div class="field">
           <%= f.label :description, class: "title" %><br />
-          <%= f.text_area :description, autofocus: true %>
+          <%= f.text_area :description, autofocus: true, cols: 88, rows: 4 %>
         </div>
         
         <div class="field">

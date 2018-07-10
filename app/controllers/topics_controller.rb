@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @pseudo = Pseudonym.find_by(params[:pseudo_id])
     if user_signed_in?
       @topic = current_user.topics.build
     end
@@ -18,7 +19,9 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @pseudo = Pseudonym.find(@topic.pseudo_id)
+    if @topic.pseudo_id?
+      @pseudo = Pseudonym.find(@topic.pseudo_id)
+    end
     @tag = @topic.tag_list
     @topics_count = Topic.tagged_with(@tag).count
 	  @commentable = @topic

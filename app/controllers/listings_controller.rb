@@ -12,7 +12,9 @@ class ListingsController < ApplicationController
 	end
 
 	def show
-	  @pseudo = Pseudonym.find(@listing.pseudo_id)
+	  if @listing.pseudo_id?
+	    @pseudo = Pseudonym.find(@listing.pseudo_id)
+	  end
 	  @commentable = @listing
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :blogs
       get :albums
       get :tracks
+      get :listings
     end
   end
   resources :pseudonyms
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   end
   
   resources :listings, :path => "marketplace/" do
+    get 'download', on: :member
     resources :comments
   end
 

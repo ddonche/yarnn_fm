@@ -34,7 +34,6 @@ gem 'acts-as-taggable-on', '~> 5.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'trix'
-gem 'nested_form_fields'
 
 group :development, :test do
   gem 'byebug', platform: :mri

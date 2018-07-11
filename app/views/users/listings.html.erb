@@ -1,7 +1,7 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
+<div id="banner" class="albums_banner">
+  <%= render 'layouts/header' %>
+</div>
+<%= render 'shared/alert' %>
 
   <div class="wrapper_skinny_left">
     <%= render 'avatar' %>
@@ -11,7 +11,7 @@
     <%= render 'followers' %>
     <%= render 'following' %>
   </div>
-      
+  
   <div class="wrapper_wide_right_right">
     <div id ="index-nav-container">
       <div class = "table-row">
@@ -26,22 +26,41 @@
       </div>
     </div>
   </div>
-  
-  <% if @blogs.any? %>
-  <div class="wrapper_wide_right_right">
-    <%= render 'blogs' %>
-  </div>
-  
-  <% else %>
+
+<div id="listings" class="cf">
+  <% if @listings.any? %>
+	<div class="wrapper_wide_right_right">
+  		<ul class="cf">
+  			<% @listings.each do |listing| %>
+  					<li>
+  						<%= link_to listing do %>
+  							<%= image_tag listing.image.url(:thumb) %>
+  						<% end %>
+  						<div class="listing_overview">
+  						  <p class="listing_type"><%= listing.filetype %></p>
+  							<h2><%= link_to listing.title, listing_path(listing) %></h2>
+  							<% if listing.pseudo_id? %>
+  								<p class="listing_info"><%= link_to @pseudonym.name, user_path(listing.user) %></p>
+  							<% else %>
+  								<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
+  							<% end %>
+  							<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
+  						</div>
+  					</li>
+  			<% end %>
+  		</ul>
+
+		<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+	</div>
+	<% else %>
   <div class="wrapper_wide_right_right">
     <div class="side-box">
       <div class="side-content">
-        <p>This user has not written any blog posts yet.</p>
+        <p>This user does not have any products listed yet.</p>
       </div>
      </div>
   </div>
   <% end %>
-  
 </div>
 
   <div class="wrapper_wide_right_right">

@@ -18,7 +18,7 @@
 							<% else %>
 								<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
 							<% end %>
-							<p class="listing_price"><b>$ <%= listing.price %></b></p> 
+							<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
 						</div>
 					</li>
 			<% end %>

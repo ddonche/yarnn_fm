@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
   
   def favorites
+    @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers
     @followed_users = @user.following
     @favorite_items = @user.favorite_tracks.paginate(:page => params[:page], :per_page => 24)
@@ -35,12 +36,22 @@ class UsersController < ApplicationController
   end
   
   def albums 
+    @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers
     @followed_users = @user.following
     @albums = @user.albums.paginate(:page => params[:page], :per_page => 24)
   end
   
+  def listings 
+    @pseudonyms = @user.pseudonyms.order('created_at DESC')
+    @pseudonym = Pseudonym.find_by(params[:pseudo_id])
+    @users = @user.followers
+    @followed_users = @user.following
+    @listings = @user.listings.paginate(:page => params[:page], :per_page => 24)
+  end
+  
   def blogs 
+    @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers
     @followed_users = @user.following
     @blogs = @user.blogs.paginate(:page => params[:page], :per_page => 24)

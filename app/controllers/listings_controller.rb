@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-	before_action :find_listing, only: [:show, :edit, :update, :delete]
+	before_action :find_listing, only: [:show, :edit, :update, :delete, :download]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index

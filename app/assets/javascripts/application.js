@@ -15,4 +15,3 @@
 //= require turbolinks
 //= require_tree .
 //= require trix
-//= require nested_form_fields

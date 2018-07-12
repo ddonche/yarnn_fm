@@ -1,5 +1,4 @@
 class Listing < ApplicationRecord
-  S3 = AWS::S3.new.buckets[ 'yarnn' ]
   belongs_to :user
   has_many :comments, as: :commentable
   belongs_to :track
@@ -29,16 +28,5 @@ class Listing < ApplicationRecord
   
   def crop_image
     image.recreate_versions! if crop_x.present?
-  end
-  
-  def download_url
-  
-    url_options = { 
-      expires_in:                   60.minutes, 
-      use_ssl:                      true, 
-      response_content_disposition: "attachment; filename=\"#{file_name}\""
-    }
-  
-    S3.objects[ self.path ].url_for( :read, url_options ).to_s
   end
 end

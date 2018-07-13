@@ -65,6 +65,15 @@ class ListingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def download
+    @name = @listing.title.parameterize.underscore
+    send_data(@listing.file.url, 
+    :filename => "#{@name}.zip",
+    :type => 'application/zip',
+    :disposition => 'attachment',
+    :url_based_filename => true)
+  end
 
 	private
 	def find_listing

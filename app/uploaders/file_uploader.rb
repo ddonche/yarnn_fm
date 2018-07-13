@@ -6,7 +6,7 @@ class FileUploader < CarrierWave::Uploader::Base
   end
   
   def extension_whitelist
-    %w(pdf mp3 mp4 wav mobi epub azw wmv avi)
+    %w(zip)
   end
 
   protected

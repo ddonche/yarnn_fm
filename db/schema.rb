@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180710025911) do
+ActiveRecord::Schema.define(version: 20180713054542) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -88,30 +88,6 @@ ActiveRecord::Schema.define(version: 20180710025911) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-  create_table "merchants", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.integer  "user_id"
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
-    t.string   "uid"
-    t.string   "provider"
-    t.string   "access_code"
-    t.string   "publishable_key"
-    t.decimal  "fee",             precision: 8, scale: 2, default: "0.0"
-    t.index ["user_id"], name: "index_merchants_on_user_id"
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.decimal  "price"
-    t.integer  "merchant_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["merchant_id"], name: "index_products_on_merchant_id"
-  end
-
   create_table "pseudonyms", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -182,18 +158,11 @@ ActiveRecord::Schema.define(version: 20180710025911) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "merchant_id"
-    t.integer  "product_id"
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
-    t.decimal  "total",         precision: 8, scale: 2, default: "0.0", null: false
-    t.decimal  "fee_charged",   precision: 8, scale: 2, default: "0.0"
-    t.boolean  "paid",                                  default: false
-    t.string   "stripe_charge"
-    t.index ["merchant_id"], name: "index_transactions_on_merchant_id"
-    t.index ["product_id"], name: "index_transactions_on_product_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "listing_id"
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable
   belongs_to :track
+  has_many :transactions
   enum filetype: { ebook: 0, audio: 1, video: 2 }
 
   mount_uploader :file, FileUploader

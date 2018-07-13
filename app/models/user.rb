@@ -27,6 +27,8 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :comments
   has_many :pseudonyms
+  has_many :sales, class_name: "Transaction", foreign_key: "seller_id"
+  has_many :purchases, class_name: "Transaction", foreign_key: "buyer_id"
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy

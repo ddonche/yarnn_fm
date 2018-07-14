@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :transactions
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
   authenticated do
@@ -16,16 +15,22 @@ Rails.application.routes.draw do
       get :listings
     end
   end
+  
   resources :pseudonyms
+  
   resources :blogs do
     resources :comments
   end
+  
   resources :topics do
     resources :comments
   end
+  
   resources :relationships, only: [:create, :destroy]
   get 'station/:id', to: 'users#favorites', as: :station
+  
   resources :albums, :path => '/albums'
+  
   resources :tracks do
     resources :comments
     post 'favorite', to: 'favorites#favorite'
@@ -33,8 +38,9 @@ Rails.application.routes.draw do
   end
   
   resources :listings, :path => "marketplace/" do
-    get 'download', on: :member
+    resources :transactions
     resources :comments
+    get 'download', on: :member
   end
 
   get 'genre/:tag', to: 'tags#show', as: :tag

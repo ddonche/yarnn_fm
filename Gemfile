@@ -35,6 +35,7 @@ gem 'font-awesome-sass', '~> 4.2.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'trix'
 gem 'aws-sdk', '~> 3'
+gem 'bootstrap-sass', '~> 3.3.7'
 
 group :development, :test do
   gem 'byebug', platform: :mri

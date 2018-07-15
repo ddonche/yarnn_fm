@@ -42,6 +42,9 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
     get 'download', on: :member
   end
+  
+  get 'sales', to: 'transactions#sales'
+  get 'purchases', to: 'transactions#purchases'
 
   get 'genre/:tag', to: 'tags#show', as: :tag
   get 'genres', to: 'tags#index'

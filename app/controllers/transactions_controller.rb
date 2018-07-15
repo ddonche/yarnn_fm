@@ -1,6 +1,15 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  
+  def sales
+    @transactions = Transaction.all.where(seller: current_user).order("created_at DESC")
+  end
+  
+  def purchases
+     @transactions = Transaction.all.where(buyer: current_user).order("created_at DESC")
+     @pseudo = Pseudonym.find_by(params[:pseudo_id])
+  end
 
   def index
     @transactions = Transaction.all

@@ -302,3 +302,35 @@
     }
   }
 }
+
+.table {
+  display: table;
+  width:100%;
+  border-collapse:collapse;
+}
+  .table-row {
+    display: table-row;
+    border-bottom: #e5e5e5 1px solid;
+  }
+  
+    .table-cell, .table-head{
+      display: table-cell;
+      padding: 1em;
+      vertical-align: middle;
+      a {
+        color: #DC2020;
+        text-decoration: none;
+        &:hover {
+          color: #00b8ac;
+        }
+      }
+    }
+    .table-head{
+        font-weight:bold;
+    }
+
+.tiny-table-cell {
+  display: table-cell;
+  padding: 4px;
+  vertical-align: middle;
+}

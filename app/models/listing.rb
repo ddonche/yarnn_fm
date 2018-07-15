@@ -31,4 +31,8 @@ class Listing < ApplicationRecord
   def crop_image
     image.recreate_versions! if crop_x.present?
   end
+  
+  def avg_rating
+    reviews.blank? ? 0 : reviews.average(:rating).round(2)
+  end 
 end

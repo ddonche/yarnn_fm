@@ -11,6 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( application.css )
 Rails.application.config.assets.precompile += %w( styles.css )
+Rails.application.config.assets.precompile += %w( jquery.raty.js )
 Rails.application.config.assets.precompile += %w( player/jquery.mCustomScrollbar.css )
 Rails.application.config.assets.precompile += %w( player/artwork5.css )
 Rails.application.config.assets.precompile += %w( player/jquery-3.2.1.min.js )

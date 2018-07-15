@@ -10,9 +10,19 @@
     
     <div class="comment_content">
       <%= link_to review.user.username, user_path(review.user) %> - <i><%= time_ago_in_words(review.created_at) %> ago</i> <br />
-      <%= review.rating %>
+      <div class="star-rating" data-score= <%= review.rating %> ></div>
       <%= simple_format(review.content) %>
     </div>
     
   </div>
 <% end %>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

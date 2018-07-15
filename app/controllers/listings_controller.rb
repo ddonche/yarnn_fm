@@ -15,9 +15,8 @@ class ListingsController < ApplicationController
 	  if @listing.pseudo_id?
 	    @pseudo = Pseudonym.find(@listing.pseudo_id)
 	  end
-	  @commentable = @listing
-    @comments = @commentable.comments.order("created_at DESC")
-    @comment = Comment.new
+    @reviews = @listing.reviews.order("created_at DESC")
+    @review = Review.new
 	end
 	
 	def new

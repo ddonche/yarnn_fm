@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   
   resources :listings, :path => "marketplace/" do
     resources :transactions
-    resources :comments
+    resources :reviews, except: [:show, :index]
     get 'download', on: :member
   end
 

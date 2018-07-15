@@ -1,0 +1,18 @@
+<h2>Reviews</h2>
+<% @reviews.each do |review| %>
+  <div class="comment_box">
+    
+    <div class="comment_user_image">
+    	<%= link_to user_path(review.user) do
+	     	image_tag(review.user.image.url, width: 40)
+	  	end %>
+    </div>
+    
+    <div class="comment_content">
+      <%= link_to review.user.username, user_path(review.user) %> - <i><%= time_ago_in_words(review.created_at) %> ago</i> <br />
+      <%= review.rating %>
+      <%= simple_format(review.content) %>
+    </div>
+    
+  </div>
+<% end %>

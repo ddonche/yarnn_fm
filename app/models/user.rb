@@ -18,15 +18,16 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :image, file_size: { less_than: 1.megabytes }
   
-  has_many :listings
-  has_many :albums
-  has_many :tracks
+  has_many :listings, dependent: :destroy
+  has_many :albums, dependent: :destroy
+  has_many :tracks, dependent: :destroy
   has_many :topics
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track
-  has_many :blogs
+  has_many :blogs, dependent: :destroy
   has_many :comments
-  has_many :pseudonyms
+  has_many :pseudonyms, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :sales, class_name: "Transaction", foreign_key: "seller_id"
   has_many :purchases, class_name: "Transaction", foreign_key: "buyer_id"
   has_many :active_relationships, class_name: "Relationship",

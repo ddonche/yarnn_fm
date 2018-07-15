@@ -1,0 +1,24 @@
+
+<%= form_for [@listing, @review] do |f| %>
+  <% if @review.errors.any? %>
+      <div class="error_messages">
+        <h3>Please correct the following errors.</h3>
+        <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+  <div class="field">
+    <%= f.label :rating, class: "title" %>
+    <%= f.text_field :rating, :autofocus => true, required: true %>
+  </div>
+    
+    <div class="field" style="overflow: hidden;">
+      <%= f.submit "Review", class: "button button_highlight button_block", style: "float: right" %>
+      <%= f.text_area :content, placeholder: "what do you think about this?", rows: 1, cols: 86 %>
+    </div>
+
+<% end %>

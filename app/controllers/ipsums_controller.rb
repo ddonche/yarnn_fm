@@ -275,7 +275,7 @@ class IpsumsController < ApplicationController
       "Skeleton", "Skull", "Slipper", "Smoke", "Snake", "Sock", "Son", "Sorcerer", "Soldier", "Spade", "Sparrow", "Spear", "Spice", "Spoon", "Spring", "Spur",
       "Squid", "Squire", "Squirrel", "Staff", "Stag", "Stallion", "Stalk", "Stamp", "Star", "Statue", "Steed", "Stick", "Stitch", 
       "Stove", "Stranger", "Stump", "Sun", "Supper", "Swallow", "Swamp", "Swan", "Swine", "Sword", "Table", "Tail", 
-      "Talon", "Tarpaulin", "Teet", "Tentacle",
+      "Talon", "Tarpaulin", "Teat", "Tentacle",
       "Thief", "Thorn", "Thread", "Throne", "Thumb", "Thunder", "Tiger", "Titan", "Toad", "Toe", "Tomb", "Tome", "Tongue", "Tooth", "Torch", "Trader", 
       "Trapper", "Treader", "Tree", "Trident",
       "Troll", "Trophy", "Trout", 

@@ -82,7 +82,7 @@
 		        <% if user_signed_in? %>
               <%= link_to "Leave a Review", new_listing_review_path(@listing) %>
             <% else %>
-              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to review this product.</strong></em></div>
+              <div class="small" style="color: #fc0000;"><i><b>You must be logged in to review this product.</b></i></div>
             <% end %>
             <%= render 'reviews' %>
           </div>

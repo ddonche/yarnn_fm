@@ -10,6 +10,9 @@
         <% if @listing.user == current_user %>
           <div class="small" style="color: #fc0000;"><i><b>Sorry, you cannot review your own listings.</b></i></div><br>
           <%= link_to "Go back", listing_path(@listing) %><br>
+        <% elsif current_user.reviewed?(@listing) %>
+  				  <div class="small" style="color: #fc0000;"><i><b>You have already reviewed this listing.</b></i></div><br>
+            <%= link_to "Go back", listing_path(@listing) %><br>
         <% else %>
           <h2>Reviewing <%= @listing.title %></h2>
           by 

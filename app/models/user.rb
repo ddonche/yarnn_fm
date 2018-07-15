@@ -58,6 +58,10 @@ class User < ApplicationRecord
     track.favorites.where(user_id: id).any?
   end
   
+  def reviewed?(listing)
+    listing.reviews.where(user_id: id).any?
+  end
+  
   # Returns a user's status feed.
   def feed
     following_ids = "SELECT followed_id FROM relationships

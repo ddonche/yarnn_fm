@@ -80,7 +80,11 @@
         <div class="side-box">
 		      <div class="side-content">
 		        <% if user_signed_in? %>
-              <%= link_to "Leave a Review", new_listing_review_path(@listing) %>
+		        	<% if current_user.reviewed?(@listing) %>
+		        		<%= link_to "Edit your review", edit_listing_review_path(@listing, @user_review) %>
+		        	<% else %>
+              	<%= link_to "Leave a Review", new_listing_review_path(@listing) %>
+              <% end %>
             <% else %>
               <div class="small" style="color: #fc0000;"><i><b>You must be logged in to review this product.</b></i></div>
             <% end %>

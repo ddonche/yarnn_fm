@@ -16,6 +16,7 @@ class ListingsController < ApplicationController
 	    @pseudo = Pseudonym.find(@listing.pseudo_id)
 	  end
     @reviews = @listing.reviews.order("created_at DESC")
+    @user_review = Review.find_by(user_id: current_user.id, listing_id: @listing.id)
     @review = Review.new
     if @reviews.empty?
       @avg_rating = 0

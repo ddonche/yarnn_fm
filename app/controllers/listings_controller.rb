@@ -17,6 +17,11 @@ class ListingsController < ApplicationController
 	  end
     @reviews = @listing.reviews.order("created_at DESC")
     @review = Review.new
+    if @reviews.empty?
+      @avg_rating = 0
+    else
+      @avg_rating = @reviews.average(:rating).round(2)
+    end
 	end
 	
 	def new

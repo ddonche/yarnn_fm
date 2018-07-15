@@ -3,10 +3,17 @@
 	  <%= render 'layouts/header' %>
 	</div>
 	
-<%= render 'shared/alert' %>
+  <%= render 'shared/alert' %>
 
     <div class="form_wrapper_skinny">
       <div id="form">
+        <h2>Reviewing <%= @listing.title %></h2>
+        by 
+        <% if @listing.pseudo_id? %>
+					<%= @pseudo.name %> 
+				<% else %>
+					<%= @listing.user.name %></p>
+				<% end %>
         <%= render "form", review: @review %>
       </div>
     </div>

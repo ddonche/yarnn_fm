@@ -31,6 +31,8 @@
 							  <%= image_tag'icons/gear.svg', width: 12 %>
 						  <% end %>
 						<% end %></h2></p>
+						<div class="star-rating" data-score= <%= @avg_rating %> ></div> 
+						<%= "#{@reviews.length} reviews" %><br>
 						<p class="track_count">
 							<%= link_to @listing.user.username, user_path(@listing.user) %> /
 							<% if @listing.pseudo_id? %>
@@ -78,7 +80,7 @@
         <div class="side-box">
 		      <div class="side-content">
 		        <% if user_signed_in? %>
-              <%= render "reviews_form" %>
+              <%= link_to "Leave a Review", new_listing_review_path(@listing) %>
             <% else %>
               <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to review this product.</strong></em></div>
             <% end %>

@@ -1,3 +1,10 @@
+<h2>Create New Pseudonym</h2>
+
+<p>You can have an unlimited number of pseudonyms attached to your account. This makes it easy to associate any of your content with the appropriate 
+pseudonym. For example, if you upload a track under a pseudonym, your track's info will display the pseudonym instead of your real name, however, the 
+link will always point back to your account. This makes it easier for people to find your stuff all in one place. This also makes it so you don't have 
+to create a new account for each different pseudonym (unless you really, positively, absolutely want to).</p><br>
+
 <%= form_for(@pseudonym) do |f| %>
   <% if @pseudonym.errors.any? %>
     <div id="error_explanation">
@@ -12,6 +19,9 @@
   <% end %>
   
 	<div class="field">
+    <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.</span>
+    </div>
     <%= f.label "Pseudonym", class: "title" %><br />
     <%= f.text_field :name, :autofocus => true, required: true %>
   </div>

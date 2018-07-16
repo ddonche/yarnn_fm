@@ -1,42 +1,57 @@
+<h2>Create New Album</h2>
+<p>Use this form to create a new album, which is a collection of tracks. Many people choose to make an album for a specific title, such as 
+a book or anthology. For example, an anthology of short stories or poems might become an album with a different track for each story. One 
+might also make an album for a full-length novel, and upload select audio tracks from the work. Ultimately, it's up to you, though.</p><br>
 <%= form_for(@album) do |f| %>
-        <% if @album.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@album.errors.count, "error") %> prohibited this post from being saved:</h2>
-      
-            <ul>
-            <% @album.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-        
-      	<div class="field">
-          <%= f.label :title, class: "title" %><br />
-          <%= f.text_field :title, :autofocus => true, required: true %>
-        </div>
-        
-        <div class="field">
-          <div class="title">Do you want to make a new pseudonym for this?&nbsp;</div><%= link_to "Click here.", new_pseudonym_path, class: "title" %><br />
-          <%= f.collection_select(:pseudo_id, current_user.pseudonyms, :id, :name, prompt: 'Select pseudonym if you want. Ignore to use real name.') %><br />
-        </div>
-  
-        <div class="field">
-          <%= f.label :description, class: "title" %><br />
-          <%= f.text_area :description, autofocus: true, cols: 88, rows: 4 %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :year, class: "title" %><br />
-          <%= f.text_field :year, autofocus: true %>
-        </div>
-        
-        <div class="field">
-          <%= f.label "Album image", class: "title"  %><br />
-          <%=  f.file_field :image %>
-        </div>
-  
-        <div class="actions">
-          <%= f.submit "Submit", class: "button button_highlight button_block" %>
-        </div>
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	<div class="field">
+    <%= f.label "Album Title", class: "title" %><br />
+    <%= f.text_field :title, :autofocus => true, required: true %>
+  </div>
+  
+  <div class="field">
+    <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">
+        Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
+        You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
+      </span>
+    </div>
+    <div class="title">Do you want to add a new pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %><br />
+    <%= f.collection_select(:pseudo_id, current_user.pseudonyms, :id, :name, prompt: 'Select pseudonym if you want. Ignore to use real name.') %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :description, class: "title" %><br />
+    <%= f.text_area :description, autofocus: true, cols: 88, rows: 4 %>
+  </div>
+  
+  <div class="field">
+    <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">
+        If there is a year associated with this album, add it here. You can also put a range of years, like 2012-2016.
+      </span>
+    </div>
+    <%= f.label :year, class: "title" %><br />
+    <%= f.text_field :year, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "Album image", class: "title"  %><br />
+    <%=  f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "button button_highlight button_block" %>
+  </div>
+<% end %>

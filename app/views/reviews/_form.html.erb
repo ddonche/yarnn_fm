@@ -1,3 +1,18 @@
+<h2>You Are Reviewing <span style="color: #00b8ac"><%= @listing.title %></span> by 
+  <% if @listing.pseudo_id? %>
+    <%= @pseudo.name %>
+  <% else %>
+    <%= @listing.user.name %>
+  <% end %>
+</h2>
+<p>Reviews are an important part of the artistic cycle. They not only help an artist reach a potentially new audience member, 
+well-written reviews provide valuable feedback to the creator, which helps them improve the quality of subsequent works. Honest reviews are better than 
+puff pieces and smear campaigns. Please only review a title you have actually read, heard, or watched. 
+
+Additionally, a review cannot consist of only a rating. You must actually provide some degree of feedback other than "it sucked" or "best ever!"
+Remember, if you want to spare the world from a terrible writer, the best thing you could do is provide constructive criticism. A rising tide lifts 
+all ships.</p>
+<br><br>
 <%= form_for [@listing, @review] do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -14,7 +29,11 @@
   <div id="star-rating"></div>
 
   <div class="field">
-    <%= f.label :content, class: "title" %>
+    <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">Do not review a product you haven't experienced. Do not leave a "competitor" a negative review. If you are leaving a 
+      review in which you were paid, you must state so. If you are connected to the artist in any way, consider disclosing the nature of your relationship.</span>
+    </div>
+    <%= f.label :content, class: "title" %><br><br>
     <%= f.text_area :content, cols: 87, rows: 4, autofocus: true, required: true %>
   </div>
 

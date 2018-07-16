@@ -4,8 +4,9 @@
 	</div>
   <%= render 'shared/alert' %>
 
-  <div class="wrapper_skinny">
-    <div id="form">
+  <div class="form_wrapper_skinny">
+    <div class="form">
+      <h2>Main User Info</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
         
@@ -15,21 +16,26 @@
         </div>
         
       	<div class="field">
+          <div class="tooltip" style="float:right">more info
+            <span class="tooltiptext">
+              You should use your real name here. You can add any pseudonyms you use and maintain them with one account (see below), 
+              or you can make a new account for each one (not recommended).
+            </span>
+          </div>
           <%= f.label :name, class: "title" %><br />
           <%= f.text_field :name, :autofocus => true, required: true %>
         </div>
         
         <div class="field">
-          <div class="title">Do you want to add a pseudonym?&nbsp;</div><%= link_to "Click here.", new_pseudonym_path, class: "title" %><br />
-        </div>
-      	
-        <div class="field">
-          <%= f.label :email, class: "title"  %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="title">Do you want to add a pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %>
+          <div class="tooltip" style="float:right">more info
+            <span class="tooltiptext">Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.</span>
+          </div>
+          <br>
         </div>
         
       	<div class="field">
-          <%= f.label :bio, class: "title" %><i class="title" style="margin-left: 5px">limit of 250 characters</i><br />
+          <%= f.label :bio, class: "title" %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(limit of 250 characters)</i><br />
           <%= f.text_field :bio, :autofocus => true %>
         </div>
         
@@ -37,39 +43,48 @@
           <%= f.label :image, class: "title"  %><br />
           <%=  f.file_field :image %>
         </div>
-      
+      </div>
+    </div>
+    
+    <div class="form_wrapper_skinny">
+      <div class= "form">
+        <h2>Account Info</h2>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
+        
+        <div class="field">
+          <%= f.label :email, class: "title"  %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
       
         <div class="field">
-          <%= f.label :password, class: "title"  %><i class="title" style="margin-left: 5px">(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-          <% if @minimum_password_length %>
-            <br />
-            <em><%= @minimum_password_length %> characters minimum</i></em>
-          <% end %>
+          <%= f.label :password, class: "title"  %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "off", placeholder: "6 characters minimum" %>
         </div>
       
         <div class="field">
           <%= f.label :password_confirmation, class: "title"  %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
-      
+      </div>
+    </div>
+    
+    <div class="form_wrapper_skinny">
+      <div class= "form">
+        <h2>Confirm Changes</h2>
         <div class="field">
-          <%= f.label :current_password, class: "title"  %><i class="title" style="margin-left: 5px">(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %>
+          <%= f.label :current_password, class: "title" %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off", style: "border: 1px solid #DC2020" %>
         </div>
       
         <div class="actions">
-          <%= f.submit "Update", class: "button button_highlight button_block" %>
+          <%= f.submit "Update Profile", class: "button button_highlight button_block" %>
         </div>
       <% end %>
-      <h3>Cancel my account</h3>
-      
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-      
-      <%= link_to "Back", :back %>
+      <p class="title", style="float:right">Unhappy?</p><br>
+      <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %><br>
+      <%= link_to 'Back', 'javascript:history.back()' %><br />
     </div>
   </div>
 </div>

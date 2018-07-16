@@ -1,3 +1,9 @@
+<h2>Create New Listing</h2>
+
+<p>Use this form to create a new listing to sell in our marketplace. Your listing must be a virtual product (downloadable), as we don't capture 
+shipping information. Once your listing is live, you can link it to any of your tracks so people who like your tracks can know where to buy the 
+associated product. Ebooks, audio files, and videos are all typical products.</p><br>
+
 <%= form_for(@listing) do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +18,13 @@
   <% end %>
   
   <div class="field">
-    <div class="title">Do you want to make a new pseudonym for this?&nbsp;</div><%= link_to "Click here.", new_pseudonym_path, class: "title" %><br />
+     <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">
+        Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
+        You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
+      </span>
+    </div>
+    <div class="title">Do you want to add a new pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %><br />
     <%= f.collection_select(:pseudo_id, current_user.pseudonyms, :id, :name, prompt: 'Select a pseudonym if you want to use one. Ignore this to use your real name.') %><br />
   </div>
   
@@ -32,6 +44,12 @@
   </div>
   
   <div class="field">
+     <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">
+        If you have both a 10-digit and a 13-digit ISBN, enter the 13 digit one here. If you do not have one, leave this field blank.<br>
+        <%= link_to "Visit this website if you need to obtain an ISBN.", "https://www.myidentifiers.com/Get-your-isbn-now", class: "title", style: "color: #00b8ac" %>
+      </span>
+    </div>
     <%= f.label "ISBN", class: "title" %><br />
     <%= f.text_field :isbn, autofocus: true %>
   </div>
@@ -47,7 +65,7 @@
   </div>
   
   <div class="field">
-    <%= f.label "Select File Type", class: "title" %><br />
+    <%= f.label "Select File Type", class: "title" %><br><br>
     <%= f.radio_button :filetype, 'ebook' %> 
     <%= label :filetype_ebook, 'Ebook' %>
     <%= f.radio_button :filetype, 'audio' %>
@@ -57,24 +75,31 @@
   </div>
 
   <div class="field">
-  <div class="title"><i> Add up to two genres. *Separate genres with commas. Example: 
-  "young adult, paranormal romance"</i></div>
-  <%= f.text_field :tag_list, required: true, value: @listing.tag_list.join(", ") %>
+    <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">
+        Select two genres that best represent your work. Double-check your spelling; if you 
+        misspell the intended genre, your work will not show up where it needs to be so others can easily find it. The genres function in the same way tags do. 
+        If you would like to place your product in more than two genres, consider getting a pro account.
+      </span>
+    </div>
+  <i class="title", style="margin-left: .5rem; font-size: .8rem;">Add up to two genres. *Separate genres with commas. Example: 
+  "young adult, paranormal romance"</i><br>
+  <%= f.text_field :tag_list, required: true, value: @listing.tag_list.join(", "), placeholder: "Genres" %>
   </div>
   
   <div class="field">
-    <%= f.label "Cover image", class: "title"  %><br />
+    <%= f.label "Cover image", class: "title"  %><br>
     <%=  f.file_field :image %>
   </div>
   
   <div class="field">
-  <div class="title"><i>Must be a zip file.</i></div><br />
+  <%= f.label "Product File", class: "title" %><i class="title", style="margin-left: .5rem; font-size: .8rem;">Must be a zip file.</i><br>
     <%=  f.file_field :file %>
   </div>
   
   <div class="field">
-    <%= f.label "Price (do not include the dollar sign)", class: "title" %><br />
-    <%= f.text_field :price, autofocus: true %>
+    <i class="title", style="margin-left: .5rem; font-size: .8rem;">Do not include the dollar sign. All currency is USD until further notice.</i><br>
+    <%= f.text_field :price, autofocus: true, placeholder: "Price" %>
   </div>
 
   <div class="actions">

@@ -2,6 +2,12 @@ class WelcomeController < ApplicationController
 	def index
 	end
 	
+	def about
+	end
+	
+	def help
+	end
+	
   def home
     if user_signed_in?
       @track = current_user.tracks.build

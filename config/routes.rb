@@ -43,6 +43,9 @@ Rails.application.routes.draw do
     get 'download', on: :member
   end
   
+  get 'about', to: 'welcome#about'
+  get 'help', to: 'welcome#help'
+  
   get 'sales', to: 'transactions#sales'
   get 'purchases', to: 'transactions#purchases'
 

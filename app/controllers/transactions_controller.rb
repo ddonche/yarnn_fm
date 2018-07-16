@@ -21,6 +21,9 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @listing = Listing.find(params[:listing_id])
+    if @listing.pseudo_id?
+	    @pseudo = Pseudonym.find(@listing.pseudo_id)
+    end
   end
 
   def edit

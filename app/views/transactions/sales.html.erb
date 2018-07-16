@@ -11,6 +11,12 @@
 
   <div class="wrapper_wide">
     <div class="side-box">
+      <div class="side-content">
+        <p style="margin-right: .5rem">You currently have <%= pluralize(current_user.listings.count, "listing") %> in the <%= link_to "marketplace", listings_path %>.
+        -<span style="margin-left: .5rem"><a href="#">Manage Listings</a><span style="margin-left: .5rem"></span>-<span style="margin-left: .5rem"></span><%= link_to "Add a new listing", new_listing_path %></p>
+      </div>
+    </div>
+    <div class="side-box">
       <div class="table">
         <div class="table-row">
           <div class="table-head" style="width: 25%">

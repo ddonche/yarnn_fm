@@ -36,11 +36,9 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @listing, notice: 'Transaction successful. You may now download this.' }
-        format.json { render :show, status: :created, location: @listing }
+        format.html { redirect_to purchases_path, notice: 'Transaction successful. You may now download this.' }
       else
         format.html { render :new }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end
   end

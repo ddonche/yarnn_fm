@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resource :subscription
+  
   resources :pseudonyms
   
   resources :blogs do

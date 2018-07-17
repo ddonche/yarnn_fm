@@ -1,9 +1,12 @@
-<div id="background-register">
-  <%= render 'layouts/header' %>
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
 
-
-    <div class="wrapper_skinny">
+    <div class="form_wrapper_skinny">
       <div id="form">
+      <h2>Create an Account</h2>
+      <br>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
         
@@ -13,6 +16,10 @@
         </div>
 
       	<div class="field">
+          <div class="tooltip" style="float:right">more info
+            <span class="tooltiptext">You should use your real name here. You'll be able to add pseudonyms when you upload content, and you 
+            can manage them all through just one account!</span>
+          </div>
           <%= f.label :name, class: "title" %><br />
           <%= f.text_field :name, :autofocus => true, required: true %>
         </div>

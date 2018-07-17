@@ -73,7 +73,7 @@
 		      <div class="side-content">
 		        <div class="icons">
               <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 11) %>&nbsp;<%= pluralize( @listing.reviews.count, 'Review' ) %>
-            	<%= link_to "Buy It Now", new_listing_transaction_path(@listing) %>
+            	<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true } %>
             </div>
 		      </div>
 		    </div>

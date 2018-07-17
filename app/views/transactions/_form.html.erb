@@ -7,71 +7,45 @@
 </div>
 
 <div class="wrapper_wide_right_right">
-  <div id="form">
-
-    <h2><span style="color: #00b8ac"><%= @listing.title %></span> by 
-      <% if @listing.pseudo_id? %>
-        <%= @pseudo.name %>
-      <% else %>
-        <%= @listing.user.name %>
-      <% end %>
-    </h2>
-    <div id="transaction_price">
-      <%= number_to_currency(@listing.price) %>
+  <% unless @purchased.empty? %>
+  <div class="side-box">
+    <div class="side-content">
+      <p>You already purchased this item, silly. You can find it in your <%= link_to "Downloads", purchases_path %>.</p>
     </div>
-    <p>After you've placed your order, the product will appear in your downloads. It will be available to download forever unless the seller removes the listing.</p>
-    <br>  
-    <%= form_for([@listing, @transaction]) do |f| %>
-      <% if transaction.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-    
-          <ul>
-          <% transaction.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-      
-      <div class="tooltip" style="float:right">more info
-        <span class="tooltiptext">Your credit card info is never stored anywhere on our servers. Everything happens securely through Stripe.</span>
-      </div>
-      
-      <div class="table">
-        <div class="field">
-          <div class="table-row" style="border-bottom: none">
-            <div class="tiny-table-cell" style="width: 85%">
-              <%= f.label :card_number, "Credit Card Number", class: "title" %><br>
-              <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number" } %>
-            </div>
-            <div class="tiny-table-cell" style="width: 15%">
-              <%= f.label :card_code, "CVC", class: "title" %><br>
-              <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc" } %>
-            </div>
-          </div>
-        </div>
-      </div>
-          
-      <div class="table">
-        <div class="field">
-          <div class="table-row" style="border-bottom: none">
-            <div class="tiny-table-cell" style="width: 50%">
-              <%= f.label "Exp Month", class: "title" %><br>
-              <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month" } %>
-            </div>
-            <div class="tiny-table-cell" style="width: 50%">
-              <%= f.label "Exp Year", class: "title" %><br>
-              <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year" } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="actions">
-        <%= f.submit "Complete Order", class: "button button_highlight button_block" %>
-      </div>
-      
-    <% end %>
   </div>
+  <% else %>
+  
+    <div id="form">
+      <div id="new_transaction">
+        
+        <h2><span style="color: #00b8ac"><%= link_to @listing.title, listing_path(@listing), style: "float:left" %></span>&nbsp;by 
+          <% if @listing.pseudo_id? %>
+            <%= @pseudo.name %>
+          <% else %>
+            <%= @listing.user.name %>
+          <% end %>
+        </h2>
+        
+        <div id="transaction_price">
+          <%= number_to_currency(@listing.price) %>
+        </div>
+        
+        <p>After you've placed your order, the product will appear in your downloads. It will be available to download forever unless the seller removes the listing.</p>
+        <br>  
+        
+        <%= form_for([@listing, @transaction], id: "new_transaction") do |f| %>
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-amount="<%= @price %>"
+              data-name="Yarnn.fm"
+              data-description="Payment"
+              data-image="https://s3-us-west-2.amazonaws.com/yarnn/default_yarnn.jpg"
+              data-locale="auto">
+            </script>
+        <% end %>
+      
+      </div>
+    </div>
+  <% end %>
 </div>

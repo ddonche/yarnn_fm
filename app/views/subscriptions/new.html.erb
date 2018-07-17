@@ -5,28 +5,51 @@
   <%= render 'shared/alert' %>
   
   <div class="form_wrapper_skinny">
-    <h1>Choose a subscription plan</h1>
-    <%= form_tag subscription_path, id: "subscription-form" do %>
-      <div class="card-fields">
-        <span class="subscription-errors"></span>
-    
-        <label>
-          <span>Card Number</span>
-          <input value="4242 4242 4242 4242" type="text" size="20" data-stripe="number"/>
-        </label>
-    
-        <label>
-          <span>CVC</span>
-          <input value="123" type="text" size="4" data-stripe="cvc"/>
-        </label>
-    
-        <label>
-          <span>Expiration</span>
-          <input value="12" type="text" size="2" data-stripe="exp-month"/>
-          <input value="2020" type="text" size="4" data-stripe="exp-year"/>
-        </label>
+    <div id="form">
+    <h2>Choose a subscription plan</h2>
+    <p>By subscribing, you'll have access to tons of pro features. If you prefer to remain with a free account, you'll still be able to 
+    upload new tracks, albums, listings, post topics and comments, leave reviews, follow other users, and add your favorite tracks to your 
+    official station.</p>
+    <br>
+    <%= form_for subscription_path, id: "subscription-form" do |f| %>
+      <div class="tooltip" style="float:right">more info
+        <span class="tooltiptext">Your credit card info is never stored anywhere on our servers. Everything happens securely through Stripe.</span>
       </div>
-      <button type="submit">Submit Payment</button>
+      
+      <div class="table">
+        <div class="field">
+          <div class="table-row" style="border-bottom: none">
+            <div class="tiny-table-cell" style="width: 85%">
+              <%= f.label :card_number, "Credit Card Number", class: "title" %><br>
+              <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number" } %>
+            </div>
+            <div class="tiny-table-cell" style="width: 15%">
+              <%= f.label :card_code, "CVC", class: "title" %><br>
+              <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc" } %>
+            </div>
+          </div>
+        </div>
+      </div>
+          
+      <div class="table">
+        <div class="field">
+          <div class="table-row" style="border-bottom: none">
+            <div class="tiny-table-cell" style="width: 50%">
+              <%= f.label "Exp Month", class: "title" %><br>
+              <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month" } %>
+            </div>
+            <div class="tiny-table-cell" style="width: 50%">
+              <%= f.label "Exp Year", class: "title" %><br>
+              <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year" } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "Complete Order", class: "button button_highlight button_block" %>
+      </div>
+      
     <% end %>
     </div>
   </div>

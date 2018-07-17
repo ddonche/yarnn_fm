@@ -21,6 +21,8 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @listing = Listing.find(params[:listing_id])
+    @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
+    @price = @listing.price * 100
     if @listing.pseudo_id?
 	    @pseudo = Pseudonym.find(@listing.pseudo_id)
     end
@@ -36,15 +38,45 @@ class TransactionsController < ApplicationController
     @seller = @listing.user
     @transaction.listing_id = @listing.id
     @transaction.seller_id = @seller.id
-
-    respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to purchases_path, notice: 'Transaction successful. You may now download this.' }
-      else
-        format.html { render :new }
+    
+    @pre_amount = @listing.price * 100
+    @amount = @pre_amount.to_i
+    charge_error = nil
+  
+    if @transaction.valid?
+      begin
+        customer = Stripe::Customer.create(
+          :email => params[:stripeEmail],
+          :source  => params[:stripeToken]
+        )
+        
+        charge = Stripe::Charge.create(
+          :customer    => customer.id,
+          :amount      => @amount,
+          :description => 'Rails Stripe customer',
+          :currency    => 'usd'
+        )
+  
+      rescue Stripe::CardError => e
+        charge_error = e.message
       end
+      if charge_error
+        flash[:error] = charge_error
+        respond_to do |format|
+          format.html { render :new }
+        end
+      else
+        @transaction.save
+        respond_to do |format|
+          format.html { redirect_to purchases_path, notice: 'Transaction successful. You may now download this.' }
+        end
+      end
+    else
+      flash[:error] = 'one or more errors in your order'
+      render :new
     end
   end
+  
 
   def update
     respond_to do |format|

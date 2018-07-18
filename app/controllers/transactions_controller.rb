@@ -45,16 +45,21 @@ class TransactionsController < ApplicationController
   
     if @transaction.valid?
       begin
+        percentage = ((@amount * 10)/100)
         customer = Stripe::Customer.create(
           :email => params[:stripeEmail],
           :source  => params[:stripeToken]
         )
         
         charge = Stripe::Charge.create(
-          :customer    => customer.id,
-          :amount      => @amount,
-          :description => 'Rails Stripe customer',
-          :currency    => 'usd'
+            {
+                :customer => customer.id,
+                :amount      => @amount,
+                :description => @listing.title,
+                :currency => 'usd',
+                :application_fee => percentage,
+            },
+            :stripe_account => @listing.seller.stripe_uid
         )
   
       rescue Stripe::CardError => e

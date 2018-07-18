@@ -26,6 +26,7 @@ class ListingsController < ApplicationController
 	end
 	
 	def new
+	  @user = current_user
     @listing = current_user.listings.build
     respond_to do |format| 
       format.html

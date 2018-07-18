@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  get 'event/stripe_callback'
+
+  get 'event/payment_profile'
+
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, controllers: {
+  omniauth_callbacks: 'omniauth_callbacks'
+}
   
   authenticated do
     root :to => 'welcome#home', as: :authenticated
@@ -44,6 +50,8 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
     get 'download', on: :member
   end
+  
+  get "settings/payment-info/users/auth/stripe_connect/callback", to:"event#stripe_callback"
   
   get 'about', to: 'welcome#about'
   get 'help', to: 'welcome#help'

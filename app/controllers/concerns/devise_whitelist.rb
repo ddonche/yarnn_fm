@@ -8,7 +8,7 @@ module DeviseWhitelist
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name])
     devise_parameter_sanitizer.permit(:account_update, keys: [
-      :username, :email, :password, :password_confirmation, :name, :image, :bio
+      :username, :email, :password, :password_confirmation, :name, :image, :bio, :uid, :provider, :access_code, :publishable_key
     ])
   end
 end

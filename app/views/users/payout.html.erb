@@ -1,0 +1,36 @@
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
+	
+  <%= render 'shared/alert' %>
+
+    <div class="wrapper_skinny_left">
+      <div class="side-box">
+        <div class="side-content">
+          <ul>
+            <li><%= link_to "Payout Method", payout_method_path %></li>
+            <li><%= link_to "Notification Settings", payment_method_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wrapper_wide_right_right">
+      <div class="side-box">
+        <div class="side-content" style="padding: .5rem">
+          <h2>Payout Method</h2>
+          
+          <p>Use this page to control how you receive payouts for selling items in our marketplace.</p><br>
+          
+          <% if current_user.uid.blank? %>
+            <%= link_to image_tag('icons/blue-on-light.png'), stripe_express_path %>
+          <% else %>
+            <%= link_to "Stripe Dashboard", @login_link.url, class: "button button_grey button_block", style: "width: 40%" %>
+          <% end %>
+            
+        </div>
+      </div>
+    </div>
+    
+</div>

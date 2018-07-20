@@ -257,11 +257,12 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  
   config.omniauth :stripe_connect,
-  ENV['STRIPE_CLIENT_ID'],
-  ENV['STRIPE_SECRET_KEY'],
-  scope: 'read_write',
-  stripe_landing: 'login'
+    'ca_DBKdNNndfDs8uWoBL6SOHhnwocLif9BV',
+    'sk_test_3JD3nWr5J5R630SXI8hfHBhG',
+    scope: 'read_write',
+    stripe_landing: 'login'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

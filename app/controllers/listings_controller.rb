@@ -26,11 +26,15 @@ class ListingsController < ApplicationController
 	end
 	
 	def new
-	  @user = current_user
-    @listing = current_user.listings.build
-    respond_to do |format| 
-      format.html
-      format.js
+    if current_user.uid.blank?
+      redirect_to payout_method_path, alert: "Please connect to Stripe first. Setting it up is easy."
+    else
+      @user = current_user
+      @listing = current_user.listings.build
+      respond_to do |format| 
+        format.html
+        format.js
+      end
     end
 	end
 

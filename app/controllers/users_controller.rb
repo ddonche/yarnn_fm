@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  before_action :set_user, except: [:index]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :payout, :payment]
+  before_action :set_user, except: [:index, :payout, :payment, :add_card]
 
   def index
     @users = User.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
@@ -16,6 +16,20 @@ class UsersController < ApplicationController
     @followed_users = @user.following
   end
   
+  def albums 
+    @pseudonyms = @user.pseudonyms.order('created_at DESC')
+    @users = @user.followers
+    @followed_users = @user.following
+    @albums = @user.albums.paginate(:page => params[:page], :per_page => 24)
+  end
+  
+  def blogs 
+    @pseudonyms = @user.pseudonyms.order('created_at DESC')
+    @users = @user.followers
+    @followed_users = @user.following
+    @blogs = @user.blogs.paginate(:page => params[:page], :per_page => 24)
+  end
+  
   def favorites
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers
@@ -23,23 +37,16 @@ class UsersController < ApplicationController
     @favorite_items = @user.favorite_tracks.paginate(:page => params[:page], :per_page => 24)
   end
   
-  def following
-    @title = "Following"
-    @users = @user.following
-    render 'show_follow'
-  end
-
   def followers
     @title = "Followers"
     @users = @user.followers
     render 'show_follow'
   end
   
-  def albums 
-    @pseudonyms = @user.pseudonyms.order('created_at DESC')
-    @users = @user.followers
-    @followed_users = @user.following
-    @albums = @user.albums.paginate(:page => params[:page], :per_page => 24)
+  def following
+    @title = "Following"
+    @users = @user.following
+    render 'show_follow'
   end
   
   def listings 
@@ -50,11 +57,11 @@ class UsersController < ApplicationController
     @listings = @user.listings.paginate(:page => params[:page], :per_page => 24)
   end
   
-  def blogs 
-    @pseudonyms = @user.pseudonyms.order('created_at DESC')
-    @users = @user.followers
-    @followed_users = @user.following
-    @blogs = @user.blogs.paginate(:page => params[:page], :per_page => 24)
+  def payout
+    if !current_user.uid.blank?
+      account = Stripe::Account.retrieve(current_user.uid)
+      @login_link = account.login_links.create()
+    end
   end
   
   private

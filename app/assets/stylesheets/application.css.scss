@@ -127,6 +127,7 @@ body {
 .button_block {
   display: block;
   margin: 0 auto;
+  text-align: center;
 }
 
 .button_highlight {
@@ -134,6 +135,15 @@ body {
   transition: background .4s ease-in-out;
   &:hover {
    background: darken(#DC2020, 7.5%);
+  }
+}
+
+.button_grey {
+  background: #CCC;
+  border: 1px solid #AAAAAA;
+  transition: background .4s ease-in-out;
+  &:hover {
+   background: darken(#CCC, 7.5%);
   }
 }
 

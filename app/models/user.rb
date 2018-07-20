@@ -5,14 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:stripe_connect]
   
-  def is_seller?
-    merchants.any?
-  end
-  
-  def can_receive_payments?
-    uid? &&  provider? && access_code? && publishable_key?
-  end
-  
   mount_uploader :image, ImageUploader
   extend FriendlyId
   friendly_id :username, use: :slugged
@@ -38,6 +30,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :pseudonyms, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :merchants, dependent: :destroy
   has_many :sales, class_name: "Transaction", foreign_key: "seller_id"
   has_many :purchases, class_name: "Transaction", foreign_key: "buyer_id"
   has_many :active_relationships, class_name: "Relationship",

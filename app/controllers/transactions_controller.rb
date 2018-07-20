@@ -41,15 +41,22 @@ class TransactionsController < ApplicationController
     
     @pre_amount = @listing.price * 100
     @amount = @pre_amount.to_i
+    @pre_seller_amount = @listing.price * 87 - 30
+    @seller_amount = @pre_seller_amount.to_i
     charge_error = nil
   
     if @transaction.valid?
       begin
-        percentage = ((@amount * 10)/100)
-        customer = Stripe::Customer.create(
-          :email => params[:stripeEmail],
-          :source  => params[:stripeToken]
-        )
+        if !current_user.stripe_id.blank?
+          customer = Stripe::Customer.retrieve(current_user.stripe_id)
+        else
+          customer = Stripe::Customer.create(
+            :email => params[:stripeEmail],
+            :source  => params[:stripeToken]
+          )
+          current_user.stripe_id = customer.id
+          current_user.save
+        end
         
         charge = Stripe::Charge.create(
             {
@@ -57,9 +64,11 @@ class TransactionsController < ApplicationController
                 :amount      => @amount,
                 :description => @listing.title,
                 :currency => 'usd',
-                :application_fee => percentage,
+                :destination => {
+                  :amount => @seller_amount,
+                  :account => @seller.uid 
+                }
             },
-            :stripe_account => @listing.seller.stripe_uid
         )
   
       rescue Stripe::CardError => e

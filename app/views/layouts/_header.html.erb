@@ -11,20 +11,6 @@
 					<li><%= link_to "Login", new_user_session_path %></li>
 					<li><%= link_to "Register", new_user_registration_path %></li>
 				<% else %>
-					<li class="dropdown"><i>Hello, <%= link_to current_user.username, user_path(current_user) %>!</i>
-							<div class="dropdown-content">
-						    <%= link_to "Sales", sales_path %>
-						    <%= link_to "Downloads", purchases_path %>
-						  </div>
-					</li>
-					<li><%= link_to edit_registration_path(current_user) do %>
-								<%= image_tag'icons/gear_white.png', width: 13, title: "Account" %>
-							<% end %>
-					</li>
-					<li><%= link_to new_track_path do %>
-								<%= image_tag'icons/upload_white.png', width: 16, title: "Upload New Track" %>
-							<% end %>
-					</li>
 					<li><%= link_to "Explore", albums_path %></li>
 					<li><%= link_to "Market", listings_path %></li>
 					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

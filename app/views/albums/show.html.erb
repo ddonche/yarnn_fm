@@ -74,7 +74,11 @@
   	<div id="banner" class="track_banner">
   		<%= render 'layouts/header' %>
   	</div>
-  
+	  <% if user_signed_in? %>
+	    <%= render 'layouts/subheader' %>
+	  <% end %>
+    <%= render 'shared/alert' %>
+    
   	<div id="breadcrumb">
   		<%= link_to @album.user.username, user_path(@album.user) %>
   			<span>/</span>

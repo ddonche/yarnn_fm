@@ -98,6 +98,29 @@
   }
 }
 
+#dashboard_menu {
+  padding: .75rem 0;
+  background-color: #555;
+  text-align: center;
+  color: #FFF;
+  font-size: 16px;
+  border-bottom: 1px solid #444;
+  border-top: 1px solid #444;
+  a {
+    color: lighten(#2C3135, 45%);
+    text-decoration: none;
+    &:hover {
+      color: #00b8ac;
+    }
+    &:visited {
+      color: #00b8ac;
+    }
+  }
+  span {
+    margin: 0 1rem;
+  }
+}
+
 #background-register {
   height: 100vh;
   background-image: image-url('register_background.jpg');

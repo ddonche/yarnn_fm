@@ -2,6 +2,9 @@
 	<div id="banner" class="track_banner">
 	  <%= render 'layouts/header' %>
 	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
 	
   <%= render 'shared/alert' %>
 
@@ -10,6 +13,8 @@
         <div class="side-content">
           <ul>
             <li><%= link_to "Payout Method", payout_method_path %></li>
+            <li><%= link_to "Sales", sales_path %></li>
+            <li><%= link_to "Downloads", purchases_path %></li>
           </ul>
         </div>
       </div>
@@ -20,12 +25,12 @@
         <div class="side-content" style="padding: .5rem">
           <h2>Payout Method</h2>
           
-          <p>Use this page to control how you receive payouts for selling items in our marketplace.</p><br>
+          <p>Visit your Stripe dashboard to control how you receive payouts for selling items in our marketplace.</p><br>
           
           <% if current_user.uid.blank? %>
             <%= link_to image_tag('icons/blue-on-light.png'), stripe_express_path %>
           <% else %>
-            <%= link_to "Stripe Dashboard", @login_link.url, class: "button button_grey button_block", style: "width: 40%" %>
+            <%= link_to "Stripe Dashboard", @login_link.url, class: "button button_blue button_block", style: "color: #FFF; width: 30%;" %>
           <% end %>
             
         </div>

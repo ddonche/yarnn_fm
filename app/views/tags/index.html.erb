@@ -1,6 +1,9 @@
 <div id="banner" class="albums_banner">
   <%= render 'layouts/header' %>
 </div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
 <%= render 'shared/alert' %>
 <div id="albums" class="cf">
 	<div class="wrapper">

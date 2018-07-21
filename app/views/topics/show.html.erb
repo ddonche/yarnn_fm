@@ -1,75 +1,77 @@
-  <div id="topic_show">
-  	<div id="banner" class="track_banner">
-  	  <%= render 'layouts/header' %>
+<div id="topic_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
+  <%= render 'shared/alert' %>
+  
+  	<div id="breadcrumb">
+  		genres / <% @topic.tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %> / topics
   	</div>
-  	
-    <%= render 'shared/alert' %>
-    
-    	<div id="breadcrumb">
-    		genres / <% @topic.tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %> / topics
-    	</div>
-    
-    	<div class="wrapper_skinny_left">
   
-          <div class="side-box">
-            <div class="side-content">
-  							<p class="track_count"><h2><% @topic.tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %></h2></p> 
-  							<p class="track_count"><%= pluralize( @topics_count, 'Discussions' ) %></p> 
-            </div>
-          </div>
-          
-          <div class="side-box">
-            <div class="side-content">
-              <h2 style="margin-bottom: .5rem">Latest Discussions</h2>
-              <% if @topics.any? %>
-                <%= render 'tags/topics' %>
-              <% else %>
-                <p>There are no topics in this genre.</p>
-              <% end %>
-            </div>
-          </div>
-  
-      </div>
-  
-    <div class="wrapper_wide_right">
-      <div class="blog_wrapper">
-        <h1><%= @topic.title %></h1>
-        <div class="blog_info">
-          <div class="blog_info_user_avatar">
-            <%= image_tag @topic.user.image.url(:thumb), width: 40 %>
-          </div>
-          <div class="blog_info_user_name"><%= link_to @topic.user.name, user_path(@topic.user) %></div>
-          <div class="blog_info_user_stats">- 
-            <%= pluralize( @topic.user.followers.count, 'follower' ) %> / 
-            <%= pluralize( @topic.user.tracks.count, 'track' ) %> / 
-            <%= pluralize( @topic.user.albums.count, 'album' ) %>
-          </div>
-          <br />
-          <div class="blog_info_date">
-            <%= time_ago_in_words(@topic.created_at) %> ago
-            <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 13) %>&nbsp;<%= pluralize( @topic.comments.count, 'Comment' ) %>
-            <% if @topic.user == current_user %>
-              <br /><%= link_to "edit topic", edit_topic_path(@topic) %>
-            <% end %>
-          
+  	<div class="wrapper_skinny_left">
+
+        <div class="side-box">
+          <div class="side-content">
+							<p class="track_count"><h2><% @topic.tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %></h2></p> 
+							<p class="track_count"><%= pluralize( @topics_count, 'Discussions' ) %></p> 
           </div>
         </div>
         
-        <div class="blog_content">
-          <%= simple_format(@topic.content) %>
+        <div class="side-box">
+          <div class="side-content">
+            <h2 style="margin-bottom: .5rem">Latest Discussions</h2>
+            <% if @topics.any? %>
+              <%= render 'tags/topics' %>
+            <% else %>
+              <p>There are no topics in this genre.</p>
+            <% end %>
+          </div>
+        </div>
+
+    </div>
+
+  <div class="wrapper_wide_right">
+    <div class="blog_wrapper">
+      <h1><%= @topic.title %></h1>
+      <div class="blog_info">
+        <div class="blog_info_user_avatar">
+          <%= image_tag @topic.user.image.url(:thumb), width: 40 %>
+        </div>
+        <div class="blog_info_user_name"><%= link_to @topic.user.name, user_path(@topic.user) %></div>
+        <div class="blog_info_user_stats">- 
+          <%= pluralize( @topic.user.followers.count, 'follower' ) %> / 
+          <%= pluralize( @topic.user.tracks.count, 'track' ) %> / 
+          <%= pluralize( @topic.user.albums.count, 'album' ) %>
+        </div>
+        <br />
+        <div class="blog_info_date">
+          <%= time_ago_in_words(@topic.created_at) %> ago
+          <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 13) %>&nbsp;<%= pluralize( @topic.comments.count, 'Comment' ) %>
+          <% if @topic.user == current_user %>
+            <br /><%= link_to "edit topic", edit_topic_path(@topic) %>
+          <% end %>
+        
         </div>
       </div>
       
-        <div class="comment_wrapper">
-		      <div class="side-content">
-		        <% if user_signed_in? %>
-              <%= render "comments/form" %>
-            <% else %>
-              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
-            <% end %>
-            <%= render 'comments/comments', :commentable => @topic %>
-          </div>
-        </div>
+      <div class="blog_content">
+        <%= simple_format(@topic.content) %>
+      </div>
     </div>
     
+      <div class="comment_wrapper">
+	      <div class="side-content">
+	        <% if user_signed_in? %>
+            <%= render "comments/form" %>
+          <% else %>
+            <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
+          <% end %>
+          <%= render 'comments/comments', :commentable => @topic %>
+        </div>
+      </div>
   </div>
+  
+</div>

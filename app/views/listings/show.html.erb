@@ -2,6 +2,9 @@
 	<div id="banner" class="track_banner">
 	  <%= render 'layouts/header' %>
 	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
   <%= render 'shared/alert' %>
 	<div id="breadcrumb">
 	  <%= link_to @listing.user.username, user_path(@listing.user) %>
@@ -50,7 +53,15 @@
 							<p class="track_count"><b><i>Year:</i></b> <%= @listing.year %></p>
 						<% end %>
 						<p class="track_count"><b><i>Format:</i></b> <%= @listing.filetype %></p>
-						<p class="track_count"><b><%= link_to "Download", @listing.file.url %></b></p>
+						<% unless @listing.user == current_user %>
+							<% if @purchased.empty? %>
+								<br>
+								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff" %>
+							<% else %>
+								<br>
+								<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff" %>
+							<% end %>
+						<% end %>
 					</div>
         </div>
       </div>
@@ -68,15 +79,15 @@
   </div>
   	
   <div id="tracks">
-		<div class="wrapper_wide_right" style="margin-top: 0">
-		    <div class="side-box" style="margin-top: 0">
+		<div class="wrapper_wide_right" style="margin-top: 0;">
+		    <div class="side-box" style="margin-top: 0;">
 		      <div class="side-content">
 		        <div class="icons">
               <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 11) %>&nbsp;<%= pluralize( @listing.reviews.count, 'Review' ) %>
-            	<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true } %>
             </div>
 		      </div>
 		    </div>
+		    
         <div class="side-box">
 		      <div class="side-content">
 		        <% if user_signed_in? %>

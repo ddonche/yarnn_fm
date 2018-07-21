@@ -1,33 +1,39 @@
-<div id="banner" class="albums_banner">
-  <%= render 'layouts/header' %>
-</div>
-<%= render 'shared/alert' %>
-<div id="listings" class="cf">
-	<div class="wrapper">
-		<ul class="cf">
-			<% @listings.each do |listing| %>
-					<li>
-						<%= link_to listing do %>
-							<%= image_tag listing.image.url(:thumb) %>
-						<% end %>
-						<div class="listing_overview">
-						  <p class="listing_type"><%= listing.filetype %></p>
-							<h2><%= link_to listing.title, listing_path(listing) %></h2>
-							<div id="stars">
-								<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
-							</div>
-							<% if listing.pseudo_id? %>
-								<p class="listing_info"><%= link_to @pseudo.name, user_path(listing.user) %></p>
-							<% else %>
-								<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
-							<% end %>
-							<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
-						</div>
-					</li>
-			<% end %>
-		</ul>
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
+  <%= render 'shared/alert' %>
 
-		<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+	<div id="listings" class="cf">
+		<div class="wrapper">
+			<ul class="cf">
+				<% @listings.each do |listing| %>
+						<li>
+							<%= link_to listing do %>
+								<%= image_tag listing.image.url(:thumb) %>
+							<% end %>
+							<div class="listing_overview">
+							  <p class="listing_type"><%= listing.filetype %></p>
+								<h2><%= link_to listing.title, listing_path(listing) %></h2>
+								<div id="stars">
+									<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
+								</div>
+								<% if listing.pseudo_id? %>
+									<p class="listing_info"><%= link_to @pseudo.name, user_path(listing.user) %></p>
+								<% else %>
+									<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
+								<% end %>
+								<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
+							</div>
+						</li>
+				<% end %>
+			</ul>
+	
+			<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+		</div>
 	</div>
 </div>
 

@@ -2,7 +2,9 @@
 	<div id="banner" class="track_banner">
 	  <%= render 'layouts/header' %>
 	</div>
-	
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
   <%= render 'shared/alert' %>
 
   <%= render 'form', transaction: @transaction %>

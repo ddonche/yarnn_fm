@@ -70,7 +70,7 @@ body {
 
 .wrapper {
   width: 80%;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 .wrapper_skinny {
@@ -138,12 +138,13 @@ body {
   }
 }
 
-.button_grey {
-  background: #CCC;
-  border: 1px solid #AAAAAA;
+.button_blue {
+  background: #00b8ac;
+  border-bottom: 2px solid #0c847c;
+  border-radius: 8px;
   transition: background .4s ease-in-out;
   &:hover {
-   background: darken(#CCC, 7.5%);
+   background: #0c847c;
   }
 }
 

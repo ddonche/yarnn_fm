@@ -2,7 +2,10 @@
 	<div id="banner" class="track_banner">
 		<%= render 'layouts/header' %>
 	</div>
-
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
+  <%= render 'shared/alert' %>
   <div class="wrapper_skinny_left">
     <h2>Some Intersting Stuff Here</h2>
   </div>

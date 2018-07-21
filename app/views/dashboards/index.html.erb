@@ -2,12 +2,26 @@
 	<div id="banner" class="track_banner">
 		<%= render 'layouts/header' %>
 	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
+  <%= render 'shared/alert' %>
 
   <div class="wrapper_skinny_left">
     <%= render 'users/avatar' %>
     <% if @pseudonyms.any? %>
       <%= render 'users/pseudonyms' %>
     <% end %>
+    <div class="side-box" style="margin-top: 0">
+      <div class="side-content">
+        <ul>
+    			<li>
+  				  <h2>Pseudonyms</h2>
+  					<p class="description">You have not added any pseudonyms yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+    			</li>
+      	</ul>
+      </div>
+    </div>
     <%= render 'users/followers' %>
     <%= render 'users/following' %>
   </div>

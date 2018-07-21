@@ -1,0 +1,26 @@
+
+	<div id="dashboard_menu">
+		<i><%= link_to current_user.username, user_path(current_user) %>
+			<span></span>
+		<%= link_to edit_registration_path(current_user) do %>
+			<%= image_tag'icons/gear_white.png', width: 13, title: "Account" %>
+		<% end %>
+			<span></span>
+		<%= link_to "Dashboard", dashboard_path %>
+			<span></span>
+		<%= link_to "Downloads", purchases_path %>
+			<span></span>
+		<%= link_to new_track_path do %>
+			<%= image_tag'icons/upload_white.png', width: 16, title: "Upload New Track" %>
+		<% end %>
+			<span></span>
+			<% if current_user.uid? %>
+				<%= link_to new_listing_path do %>
+					<%= image_tag'icons/product.svg', width: 16, title: "Create New Listing" %>
+				<% end %>
+				  <span></span>
+				<%= link_to "Sales", sales_path %>
+					<span></span>
+				<%= link_to "Payout", payout_method_path %>
+			<% end %>
+	</div>

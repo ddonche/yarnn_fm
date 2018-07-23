@@ -28,6 +28,18 @@
           <%= f.label :email, class: "title" %><br />
           <%= f.email_field :email, autofocus: true %>
         </div>
+        
+        <div class="field">
+          <div class="tooltip" style="float:right">more info
+            <span class="tooltiptext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
+            to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
+            in the marketplace with both.</span>
+          </div>
+          <%= f.radio_button :publisher_type, 'normal' %> 
+          <%= label :publisher_type_normal, 'Normal Account' %>
+          <%= f.radio_button :publisher_type, 'publisher' %>
+          <%= label :publisher_type_publisher, 'Publisher Account' %>
+        </div>
   
         <div class="field">
           <%= f.label :password, class: "title" %>

@@ -16,8 +16,13 @@
       <div class="side-content">
         <ul>
     			<li>
-  				  <h2>Pseudonyms</h2>
-  					<p class="description">You have not added any pseudonyms yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+    			  <% if current_user.publisher_type == "publisher" %>
+    			    <h2>Authors</h2>
+    					<p class="description">You have not added any authors yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+    			  <% else %>
+    				  <h2>Pseudonyms</h2>
+    					<p class="description">You have not added any pseudonyms yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+    			  <% end %>
     			</li>
       	</ul>
       </div>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
   enum user_type: { standard: 0, pro: 1 }
+  enum publisher_type: { normal: 0, publisher: 1 }
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :crop_image

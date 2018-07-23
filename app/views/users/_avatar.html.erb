@@ -1,10 +1,12 @@
 <div class="main_avatar">
     <div class="ribbon_box">
-      <div class="ribbon"><span>AUTHOR</span></div>
+      <% if @user.publisher_type == "publisher" %>
+        <div class="ribbon"><span>PUBLISHER</span></div>
+      <% end %>
         <% if @user.image? %>
-          <%= image_tag(@user.image.url(:thumb), title: @user.username) %>
+          <%= image_tag(@user.image.url, title: @user.username, width: 248) %>
         <% else %>
-          <%= image_tag('default_track.jpg', width: 250, title: @user.username) %>
+          <%= image_tag('default_track.jpg', width: 248, title: @user.username) %>
         <% end %>
     </div>
     

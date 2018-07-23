@@ -3,8 +3,13 @@
     <ul>
   		<% @pseudonyms.each do |pseudo| %>
   			<li>
-  				  <h2>Pseudonyms:</h2>
+  			  <% if @user.publisher_type == "publisher" %>
+  				  <h2>Authors</h2>
   					<p class="description"><%= pseudo.name %>
+  			  <% else %>
+  				  <h2>Pseudonyms</h2>
+  					<p class="description"><%= pseudo.name %>
+  				<% end %>
   			</li>
   		<% end %>
   	</ul>

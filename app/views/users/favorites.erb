@@ -227,7 +227,11 @@
   	    <div class="wrapper_wide_right_right">
   	      <div class="side-box">
 		        <div class="side-content">
-  	          <p>This user has not added anything to their station.</p>
+		          <% if @user == current_user %>
+		            <p>You have not added anything to your station yet. Click the heart on any track to add it to your official station.</p>
+		          <% else %>
+  	            <p>This user has not added anything to their station.</p>
+  	          <% end %>
   	        </div>
   	       </div>
   	    </div>

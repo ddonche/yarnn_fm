@@ -103,21 +103,19 @@
   background-color: #555;
   text-align: center;
   color: #FFF;
-  font-size: 16px;
+  font-size: 15px;
   border-bottom: 1px solid #444;
   border-top: 1px solid #444;
   a {
-    color: lighten(#2C3135, 45%);
+    color: #fff;
+    font-style: normal;
     text-decoration: none;
     &:hover {
       color: #00b8ac;
     }
-    &:visited {
-      color: #00b8ac;
-    }
   }
   span {
-    margin: 0 1rem;
+    margin: 0 .75rem;
   }
 }
 

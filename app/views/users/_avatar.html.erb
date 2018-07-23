@@ -1,11 +1,11 @@
 <div class="main_avatar">
-
-    <div class="image">
-      <% if @user.image? %>
-        <%= image_tag(@user.image.url(:thumb), title: @user.username) %>
-      <% else %>
-        <%= image_tag('default_track.jpg', width: 250, title: @user.username) %>
-      <% end %>
+    <div class="ribbon_box">
+      <div class="ribbon"><span>AUTHOR</span></div>
+        <% if @user.image? %>
+          <%= image_tag(@user.image.url(:thumb), title: @user.username) %>
+        <% else %>
+          <%= image_tag('default_track.jpg', width: 250, title: @user.username) %>
+        <% end %>
     </div>
     
     <%= render 'shared/stats' %>

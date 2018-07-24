@@ -21,6 +21,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.listing_id = @listing.id
+    Notification.create!(listing_id: @listing.id, 
+                                recipient_id: @listing.user_id, notified_by_id: current_user.id, 
+                                notification_type: "review")
 
     respond_to do |format|
       if @review.save

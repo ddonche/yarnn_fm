@@ -113,6 +113,9 @@
 							<% else %>
 							  <%= @album.user.name %></p>
 							<% end %>
+              <% if @album.editor? %>
+                <p class="track_count">Editor: <%= @album.editor %></p>
+              <% end %>
 							<p class="track_count"><%= pluralize( @album.tracks.count, 'Track' ) %><% if @album.year? %> | <%= @album.year %><% end %></p> 
 						</div>
           </div>

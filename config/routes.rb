@@ -47,6 +47,14 @@ Rails.application.routes.draw do
     get 'download', on: :member
   end
   
+  get 'marketplace/genre/:tag', to: 'listings#genres', as: :genre
+  
+  resources :notifications do
+    member do
+      get :toggle_read
+    end
+  end
+  
   get 'about', to: 'welcome#about'
   get 'help', to: 'welcome#help'
   
@@ -57,7 +65,7 @@ Rails.application.routes.draw do
 
   get 'genre/:tag', to: 'tags#show', as: :tag
   get 'genres', to: 'tags#index'
-  
+
   get 'generators', to: 'ipsums#show'
   get 'ipsum', to: 'ipsums#ipsum'
   get 'apocalpyse', to: 'ipsums#apocalypse'

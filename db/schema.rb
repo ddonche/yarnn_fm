@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723024235) do
+ActiveRecord::Schema.define(version: 20180723062117) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180723024235) do
     t.string   "vocals"
     t.integer  "user_id"
     t.integer  "pseudo_id"
+    t.string   "editor"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
@@ -91,11 +92,10 @@ ActiveRecord::Schema.define(version: 20180723024235) do
   create_table "notifications", force: :cascade do |t|
     t.integer  "recipient_id"
     t.integer  "notified_by_id"
-    t.integer  "track_id"
     t.integer  "review_id"
     t.integer  "comment_id"
     t.integer  "listing_id"
-    t.integer  "blog_id"
+    t.integer  "commentable_id"
     t.integer  "topics_id"
     t.integer  "conversation_id"
     t.integer  "message_id"
@@ -103,8 +103,10 @@ ActiveRecord::Schema.define(version: 20180723024235) do
     t.boolean  "read",              default: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.index ["blog_id"], name: "index_notifications_on_blog_id"
+    t.integer  "track_id"
+    t.string   "commentable_type"
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["commentable_id"], name: "index_notifications_on_commentable_id"
     t.index ["conversation_id"], name: "index_notifications_on_conversation_id"
     t.index ["listing_id"], name: "index_notifications_on_listing_id"
     t.index ["message_id"], name: "index_notifications_on_message_id"
@@ -112,7 +114,6 @@ ActiveRecord::Schema.define(version: 20180723024235) do
     t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
     t.index ["review_id"], name: "index_notifications_on_review_id"
     t.index ["topics_id"], name: "index_notifications_on_topics_id"
-    t.index ["track_id"], name: "index_notifications_on_track_id"
   end
 
   create_table "pseudonyms", force: :cascade do |t|

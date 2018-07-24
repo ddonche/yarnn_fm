@@ -4,10 +4,13 @@
 shipping information. Once your listing is live, you can link it to any of your tracks so people who like your tracks can know where to buy the 
 associated product. Ebooks, audio files, and videos are all typical products.</p><br>
 
+<div class="small" style="color: #fc0000;"><i>By adding listings to the marketplace, you agree to abide by copyright laws associated with the content
+you sell. Copyright violations may result in permanent removal of your account.</i></div><br>
+
 <%= form_for(@listing) do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited your listing from being saved:</h2>
 
       <ul>
       <% @listing.errors.full_messages.each do |message| %>

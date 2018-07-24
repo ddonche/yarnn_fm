@@ -1,6 +1,5 @@
 class Listing < ApplicationRecord
   belongs_to :user
-  #has_many :comments, as: :commentable
   belongs_to :track
   has_many :transactions
   has_many :reviews
@@ -10,9 +9,10 @@ class Listing < ApplicationRecord
   mount_uploader :image, ListimageUploader
   
   validates :filetype, presence: true
-  validates :image, file_size: { less_than: 1.megabytes }
+  validates :image, file_size: { less_than: 1.megabytes }, presence: true
+  validates :file, presence: true
   validates :tag_list, presence: true
-  validates :year, numericality: { only_integer: true }, :allow_nil => true
+  validates :year, numericality: { only_integer: true }, :allow_blank => true
   validates :isbn, format: { with: /\A[\d-]*\d[\d-]*\z/ }, :allow_blank => true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   

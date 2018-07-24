@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
       @topic = current_user.topics.build
     end
     if params[:tag]
-      @topics = Topic.tagged_with(params[:tag])
+      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
     else
       @topics = Topic.all.order('created_at DESC')
     end
@@ -27,11 +27,7 @@ class TopicsController < ApplicationController
 	  @commentable = @topic
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
-    if params[:tag]
-      @topics = Topic.tagged_with(params[:tag])
-    else
-      @topics = Topic.all.order('created_at DESC')
-    end
+    @topics = Topic.tagged_with(@tag).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
   end
 
   def new

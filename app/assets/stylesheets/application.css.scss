@@ -385,6 +385,21 @@ input[type=”file”] {
   width: 60%;
 }
 
+#error_explanation {
+  padding: 20px;
+  background-color: #e74337; /* Red */
+  color: white;
+  margin: 10px auto;
+  width: 100%;
+  ul {
+    margin: 0;
+    li {
+      margin-left: 2.5rem;
+      position: relative;
+    }
+  }
+}
+
 .notice {
   padding: 20px;
   background-color: #00b8ac; /* Red */
@@ -463,10 +478,9 @@ input[type=”file”] {
 }
 
 .ribbon_box {
-  width: 250px; height: 250px;
+  width: 285px; height: 285px;
   position: relative;
-  border: 1px solid #BBB;
-  background: #EEE;
+  background: #fff;
   margin: 0 auto;
 }
 .ribbon {
@@ -511,48 +525,4 @@ input[type=”file”] {
   border-right: 3px solid #007870;
   border-bottom: 3px solid transparent;
   border-top: 3px solid #007870;
-}
-
-.publisher_ribbon {
-  position: absolute;
-  left: -5px; top: -5px;
-  z-index: 1;
-  overflow: hidden;
-  width: 75px; height: 75px;
-  text-align: right;
-}
-.publisher_ribbon span {
-  font-size: 10px;
-  font-weight: bold;
-  color: #FFF;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 20px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  width: 100px;
-  display: block;
-  background: #79A70A;
-  background: linear-gradient(#DC2020 0%, #961616 100%);
-  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 19px; left: -21px;
-}
-.publisher_ribbon span::before {
-  content: "";
-  position: absolute; left: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid #961616;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #961616;
-}
-.publisher_ribbon span::after {
-  content: "";
-  position: absolute; right: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid transparent;
-  border-right: 3px solid #961616;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #961616;
 }

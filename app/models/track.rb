@@ -8,10 +8,10 @@ class Track < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
-  validates :audio, file_size: { less_than: 20.megabytes }
-  validates :image, file_size: { less_than: 1.megabytes }
+  validates :audio, file_size: { less_than: 20.megabytes }, presence: true
+  validates :image, file_size: { less_than: 1.megabytes }, presence: true
   validates :tag_list, presence: true
-  
+
   acts_as_taggable
   ActsAsTaggableOn.force_lowercase = true
   ActsAsTaggableOn.force_parameterize = true

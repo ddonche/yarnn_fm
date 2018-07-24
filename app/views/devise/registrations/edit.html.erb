@@ -67,6 +67,11 @@
           <%= f.text_field :bio, :autofocus => true %>
         </div>
         
+      	<div class="field">
+          <%= f.label "Website URL", class: "title" %><br />
+          <%= f.text_field :website, :autofocus => true %>
+        </div>
+        
         <div class="field">
           <%= f.label :image, class: "title"  %><br />
           <%=  f.file_field :image %>

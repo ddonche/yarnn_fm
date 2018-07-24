@@ -6,9 +6,17 @@
   			  <% if @user.publisher_type == "publisher" %>
   				  <h2>Authors</h2>
   					<p class="description"><%= pseudo.name %>
+  					<% if @user == current_user %>
+  					  <br>
+  					  <%= link_to "Add New Author", new_pseudonym_path %>
+  					<% end %>
   			  <% else %>
   				  <h2>Pseudonyms</h2>
   					<p class="description"><%= pseudo.name %>
+  					<% if @user == current_user %>
+  					  <br>
+  					  <%= link_to "Add New Pseudonym", new_pseudonym_path %>
+  					<% end %>
   				<% end %>
   			</li>
   		<% end %>

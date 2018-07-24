@@ -1,9 +1,12 @@
 <% @topics.each do |topic| %>
   <div class="topics_index">
-    <%= link_to topic.title, topic_path(topic) %><br />
-      <div class="topics_index_content"><%= truncate(topic.content, length: 92) %></div>
-      <%= link_to topic.user.username, user_path(topic.user_id) %> - 
-      <i><%= time_ago_in_words(topic.created_at) %> ago in <% topic.tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %></i>
+    <ul>
+      <li>
+        <%= link_to topic.title, topic_path(topic) %><br>
+        <div class="topics_index_content"><%= truncate(topic.content, length: 92) %></div>
+        <%= link_to topic.user.username, user_path(topic.user_id) %> - 
+        <i><%= time_ago_in_words(topic.created_at) %> ago </i>
+      </li>
+    </ul>
   </div>
 <% end %>
-  

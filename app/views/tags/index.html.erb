@@ -12,7 +12,7 @@
 					<li>
 						<div class="album_overview">
 							<h2><%= link_to tag.name, tag_path(tag.name) %> </h2>
-							<p class="track_count"><%= pluralize(tag.taggings_count, 'Item') %></p> 
+							<p class="track_count"><%= pluralize(tag.taggings_count, 'Total Item') %></p>
 						</div>
 					</li>
 			<% end %>

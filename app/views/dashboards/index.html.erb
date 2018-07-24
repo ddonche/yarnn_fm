@@ -11,22 +11,23 @@
     <%= render 'users/avatar' %>
     <% if @pseudonyms.any? %>
       <%= render 'users/pseudonyms' %>
-    <% end %>
-    <div class="side-box" style="margin-top: 0">
-      <div class="side-content">
-        <ul>
-    			<li>
-    			  <% if current_user.publisher_type == "publisher" %>
-    			    <h2>Authors</h2>
-    					<p class="description">You have not added any authors yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
-    			  <% else %>
-    				  <h2>Pseudonyms</h2>
-    					<p class="description">You have not added any pseudonyms yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
-    			  <% end %>
-    			</li>
-      	</ul>
+    <% else %>
+      <div class="side-box" style="margin-top: 0">
+        <div class="side-content">
+          <ul>
+      			<li>
+      			  <% if current_user.publisher_type == "publisher" %>
+      			    <h2>Authors</h2>
+      					<p class="description">You have not added any authors yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+      			  <% else %>
+      				  <h2>Pseudonyms</h2>
+      					<p class="description">You have not added any pseudonyms yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+      			  <% end %>
+      			</li>
+        	</ul>
+        </div>
       </div>
-    </div>
+    <% end %>
     <%= render 'users/followers' %>
     <%= render 'users/following' %>
   </div>

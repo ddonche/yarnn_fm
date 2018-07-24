@@ -70,54 +70,61 @@
   </script>
 </head>
 
-  <div id="album_show">
-  	<div id="banner" class="track_banner">
-  		<%= render 'layouts/header' %>
-  	</div>
-    <% if user_signed_in? %>
-      <%= render 'layouts/subheader' %>
-    <% end %>
-      <%= render 'shared/alert' %>
-  	<div id="breadcrumb">
-  		<%= link_to "genres", genres_path %> / <%= @genre %> / all content
-  	</div>
+<div id="album_show">
+	<div id="banner" class="track_banner">
+		<%= render 'layouts/header' %>
+	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
 	
-  	<div class="wrapper_skinny_left">
-      <div class="main_avatar">
+	<div id="breadcrumb">
+		<%= link_to "all genres", genres_path %> / <%= link_to "products", genre_path(@genre) %> / full <%= @genre %> portal
+	</div>
+  <%= render 'shared/alert' %>
+	
+  <div class="wrapper_skinny_left">
+    <div class="main_avatar">
 
-        <div class="side-box">
-          <div class="side-content">
-						<div class="album_overview">
-							<p class="track_count"><h2><%= request.path.split('/').last %></h2></p> 
-							<p class="track_count"><%= pluralize( @tag_count, 'Track' ) %></p> 
-							<p class="track_count"><%= pluralize( @topics_count, 'Discussion' ) %></p>
-						</div>
-          </div>
+      <div class="side-box">
+        <div class="side-content">
+					<div class="album_overview">
+						<p class="track_count"><h2><%= request.path.split('/').last %></h2></p> 
+						<p class="track_count"><%= pluralize( @tag_count, 'Track' ) %></p> 
+						<p class="track_count"><%= link_to pluralize( @listings_count, 'Products' ), genre_path(@genre) %></p>
+						<p class="track_count"><%= pluralize( @topics_count, 'Discussion' ) %></p>
+					</div>
         </div>
-        <div class="side-box">
-          <div class="side-content">
-            <% if user_signed_in?  %>
-              <h2>New Topic For This Genre</h2>
-              <%= render "topics/quick_form" %>
-            <% else %>
-              <p style="color: #DC2020"><i><b>You must be logged in to create new posts.</b></i></p>
-          	<% end %> 
-          </div>
+      </div>
+      
+      <div class="side-box">
+        <div class="side-content">
+          <h2>Latest Topics</h2>
+          <% if @topics.any? %>
+            <%= render 'topics' %>
+            <%= will_paginate @topics, previous_label: "Previous", next_label: "Next" %>
+          <% else %>
+            <p>There are no topics in this genre.</p>
+          <% end %>
         </div>
-        <div class="side-box">
-          <div class="side-content">
-            <% if @topics.any? %>
-              <%= render 'topics' %>
-            <% else %>
-              <p>There are no topics in this genre.</p>
-            <% end %>
-          </div>
+      </div>
+      
+      <div class="side-box">
+        <div class="side-content">
+          <% if user_signed_in?  %>
+            <h2>New Topic For This Genre</h2>
+            <%= render "topics/quick_form" %>
+          <% else %>
+            <p style="color: #DC2020"><i><b>You must be logged in to create new posts.</b></i></p>
+        	<% end %> 
         </div>
       </div>
     </div>
+  </div>
 
-  	<div id="tracks">
-  		<div class="wrapper_wide_right">
+  <% if @tracks.any? %>
+    <div id="tracks">
+  		<div class="wrapper_wide_right" style="margin: 0">
 		  
         <div id="hap-wrapper">
 
@@ -204,7 +211,7 @@
         </div>    
       </div>
       
-      <div class="wrapper_wide_right_right">
+      <div class="wrapper_wide_right_right" style="margin: 0">
       <div id="tracks">
 			<ul class="cf">
 				<% @tracks.each do |track| %>
@@ -239,7 +246,51 @@
 
 			<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
       </div>
-      </div>
-      
     </div>
+      
   </div>
+  <% end %>
+  <% if @listings.any? %>
+  <div class="wrapper_wide_right">
+    <div id="wrapped_listings" class="cf">
+  		<div class="wrapper">
+  		  <h2>Latest Products</h2><br>
+  			<ul class="cf">
+  				<% @listings.each do |listing| %>
+  						<li>
+  							<%= link_to listing do %>
+  								<%= image_tag listing.image.url(:thumb) %>
+  							<% end %>
+  							<div class="listing_overview">
+  							  <p class="listing_type"><%= listing.filetype %></p>
+  								<h2><%= link_to listing.title, listing_path(listing) %></h2>
+  								<div id="stars">
+  									<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
+  								</div>
+  								<% if listing.pseudo_id? %>
+  									<p class="listing_info"><%= link_to @pseudo.name, user_path(listing.user) %></p>
+  								<% else %>
+  									<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
+  								<% end %>
+  								<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
+  							</div>
+  						</li>
+  				<% end %>
+  			</ul>
+  	
+  			<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+  		</div>
+  	</div>
+  </div>
+  <% end %>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

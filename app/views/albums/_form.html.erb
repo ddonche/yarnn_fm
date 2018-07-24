@@ -36,6 +36,18 @@ might also make an album for a full-length novel, and upload select audio tracks
     <%= f.text_area :description, autofocus: true, cols: 88, rows: 4 %>
   </div>
   
+  <% if current_user.publisher_type == "publisher" %>
+  <div class="field">
+    <div class="tooltip" style="float:right">more info
+      <span class="tooltiptext">
+        If this album has an editor associated with it (such as with an anthology), add the editor's name here.
+      </span>
+    </div>
+    <%= f.label :editor, class: "title" %><br />
+    <%= f.text_field :editor, autofocus: true %>
+  </div>
+  <% end %>
+  
   <div class="field">
     <div class="tooltip" style="float:right">more info
       <span class="tooltiptext">

@@ -4,12 +4,12 @@
         <div class="ribbon"><span>PUBLISHER</span></div>
       <% end %>
         <% if @user.image? %>
-          <%= image_tag(@user.image.url, title: @user.username, width: 248) %>
+          <%= image_tag(@user.image.url, class: "image", title: @user.username) %>
         <% else %>
-          <%= image_tag('default_track.jpg', width: 248, title: @user.username) %>
+          <%= image_tag('default_track.jpg', class: "image", title: @user.username) %>
         <% end %>
     </div>
-    
+
     <%= render 'shared/stats' %>
     <%= render 'users/follow_form' if user_signed_in? %>
     <div class="invisible_box">

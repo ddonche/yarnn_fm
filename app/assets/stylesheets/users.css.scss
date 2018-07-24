@@ -30,8 +30,11 @@
 	margin: auto;
 	padding: 6% 3%;
 	.image {
-	  text-align: center;
+    background: #fff;
     padding: 2%;
+    border: 1px solid #d9d9d9;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
@@ -93,6 +96,25 @@
   }
 }
 
+.help-content {
+  margin: 2rem;
+  font-size: .75rem;
+  line-height: 1.25rem;
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .separator {
+    margin: 1rem 0;
+    border-bottom: 1px solid #d9d9d9;
+  }
+  li {
+    list-style-type: none;
+    margin-left: 2rem;
+    padding: 3px;
+  }
+}
+
 .invisible_box {
   width: 80%;
   margin: 1rem auto 0 auto;
@@ -102,6 +124,14 @@
   color: rgba(0,0,0,.84);
   line-height: 1.5rem;
   font-size: 16px;
+  a {
+    color: #DC2020;
+    font-weight: 700;
+    text-decoration: none;
+    &:hover {
+      color: #00b8ac;
+    }
+  }
 }
 
 #index-nav-container {

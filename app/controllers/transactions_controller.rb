@@ -33,10 +33,9 @@ class TransactionsController < ApplicationController
     @transaction.listing_id = @listing.id
     @transaction.seller_id = @seller.id
     
-    @pre_amount = @listing.price * 100
-    @amount = @pre_amount.to_i
-    @pre_seller_amount = @listing.price * 87 - 30
-    @seller_amount = @pre_seller_amount.to_i
+    @total_amount = (@listing.price * 100).to_i
+    @charged_fee = (@listing.price * 15 - 30).to_i
+
     charge_error = nil
   
     if @transaction.valid?
@@ -55,13 +54,11 @@ class TransactionsController < ApplicationController
         charge = Stripe::Charge.create(
             {
                 :customer => customer.id,
-                :amount      => @amount,
+                :amount      => @total_amount,
                 :description => @listing.title,
                 :currency => 'usd',
-                :destination => {
-                  :amount => @seller_amount,
-                  :account => @seller.uid 
-                }
+                :destination => @seller.uid,
+                :application_fee => @charged_fee
             },
         )
   
@@ -75,6 +72,9 @@ class TransactionsController < ApplicationController
         end
       else
         @transaction.save
+        Notification.create!(listing_id: @listing.id, 
+                                recipient_id: @listing.user_id, notified_by_id: current_user.id, 
+                                notification_type: "purchase")
         respond_to do |format|
           format.html { redirect_to purchases_path, notice: 'Transaction successful. You may now download this.' }
         end

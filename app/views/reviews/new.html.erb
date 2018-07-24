@@ -9,20 +9,18 @@
 
     <div class="form_wrapper_skinny">
       <div id="form">
+          <div class="side-content">
         <% if @listing.user == current_user %>
-          <div class="small" style="color: #fc0000;"><i><b>Sorry, you cannot review your own listings.</b></i></div><br>
+          <div class="small" style="color: #fc0000;"><i>Sorry, you cannot review your own listings.</i></div><br>
           <%= link_to "Go back", listing_path(@listing) %><br>
         <% elsif current_user.reviewed?(@listing) %>
-  				  <div class="small" style="color: #fc0000;"><i><b>You have already reviewed this listing.</b></i></div><br>
+  				  <div class="small" style="color: #fc0000;"><i>You have already reviewed this listing.</i></div><br>
             <%= link_to "Go back", listing_path(@listing) %><br>
+        <% elsif current_user.publisher_type == "publisher" %>
+  				  <div class="small" style="color: #fc0000;"><i>Publisher account types cannot leave reviews.</i></div><br>
+            <%= link_to "Go back", listing_path(@listing) %><br>
+          </div>
         <% else %>
-          <h2>Reviewing <%= @listing.title %></h2>
-          by 
-          <% if @listing.pseudo_id? %>
-  					<%= @pseudo.name %> 
-  				<% else %>
-  					<%= @listing.user.name %></p>
-  				<% end %>
           <%= render "form", review: @review %>
         <% end %>
       </div>

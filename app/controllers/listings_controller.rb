@@ -4,10 +4,14 @@ class ListingsController < ApplicationController
 
 	def index
 	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
+    @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+	end
+	
+	def genres
+	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
+	  @genre = request.path.split('/').last
     if params[:tag]
-      @listings = Listing.tagged_with(params[:tag])
-    else
-      @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+      @listings = Listing.tagged_with(params[:tag]).order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
     end
 	end
 

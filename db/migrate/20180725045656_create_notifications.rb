@@ -18,13 +18,5 @@ class CreateNotifications < ActiveRecord::Migration[5.0]
     end
     add_foreign_key :notifications, :users, column: :recipient_id
     add_foreign_key :notifications, :users, column: :notified_by_id
-    add_foreign_key :notifications, :tracks
-    add_foreign_key :notifications, :reviews
-    add_foreign_key :notifications, :blogs
-    add_foreign_key :notifications, :topics
-    add_foreign_key :notifications, :comments
-    add_foreign_key :notifications, :listings
-    add_foreign_key :notifications, :conversations
-    add_foreign_key :notifications, :messages
   end
 end

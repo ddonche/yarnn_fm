@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725045656) do
+ActiveRecord::Schema.define(version: 20180725050008) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20180725045656) do
     t.integer  "comment_id"
     t.integer  "listing_id"
     t.integer  "blog_id"
-    t.integer  "topics_id"
+    t.integer  "topic_id"
     t.integer  "conversation_id"
     t.integer  "message_id"
     t.integer  "notification_type"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20180725045656) do
     t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id"
     t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
     t.index ["review_id"], name: "index_notifications_on_review_id"
-    t.index ["topics_id"], name: "index_notifications_on_topics_id"
+    t.index ["topic_id"], name: "index_notifications_on_topic_id"
     t.index ["track_id"], name: "index_notifications_on_track_id"
   end
 

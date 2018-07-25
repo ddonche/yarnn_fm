@@ -1,6 +1,7 @@
 class Track < ApplicationRecord
   belongs_to :user
   belongs_to :album, optional: true
+  belongs_to :pseudonym, optional: true
   has_many :favorites
   has_many :comments, as: :commentable
   has_many :listings

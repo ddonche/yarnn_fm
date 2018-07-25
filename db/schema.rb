@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725051616) do
+ActiveRecord::Schema.define(version: 20180725221726) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -79,13 +79,14 @@ ActiveRecord::Schema.define(version: 20180725051616) do
     t.integer  "year"
     t.string   "language"
     t.string   "isbn"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.integer  "filetype"
     t.string   "file"
     t.string   "image"
-    t.integer  "pseudo_id"
+    t.integer  "pseudonym_id"
+    t.index ["pseudonym_id"], name: "index_listings_on_pseudonym_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

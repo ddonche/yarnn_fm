@@ -28,7 +28,7 @@ you sell. Copyright violations may result in permanent removal of your account.<
       </span>
     </div>
     <div class="title">Do you want to add a new pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %><br />
-    <%= f.collection_select(:pseudo_id, current_user.pseudonyms, :id, :name, prompt: 'Select a pseudonym if you want to use one. Ignore this to use your real name.') %><br />
+    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, prompt: 'Select a pseudonym if you want to use one. Ignore this to use your real name.') %><br />
   </div>
   
 	<div class="field">

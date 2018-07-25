@@ -3,12 +3,12 @@ class ListingsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
-    @listings = Listing.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+	  #puts "===Pseudonym ID requested = [#{params[:pseudo_id]}]"
+	  #@pseudo = Pseudonym.find(params[:pseudo_id])
+    @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 	
 	def genres
-	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
 	  @genre = request.path.split('/').last
     if params[:tag]
       @listings = Listing.tagged_with(params[:tag]).order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
@@ -16,9 +16,6 @@ class ListingsController < ApplicationController
 	end
 
 	def show
-	  if @listing.pseudo_id?
-	    @pseudo = Pseudonym.find(@listing.pseudo_id)
-	  end
     @reviews = @listing.reviews.order("created_at DESC")
     @user_review = Review.find_by(user_id: current_user.id, listing_id: @listing.id)
     @review = Review.new
@@ -100,7 +97,7 @@ class ListingsController < ApplicationController
 	end
 	
   def listing_params
-    params.require(:listing).permit(:title, :description, :user_id, :isbn, :filetype, :pseudo_id,
+    params.require(:listing).permit(:title, :description, :user_id, :isbn, :filetype, :pseudonym_id,
                                   :year, :price, :publisher, :language, :tag_list, :file, :image)
   end
 end

@@ -61,12 +61,13 @@
 								          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
 								        <% end %>
 												
-												<% if listing.pseudo_id? %>
-													<p class="listing_info" style="display:inline-block;"><%= link_to @pseudo.name, user_path(listing.user) %></p>
+												<% if listing.pseudonym_id? %>
+													<p class="listing_info" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
 												<% else %>
 													<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
 												<% end %>
-												<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
+												<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p>
+	
 											</div>
 										</li>
 								<% end %>

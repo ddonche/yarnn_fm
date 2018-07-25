@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
   belongs_to :track
+  belongs_to :pseudonym, optional: true
   has_many :transactions
   has_many :reviews
   enum filetype: { ebook: 0, audio: 1, video: 2 }

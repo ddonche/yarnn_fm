@@ -43,12 +43,25 @@
 }
 
 .wrapper-side-left {
-    width: 25%;
-    float: left;
-    padding: 1rem;
-    margin: 1rem auto;
-    background: #e9e9e9;
-    border: 1px solid #e1e1e1;
+  width: 25%;
+  float: left;
+  padding: 1rem;
+  margin: 1rem auto;
+  background: #e9e9e9;
+  border: 1px solid #e1e1e1;
+  li {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0 0 33px 0;
+  }
+  a {
+    color: #DC2020;
+    text-decoration: none;
+    font-style: normal;
+    &:hover {
+      color: #00b8ac;
+    }
+  }
 }
 
 .wrapper_wide_right {

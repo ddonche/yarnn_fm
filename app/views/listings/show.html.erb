@@ -9,8 +9,8 @@
 	<div id="breadcrumb">
 	  <%= link_to @listing.user.username, user_path(@listing.user) %>
 	    <span>/</span>
-	  <% if @listing.pseudo_id? %>
-	  	<%= @pseudo.name %>
+	  <% if @listing.pseudonym_id? %>
+	  	<%= @listing.pseudonym.name %>
 	  <% else %>
 	  	<%= @listing.user.name %>
 	  <% end %>
@@ -38,8 +38,8 @@
 						<%= "#{@reviews.length} reviews" %><br>
 						<p class="track_count">
 							<%= link_to @listing.user.username, user_path(@listing.user) %> /
-							<% if @listing.pseudo_id? %>
-								<%= @pseudo.name %> 
+							<% if @listing.pseudonym_id? %>
+								<%= @listing.pseudonym.name %> 
 							<% else %>
 								<%= @listing.user.name %></p>
 							<% end %>

@@ -7,7 +7,8 @@
   <% end %>
   
   <div id="breadcrumb">
-		<%= link_to "all genres", genres_path %> / <%= link_to "full genre portal", tag_path(@genre) %> / products
+		<%= link_to "all genres", genres_path %> / <%= link_to "full genre portal", tag_path(@genre) %> / 
+		<%= link_to "all products", listings_path %> / genre products
 	</div>
 	
   <%= render 'shared/alert' %>

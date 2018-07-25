@@ -6,34 +6,77 @@
     <%= render 'layouts/subheader' %>
   <% end %>
   <%= render 'shared/alert' %>
-
-	<div id="listings" class="cf">
-		<div class="wrapper">
-			<ul class="cf">
-				<% @listings.each do |listing| %>
-						<li>
-							<%= link_to listing do %>
-								<%= image_tag listing.image.url(:thumb) %>
-							<% end %>
-							<div class="listing_overview">
-							  <p class="listing_type"><%= listing.filetype %></p>
-								<h2><%= link_to listing.title, listing_path(listing) %></h2>
-								<div id="stars">
-									<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
-								</div>
-								<% if listing.pseudo_id? %>
-									<p class="listing_info"><%= link_to @pseudo.name, user_path(listing.user) %></p>
-								<% else %>
-									<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
+  
+		<div class="container">
+        <div class="wrapper-side-left">
+        	<h2>Genres</h2>
+        	<%= link_to "Action Adventure", genre_path("action-adventure") %><br />
+        	<%= link_to "Apocalypse", genre_path("apocalypse") %><br />
+        	<%= link_to "Crime", genre_path("crime") %><br />
+        	<%= link_to "Erotica", genre_path("erotica") %><br />
+        	<%= link_to "Fantasy", genre_path("fantasy") %><br />
+        	<%= link_to "Historical Fiction", genre_path("historical-fiction") %><br />
+        	<%= link_to "Horror", genre_path("horror") %><br />
+        	<%= link_to "International Thriller", genre_path("international-thriller") %><br />
+					<%= link_to "Literary Fiction", genre_path("literary-fiction") %><br />
+					<%= link_to "Military", genre_path("military") %><br />
+	        <%= link_to "Mystery", genre_path("mystery") %><br />
+	        <%= link_to "Nonfiction", genre_path("nonfiction") %><br />
+	        	&#8195;<%= link_to "Business", genre_path("business") %><br />
+	        	&#8195;<%= link_to "Inspirational", genre_path("inspirational") %><br />
+	        	&#8195;<%= link_to "Memoir", genre_path("memoir") %><br />
+	        	&#8195;<%= link_to "Self-help", genre_path("self-help") %><br />
+	        	&#8195;<%= link_to "True Crime", genre_path("true-crime") %><br />
+	        <%= link_to "Poetry", genre_path("poetry") %><br />
+	        <%= link_to "Romance", genre_path("romance") %><br />
+	        	&#8195;<%= link_to "Paranormal Romance", genre_path("paranormal-romance") %><br />
+	        <%= link_to "Science Fiction", genre_path("science-fiction") %><br />
+	        <%= link_to "Speculative Fiction", genre_path("speculative-fiction") %><br />
+	        <%= link_to "Thriller", genre_path("thriller") %><br />
+	        <%= link_to "Western", genre_path("western") %><br />
+	        <%= link_to "Young Adult", genre_path("young-adult") %>
+        </div>
+        
+        <div class="wrapper-med-right">
+					<div id="listings" class="cf">
+						<h2>Latest Products</h2>
+							<ul class="cf">
+								<% @listings.each do |listing| %>
+										<li>
+											<%= link_to listing do %>
+												<%= image_tag listing.image.url(:thumb), title: listing.title %>
+											<% end %>
+											
+											<div class="listing_overview">
+											  <p class="listing_type"><%= listing.filetype %></p>
+												<h2><%= link_to truncate(listing.title, length: 24), listing_path(listing) %></h2>
+												<div id="stars">
+													<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
+												</div>
+												<br>
+												
+												<% if listing.user.image? %>
+								          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
+								        <% else %>
+								          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
+								        <% end %>
+												
+												<% if listing.pseudo_id? %>
+													<p class="listing_info" style="display:inline-block;"><%= link_to @pseudo.name, user_path(listing.user) %></p>
+												<% else %>
+													<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
+												<% end %>
+												<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
+											</div>
+										</li>
 								<% end %>
-								<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
-							</div>
-						</li>
-				<% end %>
-			</ul>
-	
-			<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
-		</div>
+							</ul>
+							<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+					</div>
+
+        </div>
+        
+    </div>
 	</div>
 </div>
 

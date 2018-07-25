@@ -1,3 +1,9 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .wrapper_skinny_left {
   width: 27%;
   margin-left: 2rem;
@@ -11,6 +17,38 @@
   width: 27%;
   margin: 0 0 0 4rem;
   float: left;
+}
+
+.wrapper_sidebar_left {
+  width: 16%;
+  float: left;
+  background: #e9e9e9;
+  border: 1px solid #e1e1e1;
+}
+
+.wrapper_80_right {
+  width: 80%;
+  float: left;
+}
+
+.wrapper-med-right {
+    width: 70%;
+    float: right;
+    padding: 1rem;
+    margin: 1rem auto;
+    background: #e9e9e9;
+    border: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-side-left {
+    width: 25%;
+    float: left;
+    padding: 1rem;
+    margin: 1rem auto;
+    background: #e9e9e9;
+    border: 1px solid #e1e1e1;
 }
 
 .wrapper_wide_right {

@@ -9,7 +9,7 @@
 	<div id="breadcrumb">
 	  <%= link_to current_user.username, user_path(current_user) %>
 			<span>/</span>
-		Purchase History
+		Notifications
 	</div>
 	
   <%= render 'shared/alert' %>
@@ -20,120 +20,126 @@
     </div>
   <% end %>    
   
-  <div class="wrapper_wide">
-    <div class="side-box">
-      <div class="table">
-        
-      <% if @notifications.any? %>
-        <% @notifications.each do |notification| %>
-              <div class="table-row">
-                <div class="table-cell" style="width: 10%;">
-                  <%= image_tag User.find(notification.notified_by).image.url, width: 40 %>  
-                </div>
-                
-                <% if notification.notification_type == "comment" %>
-                  <div class="table-cell" style="width: 58%;">
-                    <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-                    commented on 
-                    <% if notification.commentable_type == "Blog" %>
-                      <%= link_to Blog.find(notification.commentable_id).title, blog_path(notification.commentable_id) %>
-                    <% elsif notification.commentable_type == "Track" %>
-                      <%= link_to Track.find(notification.commentable_id).title, track_path(notification.commentable_id) %>
-                    <% elsif notification.commentable_type == "Topic" %>
-                      <%= link_to Topic.find(notification.commentable_id).title, topic_path(notification.commentable_id) %>
-                    <% end %>
-                  </div>
-                  <div class="table-cell" style="width: 22%;">
-                    <div class="small">
-                      <%= time_ago_in_words(notification.created_at) %> ago
-                    </div>                  
-                  </div>
+    <div class="wrapper_wide">
+      <div class="side-box">
+        <div class="table">
+          
+          <% if @notifications.any? %>
+            <% @notifications.each do |notification| %>
+          <div class="table-row">
+            <div class="tiny-table-cell" style="width: 10%;">
+              <% if notification.notified_by.image? %>
+                <%= image_tag User.find(notification.notified_by).image.url,  width: 40, class: "image", title: notification.notified_by.username %>
+              <% else %>
+                <%= image_tag('default_track.jpg', width: 40, class: "image", title: notification.notified_by.username) %>
+              <% end %>
+            </div>
+            
+            <% if notification.notification_type == "comment" %>
+              <div class="tiny-table-cell" style="width: 58%;">
+                <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+                commented on 
+                <% if notification.commentable_type == "Blog" %>
+                  <%= link_to Blog.find(notification.commentable_id).title, blog_path(notification.commentable_id) %>
+                <% elsif notification.commentable_type == "Track" %>
+                  <%= link_to Track.find(notification.commentable_id).title, track_path(notification.commentable_id) %>
+                <% elsif notification.commentable_type == "Topic" %>
+                  <%= link_to Topic.find(notification.commentable_id).title, topic_path(notification.commentable_id) %>
                 <% end %>
-                
-                <% if notification.notification_type == "message" %>
-                  <div class="table-cell" style="width: 58%;">
-                    <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-                    sent you a private 
-                    <%= link_to 'message', conversation_path(notification.conversation_id) %> 
-                  </div>
-                  <div class="table-cell" style="width: 22%;">
-                    <div class="small">
-                      <%= time_ago_in_words(notification.created_at) %> ago
-                    </div>
-                  </div>
-                <% end %>
-                
-                <% if notification.notification_type == "follow" %>
-                  <div class="table-cell" style="width: 58%;">
-                    <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-                    started following you 
-                  </div>
-                  <div class="table-cell" style="width: 22%;">
-                    <div class="small">
-                      <%= time_ago_in_words(notification.created_at) %> ago
-                    </div>
-                  </div>
-                <% end %>
-                
-                <% if notification.notification_type == "unfollow" %>
-                  <div class="table-cell" style="width: 58%;">
-                    <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-                    quit following you 
-                  </div>
-                  <div class="table-cell" style="width: 22%;">
-                    <div class="small">
-                      <%= time_ago_in_words(notification.created_at) %> ago
-                    </div>
-                  </div>
-                <% end %>
-                
-                <% if notification.notification_type == "favorite" %>
-                  <div class="table-cell" style="width: 58%;">
-                    <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-                    added <%= link_to Track.find(notification.track_id).title, track_path(notification.track_id) %> to 
-                    their station
-                  </div>
-                  <div class="table-cell" style="width: 22%;">
-                    <div class="small">
-                      <%= time_ago_in_words(notification.created_at) %> ago
-                    </div>
-                  </div>
-                <% end %>
-                
-                <% if notification.notification_type == "review" %>
-                  <div class="table-cell" style="width: 58%;">
-                    <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-                    reviewed <%= link_to Listing.find(notification.listing_id).title, listing_path(notification.listing_id) %>
-                  </div>
-                  <div class="table-cell" style="width: 22%;">
-                    <div class="small">
-                      <%= time_ago_in_words(notification.created_at) %> ago
-                    </div>
-                  </div>
-                <% end %>
-                
-                <% if notification.notification_type == "purchase" %>
-                  <div class="table-cell" style="width: 58%;">
-                    <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-                    purchased <%= link_to Listing.find(notification.listing_id).title, listing_path(notification.listing_id) %>
-                  </div>
-                  <div class="table-cell" style="width: 22%;">
-                    <div class="small">
-                      <%= time_ago_in_words(notification.created_at) %> ago
-                    </div>
-                  </div>
-                <% end %>
-                
-                <div class="table-cell" style="width: 20%;">
-                  <div class="small">
-                    <%= link_to 'mark as read', toggle_read_notification_path(notification) %>
-                  </div>
-                </div>
-                
               </div>
-        <% end %>
-      <% else %>
-      You have no notifications.
-      <% end %>
+              <div class="tiny-table-cell" style="width: 22%;">
+                <div class="small">
+                  <%= time_ago_in_words(notification.created_at) %> ago
+                </div>                  
+              </div>
+            <% end %>
+            
+            <% if notification.notification_type == "message" %>
+              <div class="tiny-table-cell" style="width: 58%;">
+                <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+                sent you a private 
+                <%= link_to 'message', conversation_path(notification.conversation_id) %> 
+              </div>
+              <div class="tiny-table-cell" style="width: 22%;">
+                <div class="small">
+                  <%= time_ago_in_words(notification.created_at) %> ago
+                </div>
+              </div>
+            <% end %>
+            
+            <% if notification.notification_type == "follow" %>
+              <div class="tiny-table-cell" style="width: 58%;">
+                <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+                started following you 
+              </div>
+              <div class="tiny-table-cell" style="width: 22%;">
+                <div class="small">
+                  <%= time_ago_in_words(notification.created_at) %> ago
+                </div>
+              </div>
+            <% end %>
+            
+            <% if notification.notification_type == "unfollow" %>
+              <div class="tiny-table-cell" style="width: 58%;">
+                <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+                quit following you 
+              </div>
+              <div class="tiny-table-cell" style="width: 22%;">
+                <div class="small">
+                  <%= time_ago_in_words(notification.created_at) %> ago
+                </div>
+              </div>
+            <% end %>
+            
+            <% if notification.notification_type == "favorite" %>
+              <div class="tiny-table-cell" style="width: 58%;">
+                <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+                added <%= link_to Track.find(notification.track_id).title, track_path(notification.track_id) %> to 
+                their station
+              </div>
+              <div class="tiny-table-cell" style="width: 22%;">
+                <div class="small">
+                  <%= time_ago_in_words(notification.created_at) %> ago
+                </div>
+              </div>
+            <% end %>
+            
+            <% if notification.notification_type == "review" %>
+              <div class="tiny-table-cell" style="width: 58%;">
+                <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+                reviewed <%= link_to Listing.find(notification.listing_id).title, listing_path(notification.listing_id) %>
+              </div>
+              <div class="tiny-table-cell" style="width: 22%;">
+                <div class="small">
+                  <%= time_ago_in_words(notification.created_at) %> ago
+                </div>
+              </div>
+            <% end %>
+            
+            <% if notification.notification_type == "purchase" %>
+              <div class="tiny-table-cell" style="width: 58%;">
+                <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+                purchased <%= link_to Listing.find(notification.listing_id).title, listing_path(notification.listing_id) %>
+              </div>
+              <div class="tiny-table-cell" style="width: 22%;">
+                <div class="small">
+                  <%= time_ago_in_words(notification.created_at) %> ago
+                </div>
+              </div>
+            <% end %>
+            
+            <div class="tiny-table-cell" style="width: 20%;">
+              <div class="small">
+                <%= link_to 'mark as read', toggle_read_notification_path(notification) %>
+              </div>
+            </div>
+            
+          </div>
+          <% end %>
+          <% else %>
+          You have no notifications.
+          <% end %>
+        </div>
+      </div>
     </div>
 </div>

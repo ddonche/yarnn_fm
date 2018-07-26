@@ -6,9 +6,6 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
-    if @listing.pseudo_id?
-	    @pseudo = Pseudonym.find(@listing.pseudo_id)
-    end
   end
 
   # GET /reviews/1/edit

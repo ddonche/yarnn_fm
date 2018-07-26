@@ -9,37 +9,40 @@
   
 		<div class="container">
         <div class="wrapper-side-left">
-        	<h2>Genres</h2>
-        	<%= link_to "Action Adventure", genre_path("action-adventure") %><br />
-        	<%= link_to "Apocalypse", genre_path("apocalypse") %><br />
-        	<%= link_to "Crime", genre_path("crime") %><br />
-        	<%= link_to "Erotica", genre_path("erotica") %><br />
-        	<%= link_to "Fantasy", genre_path("fantasy") %><br />
-        	<%= link_to "Historical Fiction", genre_path("historical-fiction") %><br />
-        	<%= link_to "Horror", genre_path("horror") %><br />
-        	<%= link_to "International Thriller", genre_path("international-thriller") %><br />
-					<%= link_to "Literary Fiction", genre_path("literary-fiction") %><br />
-					<%= link_to "Military", genre_path("military") %><br />
-	        <%= link_to "Mystery", genre_path("mystery") %><br />
-	        <%= link_to "Nonfiction", genre_path("nonfiction") %><br />
-	        	&#8195;<%= link_to "Business", genre_path("business") %><br />
-	        	&#8195;<%= link_to "Inspirational", genre_path("inspirational") %><br />
-	        	&#8195;<%= link_to "Memoir", genre_path("memoir") %><br />
-	        	&#8195;<%= link_to "Self-help", genre_path("self-help") %><br />
-	        	&#8195;<%= link_to "True Crime", genre_path("true-crime") %><br />
-	        <%= link_to "Poetry", genre_path("poetry") %><br />
-	        <%= link_to "Romance", genre_path("romance") %><br />
-	        	&#8195;<%= link_to "Paranormal Romance", genre_path("paranormal-romance") %><br />
-	        <%= link_to "Science Fiction", genre_path("science-fiction") %><br />
-	        <%= link_to "Speculative Fiction", genre_path("speculative-fiction") %><br />
-	        <%= link_to "Thriller", genre_path("thriller") %><br />
-	        <%= link_to "Western", genre_path("western") %><br />
-	        <%= link_to "Young Adult", genre_path("young-adult") %>
+        	<h2 style="margin: 0 1rem .5rem 1rem">Genres</h2>
+        	<ul>
+	        	<li><%= link_to "Action Adventure", genre_path("action-adventure") %></li>
+	        	<li><%= link_to "Apocalypse", genre_path("apocalypse") %></li>
+	        	<li><%= link_to "Crime", genre_path("crime") %></li>
+	        	<li><%= link_to "Erotica", genre_path("erotica") %></li>
+	        	<li><%= link_to "Fantasy", genre_path("fantasy") %></li>
+	        	<li><%= link_to "Historical Fiction", genre_path("historical-fiction") %></li>
+	        	<li><%= link_to "Horror", genre_path("horror") %></li>
+	        	<li><%= link_to "International Thriller", genre_path("international-thriller") %></li>
+						<li><%= link_to "Literary Fiction", genre_path("literary-fiction") %></li>
+						<li><%= link_to "Military", genre_path("military") %></li>
+		        <li><%= link_to "Mystery", genre_path("mystery") %></li>
+		        <li><%= link_to "Nonfiction", genre_path("nonfiction") %></li>
+		        		<li style="margin-left: 2rem"><%= link_to "Business", genre_path("business") %></li>
+			        	<li style="margin-left: 2rem"><%= link_to "Inspirational", genre_path("inspirational") %></li>
+			        	<li style="margin-left: 2rem"><%= link_to "Memoir", genre_path("memoir") %></li>
+			        	<li style="margin-left: 2rem"><%= link_to "Self-help", genre_path("self-help") %></li>
+			          <li style="margin-left: 2rem"><%= link_to "True Crime", genre_path("true-crime") %></li>	
+		        <li><%= link_to "Poetry", genre_path("poetry") %></li>
+		        <li><%= link_to "Religion", genre_path("religion") %></li>
+		        <li><%= link_to "Romance", genre_path("romance") %></li>
+		        		<li style="margin-left: 2rem"><%= link_to "Paranormal Romance", genre_path("paranormal-romance") %></li>
+		        <li><%= link_to "Science Fiction", genre_path("science-fiction") %></li>
+		        <li><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></li>
+		        <li><%= link_to "Thriller", genre_path("thriller") %></li>
+		        <li><%= link_to "Western", genre_path("western") %></li>
+		        <li><%= link_to "Young Adult", genre_path("young-adult") %></li>
+	        </ul>
         </div>
         
         <div class="wrapper-med-right">
 					<div id="listings" class="cf">
-						<h2>Latest Products</h2>
+						<h2 style="margin: 0 1rem .5rem 1rem">Latest Products</h2>
 							<ul class="cf">
 								<% @listings.each do |listing| %>
 										<li>

@@ -1,6 +1,7 @@
 class Album < ActiveRecord::Base
   belongs_to :user
   has_many :tracks
+  belongs_to :pseudonym, optional: true
   
   validates :title, presence: true
   validates :description, presence: true

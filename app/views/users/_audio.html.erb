@@ -76,8 +76,8 @@
                             <div class="hap-playlist-item" data-type="audio" data-mp3="<%= track.audio.url %>" data-thumb="<%= track.image.url(:thumb) %>">
                                 <a class="hap-playlist-non-selected" href="#">
                                     <span class="hap-playlist-title"><%= track.user.username %> / 
-                                    <% if track.pseudo_id? %>
-                                      <%= @pseudo.name %>
+                                    <% if track.pseudonym_id? %>
+                                      <%= track.pseudonym.name %>
                                     <% else %>
                                       <%= track.user.name %> 
                                     <% end %> - <%= track.title %></span>
@@ -173,8 +173,8 @@
     						<% end %>
 							</h2>
 							<div class="icons">
-							<% if track.pseudo_id? %>
-								<i>As: </i><%= @pseudo.name %> / 
+							<% if track.pseudonym_id? %>
+								<i>As: </i><%= track.pseudonym.name %> / 
 							<% end %>
 							   <i>Voiced by:</i> <%= track.vocals %>
 							</div>

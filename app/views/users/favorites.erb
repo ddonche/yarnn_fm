@@ -113,7 +113,12 @@
                             <% @favorite_items.each do |item| %>
                             <div class="hap-playlist-item" data-type="audio" data-mp3="<%= item.audio.url %>" data-thumb="<%= item.image.url(:thumb) %>">
                                 <a class="hap-playlist-non-selected" href="#">
-                                    <span class="hap-playlist-title"><%= item.user.username %> / <%= item.user.name %> - <%= item.title %></span>
+                                    <span class="hap-playlist-title"><%= item.user.username %> / 
+                                    <% if item.pseudonym_id? %>
+                                    <%= item.pseudonym.name %> 
+                                    <% else %>
+                                    <%= item.user.name %> 
+                                    <% end %> - <%= item.title %></span>
                                 </a>
                             </div>
                             <% end %>
@@ -207,7 +212,13 @@
 									<% end %>
 								</h2>
     							<div class="icons">
-    							    <%= link_to item.user.username, user_path(item.user) %> / <%= item.user.name %> / <i>Voiced by:</i> <%= item.vocals %>
+    							  <%= link_to item.user.username, user_path(item.user) %> / 
+    							    <% if item.pseudonym_id? %>
+    							      <%= item.pseudonym.name %>
+    							    <% else %>
+    							      <%= item.user.name %>
+    							    <% end %>
+    							    / <i>Voiced by:</i> <%= item.vocals %>
     							</div>
     							<br /><br />
 								<p class="description"><%= truncate(item.description, length: 160) %></p><br />

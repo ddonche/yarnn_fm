@@ -11,9 +11,6 @@ class TracksController < ApplicationController
 	end
 
 	def show
-	  if @track.pseudo_id?
-	    @pseudo = Pseudonym.find(@track.pseudo_id)
-	  end
 	  @commentable = @track
 	  if @track.listing_id?
 	    @listing = Listing.find(@track.listing_id)
@@ -85,6 +82,6 @@ class TracksController < ApplicationController
   def track_params
     params.require(:track).permit(:title, :description, :user_id, :explicit,
                                   :image, :audio, :album_id, :vocals, :tag_list, 
-                                  :buy_url, :listing_id, :pseudo_id)
+                                  :buy_url, :listing_id, :pseudonym_id)
   end
 end

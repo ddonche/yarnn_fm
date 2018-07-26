@@ -251,11 +251,10 @@
   </div>
   <% end %>
   <% if @listings.any? %>
-  <div class="wrapper_wide_right">
-    <div id="wrapped_listings" class="cf">
-  		<div class="wrapper">
-  		  <h2>Latest Products</h2><br>
-  			<ul class="cf">
+  <div class="wrapper-med-right">
+		<div id="listings" class="cf">
+			<h2 style="margin: 0 1rem .5rem 1rem">Latest Products</h2>
+				<ul class="cf">
   				<% @listings.each do |listing| %>
   						<li>
   							<%= link_to listing do %>
@@ -267,12 +266,20 @@
   								<div id="stars">
   									<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
   								</div>
-  								<% if listing.pseudo_id? %>
-  									<p class="listing_info"><%= link_to @pseudo.name, user_path(listing.user) %></p>
-  								<% else %>
-  									<p class="listing_info"><%= link_to listing.user.name, user_path(listing.user) %></p>
-  								<% end %>
-  								<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p> 
+									<br>
+									
+									<% if listing.user.image? %>
+					          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
+					        <% else %>
+					          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
+					        <% end %>
+									
+									<% if listing.pseudonym_id? %>
+										<p class="listing_info" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
+									<% else %>
+										<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
+									<% end %>
+									<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p>
   							</div>
   						</li>
   				<% end %>

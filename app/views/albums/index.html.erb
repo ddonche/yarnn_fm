@@ -18,8 +18,8 @@
 							<div class="album_overview">
 								<h2><%= link_to album.title, album_path(album) %></h2> 
 								<p class="track_count">@<%= link_to album.user.username, user_path(album.user) %> | 
-								<% if album.pseudo_id? %>
-									<%= @pseudo.name %></p>
+								<% if album.pseudonym_id? %>
+									<%= album.pseudonym.name %></p>
 								<% else %>
 									<%= album.user.name %></p>
 								<% end %>

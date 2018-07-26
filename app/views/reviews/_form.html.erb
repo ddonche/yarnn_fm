@@ -1,6 +1,6 @@
 <h2>You Are Reviewing <span style="color: #00b8ac"><%= @listing.title %></span> by 
-  <% if @listing.pseudo_id? %>
-    <%= @pseudo.name %>
+  <% if @listing.pseudonym_id? %>
+    <%= @listing.pseudonym.name %>
   <% else %>
     <%= @listing.user.name %>
   <% end %>

@@ -6,11 +6,12 @@
     <%= render 'layouts/subheader' %>
   <% end %>
   <%= render 'shared/alert' %>
+	
 	<div id="breadcrumb">
 	  <%= link_to @track.user.username, user_path(@track.user) %>
 	    <span>/</span>
-	  <% if @track.pseudo_id? %>
-	  	<%= @pseudo.name %>
+	  <% if @track.pseudonym_id? %>
+	  	<%= @track.pseudonym.name %>
 	  <% else %>
 	  	<%= @track.user.name %>
 	  <% end %>
@@ -39,8 +40,8 @@
 						  <% end %>
 						<% end %></h2></p>
 						<p class="track_count"><%= link_to @track.user.username, user_path(@track.user) %> / 
-						<% if @track.pseudo_id? %>
-							<%= @pseudo.name %></p>
+						<% if @track.pseudonym_id? %>
+							<%= @track.pseudonym.name %></p>
 						<% else %>
 							<%= @track.user.name %></p>
 						<% end %>

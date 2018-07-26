@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725221726) do
+ActiveRecord::Schema.define(version: 20180726060613) do
 
   create_table "albums", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "image"
     t.string   "title"
     t.text     "description"
     t.integer  "year"
     t.string   "vocals"
     t.integer  "user_id"
-    t.integer  "pseudo_id"
     t.string   "editor"
+    t.integer  "pseudonym_id"
+    t.index ["pseudonym_id"], name: "index_albums_on_pseudonym_id"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
@@ -170,8 +171,8 @@ ActiveRecord::Schema.define(version: 20180725221726) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "image"
     t.string   "title"
     t.text     "description"
@@ -179,10 +180,11 @@ ActiveRecord::Schema.define(version: 20180725221726) do
     t.string   "vocals"
     t.integer  "user_id"
     t.string   "audio"
-    t.integer  "explicit",    default: 0
+    t.integer  "explicit",     default: 0
     t.string   "buy_url"
     t.integer  "listing_id"
-    t.integer  "pseudo_id"
+    t.integer  "pseudonym_id"
+    t.index ["pseudonym_id"], name: "index_tracks_on_pseudonym_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 

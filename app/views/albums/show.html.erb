@@ -82,8 +82,8 @@
   	<div id="breadcrumb">
   		<%= link_to @album.user.username, user_path(@album.user) %>
   			<span>/</span>
-  		<% if @album.pseudo_id? %>
-  		  <%= @pseudo.name %>
+  		<% if @album.pseudonym_id? %>
+  		  <%= @album.pseudonym.name %>
   		<% else %>
   		  <%= @album.user.name %>
   		<% end %>
@@ -108,8 +108,8 @@
 							  <% end %>
 							<% end %></h2></p>
 							<p class="track_count"><%= link_to @album.user.username, user_path(@album.user) %> / 
-							<% if @album.pseudo_id? %>
-							  <%= @pseudo.name %>
+							<% if @album.pseudonym_id? %>
+							  <%= @album.pseudonym.name %>
 							<% else %>
 							  <%= @album.user.name %></p>
 							<% end %>
@@ -141,8 +141,8 @@
                             <div class="hap-playlist-item" data-type="audio" data-mp3="<%= track.audio.url %>" data-thumb="<%= track.image.url(:thumb) %>">
                                 <a class="hap-playlist-non-selected" href="#">
                                     <span class="hap-playlist-title"><%= track.user.username %> / 
-                                    <% if track.pseudo_id? %>
-                                      <%= @pseudonym.name %>
+                                    <% if track.pseudonym_id? %>
+                                      <%= track.pseudonym.name %>
                                     <% else %>
                                       <%= track.user.name %> 
                                     <% end %> - <%= track.title %></span>
@@ -236,8 +236,8 @@
 						<div class="track_overview">
 							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %></h2>
 							<div class="icons">
-							<% if track.pseudo_id? %>
-							  <i>As:</i> <%= @pseudonym.name %> |
+							<% if track.pseudonym_id? %>
+							  <i>As:</i> <%= track.pseudonym.name %> |
 							<% else %>
 							  <i>As:</i> <%= track.user.name %> |
 							<% end %>

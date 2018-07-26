@@ -36,7 +36,7 @@ station, so make sure it's a good one!<br><br>
       </span>
     </div>
     <div class="title">Do you want to add a new pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %><br />
-    <%= f.collection_select(:pseudo_id, current_user.pseudonyms, :id, :name, prompt: 'Select pseudonym if you want. Ignore to use real name.') %><br />
+    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, prompt: 'Select pseudonym if you want. Ignore to use real name.') %><br />
   </div>
   
   <div class="field">

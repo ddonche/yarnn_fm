@@ -3,9 +3,7 @@ class ListingsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-	  #puts "===Pseudonym ID requested = [#{params[:pseudo_id]}]"
-	  #@pseudo = Pseudonym.find(params[:pseudo_id])
-    @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
 	end
 	
 	def genres

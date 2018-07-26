@@ -1,23 +1,27 @@
-<div id="banner" class="albums_banner">
-  <%= render 'layouts/header' %>
-</div>
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
   <% if user_signed_in? %>
     <%= render 'layouts/subheader' %>
   <% end %>
-<%= render 'shared/alert' %>
-<div id="albums" class="cf">
-	<div class="wrapper">
-		<ul class="cf">
-			<% @tags.each do |tag| %>
-					<li>
-						<div class="album_overview">
-							<h2><%= link_to tag.name, tag_path(tag.name) %> </h2>
-							<p class="track_count"><%= pluralize(tag.taggings_count, 'Total Item') %></p>
-						</div>
-					</li>
-			<% end %>
-		</ul>
+  <%= render 'shared/alert' %>
 
-		<%= will_paginate @tags, previous_label: "Previous", next_label: "Next" %>
+	<%= render 'shared/alert' %>
+	<div id="albums" class="cf">
+		<div class="wrapper">
+			<ul class="cf">
+				<% @tags.each do |tag| %>
+						<li>
+							<div class="album_overview">
+								<h2><%= link_to tag.name, tag_path(tag.name) %> </h2>
+								<p class="track_count"><%= pluralize(tag.taggings_count, 'Total Item') %></p>
+							</div>
+						</li>
+				<% end %>
+			</ul>
+	
+			<%= will_paginate @tags, previous_label: "Previous", next_label: "Next" %>
+		</div>
 	</div>
 </div>

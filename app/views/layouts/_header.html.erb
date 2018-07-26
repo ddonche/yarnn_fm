@@ -8,11 +8,15 @@
 				<% unless user_signed_in? %>
 					<li><%= link_to "Explore", albums_path %></li>
 					<li><%= link_to "Market", listings_path %></li>
+					<li><%= link_to "Genres", genres_path %></li>
+					<li><%= link_to "Blog", albums_path %></li>
 					<li><%= link_to "Login", new_user_session_path %></li>
 					<li><%= link_to "Register", new_user_registration_path %></li>
 				<% else %>
 					<li><%= link_to "Explore", albums_path %></li>
 					<li><%= link_to "Market", listings_path %></li>
+					<li><%= link_to "Genres", genres_path %></li>
+					<li><%= link_to "Blog", albums_path %></li>
 					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 				<% end %>
 			</ul>

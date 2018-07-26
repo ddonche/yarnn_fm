@@ -8,108 +8,158 @@
 	
   <%= render 'shared/alert' %>
 	
-  <div class="wrapper_skinny_left">
-    <div class="side-box" style="line-height: 1.5em;">
-      <div class="side-content">
-        <a href="#Overview">Overview</a><br />
-        <a href="#Accounts">Accounts</a><br />
-          &#8195;<a href="#Normal">Normal Accounts</a><br />
-          &#8195;<a href="#Publisher">Publisher Accounts</a><br />
-        <a href="#Genres">Genres</a><br />
-          &#8195;<a href="#Genre_Overview">Overview</a><br />
-        <a href="#Tracks">Tracks</a><br />
-          &#8195;<a href="#Tracks_Overview">Overview</a><br />
-          &#8195;<a href="#Audio">Audio Files</a><br />
-        <a href="#Selling">Selling in the Marketplace<br />
-          &#8195;<a href="#Copyright">Copyrights</a><br />
-          &#8195;<a href="#Files">File Uploads</a><br />
-          &#8195;<a href="#Services">Services</a><br />
-          &#8195;<a href="#Templates">Templates</a><br />
-          &#8195;<a href="#Stripe">Stripe</a><br />
-          &#8195;<a href="#Paid">Getting Paid</a><br />
-        <a href="#Pro">Pro Accounts</a><br />
+	<div class="container">
+      <div class="wrapper-side-left">
+        <ul>
+          <li><a href="#Overview">Overview</a></li>
+          <li><a href="#Accounts">Accounts</a></li>
+            <li style="margin-left: 2rem"><a href="#Normal">Normal Accounts</a></li>
+            <li style="margin-left: 2rem"><a href="#Publisher">Publisher Accounts</a></li>
+            <li style="margin-left: 2rem"><a href="#Verification">Verification</a></li>
+          <li><a href="#Genres">Genres</a></li>
+            <li style="margin-left: 2rem"><a href="#Portals">Portals</a></li>
+          <li><a href="#Tracks">Tracks</a></li>
+            <li style="margin-left: 2rem"><a href="#Albums">Albums</a></li>
+            <li style="margin-left: 2rem"><a href="#Audio">Audio Files</a></li>
+            <li style="margin-left: 2rem"><a href="#Linked_Products">Linked Products</a></li>
+          <li><a href="#Selling">Selling in the Marketplace</li>
+            <li style="margin-left: 2rem"><a href="#Copyright">Copyrights</a></li>
+            <li style="margin-left: 2rem"><a href="#Files">File Uploads</a></li>
+            <li style="margin-left: 2rem"><a href="#Services">Services</a></li>
+            <li style="margin-left: 2rem"><a href="#Templates">Templates</a></li>
+            <li style="margin-left: 2rem"><a href="#Stripe">Stripe</a></li>
+            <li style="margin-left: 2rem"><a href="#Paid">Getting Paid</a></li>
+          <li><a href="#Pro">Pro Accounts</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
   
-  <div class="wrapper_wide_right_right">
-    <div class="side-box">
-      <div class="help-content">
-        Welcome to the Yarnn.FM Help Center. Use this page to get better acquainted with the features and inner workings of the site.<br/>
-      <a id="Overview"></a><h2>Overview</h2>
-      <div class="separator"></div>
-      
-      <!---- Accounts Section ---->
-      <a id="Accounts"></a><h2>Accounts</h2>
-        There are two types of accounts, normal accounts and publisher accounts. There are small differences between the two; for most purposes, the normal
-        account is the most suitable. Continue reading for more detailed information regarding each type. 
-      
-      <ul>
-        <li>
-          <a id="Normal"></a><h2>Normal Accounts</h2>
-            For most uses, the normal account type is most appropriate. Think of this like your typical social media account. A normal account is like an individual 
-            account; even so, as an individual user, you'll be able to upload content under as many pseudonyms as you need, and this will allow you to manage all your 
-            content and pseudonyms from one account. You'll also be able to leave reviews, a feature which is unavailable to publisher accounts. 
-          <br /><div class="small"><a href="#Top">Back to Top</a></div>
-        </li>
-        <li>
-          <a id="Publisher"></a><h2>Publisher Accounts</h2>
-            A publisher account is just what it sounds like. This account type is most appropriate for accounts that need to manage content from multiple authors. This 
-            account type also differs slightly in the information displayed on the profile. For example, a publisher account can include an address, phone number, 
-            or other contact information. Publisher accounts cannot leave reviews. 
-          <br /><div class="small"><a href="#Top">Back to Top</a></div>   
-        </li>
-      </ul>
-      <div class="separator"></div>
-      
-      <!---- Marketplace Section ---->
-      <a id="Selling"></a><h2>Selling in the Marketplace</h2>
-        We want to help authors make a living with their creations. That's why we included a marketplace. Our store helps authors connect a digital 
-        product with the audio tracks so that users can buy the related material if they like the track. Any user can 
-        <%= link_to "sign up for a seller account", payout_method_path %> and start earning money today!
-      <ul>
-        <li>
-          <a id="Copyright"></a><h2>Copyrights</h2>
-            You must have legal authority to sell the products you upload to our marketplace (you hold the copyright or have permission). Copyright violations
-            may result in permanent suspension of your account. If you would like to make a claim (someone is using your copyrighted work without permission), 
-            submit a dispute using the dispute link on the product or track's listing page.
-          <br /><div class="small"><a href="#Top">Back to Top</a></div> 
-        </li>
-        <li>
-          <a id="Files"></a><h2>File Uploads</h2>
-            We currently only allow digital sales in our marketplace. We allow three types of virtual downloads: ebooks, audio files, and video files. 
-            This way you can sell ebooks (any format), full length audio books or other audio files, and videos (films, tutorials, etc.). Every file upload 
-            must be in zip format. 
-          <br /><div class="small"><a href="#Top">Back to Top</a></div> 
-        </li>
-        <li>
-          <a id="Services"></a><h2>Services</h2>
-            Another virtual product that can be sold in our marketplace is services related to publishing. This may include editing services, graphic 
-            design, interior formatting, proofreading, etc.  
-          <br /><div class="small"><a href="#Top">Back to Top</a></div> 
-        </li>
-        <li>
-          <a id="Templates"></a><h2>Templates</h2>
-            Lastly, you can sell templates for other users to purchase and use in their own projects. These include book covers, interior layouts, track and album covers,
-            etc.
-          <br /><div class="small"><a href="#Top">Back to Top</a></div> 
-        </li>
-        <li>
-          <a id="Stripe"></a><h2>Stripe</h2>
-            We use Stripe for all our transactions so that your information and your money is secure. Stripe makes it so none of your credit card or bank
-            information is stored on our site whatsoever. Stripe handles everything. 
-          <br /><div class="small"><a href="#Top">Back to Top</a></div> 
-        </li>
-        <li>
-          <a id="Paid"></a><h2>Getting Paid</h2>
-            We make it as easy as possible for you to sell your digital products in our marketplace. In addition, we believe the artist should get most 
-            of the proceeds. Unlike other sites, which might take the majority of a transaction, here you get 85%. In order to sell in our marketplace, 
-            you will need to be set up with a Stripe account. 
-          <br /><div class="small"><a href="#Top">Back to Top</a></div>      
-        </li>
-      
+      <div class="side-box" style="width: 75%">
+        <div class="help-content">
+          Welcome to the Yarnn.FM Help Center. Use this page to get better acquainted with the features and inner workings of the site.<br/>
+        <a id="Overview"></a><h2>Overview</h2>
+          Yarnn.FM's primary mission is to provide users with quality audio short stories and poems. We are here to help authors and poets 
+          <i><b>get heard</b></i>. Literally. And we also want to help artists make money, because they deserve to be paid for their creations, which is 
+          why we created our <%= link_to "marketplace", listings_path %> so authors could link and sell products to the tracks that form the backbone of the site. 
+          
+        <div class="separator"></div>
+        
+        <!---- Accounts Section ---->
+        <a id="Accounts"></a><h2>Accounts</h2>
+          There are two types of accounts, normal accounts and publisher accounts. There are small differences between the two; for most purposes, the normal
+          account is the most suitable. Continue reading for more detailed information regarding each type. 
+        
+        <ul>
+          <li>
+            <a id="Normal"></a><h2>Normal Accounts</h2>
+              For most uses, the normal account type is most appropriate. Think of this like your typical social media account. A normal account is like an individual 
+              account; even so, as an individual user, you'll be able to upload content under as many pseudonyms as you need, and this will allow you to manage all your 
+              content and pseudonyms from one account. You'll also be able to leave reviews, a feature which is unavailable to publisher accounts. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>
+          </li>
+          <li>
+            <a id="Publisher"></a><h2>Publisher Accounts</h2>
+              A publisher account is just what it sounds like. This account type is most appropriate for accounts that need to manage content from multiple authors. This 
+              account type also differs slightly in the information displayed on the profile. For example, a publisher account can include an address, phone number, 
+              or other contact information. Publisher accounts cannot leave reviews. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>   
+          </li>
+          <li>
+            <a id="Verification"></a><h2>Verification</h2>
+              We understand the sometimes people get impersonated online. We do not offer account verification at this time, but we are working on it.
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>   
+          </li>
+        </ul>
+        <div class="separator"></div>
+        
+        <!---- Genre Section ---->
+        <a id="Genres"></a><h2>Genres</h2>
+          Our genre system is set up so that creators can use any genre they like. You are not limited by a finite selection here. While our <%= link_to "marketplace", listings_path %>
+          has links to some of the most common genres, you are by no means limited to using only those genres listed. 
+        <ul>
+          <li>
+            <a id="Portals"></a><h2>Genre Portals</h2>
+              Every genre that gets used on the site has its own portal, which contains a playlist of every track in that genre, every product in that genre, 
+              and every topic within that genre. This is so you can find content easier. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>
+          </li>
+        </ul>
+        <div class="separator"></div>
+        
+        <!---- Tracks Section ---->
+        <a id="Tracks"></a><h2>Tracks</h2>
+          Audio tracks are the backbone of Yarnn.FM. Tracks are typically audio short stories, excepts, or poems. Each track also appears in the playlist for 
+          any associated genres. Each user also has an official station they can add tracks to simply by favoriting any track. 
+        <ul>
+          <li>
+            <a id="Albums"></a><h2>Albums</h2>
+              Users can create albums of multiple related tracks, which can be anthologies, excepts from the same larger work, or anything really. Each album 
+              will have its own playlist of the tracks that are associated with it. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>
+          </li>
+          <li>
+            <a id="Audio"></a><h2>Audio Files</h2>
+              Uploaded tracks must be in mp3 format. Audio files should be high quality, without background noise, and have clear, crisp voice recordings. Music
+              files should not be uploaded. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>
+          </li>
+          <li>
+            <a id="Linked_Products"></a><h2>Linked Products</h2>
+              Content creators can link related products to each audio track so that listeners can purchase the product if they like the audio track. An example might 
+              be an excerpt of a story that links to the full ebook. If it's a downloadable product, it can be hosted in our <%= link_to "marketplace", listings_path %>. 
+              In addition to this, each track is also allowed one link to an external product. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>
+          </li>
+        </ul>
+        <div class="separator"></div>
+        
+        <!---- Marketplace Section ---->
+        <a id="Selling"></a><h2>Selling in the Marketplace</h2>
+          We want to help authors make a living with their creations. That's why we included a marketplace. Our store helps authors connect a digital 
+          product with the audio tracks so that users can buy the related material if they like the track. Any user can 
+          <%= link_to "sign up for a seller account", payout_method_path %> and start earning money today!
+        <ul>
+          <li>
+            <a id="Copyright"></a><h2>Copyrights</h2>
+              You must have legal authority to sell the products you upload to our marketplace (you hold the copyright or have permission). Copyright violations
+              may result in permanent suspension of your account. If you would like to make a claim (someone is using your copyrighted work without permission), 
+              submit a dispute using the dispute link on the product or track's listing page.
+            <br /><div class="small"><a href="#Top">Back to Top</a></div> 
+          </li>
+          <li>
+            <a id="Files"></a><h2>File Uploads</h2>
+              We currently only allow digital sales in our marketplace. We allow three types of virtual downloads: ebooks, audio files, and video files. 
+              This way you can sell ebooks (any format), full length audio books or other audio files, and videos (films, tutorials, etc.). Every file upload 
+              must be in zip format. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div> 
+          </li>
+          <li>
+            <a id="Services"></a><h2>Services</h2>
+              Another virtual product that can be sold in our marketplace is services related to publishing. This may include editing services, graphic 
+              design, interior formatting, proofreading, etc.  
+            <br /><div class="small"><a href="#Top">Back to Top</a></div> 
+          </li>
+          <li>
+            <a id="Templates"></a><h2>Templates</h2>
+              Lastly, you can sell templates for other users to purchase and use in their own projects. These include book covers, interior layouts, track and album covers,
+              etc.
+            <br /><div class="small"><a href="#Top">Back to Top</a></div> 
+          </li>
+          <li>
+            <a id="Stripe"></a><h2>Stripe</h2>
+              We use Stripe for all our transactions so that your information and your money is secure. Stripe makes it so none of your credit card or bank
+              information is stored on our site whatsoever. Stripe handles everything. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div> 
+          </li>
+          <li>
+            <a id="Paid"></a><h2>Getting Paid</h2>
+              We make it as easy as possible for you to sell your digital products in our marketplace. In addition, we believe the artist should get most 
+              of the proceeds. Unlike other sites, which might take the majority of a transaction, here you get 85%. In order to sell in our marketplace, 
+              you will need to be set up with a Stripe account. 
+            <br /><div class="small"><a href="#Top">Back to Top</a></div>      
+          </li>
+        
+        </div>
       </div>
-    </div>
+
   </div>
-  
 </div>

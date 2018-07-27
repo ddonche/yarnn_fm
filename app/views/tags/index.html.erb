@@ -6,8 +6,11 @@
     <%= render 'layouts/subheader' %>
   <% end %>
   <%= render 'shared/alert' %>
-
-	<%= render 'shared/alert' %>
+  
+	<h2 style="text-align:center; margin-top: 1rem;">Explore Genres</h2>
+	<%= render 'shared/genres' %>
+	
+	<h2 style="text-align:center">Most Active Genres</h2>
 	<div id="albums" class="cf">
 		<div class="wrapper">
 			<ul class="cf">
@@ -24,4 +27,5 @@
 			<%= will_paginate @tags, previous_label: "Previous", next_label: "Next" %>
 		</div>
 	</div>
+	
 </div>

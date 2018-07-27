@@ -20,9 +20,6 @@ class TransactionsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
     @price = @listing.price * 100
-    if @listing.pseudo_id?
-	    @pseudo = Pseudonym.find(@listing.pseudo_id)
-    end
   end
 
   def create

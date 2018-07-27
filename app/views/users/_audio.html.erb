@@ -1,204 +1,128 @@
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title><%= @user.username %></title>
-     
-  <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"><!-- icons -->
-  <%= stylesheet_link_tag    'player/jquery.mCustomScrollbar.css', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'player/artwork5.css"', media: 'all', 'data-turbolinks-track' => true %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+<title>Audio Player Example</title>
 
-  <%= javascript_include_tag 'player/jquery-3.2.1.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery.easing.1.3.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery-ui.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery.ui.touch-punch.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery.mCustomScrollbar.concat.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jsmediatags.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/hls.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/new.js', 'data-turbolinks-track': 'reload' %>
-    
-  <script type="text/javascript">
-      var hap_player;  
 
-      jQuery( document ).on('turbolinks:load', function() {
-          
-          var settings = {
-              instanceName:"artwork5",
-              sourcePath:"",
-              activePlaylist:"",
-              activeItem:0,
-              volume:0.5,
-              autoPlay:false,
-              preload:"auto",
-              randomPlay:true,
-              loopingOn:true,
-              mediaEndAction:"next",
-              soundCloudAppId:"",
-              gDriveAppId:"",
-              usePlaylistScroll:true,
-              playlistScrollOrientation:"vertical",
-              playlistScrollTheme:"dark-2",
-              useKeyboardNavigationForPlayback:false,
-              facebookAppId:"644413448983338",
-              useNumbersInPlaylist: true,
-              sortableTracks: false,
-              playlistItemContent:"title"
-          };
-          hap_player = $("#hap-wrapper").hap(settings);
-          $('.hap-playlist-toggle').on('click', function(){
-              var playerHolder = $('.hap-player-holder'),
-                  ease = 'easeInOutCubic',
-                  time = 500,
-                  openValue = $("#hap-wrapper").width() - 50;
-              if(!hap_player.playlistOpened){
-                  playerHolder.stop().animate({'left': openValue+'px'},{duration: time, easing: ease, complete:function(){
-                          playerHolder.addClass('hap-player-holder-opened');
-                      }
-                  });
-              }else{
-                  playerHolder.css('left', playerHolder.css('left')).removeClass('hap-player-holder-opened').stop().animate({'left': 0+'px'},{duration: time, easing: ease});
-              }   
-              hap_player.playlistOpened = !hap_player.playlistOpened;
-          })
-      });
-  </script>
+<!-- must have -->
+<%= stylesheet_link_tag    'player/audio7_html5.css', media: 'all', 'data-turbolinks-track' => true %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<%= javascript_include_tag 'player/jquery.mousewheel.min.js', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'player/jquery.touchSwipe.min.js', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'player/audio7_html5.js', 'data-turbolinks-track': 'reload' %>
+<!-- must have -->
+
+<script>
+	jQuery(function() {
+		jQuery("#lbg_audio7_html5_1").audio7_html5({
+			skin:"blackControllers",
+			initialVolume:0.6,
+			autoPlay:false,
+			loop:true,
+			shuffle:false,
+			sticky:true,
+			playerBg:"#98b9b7",
+			bufferEmptyColor:"#929292",
+			bufferFullColor:"#0c6a64",
+			seekbarColor:"#FFFFFF",
+			volumeOffColor:"#246f69",
+			volumeOnColor:"#FFFFFF",
+			timerColor:"#333333",
+			songTitleColor:"#dc2020",
+			songAuthorColor:"#333333",
+			googleTrakingOn:false,
+			googleTrakingCode:"",
+			showVinylRecord:false,
+			showRewindBut:true,
+			showNextPrevBut:true,
+			showShuffleBut:true,
+			showDownloadBut:false,
+			showBuyBut:true,
+			showLyricsBut:false,
+			buyButTitle:"Buy Now",
+			lyricsButTitle:"Lyrics",
+			buyButTarget:"_blank",
+			lyricsButTarget:"_blank",
+			showFacebookBut:false,
+			facebookAppID:"",
+			facebookShareTitle:"Apollo - HTML5 Audio Player",
+			facebookShareDescription:"A top-notch sticky full width HTML5 Audio Player compatible with all major browsers and mobile devices.",
+			showTwitterBut:false,
+			showPopupBut:true,
+			showAuthor:true,
+			showTitle:true,
+			showPlaylistBut:true,
+			showPlaylist:true,
+			showPlaylistOnInit:false,
+			playlistTopPos:0,
+			playlistBgColor:"#c6d2d0",
+			playlistRecordBgOffColor:"#0c6a64",
+			playlistRecordBgOnColor:"#222222",
+			playlistRecordBottomBorderOffColor:"#aacbd1",
+			playlistRecordBottomBorderOnColor:"#c4d1aa",
+			playlistRecordTextOffColor:"#cccccc",
+			playlistRecordTextOnColor:"#ffffff",
+			categoryRecordBgOffColor:"#191919",
+			categoryRecordBgOnColor:"#f12233",
+			categoryRecordBottomBorderOffColor:"#2f2f2f",
+			categoryRecordBottomBorderOnColor:"#2f2f2f",
+			categoryRecordTextOffColor:"#4c4c4c",
+			categoryRecordTextOnColor:"#ffffff",
+			numberOfThumbsPerScreen:5,
+			playlistPadding:15,
+			showCategories:false,
+			firstCateg:"",
+			selectedCategBg:"#dedede",
+			selectedCategOffColor:"#333333",
+			selectedCategOnColor:"#f12233",
+			selectedCategMarginBottom:12,
+			showSearchArea:true,
+			searchAreaBg:"#dedede",
+			searchInputText:"search...",
+			searchInputBg:"#68a29e",
+			searchInputBorderColor:"#dedede",
+			searchInputTextColor:"#cccccc",
+			searchAuthor:true,
+			continuouslyPlayOnAllPages:false,
+			showPlaylistNumber:true,
+			pathToDownloadFile:"",
+			popupWidth:1100,
+			popupHeight:500,
+			barsColor:"#ffffff"
+		});
+	});
+</script>
+
 </head>
 
-<body>
-	<div id="tracks">
-		<% if @tracks.any? %>
-  		<div class="wrapper_wide_right_right">
-        <div id="hap-wrapper">
-            <div class="hap-player-outer">
-
-                <div class="hap-playlist-holder">
-                    <div class="hap-playlist-inner">
-                        <div class="hap-playlist-content">
-                            <% @tracks.each do |track| %>
-                            <div class="hap-playlist-item" data-type="audio" data-mp3="<%= track.audio.url %>" data-thumb="<%= track.image.url(:thumb) %>">
-                                <a class="hap-playlist-non-selected" href="#">
-                                    <span class="hap-playlist-title"><%= track.user.username %> / 
-                                    <% if track.pseudonym_id? %>
-                                      <%= track.pseudonym.name %>
-                                    <% else %>
-                                      <%= track.user.name %> 
-                                    <% end %> - <%= track.title %></span>
-                                </a>
-                            </div>
-                            <% end %>
-                            
-                        </div>
-                    </div>
-                </div>
-             
-                <div class="hap-player-holder">
-                 
-                    <div class="hap-player-thumb-wrapper">
-                        <div class="hap-player-thumb"></div>
-
-                        <div class="hap-preloader"></div>
-
-                        <div class="hap-playlist-toggle hap-contr-btn" data-tooltip="Playlist"><i class="fas fa-th-list hap-icon-color"></i></div>
-
-                        <div class="hap-share-holder">
-                            <div class="hap-share-item" data-type="tumblr" data-tooltip="tumblr"><i class="fab fa-tumblr-square hap-icon-color"></i></div>
-                            <div class="hap-share-item" data-type="twitter" data-tooltip="twitter"><i class="fab fa-twitter-square hap-icon-color"></i></div>
-                            <div class="hap-share-item" data-type="facebook" data-tooltip="facebook"><i class="fab fa-facebook-square hap-icon-color"></i></div>
-                            <div class="hap-share-item" data-type="googleplus" data-tooltip="googleplus"><i class="fab fa-google-plus-square hap-icon-color"></i></div>
-                        </div>
-                        <div class="hap-share-toggle hap-contr-btn" data-tooltip="Share"><i class="fas fa-share-square hap-icon-color"></i></div>
-                       
-                    </div>
-
-                    <div class="hap-player-right">
-
-                        <div class="hap-seekbar">
-                            <div class="hap-progress-bg"></div>
-                            <div class="hap-load-level"></div>
-                            <div class="hap-progress-level"></div>
-                        </div> 
-
-                        <p class="hap-media-time-total">0:00</p>
-                        <p class="hap-media-time-current">0:00</p>
-
-                        <div class="hap-center-elements">
-
-                            <div class="hap-info">
-                                <p class="hap-player-title"></p>
-                                <p class="hap-player-artist"></p>
-                            </div>
-
-                            <div class="hap-controls">
-
-                                <div class="hap-prev-toggle hap-contr-btn"><i class="fas fa-backward hap-icon-color"></i></div>
-                                <div class="hap-playback-toggle hap-contr-btn"><i class="fas fa-play hap-icon-color"></i></div>
-                                <div class="hap-next-toggle hap-contr-btn"><i class="fas fa-forward hap-icon-color"></i></div>
-
-                            </div>    
-
-                            <div class="hap-volume-seekbar">
-                                 <div class="hap-volume-bg"></div>
-                                 <div class="hap-volume-level"><div class="hap-volume-drag"></div></div>
-                            </div>
-
-                        </div>    
-
-                        <div class="hap-random-toggle hap-contr-btn" data-tooltip="Shuffle"><i class="fas fa-random hap-icon-color"></i></div>
-                        <div class="hap-loop-toggle hap-contr-btn" data-tooltip="Loop"><i class="fas fa-sync-alt hap-icon-color"></i></div>
-
-                    </div>
-                      
-                </div>
-
-            </div> 
-
-          <div class="hap-tooltip"><p></p></div>  
-
-        </div>    
-      </div>
-      
-      <div class="wrapper_wide_right_right">
-			<ul class="cf">
-				<% @tracks.each do |track| %>
-					<li class="cf">
-						<div class="track_thumbnail">
-							<% if track.image? %>
-								<%= link_to image_tag(track.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
-							<% else %>
-								<%= link_to image_tag(track.user.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
-							<% end %>
-						</div>
-						<div class="track_overview">
-							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %>
-    						<% if track.album_id? %>
-    							/ <%= link_to track.album.title, album_path(track.album_id) %>
-    						<% end %>
-							</h2>
-							<div class="icons">
-							<% if track.pseudonym_id? %>
-								<i>As: </i><%= track.pseudonym.name %> / 
-							<% end %>
-							   <i>Voiced by:</i> <%= track.vocals %>
-							</div>
-							<br /><br />
-							<p class="description"><%= truncate(track.description, length: 160) %></p><br />
-							<div class="icons_container">
-							  <div id="favorites">
-							    <%= render 'albums/favorites', :track => track %>
-							  </div>
-						    </div>
-						</div>
-					</li>
-				<% end %>
-			</ul>
-
-			<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
-      </div>
-    <% else %>
-      <div class="wrapper_wide_right_right">
-        <div class="side-box">
-          <div class="side-content">
-            <p>This user has not uploaded any tracks yet.</p>
+<body bgcolor="#999999">
+	    <div class="audio7_html5">
+        	<audio id="lbg_audio7_html5_1" preload="metadata">
+        	<div class="xaudioplaylist">
+        	  <% @tracks.each do |track| %>
+			      <ul>
+              <li class="xtitle"><%= link_to track.title, track_path(track) %></li>
+              <li class="xauthor">Author Vivamus</li>
+              <li class="ximage"><%= track.image.url(:thumb) %></li>
+              <li class="xbuy"><% if track.listing_id? %>
+                                  <%= listing_path(track.listing_id) %>
+                                <% else %>
+                                  <%= listings_path %>
+                                <% end %></li>
+              <li class="xlyrics">https://codecanyon.net/item/html5-radio-players-wordpress-plugins-bundle/19939049?ref=LambertGroup</li>
+              <li class="xcategory">ALL CATEGORIES;Classic;Jazz</li>
+              <li class="xsources_mp3"><%= track.audio.url %></li>
+              <li class="xsources_ogg"><%= track.audio.url %></li>
+            </ul>
+            <% end %>
           </div>
-         </div>
-      </div>
-  <% end %>
+            No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
+            </audio>
+        </div>
+        <br style="clear:both;">
 </body>
+</html>

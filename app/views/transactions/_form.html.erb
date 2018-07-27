@@ -19,8 +19,8 @@
       <div id="new_transaction">
         
         <h2><span style="color: #00b8ac"><%= link_to @listing.title, listing_path(@listing), style: "float:left" %></span>&nbsp;by 
-          <% if @listing.pseudo_id? %>
-            <%= @pseudo.name %>
+          <% if @listing.pseudonym_id? %>
+            <%= @listing.pseudonym.name %>
           <% else %>
             <%= @listing.user.name %>
           <% end %>

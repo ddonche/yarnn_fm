@@ -23,4 +23,8 @@ Rails.application.config.assets.precompile += %w( player/jquery.mCustomScrollbar
 Rails.application.config.assets.precompile += %w( player/jsmediatags.min.js )
 Rails.application.config.assets.precompile += %w( player/hls.min.js )
 Rails.application.config.assets.precompile += %w( player/new.js )
+Rails.application.config.assets.precompile += %w( player/jquery.mousewheel.min.js )
+Rails.application.config.assets.precompile += %w( player/jquery.touchSwipe.min.js )
+Rails.application.config.assets.precompile += %w( player/audio7_html5.js )
+Rails.application.config.assets.precompile += %w( player/audio7_html5.css )
 

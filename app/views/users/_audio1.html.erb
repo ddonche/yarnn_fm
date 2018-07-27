@@ -1,0 +1,204 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><%= @user.username %></title>
+     
+  <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"><!-- icons -->
+  <%= stylesheet_link_tag    'player/jquery.mCustomScrollbar.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'player/artwork5.css"', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'player/jquery-3.2.1.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery.easing.1.3.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery-ui.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery.ui.touch-punch.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jquery.mCustomScrollbar.concat.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/jsmediatags.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/hls.min.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'player/new.js', 'data-turbolinks-track': 'reload' %>
+    
+  <script type="text/javascript">
+      var hap_player;  
+
+      jQuery( document ).on('turbolinks:load', function() {
+          
+          var settings = {
+              instanceName:"artwork5",
+              sourcePath:"",
+              activePlaylist:"",
+              activeItem:0,
+              volume:0.5,
+              autoPlay:false,
+              preload:"auto",
+              randomPlay:true,
+              loopingOn:true,
+              mediaEndAction:"next",
+              soundCloudAppId:"",
+              gDriveAppId:"",
+              usePlaylistScroll:true,
+              playlistScrollOrientation:"vertical",
+              playlistScrollTheme:"dark-2",
+              useKeyboardNavigationForPlayback:false,
+              facebookAppId:"644413448983338",
+              useNumbersInPlaylist: true,
+              sortableTracks: false,
+              playlistItemContent:"title"
+          };
+          hap_player = $("#hap-wrapper").hap(settings);
+          $('.hap-playlist-toggle').on('click', function(){
+              var playerHolder = $('.hap-player-holder'),
+                  ease = 'easeInOutCubic',
+                  time = 500,
+                  openValue = $("#hap-wrapper").width() - 50;
+              if(!hap_player.playlistOpened){
+                  playerHolder.stop().animate({'left': openValue+'px'},{duration: time, easing: ease, complete:function(){
+                          playerHolder.addClass('hap-player-holder-opened');
+                      }
+                  });
+              }else{
+                  playerHolder.css('left', playerHolder.css('left')).removeClass('hap-player-holder-opened').stop().animate({'left': 0+'px'},{duration: time, easing: ease});
+              }   
+              hap_player.playlistOpened = !hap_player.playlistOpened;
+          })
+      });
+  </script>
+</head>
+
+<body>
+	<div id="tracks">
+		<% if @tracks.any? %>
+  		<div class="wrapper_wide_right_right">
+        <div id="hap-wrapper">
+            <div class="hap-player-outer">
+
+                <div class="hap-playlist-holder">
+                    <div class="hap-playlist-inner">
+                        <div class="hap-playlist-content">
+                            <% @tracks.each do |track| %>
+                            <div class="hap-playlist-item" data-type="audio" data-mp3="<%= track.audio.url %>" data-thumb="<%= track.image.url(:thumb) %>">
+                                <a class="hap-playlist-non-selected" href="#">
+                                    <span class="hap-playlist-title"><%= track.user.username %> / 
+                                    <% if track.pseudonym_id? %>
+                                      <%= track.pseudonym.name %>
+                                    <% else %>
+                                      <%= track.user.name %> 
+                                    <% end %> - <%= track.title %></span>
+                                </a>
+                            </div>
+                            <% end %>
+                            
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="hap-player-holder">
+                 
+                    <div class="hap-player-thumb-wrapper">
+                        <div class="hap-player-thumb"></div>
+
+                        <div class="hap-preloader"></div>
+
+                        <div class="hap-playlist-toggle hap-contr-btn" data-tooltip="Playlist"><i class="fas fa-th-list hap-icon-color"></i></div>
+
+                        <div class="hap-share-holder">
+                            <div class="hap-share-item" data-type="tumblr" data-tooltip="tumblr"><i class="fab fa-tumblr-square hap-icon-color"></i></div>
+                            <div class="hap-share-item" data-type="twitter" data-tooltip="twitter"><i class="fab fa-twitter-square hap-icon-color"></i></div>
+                            <div class="hap-share-item" data-type="facebook" data-tooltip="facebook"><i class="fab fa-facebook-square hap-icon-color"></i></div>
+                            <div class="hap-share-item" data-type="googleplus" data-tooltip="googleplus"><i class="fab fa-google-plus-square hap-icon-color"></i></div>
+                        </div>
+                        <div class="hap-share-toggle hap-contr-btn" data-tooltip="Share"><i class="fas fa-share-square hap-icon-color"></i></div>
+                       
+                    </div>
+
+                    <div class="hap-player-right">
+
+                        <div class="hap-seekbar">
+                            <div class="hap-progress-bg"></div>
+                            <div class="hap-load-level"></div>
+                            <div class="hap-progress-level"></div>
+                        </div> 
+
+                        <p class="hap-media-time-total">0:00</p>
+                        <p class="hap-media-time-current">0:00</p>
+
+                        <div class="hap-center-elements">
+
+                            <div class="hap-info">
+                                <p class="hap-player-title"></p>
+                                <p class="hap-player-artist"></p>
+                            </div>
+
+                            <div class="hap-controls">
+
+                                <div class="hap-prev-toggle hap-contr-btn"><i class="fas fa-backward hap-icon-color"></i></div>
+                                <div class="hap-playback-toggle hap-contr-btn"><i class="fas fa-play hap-icon-color"></i></div>
+                                <div class="hap-next-toggle hap-contr-btn"><i class="fas fa-forward hap-icon-color"></i></div>
+
+                            </div>    
+
+                            <div class="hap-volume-seekbar">
+                                 <div class="hap-volume-bg"></div>
+                                 <div class="hap-volume-level"><div class="hap-volume-drag"></div></div>
+                            </div>
+
+                        </div>    
+
+                        <div class="hap-random-toggle hap-contr-btn" data-tooltip="Shuffle"><i class="fas fa-random hap-icon-color"></i></div>
+                        <div class="hap-loop-toggle hap-contr-btn" data-tooltip="Loop"><i class="fas fa-sync-alt hap-icon-color"></i></div>
+
+                    </div>
+                      
+                </div>
+
+            </div> 
+
+          <div class="hap-tooltip"><p></p></div>  
+
+        </div>    
+      </div>
+      
+      <div class="wrapper_wide_right_right">
+			<ul class="cf">
+				<% @tracks.each do |track| %>
+					<li class="cf">
+						<div class="track_thumbnail">
+							<% if track.image? %>
+								<%= link_to image_tag(track.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
+							<% else %>
+								<%= link_to image_tag(track.user.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
+							<% end %>
+						</div>
+						<div class="track_overview">
+							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %>
+    						<% if track.album_id? %>
+    							/ <%= link_to track.album.title, album_path(track.album_id) %>
+    						<% end %>
+							</h2>
+							<div class="icons">
+							<% if track.pseudonym_id? %>
+								<i>As: </i><%= track.pseudonym.name %> / 
+							<% end %>
+							   <i>Voiced by:</i> <%= track.vocals %>
+							</div>
+							<br /><br />
+							<p class="description"><%= truncate(track.description, length: 160) %></p><br />
+							<div class="icons_container">
+							  <div id="favorites">
+							    <%= render 'albums/favorites', :track => track %>
+							  </div>
+						    </div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+
+			<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
+      </div>
+    <% else %>
+      <div class="wrapper_wide_right_right">
+        <div class="side-box">
+          <div class="side-content">
+            <p>This user has not uploaded any tracks yet.</p>
+          </div>
+         </div>
+      </div>
+  <% end %>
+</body>

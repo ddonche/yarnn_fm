@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+<title><%= @user.username %></title>
+
+
+<!-- must have -->
+<%= stylesheet_link_tag    'player/audio7_html5.css', media: 'all', 'data-turbolinks-track' => false %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<%= javascript_include_tag 'player/jquery.mousewheel.min.js', 'data-turbolinks-track' => false %>
+<%= javascript_include_tag 'player/jquery.touchSwipe.min.js', 'data-turbolinks-track' => false %>
+<%= javascript_include_tag 'player/audio7_html5.js', 'data-turbolinks-track' => false %>
+
+<!-- must have -->
+
+<script>
+	jQuery(function() {
+		jQuery("#lbg_audio7_html5_1").audio7_html5({
+			skin:"blackControllers",
+			initialVolume:0.6,
+			autoPlay:false,
+			loop:true,
+			shuffle:true,
+			sticky:true,
+			playerBg:"#98b9b7",
+			bufferEmptyColor:"#929292",
+			bufferFullColor:"#0c6a64",
+			seekbarColor:"#FFFFFF",
+			volumeOffColor:"#246f69",
+			volumeOnColor:"#FFFFFF",
+			timerColor:"#333333",
+			songTitleColor:"#dc2020",
+			songAuthorColor:"#555555",
+			googleTrakingOn:false,
+			googleTrakingCode:"",
+			showVinylRecord:false,
+			showRewindBut:true,
+			showNextPrevBut:true,
+			showShuffleBut:true,
+			showDownloadBut:false,
+			showBuyBut:true,
+			showLyricsBut:false,
+			buyButTitle:"Buy Now",
+			lyricsButTitle:"Lyrics",
+			buyButTarget:"_blank",
+			lyricsButTarget:"_blank",
+			showFacebookBut:false,
+			facebookAppID:"",
+			facebookShareTitle:"Apollo - HTML5 Audio Player",
+			facebookShareDescription:"A top-notch sticky full width HTML5 Audio Player compatible with all major browsers and mobile devices.",
+			showTwitterBut:false,
+			showPopupBut:true,
+			showAuthor:true,
+			showTitle:true,
+			showPlaylistBut:true,
+			showPlaylist:true,
+			showPlaylistOnInit:false,
+			playlistTopPos:0,
+			playlistBgColor:"#c6d2d0",
+			playlistRecordBgOffColor:"#0c6a64",
+			playlistRecordBgOnColor:"#000000",
+			playlistRecordBottomBorderOffColor:"#aacbd1",
+			playlistRecordBottomBorderOnColor:"#c4d1aa",
+			playlistRecordTextOffColor:"#cccccc",
+			playlistRecordTextOnColor:"#ffffff",
+			categoryRecordBgOffColor:"#191919",
+			categoryRecordBgOnColor:"#f12233",
+			categoryRecordBottomBorderOffColor:"#2f2f2f",
+			categoryRecordBottomBorderOnColor:"#2f2f2f",
+			categoryRecordTextOffColor:"#4c4c4c",
+			categoryRecordTextOnColor:"#ffffff",
+			numberOfThumbsPerScreen:5,
+			playlistPadding:15,
+			showCategories:false,
+			firstCateg:"",
+			selectedCategBg:"#dedede",
+			selectedCategOffColor:"#333333",
+			selectedCategOnColor:"#f12233",
+			selectedCategMarginBottom:12,
+			showSearchArea:false,
+			searchAreaBg:"#dedede",
+			searchInputText:"search...",
+			searchInputBg:"#000000",
+			searchInputBorderColor:"#dedede",
+			searchInputTextColor:"#cccccc",
+			searchAuthor:false,
+			continuouslyPlayOnAllPages:true,
+			showPlaylistNumber:true,
+			pathToDownloadFile:"",
+			popupWidth:1100,
+			popupHeight:500,
+			barsColor:"#ffffff"
+		});
+	});
+</script>
+
+</head>
+
+<body bgcolor="#999999">
+	    <div class="audio7_html5">
+        	<audio id="lbg_audio7_html5_1" preload="metadata">
+        	<div class="xaudioplaylist">
+			<ul>
+            <li class="xtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+            <li class="xauthor">Author Vivamus</li>
+            <li class="ximage">audio/images/p3.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/most-wanted-wordpress-plugins-pack/19718660?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/html5-radio-players-wordpress-plugins-bundle/19939049?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic;Jazz</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Nam dui metus, consectetur vel sapien eget, tincidunt rutrum nulla</li>
+            <li class="xauthor">Author Tincidunt</li>
+            <li class="ximage">audio/images/p2.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-audio-players-wordpress-plugins-bundle/9757831?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/html5-responsive-audio-players-bundle/10753461?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country;Rock</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Vivamus hendrerit urna vel faucibus iaculis</li>
+            <li class="xauthor">Author Faucibus</li>
+            <li class="ximage">audio/images/p1.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/vera-universal-bundle-of-visual-composer-addons/12642404?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/visual-composer-addon-logos-showcase-pro/12526554?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic;Country;Jazz;Rock</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">In sed justo sit amet nunc consectetur tincidunt</li>
+            <li class="xauthor">Author Commodo</li>
+            <li class="ximage">audio/images/p6.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/hero-shoutcast-and-icecast-radio-player-with-history-wordpress-plugin/19364283?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/revolution-video-player-with-bottom-playlist-wordpress-plugin-youtubevimeoselfhosted-support/18216139?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Vestibulum ut sem sit amet neque commodo dictum et eget orci</li>
+            <li class="xauthor">Author Lobortis</li>
+            <li class="ximage">audio/images/p5.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-video-players-wordpress-plugins-bundle/11046770?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/wordpress-sliders-bundle-layers-parallax-zoom/11825715?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Jazz</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Praesent eu nisi dictum, lobortis massa sagittis, imperdiet nisl</li>
+            <li class="xauthor">Author Rutrum</li>
+            <li class="ximage">audio/images/p2.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/countdown-with-image-or-video-background/11776508?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/html5-video-players-uber-bundle/11452253?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Praesent non turpis eget enim rutrum vehicula vivamus bibendum</li>
+            <li class="xauthor">Author Vivamus</li>
+            <li class="ximage">audio/images/p9.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-video-players-wordpress-plugins-bundle/11046770?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/youtube-vimeo-video-player-slider-wp-plugin/10675820?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Rock</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Proin egestas, eros id gravida ultricies, lectus eros suscipit diam</li>
+            <li class="xauthor">Author Ultricies</li>
+            <li class="ximage">audio/images/p7.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-audio-players-wordpress-plugins-bundle/9757831?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/universal-video-player-wordpress-plugin/9683312?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Quisque laoreet magna nulla, nec interdum risus porttitor eu</li>
+            <li class="xauthor">Author Interdum</li>
+            <li class="ximage">audio/images/p8.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/video-player-fullscreen-video-bgd-wp-plugin/9323381?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/sticky-radio-player-wordpress-plugin-full-width-shoutcast-and-icecast-html5-player/17162755?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country;Jazz</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">In sed justo sit amet nunc consectetur tincidunt. In iaculis varius eros</li>
+            <li class="xauthor">Author Consectetur</li>
+            <li class="ximage">audio/images/p7.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/radio-player-shoutcast-icecast-wordpress-plugin/9013963?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/revolution-video-player-with-bottom-playlist-wordpress-plugin-youtubevimeoselfhosted-support/18216139?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Pellentesque rutrum at lectus volutpat pellentesque sed dignissim magna vel turpis</li>
+            <li class="xauthor">Author Tincidunt</li>
+            <li class="ximage">audio/images/p3.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/most-wanted-wordpress-plugins-pack/19718660?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/html5-radio-players-wordpress-plugins-bundle/19939049?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Rock</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Faucibus quam eu purus fermentum, non sagittis nunc scelerisque</li>
+            <li class="xauthor">Author Sagittis</li>
+            <li class="ximage">audio/images/p2.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-audio-players-wordpress-plugins-bundle/9757831?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/html5-responsive-audio-players-bundle/10753461?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country;Rock</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Donec a lacus eleifend mollis dui et facilisis urna fermentum</li>
+            <li class="xauthor">Author Pellentesque</li>
+            <li class="ximage">audio/images/p1.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/vera-universal-bundle-of-visual-composer-addons/12642404?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/visual-composer-addon-logos-showcase-pro/12526554?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic;Jazz;Rock</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">In sed justo sit amet nunc consectetur tincidunt</li>
+            <li class="xauthor">Author Commodo</li>
+            <li class="ximage">audio/images/p6.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/hero-shoutcast-and-icecast-radio-player-with-history-wordpress-plugin/19364283?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/revolution-video-player-with-bottom-playlist-wordpress-plugin-youtubevimeoselfhosted-support/18216139?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Maecenas consequat lacus in augue tincidunt vitae fringilla nisi posuere</li>
+            <li class="xauthor">Author Tincidunt</li>
+            <li class="ximage">audio/images/p5.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-video-players-wordpress-plugins-bundle/11046770?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/wordpress-sliders-bundle-layers-parallax-zoom/11825715?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Jazz</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Sapien fusce sollicitudin et diam et hendrerit</li>
+            <li class="xauthor">Author Phasellus</li>
+            <li class="ximage">audio/images/p9.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/countdown-with-image-or-video-background/11776508?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/html5-video-players-uber-bundle/11452253?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Aliquam ut vehicula neque, sit amet venenatis mauris</li>
+            <li class="xauthor">Author Faucibus</li>
+            <li class="ximage">audio/images/p1.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-video-players-wordpress-plugins-bundle/11046770?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/youtube-vimeo-video-player-slider-wp-plugin/10675820?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Rock</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Class aptent taciti sociosqu ad litora torquent per conubia nostra</li>
+            <li class="xauthor">Author Phasellus</li>
+            <li class="ximage">audio/images/p7.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/html5-audio-players-wordpress-plugins-bundle/9757831?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/universal-video-player-wordpress-plugin/9683312?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Suspendisse potenti vehicula neque sit amet venenatis mauris fringilla</li>
+            <li class="xauthor">Author Faucibus</li>
+            <li class="ximage">audio/images/p8.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/video-player-fullscreen-video-bgd-wp-plugin/9323381?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/sticky-radio-player-wordpress-plugin-full-width-shoutcast-and-icecast-html5-player/17162755?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Country;Jazz</li>
+            <li class="xsources_mp3">audio/wm_follow_me.mp3</li>
+            <li class="xsources_ogg">audio/wm_follow_me.ogg</li>
+            </ul>
+            <ul>
+            <li class="xtitle">Commodo massa hendrerit cursus luctus venenatis mauris</li>
+            <li class="xauthor">Author Phasellus</li>
+            <li class="ximage">audio/images/p7.jpg</li>
+            <li class="xbuy">https://codecanyon.net/item/radio-player-shoutcast-icecast-wordpress-plugin/9013963?ref=LambertGroup</li>
+            <li class="xlyrics">https://codecanyon.net/item/revolution-video-player-with-bottom-playlist-wordpress-plugin-youtubevimeoselfhosted-support/18216139?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic</li>
+            <li class="xsources_mp3">audio/adg3com_crypticpsyche.mp3</li>
+            <li class="xsources_ogg">audio/adg3com_crypticpsyche.ogg</li>
+            </ul>
+            </div>
+            No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
+            </audio>
+        </div>
+        <br style="clear:both;">
+</body>
+</html>

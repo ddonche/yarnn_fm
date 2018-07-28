@@ -1,4 +1,5 @@
 <h2>Reviews</h2>
+<%= pluralize(@reviews.length, "Review") %><br><br>
 <% @reviews.each do |review| %>
   <div class="comment_box">
     

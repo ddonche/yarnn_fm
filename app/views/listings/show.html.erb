@@ -18,31 +18,55 @@
 		<%= @listing.title %>
 	</div>
   	
-	<div class="wrapper_skinny_left">
-    <div class="main_avatar">
-    
-  	  <div id="album-image">
-        <%= image_tag @listing.image.url, width: 300 %>
-      </div>
-
-      <div class="side-box">
-        <div class="side-content">
-					<div class="album_overview">
-						<p class="track_count"><h2><%= @listing.title %>
-						<% if @listing.user == current_user %>
-						  <%= link_to edit_listing_path(@listing) do %>
-							  <%= image_tag'icons/gear.svg', width: 12 %>
-						  <% end %>
-						<% end %></h2></p>
-						<div class="star-rating" data-score= <%= @avg_rating %> ></div> 
-						<%= "#{@reviews.length} reviews" %><br>
-						<p class="track_count">
+  <div class="container">
+    <div class="wrapper-side-left" style="width: 25%">
+  		<div class="main_avatar">
+  			<%= image_tag(@listing.image.url, class: "image", title: @listing.title) %>
+	
+	      <div class="side-box">
+	        <div class="side-content">
+	          <h2>Genres</h2>
+	          <p class="track_count"><% @listing.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
+	        </div>
+	      </div>
+	      <div class="side-box">
+	        <div class="side-content">
+	          <h2>Associated Tracks</h2> 
+	          <% if @tracks.any? %>
+		    			<% @tracks.each do |track| %>
+		    			<p class="track_count">
+	              <%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %> (explicit)<% end %><br>
+	            </p>
+	            <% end %>
+	          <% else %>
+	          	<p class="track_count">There are no associated tracks with this listing.</p>
+	          <% end %>
+	        </div>
+	      </div>
+	    </div>
+		</div>
+  
+		<div class="wrapper-med-right" style="width: 70%; clear: right">
+		    <div class="side-box" style="width: 96%">
+		      <div class="side-content">
+		        <div class="icons">
+		        	<h2><%= @listing.title %>
+										<% if @listing.user == current_user %>
+										  <%= link_to edit_listing_path(@listing) do %>
+											  <%= image_tag'icons/gear.svg', width: 12 %>
+										  <% end %>
+										<% end %></h2>
+							<p class="track_count">
 							<%= link_to @listing.user.username, user_path(@listing.user) %> /
-							<% if @listing.pseudonym_id? %>
-								<%= @listing.pseudonym.name %> 
-							<% else %>
-								<%= @listing.user.name %></p>
-							<% end %>
+								<% if @listing.pseudonym_id? %>
+									<%= @listing.pseudonym.name %> 
+								<% else %>
+									<%= @listing.user.name %></p>
+								<% end %>
+		        	<div class="star-rating" data-score= <%= @avg_rating %> ></div> 
+		        	<br>
+		        	<p class="track_count"><%= @listing.description %></p>
+		        	<br>
 						<% if @listing.publisher? %>
 							<p class="track_count"><b><i>Publisher:</i></b> <%= @listing.publisher %></p>
 						<% end %>
@@ -56,39 +80,17 @@
 						<% unless @listing.user == current_user %>
 							<% if @purchased.empty? %>
 								<br>
-								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff" %>
+								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
 							<% else %>
 								<br>
-								<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff" %>
+								<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
 							<% end %>
 						<% end %>
-					</div>
-        </div>
-      </div>
-      <div class="side-box">
-        <div class="side-content">
-          <%= @listing.description %>
-        </div>
-      </div>
-      <div class="side-box">
-        <div class="side-content">
-          <p class="track_count"><b><i>Genres:</i></b> <% @listing.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  	
-  <div id="tracks">
-		<div class="wrapper_wide_right" style="margin-top: 0;">
-		    <div class="side-box" style="margin-top: 0;">
-		      <div class="side-content">
-		        <div class="icons">
-              <span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 11) %>&nbsp;<%= pluralize( @listing.reviews.count, 'Review' ) %>
             </div>
 		      </div>
 		    </div>
-		    
-        <div class="side-box">
+
+        <div class="side-box" style="width: 96%">
 		      <div class="side-content">
 		        <% if user_signed_in? %>
 		        	<% if current_user.reviewed?(@listing) %>
@@ -102,7 +104,9 @@
             <%= render 'reviews' %>
           </div>
         </div>
-		</div>
-	</div>
-  	
+		  </div>
+			<% if @tracks.any? %>
+				<%= render 'audio' %>
+			<% end %>
+ 	</div>
 </div>

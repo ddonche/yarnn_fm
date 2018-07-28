@@ -682,10 +682,10 @@ available controllers:
 }
 
 .audio7_html5.blackControllers .AudioOpenBut {
-	background:url(../controllers/blackControllers/open-off.png) no-repeat;
+	background:url(../controllers/blackControllers/open-off.gif) no-repeat;
 }
 .audio7_html5.blackControllers .AudioOpenBut:hover {
-	background:url(../controllers/blackControllers/open-on.png) no-repeat;
+	background:url(../controllers/blackControllers/open-on.gif) no-repeat;
 }
 
 .audio7_html5.blackControllers .AudioControls {

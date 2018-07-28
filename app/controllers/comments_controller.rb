@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @comments = @commentable.comments.order("created_at DESC")
+    @comments = @commentable.comments.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
   end
 
   def new

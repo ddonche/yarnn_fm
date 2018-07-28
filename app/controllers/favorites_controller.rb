@@ -10,7 +10,9 @@ class FavoritesController < ApplicationController
                                   notification_type: "favorite")
       end
       @track.increment!(:favorites_count)
-      @track.user.increment!(:favorited_count)
+      unless current_user.id == @track.user_id
+        @track.user.increment!(:favorited_count)
+      end
     respond_to do |format|
       format.html { redirect_to @track }
       format.js
@@ -19,8 +21,10 @@ class FavoritesController < ApplicationController
   
   def unfavorite
     @track.favorites.where(user_id: current_user.id).destroy_all
-    @track.decrement!(:favorites_count)
-    @track.user.decrement!(:favorited_count)
+    @track.decrement!(:favorites_count) unless @track.user.favorited_count.zero?
+    unless current_user.id == @track.user_id
+      @track.user.decrement!(:favorited_count) unless @track.user.favorited_count.zero?
+    end
     respond_to do |format|
       format.html { redirect_to @track }
       format.js

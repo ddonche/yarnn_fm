@@ -1,0 +1,35 @@
+<div id="content-wrap">
+  <div class="left-column">
+    <div class="title-box">
+      New message to <%= link_to @receiver.username, user_path(@receiver) %>
+    </div><br />
+    
+    <div class="avatar-show">
+      <%= 
+        if @receiver.image?
+          link_to user_path(@receiver) do
+            image_tag @receiver.image, width: 65, alt: 'user avatar'
+          end
+        else
+          link_to user_path(@receiver) do
+            image_tag 'default_avatar.jpg', width: 65, alt: 'default user avatar'
+          end
+        end
+      %>      
+    </div>
+    
+      <div class="details-show">
+          <%= link_to @receiver.username, user_path(@receiver) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= @receiver.bio.truncate(100) if @receiver.bio %><br />
+      </div>
+  
+    <%= form_for @message do |f| %>
+      <%= hidden_field_tag 'receiver_id', @receiver.id %>
+    
+      <%= f.label 'Message' %>
+      <%= f.text_area :body %>
+    
+      <%= f.submit 'Send' %>
+    <% end %>
+  </div>
+</div>

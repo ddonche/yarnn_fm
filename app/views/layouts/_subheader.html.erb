@@ -8,7 +8,7 @@
 		<% end %>
 			<span></span>
 			
-		<%= link_to notifications_path(current_user) do %>
+		<%= link_to conversations_path(current_user) do %>
 			<%= image_tag'icons/message_white.png', width: 14, title: "Messages" %>
 			<div class="notifications_number" style="margin-left: 3px"><%= @notifications.count %></div>
 		<% end %>

@@ -62,6 +62,10 @@ Rails.application.routes.draw do
   get '/payout_method' => 'users#payout'
   get 'sales', to: 'transactions#sales'
   get 'purchases', to: 'transactions#purchases'
+  
+  resources :messages, only: [:new, :create]
+  resources :conversations, only: [:index, :show]
+  match '/conversations', to: 'conversations#index', via: 'get'
 
   get 'genre/:tag', to: 'tags#show', as: :tag
   get 'genres', to: 'tags#index'

@@ -1,0 +1,6 @@
+<div class="log-form">
+  <%= message.body %><br />
+  <div class="date">
+    by <strong><%= link_to message.user.username, user_path(message.user) %></strong> <%= time_ago_in_words(message.created_at) %> ago
+  </div>
+</div>

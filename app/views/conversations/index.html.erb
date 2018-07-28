@@ -1,0 +1,14 @@
+<div id="content-wrap">
+  <div class="left-column">
+    <div class="title-box">
+      Conversations
+    </div>
+    <div class ="pagination-container">
+      <%= will_paginate @conversations, previous_label: "Previous", next_label: "Next" %>
+    </div>
+
+    <div id="content-show">
+      <%= render @conversations %>
+    </div>
+  </div>
+</div>

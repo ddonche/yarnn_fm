@@ -5,13 +5,17 @@
     <% if @user.website? %>
       <%= link_to @user.website %><br><br>
     <% end %>
+    
     <span style="margin-left: .5rem"><%= @user.tracks.count %><a href="<%= user_path(@user) %>"> tracks</a></span>
     
     <span style="margin-left: .5rem"><%= @user.albums.count %><a href="<%= user_path(@user) %>"> albums</a></span>
     
     <span style="margin-left: .5rem"><%= @user.listings.count %><a href="#"> listings</a></span>
-    
+
     <span style="margin-left: .5rem"><%= @user.blogs.count %><a href="<%= user_path(@user) %>"> blog posts</a></span><br/><br />
+    
+    <span style="margin-left: .5rem"><%= image_tag('icons/heart_full.svg', width: 11) %> <%= pluralize(@user.favorited_count, "time") %></span><br /><br />
+    
     
     <span style="margin-right: .5rem"><%= @user.following.count %><a href="<%= following_user_path(@user) %>"> following</a></span>
 

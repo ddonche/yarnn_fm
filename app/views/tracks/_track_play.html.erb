@@ -2,7 +2,7 @@
 <html xmlns="https://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
-<title><%= @user.username %></title>
+<title><%= @track.title %></title>
 
 
 <!-- must have -->
@@ -55,8 +55,8 @@
 			showPopupBut:true,
 			showAuthor:true,
 			showTitle:true,
-			showPlaylistBut:true,
-			showPlaylist:true,
+			showPlaylistBut:false,
+			showPlaylist:false,
 			showPlaylistOnInit:false,
 			playlistTopPos:0,
 			playlistBgColor:"#c6d2d0",
@@ -100,49 +100,31 @@
 </head>
 
 <body bgcolor="#999999">
-		<% if @favorite_items.any? %>
 	    <div class="audio7_html5">
         	<audio id="lbg_audio7_html5_1" preload="metadata">
         	<div class="xaudioplaylist">
-          	  <% @favorite_items.each do |item| %>
 			      <ul>
-              <li class="xtitle"><%= link_to item.title, track_path(item) %><% if item.explicit == "explicit" %> (explicit)<% end %></li>
-              <li class="xauthor"><% if item.pseudonym_id? %>
-                                      <%= item.pseudonym.name %>
+              <li class="xtitle"><%= @track.title %><% if @track.explicit == "explicit" %> (explicit)<% end %></li>
+              <li class="xauthor"><% if @track.pseudonym_id? %>
+                                      <%= @track.pseudonym.name %>
                                     <% else %>
-                                      <%= item.user.name %> 
+                                      <%= @track.user.name %> 
                                     <% end %></li>
-              <li class="ximage"><%= item.image.url(:thumb) %></li>
-              <li class="xbuy"><% if item.listing_id? %>
-                                  <%= listing_path(item.listing_id) %>
+              <li class="ximage"><%= @track.image.url(:thumb) %></li>
+              <li class="xbuy"><% if @track.listing_id? %>
+                                  <%= listing_path(@track.listing_id) %>
                                 <% else %>
                                   <%= listings_path %>
                                 <% end %></li>
               <li class="xlyrics">https://codecanyon.net/item/html5-radio-players-wordpress-plugins-bundle/19939049?ref=LambertGroup</li>
               <li class="xcategory">ALL CATEGORIES;Classic;Jazz</li>
-              <li class="xsources_mp3"><%= item.audio.url %></li>
-              <li class="xsources_ogg"><%= item.audio.url %></li>
+              <li class="xsources_mp3"><%= @track.audio.url %></li>
+              <li class="xsources_ogg"><%= @track.audio.url %></li>
             </ul>
-              
-              <% end %>
-            </div>
+          </div>
             No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
-          </audio>
-      </div>
-      <br style="clear:both;">
-      
-      <% else %>
-  	    <div class="wrapper_wide_right_right">
-  	      <div class="side-box">
-		        <div class="side-content">
-		          <% if @user == current_user %>
-		            <p>You have not added anything to your station yet. Click the heart on any track to add it to your official station.</p>
-		          <% else %>
-  	            <p>This user has not added anything to their station.</p>
-  	          <% end %>
-  	        </div>
-  	       </div>
-  	    </div>
-	    <% end %>
+            </audio>
+        </div>
+        <br style="clear:both;">
 </body>
 </html>

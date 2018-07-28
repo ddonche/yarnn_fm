@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726060613) do
+ActiveRecord::Schema.define(version: 20180728181817) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 20180726060613) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+    t.index ["sender_id", "receiver_id"], name: "index_conversations_on_sender_id_and_receiver_id", unique: true
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -89,6 +99,17 @@ ActiveRecord::Schema.define(version: 20180726060613) do
     t.integer  "pseudonym_id"
     t.index ["pseudonym_id"], name: "index_listings_on_pseudonym_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.boolean  "read",            default: false
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -171,8 +192,8 @@ ActiveRecord::Schema.define(version: 20180726060613) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "image"
     t.string   "title"
     t.text     "description"
@@ -180,10 +201,11 @@ ActiveRecord::Schema.define(version: 20180726060613) do
     t.string   "vocals"
     t.integer  "user_id"
     t.string   "audio"
-    t.integer  "explicit",     default: 0
+    t.integer  "explicit",        default: 0
     t.string   "buy_url"
     t.integer  "listing_id"
     t.integer  "pseudonym_id"
+    t.integer  "favorites_count", default: 0
     t.index ["pseudonym_id"], name: "index_tracks_on_pseudonym_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
@@ -222,6 +244,7 @@ ActiveRecord::Schema.define(version: 20180726060613) do
     t.string   "stripe_id"
     t.integer  "publisher_type",                    default: 0
     t.string   "website"
+    t.integer  "favorited_count",                   default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -29,6 +29,16 @@
       </div>
     </div>
   </div>
+  
+  <% if @favorite_items.any? %>
+    <div class="wrapper_wide_right_right">
+        <div class="side-box">
+          <div class="side-content">
+             <p><%= @user.username %>'s station has <%= pluralize(@favorite_items.count, "Tracks") %>.</p>
+          </div>
+  	   </div>
+  	 </div>
+  <% end %>
   <%= render 'users/station' %>
 </div>
 

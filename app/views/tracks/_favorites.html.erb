@@ -1,7 +1,7 @@
 <% if user_signed_in? && current_user.favorited?(@track) %>
-  <%= link_to image_tag('icons/heart_full.svg', width: 11), track_unfavorite_path(@track), method: :post, remote: true %> Remove from Station<span style="margin-right: 6px"></span>| 
+  <%= link_to image_tag('icons/heart_full.svg', width: 11), track_unfavorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %> Stations<span style="margin-right: 6px"></span>| 
 <% else %>
-  <%= link_to image_tag('icons/heart_empty.svg', width: 11), track_favorite_path(@track), method: :post, remote: true %> Add to Station<span style="margin-right: 6px"></span>| 
+  <%= link_to image_tag('icons/heart_empty.svg', width: 11), track_favorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %> Stations<span style="margin-right: 6px"></span>| 
 <% end %>
 <% if @track.listing_id? %>
   <span style="margin-left: 6px"></span><%= link_to "Purchase", listing_path(@track.listing_id), data: { no_turbolink: true } %> the <%= @listing.filetype %> for only <%= number_to_currency(@listing.price) %><span style="margin-right: 6px"></span>| 

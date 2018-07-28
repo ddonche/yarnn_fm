@@ -14,4 +14,6 @@
     <span style="margin-left: .5rem"><%= pluralize(user.blogs.count, "blog post") %></span>
     
     <span style="margin-left: .5rem"><%= image_tag('icons/station.svg', height: 11) %><span style="margin-left: .3rem"></span><%= link_to "Station", station_path(user) %></span>
+
+    <span style="margin-left: .5rem"><%= image_tag('icons/heart_full.svg', width: 11) %> <%= pluralize(user.favorited_count, "time") %></span>
 </div>

@@ -23,63 +23,91 @@
 			<%= @track.title %>
 	</div>
   	
-	<div class="wrapper_skinny_left">
-    <div class="main_avatar">
-    
-  	  <div id="album-image">
-        <%= image_tag @track.image.url, width: 300 %>
-      </div>
+  <div class="container">
+    <div class="wrapper-side-left" style="width: 25%">
+	    <div class="main_avatar">
+	    
+	  	  <%= image_tag(@track.image.url, class: "image", title: @track.title) %>
+	  	  
+	      <div class="side-box">
+	        <div class="side-content">
+	          <h2>Genres</h2>
+	          <p class="track_count"><% @track.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
+	        </div>
+	      </div>
+	      <% if @track.listing_id? %>
+	      
+	      <div class="side-box">
+	        <div class="side-content">
+									<%= link_to listing_path(@track.listing_id) do %>
+										<%= image_tag(@listing.image.url, class: "image", title: @listing.title) %>
+									<% end %>
+									
+									<div class="listing_overview">
+									  <p class="listing_type"><%= @listing.filetype %></p>
+										<h2><%= link_to truncate(@listing.title, length: 24, separator: ' '), listing_path(@track.listing_id) %></h2>
+										
+										<div class="star-rating" data-score=<%= @listing.avg_rating %> ></div>
+										
+										<br>
+										
+										<% if @listing.user.image? %>
+						          <%= image_tag(@listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: @listing.user.username) %>
+						        <% else %>
+						          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: @listing.user.username) %>
+						        <% end %>
+										
+										<% if @listing.pseudonym_id? %>
+											<p class="listing_info" style="display:inline-block;"><%= link_to @listing.pseudonym.name, user_path(@listing.user) %></p>
+										<% else %>
+											<p class="listing_info" style="display:inline-block;"><%= link_to @listing.user.name, user_path(@listing.user) %></p>
+										<% end %>
+										<br>
+										<h2 style="text-align:center"><%= number_to_currency(@listing.price) %></h2>
+										<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff" %>
 
-      <div class="side-box">
-        <div class="side-content">
-					<div class="album_overview">
-						<p class="track_count"><h2><%= @track.title %><% if @track.explicit == "explicit" %> (explicit)<% end %>
-						<% if @track.user == current_user %>
-						  <%= link_to edit_track_path(@track) do %>
-							  <%= image_tag'icons/gear.svg', width: 12 %>
-						  <% end %>
-						<% end %></h2></p>
-						<p class="track_count"><%= link_to @track.user.username, user_path(@track.user) %> / 
-						<% if @track.pseudonym_id? %>
-							<%= @track.pseudonym.name %></p>
-						<% else %>
-							<%= @track.user.name %></p>
-						<% end %>
-						<p class="track_count"><% if @track.album_id? %>
-								<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
-							<% end %></p>
-						<p class="track_count"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
-					</div>
-        </div>
-      </div>
-      <div class="side-box">
-        <div class="side-content">
-          <%= @track.description %>
-        </div>
-      </div>
-      <div class="side-box">
-        <div class="side-content">
-          <p class="track_count"><b><i>Genres:</i></b> <% @track.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  	
-  <div id="tracks">
-		<div class="wrapper_wide_right" style="margin-top: 0">
-		    <div class="side-box" style="margin-top: 0">
+									</div>
+	        </div>
+	      </div>
+	      <% end %>
+	    </div>
+		</div>
+  
+		<div class="wrapper-med-right" style="width: 70%; clear: right">
+		    <div class="side-box" style="width: 96%">
 		      <div class="side-content">
+		      	<div class="icons">
+		        	<h2><%= @track.title %>
+										<% if @track.user == current_user %>
+										  <%= link_to edit_track_path(@track) do %>
+											  <%= image_tag'icons/gear.svg', width: 12 %>
+										  <% end %>
+										<% end %></h2>
+							<p class="track_count">
+							<%= link_to @track.user.username, user_path(@track.user) %> /
+								<% if @track.pseudonym_id? %>
+									<%= @track.pseudonym.name %> 
+								<% else %>
+									<%= @track.user.name %></p>
+								<% end %>
+		        	<br>
+		        	<p class="track_count"><%= @track.description %></p>
+		        	<br>
+						<% if @track.album_id? %>
+							<p class="track_count"><b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
+						<% end %>
+						<% if @track.vocals? %>
+							<p class="track_count"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
+						<% end %>
+
+            </div>
 		        <div class="icons">
               <div id="favorites"><%= render 'favorites' %></div>
             </div>
 		      </div>
 		    </div>
-  		  <div class="side-box">
-          <div class="side-content">
-            <%= audio_tag @track.audio.url, controls: true %>
-          </div>
-        </div>
-        <div class="side-box">
+		    
+        <div class="side-box" style="width: 96%">
 		      <div class="side-content">
 		        <% if user_signed_in? %>
               <%= render "comments/form" %>
@@ -89,7 +117,17 @@
             <%= render 'comments/comments', :commentable => @track %>
           </div>
         </div>
-		</div>
 	</div>
-  	
+	<%= render 'track_play' %>
+  </div>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

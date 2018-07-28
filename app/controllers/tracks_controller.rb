@@ -14,6 +14,11 @@ class TracksController < ApplicationController
 	  @commentable = @track
 	  if @track.listing_id?
 	    @listing = Listing.find(@track.listing_id)
+      if @listing.reviews.empty?
+        @avg_rating = 0
+      else
+        @avg_rating = @listing.reviews.average(:rating).round(2)
+      end
 	  end
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
@@ -82,6 +87,6 @@ class TracksController < ApplicationController
   def track_params
     params.require(:track).permit(:title, :description, :user_id, :explicit,
                                   :image, :audio, :album_id, :vocals, :tag_list, 
-                                  :buy_url, :listing_id, :pseudonym_id)
+                                  :buy_url, :listing_id, :pseudonym_id, :favorites_count)
   end
 end

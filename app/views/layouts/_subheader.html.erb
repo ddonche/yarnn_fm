@@ -10,7 +10,9 @@
 			
 		<%= link_to notifications_path(current_user) do %>
 			<%= image_tag'icons/bell_white.png', width: 14, title: "Notifications" %>
-			<div class="notifications_number"><%= @notifications.count %></div>
+			<% if @notifications.count > 0 %>
+				<div class="notifications_number"><%= @notifications.count %></div>
+			<% end %>
 		<% end %>
 			<span></span>
 			

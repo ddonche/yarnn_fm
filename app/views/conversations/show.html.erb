@@ -1,47 +1,66 @@
-<div id="content-wrap">
-  <div class="left-column">
-    <div class="title-box">
-      Private messages with <%= @conversation.with(current_user).username %>
-    </div>
-    
-    <div class="avatar-show">
-      <%= 
-        if @conversation.with(current_user).image?
-          link_to user_path(@conversation.with(current_user)) do
-            image_tag @conversation.with(current_user).image, width: 65, alt: 'user avatar'
-          end
-        else
-          link_to user_path(@conversation.with(current_user)) do
-            image_tag 'default_avatar.jpg', width: 65, alt: 'default user avatar'
-          end
-        end
-      %>      
-    </div>
-    
-      <div class="details-show">
-          <h4 style="display:inline;"><%= link_to @conversation.with(current_user).username, user_path(@conversation.with(current_user)) %></h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <%= (@conversation.with(current_user).bio.truncate(100)) if @conversation.with(current_user).bio %><br />
-      </div>
-    
-    <div class="content-show">
-      <div id="conversation-body">
-        <%= render @conversation.messages %>
-      </div><br />
-      <%= form_for @message do |f| %>
-        <%= hidden_field_tag 'conversation_id', @conversation.id %>
-        <%= f.label 'Send message' %>
-        <%= f.text_area :body %>
-    
-        <%= f.submit "Send" %>
-      <% end %>
-    </div>
-    
-  </div>
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
+  <%= render 'shared/alert' %>
   
-  <div class="right-column">
-    <div class= "side-box-clear">
-      <%= render @conversations %>
-      <div class="small"><%= link_to_previous_page @conversations, 'Previous' %><%= link_to_next_page @conversations, 'Next' %></div>
+	<div id="breadcrumb">
+	  conversation with <%= link_to @conversation.with(current_user).username, user_path(@conversation.with(current_user)) %>
+	</div>
+  	
+  <div class="container">
+    <div class="wrapper-side-left" style="width: 25%">
+      
+  		<div class="main_avatar">
+  		  <h2>Private Conversation with <%= @conversation.with(current_user).username %></h2>
+          <%= 
+            if @conversation.with(current_user).image?
+              link_to user_path(@conversation.with(current_user)) do
+                image_tag @conversation.with(current_user).image, class: "image", alt: 'user avatar'
+              end
+            else
+              link_to user_path(@conversation.with(current_user)) do
+                image_tag 'default_avatar.jpg', class: "image", alt: 'default user avatar'
+              end
+            end
+          %>
+        
+        
+        <div class="side-box" style="width: 96%">
+		      <div class="side-content">
+		        <h2>All Conversations</h2>
+            <%= render @conversations %>
+            <%= will_paginate @conversations, previous_label: "Previous", next_label: "Next" %>
+          </div>
+        </div>
+	    </div>
+    </div>
+    
+	  <div class="wrapper-med-right" style="width: 70%; clear: right">
+	    <div class="side-box" style="width: 96%">
+	      <div class="side-content">
+          <% @conversation.messages.each do |message| %>
+            <ul>
+              <li style="border-bottom: 1px solid #e9e9e9; padding: .5rem"><%= message.body %><br />
+              by <%= link_to message.user.username, user_path(message.user) %> <%= time_ago_in_words(message.created_at) %> ago</li> 
+            </ul>
+          <% end %>
+        </div>
+      </div>
+	    <div class="side-box" style="width: 96%">
+	      <div class="side-content">
+          <%= form_for @message do |f| %>
+            <%= hidden_field_tag 'conversation_id', @conversation.id %>
+            <%= f.label 'Send message' %>
+            <%= f.text_area :body %>
+        
+            <%= f.submit "Send" %>
+          <% end %>
+        </div><br />
+      </div>
     </div>
   </div>
 </div>

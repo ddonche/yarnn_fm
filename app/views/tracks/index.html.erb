@@ -1,0 +1,71 @@
+<div id="album_show">
+	<div id="banner" class="track_banner">
+	  <%= render 'layouts/header' %>
+	</div>
+  <% if user_signed_in? %>
+    <%= render 'layouts/subheader' %>
+  <% end %>
+  <%= render 'shared/alert' %>
+  
+		<div class="container">
+        <div class="wrapper-side-left">
+        	<h2 style="margin: 0 1rem .5rem 1rem">Something Cool Here</h2>
+        </div>
+        
+        <div class="wrapper-med-right">
+					<div id="listings" class="cf">
+						<h2 style="margin: 0 1rem .5rem 1rem">Latest Tracks</h2>
+							<ul class="cf">
+								<% @tracks.each do |track| %>
+										<li>
+											<%= link_to track do %>
+												<%= image_tag track.image.url(:thumb), title: track.title %>
+											<% end %>
+											
+											<div class="listing_overview">
+												<h2><%= link_to truncate(track.title, length: 24, separator: ' '), track_path(track) %></h2>
+												<% if track.user.image? %>
+								          <%= image_tag(track.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: track.user.username) %>
+								        <% else %>
+								          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: track.user.username) %>
+								        <% end %>
+												
+												<% if track.pseudonym_id? %>
+													<p class="listing_info" style="display:inline-block;"><%= link_to track.pseudonym.name, user_path(track.user) %></p>
+												<% else %>
+													<p class="listing_info" style="display:inline-block;"><%= link_to track.user.name, user_path(track.user) %></p>
+												<% end %>
+                        
+											</div>
+										  <div class="listing_overview">
+                        <div class="icons">
+                          <div class="table" style="margin-top: 0">
+                            <div class="table-row">
+                              <div class="table-cell">
+                                
+                							  <div id="favorites_<%= track.id %>">
+                							    <%= render 'tracks/index_favorites', :track => track %>
+                							  </div>
+                						
+              							  </div>
+              							  <div class="table-cell">
+              							    <p class="listing_info">
+                                <%= image_tag('icons/comments.svg', style: "width: 16px !important; display: inline-block;  border: none; vertical-align:middle;") %><span style="margin-left: .5rem"></span><%= track.comments.count %>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+										</li>
+
+								<% end %>
+							</ul>
+							<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
+					</div>
+
+        </div>
+        
+    </div>
+	</div>
+</div>

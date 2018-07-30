@@ -1,0 +1,4 @@
+<% if @track.listing_id? %>
+  <span style="margin-left: 6px"></span><%= link_to "Purchase", listing_path(@track.listing_id), data: { no_turbolink: true } %> the <%= @listing.filetype %> for only <%= number_to_currency(@listing.price) %><span style="margin-right: 6px"></span>| 
+<% end %>
+<span style="margin-left: 6px"></span><%= image_tag('icons/comments.svg', width: 11) %>&nbsp;<%= pluralize( @track.comments.count, 'Comment' ) %>

@@ -1,14 +1,5 @@
-<div class="icons">
-  <% if user_signed_in? && current_user.favorited?(track) %>
-    <%= link_to image_tag('icons/heart_full.svg', width: 11), track_unfavorite_path(track), method: :post, remote: true %>
-  <% else %>
-    <%= link_to image_tag('icons/heart_empty.svg', width: 11), track_favorite_path(track), method: :post, remote: true %>
-  <% end %>
-</div>
-
-<div class="icons">
-  <%= image_tag('icons/comments.svg', width: 11) %><span style="margin-left: .5rem"></span><%= pluralize( track.comments.count, 'Comment' ) %>
-  <% track.tag_list.map.each do |tag| %>
-    <span style="margin: 0 .5rem"><i><%= link_to tag, tag_path(tag) %></span></i>
-  <% end %>
-</div>
+<% if user_signed_in? && current_user.favorited?(track) %>
+  <%= link_to image_tag('icons/heart_full.svg', width: 11), track_unfavorite_path(track), method: :post, remote: true %> <%= track.favorites_count %> Stations<span style="margin-right: 6px"></span>| 
+<% else %>
+  <%= link_to image_tag('icons/heart_empty.svg', width: 11), track_favorite_path(track), method: :post, remote: true %> <%= track.favorites_count %> Stations<span style="margin-right: 6px"></span>| 
+<% end %>

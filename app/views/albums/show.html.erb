@@ -247,9 +247,18 @@
 							<br />
 							<p class="description"><%= truncate(track.description, length: 160) %></p><br />
 							<div class="icons_container">
-							  <div id="favorites">
-							    <%= render 'albums/favorites', :track => track %>
-							  </div>
+							  
+  							  <div class="icons">
+    							  <div id="favorites_<%= track.id %>">
+    							    <%= render 'albums/favorites', :track => track %>
+    							  </div>
+    							  
+                    <%= image_tag('icons/comments.svg', width: 11) %><span style="margin-left: .5rem"></span><%= pluralize( track.comments.count, 'Comment' ) %>
+                    <% track.tag_list.map.each do |tag| %>
+                      <span style="margin: 0 .5rem"><i><%= link_to tag, tag_path(tag) %></span></i>
+                    <% end %>
+                  </div>
+
 						  </div>
 						</div>
 					</li>

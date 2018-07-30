@@ -6,7 +6,7 @@ class TracksController < ApplicationController
     if params[:tag]
       @tracks = Track.tagged_with(params[:tag])
     else
-      @tracks = Track.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+      @tracks = Track.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
     end
 	end
 

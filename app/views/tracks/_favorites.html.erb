@@ -1,5 +1,9 @@
 <% if user_signed_in? && current_user.favorited?(@track) %>
-  <%= link_to image_tag('icons/heart_full.svg', width: 11), track_unfavorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %> Stations<span style="margin-right: 6px"></span>| 
+<p class="listing_info">
+  <%= link_to image_tag('icons/heart_full.svg', style: "width: 16px !important; display: inline-block;  border: none; vertical-align:middle;"), track_unfavorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %> 
+</p>
 <% else %>
-  <%= link_to image_tag('icons/heart_empty.svg', width: 11), track_favorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %> Stations<span style="margin-right: 6px"></span>| 
+<p class="listing_info">
+  <%= link_to image_tag('icons/heart_empty.svg', style: "width: 16px !important; display: inline-block;  border: none; vertical-align:middle;"), track_favorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %>
+</p>
 <% end %>

@@ -31,31 +31,31 @@
 								        <% end %>
 												
 												<% if track.pseudonym_id? %>
-													<p class="listing_info" style="display:inline-block;"><%= link_to track.pseudonym.name, user_path(track.user) %></p>
+													<p class="listing_info" style="display:inline-block; margin: 0"><%= link_to track.pseudonym.name, user_path(track.user) %></p>
 												<% else %>
-													<p class="listing_info" style="display:inline-block;"><%= link_to track.user.name, user_path(track.user) %></p>
+													<p class="listing_info" style="display:inline-block; margin: 0"><%= link_to track.user.name, user_path(track.user) %></p>
 												<% end %>
-                        
-											</div>
-										  <div class="listing_overview">
-                        <div class="icons">
-                          <div class="table" style="margin-top: 0">
-                            <div class="table-row">
-                              <div class="table-cell">
+			
+             
+                            <div class="table-row" style="margin: none">
+                              <div class="table-cell" style="padding: none">
                                 
                 							  <div id="favorites_<%= track.id %>">
                 							    <%= render 'tracks/index_favorites', :track => track %>
                 							  </div>
                 						
               							  </div>
-              							  <div class="table-cell">
+              							  <div class="table-cell" style="padding: none">
               							    <p class="listing_info">
-                                <%= image_tag('icons/comments.svg', style: "width: 16px !important; display: inline-block;  border: none; vertical-align:middle;") %><span style="margin-left: .5rem"></span><%= track.comments.count %>
+              							    	<%= link_to track do %>
+                                		<%= image_tag('icons/comments.svg', style: "width: 16px !important; display: inline-block;  border: none; vertical-align:middle;") %>
+                                	<% end %>
+                                		<span style="margin-left: .5rem"></span><%= track.comments.count %>
                                 </p>
                               </div>
                             </div>
-                          </div>
-                        </div>
+
+     
                       </div>
 										</li>
 

@@ -47,12 +47,14 @@ class TopicsController < ApplicationController
     @genre = request.path.split('/').last
     respond_to do |format|
       if @topic.save
+        
+        Activity.create!(creatable_id: @topic.id, user_id: current_user.id,
+                                activity_type: "topic", createable_type: @genre)
+                                  
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-        format.json { render :show, status: :created, location: @topic }
         format.js
       else
         format.html { render :new }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
         format.js
       end
     end
@@ -62,10 +64,8 @@ class TopicsController < ApplicationController
     respond_to do |format|
       if @topic.update(topic_params)
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
-        format.json { render :show, status: :ok, location: @topic }
       else
         format.html { render :edit }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,7 +74,6 @@ class TopicsController < ApplicationController
     @topic.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Topic was successfully deleted.' }
-      format.json { head :no_content }
     end
   end
 

@@ -19,12 +19,14 @@ class PseudonymsController < ApplicationController
     @pseudonym = current_user.pseudonyms.build(pseudonym_params)
     respond_to do |format|
       if @pseudonym.save
+        
+        Activity.create!(creatable_id: @pseudonym.id, user_id: current_user.id,
+                                  activity_type: "creation", creatable_type: "pseudonym")
+                                  
         format.html { redirect_to @user, notice: 'Pseudonym was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
         format.js
       else
         format.html { render :new }
-        format.json { render json: @pseudonym.errors, status: :unprocessable_entity }
         format.js
       end
     end
@@ -35,10 +37,8 @@ class PseudonymsController < ApplicationController
     respond_to do |format|
       if @pseudonym.update(pseudonym_params)
         format.html { redirect_to @user, notice: 'Pseudonym was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
-        format.json { render json: @pseudonym.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +47,6 @@ class PseudonymsController < ApplicationController
     @pseudonym.destroy
     respond_to do |format|
       format.html { redirect_to @user, notice: 'Pseudonym was successfully deleted.' }
-      format.json { head :no_content }
     end
   end
 

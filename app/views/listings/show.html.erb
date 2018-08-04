@@ -80,6 +80,7 @@
 						<% unless @listing.user == current_user %>
 							<% if @purchased.empty? %>
 								<br>
+								<%= render 'listing_transaction_form', transaction: @transaction %><br>
 								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
 							<% else %>
 								<br>

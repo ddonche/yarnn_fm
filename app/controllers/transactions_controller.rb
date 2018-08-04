@@ -11,10 +11,6 @@ class TransactionsController < ApplicationController
      @pseudo = Pseudonym.find_by(params[:pseudo_id])
   end
 
-  def index
-    @transactions = Transaction.all
-  end
-
   def new
     @transaction = Transaction.new
     @listing = Listing.find(params[:listing_id])

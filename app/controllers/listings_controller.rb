@@ -24,6 +24,7 @@ class ListingsController < ApplicationController
       @avg_rating = @reviews.average(:rating).round(2)
     end
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
+    @transaction = Transaction.new
 	end
 	
 	def new

@@ -1,0 +1,11 @@
+<%= form_for([@listing, @transaction], id: "new_transaction") do |f| %>
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-amount="<%= @price %>"
+      data-name="Yarnn.fm"
+      data-description="Payment"
+      data-image="https://s3-us-west-2.amazonaws.com/yarnn/default_yarnn.jpg"
+      data-locale="auto">
+    </script>
+<% end %>

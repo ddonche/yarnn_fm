@@ -24,6 +24,7 @@
 											
 											<div class="listing_overview">
 												<h2><%= link_to truncate(track.title, length: 24, separator: ' '), track_path(track) %></h2>
+												
 												<% if track.user.image? %>
 								          <%= image_tag(track.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: track.user.username) %>
 								        <% else %>

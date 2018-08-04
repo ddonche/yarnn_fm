@@ -1,0 +1,9 @@
+<div class="tiny-table-cell" style="width: 58%;">
+  <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
+  started following you 
+</div>
+<div class="tiny-table-cell" style="width: 22%;">
+  <div class="small">
+    <%= time_ago_in_words(notification.created_at) %> ago
+  </div>
+</div>

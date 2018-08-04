@@ -10,25 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180804235311) do
-
-  create_table "activities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "followed_id"
-    t.integer  "track_id"
-    t.integer  "review_id"
-    t.integer  "comment_id"
-    t.integer  "listing_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "topic_id"
-    t.integer  "activity_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "creatable_id"
-    t.string   "creatable_type"
-    t.index ["user_id"], name: "index_activities_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 20180804235651) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",   null: false

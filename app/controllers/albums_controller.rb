@@ -29,12 +29,14 @@ class AlbumsController < ApplicationController
     @album = current_user.albums.build(album_params)
     respond_to do |format|
       if @album.save
+        
+        Activity.create!(creatable_id: @album.id, user_id: current_user.id,
+                                  activity_type: "creation", creatable_type: "album")
+        
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
-        format.json { render :show, status: :created, location: @album }
         format.js
       else
         format.html { render :new }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
         format.js
       end
     end
@@ -44,10 +46,8 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       if @album.update(album_params)
         format.html { redirect_to @album, notice: 'Album was successfully updated.' }
-        format.json { render :show, status: :ok, location: @album }
       else
         format.html { render :edit }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +56,6 @@ class AlbumsController < ApplicationController
     @album.destroy
     respond_to do |format|
       format.html { redirect_to albums_url, notice: 'Album was successfully deleted.' }
-      format.json { head :no_content }
     end
   end
 

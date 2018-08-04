@@ -34,12 +34,15 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build(blog_params)
     respond_to do |format|
       if @blog.save
+        if @blog.published_status == "published"
+          Activity.create!(creatable_id: @blog.id, user_id: current_user.id,
+                                    activity_type: "creation", creatable_type: "blog")
+        end
+        
         format.html { redirect_to @blog, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
         format.js
       else
         format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
         format.js
       end
     end
@@ -49,10 +52,8 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
   end

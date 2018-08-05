@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805065654) do
+ActiveRecord::Schema.define(version: 20180805163335) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20180805065654) do
     t.integer  "item_id"
     t.integer  "parent_id"
     t.integer  "activity_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "commentable_type"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 

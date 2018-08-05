@@ -1,51 +1,55 @@
 <div id="album_show">
 	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
+	  <%= render 'layouts/header' %>
 	</div>
   <% if user_signed_in? %>
     <%= render 'layouts/subheader' %>
   <% end %>
-	<%= render 'shared/alert' %>
-  <div class="wrapper_skinny_left">
-  </div>
-      
-  <div class="wrapper_wide_right">
+  
+	<div id="breadcrumb">
+	  <%= link_to current_user.username, user_path(current_user) %>
+			<span>/</span>
+		Activity
+	</div>
+	
+  <%= render 'shared/alert' %>
     
-    <div id="tracks">
-			<ul class="cf">
-				<% @feed_items.each do |item| %>
-					<li class="cf">
-						<div class="track_thumbnail">
-							<% if item.image? %>
-								<%= link_to image_tag(item.image.url(:thumb)), track_path(item), width: 100, title: item.title %>
-							<% else %>
-								<%= link_to image_tag(item.user.image.url(:thumb)), track_path(item), width: 100, title: item.title %>
-							<% end %>
-						</div>
-						<div class="track_overview">
-							<h2>
-								<%= link_to item.title, track_path(item) %><% if item.explicit == "explicit" %>&nbsp;(explicit)<% end %>
-								<% if item.album_id? %>
-									/ <%= link_to item.album.title, album_path(item.album_id) %>
-								<% end %>
-							</h2>
-							<div class="icons">
-							<%= link_to item.user.username, user_path(item.user) %> / <%= item.user.name %> / <i>Voiced by:</i> <%= item.vocals %>
-							</div>
-							<br /><br />
-							<p class="description"><%= truncate(item.description, length: 160) %></p><br />
-							<div class="icons_container">
-							  <div id="favorites">
-							    <%= render 'albums/favorites', :track => item %>
-							  </div>
-						  </div>
-						</div>
-					</li>
-				<% end %>
-			</ul>
+  <% if @feed_items.count > 25 %>
+    <div class ="pagination-container">
+      <%= paginate @feed_items %>
+    </div>
+  <% end %>    
+  
+    <div class="wrapper_wide">
+      <div class="side-box">
+        <div class="table">
+
+          <% if @feed_items.any? %>
+            <% @feed_items.each do |item| %>
+              <% if lookup_context.template_exists?(item.activity_type, "welcome/types", true) %>
+          
+              <div class="table-row">
+                <div class="tiny-table-cell" style="width: 10%;">
+                  <% if item.user.image? %>
+                    <%= image_tag User.find(item.user).image.url,  width: 40, class: "image", title: item.user.username %>
+                  <% else %>
+                    <%= image_tag('default_track.jpg', width: 40, class: "image", title: item.user.username) %>
+                  <% end %>
+                </div>
+                    
+                  <%= render partial: "welcome/types/#{item.activity_type}", locals: {item: item} %>
+                
+                </div>
+                
+              <% end %>
+              
+            <% end %>
+          <% else %>
+            There is no activity in your feed. You should <%= link_to "follow someone", users_path %> or perhaps join a discussion.
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
     
-    			<%= will_paginate @feed_items, previous_label: "Previous", next_label: "Next" %>
-    	</div>
-    
-  </div>
 </div>

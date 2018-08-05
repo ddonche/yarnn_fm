@@ -7,8 +7,6 @@ class UsersController < ApplicationController
   end
   
   def show
-    #@pseudonym = Pseudonym.find_by(params[:pseudo_id])
-    #@pseudo = Pseudonym.find_by(params[:pseudo_id])
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @page_title = @user.username
     @tracks = @user.tracks.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)

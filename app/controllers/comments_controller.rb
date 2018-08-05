@@ -18,8 +18,8 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id if current_user
     if @comment.save
       
-      Activity.create!(commentable_id: @commentable.id, comment_id: @comment.id, user_id: current_user.id,
-                                  activity_type: "comment", commentable_type: @comment.commentable_type)
+      Activity.create!(parent_id: @commentable.id, item_id: @comment.id, user_id: current_user.id,
+                                  activity_type: "comment")
       
       unless current_user.id == @commentable.user_id
       Notification.create!(commentable_id: @commentable.id, comment_id: @comment.id, 

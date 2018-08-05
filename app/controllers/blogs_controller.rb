@@ -35,8 +35,8 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         if @blog.published_status == "published"
-          Activity.create!(creatable_id: @blog.id, user_id: current_user.id,
-                                    activity_type: "creation", creatable_type: "blog")
+          Activity.create!(item_id: @blog.id, user_id: current_user.id,
+                                    activity_type: "blog")
         end
         
         format.html { redirect_to @blog, notice: 'Post was successfully created.' }

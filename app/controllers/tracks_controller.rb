@@ -39,12 +39,14 @@ class TracksController < ApplicationController
     @track = current_user.tracks.build(track_params)
     respond_to do |format|
       if @track.save
+        
+        Activity.create!(item_id: @track.id, user_id: current_user.id,
+                                  activity_type: "track")
+                                  
         format.html { redirect_to @track, notice: 'Track was successfully created.' }
-        format.json { render :show, status: :created, location: @track }
         format.js
       else
         format.html { render :new }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
         format.js
       end
     end
@@ -54,10 +56,8 @@ class TracksController < ApplicationController
     respond_to do |format|
       if @track.update(track_params)
         format.html { redirect_to @track, notice: 'Track was successfully updated.' }
-        format.json { render :show, status: :ok, location: @track }
       else
         format.html { render :edit }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -66,7 +66,6 @@ class TracksController < ApplicationController
     @track.destroy
     respond_to do |format|
       format.html { redirect_to albums_url, notice: 'Track was successfully deleted.' }
-      format.json { head :no_content }
     end
   end
   

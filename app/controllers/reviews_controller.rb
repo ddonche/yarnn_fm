@@ -14,16 +14,17 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.listing_id = @listing.id
-    Notification.create!(listing_id: @listing.id, 
-                                recipient_id: @listing.user_id, notified_by_id: current_user.id, 
-                                notification_type: "review")
 
     respond_to do |format|
       if @review.save
         
-        Activity.create!(commentable_id: @review.listing.id, comment_id: @review.id, user_id: current_user.id,
+        Activity.create!(parent_id: @review.listing.id, item_id: @review.id, user_id: current_user.id,
                                   activity_type: "review")
                                   
+        Notification.create!(listing_id: @listing.id, 
+                                recipient_id: @listing.user_id, notified_by_id: current_user.id, 
+                                notification_type: "review")
+                                
         format.html { redirect_to @listing, notice: 'Review was successfully created.' }
       else
         format.html { render :new }

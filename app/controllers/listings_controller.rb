@@ -47,8 +47,8 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
     respond_to do |format|
       if @listing.save
-        Activity.create!(creatable_id: @listing.id, user_id: current_user.id,
-                                  activity_type: "creation", creatable_type: "listing")
+        Activity.create!(item_id: @listing.id, user_id: current_user.id,
+                                  activity_type: "listing")
                                   
         format.html { redirect_to @listing, notice: 'Your listing was successful.' }
         format.js

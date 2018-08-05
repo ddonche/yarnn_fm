@@ -65,6 +65,10 @@ class TransactionsController < ApplicationController
         end
       else
         @transaction.save
+        
+        Activity.create!(item_id: @listing.id, user_id: current_user.id,
+                                  activity_type: "purchase")
+                                  
         Notification.create!(listing_id: @listing.id, 
                                 recipient_id: @listing.user_id, notified_by_id: current_user.id, 
                                 notification_type: "purchase")

@@ -1,0 +1,20 @@
+<div class="tiny-table-cell" style="width: 58%;">
+  <% if item.user == current_user %>
+    You
+  <% else %>
+  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+  <% end %>
+  created the album <%= link_to Album.find(item.item_id).title, album_path(item.item_id) %> 
+  which currently has <%= pluralize(Album.find(item.item_id).tracks.count, "track") %>.
+  
+    <br />
+    <span style="display: block; margin: .3rem 2rem; font-style:normal">
+      <%= truncate(Album.find(item.item_id).description, length: 200) %>
+    </span>
+</div>
+
+<div class="tiny-table-cell" style="width: 22%;">
+  <div class="small">
+    <%= time_ago_in_words(item.created_at) %> ago
+  </div>
+</div>

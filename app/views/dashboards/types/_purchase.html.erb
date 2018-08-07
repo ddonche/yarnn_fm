@@ -1,6 +1,13 @@
 <div class="tiny-table-cell" style="width: 58%;">
+  <% if item.user == current_user %>
+    You
+  <% else %>
   <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
-  purchased <%= link_to Listing.find(item.item_id).title, listing_path(item.item_id) %>
+  <% end %>
+  
+  purchased the <%= Listing.find(item.item_id).filetype %> 
+  
+  <%= link_to Listing.find(item.item_id).title, listing_path(item.item_id) %>
 </div>
 <div class="tiny-table-cell" style="width: 22%;">
   <div class="small">

@@ -1,0 +1,20 @@
+<div class="tiny-table-cell" style="width: 58%">
+  <% if item.user == current_user %>
+    You
+  <% else %>
+  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+  <% end %>
+  
+  created the topic 
+  
+   <%= link_to Topic.find(item.item_id).title, topic_path(item.item_id) %>
+      
+    <br />
+    <span style="display: block; margin: .3rem 2rem; font-style:normal"><%= truncate(Topic.find(item.item_id).content, length: 120) %></span>
+</div>
+
+<div class="tiny-table-cell" style="width: 22%">
+  <div class="small">
+    <%= time_ago_in_words(item.created_at) %> ago
+  </div>                  
+</div>

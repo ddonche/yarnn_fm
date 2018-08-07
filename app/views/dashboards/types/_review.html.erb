@@ -1,9 +1,30 @@
 <div class="tiny-table-cell" style="width: 58%;">
+  <% if item.user == current_user %>
+    You
+  <% else %>
   <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
-  left a review for <%= link_to Listing.find(item.parent_id).title, listing_path(item.parent_id) %>
+  <% end %>
+  gave <%= link_to Listing.find(item.parent_id).title, listing_path(item.parent_id) %> a 
+  <div class="star-rating" style="display:inline-block" data-score= <%= Review.find(item.item_id).rating %> ></div> 
+  rating
+    <br />
+    <span style="display: block; margin: .3rem 2rem; font-style:normal">
+      <%= truncate(Review.find(item.item_id).content, length: 200) %>
+    </span>
 </div>
+
 <div class="tiny-table-cell" style="width: 22%;">
   <div class="small">
     <%= time_ago_in_words(item.created_at) %> ago
   </div>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

@@ -1,0 +1,22 @@
+<div class="tiny-table-cell" style="width: 58%;">
+  <% if item.user == current_user %>
+    You
+  <% else %>
+  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+  <% end %>
+  
+  made the blog post  
+  
+  <%= link_to Blog.find(item.item_id).title, blog_path(item.item_id) %>
+      
+    <br />
+    <span style="display: block; margin: .3rem 2rem; font-style:normal">
+      <%= truncate(strip_tags(Blog.find(item.item_id).content), length: 200) %>
+    </span>
+</div>
+
+<div class="tiny-table-cell" style="width: 22%">
+  <div class="small">
+    <%= time_ago_in_words(item.created_at) %> ago
+  </div>                  
+</div>

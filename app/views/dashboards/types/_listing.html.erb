@@ -1,0 +1,22 @@
+<div class="tiny-table-cell" style="width: 58%;">
+  <% if item.user == current_user %>
+    You
+  <% else %>
+  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+  <% end %>
+  
+  listed the <%= Listing.find(item.item_id).filetype %> 
+  <%= link_to Listing.find(item.item_id).title, listing_path(item.item_id) %> for sale in the marketplace
+  for <strong><%= number_to_currency(Listing.find(item.item_id).price) %></strong>. 
+  
+    <br />
+    <span style="display: block; margin: .3rem 2rem; font-style:normal">
+      <%= truncate(Listing.find(item.item_id).description, length: 200) %>
+    </span>
+</div>
+
+<div class="tiny-table-cell" style="width: 22%;">
+  <div class="small">
+    <%= time_ago_in_words(item.created_at) %> ago
+  </div>
+</div>

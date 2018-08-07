@@ -4,7 +4,7 @@
         <div class="ribbon"><span>PUBLISHER</span></div>
       <% end %>
         <% if @user.image? %>
-          <%= image_tag(@user.image.url, class: "image", title: @user.username) %>
+          <%= image_tag(@user.image.url(:thumb), class: "image", title: @user.username) %>
         <% else %>
           <%= image_tag('default_track.jpg', class: "image", title: @user.username) %>
         <% end %>

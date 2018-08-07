@@ -50,9 +50,9 @@
                 <% if lookup_context.template_exists?(item.activity_type, "dashboards/types", true) %>
             
                 <div class="table-row">
-                  <div class="tiny-table-cell" style="width: 10%;">
+                  <div class="tiny-table-cell" style="width: 10%; vertical-align: top">
                     <% if item.user.image? %>
-                      <%= image_tag User.find(item.user).image.url,  width: 40, class: "image", title: item.user.username %>
+                      <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, class: "image", title: item.user.username %>
                     <% else %>
                       <%= image_tag('default_track.jpg', width: 40, class: "image", title: item.user.username) %>
                     <% end %>

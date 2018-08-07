@@ -65,7 +65,7 @@
 								<% end %>
 		        	<div class="star-rating" data-score= <%= @avg_rating %> ></div> 
 		        	<br>
-		        	<p class="track_count"><%= @listing.description %></p>
+		        	<p class="track_count"><%= simple_format(@listing.description) %></p>
 		        	<br>
 						<% if @listing.publisher? %>
 							<p class="track_count"><b><i>Publisher:</i></b> <%= @listing.publisher %></p>

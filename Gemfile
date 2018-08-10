@@ -37,7 +37,7 @@ gem 'rails-assets-card', source: 'https://rails-assets.org'
 gem 'omniauth-stripe-connect', '~> 2.10.0'
 gem 'trix'
 gem 'aws-sdk', '~> 3'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap'
 gem 'byebug'
 
 group :development, :test do

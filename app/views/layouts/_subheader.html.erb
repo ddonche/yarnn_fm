@@ -1,46 +1,67 @@
-
-	<div id="dashboard_menu">
-		<i><%= link_to current_user.username, user_path(current_user) %>
-			<span></span>
-			
-		<%= link_to edit_registration_path(current_user) do %>
-			<%= image_tag'icons/gear_white.png', width: 13, title: "Account" %>
-		<% end %>
-			<span></span>
-			
-		<%= link_to notifications_path(current_user) do %>
-			<%= image_tag'icons/bell_white.png', width: 14, title: "Notifications" %>
-			<% if @notifications.count > 0 %>
-				<div class="notifications_number"><%= @notifications.count %></div>
-			<% end %>
-		<% end %>
-			<span></span>
-			
-		<%= link_to new_track_path do %>
-			<%= image_tag'icons/upload_white.png', width: 16, title: "Upload New Track" %>
-		<% end %>
-			<span></span>
-			
-		<%= link_to "Dashboard", dashboard_path %>
-			<span></span>
-			
-		<%= link_to "My Station", station_path(current_user) %>
-			<span></span>
-			
-		<%= link_to "Downloads", purchases_path %>
-			<span></span>
-			
-			<!--- Seller Stuff --->
-			<% if current_user.uid? %>
-				<%= link_to new_listing_path do %>
-					<%= image_tag'icons/product.svg', width: 16, title: "Create New Listing" %>
-				<% end %>
-				  <span></span>
-				<%= link_to "Sales", sales_path %>
-					<span></span>
-				<%= link_to "Payout", payout_method_path %>
-			<% else %>
-				<%= link_to "Become a Seller", payout_method_path %>
-			<% end %>
-			
-	</div>
+<% if user_signed_in? %>
+<!-- secondary-navbar -->
+  <nav class="navbar navbar-expand-md nav-menu bg-dark">
+    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#secondNavbar">
+      <span class="navbar-toggler-icon mt-2">   
+			   <i class="fa fa-navicon text-danger"></i>
+			</span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="secondNavbar">
+      <ul class="navbar-nav">
+					<li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#"><i class="fas fa-cog text-muted"></i> <%= current_user.username %></a>
+            <div class="dropdown-menu p-2">
+            	<%= link_to "Profile", user_path(current_user), :class => "dropdown-item navdrop-link" %>
+            	<%= link_to "Edit Account", edit_registration_path(current_user), :class => "dropdown-item navdrop-link" %>
+            </div>
+          </li>
+	        <li class="nav-item">
+	        	<%= link_to "Dashboard", dashboard_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+          <li class="nav-item icon-parent">
+          	<%= link_to notifications_path(current_user), :class => "nav-link m-2" do %>
+							<i class="fas fa-comments text-muted"></i>
+							<% if @notifications.count > 0 %>
+								<span class="site-red"><%= @notifications.count %></span>
+							<% end %>
+						<% end %>
+          </li>
+	        <li class="nav-item">
+	        	<%= link_to "My Station", station_path(current_user), :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+	        <li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#"><i class="fas fa-upload text-muted"></i> Create</a>
+            <div class="dropdown-menu p-2">
+            	<%= link_to "Upload Track", new_track_path, :class => "dropdown-item navdrop-link" %>
+            	<%= link_to "Create Album", new_album_path, :class => "dropdown-item navdrop-link" %>
+            	<%= link_to "Create Blog Post", new_blog_path, :class => "dropdown-item navdrop-link" %>
+            </div>
+          </li>
+          <li class="nav-item">
+          	<%= link_to "Downloads", purchases_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+					<!--- Seller Stuff --->
+					<% if current_user.uid? %>
+					
+					<li class="nav-item">
+          	<%= link_to "New Listing", new_listing_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+	        <li class="nav-item">
+          	<%= link_to "Sales", sales_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+					<li class="nav-item">
+          	<%= link_to "Payout", payout_method_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+					<% else %>
+					<li class="nav-item">
+          	<%= link_to "Become a Seller", payout_method_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+					<% end %>
+	        <li class="nav-item">
+	        	<%= link_to  destroy_user_session_path, method: :delete, :class => "nav-link m-2 menu-item" do %>
+	        	<i class="fas fa-sign-out-alt site-red fa-lg"></i>
+	          <% end %>
+	        </li>
+      </ul>
+    </div>
+  </nav>
+<!-- end of secondary-navbar -->
+<% end %>

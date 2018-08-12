@@ -28,8 +28,8 @@
 	        <li class="nav-item">
 	        	<%= link_to "My Station", station_path(current_user), :class => "nav-link text-light m-2 menu-item" %>
 	        </li>
-	        <li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#"><i class="fas fa-upload text-muted"></i> Create</a>
-            <div class="dropdown-menu p-2">
+	        <li class="nav-item dropdown" data-toggle="dropdown" data-target="#dropdown2"><a class="nav-link text-light m-2 dropdown-toggle" href="#"><i class="fas fa-upload text-muted"></i> Create</a>
+            <div class="dropdown-menu p-2" id="dropdown2">
             	<%= link_to "Upload Track", new_track_path, :class => "dropdown-item navdrop-link" %>
             	<%= link_to "Create Album", new_album_path, :class => "dropdown-item navdrop-link" %>
             	<%= link_to "Create Blog Post", new_blog_path, :class => "dropdown-item navdrop-link" %>

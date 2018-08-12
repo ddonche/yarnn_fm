@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse justify-content-end text-uppercase" id="myNavbar">
       <ul class="navbar-nav">
       	<% unless user_signed_in? %>
-					<li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#">Explore</a>
+					<li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#"><i class="fas fa-map-signs text-muted"></i> Explore</a>
             <div class="dropdown-menu">
             	<%= link_to "Albums", albums_path, :class => "dropdown-item navdrop-link" %>
               <%= link_to "Tracks", tracks_path, :class => "dropdown-item navdrop-link" %>
@@ -31,7 +31,7 @@
 	          <%= link_to "Register", new_user_registration_path, :class => "nav-link text-light m-2 menu-item" %>
 	        </li>
 	      <% else %>
-					<li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#"><i class="fas fa-map-signs"></i> Explore</a>
+					<li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#"><i class="fas fa-map-signs text-muted"></i> Explore</a>
             <div class="dropdown-menu p-2">
             	<%= link_to "Albums", albums_path, :class => "dropdown-item navdrop-link" %>
               <%= link_to "Tracks", tracks_path, :class => "dropdown-item navdrop-link" %>
@@ -41,7 +41,7 @@
           </li>
 	        <li class="nav-item">
 	        	<%= link_to listings_path, :class => "nav-link text-light m-2 menu-item" do %>
-						  <i class="fas fa-shopping-cart"></i> Marketplace
+						  <i class="fas fa-shopping-cart text-muted"></i> Marketplace
 						<% end %>
 	        </li>
 	      <% end %>

@@ -8,7 +8,7 @@
   created the topic 
   
    <%= link_to Topic.find(item.item_id).title, topic_path(item.item_id) %> in 
-   <% Topic.find(item.item_id).tag_list.map.each do |tag| %><%= link_to tag, tag_path(tag) %><% end %>
+   <% Topic.find(item.item_id).tag_list.map.each do |tag| %><div class="tags"><%= link_to tag, tag_path(tag) %></div><% end %>
       
     <br />
     <span style="display: block; margin: .3rem 2rem; font-style:normal"><%= truncate(Topic.find(item.item_id).content, length: 200) %></span>

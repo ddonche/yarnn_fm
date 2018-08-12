@@ -27,7 +27,7 @@
     <div class="wrapper-side-left" style="width: 25%">
 	    <div class="main_avatar">
 	    
-	  	  <%= image_tag(@track.image.url, class: "image", title: @track.title) %>
+	  	  <%= image_tag(@track.image.url(:thumb), class: "image", title: @track.title) %>
 	  	  
 	      <div class="side-box">
 	        <div class="side-content">

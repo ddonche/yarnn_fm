@@ -1,0 +1,23 @@
+<div class="tiny-table-cell" style="width: 58%;">
+  <% if item.user == current_user %>
+    You
+  <% else %>
+  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+  <% end %>
+  uploaded a new track: <%= link_to Track.find(item.item_id).title, track_path(item.item_id) %> in
+  <% Track.find(item.item_id).tag_list.map.each do |tag| %><div class="tags"><%= link_to tag, tag_path(tag) %></div><% end %> 
+  <br /> 
+  
+  <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
+
+  <br />
+  <span style="display: block; margin: .3rem 2rem; font-style:normal">
+    <%= truncate(Track.find(item.item_id).description, length: 100) %>
+  </span>
+</div>
+
+<div class="tiny-table-cell" style="width: 22%;">
+  <div class="small">
+    <%= time_ago_in_words(item.created_at) %> ago
+  </div>
+</div>

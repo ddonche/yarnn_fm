@@ -7,6 +7,8 @@
   
   listed the <%= Listing.find(item.item_id).filetype %> 
   <%= link_to Listing.find(item.item_id).title, listing_path(item.item_id) %> for sale in the marketplace
+  under
+  <% Listing.find(item.item_id).tag_list.map.each do |tag| %><div class="tags"><%= link_to tag, tag_path(tag) %></div><% end %>
   for <strong><%= number_to_currency(Listing.find(item.item_id).price) %></strong>. 
   
     <br />

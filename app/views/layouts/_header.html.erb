@@ -1,25 +1,56 @@
-<header id="header" class="cf">
-	<div class="wrapper_wide">
-		<%= link_to root_path do %>
+<!-- header -->
+<header>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-md fixed-top nav-menu bg-dark">
+    <%= link_to root_path do %>
 	  		<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
 	  	<% end %>
-		<nav>
-			<ul>
-				<% unless user_signed_in? %>
-					<li><%= link_to "Explore", albums_path %></li>
-					<li><%= link_to "Market", listings_path %></li>
-					<li><%= link_to "Genres", genres_path %></li>
-					<li><%= link_to "Blog", albums_path %></li>
-					<li><%= link_to "Login", new_user_session_path %></li>
-					<li><%= link_to "Register", new_user_registration_path %></li>
-				<% else %>
-					<li><%= link_to "Explore", albums_path %></li>
-					<li><%= link_to "Market", listings_path %></li>
-					<li><%= link_to "Genres", genres_path %></li>
-					<li><%= link_to "Blog", albums_path %></li>
-					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-				<% end %>
-			</ul>
-		</nav>
-	</div>
+    <button class="navbar-toggler ml-auto bg-dark" type="button" data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon">   
+			   <i class="fa fa-navicon text-danger"></i>
+			</span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end text-uppercase" id="myNavbar">
+      <ul class="navbar-nav">
+      	<% unless user_signed_in? %>
+					<li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#">Explore</a>
+                    <div class="dropdown-menu">
+                    	<%= link_to "Albums", albums_path, :class => "dropdown-item" %>
+                      <%= link_to "Tracks", tracks_path, :class => "dropdown-item" %>
+                      <%= link_to "Genres", genres_path, :class => "dropdown-item" %>
+                      <%= link_to "Blog Posts", blogs_path, :class => "dropdown-item" %>
+                    </div>
+          </li>
+	        <li class="nav-item">
+	          <%= link_to "Marketplace", listings_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+	        <li class="nav-item">
+	          <%= link_to "Login", new_user_session_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+	        <li class="nav-item">
+	          <li><%= link_to "Register", new_user_registration_path, :class => "nav-link text-light m-2 menu-item" %></li>
+	        </li>
+	      <% else %>
+					<li class="nav-item dropdown" data-toggle="dropdown"><a class="nav-link text-light m-2 dropdown-toggle" href="#">Explore</a>
+                    <div class="dropdown-menu">
+                    	<%= link_to "Albums", albums_path, :class => "dropdown-item" %>
+                      <%= link_to "Tracks", tracks_path, :class => "dropdown-item" %>
+                      <%= link_to "Genres", genres_path, :class => "dropdown-item" %>
+                      <%= link_to "Blog Posts", blogs_path, :class => "dropdown-item" %>
+                    </div>
+          </li>
+	        <li class="nav-item">
+	          <%= link_to "Marketplace", listings_path, :class => "nav-link text-light m-2 menu-item" %>
+	        </li>
+	        <li class="nav-item">
+	        	<%= link_to  destroy_user_session_path, method: :delete, :class => "nav-link m-2 menu-item" do %>
+	        	<i class="fas fa-sign-out-alt text-danger fa-lg"></i>
+	          <% end %>
+	        </li>
+	      <% end %>
+      </ul>
+    </div>
+  </nav>
+  <!-- end of navbar -->
 </header>
+<!-- end of header -->

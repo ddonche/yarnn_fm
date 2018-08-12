@@ -31,6 +31,14 @@ body {
   color: #00b8ac;
 }
 
+.site-blue {
+  color: #00b8ac;
+}
+
+.site-blue:hover {
+  color: #dc2020;
+}
+
 .navbar-top-image {
   background-image: image-url('albums_banner.jpg');
   min-height: 80px;
@@ -82,24 +90,13 @@ body {
 	margin-left: -4px;
 }
 
-#dashboard_menu {
-  margin-top: 80px;
-  padding: .75rem 0;
-  background-color: #555;
-  text-align: center;
-  color: #FFF;
-  font-size: 15px;
-  border-bottom: 1px solid #444;
-  border-top: 1px solid #444;
-  a {
-    color: #fff;
-    font-style: normal;
-    text-decoration: none;
-    &:hover {
-      color: #00b8ac;
-    }
-  }
-  span {
-    margin: 0 .75rem;
-  }
+.current {
+    background-color: #dc2020;
+    border-radius: 7px;
+    transition: all .3s;
+}
+
+.current:hover {
+    background-color: #00b8ac;
+    border-radius: 7px;
 }

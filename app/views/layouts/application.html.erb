@@ -13,7 +13,12 @@
   <%= tag :meta, :name => "stripe-key", :content => ENV["PUBLISHABLE_KEY"] %>
 </head>
 <body>
+  <%= render 'layouts/header' %>
   <%= yield %>
+  
+  <% unless current_page?(root_path) %>
+    <%= render 'shared/footer' %>
+  <% end %>
   
 </body>
 </html>

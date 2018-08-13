@@ -30,6 +30,10 @@ body {
 
 .site-red {
   color: #dc2020;
+  a {
+    text-decoration: none;
+    color: #dc2020;
+  }
 }
 
 .site-red:hover {
@@ -38,6 +42,10 @@ body {
 
 .site-blue {
   color: #00b8ac;
+  a {
+    text-decoration: none;
+    color: #00b8ac;
+  }
 }
 
 .site-blue:hover {
@@ -47,6 +55,10 @@ body {
 .navbar-top-image {
   background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)), url('bg-dark.jpeg');
   min-height: 80px;
+}
+
+.trans-bg {
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url('bg-dark.jpeg');
 }
 
 .navdrop-link {
@@ -105,6 +117,17 @@ body {
 .current:hover {
     background-color: #00b8ac;
     border-radius: 7px;
+}
+
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
 @media only screen and (max-width : 768px) {

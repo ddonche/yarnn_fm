@@ -1,10 +1,13 @@
 <div id="welcome_background">
   <%= render 'layouts/header' %>
   <%= render 'shared/alert' %>
-  <div class="wrapper_skinny">
-    <h1>Entwine with amazing stories and poetry. <span class="responsive_break"></span></h1>
-    <%= link_to "Create", new_album_path, class: "button button_highlight" %>
-    <%= link_to "Explore", albums_path, class: "button button_white" %>
-  </div>
-  <%= render 'shared/footer' %>
+  
+      <h1>Entwine with amazing stories and poetry. <span class="responsive_break"></span></h1>
+      <button class="btn btn-outline-secondary mr-3 ">
+  			<%= link_to "CREATE", new_user_session_path, :class => "text-light" %>
+  		</button>
+  		<button class="btn btn-outline-secondary ml-3">
+        <%= link_to "SIGNUP", new_user_registration_path, :class => "text-light" %>
+      </button>
+
 </div>

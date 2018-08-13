@@ -5,7 +5,7 @@
     <%= link_to root_path do %>
 	  		<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
 	  	<% end %>
-    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#myNavbar">
+    <button class="navbar-toggler btn-outline-dark" type="button" data-toggle="collapse" data-target="#myNavbar">
       <span class="navbar-toggler-icon mt-2">   
 			   <i class="fa fa-navicon text-danger"></i>
 			</span>
@@ -13,78 +13,101 @@
     <div class="collapse navbar-collapse justify-content-end text-uppercase scrollable" id="myNavbar">
       <ul class="navbar-nav">
       	<% unless user_signed_in? %>
-					<li class="nav-item dropdown" data-toggle="dropdown" data-target="#nav_explore"><a class="nav-link text-light m-2 dropdown-toggle" href="#">
-						<i class="fas fa-map-signs text-light"></i> Explore</a>
-            <div class="dropdown-menu" id="nav_explore">
-            	<%= link_to "Albums", albums_path, :class => "dropdown-item navdrop-link" %>
-              <%= link_to "Tracks", tracks_path, :class => "dropdown-item navdrop-link" %>
-              <%= link_to "Genres", genres_path, :class => "dropdown-item navdrop-link" %>
-              <%= link_to "Blog Posts", blogs_path, :class => "dropdown-item navdrop-link" %>
-            </div>
-          </li>
+      	
+          <div class="dropdown">
+					  <button class="btn btn-outline-secondary dropdown-toggle m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    EXPLORE
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+					    <li class="dropdown-item navdrop-link"><%= link_to "Albums", albums_path %></li>
+					    <li class="dropdown-item navdrop-link"><%= link_to "Tracks", tracks_path %></li>
+              <li class="dropdown-item navdrop-link"><%= link_to "Genres", genres_path %></li>
+              <li class="dropdown-item navdrop-link"><%= link_to "Blog Posts", blogs_path %></li>
+					  </ul>
+					</div>
+					
 	        <li class="nav-item">
-	          <%= link_to "Marketplace", listings_path, :class => "nav-link text-light m-2 menu-item" %>
+	        	<%= link_to listings_path, :class => "nav-link text-secondary m-2 menu-item" do %>
+						  <i class="fas fa-shopping-cart text-secondary"></i> Marketplace
+						<% end %>
 	        </li>
+	        
 	        <li class="nav-item">
-	          <%= link_to "Login", new_user_session_path, :class => "nav-link text-light m-2 menu-item" %>
+	          <%= link_to "Login", new_user_session_path, :class => "nav-link text-secondary m-2 menu-item" %>
 	        </li>
+	        
 	        <li class="nav-item">
-	          <%= link_to "Register", new_user_registration_path, :class => "nav-link text-light m-2 menu-item" %>
+	          <%= link_to "Register", new_user_registration_path, :class => "nav-link text-secondary m-2 menu-item" %>
 	        </li>
 	      <% else %>
-		      <li class="nav-item dropdown" data-toggle="dropdown" data-target="#dashboard_drop"><a class="nav-link text-light m-2 dropdown-toggle" href="#">
-						<i class="fas fa-cog text-light mr-2"></i><%= current_user.username %></a>
-	          <div class="dropdown-menu p-2" id="dashboard_drop">
-	          	<%= link_to "Dashboard", dashboard_path, :class => "dropdown-item navdrop-link" %>
-	          	<%= link_to "Profile", user_path(current_user), :class => "dropdown-item navdrop-link" %>
-	          	<%= link_to "Edit Account", edit_registration_path(current_user), :class => "dropdown-item navdrop-link" %>
-	          	<div class="dropdown-divider"></div>
-							<%= link_to "My Station", station_path(current_user), :class => "dropdown-item navdrop-link" %>
-							<%= link_to "My Downloads", purchases_path, :class => "dropdown-item navdrop-link" %>
-							<div class="dropdown-divider"></div>
-							<%= link_to "Upload Track", new_track_path, :class => "dropdown-item navdrop-link" %>
-	          	<%= link_to "Create Album", new_album_path, :class => "dropdown-item navdrop-link" %>
-	          	<%= link_to "Create Blog Post", new_blog_path, :class => "dropdown-item navdrop-link" %>
-	          	<div class="dropdown-divider"></div>
-	          <!--- Seller Stuff --->
-						<% if current_user.uid? %>
-							<%= link_to "Sell Something", new_listing_path, :class => "dropdown-item navdrop-link" %>
-							<%= link_to "Sales", sales_path, :class => "dropdown-item navdrop-link" %>
-							<%= link_to "Payout", payout_method_path, :class => "dropdown-item navdrop-link" %>
-						<% else %>
-          		<%= link_to "Become a Seller", payout_method_path, :class => "dropdown-item navdrop-link" %>
-						<% end %>
-						<div class="dropdown-divider"></div>
-						<%= link_to  destroy_user_session_path, method: :delete, :class => "dropdown-item navdrop-link current" do %>
-	        		<i class="fas fa-sign-out-alt text-dark fa-lg"></i> Log Out
-	          <% end %>
-	          </div>
-	        </li>
+	      
+		      <div class="dropdown">
+						  <button class="btn btn-outline-secondary dropdown-toggle m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    <i class="fas fa-cog text-secondary mr-2"></i><%= current_user.username %>
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+						    <li class="dropdown-item navdrop-link"><%= link_to "Dashboard", dashboard_path %></li>
+						    <li class="dropdown-item navdrop-link"><%= link_to "Profile", user_path(current_user) %></li>
+	              <li class="dropdown-item navdrop-link"><%= link_to "Edit Account", edit_registration_path(current_user) %></li>
+	              <div class="dropdown-divider"></div>
+	              <li class="dropdown-item navdrop-link"><%= link_to "My Station", station_path(current_user) %></li>
+	              <li class="dropdown-item navdrop-link"><%= link_to "My Downloads", purchases_path %></li>
+	              <div class="dropdown-divider"></div>
+	              <li class="dropdown-item navdrop-link"><%= link_to "Upload Track", new_track_path %></li>
+						    <li class="dropdown-item navdrop-link"><%= link_to "Create Album", new_album_path %></li>
+	              <li class="dropdown-item navdrop-link"><%= link_to "Create Blog Post", new_blog_path %></li>
+	              <div class="dropdown-divider"></div>
+	            	
+	            	<!--- Seller Stuff --->
+								<% if current_user.uid? %>
+								<li class="dropdown-item navdrop-link"><%= link_to "Sell Something", new_listing_path %></li>
+						    <li class="dropdown-item navdrop-link"><%= link_to "Sales", sales_path %></li>
+	              <li class="dropdown-item navdrop-link"><%= link_to "Payout", payout_method_path %></li>
+	            	<% else %>
+	            	<li class="dropdown-item navdrop-link"><%= link_to "Become a Seller", payout_method_path %></li>
+	            	<% end %>
+	            	
+	            	<div class="dropdown-divider"></div>
+	            	<li class="dropdown-item navdrop-link current"><%= link_to destroy_user_session_path, method: :delete do %>
+			        		<i class="fas fa-sign-out-alt text-dark fa-lg"></i> Log Out
+			          <% end %></li>
+						  </ul>
+						</div>
+	        
 	        <li class="nav-item">
 	        	<%= link_to notifications_path(current_user), :class => "nav-link text-light m-2" do %>
-							<i class="fas fa-comments text-light mr-1"></i>
+							<i class="fas fa-comments text-secondary mr-1"></i>
 							<% if @notifications.count > 0 %>
 								<span class="site-blue"><%= @notifications.count %></span>
 							<% end %>
 						<% end %>
 					</li>
-					<li class="nav-item dropdown" data-toggle="dropdown" data-target="#nav_explore"><a class="nav-link text-light m-2 dropdown-toggle" href="#">
-						<i class="fas fa-map-signs text-light"></i> Explore</a>
-            <div class="dropdown-menu p-2" id="nav_explore">
-            	<%= link_to "Albums", albums_path, :class => "dropdown-item navdrop-link" %>
-              <%= link_to "Tracks", tracks_path, :class => "dropdown-item navdrop-link" %>
-              <%= link_to "Genres", genres_path, :class => "dropdown-item navdrop-link" %>
-              <%= link_to "Blog Posts", blogs_path, :class => "dropdown-item navdrop-link" %>
-            </div>
-          </li>
+					
+					<div class="dropdown">
+					  <button class="btn btn-outline-secondary dropdown-toggle m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    EXPLORE
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+					    <li class="dropdown-item navdrop-link"><%= link_to "Albums", albums_path %></li>
+					    <li class="dropdown-item navdrop-link"><%= link_to "Tracks", tracks_path %></li>
+              <li class="dropdown-item navdrop-link"><%= link_to "Genres", genres_path %></li>
+              <li class="dropdown-item navdrop-link"><%= link_to "Blog Posts", blogs_path %></li>
+					  </ul>
+					</div>
+          
 	        <li class="nav-item">
-	        	<%= link_to listings_path, :class => "nav-link text-light m-2 menu-item" do %>
-						  <i class="fas fa-shopping-cart text-light"></i> Marketplace
+	        	<%= link_to listings_path, :class => "nav-link text-secondary m-2 menu-item" do %>
+						  <i class="fas fa-shopping-cart text-secondary"></i> Marketplace
 						<% end %>
 	        </li>
+	        
 	        <%= link_to  destroy_user_session_path, method: :delete, :class => "nav-link text-light m-2 menu-item" do %>
         		<i class="fas fa-sign-out-alt site-red fa-lg"></i>
           <% end %>
+          
 	      <% end %>
       </ul>
     </div>

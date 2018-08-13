@@ -23,6 +23,11 @@ body {
   background-image: image-url('asanoha.png');
 }
 
+.btn-outline {
+	background: none;
+	padding: 12px 22px;
+}
+
 .site-red {
   color: #dc2020;
 }
@@ -40,22 +45,23 @@ body {
 }
 
 .navbar-top-image {
-  background-image: image-url('albums_banner.jpg');
+  background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)), url('bg-dark.jpeg');
   min-height: 80px;
 }
 
-.secondary-navbar {
-  background-color: #98B9B7;
-  min-height: 50px;
-}
-
 .navdrop-link {
-    transition: all .4s;
+  transition: all .4s;
+  a {
+    text-decoration: none;
+    color: #23272B;
+  }
 }
 
 .navdrop-link:hover {
-  color: #dc2020;
-  background-color: #e9e9e9;
+  a {
+    color: #00b8ac;
+  }
+  background-color: #23272B;
   border-radius: 5px;
 }
 

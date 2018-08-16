@@ -1,4 +1,4 @@
-<div class="col-9">
+<div class="col-md-9 col-sm-8">
   <span class="font-weight-bold">            
   <% if item.user == current_user %>
       <span class="site-red">You</span>
@@ -17,7 +17,6 @@
     <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
     <br />
     <%= truncate(Track.find(item.item_id).description, length: 100) %>
-
   </p>
   
 </div>

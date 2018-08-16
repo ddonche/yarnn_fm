@@ -61,6 +61,10 @@ body {
   text-decoration: none;
 }
 
+li.borderless {
+  border-top: 0 none;
+}
+
 .navbar-top-image {
   background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)), url('bg-dark.jpeg');
   min-height: 80px;

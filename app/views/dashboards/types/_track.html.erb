@@ -1,4 +1,4 @@
-<div class="col-md-9 col-sm-8">
+<div class="col-md-9 col-sm-10">
   <span class="font-weight-bold">            
   <% if item.user == current_user %>
       <span class="site-red">You</span>
@@ -13,7 +13,7 @@
     <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
   <% end %>                     
   
-  <p class="mt-2 pb-4 border-bottom">
+  <p class="mt-2">
     <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
     <br />
     <%= truncate(Track.find(item.item_id).description, length: 100) %>
@@ -21,9 +21,13 @@
   
 </div>
 
-<div class="col-2">
-  <div class="small text-secondary text-right"><%= time_ago_in_words(item.created_at) %> ago</div>
-    <div class="float-right">
+<div class="col-md-2">
+  <div class="row text-center">
+    <div class="col-md-12 col-sm-6">
+      <div class="small text-secondary"><%= time_ago_in_words(item.created_at) %> ago</div>
+    </div>
+    <div class="col-md-12 col-sm-6">
       <a href="#" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
     </div>
+  </div>
 </div>

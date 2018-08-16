@@ -1,86 +1,100 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  <%= render 'shared/alert' %>
-  
-		<div class="container">
-        <div class="wrapper-side-left">
-        	<h2 style="margin: 0 1rem .5rem 1rem">Genres</h2>
-        	<ul>
-	        	<li><%= link_to "Action Adventure", genre_path("action-adventure") %></li>
-	        	<li><%= link_to "Apocalypse", genre_path("apocalypse") %></li>
-	        	<li><%= link_to "Children's", genre_path("childrens") %></li>
-	        	<li><%= link_to "Crime", genre_path("crime") %></li>
-	        	<li><%= link_to "Erotica", genre_path("erotica") %></li>
-	        	<li><%= link_to "Fantasy", genre_path("fantasy") %></li>
-	        	<li><%= link_to "Historical Fiction", genre_path("historical-fiction") %></li>
-	        	<li><%= link_to "Horror", genre_path("horror") %></li>
-	        	<li><%= link_to "International Thriller", genre_path("international-thriller") %></li>
-	        	<li><%= link_to "LGBTQ", genre_path("lgbtq") %></li>
-						<li><%= link_to "Military", genre_path("military") %></li>
-		        <li><%= link_to "Mystery", genre_path("mystery") %></li>
-		        <li><%= link_to "Nonfiction", genre_path("nonfiction") %></li>
-		        		<li style="margin-left: 2rem"><%= link_to "Business", genre_path("business") %></li>
-			        	<li style="margin-left: 2rem"><%= link_to "Inspirational", genre_path("inspirational") %></li>
-			        	<li style="margin-left: 2rem"><%= link_to "Memoir", genre_path("memoir") %></li>
-			        	<li style="margin-left: 2rem"><%= link_to "Self-help", genre_path("self-help") %></li>
-			          <li style="margin-left: 2rem"><%= link_to "True Crime", genre_path("true-crime") %></li>	
-		        <li><%= link_to "Poetry", genre_path("poetry") %></li>
-		        <li><%= link_to "Religion", genre_path("religion") %></li>
-		        <li><%= link_to "Romance", genre_path("romance") %></li>
-		        		<li style="margin-left: 2rem"><%= link_to "Paranormal Romance", genre_path("paranormal-romance") %></li>
-		        <li><%= link_to "Science Fiction", genre_path("science-fiction") %></li>
-		        <li><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></li>
-		        <li><%= link_to "Thriller", genre_path("thriller") %></li>
-		        <li><%= link_to "Western", genre_path("western") %></li>
-		        <li><%= link_to "Women's", genre_path("womens") %></li>
-		        <li><%= link_to "Young Adult", genre_path("young-adult") %></li>
-	        </ul>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-4">
+        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
+        	<div class="row py-3 mb-3 bg-light border-bottom">
+            <div class="col-12">
+              <h5 class="text-muted">Genres</h5>
+            </div>
+           </div>
+				<ul class="list-group list-group-flush site-red">
+	      	<li class="list-group-item borderless pt-0"><%= link_to "Action Adventure", genre_path("action-adventure") %></li>
+	      	<li class="list-group-item"><%= link_to "Apocalypse", genre_path("apocalypse") %></li>
+	      	<li class="list-group-item"><%= link_to "Children's", genre_path("childrens") %></li>
+	      	<li class="list-group-item"><%= link_to "Crime", genre_path("crime") %></li>
+	      	<li class="list-group-item"><%= link_to "Erotica", genre_path("erotica") %></li>
+	      	<li class="list-group-item"><%= link_to "Fantasy", genre_path("fantasy") %></li>
+	      	<li class="list-group-item"><%= link_to "Historical Fiction", genre_path("historical-fiction") %></li>
+	      	<li class="list-group-item"><%= link_to "Horror", genre_path("horror") %></li>
+	      	<li class="list-group-item"><%= link_to "International Thriller", genre_path("international-thriller") %></li>
+	      	<li class="list-group-item"><%= link_to "LGBTQ", genre_path("lgbtq") %></li>
+					<li class="list-group-item"><%= link_to "Military", genre_path("military") %></li>
+	        <li class="list-group-item"><%= link_to "Mystery", genre_path("mystery") %></li>
+	        <li class="list-group-item"><%= link_to "Nonfiction", genre_path("nonfiction") %></li>
+	        		<li class="list-group-item ml-3"><%= link_to "Business", genre_path("business") %></li>
+		        	<li class="list-group-item ml-3"><%= link_to "Inspirational", genre_path("inspirational") %></li>
+		        	<li class="list-group-item ml-3"><%= link_to "Memoir", genre_path("memoir") %></li>
+		        	<li class="list-group-item ml-3"><%= link_to "Self-help", genre_path("self-help") %></li>
+		          <li class="list-group-item ml-3"><%= link_to "True Crime", genre_path("true-crime") %></li>	
+	        <li class="list-group-item"><%= link_to "Poetry", genre_path("poetry") %></li>
+	        <li class="list-group-item"><%= link_to "Religion", genre_path("religion") %></li>
+	        <li class="list-group-item"><%= link_to "Romance", genre_path("romance") %></li>
+	        		<li class="list-group-item ml-3"><%= link_to "Paranormal Romance", genre_path("paranormal-romance") %></li>
+	        <li class="list-group-item"><%= link_to "Science Fiction", genre_path("science-fiction") %></li>
+	        <li class="list-group-item"><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></li>
+	        <li class="list-group-item"><%= link_to "Thriller", genre_path("thriller") %></li>
+	        <li class="list-group-item"><%= link_to "Western", genre_path("western") %></li>
+	        <li class="list-group-item"><%= link_to "Women's", genre_path("womens") %></li>
+	        <li class="list-group-item"><%= link_to "Young Adult", genre_path("young-adult") %></li>
+	      </ul>
+			     
         </div>
-        
-        <div class="wrapper-med-right">
-					<div id="listings" class="cf">
-						<h2 style="margin: 0 1rem .5rem 1rem">Latest Products</h2>
-							<ul class="cf">
-								<% @listings.each do |listing| %>
-										<li>
-											<%= link_to listing do %>
-												<%= image_tag listing.image.url(:thumb), title: listing.title %>
-											<% end %>
-											
-											<div class="listing_overview">
-											  <p class="listing_type"><%= listing.filetype %></p>
-												<h2><%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing) %></h2>
-												<div id="stars">
-													<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
-												</div>
-												<br>
-												
-												<% if listing.user.image? %>
-								          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
-								        <% else %>
-								          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
-								        <% end %>
-												
-												<% if listing.pseudonym_id? %>
-													<p class="listing_info" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
-												<% else %>
-													<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
-												<% end %>
-												<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p>
-	
-											</div>
-										</li>
-								<% end %>
-							</ul>
-							<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
-					</div>
-
+      </div>
+      <div class="col-xl-9 col-lg-8">
+        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
+          <div class="row py-3 mb-3 bg-light border-bottom">
+            <div class="col-12">
+              <h5 class="text-muted">Latest Products</h5>
+            </div>
+          </div>
         </div>
-        
+      </div>
     </div>
-	</div>
+  </div>
+</section>
+
+    
+    <div class="wrapper-med-right">
+			<div id="listings" class="cf">
+				<h2 style="margin: 0 1rem .5rem 1rem">Latest Products</h2>
+					<ul class="cf">
+						<% @listings.each do |listing| %>
+								<li class="list-group-item">
+									<%= link_to listing do %>
+										<%= image_tag listing.image.url(:thumb), title: listing.title %>
+									<% end %>
+									
+									<div class="listing_overview">
+									  <p class="listing_type"><%= listing.filetype %></p>
+										<h2><%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing) %></h2>
+										<div id="stars">
+											<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
+										</div>
+										<br>
+										
+										<% if listing.user.image? %>
+						          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
+						        <% else %>
+						          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
+						        <% end %>
+										
+										<% if listing.pseudonym_id? %>
+											<p class="listing_info" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
+										<% else %>
+											<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
+										<% end %>
+										<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p>
+
+									</div>
+								</li>
+						<% end %>
+					</ul>
+					<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+			</div>
+
+    </div>
+    
 </div>
 
 <script>

@@ -20,7 +20,7 @@
           <% if @feed_items.any? %>
             <% @feed_items.each do |item| %>
               <% if lookup_context.template_exists?(item.activity_type, "dashboards/types", true) %>
-                <div class="row pb-2">
+                <div class="row pb-1 border-bottom">
                   <div class="col-md-1 col-sm-2">
                     <% if item.user.image? %>
                       <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, title: item.user.username %>

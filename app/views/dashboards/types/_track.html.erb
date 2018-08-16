@@ -1,23 +1,30 @@
-<div class="tiny-table-cell" style="width: 58%;">
+<div class="col-9">
+  <span class="font-weight-bold">            
   <% if item.user == current_user %>
-    You
+      <span class="site-red">You</span>
   <% else %>
-  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+    <%= link_to User.find(item.user_id).username, user_path(item.user_id), class: "site-red" %> 
   <% end %>
-  uploaded a new track: <%= link_to Track.find(item.item_id).title, track_path(item.item_id) %> in
-  <% Track.find(item.item_id).tag_list.map.each do |tag| %><div class="tags"><%= link_to tag, tag_path(tag) %></div><% end %> 
-  <br /> 
-  
-  <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
-
-  <br />
-  <span style="display: block; margin: .3rem 2rem; font-style:normal">
-    <%= truncate(Track.find(item.item_id).description, length: 100) %>
   </span>
+  
+  uploaded a new track: <%= link_to Track.find(item.item_id).title, track_path(item.item_id), class: "site-blue font-weight-bold" %> in
+  
+  <% Track.find(item.item_id).tag_list.map.each do |tag| %>
+    <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
+  <% end %>                     
+  
+  <p class="mt-2 pb-4 border-bottom">
+    <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
+    <br />
+    <%= truncate(Track.find(item.item_id).description, length: 100) %>
+
+  </p>
+  
 </div>
 
-<div class="tiny-table-cell" style="width: 22%;">
-  <div class="small">
-    <%= time_ago_in_words(item.created_at) %> ago
-  </div>
+<div class="col-2">
+  <div class="small text-secondary text-right"><%= time_ago_in_words(item.created_at) %> ago</div>
+    <div class="float-right">
+      <a href="#" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+    </div>
 </div>

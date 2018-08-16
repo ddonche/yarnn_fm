@@ -1,0 +1,77 @@
+<div id="album_show">
+	<div id="banner" class="track_banner">
+		<%= render 'layouts/header' %>
+	</div>
+  
+  <%= render 'shared/alert' %>
+  
+	<div id="breadcrumb">
+	  <%= link_to current_user.username, user_path(current_user) %>
+			<span>/</span>
+		Dashboard
+	</div>
+
+  <div class="wrapper_skinny_left">
+    <%= render 'users/avatar' %>
+    <% if @pseudonyms.any? %>
+      <%= render 'users/pseudonyms' %>
+    <% else %>
+      <div class="side-box" style="margin-top: 0">
+        <div class="side-content">
+          <ul>
+      			<li>
+      			  <% if current_user.publisher_type == "publisher" %>
+      			    <h2>Authors</h2>
+      					<p class="description">You have not added any authors yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+      			  <% else %>
+      				  <h2>Pseudonyms</h2>
+      					<p class="description">You have not added any pseudonyms yet. Would you like to <%= link_to "add one now?", new_pseudonym_path %></p>
+      			  <% end %>
+      			</li>
+        	</ul>
+        </div>
+      </div>
+    <% end %>
+    <%= render 'users/followers' %>
+    <%= render 'users/following' %>
+  </div>
+      
+  <div class="wrapper_wide_right_right">
+      <div class="side-box">
+        <div class="side-content">
+          <h2>Latest Activity</h2>
+          <div class="table">
+  
+            <% if @feed_items.any? %>
+              <% @feed_items.each do |item| %>
+                <% if lookup_context.template_exists?(item.activity_type, "dashboards/types", true) %>
+            
+                <div class="table-row">
+                  <div class="tiny-table-cell" style="width: 10%; vertical-align: top">
+                    <% if item.user.image? %>
+                      <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, class: "image", title: item.user.username %>
+                    <% else %>
+                      <%= image_tag('default_track.jpg', width: 40, class: "image", title: item.user.username) %>
+                    <% end %>
+                  </div>
+                      
+                    <%= render partial: "dashboards/types/#{item.activity_type}", locals: {item: item} %>
+                  
+                  </div>
+                  
+                <% end %>
+                
+              <% end %>
+            <% else %>
+              There is no activity in your feed. You should <%= link_to "follow someone", users_path %> or perhaps join a discussion.
+            <% end %>
+            
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wrapper_wide_right_right">
+    <%= render 'shared/content_footer' %>
+  </div>

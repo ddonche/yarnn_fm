@@ -28,6 +28,13 @@ body {
 	padding: 12px 22px;
 }
 
+.site-link-white {
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
 .site-red {
   color: #dc2020;
   a {
@@ -38,6 +45,7 @@ body {
 
 .site-red:hover {
   color: #00b8ac;
+  text-decoration: none;
 }
 
 .site-blue {
@@ -50,6 +58,7 @@ body {
 
 .site-blue:hover {
   color: #dc2020;
+  text-decoration: none;
 }
 
 .navbar-top-image {

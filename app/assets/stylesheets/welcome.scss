@@ -26,3 +26,12 @@
   text-align: center;
   overflow: hidden;
 }
+
+#background-other-overflow {
+  height: 100vh;
+  background-image: image-url('login_background.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  overflow: auto;
+}

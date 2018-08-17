@@ -1,7 +1,7 @@
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xl-3 col-lg-4">
+      <div class="col-md-3 col-sm-5 ">
         <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
         	<div class="row py-3 mb-3 bg-light border-bottom">
             <div class="col-12">
@@ -41,12 +41,67 @@
 			     
         </div>
       </div>
-      <div class="col-xl-9 col-lg-8">
-        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
+      <div class="col-md-9 col-sm-7">
+        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow d-flex">
           <div class="row py-3 mb-3 bg-light border-bottom">
             <div class="col-12">
               <h5 class="text-muted">Latest Products</h5>
             </div>
+            
+							<div class="row">
+								<% @listings.each do |listing| %>
+                <div class="col-lg-3 col-md-6">
+                    <div>
+                        <div class="bg-white p-2 m-2 text-muted crown-border container-shadow">
+
+                            <div class="text-center">
+                                <%= link_to listing do %>
+																	<%= image_tag listing.image.url(:thumb), title: listing.title, class: "image-full" %>
+																<% end %>
+                            </div>
+                            <div class="text-left p-2 mt-2">
+                            	<div class="small"><%= listing.filetype %></div>
+                                <%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing), class: "site-red" %>
+                                <p class="small"><%= truncate(listing.description, length: 58) %></p>
+                                
+                                
+                                <div class="row">
+                                	<div class="col-12 site-red small">
+                                		<% if listing.user.image? %>
+														          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
+														        <% else %>
+														          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
+														        <% end %>
+																		
+																		<% if listing.pseudonym_id? %>
+																			<p class="ml-2" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
+																		<% else %>
+																			<p class="ml-2" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
+																		<% end %>
+                                	</div>
+                                </div>
+                                <div class="grayline"></div>
+                            	<div class="row">
+                            		
+                            		<div class="col-4">
+                            			<span class="product-price">
+	                                  <%= number_to_currency(listing.price) %>
+	                                </span>
+                            		</div>
+                            		<div class="col-8">
+                            			<div id="stars">
+																		<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
+																	</div>
+                            		</div>
+                            	</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+              </div>
+              
           </div>
         </div>
       </div>
@@ -106,3 +161,114 @@
     }
   });
 </script>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation">
+                                [ INFO ]
+                            </div>
+                            <div class="product-desc">
+                                <span class="product-price">
+                                    $10
+                                </span>
+                                <small class="text-muted">Category</small>
+                                <a href="#" class="product-name"> Product</a>
+
+
+
+                                <div class="small m-t-xs">
+                                    Many desktop publishing packages and web page editors now.
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation">
+                                [ INFO ]
+                            </div>
+                            <div class="product-desc">
+                                <span class="product-price">
+                                    $10
+                                </span>
+                                <small class="text-muted">Category</small>
+                                <a href="#" class="product-name"> Product</a>
+
+
+
+                                <div class="small m-t-xs">
+                                    Many desktop publishing packages and web page editors now.
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box active">
+
+                            <div class="product-imitation">
+                                [ INFO ]
+                            </div>
+                            <div class="product-desc">
+                                <span class="product-price">
+                                    $10
+                                </span>
+                                <small class="text-muted">Category</small>
+                                <a href="#" class="product-name"> Product</a>
+
+
+
+                                <div class="small m-t-xs">
+                                    Many desktop publishing packages and web page editors now.
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation">
+                                [ INFO ]
+                            </div>
+                            <div class="product-desc">
+                                <span class="product-price">
+                                    $10
+                                </span>
+                                <small class="text-muted">Category</small>
+                                <a href="#" class="product-name"> Product</a>
+
+
+
+                                <div class="small m-t-xs">
+                                    Many desktop publishing packages and web page editors now.
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

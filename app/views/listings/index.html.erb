@@ -1,156 +1,113 @@
 <section>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 col-sm-5 ">
-        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
-        	<div class="row py-3 mb-3 bg-light border-bottom">
-            <div class="col-12">
-              <h5 class="text-muted">Genres</h5>
-            </div>
-           </div>
-				<ul class="list-group list-group-flush site-red">
-	      	<li class="list-group-item borderless pt-0"><%= link_to "Action Adventure", genre_path("action-adventure") %></li>
-	      	<li class="list-group-item"><%= link_to "Apocalypse", genre_path("apocalypse") %></li>
-	      	<li class="list-group-item"><%= link_to "Children's", genre_path("childrens") %></li>
-	      	<li class="list-group-item"><%= link_to "Crime", genre_path("crime") %></li>
-	      	<li class="list-group-item"><%= link_to "Erotica", genre_path("erotica") %></li>
-	      	<li class="list-group-item"><%= link_to "Fantasy", genre_path("fantasy") %></li>
-	      	<li class="list-group-item"><%= link_to "Historical Fiction", genre_path("historical-fiction") %></li>
-	      	<li class="list-group-item"><%= link_to "Horror", genre_path("horror") %></li>
-	      	<li class="list-group-item"><%= link_to "International Thriller", genre_path("international-thriller") %></li>
-	      	<li class="list-group-item"><%= link_to "LGBTQ", genre_path("lgbtq") %></li>
-					<li class="list-group-item"><%= link_to "Military", genre_path("military") %></li>
-	        <li class="list-group-item"><%= link_to "Mystery", genre_path("mystery") %></li>
-	        <li class="list-group-item"><%= link_to "Nonfiction", genre_path("nonfiction") %></li>
-	        		<li class="list-group-item ml-3"><%= link_to "Business", genre_path("business") %></li>
-		        	<li class="list-group-item ml-3"><%= link_to "Inspirational", genre_path("inspirational") %></li>
-		        	<li class="list-group-item ml-3"><%= link_to "Memoir", genre_path("memoir") %></li>
-		        	<li class="list-group-item ml-3"><%= link_to "Self-help", genre_path("self-help") %></li>
-		          <li class="list-group-item ml-3"><%= link_to "True Crime", genre_path("true-crime") %></li>	
-	        <li class="list-group-item"><%= link_to "Poetry", genre_path("poetry") %></li>
-	        <li class="list-group-item"><%= link_to "Religion", genre_path("religion") %></li>
-	        <li class="list-group-item"><%= link_to "Romance", genre_path("romance") %></li>
-	        		<li class="list-group-item ml-3"><%= link_to "Paranormal Romance", genre_path("paranormal-romance") %></li>
-	        <li class="list-group-item"><%= link_to "Science Fiction", genre_path("science-fiction") %></li>
-	        <li class="list-group-item"><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></li>
-	        <li class="list-group-item"><%= link_to "Thriller", genre_path("thriller") %></li>
-	        <li class="list-group-item"><%= link_to "Western", genre_path("western") %></li>
-	        <li class="list-group-item"><%= link_to "Women's", genre_path("womens") %></li>
-	        <li class="list-group-item"><%= link_to "Young Adult", genre_path("young-adult") %></li>
-	      </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-5 ">
+                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
+                	<div class="row py-2 mb-3 bg-light border-bottom">
+                        <div class="col-12">
+                          <h3 class="text-muted">Genres</h3>
+                        </div>
+                    </div>
+        		    <ul class="list-group list-group-flush site-red">
+            	      	<li class="list-group-item borderless pt-0"><%= link_to "Action Adventure", genre_path("action-adventure") %></li>
+            	      	<li class="list-group-item"><%= link_to "Apocalypse", genre_path("apocalypse") %></li>
+            	      	<li class="list-group-item"><%= link_to "Children's", genre_path("childrens") %></li>
+            	      	<li class="list-group-item"><%= link_to "Crime", genre_path("crime") %></li>
+            	      	<li class="list-group-item"><%= link_to "Erotica", genre_path("erotica") %></li>
+            	      	<li class="list-group-item"><%= link_to "Fantasy", genre_path("fantasy") %></li>
+            	      	<li class="list-group-item"><%= link_to "Historical Fiction", genre_path("historical-fiction") %></li>
+            	      	<li class="list-group-item"><%= link_to "Horror", genre_path("horror") %></li>
+            	      	<li class="list-group-item"><%= link_to "International Thriller", genre_path("international-thriller") %></li>
+            	      	<li class="list-group-item"><%= link_to "LGBTQ", genre_path("lgbtq") %></li>
+            			<li class="list-group-item"><%= link_to "Military", genre_path("military") %></li>
+            	        <li class="list-group-item"><%= link_to "Mystery", genre_path("mystery") %></li>
+            	        <li class="list-group-item"><%= link_to "Nonfiction", genre_path("nonfiction") %></li>
+            	        	<li class="list-group-item ml-3"><%= link_to "Business", genre_path("business") %></li>
+            		        <li class="list-group-item ml-3"><%= link_to "Inspirational", genre_path("inspirational") %></li>
+            		        <li class="list-group-item ml-3"><%= link_to "Memoir", genre_path("memoir") %></li>
+            		        <li class="list-group-item ml-3"><%= link_to "Self-help", genre_path("self-help") %></li>
+            		        <li class="list-group-item ml-3"><%= link_to "True Crime", genre_path("true-crime") %></li>	
+            	        <li class="list-group-item"><%= link_to "Poetry", genre_path("poetry") %></li>
+            	        <li class="list-group-item"><%= link_to "Religion", genre_path("religion") %></li>
+            	        <li class="list-group-item"><%= link_to "Romance", genre_path("romance") %></li>
+            	        	<li class="list-group-item ml-3"><%= link_to "Paranormal Romance", genre_path("paranormal-romance") %></li>
+            	        <li class="list-group-item"><%= link_to "Science Fiction", genre_path("science-fiction") %></li>
+            	        <li class="list-group-item"><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></li>
+            	        <li class="list-group-item"><%= link_to "Thriller", genre_path("thriller") %></li>
+            	        <li class="list-group-item"><%= link_to "Western", genre_path("western") %></li>
+            	        <li class="list-group-item"><%= link_to "Women's", genre_path("womens") %></li>
+            	        <li class="list-group-item"><%= link_to "Young Adult", genre_path("young-adult") %></li>
+        	         </ul>
 			     
-        </div>
-      </div>
-      <div class="col-md-9 col-sm-7">
-        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow d-flex">
-          <div class="row py-3 mb-3 bg-light border-bottom">
-            <div class="col-12">
-              <h5 class="text-muted">Latest Products</h5>
+                </div>
             </div>
-            
-							<div class="row">
-								<% @listings.each do |listing| %>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div>
-                        <div class="bg-white p-2 m-2 text-muted crown-border container-shadow">
-
-                            <div class="text-center">
-                                <%= link_to listing do %>
-																	<%= image_tag listing.image.url(:thumb), title: listing.title, class: "image-full" %>
-																<% end %>
-                            </div>
-                            <div class="text-left p-2 mt-2">
-                            	<div class="small"><%= listing.filetype %></div>
-                                <%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing), class: "site-red" %>
-                                <p class="small"><%= truncate(listing.description, length: 58) %></p>
-                                
-                                
-                                <div class="row">
-                                	<div class="col-12 site-red small">
-                                		<% if listing.user.image? %>
-														          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
-														        <% else %>
-														          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
-														        <% end %>
-																		
-																		<% if listing.pseudonym_id? %>
-																			<p class="ml-2" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
-																		<% else %>
-																			<p class="ml-2" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
-																		<% end %>
-                                	</div>
-                                </div>
-                                <div class="grayline"></div>
-                            	<div class="row">
-                            		
-                            		<div class="col-7">
-                            			<div id="stars">
-																		<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%;"></div>
-																	</div>
-                            		</div>
-                            		<div class="col-5">
-                            			<span class="product-price text-right">
-	                                  <%= number_to_currency(listing.price) %>
-	                                </span>
-                            		</div>
-                            	</div>
-                                
-                            </div>
+            <div class="col-md-9 col-sm-7">
+                <div class="bg-white px-3 mt-3 mb-2 text-muted crown-border container-shadow">
+                    <div class="row py-2 bg-light border-bottom">
+                        <div class="col-12">
+                            <h3 class="text-muted">Latest Products</h3>
                         </div>
                     </div>
                 </div>
-                <% end %>
-              </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+            
+				<div class="row">
+				<% @listings.each do |listing| %>
+                    <div class="col-lg-3 col-md-6">
+                        <div>
+                            <div class="bg-white p-2 m-2 text-muted crown-border container-shadow">
     
-    <div class="wrapper-med-right">
-			<div id="listings" class="cf">
-				<h2 style="margin: 0 1rem .5rem 1rem">Latest Products</h2>
-					<ul class="cf">
-						<% @listings.each do |listing| %>
-								<li class="list-group-item">
-									<%= link_to listing do %>
-										<%= image_tag listing.image.url(:thumb), title: listing.title %>
+                                <div class="text-center">
+                                    <%= link_to listing do %>
+										<%= image_tag listing.image.url(:thumb), title: listing.title, class: "image-full" %>
 									<% end %>
-									
-									<div class="listing_overview">
-									  <p class="listing_type"><%= listing.filetype %></p>
-										<h2><%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing) %></h2>
-										<div id="stars">
-											<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
+                                </div>
+                                
+                                <div class="text-left p-2 mt-2">
+                                    <div class="small"><%= listing.filetype %></div>
+                                    <h3><%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing), class: "site-red" %></h3>
+                                    
+                                    <div class="row">
+                                    	<div class="col-12 site-red small">
+                                    		<% if listing.user.image? %>
+    											<%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
+    										<% else %>
+    											<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
+    										<% end %>
+    																		
+    										<% if listing.pseudonym_id? %>
+    											<p class="ml-1" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
+    										<% else %>
+    											<p class="ml-1" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
+    										<% end %>
+                                    	</div>
+                                    </div>
+                                    <div class="grayline"></div>
+                                	<div class="row">
+                                	    <div class="col-12">
+                            			<div id="stars">
+											<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%;"></div>
 										</div>
-										<br>
-										
-										<% if listing.user.image? %>
-						          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
-						        <% else %>
-						          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
-						        <% end %>
-										
-										<% if listing.pseudonym_id? %>
-											<p class="listing_info" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
-										<% else %>
-											<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
-										<% end %>
-										<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p>
-
-									</div>
-								</li>
-						<% end %>
-					</ul>
-					<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
-			</div>
-
+										</div>
+                                	</div>
+                                	<div class="row">
+                                	    <div class="col-12">
+										<span class="product-price">
+    	                                  <%= number_to_currency(listing.price) %>
+    	                                </span>
+    	                                </div>
+                                	</div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+              
+            </div>
+        </div>
     </div>
-    
-</div>
+</section>
 
 <script>
   $('.star-rating').raty({
@@ -161,114 +118,3 @@
     }
   });
 </script>
-
-<div class="wrapper wrapper-content animated fadeInRight">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="ibox">
-                        <div class="ibox-content product-box">
-
-                            <div class="product-imitation">
-                                [ INFO ]
-                            </div>
-                            <div class="product-desc">
-                                <span class="product-price">
-                                    $10
-                                </span>
-                                <small class="text-muted">Category</small>
-                                <a href="#" class="product-name"> Product</a>
-
-
-
-                                <div class="small m-t-xs">
-                                    Many desktop publishing packages and web page editors now.
-                                </div>
-                                <div class="m-t text-righ">
-
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="ibox">
-                        <div class="ibox-content product-box">
-
-                            <div class="product-imitation">
-                                [ INFO ]
-                            </div>
-                            <div class="product-desc">
-                                <span class="product-price">
-                                    $10
-                                </span>
-                                <small class="text-muted">Category</small>
-                                <a href="#" class="product-name"> Product</a>
-
-
-
-                                <div class="small m-t-xs">
-                                    Many desktop publishing packages and web page editors now.
-                                </div>
-                                <div class="m-t text-righ">
-
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="ibox">
-                        <div class="ibox-content product-box active">
-
-                            <div class="product-imitation">
-                                [ INFO ]
-                            </div>
-                            <div class="product-desc">
-                                <span class="product-price">
-                                    $10
-                                </span>
-                                <small class="text-muted">Category</small>
-                                <a href="#" class="product-name"> Product</a>
-
-
-
-                                <div class="small m-t-xs">
-                                    Many desktop publishing packages and web page editors now.
-                                </div>
-                                <div class="m-t text-righ">
-
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="ibox">
-                        <div class="ibox-content product-box">
-
-                            <div class="product-imitation">
-                                [ INFO ]
-                            </div>
-                            <div class="product-desc">
-                                <span class="product-price">
-                                    $10
-                                </span>
-                                <small class="text-muted">Category</small>
-                                <a href="#" class="product-name"> Product</a>
-
-
-
-                                <div class="small m-t-xs">
-                                    Many desktop publishing packages and web page editors now.
-                                </div>
-                                <div class="m-t text-righ">
-
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>

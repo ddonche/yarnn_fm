@@ -24,11 +24,11 @@
 <section>
     <div class="container-fluid mb-4">
         <div class="row">
-            <div class="col-md-3 col-sm-5 ">
+            <div class="col-md-4 col-sm-6 ">
                 <div class="bg-white px-3 mt-md-3 mt-1 mb-md-3 mb-0 text-muted crown-border container-shadow">
                 	<div class="row py-2 mb-3 bg-light border-bottom">
                         <div class="col-12">
-                            <h3 class="site-red"><%= @album.title %>
+                            <h3 class="site-red text-center text-lg-left"><%= @album.title %>
                                 <% if @album.user == current_user %>
     							    <%= link_to edit_album_path(@album) do %>
     								    <i class="fas fa-cog site-red ml-2" style="font-size: 18px;"></i>
@@ -36,7 +36,7 @@
     						    <% end %>
                             </h3>
                     		<div class="row">
-                        		<div class="col-6">
+                        		<div class="col-lg-6 col-md-12 text-center text-lg-left">
                             		<% if @album.user.image? %>
         								<%= image_tag(@album.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: @album.user.username) %>
         							<% else %>
@@ -49,7 +49,7 @@
         								<p class="ml-1 site-red" style="display:inline-block;"><%= link_to @album.user.name, user_path(@album.user) %></p>
         							<% end %>
     							</div>
-    							<div class="col-6 text-right">
+    							<div class="col-lg-6 col-md-12 text-center text-lg-right mb-lg-0 mb-2">
         							<% if user_signed_in? && current_user != @album.user %>
                                       <%= render 'follow_form' %>
                                     <% end %>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 col-sm-7">
+            <div class="col-md-8 col-sm-6">
                 <div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border container-shadow">
                     <div class="row py-2 bg-light border-bottom">
                         <div class="col-12">

@@ -1,0 +1,7 @@
+<div id="follow_form">
+  <% if current_user.following?(@album.user) %>
+    <%= render 'album_unfollow' %>
+  <% else %>
+    <%= render 'album_follow' %>
+  <% end %>
+</div>

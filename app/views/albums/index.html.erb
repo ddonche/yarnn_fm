@@ -65,7 +65,12 @@
 										</div>
 										<div class="col-6">
 		                                	<i class="fas fa-calendar-alt site-blue"></i>
-                                			<span class="ml-2"></span><%= album.year %>
+                                			<span class="ml-2"></span>
+                                			<% if album.year? %>
+                                			    <%= album.year %>
+                                			<% else %>
+                                			    unk.
+                                			<% end %>
 										</div>
                                 	</div>
                                 	

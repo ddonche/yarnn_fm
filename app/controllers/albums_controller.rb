@@ -8,6 +8,7 @@ class AlbumsController < ApplicationController
       @albums = Album.tagged_with(params[:tag])
     else
       @albums = Album.joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+      @serials = Album.joins(:tracks).group("albums.id").having("count(tracks.id)==0").order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
     end
 	end
 

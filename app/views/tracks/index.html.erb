@@ -39,7 +39,7 @@
                                     <div class="row">
                                     	<div class="col-12 site-red small">
                                     		<% if track.user.image? %>
-    											<%= image_tag(track.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: track.user.username) %>
+    											<%= image_tag(track.user.image.url(:tiny), style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: track.user.username) %>
     										<% else %>
     											<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: track.user.username) %>
     										<% end %>

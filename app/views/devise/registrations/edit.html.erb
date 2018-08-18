@@ -1,135 +1,136 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  <% if user_signed_in? %>
-    <%= render 'layouts/subheader' %>
-  <% end %>
-  <%= render 'shared/alert' %>
-
-  <div class="form_wrapper_skinny">
-    <div class="form">
-      <h2>Main Info</h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= render 'shared/alert' %>
+  <div class="container full-form-container">
+    <div class="row justify-content-center trans-bg p-3 mt-2 mb-md-3 p-sm-4 mb-1 rounded">
+      <div class="col-11">
+        <fieldset> 
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
-        
-      	<div class="field">
-          <%= f.label :username, class: "title" %><br />
-          <%= f.text_field :username, :autofocus => true, required: true %>
-        </div>
-        
-      	<div class="field">
-        <% if current_user.publisher_type == "publisher" %>
-          <div class="tooltip" style="float:right">more info
-            <span class="tooltiptext">
-              Use your company name here. For example, a company called Everwind Press might use "Everwind" as the username and "Everwind Press" 
-              as the name.
-            </span>
+          <h2 class="site-blue">Main Info</h2>
+          <div class="form-group">
+            <%= f.label :username, class: "text-secondary" %><br />
+            <%= f.text_field :username, :autofocus => true, required: true, class: "form-control input-lg", placeholder: "Username" %>
           </div>
-        <% else %>
-          <div class="tooltip" style="float:right">more info
-            <span class="tooltiptext">
-              You should use your real name here. You can add any pseudonyms you use and maintain them with one account (see below), 
-              or you can make a new account for each one (not recommended).
-            </span>
-          </div>
-        <% end %>
           
-          <%= f.label :name, class: "title" %><br />
-          <%= f.text_field :name, :autofocus => true, required: true %>
-        </div>
-        
-        <% if current_user.publisher_type == "normal" %>
-          <div class="field">
-              <div class="title">Do you want to add a pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %>
-              <div class="tooltip" style="float:right">more info
-                <span class="tooltiptext">Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.</span>
-              </div>
-            <br>
+          <div class="form-group">
+            <%= f.label :name, class: "text-secondary" %>
+            <div class="tooler float-right site-blue">help
+              <span class="toolertext">You should use your real name here. You'll be able to add pseudonyms when you upload content, and you 
+            can manage them all through just one account!</span>
+            </div>
+            <%= f.text_field :name, :autofocus => true, required: true, class: "form-control input-lg mt-2", placeholder: "Real Name" %>
           </div>
-        <% else %>
-          <div class="field">
-              <div class="title">Do you want to add an author?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %>
-              <div class="tooltip" style="float:right">more info
-                <span class="tooltiptext">Authors added here will be available to you when you go to add new tracks, listings, topics, and blogs. If any of your authors 
-                has a personal account, it will not be linked. Anything you upload or post will be associated with this publisher account.</span>
-              </div>
-            <br>
-          </div>        
-        <% end %>
-        
-      	<div class="field">
-      	  <% if current_user.publisher_type == "publisher" %>
-      	    <%= f.label "Company Description", class: "title" %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(limit of 250 characters)</i><br />
-      	  <% else %>
-            <%= f.label :bio, class: "title" %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(limit of 250 characters)</i><br />
+          
+          <% if current_user.publisher_type == "normal" %>
+            <div class="form-group">
+                <span class="text-secondary small">Do you want to add a pseudonym?&nbsp;</span><%= link_to "click here", new_pseudonym_path, class: "site-red" %>
+                <div class="tooler float-right site-blue">help
+                  <span class="toolertext">Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.</span>
+                </div>
+              <br>
+            </div>
+          <% else %>
+            <div class="form-group">
+                <span class="text-secondary small">Do you want to add an author?&nbsp;</span><%= link_to "click here", new_pseudonym_path, class: "site-red" %>
+                <div class="tooler float-right site-blue">help
+                  <span class="toolertext">Authors added here will be available to you when you go to add new tracks, listings, topics, and blogs. If any of your authors 
+                  has a personal account, it will not be linked. Anything you upload or post will be associated with this publisher account.</span>
+                </div>
+              <br>
+            </div>        
           <% end %>
-          <%= f.text_field :bio, :autofocus => true %>
-        </div>
-        
-      	<div class="field">
-          <%= f.label "Website URL", class: "title" %><br />
-          <%= f.text_field :website, :autofocus => true %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :image, class: "title"  %><br />
-          <%=  f.file_field :image %>
-        </div>
-      </div>
-    </div>
-    
-    <div class="form_wrapper_skinny">
-      <div class= "form">
-        <h2>Account Info</h2>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-        
-        <div class="field">
-          <%= f.label :email, class: "title"  %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-        
-        <div class="field">
-          <div class="tooltip" style="float:right">more info
-            <span class="tooltiptext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
-            to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
-            in the marketplace with both.</span>
+          
+        	<div class="form-group">
+        	  <% if current_user.publisher_type == "publisher" %>
+        	    <%= f.label "Company Description", class: "text-secondary" %><i class="text-secondary small"> (limit of 250 characters)</i><br />
+        	  <% else %>
+              <%= f.label :bio, class: "text-secondary" %><i class="text-secondary small ml-2">(limit of 250 characters)</i><br />
+            <% end %>
+            <%= f.text_area :bio, :autofocus => true, class: "form-control" %>
           </div>
-          <%= f.radio_button :publisher_type, 'normal' %> 
-          <%= label :publisher_type_normal, 'Normal Account' %>
-          <%= f.radio_button :publisher_type, 'publisher' %>
-          <%= label :publisher_type_publisher, 'Publisher Account' %>
-        </div>
-      
-        <div class="field">
-          <%= f.label :password, class: "title"  %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off", placeholder: "6 characters minimum" %>
-        </div>
-      
-        <div class="field">
-          <%= f.label :password_confirmation, class: "title"  %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-      </div>
-    </div>
+          
+        	<div class="form-group">
+            <%= f.label "Website URL", class: "text-secondary" %><br />
+            <%= f.text_field :website, :autofocus => true, class: "form-control" %>
+          </div>
+          
+          <div class="form-group">
+            
+            <label class="btn btn-danger">
+              Avatar Upload
+              <span style="display:none;">
+                <%= f.file_field :image %>
+              </span>
+            </label>
+            
+            <label class="btn btn-danger" for="my-file-selector">
+                <input id="my-file-selector" type="file" style="display:none" 
+                onchange="$('#upload-file-info').html(this.files[0].name)">
+                Avatar Upload
+            </label>
+            <span class='label text-secondary' id="upload-file-info"></span>
+            
+          </div>
+          
+          <hr class="colorgraph">
+          
+          <h2 class="site-blue">Account Info</h2>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          
+          <div class="form-group">
+            <%= f.label :email, class: "text-secondary" %><br />
+            <%= f.email_field :email, class: "form-control input-lg", placeholder: "Email Address" %>
+          </div>
     
-    <div class="form_wrapper_skinny">
-      <div class= "form">
-        <h2>Confirm Changes</h2>
-        <div class="field">
-          <%= f.label :current_password, class: "title" %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off", style: "border: 1px solid #DC2020" %>
-        </div>
-      
-        <div class="actions">
-          <%= f.submit "Update Profile", class: "button button_highlight button_block" %>
-        </div>
-      <% end %>
-      <p class="title", style="float:right">Unhappy?</p><br>
-      <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %><br>
-      <%= link_to 'Back', 'javascript:history.back()' %><br />
+          <div class="form-group">
+            <%= f.label :password, class: "text-secondary" %><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Password" %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :password_confirmation, class: "text-secondary" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg", placeholder: "Password Confirmation" %>
+          </div>
+    
+          <div class="row">
+            <div class="tooltip text-right">more info
+              <span class="tooltiptext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
+              to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
+              in the marketplace with both.</span>
+            </div>
+            <div class="col justify-content-center">
+              <%= f.radio_button :publisher_type, 'normal' %> 
+              <%= label :publisher_type_normal, 'Normal Account', class: 'text-secondary' %>
+    				</div>
+    				<div class="col justify-content-center">
+  					  <%= f.radio_button :publisher_type, 'publisher' %>
+              <%= label :publisher_type_publisher, 'Publisher Account', class: 'text-secondary' %>
+  				  </div>
+          </div>
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="site-red">Confirm Changes</h3>
+              <div class="form-group">
+                <%= f.label :current_password, class: "text-secondary" %><i class="text-secondary small ml-2">(we need your current password to confirm your changes)</i><br />
+                <%= f.password_field :current_password, autocomplete: "off", class: "form-control", style: "border: 1px solid #DC2020" %>
+              </div>
+            </div>
+          </div>
+          <hr class="colorgraph">
+  				<div class="row">
+  					<div class="col-xs-12 col-sm-12 col-md-6">
+  					  <h3><%= f.submit "Update Profile", class: "btn btn-lg btn-outline-secondary btn-block mb-2" %></h3>
+  					</div>
+  					<div class="col-xs-12 col-sm-12 col-md-6">
+  					  <h3><%= link_to "Sign In", new_user_session_path, :class => "btn btn-lg btn-outline-secondary btn-block mb-2" %></h3>
+  					</div>
+  				</div>
+
+        <% end %>
+        </fieldset>
+      </div>
     </div>
   </div>
-</div>
+    

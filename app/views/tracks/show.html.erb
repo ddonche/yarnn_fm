@@ -1,124 +1,167 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-
-  <%= render 'shared/alert' %>
+<%= render 'shared/alert' %>
 	
-	<div id="breadcrumb">
-	  <%= link_to @track.user.username, user_path(@track.user) %>
-	    <span>/</span>
-	  <% if @track.pseudonym_id? %>
-	  	<%= @track.pseudonym.name %>
-	  <% else %>
-	  	<%= @track.user.name %>
-	  <% end %>
-			<span>/</span>
-		<% if @track.album_id? %>
-			<%= link_to @track.album.title, album_path(@track.album_id) %>
-			  <span>/</span>
-		<% end %>
-			<%= @track.title %>
-	</div>
-  	
-  <div class="container">
-    <div class="wrapper-side-left" style="width: 25%">
-	    <div class="main_avatar">
-	    
-	  	  <%= image_tag(@track.image.url(:thumb), class: "image", title: @track.title) %>
-	  	  
-	      <div class="side-box">
-	        <div class="side-content">
-	          <h2>Genres</h2>
-	          <p class="track_count"><% @track.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
-	        </div>
-	      </div>
-	      <% if @track.listing_id? %>
-	      
-	      <div class="side-box">
-	        <div class="side-content">
-									<%= link_to listing_path(@track.listing_id) do %>
-										<%= image_tag(@listing.image.url, class: "image", title: @listing.title) %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item site-red"><%= link_to @track.user.username, user_path(@track.user) %></li>
+    <li class="breadcrumb-item">
+        <% if @track.pseudonym_id? %>
+  		  <%= @track.pseudonym.name %>
+  		<% else %>
+  		  <%= @track.user.name %>
+  		<% end %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @track.title %></li>
+    
+    <% if @track.user == current_user %>
+    <li class="breadcrumb-item site-red">
+        <%= link_to edit_track_path(@track) do %>
+    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit Track
+        <% end %>
+    </li>
+    <% end %>
+  </ol>
+</nav>
+
+<section>
+    <div class="container-fluid mb-4">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 ">
+                <div class="bg-white px-3 mt-md-3 mt-1 mb-md-3 mb-0 text-muted crown-border container-shadow">
+                	<div class="row py-2 mb-3 bg-light border-bottom">
+                        <div class="col-12">
+                            <h3 class="site-red text-center text-lg-left"><%= @track.title %>
+                                <% if @track.user == current_user %>
+    							    <%= link_to edit_track_path(@track) do %>
+    								    <i class="fas fa-cog site-red ml-2" style="font-size: 18px;"></i>
+    							    <% end %>
+    						    <% end %>
+                            </h3>
+                    		<div class="row">
+                        		<div class="col-lg-6 col-md-12 text-center text-lg-left">
+                            		<% if @track.user.image? %>
+        								<%= image_tag(@track.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: @track.user.username) %>
+        							<% else %>
+        								<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: @track.user.username) %>
+        							<% end %>
+        							
+        							<% if @track.pseudonym_id? %>
+        								<p class="ml-1 site-red" style="display:inline-block;"><%= link_to @track.pseudonym.name, user_path(@track.user) %></p>
+        							<% else %>
+        								<p class="ml-1 site-red" style="display:inline-block;"><%= link_to @track.user.name, user_path(@track.user) %></p>
+        							<% end %>
+        							
+        							<% if @track.album_id? %>
+										<p class="ml-1"><b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
 									<% end %>
+									<% if @track.vocals? %>
+										<p class="ml-1"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
+									<% end %>
+									<% @track.tag_list.map.each do |tag| %>
+									    <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
+									<% end %>									
+    							</div>
+    							<div class="col-lg-6 col-md-12 text-center text-lg-right mb-lg-0 mb-2">
+        							<% if user_signed_in? && current_user != @track.user %>
+                                      <%= render 'follow_form' %>
+                                    <% end %>
+    							</div>
+							</div>
+                        
+                            <div class="ribbon_box">
+                            	<% if @track.album_id? %>
+	                          		<% if @track.album.serial == "serial" %>
+	                            		<div class="ribbon"><span>SERIAL</span></div>
+	                          		<% end %>
+                          		<% end %>
+                    			<%= image_tag @track.image.url(:thumb), title: @track.title, class: "image-full" %>
+                    		</div>
+                    		
+                    		<div class="row">
+                            	<div class="col-12">
+                                	<div class="row p-2">
+                                	    <div class="col-12">
+                                	    	<%= @track.description %>
+        								</div>
+                                	</div>
+	          						
+                                    <div class="grayline"></div>
+                                	<div class="row text-center">
+                                	    <div class="col-6">
+                                	    	<%= render 'tracks/index_favorites', :track => @track %>
+        								</div>
+        								<div class="col-6">
+                                        	<i class="fas fa-comments text-muted"></i>
+                                			<span class="ml-2"></span><%= @track.comments.count %>
+        								</div>
+                                	</div>
+                            	</div>
+                            </div>
+                		</div>
+                    </div>
+                    <div class="row">
+                    	<div class="col-12">
+                    		<% if @track.listing_id? %>
+								<%= link_to listing_path(@track.listing_id) do %>
+									<%= image_tag @listing.image.url(:thumb), title: @listing.title, class: "image-full" %>
+								<% end %>
 									
-									<div class="listing_overview">
-									  <p class="listing_type"><%= @listing.filetype %></p>
-										<h2><%= link_to truncate(@listing.title, length: 24, separator: ' '), listing_path(@track.listing_id) %></h2>
+								<p><%= @listing.filetype %></p>
+								<h2><%= link_to truncate(@listing.title, length: 24, separator: ' '), listing_path(@track.listing_id) %></h2>
 										
-										<div class="star-rating" data-score=<%= @listing.avg_rating %> ></div>
+								<div class="star-rating" data-score=<%= @listing.avg_rating %> ></div>
 										
-										<br>
+								<br>
 										
-										<% if @listing.user.image? %>
+								<% if @listing.user.image? %>
 						          <%= image_tag(@listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: @listing.user.username) %>
 						        <% else %>
 						          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: @listing.user.username) %>
 						        <% end %>
 										
-										<% if @listing.pseudonym_id? %>
-											<p class="listing_info" style="display:inline-block;"><%= link_to @listing.pseudonym.name, user_path(@listing.user) %></p>
-										<% else %>
-											<p class="listing_info" style="display:inline-block;"><%= link_to @listing.user.name, user_path(@listing.user) %></p>
-										<% end %>
-										<br>
-										<h2 style="text-align:center"><%= number_to_currency(@listing.price) %></h2>
-										<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff" %>
-
-									</div>
-	        </div>
-	      </div>
-	      <% end %>
-	    </div>
-		</div>
-  
-		<div class="wrapper-med-right" style="width: 70%; clear: right">
-		    <div class="side-box" style="width: 96%">
-		      <div class="side-content">
-		      	<div class="icons">
-		        	<h2><%= @track.title %>
-										<% if @track.user == current_user %>
-										  <%= link_to edit_track_path(@track) do %>
-											  <%= image_tag'icons/gear.svg', width: 12 %>
-										  <% end %>
-										<% end %></h2>
-							<p class="track_count">
-							<%= link_to @track.user.username, user_path(@track.user) %> /
-								<% if @track.pseudonym_id? %>
-									<%= @track.pseudonym.name %> 
+								<% if @listing.pseudonym_id? %>
+									<p class="listing_info" style="display:inline-block;"><%= link_to @listing.pseudonym.name, user_path(@listing.user) %></p>
 								<% else %>
-									<%= @track.user.name %></p>
+									<p class="listing_info" style="display:inline-block;"><%= link_to @listing.user.name, user_path(@listing.user) %></p>
 								<% end %>
-		        	<br>
-		        	<p class="track_count"><%= @track.description %></p>
-		        	<br>
-						<% if @track.album_id? %>
-							<p class="track_count"><b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
-						<% end %>
-						<% if @track.vocals? %>
-							<p class="track_count"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
-						<% end %>
-
+								<br>
+								<h2 style="text-align:center"><%= number_to_currency(@listing.price) %></h2>
+								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff" %>
+	      					<% end %>
+                    	</div>
+                    </div>
+                </div>
             </div>
-		        <div class="icons">
-		        	<div id="favorites_<%= @track.id %>"><%= render 'favorites' %></div><%= render 'track_stats' %>
+            <div class="col-md-8 col-sm-6">
+                <div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border container-shadow">
+                    <div class="row py-2 bg-light border-bottom">
+                        <div class="col-12">
+                            <h3 class="text-muted">Comments</h3>
+                        </div>
+                    </div>
+                </div>
+            
+				<div class="row">
+                    <div class="col-12">
+                        <div>
+                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
+    
+                                <% if user_signed_in? %>
+					              <%= render "comments/form" %>
+					            <% else %>
+					              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
+					            <% end %>
+					            <%= render 'comments/comments', :commentable => @track %>
+                              
+                            </div>
+                        </div>
+                    </div>
+          
+                </div>
+              
             </div>
-		      </div>
-		    </div>
-		    
-        <div class="side-box" style="width: 96%">
-		      <div class="side-content">
-		        <% if user_signed_in? %>
-              <%= render "comments/form" %>
-            <% else %>
-              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
-            <% end %>
-            <%= render 'comments/comments', :commentable => @track %>
-          </div>
         </div>
-	</div>
-	<%= render 'track_play' %>
-  </div>
-</div>
+    </div>
+<%= render 'track_play' %>
+</section>
 
 <script>
   $('.star-rating').raty({

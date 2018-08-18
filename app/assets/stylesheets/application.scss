@@ -46,12 +46,17 @@ h1, h2, h3, h4, h5, h6 {
   a {
     text-decoration: none;
     color: #dc2020;
+    &:hover {
+      color: #00b8ac;
+    }
   }
-}
-
-.site-red:hover {
-  color: #00b8ac;
-  text-decoration: none;
+  li a {
+    text-decoration: none;
+    color: #dc2020;
+    &:hover {
+      color: #00b8ac;
+    }
+  }
 }
 
 .site-blue {
@@ -142,6 +147,36 @@ li.borderless {
   border-top: 0;
   background: #e9e9e9;
   margin: 4px 0;
+}
+
+/* Tooltip container */
+.tooler {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted #DC2020;
+    font-size: .85rem;
+}
+
+/* Tooltip text */
+.tooler .toolertext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #e0e0e0;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooler:hover .toolertext {
+    visibility: visible;
 }
 
 @media only screen and (max-width : 768px) {

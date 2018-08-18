@@ -59,6 +59,13 @@ might also make an album for a full-length novel, and upload select audio tracks
   </div>
   
   <div class="field">
+    <%= f.radio_button :serial, 'nonserial' %> 
+    <%= label :serial_nonserial, 'Not serial' %>
+    <%= f.radio_button :serial, 'serial' %>
+    <%= label :serial_serial, 'Serialized' %>
+  </div>
+  
+  <div class="field">
     <%= f.label "Album image", class: "title"  %><br />
     <%=  f.file_field :image %>
   </div>

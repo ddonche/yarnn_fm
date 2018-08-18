@@ -25,12 +25,18 @@
 				<% @albums.each do |album| %>
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div>
+                        	
                             <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
     
                                 <div class="text-center">
-                                	<%= link_to album do %>
-										<%= image_tag album.image.url(:thumb), title: album.title, class: "image-full" %>
-									<% end %>
+	                                <div class="ribbon_box">
+							      		<% if album.serial == "serial" %>
+							        		<div class="ribbon"><span>SERIAL</span></div>
+							      		<% end %>
+								        <%= link_to album do %>
+											<%= image_tag album.image.url(:thumb), title: album.title, class: "image-full" %>
+										<% end %>
+									</div>
                                 </div>
                                 
                                 <div class="text-left p-2 mt-2">
@@ -54,11 +60,11 @@
                                     <div class="grayline"></div>
                                 	<div class="row text-center">
                                 	    <div class="col-6">
-                                	    	<i class="fas fa-headphones text-muted"></i>
+                                	    	<i class="fas fa-headphones site-blue"></i>
                 							<span class="ml-2"></span><%= pluralize( album.tracks.count, 'Track' ) %>
 										</div>
 										<div class="col-6">
-		                                	<i class="fas fa-calendar-alt text-muted"></i>
+		                                	<i class="fas fa-calendar-alt site-blue"></i>
                                 			<span class="ml-2"></span><%= album.year %>
 										</div>
                                 	</div>
@@ -66,6 +72,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 <% end %>
                 </div>

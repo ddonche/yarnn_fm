@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805172451) do
+ActiveRecord::Schema.define(version: 20180818031000) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20180805172451) do
   end
 
   create_table "albums", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "image"
     t.string   "title"
     t.text     "description"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180805172451) do
     t.integer  "user_id"
     t.string   "editor"
     t.integer  "pseudonym_id"
+    t.integer  "serial",       default: 0, null: false
     t.index ["pseudonym_id"], name: "index_albums_on_pseudonym_id"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end

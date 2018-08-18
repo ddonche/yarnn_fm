@@ -2,6 +2,7 @@ class Album < ActiveRecord::Base
   belongs_to :user
   has_many :tracks
   belongs_to :pseudonym, optional: true
+  enum serial: { nonserial: 0, serial: 1 }
   
   validates :title, presence: true
   validates :description, presence: true

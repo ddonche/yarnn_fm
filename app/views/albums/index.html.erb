@@ -1,33 +1,78 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-
-  <%= render 'shared/alert' %>
-
-	<div id="albums" class="cf">
-		<div class="wrapper">
-			<ul class="cf">
+<%= render 'shared/alert' %>
+  
+<section>
+    <div class="container-fluid mb-4">
+        <div class="row">
+            <div class="col-md-3 col-sm-5 ">
+                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
+                	<div class="row py-2 mb-3 bg-light border-bottom">
+                        <div class="col-12">
+                          <h3 class="text-muted">Coolness</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-7">
+                <div class="bg-white px-3 mt-3 mb-2 text-muted crown-border container-shadow">
+                    <div class="row py-2 bg-light border-bottom">
+                        <div class="col-12">
+                            <h3 class="text-muted">Latest Tracks</h3>
+                        </div>
+                    </div>
+                </div>
+            
+				<div class="row">
 				<% @albums.each do |album| %>
-						<li>
-							<%= link_to album do %>
-								<%= image_tag album.image.url(:thumb) %>
-							<% end %>
-							<div class="album_overview">
-								<h2><%= link_to album.title, album_path(album) %></h2> 
-								<p class="track_count">@<%= link_to album.user.username, user_path(album.user) %> | 
-								<% if album.pseudonym_id? %>
-									<%= album.pseudonym.name %></p>
-								<% else %>
-									<%= album.user.name %></p>
-								<% end %>
-								<p class="track_count"><%= pluralize( album.tracks.count, 'Track' ) %> | <%= album.year %></p> 
-							</div>
-						</li>
-				<% end %>
-			</ul>
-	
-			<%= will_paginate @albums, previous_label: "Previous", next_label: "Next" %>
-		</div>
-	</div>
-</div>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div>
+                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
+    
+                                <div class="text-center">
+                                	<%= link_to album do %>
+										<%= image_tag album.image.url(:thumb), title: album.title, class: "image-full" %>
+									<% end %>
+                                </div>
+                                
+                                <div class="text-left p-2 mt-2">
+									<h3 class="site-red"><%= link_to truncate(album.title, length: 24, separator: ' '), album_path(album) %></h3>
+
+                                    <div class="row">
+                                    	<div class="col-12 site-red small">
+                                    		<% if album.user.image? %>
+    											<%= image_tag(album.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: album.user.username) %>
+    										<% else %>
+    											<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: album.user.username) %>
+    										<% end %>
+    										
+    										<% if album.pseudonym_id? %>
+    											<p class="ml-1" style="display:inline-block;"><%= link_to album.pseudonym.name, user_path(album.user) %></p>
+    										<% else %>
+    											<p class="ml-1" style="display:inline-block;"><%= link_to album.user.name, user_path(album.user) %></p>
+    										<% end %>
+                                    	</div>
+                                    </div>
+                                    <div class="grayline"></div>
+                                	<div class="row text-center">
+                                	    <div class="col-6">
+                                	    	<i class="fas fa-headphones text-muted"></i>
+                							<span class="ml-2"></span><%= pluralize( album.tracks.count, 'Track' ) %>
+										</div>
+										<div class="col-6">
+		                                	<i class="fas fa-calendar-alt text-muted"></i>
+                                			<span class="ml-2"></span><%= album.year %>
+										</div>
+                                	</div>
+                                	
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+              
+            </div>
+        </div>
+        <%= will_paginate @albums, previous_label: "Previous", next_label: "Next" %>
+    </div>
+    
+</section>

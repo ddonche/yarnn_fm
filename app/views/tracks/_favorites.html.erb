@@ -1,9 +1,9 @@
 <% if user_signed_in? && current_user.favorited?(@track) %>
-<p class="listing_info">
-  <%= link_to image_tag('icons/heart_full.svg', style: "width: 16px !important; display: inline-block;  border: none; vertical-align:middle;"), track_unfavorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %> 
-</p>
+  <%= link_to track_unfavorite_path(@track), method: :post, remote: true do %>
+    <i class="fas fa-heart text-danger mr-2"></i><%= @track.favorites_count %> 
+  <% end %>
 <% else %>
-<p class="listing_info">
-  <%= link_to image_tag('icons/heart_empty.svg', style: "width: 16px !important; display: inline-block;  border: none; vertical-align:middle;"), track_favorite_path(@track), method: :post, remote: true %> <%= @track.favorites_count %>
-</p>
+  <%= link_to track_favorite_path(@track), method: :post, remote: true do %>
+    <i class="far fa-heart text-danger mr-2"></i><%= @track.favorites_count %>
+  <% end %>
 <% end %>

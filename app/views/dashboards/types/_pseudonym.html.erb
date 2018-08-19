@@ -1,18 +1,18 @@
-<div class="tiny-table-cell" style="width: 58%;">
-  <% if item.user == current_user %>
-    You
-  <% else %>
-  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
-  <% end %>
-  
-  <% if item.user.publisher_type == "publisher" %>
-    added a new author: <strong><%= Pseudonym.find(item.item_id).name %></strong>
-  <% else %>
-    created a new pseudonym: <strong><%= Pseudonym.find(item.item_id).name %></strong>
-  <% end %>
-</div>
-<div class="tiny-table-cell" style="width: 22%;">
-  <div class="small">
-    <%= time_ago_in_words(item.created_at) %> ago
+<div class="row">
+  <div class="col-12 col-md-9 small">
+     <% if item.user == current_user %>
+      You
+    <% else %>
+    <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+    <% end %>
+    
+    <% if item.user.publisher_type == "publisher" %>
+      added a new author: <strong><%= Pseudonym.find(item.item_id).name %></strong>
+    <% else %>
+      created a new pseudonym: <strong><%= Pseudonym.find(item.item_id).name %></strong>
+    <% end %>
+  </div>
+  <div class="col-12 col-md-3 small">
+      <%= time_ago_in_words(item.created_at) %> ago
   </div>
 </div>

@@ -54,21 +54,12 @@
           </div>
           
           <div class="form-group">
-            
             <label class="btn btn-danger">
               Avatar Upload
               <span style="display:none;">
-                <%= f.file_field :image %>
+                <%= f.file_field :image%>
               </span>
             </label>
-            
-            <label class="btn btn-danger" for="my-file-selector">
-                <input id="my-file-selector" type="file" style="display:none" 
-                onchange="$('#upload-file-info').html(this.files[0].name)">
-                Avatar Upload
-            </label>
-            <span class='label text-secondary' id="upload-file-info"></span>
-            
           </div>
           
           <hr class="colorgraph">
@@ -133,4 +124,3 @@
       </div>
     </div>
   </div>
-    

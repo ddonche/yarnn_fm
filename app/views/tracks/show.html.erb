@@ -48,16 +48,6 @@
         							<% else %>
         								<p class="ml-1 site-red" style="display:inline-block;"><%= link_to @track.user.name, user_path(@track.user) %></p>
         							<% end %>
-        							
-        							<% if @track.album_id? %>
-										<p class="ml-1"><b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id) %>
-									<% end %>
-									<% if @track.vocals? %>
-										<p class="ml-1"><b><i>Voiced by:</i></b> <%= @track.vocals %></p>
-									<% end %>
-									<% @track.tag_list.map.each do |tag| %>
-									    <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
-									<% end %>									
     							</div>
     							<div class="col-lg-6 col-md-12 text-center text-lg-right mb-lg-0 mb-2">
         							<% if user_signed_in? && current_user != @track.user %>
@@ -82,68 +72,80 @@
                                 	    	<%= @track.description %>
         								</div>
                                 	</div>
-	          						
-                                    <div class="grayline"></div>
-                                	<div class="row text-center">
-                                	    <div class="col-6">
-                                	    	<%= render 'tracks/index_favorites', :track => @track %>
-        								</div>
-        								<div class="col-6">
-                                        	<i class="fas fa-comments text-muted"></i>
-                                			<span class="ml-2"></span><%= @track.comments.count %>
-        								</div>
-                                	</div>
                             	</div>
                             </div>
                 		</div>
-                    </div>
-                    <div class="row">
-                    	<div class="col-12">
-                    		<% if @track.listing_id? %>
-								<%= link_to listing_path(@track.listing_id) do %>
-									<%= image_tag @listing.image.url(:thumb), title: @listing.title, class: "image-full" %>
-								<% end %>
-									
-								<p><%= @listing.filetype %></p>
-								<h2><%= link_to truncate(@listing.title, length: 24, separator: ' '), listing_path(@track.listing_id) %></h2>
-										
-								<div class="star-rating" data-score=<%= @listing.avg_rating %> ></div>
-										
-								<br>
-										
-								<% if @listing.user.image? %>
-						          <%= image_tag(@listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: @listing.user.username) %>
-						        <% else %>
-						          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: @listing.user.username) %>
-						        <% end %>
-										
-								<% if @listing.pseudonym_id? %>
-									<p class="listing_info" style="display:inline-block;"><%= link_to @listing.pseudonym.name, user_path(@listing.user) %></p>
-								<% else %>
-									<p class="listing_info" style="display:inline-block;"><%= link_to @listing.user.name, user_path(@listing.user) %></p>
-								<% end %>
-								<br>
-								<h2 style="text-align:center"><%= number_to_currency(@listing.price) %></h2>
-								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff" %>
-	      					<% end %>
-                    	</div>
                     </div>
                 </div>
             </div>
             <div class="col-md-8 col-sm-6">
                 <div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border container-shadow">
                     <div class="row py-2 bg-light border-bottom">
-                        <div class="col-12">
-                            <h3 class="text-muted">Comments</h3>
-                        </div>
+                    	<div class="col-6 small">
+                    		<div class="row">
+                    			<div class="col-6">
+                    				<% if @track.album_id? %>
+										<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id), class: "site-red" %>
+									<% end %>	
+                    			</div>
+                    			<div class="col-6">
+                    				<% if @track.vocals? %>
+										<b><i>Voiced by:</i></b> <%= @track.vocals %>
+									<% end %>
+                    			</div>
+                    		</div>
+                    	</div>
+                    	<div class="col-2">
+                    		<%= render 'tracks/index_favorites', :track => @track %>
+                    		<i class="fas fa-comments text-muted ml-3"></i>
+                            <span class="ml-2 site-red"><%= @track.comments.count %></span>
+                    	</div>
+                    	<div class="col-4 text-right">
+                    		<% @track.tag_list.map.each do |tag| %>
+							    <span class="badge badge-info p-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
+							<% end %>
+                    	</div>
                     </div>
                 </div>
-            
+                <% if @track.listing_id? %>
+            	<div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border container-shadow">
+                    <div class="row py-2 bg-light border-bottom">
+                    	
+                    	<div class="col-4">
+                    			
+							<h2 class="site-red"><%= link_to @listing.title, listing_path(@track.listing_id) %></h2>
+							<span class="small"><%= @listing.filetype %></span>		
+							<div class="star-rating" data-score=<%= @listing.avg_rating %> ></div>
+									
+							<h2><%= number_to_currency(@listing.price) %></h2>
+		
+	  						<% unless @listing.user == current_user %>
+							<% if @purchased.empty? %>
+								<br>
+								<%= render 'listings/listing_transaction_form', transaction: @transaction %><br>
+								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
+							<% else %>
+								<br>
+								<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
+							<% end %>
+						<% end %>
+                    	</div>
+                    	<div class="col-5">
+                    		<h3>Description:</h3>
+                    		<%= @listing.description %>
+                    	</div>
+                    	<div class="col-3">
+                    		<%= link_to listing_path(@track.listing_id) do %>
+								<%= image_tag @listing.image.url(:thumb), title: @listing.title, class: "image-full" %>
+							<% end %>
+                    	</div>
+                    </div>
+                </div>
+                <% end %>
 				<div class="row">
                     <div class="col-12">
                         <div>
                             <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
-    
                                 <% if user_signed_in? %>
 					              <%= render "comments/form" %>
 					            <% else %>

@@ -1,18 +1,20 @@
 <%= form_for [@commentable, @comment] do |f| %>
-  <% if @comment.errors.any? %>
-      <div class="error_messages">
+    <% if @comment.errors.any? %>
+        <div class="error_messages">
         <h3>Please correct the following errors.</h3>
         <ul>
-        <% @comment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+            <% @comment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
         </ul>
       </div>
     <% end %>
     
-    <div class="field" style="overflow: hidden;">
-      <%= f.submit "Comment", class: "button button_highlight button_block", style: "float: right" %>
-      <%= f.text_area :content, placeholder: "what do you think about this?", rows: 1, cols: 86 %>
-    </div>
+    <form class="form-inline">
+        <div class="input-group">
+            <%= f.text_area :content, placeholder: "what do you think about this?", class: "form-control mr-2" %>
+            <%= f.submit "Comment", class: "btn btn-danger"%>
+        </div>
+    </form>
 
 <% end %>

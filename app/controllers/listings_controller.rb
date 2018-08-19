@@ -16,7 +16,9 @@ class ListingsController < ApplicationController
 	def show
 	  @tracks = Track.all.where(listing_id: @listing.id)
     @reviews = @listing.reviews.order("created_at DESC")
-    @user_review = Review.find_by(user_id: current_user.id, listing_id: @listing.id)
+    if user_signed_in?
+      @user_review = Review.find_by(user_id: current_user.id, listing_id: @listing.id)
+    end
     @review = Review.new
     if @reviews.empty?
       @avg_rating = 0

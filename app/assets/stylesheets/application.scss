@@ -29,6 +29,13 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Teko', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .btn-outline {
 	background: none;
 	padding: 12px 22px;

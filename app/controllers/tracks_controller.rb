@@ -22,6 +22,8 @@ class TracksController < ApplicationController
 	  end
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
+    @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
+    @transaction = Transaction.new
 	end
 	
 	def new

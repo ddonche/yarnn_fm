@@ -1,10 +1,4 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  <% if user_signed_in? %>
-    <%= render 'layouts/subheader' %>
-  <% end %>
+
   
 	<div id="breadcrumb">
 	  <%= link_to current_user.username, user_path(current_user) %>
@@ -51,4 +45,3 @@
       <% end %>
     </div>
   </div>
-</div>

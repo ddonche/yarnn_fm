@@ -74,14 +74,16 @@
 							<p class="track_count"><b><i>Year:</i></b> <%= @listing.year %></p>
 						<% end %>
 						<p class="track_count"><b><i>Format:</i></b> <%= @listing.filetype %></p>
-						<% unless @listing.user == current_user %>
-							<% if @purchased.empty? %>
-								<br>
-								<%= render 'listing_transaction_form', transaction: @transaction %><br>
-								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
-							<% else %>
-								<br>
-								<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
+						<% if user_signed_in? %>
+							<% unless @listing.user == current_user %>
+								<% if @purchased.empty? %>
+									<br>
+									<%= render 'listing_transaction_form', transaction: @transaction %><br>
+									<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
+								<% else %>
+									<br>
+									<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
+								<% end %>
 							<% end %>
 						<% end %>
             </div>

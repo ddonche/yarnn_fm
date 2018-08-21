@@ -1,3 +1,5 @@
+<%= render 'shared/alert' %>
+
 <section>
   <div class="container-fluid">
     <div class="row">
@@ -11,10 +13,10 @@
         </div>
       </div>
       <div class="col-md-5">
-        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
-          <div class="row py-3 bg-light border-bottom">
+        <div class="bg-dark px-3 mt-3 mb-5 text-correct trans-bg rounded-top">
+          <div class="row py-3 border-bottom rounded-top">
             <div class="col-12">
-              <h5 class="text-muted">Latest Activity</h5>
+              <h5 class="site-blue">Latest Activity</h5>
             </div>
           </div>
           <% if @feed_items.any? %>
@@ -38,6 +40,20 @@
           <% else %>
             There is no activity in your feed. You should <%= link_to "follow someone", users_path %> or perhaps join a discussion.
           <% end %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
+        	<div class="row py-3 bg-light border-bottom">
+            <div class="col-12">
+              <h5 class="text-muted">Your Content</h5>
+            </div>
+          </div>
+          <div class="row p-2 border-bottom">
+            <div class="col-12">
+              <%= render partial: "dashboards/content" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

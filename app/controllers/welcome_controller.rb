@@ -1,5 +1,9 @@
 class WelcomeController < ApplicationController
 	def index
+    @track_count = Track.count
+    @album_count = Album.count
+    @user_count = User.count
+    @listing_count = Listing.count
 	end
 	
 	def about

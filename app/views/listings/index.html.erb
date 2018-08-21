@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="col-md-9 col-sm-7">
-                <div class="bg-white px-3 mt-3 mb-2 text-muted crown-border container-shadow">
+                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
                     <div class="row py-2 bg-light border-bottom">
                         <div class="col-12">
                             <h3 class="text-muted">Latest Products</h3>
@@ -69,7 +69,7 @@
                                     <div class="row">
                                     	<div class="col-12 site-red small">
                                     		<% if listing.user.image? %>
-    											<%= image_tag(listing.user.image.url(:tiny), style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
+    											<%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
     										<% else %>
     											<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
     										<% end %>

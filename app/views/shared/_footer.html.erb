@@ -1,20 +1,79 @@
-<nav class="navbar navbar-expand-md nav-menu navbar-top-image site-footer">
-  <button class="navbar-toggler btn-outline-dark" type="button" data-toggle="collapse" data-target="#footerNavbar">
-    <span class="navbar-toggler-icon mt-2">   
-		   <i class="fa fa-navicon text-danger"></i>
-		</span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-center text-uppercase scrollable" id="footerNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item"><%= link_to "Home", root_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-	    <li class="nav-item"><%= link_to 'about', about_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-      <li class="nav-item"><%= link_to 'terms', root_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-      <li class="nav-item"><%= link_to 'privacy', root_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-      <li class="nav-item"><%= link_to 'blog', root_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-      <li class="nav-item"><%= link_to "help", help_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-      <li class="nav-item"><%= link_to 'guidelines', root_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-      <li class="nav-item"><%= link_to "api", root_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
-      <li class="nav-item"><%= link_to 'pro', root_path, :class => "nav-link text-secondary m-2 menu-item" %></li>
+<% if current_page?(root_path) %>
+<div id="footer2">
+  <ul class="nav justify-content-center nav-text-tiny text-uppercase">
+    <li class="nav-item site-blue nav-link site-stat">
+      <i class="fas fa-headphones site-blue"></i>
+      <span class="ml-2"></span><%= pluralize(@track_count, 'Track' ) %>
+    </li>
+    <li class="nav-item site-blue nav-link site-stat">
+      <i class="fas fa-compact-disc site-blue"></i>
+      <span class="ml-2"></span><%= pluralize(@album_count, 'Album' ) %>
+    </li>
+    <li class="nav-item site-blue nav-link site-stat">
+      <i class="fas fa-user-astronaut site-blue"></i>
+      <span class="ml-2"></span><%= pluralize(@user_count, 'User' ) %>
+    </li>
+    <li class="nav-item site-blue nav-link site-stat">
+      <i class="fas fa-shopping-cart site-blue"></i>
+      <span class="ml-2"></span><%= pluralize(@listing_count, 'Listing' ) %>
+    </li>
+  </ul>
+  <hr class="my-1">
+  <ul class="nav justify-content-center nav-text-tiny text-uppercase">
+    <li class="nav-item">
+      <%= link_to "Home", root_path, :class => "text-correct nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'about', about_path, :class => "text-correct nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'terms', root_path, :class => "text-correct nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'privacy', root_path, :class => "text-correct nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'blog', root_path, :class => "text-correct nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "help", help_path, :class => "text-correct nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "api", root_path, :class => "text-correct nav-link" %>
+    </li>
+  </ul>
+</div>
+<% else %>
+  <div id="footer">
+    <hr class="my-1">
+    <ul class="nav justify-content-center nav-text-tiny text-uppercase">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'about', about_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'terms', root_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'privacy', root_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'blog', root_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "help", help_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'guidelines', root_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "api", root_path, :class => "text-correct nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'pro', root_path, :class => "text-correct nav-link" %>
+      </li>
     </ul>
   </div>
-</nav>
+<% end %>

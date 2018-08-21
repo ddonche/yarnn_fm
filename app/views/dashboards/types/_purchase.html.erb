@@ -22,12 +22,12 @@
     <div class="row align-items-center">
       <div class="col-4">
         <%= link_to listing_path(item.item_id) do %>
-  				<%= image_tag Listing.find(item.item_id).image.url(:thumb), class: "image-full" %>
+  				<%= image_tag Listing.find(item.item_id).image.url(:thumb), class: "image-full p-1 border" %>
   			<% end %>
       </div>
       <div class="col-8">
         <div class="border mt-2 p-2">
-          <%= truncate(Listing.find(item.item_id).description, length: 200) %>
+          <%= truncate(Listing.find(item.item_id).description, length: 140) %>
         </div>
       </div>
     </div>

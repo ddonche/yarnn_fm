@@ -10,10 +10,22 @@
   
     <% Track.find(item.item_id).tag_list.map.each do |tag| %>
       <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
-    <% end %>                     
-    <div class="border mt-2 p-2">
-      <%= truncate(Track.find(item.item_id).description, length: 100) %>
+    <% end %>   
+    
+    <div class="grayline mt-2"></div>
+    <div class="row align-items-center">
+      <div class="col-5">
+        <%= link_to track_path(item.item_id) do %>
+  				<%= image_tag Track.find(item.item_id).image.url(:thumb), class: "image-full p-1 border" %>
+  			<% end %>
+      </div>
+      <div class="col-7">
+        <div class="border mt-2 p-2">
+          <%= truncate(Track.find(item.item_id).description, length: 100) %>
+        </div>
+      </div>
     </div>
+
     <p class="mt-2">
       <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
     </p>

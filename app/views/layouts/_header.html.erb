@@ -10,16 +10,16 @@
 			   <i class="fa fa-navicon text-danger"></i>
 			</span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end text-uppercase scrollable" id="myNavbar">
+    <div class="collapse navbar-collapse justify-content-end text-uppercase nav-text scrollable" id="myNavbar">
       <ul class="navbar-nav">
       	<% unless user_signed_in? %>
       	
           <div class="dropdown">
-					  <button class="btn btn-outline-secondary dropdown-toggle m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					    EXPLORE
 					    <span class="caret"></span>
 					  </button>
-					  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+					  <ul class="dropdown-menu nav-text p-2" aria-labelledby="dropdownMenu1">
 					    <li class="dropdown-item navdrop-link"><%= link_to "Albums", albums_path %></li>
 					    <li class="dropdown-item navdrop-link"><%= link_to "Tracks", tracks_path %></li>
               <li class="dropdown-item navdrop-link"><%= link_to "Genres", genres_path %></li>
@@ -28,26 +28,26 @@
 					</div>
 					
 	        <li class="nav-item">
-	        	<%= link_to listings_path, :class => "nav-link text-secondary m-2 menu-item" do %>
-						  <i class="fas fa-shopping-cart text-secondary"></i> Marketplace
-						<% end %>
+	        	<%= link_to listings_path, :class => "nav-link text-correct m-2 menu-item" do %>
+				  <i class="fas fa-shopping-cart text-correct"></i> Marketplace
+				<% end %>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <%= link_to "Login", new_user_session_path, :class => "nav-link text-secondary m-2 menu-item" %>
+	          <%= link_to "Login", new_user_session_path, :class => "nav-link text-correct m-2 menu-item" %>
 	        </li>
 	        
 	        <li class="nav-item">
-	          <%= link_to "Register", new_user_registration_path, :class => "nav-link text-secondary m-2 menu-item" %>
+	          <%= link_to "Register", new_user_registration_path, :class => "nav-link text-correct m-2 menu-item" %>
 	        </li>
 	      <% else %>
 	      
 		      <div class="dropdown">
-						  <button class="btn btn-outline-secondary dropdown-toggle m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						    <i class="fas fa-cog text-secondary mr-2"></i><%= current_user.username %>
+						  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text text-uppercase m-2" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    <i class="fas fa-cog text-correct mr-2"></i><%= current_user.username %>
 						    <span class="caret"></span>
 						  </button>
-						  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+						  <ul class="dropdown-menu p-2 nav-text" aria-labelledby="dropdownMenu2">
 						    <li class="dropdown-item navdrop-link"><%= link_to "Dashboard", dashboard_path %></li>
 						    <li class="dropdown-item navdrop-link"><%= link_to "Profile", user_path(current_user) %></li>
 	              <li class="dropdown-item navdrop-link"><%= link_to "Edit Account", edit_registration_path(current_user) %></li>
@@ -71,14 +71,14 @@
 	            	
 	            	<div class="dropdown-divider"></div>
 	            	<li class="dropdown-item navdrop-link current"><%= link_to destroy_user_session_path, method: :delete do %>
-			        		<i class="fas fa-sign-out-alt text-dark fa-lg"></i> Log Out
+			        		<i class="fas fa-sign-out-alt text-light fa-lg"></i> Log Out
 			          <% end %></li>
 						  </ul>
 						</div>
 	        
 	        <li class="nav-item">
 	        	<%= link_to notifications_path(current_user), :class => "nav-link text-light m-2" do %>
-							<i class="fas fa-comments text-secondary mr-1"></i>
+							<i class="fas fa-comments text-correct mr-1"></i>
 							<% if @notifications.count > 0 %>
 								<span class="site-blue"><%= @notifications.count %></span>
 							<% end %>
@@ -86,11 +86,11 @@
 					</li>
 					
 					<div class="dropdown">
-					  <button class="btn btn-outline-secondary dropdown-toggle m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					    EXPLORE
 					    <span class="caret"></span>
 					  </button>
-					  <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+					  <ul class="dropdown-menu nav-text p-2" aria-labelledby="dropdownMenu1">
 					    <li class="dropdown-item navdrop-link"><%= link_to "Albums", albums_path %></li>
 					    <li class="dropdown-item navdrop-link"><%= link_to "Tracks", tracks_path %></li>
               <li class="dropdown-item navdrop-link"><%= link_to "Genres", genres_path %></li>
@@ -99,8 +99,8 @@
 					</div>
           
 	        <li class="nav-item">
-	        	<%= link_to listings_path, :class => "nav-link text-secondary m-2 menu-item" do %>
-						  <i class="fas fa-shopping-cart text-secondary"></i> Marketplace
+	        	<%= link_to listings_path, :class => "nav-link text-correct m-2 menu-item" do %>
+						  <i class="fas fa-shopping-cart text-correct"></i> Marketplace
 						<% end %>
 	        </li>
 	        

@@ -17,22 +17,26 @@
     <div class="star-rating" style="display:inline-block" data-score= <%= Review.find(item.item_id).rating %> ></div> 
     rating
                
-    <div class="grayline mt-2"></div>
-    <div class="row align-items-center">
-      <div class="col-4">
-        <%= link_to listing_path(item.parent_id) do %>
-  				<%= image_tag Listing.find(item.parent_id).image.url(:thumb), class: "image-full" %>
-  			<% end %>
-      </div>
-      <div class="col-8">
-        <div class="border mt-2 p-2">
-          <%= truncate(Review.find(item.item_id).content, length: 200) %>
+    <hr class="colorgraph">
+    <div class="row">
+      
+        <div class="border my-1 p-2 pb-2">
+          <%= link_to listing_path(item.item_id) do %>
+    				<%= image_tag Listing.find(item.parent_id).image.url(:thumb), height: 100, class: "p-1 border float-left mr-2" %>
+    			<% end %>
+          <%= truncate(Listing.find(item.parent_id).description, length: 140) %>
+          <br/>
+          <div id="stars">
+						<div class="star-rating" data-score=<%= Listing.find(item.parent_id).avg_rating %> style="max-width: 10%;"></div>
+					</div>
         </div>
-      </div>
+      
     </div>
   </div>
   <div class="col-12 col-md-3 small">
       <%= time_ago_in_words(item.created_at) %> ago
+      <i class="fas fa-highlighter text-muted ml-3"></i>
+      <span class="ml-2 site-red"><%= Listing.find(item.parent_id).reviews.count %></span>
   </div>
 </div>
 

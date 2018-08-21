@@ -1,13 +1,28 @@
 <div id="welcome_background">
-  <%= render 'layouts/header' %>
   <%= render 'shared/alert' %>
-  
-      <h1>Entwine with amazing stories and poetry. <span class="responsive_break"></span></h1>
-      <button class="btn btn-outline-secondary mr-3 ">
-  			<%= link_to "CREATE", new_user_session_path, :class => "text-light" %>
-  		</button>
-  		<button class="btn btn-outline-secondary ml-3">
-        <%= link_to "SIGNUP", new_user_registration_path, :class => "text-light" %>
-      </button>
 
+  <div class="jumbotron no-bg">
+  <h1 class="text-correct">Entwine with amazing 
+  <br />stories and poetry.</h1>
+  <p class="lead text-correct">
+    The best short audio content on the internet. 
+  </p>
+  <div class="row">
+    <div class="col-6 mt-4">
+      <ul class="navbar-nav justify-content-center nav-text text-uppercase">
+        <li class="nav-item">
+          <%= link_to "create", new_user_session_path, :class => "nav-link text-correct m-2 menu-item" %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6 mt-4">
+      <ul class="navbar-nav justify-content-center nav-text text-uppercase">
+        <li class="nav-item">
+          <%= link_to "signup", new_user_registration_path, :class => "nav-link text-correct m-2 menu-item" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <%= render 'shared/footer' %>
 </div>

@@ -9,6 +9,7 @@
   background-position: center;
   text-align: center;
   overflow: hidden;
+  box-sizing: border-box;
   h1 {
     color: #FFFFFF;
     font-size: 3.5rem;
@@ -18,13 +19,14 @@
   }
 }
 
-#background-other {
+#other_background {
   height: 100vh;
   background-image: image-url('login_background.jpg');
   background-size: cover;
   background-position: center;
   text-align: center;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 #background-other-overflow {

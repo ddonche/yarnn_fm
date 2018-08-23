@@ -25,16 +25,16 @@
 				<% @tracks.each do |track| %>
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div>
-                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
+                            <div class="trans-bg-2 px-2 pt-2 m-2 text-correct">
     
                                 <div class="text-center">
 									<%= link_to track do %>
-										<%= image_tag track.image.url(:thumb), title: track.title, class: "image-full" %>
+										<%= image_tag track.image.url(:thumb), title: track.title, class: "image-full border-dark" %>
 									<% end %>
                                 </div>
                                 
                                 <div class="text-left p-2 mt-2">
-                                    <h3 class="site-red"><%= link_to truncate(track.title, length: 24, separator: ' '), track_path(track) %></h3>
+                                    <h4 class="site-red"><%= link_to truncate(track.title, length: 24, separator: ' '), track_path(track) %></h4>
                                     
                                     <div class="row">
                                     	<div class="col-12 site-red small">
@@ -51,7 +51,7 @@
     										<% end %>
                                     	</div>
                                     </div>
-                                    <div class="grayline"></div>
+                                    <div class="grayline-dark"></div>
                                 	<div class="row text-center">
                                 	    <div class="col-6">
 	                            			<div id="favorites_<%= track.id %>">

@@ -33,9 +33,10 @@
       
     </div>
   </div>
-  <div class="col-12 col-md-3 small">
+  <div class="col-12 col-md-3 small text-center">
       <%= time_ago_in_words(item.created_at) %> ago
-      <i class="fas fa-highlighter text-muted ml-3"></i>
+      <br />
+      <i class="fas fa-highlighter text-muted"></i>
       <span class="ml-2 site-red"><%= Listing.find(item.parent_id).reviews.count %></span>
   </div>
 </div>

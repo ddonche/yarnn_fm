@@ -23,9 +23,10 @@
       <%= truncate(Comment.find(item.item_id).content, length: 120) %>
     </div>
   </div>
-  <div class="col-12 col-md-3 small">
+  <div class="col-12 col-md-3 small text-center">
       <%= time_ago_in_words(item.created_at) %> ago
-      <i class="fas fa-comments text-muted ml-3"></i>
+      <br />
+      <i class="fas fa-comments text-muted"></i>
       <% if item.commentable_type == "Blog" %>
         <span class="ml-2 site-red"><%= Blog.find(item.parent_id).comments.count %></span>
       <% elsif item.commentable_type == "Track" %>

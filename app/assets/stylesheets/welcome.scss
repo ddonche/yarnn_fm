@@ -29,9 +29,7 @@
   box-sizing: border-box;
 }
 
-#background-other-overflow {
-  height: 100vh;
-  background-image: image-url('login_background.jpg');
-  background-size: cover;
-  background-position: center;
+#other_background_overflow {
+  background-image: image-url('dark-bg.gif');
+  overflow-y: auto;
 }

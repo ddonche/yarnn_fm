@@ -1,45 +1,109 @@
 <section>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col-sm-5 ">
-                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
-                	<div class="row py-2 mb-3 bg-light border-bottom">
-                        <div class="col-12">
-                          <h3 class="text-muted">Genres</h3>
-                        </div>
-                    </div>
-        		    <ul class="list-group list-group-flush site-red">
-            	      	<li class="list-group-item borderless pt-0"><%= link_to "Action Adventure", genre_path("action-adventure") %></li>
-            	      	<li class="list-group-item"><%= link_to "Apocalypse", genre_path("apocalypse") %></li>
-            	      	<li class="list-group-item"><%= link_to "Children's", genre_path("childrens") %></li>
-            	      	<li class="list-group-item"><%= link_to "Crime", genre_path("crime") %></li>
-            	      	<li class="list-group-item"><%= link_to "Erotica", genre_path("erotica") %></li>
-            	      	<li class="list-group-item"><%= link_to "Fantasy", genre_path("fantasy") %></li>
-            	      	<li class="list-group-item"><%= link_to "Historical Fiction", genre_path("historical-fiction") %></li>
-            	      	<li class="list-group-item"><%= link_to "Horror", genre_path("horror") %></li>
-            	      	<li class="list-group-item"><%= link_to "International Thriller", genre_path("international-thriller") %></li>
-            	      	<li class="list-group-item"><%= link_to "LGBTQ", genre_path("lgbtq") %></li>
-            			<li class="list-group-item"><%= link_to "Military", genre_path("military") %></li>
-            	        <li class="list-group-item"><%= link_to "Mystery", genre_path("mystery") %></li>
-            	        <li class="list-group-item"><%= link_to "Nonfiction", genre_path("nonfiction") %></li>
-            	        	<li class="list-group-item ml-3"><%= link_to "Business", genre_path("business") %></li>
-            		        <li class="list-group-item ml-3"><%= link_to "Inspirational", genre_path("inspirational") %></li>
-            		        <li class="list-group-item ml-3"><%= link_to "Memoir", genre_path("memoir") %></li>
-            		        <li class="list-group-item ml-3"><%= link_to "Self-help", genre_path("self-help") %></li>
-            		        <li class="list-group-item ml-3"><%= link_to "True Crime", genre_path("true-crime") %></li>	
-            	        <li class="list-group-item"><%= link_to "Poetry", genre_path("poetry") %></li>
-            	        <li class="list-group-item"><%= link_to "Religion", genre_path("religion") %></li>
-            	        <li class="list-group-item"><%= link_to "Romance", genre_path("romance") %></li>
-            	        	<li class="list-group-item ml-3"><%= link_to "Paranormal Romance", genre_path("paranormal-romance") %></li>
-            	        <li class="list-group-item"><%= link_to "Science Fiction", genre_path("science-fiction") %></li>
-            	        <li class="list-group-item"><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></li>
-            	        <li class="list-group-item"><%= link_to "Thriller", genre_path("thriller") %></li>
-            	        <li class="list-group-item"><%= link_to "Western", genre_path("western") %></li>
-            	        <li class="list-group-item"><%= link_to "Women's", genre_path("womens") %></li>
-            	        <li class="list-group-item"><%= link_to "Young Adult", genre_path("young-adult") %></li>
-        	         </ul>
-			     
-                </div>
+            <div class="col-md-3 col-sm-5 px-3 mt-3 mb-5">
+			         <table class="table table-hover table-striped table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                              <div class="row">
+                                  <div class="col-10">
+                                      <h3 class="text-muted">Notable Genres</h3>
+                                  </div>
+                                  <div class="col-2">
+                                       <a href="#" data-toggle="collapse" data-target="#genre-table"><i class="fas fa-bars site-red"></i></a>
+                                  </div>
+                              </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="collapse-show" id="genre-table">
+                        <tr>
+                          <td><%= link_to "Action Adventure", genre_path("action-adventure") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Apocalypse", genre_path("apocalypse") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Children's", genre_path("childrens") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Crime", genre_path("crime") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Erotica", genre_path("erotica") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Fantasy", genre_path("fantasy") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Historical Fiction", genre_path("historical-fiction") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Horror", genre_path("horror") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "International Thriller", genre_path("international-thriller") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "LGBTQ", genre_path("lgbtq") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Military", genre_path("military") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Mystery", genre_path("mystery") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Nonfiction", genre_path("nonfiction") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Biography", genre_path("biography") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Business", genre_path("business") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Inspirational", genre_path("inspirational") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Memoir", genre_path("memoir") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Self-help", genre_path("self-help") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "True Crime", genre_path("true-crime") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Paranormal", genre_path("paranormal") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Poetry", genre_path("poetry") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Romance", genre_path("romance") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Science Fiction", genre_path("science-fiction") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Thriller", genre_path("thriller") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Western", genre_path("western") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Women's", genre_path("womens") %></td>
+                        </tr>
+                        <tr>
+                          <td><%= link_to "Young Adult", genre_path("young-adult") %></td>
+                        </tr>
+                      </tbody>
+                    </table>
             </div>
             <div class="col-md-9 col-sm-7">
                 <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
@@ -50,15 +114,15 @@
                     </div>
                 </div>
             
-				<div class="row">
+				<div class="row mb-5">
 				<% @listings.each do |listing| %>
                     <div class="col-lg-3 col-md-6">
                         <div>
-                            <div class="bg-white p-2 m-2 text-muted crown-border container-shadow">
+                            <div class="trans-bg-2 p-2 m-2 text-correct">
     
                                 <div class="text-center">
                                     <%= link_to listing do %>
-										<%= image_tag listing.image.url(:thumb), title: listing.title, class: "image-full" %>
+										<%= image_tag listing.image.url(:thumb), title: listing.title, class: "image-full border-dark" %>
 									<% end %>
                                 </div>
                                 
@@ -81,7 +145,7 @@
     										<% end %>
                                     	</div>
                                     </div>
-                                    <div class="grayline"></div>
+                                    <div class="grayline-dark"></div>
                                 	<div class="row">
                                 	    <div class="col-12">
                             			<div id="stars">

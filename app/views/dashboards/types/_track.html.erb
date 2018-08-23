@@ -30,9 +30,10 @@
       <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
     </p>
   </div>
-  <div class="col-12 col-md-3 small">
+  <div class="col-12 col-md-3 small text-center">
       <%= time_ago_in_words(item.created_at) %> ago
-      <i class="fas fa-comments text-muted ml-3"></i>
+      <br />
+      <i class="fas fa-comments text-muted"></i>
       <span class="ml-2 site-red"><%= Track.find(item.item_id).comments.count %></span>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div id="background-other-overflow">
+<div id="other_background" style="overflow-y: auto;">
   
   <div class="container full-form-container">
     <div class="row justify-content-center trans-bg p-3 my-3 p-sm-4 my-sm-5 rounded">
@@ -15,9 +15,11 @@
           </div>
           
           <div class="form-group">
-            <%= f.label :name, class: "text-secondary" %><br />
-            <span class="text-secondary small">You should use your real name here. You'll be able to add pseudonyms when you upload content, and you 
+            <div class="tooler float-right"><i class="fas fa-question-circle site-blue"></i>
+                <span class="toolertext">You should use your real name here. You'll be able to add pseudonyms when you upload content, and you 
             can manage them all through just one account!</span>
+            </div>
+            <%= f.label :name, class: "text-secondary" %><br />
             <%= f.text_field :name, :autofocus => true, required: true, class: "form-control input-lg mt-2", placeholder: "Real Name" %>
           </div>
         
@@ -37,16 +39,20 @@
           </div>
     
           <div class="row">
-            <span class="text-secondary small mb-2">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
-            to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
-            in the marketplace with both.</span>
-            <div class="col justify-content-center">
+            <div class="col-4 justify-content-center">
               <%= f.radio_button :publisher_type, 'normal' %> 
-              <%= label :publisher_type_normal, 'Normal Account', class: 'text-secondary' %>
+              <%= label :publisher_type_normal, 'Normal', class: 'text-secondary' %>
     				</div>
-    				<div class="col justify-content-center">
+    				<div class="col-4 justify-content-center">
   					  <%= f.radio_button :publisher_type, 'publisher' %>
-              <%= label :publisher_type_publisher, 'Publisher Account', class: 'text-secondary' %>
+              <%= label :publisher_type_publisher, 'Publisher', class: 'text-secondary' %>
+  				  </div>
+  				  <div class="col-4 justify-content-center">
+  					  <div class="tooler site-blue"><i class="fas fa-question-circle site-blue"></i>
+                <span class="toolertext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
+                to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
+                in the marketplace with both.</span>
+                </div>
   				  </div>
           </div>
           
@@ -66,4 +72,3 @@
     </div>
   </div>
 </div>
-    

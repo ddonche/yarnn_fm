@@ -2,13 +2,7 @@ class AudioUploader < CarrierWave::Uploader::Base
   include CarrierWave::Audio
   storage :aws
 
-  version :wav do
-    process :convert
-  end
-
-  version :ogg do
-    process :convert
-  end
+  process convert: [output_options: { compression: 320 }]
 
   def full_filename(for_file)
     "#{super.chomp(File.extname(super))}.mp3"

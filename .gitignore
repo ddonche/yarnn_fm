@@ -25,3 +25,5 @@
 .env
 .idea
 .ruby-version
+.DS_Store
+public/uploads/*

@@ -11,7 +11,7 @@ class TracksController < ApplicationController
 	end
 
 	def show
-	  @commentable = @track
+    @commentable = @track
 	  if @track.listing_id?
 	    @listing = Listing.find(@track.listing_id)
       if @listing.reviews.empty?
@@ -22,7 +22,7 @@ class TracksController < ApplicationController
 	  end
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
-    @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
+    @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing&.id)
     @transaction = Transaction.new
 	end
 	

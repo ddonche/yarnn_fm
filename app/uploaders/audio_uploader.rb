@@ -1,11 +1,23 @@
 class AudioUploader < CarrierWave::Uploader::Base
   include CarrierWave::Audio
   storage :aws
-  
-  def extension_whitelist
-    %w(mp3)
+
+  version :wav do
+    process :convert
   end
-  
+
+  version :ogg do
+    process :convert
+  end
+
+  def full_filename(for_file)
+    "#{super.chomp(File.extname(super))}.mp3"
+  end
+
+  def extension_whitelist
+    %w(mp3 wav ogg)
+  end
+
   def filename
     "#{secure_token}.#{file.extension}" if original_filename.present?
   end

@@ -15,7 +15,7 @@
           </div>
           
           <div class="form-group">
-            <div class="tooler float-right"><i class="fas fa-question-circle site-blue"></i>
+            <div class="tooler float-left"><i class="fas fa-question-circle site-blue"></i>
                 <span class="toolertext">You should use your real name here. You'll be able to add pseudonyms when you upload content, and you 
             can manage them all through just one account!</span>
             </div>
@@ -40,19 +40,19 @@
     
           <div class="row">
             <div class="col-4 justify-content-center">
+  					  <div class="tooler float-left site-blue"><i class="fas fa-question-circle site-blue"></i>
+                <span class="toolertext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
+                to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
+                in the marketplace with both.</span>
+              </div>
+  				  </div>
+            <div class="col-4 justify-content-center">
               <%= f.radio_button :publisher_type, 'normal' %> 
               <%= label :publisher_type_normal, 'Normal', class: 'text-secondary' %>
     				</div>
     				<div class="col-4 justify-content-center">
   					  <%= f.radio_button :publisher_type, 'publisher' %>
               <%= label :publisher_type_publisher, 'Publisher', class: 'text-secondary' %>
-  				  </div>
-  				  <div class="col-4 justify-content-center">
-  					  <div class="tooler site-blue"><i class="fas fa-question-circle site-blue"></i>
-                <span class="toolertext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
-                to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
-                in the marketplace with both.</span>
-                </div>
   				  </div>
           </div>
           

@@ -144,6 +144,10 @@ li.borderless {
   background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url('bg-dark.jpeg');
 }
 
+.trans-bg-light {
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url('bg-dark.jpeg');
+}
+
 .trans-bg-2 {
   background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)), url('bg-dark.jpeg');
 }
@@ -329,6 +333,44 @@ li.borderless {
     visibility: visible;
 }
 
+trix-toolbar .trix-button-group button {
+  background-color: white;
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .full-form-container {
+    width: 600px;
+  }
+  
+  .wide-form-container {
+    width: 800px;
+  }
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  .full-form-container {
+    width: 700px;
+  }
+  
+  .wide-form-container {
+    width: 900px;
+  }
+  
+}
+
 @media only screen and (max-width : 768px) {
   .dropdown-menu {
     max-height: 200px;
@@ -337,10 +379,10 @@ li.borderless {
   }
   
   .full-form-container {
-    width: 300px;
+    width: 350px;
   }
   
   .wide-form-container {
-    width: 400px;
+    width: 450px;
   }
 } 

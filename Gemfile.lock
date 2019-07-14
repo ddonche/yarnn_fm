@@ -739,7 +739,6 @@ GEM
       omniauth-oauth2 (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.0.0)
-    plyr-rails (3.4.7)
     popper_js (1.14.3)
     puma (3.12.0)
     rack (2.0.5)
@@ -860,7 +859,6 @@ DEPENDENCIES
   mini_magick
   omniauth-stripe-connect (~> 2.10.0)
   pg
-  plyr-rails
   puma (~> 3.0)
   rails (~> 5.0.7)
   rails_12factor

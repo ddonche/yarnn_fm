@@ -259,8 +259,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   
   config.omniauth :stripe_connect,
-    'ca_DBKdNNndfDs8uWoBL6SOHhnwocLif9BV',
-    'sk_test_3JD3nWr5J5R630SXI8hfHBhG',
+    ENV['STRIPE_CONNECT_CLIENT_ID'], ENV['STRIPE_SECRET_KEY'],
     scope: 'read_write',
     stripe_landing: 'login'
 

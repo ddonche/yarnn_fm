@@ -1,19 +1,10 @@
 <%= render 'shared/alert' %>
 
 <section>
-  <div class="container-fluid">
+  <div class="mx-auto container-fluid">
     <div class="row">
-      <div class="col-md-3">
-        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
-        	<div class="row py-3 mb-3 bg-light border-bottom">
-            <div class="col-12">
-              <h5 class="text-muted"><%= current_user.username %></h5>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="col-md-5">
-        <div class="bg-dark px-3 mt-3 mb-5 text-correct trans-bg rounded-top">
+        <div class="bg-dark px-3 mt-3 mb-5 text-correct trans-bg-3 rounded-top">
           <div class="row py-3 border-bottom rounded-top">
             <div class="col-12">
               <h5 class="site-blue">Latest Activity</h5>
@@ -22,7 +13,7 @@
           <% if @feed_items.any? %>
             <% @feed_items.each do |item| %>
               <% if lookup_context.template_exists?(item.activity_type, "dashboards/types", true) %>
-                <div class="row p-2 border-bottom">
+                <div class="row p-2 border-bottom border-secondary">
                   <div class="col-3 col-md-2">
                     <% if item.user.image? %>
                       <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, title: item.user.username %>

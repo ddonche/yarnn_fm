@@ -9,7 +9,7 @@
     quit following 
     <%= link_to User.find(item.followed_id).username, user_path(item.followed_id) %>
   </div>
-  <div class="col-12 col-md-3 small">
-      <%= time_ago_in_words(item.created_at) %> ago
+  <div class="col-12 col-md-3 small text-center">
+      <small><%= time_ago_in_words(item.created_at) %> ago</small>
   </div>
 </div>

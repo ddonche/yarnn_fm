@@ -6,18 +6,19 @@
     <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    created the album <%= link_to Album.find(item.item_id).title, album_path(item.item_id) %> 
+    created the album <i><%= link_to Album.find(item.item_id).title, album_path(item.item_id) %></i> 
     which currently has <%= pluralize(Album.find(item.item_id).tracks.count, "track") %>.
     
-    <div class="border mt-2 p-2">
+    <div class="border border-secondary rounded mt-2 p-2">
       <%= truncate(Album.find(item.item_id).description, length: 200) %>
     </div>
     
   </div>
   
-  <div class="col-12 col-md-3 small">
-      <%= time_ago_in_words(item.created_at) %> ago
-      <i class="fas fa-headphones site-blue"></i>
-      <span class="ml-2"></span><%= pluralize(Album.find(item.item_id).tracks.count, 'Track' ) %>
+  <div class="col-12 col-md-3 small text-center">
+      <small><%= time_ago_in_words(item.created_at) %> ago<br />
+      <i class="fas fa-headphones site-blue" title="tracks"></i>
+      <span class="ml-2"></span><%= Album.find(item.item_id).tracks.count %>
+      </small>
   </div>
 </div>

@@ -8,17 +8,14 @@
     
     purchased the <%= Listing.find(item.item_id).filetype %> 
     
-    <%= link_to Listing.find(item.item_id).title, listing_path(item.item_id) %> by 
+    <i><%= link_to Listing.find(item.item_id).title, listing_path(item.item_id) %></i> by 
     <% if Listing.find(item.item_id).pseudonym_id? %>
 			<%= link_to Listing.find(item.item_id).pseudonym.name, user_path(Listing.find(item.item_id).user) %>
 		<% else %>
 			<%= link_to Listing.find(item.item_id).user.name, user_path(Listing.find(item.item_id).user) %>
 		<% end %>
-    <% Listing.find(item.item_id).tag_list.map.each do |tag| %>
-      <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
-    <% end %>
                     
-    <div class="grayline mt-2"></div>
+    <hr class="colorgraph">
     <div class="row align-items-center">
       <div class="col-4">
         <%= link_to listing_path(item.item_id) do %>
@@ -26,13 +23,21 @@
   			<% end %>
       </div>
       <div class="col-8">
-        <div class="border mt-2 p-2">
+        <div class="border border-secondary rounded mt-2 p-2">
           <%= truncate(Listing.find(item.item_id).description, length: 140) %>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-12 col-md-3 small">
-      <%= time_ago_in_words(item.created_at) %> ago
+  <div class="col-12 col-md-3 small text-center">
+      <small><%= time_ago_in_words(item.created_at) %> ago<br />
+      <i class="fas fa-highlighter site-blue" title="reviews"></i>
+      <span class="ml-1 site-red"><%= Listing.find(item.item_id).reviews.count %></span>
+      </small>
+      <br/>
+      <br/>
+    <% Listing.find(item.item_id).tag_list.map.each do |tag| %>
+      <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
+    <% end %>
   </div>
 </div>

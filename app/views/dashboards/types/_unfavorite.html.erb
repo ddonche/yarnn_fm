@@ -1,14 +1,28 @@
-<div class="tiny-table-cell" style="width: 58%;">
-  <% if item.user == current_user %>
-    You
-  <% else %>
-  <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
-  <% end %> 
-  removed <%= link_to Track.find(item.item_id).title, track_path(item.item_id) %> from 
-  their station
-</div>
-<div class="tiny-table-cell" style="width: 22%;">
-  <div class="small">
-    <%= time_ago_in_words(item.created_at) %> ago
+<div class="row">
+  <div class="col-12 col-md-9 small">
+     <% if item.user == current_user %>
+      You
+    <% else %>
+    <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+    <% end %>
+    
+    removed 
+
+    <i><%= link_to Track.find(item.item_id).title, track_path(item.item_id) %></i> 
+    by 
+    <% if Track.find(item.item_id).pseudonym_id? %>
+			<%= link_to Track.find(item.item_id).pseudonym.name, user_path(Track.find(item.item_id).user) %>
+		<% else %>
+			<%= link_to Track.find(item.item_id).user.name, user_path(Track.find(item.item_id).user) %>
+		<% end %> from 
+    
+    <% if item.user == current_user %>
+      your station
+    <% else %>
+      their station
+    <% end %>
+  </div>
+  <div class="col-12 col-md-3 small text-center">
+      <small><%= time_ago_in_words(item.created_at) %> ago</small>
   </div>
 </div>

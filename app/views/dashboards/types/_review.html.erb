@@ -6,7 +6,7 @@
     <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    gave the <%= Listing.find(item.parent_id).filetype %> <%= link_to Listing.find(item.parent_id).title, listing_path(item.parent_id) %> 
+    gave the <%= Listing.find(item.parent_id).filetype %> <i><%= link_to Listing.find(item.parent_id).title, listing_path(item.parent_id) %></i> 
     by 
     <% if Listing.find(item.parent_id).pseudonym_id? %>
 			<%= link_to Listing.find(item.parent_id).pseudonym.name, user_path(Listing.find(item.parent_id).user) %>
@@ -20,9 +20,9 @@
     <hr class="colorgraph">
     <div class="row">
       
-        <div class="border my-1 p-2 pb-2">
+        <div class="border border-secondary my-1 p-2 pb-2 rounded">
           <%= link_to listing_path(item.item_id) do %>
-    				<%= image_tag Listing.find(item.parent_id).image.url(:thumb), height: 100, class: "p-1 border float-left mr-2" %>
+    				<%= image_tag Listing.find(item.parent_id).image.url(:thumb), height: 100, class: "p-1 border border-secondary float-left mr-2" %>
     			<% end %>
           <%= truncate(Listing.find(item.parent_id).description, length: 140) %>
           <br/>
@@ -34,10 +34,15 @@
     </div>
   </div>
   <div class="col-12 col-md-3 small text-center">
-      <%= time_ago_in_words(item.created_at) %> ago
-      <br />
-      <i class="fas fa-highlighter text-muted"></i>
-      <span class="ml-2 site-red"><%= Listing.find(item.parent_id).reviews.count %></span>
+    <small><%= time_ago_in_words(item.created_at) %> ago<br />
+      <i class="fas fa-highlighter site-blue" title="reviews"></i>
+      <span class="ml-1 site-red"><%= Listing.find(item.parent_id).reviews.count %></span>
+    </small>
+    <br />
+    <br />
+  <% Listing.find(item.parent_id).tag_list.map.each do |tag| %>
+      <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
+    <% end %>
   </div>
 </div>
 

@@ -6,13 +6,9 @@
     <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    uploaded a new track: <%= link_to Track.find(item.item_id).title, track_path(item.item_id) %> in
-  
-    <% Track.find(item.item_id).tag_list.map.each do |tag| %>
-      <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
-    <% end %>   
+    uploaded a new track: <i><%= link_to Track.find(item.item_id).title, track_path(item.item_id) %></i>   
     
-    <div class="grayline mt-2"></div>
+    <hr class="colorgraph">
     <div class="row align-items-center">
       <div class="col-5">
         <%= link_to track_path(item.item_id) do %>
@@ -20,7 +16,7 @@
   			<% end %>
       </div>
       <div class="col-7">
-        <div class="border mt-2 p-2">
+        <div class="border border-secondary rounded mt-2 p-2">
           <%= truncate(Track.find(item.item_id).description, length: 100) %>
         </div>
       </div>
@@ -31,9 +27,15 @@
     </p>
   </div>
   <div class="col-12 col-md-3 small text-center">
-      <%= time_ago_in_words(item.created_at) %> ago
+    <small><%= time_ago_in_words(item.created_at) %> ago
       <br />
-      <i class="fas fa-comments text-muted"></i>
-      <span class="ml-2 site-red"><%= Track.find(item.item_id).comments.count %></span>
+      <i class="fas fa-comments site-blue" title="comments"></i>
+      <span class="ml-1 site-red"><%= Track.find(item.item_id).comments.count %></span>
+    </small>
+    <br />
+    <br />
+    <% Track.find(item.item_id).tag_list.map.each do |tag| %>
+      <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span>
+    <% end %>
   </div>
 </div>

@@ -8,15 +8,21 @@
     
     added 
 
-    <%= link_to Track.find(item.item_id).title, track_path(item.item_id) %> to 
+    <i><%= link_to Track.find(item.item_id).title, track_path(item.item_id) %></i> 
+    by 
+    <% if Track.find(item.item_id).pseudonym_id? %>
+			<%= link_to Track.find(item.item_id).pseudonym.name, user_path(Track.find(item.item_id).user) %>
+		<% else %>
+			<%= link_to Track.find(item.item_id).user.name, user_path(Track.find(item.item_id).user) %>
+		<% end %> to 
     
     <% if item.user == current_user %>
-      your official station
+      your station
     <% else %>
-      their official station
+      their station
     <% end %>
   </div>
-  <div class="col-12 col-md-3 small">
-      <%= time_ago_in_words(item.created_at) %> ago
+  <div class="col-12 col-md-3 small text-center">
+      <small><%= time_ago_in_words(item.created_at) %> ago</small>
   </div>
 </div>

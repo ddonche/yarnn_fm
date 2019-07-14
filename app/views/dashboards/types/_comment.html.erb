@@ -19,20 +19,20 @@
      the topic <%= link_to Topic.find(item.parent_id).title, topic_path(item.parent_id) %>
       
     <% end %>
-    <div class="border mt-2 p-2">
+    <div class="border border-secondary rounded mt-2 p-2">
       <%= truncate(Comment.find(item.item_id).content, length: 120) %>
     </div>
   </div>
   <div class="col-12 col-md-3 small text-center">
-      <%= time_ago_in_words(item.created_at) %> ago
-      <br />
-      <i class="fas fa-comments text-muted"></i>
+    <small><%= time_ago_in_words(item.created_at) %> ago<br/>
+      <i class="fas fa-comments site-blue" title="comments"></i>
       <% if item.commentable_type == "Blog" %>
-        <span class="ml-2 site-red"><%= Blog.find(item.parent_id).comments.count %></span>
+        <span class="ml-1 site-red"><%= Blog.find(item.parent_id).comments.count %></span>
       <% elsif item.commentable_type == "Track" %>
-        <span class="ml-2 site-red"><%= Track.find(item.parent_id).comments.count %></span>
+        <span class="ml-1 site-red"><%= Track.find(item.parent_id).comments.count %></span>
       <% elsif item.commentable_type == "Topic" %>
-        <span class="ml-2 site-red"><%= Topic.find(item.parent_id).comments.count %></span>
+        <span class="ml-1 site-red"><%= Topic.find(item.parent_id).comments.count %></span>
       <% end %>
+    </small>
   </div>
 </div>

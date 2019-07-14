@@ -1,17 +1,17 @@
 <div id="other_background" style="overflow-y: auto;">
   
   <div class="container full-form-container">
-    <div class="row justify-content-center trans-bg p-3 my-3 p-sm-4 my-sm-5 rounded">
+    <div class="row justify-content-center trans-bg-3 p-3 mt-3 mb-md-3 p-sm-4 mt-sm-5 rounded">
       <div class="col-11">
         <fieldset> 
         <%= image_tag("yarnn-icon.png", size: "120x90") %>
         <p style="color: white;">Use this form to create a new listing to sell in our marketplace. Your listing must be a virtual product (downloadable), as we don't capture 
           shipping information. Once your listing is live, you can link it to any of your tracks so people who like your tracks can know where to buy the 
-          associated product. Ebooks, audio files, and videos are all typical products.</p>
+          associated product (to link a track to a product listing, just edit the track). Ebooks, audio files, and videos are all typical products.</p>
           <div class="small" style="color: #fc0000;"><i>By adding listings to the marketplace, you agree to abide by copyright laws associated with the content
-you sell. Copyright violations may result in permanent removal of your account.</i></div><br>
+          you sell. Copyright violations may result in permanent removal of your account.</i></div><br>
 
-				<hr class="colorgraph">
+	<hr class="colorgraph">
   <%= form_for(@listing) do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
@@ -24,56 +24,69 @@ you sell. Copyright violations may result in permanent removal of your account.<
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-     <div class="tooltip" style="float:right">more info
+  <h2 class="site-blue">Creator Info</h2>
+  <div class="form-group">
+     <div class="tooltip" style="float:left">more info
       <span class="tooltiptext">
         Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
         You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
       </span>
     </div>
-    <div class="title">Do you want to add a new pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %><br />
-    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, prompt: 'Select a pseudonym if you want to use one. Ignore this to use your real name.') %><br />
+    <small id="genresHelp" class="form-text text-muted"><%= link_to "Click Here", new_pseudonym_path, style: "color: #00b8ac" %> if you want to add a new pseudonym. 
+    <i>Ignore this if you want to use your real name.</i></small><br />
+    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { prompt: 'Select a pseudonym.' }, {class: "form-control"}) %><br />
   </div>
   
-	<div class="field">
-    <%= f.label :title, class: "title" %><br />
-    <%= f.text_field :title, :autofocus => true, required: true %>
+  <hr class="colorgraph">
+  <h2 class="site-blue">Listing Main Details</h2>
+  <div class="form-group">
+    <%= f.text_field :title, :autofocus => true, required: true, class: "form-control input-lg", placeholder: "Title" %>
   </div>
 
-  <div class="field">
-    <%= f.label :description, class: "title" %><br />
-    <%= f.text_area :description, cols: 87, rows: 4, autofocus: true %>
+  <div class="form-group">
+    <%= f.text_area :description, class: "form-control", autofocus: true, placeholder: "Listing description..." %>
   </div>
   
-  <div class="field">
-    <%= f.label :publisher, class: "title" %><br />
-    <%= f.text_field :publisher, autofocus: true %>
+  <div class="form-group">
+  <%= f.text_field :tag_list, required: true, value: @listing.tag_list.join(", "), placeholder: "Genres", class: "form-control" %><br/>
+  <div class="tooler float-left"><i class="fas fa-question-circle site-blue"></i>&nbsp;
+      <span class="toolertext">
+        Select two genres that best represent your work. Double-check your spelling; if you 
+        misspell the intended genre, your work will not show up where it needs to be so others can easily find it. The genres function in the same way tags do. 
+        If you would like to place your product in more than two genres, consider getting a pro account.</span>
+      </div>
+      <small id="genresHelp" class="form-text text-muted">Add up to two genres. *Separate genres with commas.<br/> 
+      <i>Example: "young adult, paranormal romance"</i></small>
   </div>
   
-  <div class="field">
-     <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        If you have both a 10-digit and a 13-digit ISBN, enter the 13 digit one here. If you do not have one, leave this field blank.<br>
-        <%= link_to "Visit this website if you need to obtain an ISBN.", "https://www.myidentifiers.com/Get-your-isbn-now", class: "title", style: "color: #00b8ac" %>
-      </span>
+  <hr class="colorgraph">
+  <h2 class="site-blue">Secondary Details</h2>
+    <div class="row">
+      <div class="col-12 justify-content-center">
+        <%= f.text_field :publisher, autofocus: true, class: "form-control mb-3", placeholder: "Publisher" %>
+      </div>
+      <div class="col-12 justify-content-center">
+        <%= f.text_field :year, autofocus: true, class: "form-control mb-3", placeholder: "Year" %>
+      </div>
+      <div class="col-12 justify-content-center">
+        <%= f.text_field :isbn, autofocus: true, class: "form-control", placeholder: "ISBN" %>
+        <small id="titleHelp" class="form-text text-muted">If you have both a 10-digit and a 13-digit ISBN, enter the 13 digit one here. 
+        If you do not have one, leave this field blank. <%= link_to "Go here if you need an ISBN.", "https://www.myidentifiers.com/Get-your-isbn-now", class: "title", style: "color: #00b8ac" %></small>
+        </small>
+      </div>
+      <div class="col-12 justify-content-center">
+        <%= f.text_field :language, autofocus: true, class: "form-control mb-3", placeholder: "Language" %>
+      </div>
+      <div class="col-12 justify-content-center">
+        <%= f.text_field :price, autofocus: true, class: "form-control", placeholder: "Price" %>
+      <small id="titleHelp" class="form-text text-muted">Do not include the dollar sign. All currency is USD until further notice.</small>
+      </div>
     </div>
-    <%= f.label "ISBN", class: "title" %><br />
-    <%= f.text_field :isbn, autofocus: true %>
-  </div>
   
+  <hr class="colorgraph">
+  <h2 class="site-blue">Downloadable File Info</h2>
   <div class="field">
-    <%= f.label :year, class: "title" %><br />
-    <%= f.text_field :year, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :language, class: "title" %><br />
-    <%= f.text_field :language, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label "Select File Type", class: "title" %><br><br>
+    <%= f.label "Select File Type", class: "text-secondary" %><br>
     <%= f.radio_button :filetype, 'ebook' %> 
     <%= label :filetype_ebook, 'Ebook' %>
     <%= f.radio_button :filetype, 'audio' %>
@@ -81,38 +94,22 @@ you sell. Copyright violations may result in permanent removal of your account.<
     <%= f.radio_button :filetype, 'video' %>
     <%= label :filetype_video, 'Video' %>
   </div>
-
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        Select two genres that best represent your work. Double-check your spelling; if you 
-        misspell the intended genre, your work will not show up where it needs to be so others can easily find it. The genres function in the same way tags do. 
-        If you would like to place your product in more than two genres, consider getting a pro account.
-      </span>
+  
+  <div class="row">
+    <div class="col-12 justify-content-center">
+      <%= f.label "Cover image", class: "text-secondary" %><br/>
+      <%=  f.file_field :image, class: "form-control-file" %>
     </div>
-  <i class="title", style="margin-left: .5rem; font-size: .8rem;">Add up to two genres. *Separate genres with commas. Example: 
-  "young adult, paranormal romance"</i><br>
-  <%= f.text_field :tag_list, required: true, value: @listing.tag_list.join(", "), placeholder: "Genres" %>
   </div>
-  
-  <div class="field">
-    <%= f.label "Cover image", class: "title"  %><br>
-    <%=  f.file_field :image %>
+  <div class="row">
+    <div class="col-12 justify-content-center">
+      <%= f.label "Product File", class: "text-secondary" %><br/>
+      <%=  f.file_field :file, class: "form-control-file" %>
+      <div class="small" style="color: #fc0000;"><i>*Product file must be a zip file.</i></div>
+    </div>
   </div>
-  
-  <div class="field">
-  <%= f.label "Product File", class: "title" %><i class="title", style="margin-left: .5rem; font-size: .8rem;">Must be a zip file.</i><br>
-    <%=  f.file_field :file %>
-  </div>
-  
-  <div class="field">
-    <i class="title", style="margin-left: .5rem; font-size: .8rem;">Do not include the dollar sign. All currency is USD until further notice.</i><br>
-    <%= f.text_field :price, autofocus: true, placeholder: "Price" %>
-  </div>
-          </div>
-          
           <hr class="colorgraph">
-  				<div class="row">
+  				<div class="row justify-content-center">
   					<div class="col-xs-12 col-sm-12 col-md-6">
   					  <h3><%= f.submit "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2" %></h3>
   					</div>
@@ -123,4 +120,3 @@ you sell. Copyright violations may result in permanent removal of your account.<
       </div>
     </div>
   </div>
-</div>

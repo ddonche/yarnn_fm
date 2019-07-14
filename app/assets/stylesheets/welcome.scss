@@ -33,3 +33,13 @@
   background-image: image-url('dark-bg.gif');
   overflow-y: auto;
 }
+
+#repeat_background {
+  height: 100vh;
+  background-image: image-url('login_background.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}

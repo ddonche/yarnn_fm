@@ -148,6 +148,10 @@ li.borderless {
   background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)), url('bg-dark.jpeg');
 }
 
+.trans-bg-3 {
+  background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .1)), url('yarnn-bg-dark.png');
+}
+
 .nav-text {
   font-size: 12px;
   letter-spacing: 3px;
@@ -250,6 +254,10 @@ li.borderless {
   width: 600px;
 }
 
+.wide-form-container {
+  width: 900px;
+}
+
 .colorgraph {
   height: 1px;
   border-top: 0;
@@ -328,5 +336,9 @@ li.borderless {
   
   .full-form-container {
     width: 300px;
+  }
+  
+  .wide-form-container {
+    width: 400px;
   }
 } 

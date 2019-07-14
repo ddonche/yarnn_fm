@@ -13,7 +13,7 @@
           
           <div class="form-group">
             <%= f.label :name, class: "text-secondary" %>
-            <div class="tooler float-left site-blue">help
+            <div class="tooler float-left"><i class="fas fa-question-circle site-blue"></i>&nbsp;
               <span class="toolertext">You should use your real name here. You'll be able to add pseudonyms when you upload content, and you 
             can manage them all through just one account!</span>
             </div>
@@ -23,7 +23,7 @@
           <% if current_user.publisher_type == "normal" %>
             <div class="form-group">
                 <span class="text-secondary small">Do you want to add a pseudonym?&nbsp;</span><%= link_to "click here", new_pseudonym_path, class: "site-red" %>
-                <div class="tooler float-right site-blue">help
+                <div class="tooler float-left"><i class="fas fa-question-circle site-blue"></i>&nbsp;
                   <span class="toolertext">Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.</span>
                 </div>
               <br>
@@ -31,7 +31,7 @@
           <% else %>
             <div class="form-group">
                 <span class="text-secondary small">Do you want to add an author?&nbsp;</span><%= link_to "click here", new_pseudonym_path, class: "site-red" %>
-                <div class="tooler float-left site-blue">help
+                <div class="tooler float-left"><i class="fas fa-question-circle site-blue"></i>&nbsp;
                   <span class="toolertext">Authors added here will be available to you when you go to add new tracks, listings, topics, and blogs. If any of your authors 
                   has a personal account, it will not be linked. Anything you upload or post will be associated with this publisher account.</span>
                 </div>
@@ -84,16 +84,16 @@
           </div>
     
           <div class="row">
-            <div class="tooltip text-right">more info
-              <span class="tooltiptext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
+            <div class="col-1 tooler float-left"><i class="fas fa-question-circle site-blue"></i>&nbsp;
+                  <span class="toolertext">Is this a publisher account? If you plan to only upload your own materials, choose normal. If you choose 
               to have a separate publisher account from a personal one, be aware that you will need two separate Stripe accounts in order to sell 
               in the marketplace with both.</span>
-            </div>
-            <div class="col justify-content-center">
+                </div>
+            <div class="col-5 justify-content-center">
               <%= f.radio_button :publisher_type, 'normal' %> 
               <%= label :publisher_type_normal, 'Normal Account', class: 'text-secondary' %>
     				</div>
-    				<div class="col justify-content-center">
+    				<div class="col-5 justify-content-center">
   					  <%= f.radio_button :publisher_type, 'publisher' %>
               <%= label :publisher_type_publisher, 'Publisher Account', class: 'text-secondary' %>
   				  </div>

@@ -1,8 +1,17 @@
-<h2>Create New Album</h2>
-<p>Use this form to create a new album, which is a collection of tracks. Many people choose to make an album for a specific title, such as 
+<div id="other_background" style="overflow-y: auto;">
+  
+  <div class="container full-form-container">
+    <div class="row justify-content-center trans-bg-3 p-3 mt-3 mb-md-3 p-sm-4 mt-sm-5 rounded">
+      <div class="col-11">
+        <fieldset> 
+        <%= image_tag("yarnn-icon.png", size: "120x90") %>
+        <h2 class="site-blue">Create New Album</h2>
+        <p style="color: white;">Use this form to create a new album, which is a collection of tracks. Many people choose to make an album for a specific title, such as 
 a book or anthology. For example, an anthology of short stories or poems might become an album with a different track for each story. One 
-might also make an album for a full-length novel, and upload select audio tracks from the work. Ultimately, it's up to you, though.</p><br>
-<%= form_for(@album) do |f| %>
+might also make an album for a full-length novel, and upload select audio tracks from the work. Ultimately, it's up to you, though.</p>
+
+	<hr class="colorgraph">
+	<%= form_for(@album) do |f| %>
   <% if @album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@album.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -15,62 +24,84 @@ might also make an album for a full-length novel, and upload select audio tracks
     </div>
   <% end %>
   
-	<div class="field">
-    <%= f.label "Album Title", class: "title" %><br />
-    <%= f.text_field :title, :autofocus => true, required: true %>
-  </div>
-  
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
+  <h2 class="site-blue">Creator Info</h2>
+  <div class="form-group">
+     <div class="tooltip" style="float:left">more info
       <span class="tooltiptext">
         Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
         You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
       </span>
     </div>
-    <div class="title">Do you want to add a new pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %><br />
-    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, prompt: 'Select pseudonym if you want. Ignore to use real name.') %><br />
+    <small id="genresHelp" class="form-text text-muted"><%= link_to "Click Here", new_pseudonym_path, style: "color: #00b8ac" %> if you want to add a new pseudonym. 
+    <i>Ignore this if you want to use your real name.</i></small><br />
+    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { prompt: 'Select a pseudonym.' }, {class: "form-control"}) %><br />
+  </div>
+  
+  <hr class="colorgraph">
+  <h2 class="site-blue">Album Details</h2>
+  <div class="form-group">
+    <%= f.text_field :title, :autofocus => true, required: true, class: "form-control input-lg", placeholder: "Title" %>
   </div>
 
-  <div class="field">
-    <%= f.label :description, class: "title" %><br />
-    <%= f.text_area :description, autofocus: true, cols: 88, rows: 4 %>
-  </div>
-  
-  <% if current_user.publisher_type == "publisher" %>
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        If this album has an editor associated with it (such as with an anthology), add the editor's name here.
-      </span>
-    </div>
-    <%= f.label :editor, class: "title" %><br />
-    <%= f.text_field :editor, autofocus: true %>
-  </div>
-  <% end %>
-  
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        If there is a year associated with this album, add it here. You can also put a range of years, like 2012-2016.
-      </span>
-    </div>
-    <%= f.label :year, class: "title" %><br />
-    <%= f.text_field :year, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.radio_button :serial, 'nonserial' %> 
-    <%= label :serial_nonserial, 'Not serial' %>
-    <%= f.radio_button :serial, 'serial' %>
-    <%= label :serial_serial, 'Serialized' %>
-  </div>
-  
-  <div class="field">
-    <%= f.label "Album image", class: "title"  %><br />
-    <%=  f.file_field :image %>
+  <div class="form-group">
+    <%= f.text_area :description, class: "form-control", autofocus: true, placeholder: "Album description..." %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Submit", class: "button button_highlight button_block" %>
+    <div class="row">
+      <div class="col-12 justify-content-center">
+        <%= f.text_field :year, autofocus: true, class: "form-control mb-3", placeholder: "Year" %>
+        <small id="titleHelp" class="form-text text-muted">If there is a year associated with this album, add it here. You can also put a range of years, like 2012-2016.</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 justify-content-center">
+          <% if current_user.publisher_type == "publisher" %>
+          <div class="field">
+            <div class="tooltip" style="float:right">more info
+              <span class="tooltiptext">
+                If this album has an editor associated with it (such as with an anthology), add the editor's name here.
+              </span>
+            </div>
+            <%= f.label :editor, class: "title" %><br />
+            <%= f.text_field :editor, autofocus: true %>
+          </div>
+          <% end %>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-6 justify-content-center">
+          <%= f.radio_button :serial, 'nonserial' %> 
+          <%= label :serial_nonserial, 'Not serial', class: "text-secondary" %>
+      </div>
+      <div class="col-6 justify-content-center">
+          <%= f.radio_button :serial, 'serial' %>
+          <%= label :serial_serial, 'Serialized', class: "text-secondary" %>
+      </div>
+      <div class="col-12 justify-content-center">
+        <small id="imageHelp" class="form-text text-secondary">A serialized album means all the tracks are connected. An example might be several
+        chapters in sequence.</small>
+      </div>
+    </div>
+  
+  <hr class="colorgraph">
+  <h2 class="site-blue">Album Image</h2>
+  
+  <div class="row">
+    <div class="col-12 justify-content-center">
+      <%=  f.file_field :image, class: "form-control-file" %>
+      <small id="imageHelp" class="form-text text-secondary">For best results, use an image that's the same height and width.</small>
+    </div>
   </div>
-<% end %>
+          <hr class="colorgraph">
+  				<div class="row justify-content-center">
+  					<div class="col-xs-12 col-sm-12 col-md-6">
+  					  <h3><%= f.submit "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2" %></h3>
+  					</div>
+  				</div>
+
+        <% end %>
+        </fieldset>
+      </div>
+    </div>
+  </div>

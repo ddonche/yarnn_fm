@@ -1,11 +1,18 @@
-<h2>Create New Track</h2>
-
-<p>Use this form to upload a new track. Tracks are the key feature of this site, so it helps to have high-quality audio (see link below). You can also set your track under a pseudonym, include a link to a related product (Amazon, iTunes, etc.), 
+<div id="other_background" style="overflow-y: auto;">
+  
+  <div class="container full-form-container">
+    <div class="row justify-content-center trans-bg-3 p-3 mt-3 mb-md-3 p-sm-4 mt-sm-5 rounded">
+      <div class="col-11">
+        <fieldset> 
+        <%= image_tag("yarnn-icon.png", size: "120x90") %>
+        <h2 class="site-blue">Create New Track</h2>
+        <p style="color: white;">Use this form to upload a new track. Tracks are the key feature of this site, so it helps to have high-quality audio (see link below). You can also set your track under a pseudonym, include a link to a related product (Amazon, iTunes, etc.), 
 and upload a virtual product of your own into our marketplace. People will also be able to favorite your track to add it to their official 
 station, so make sure it's a good one!<br><br>
-<%= link_to "See our post here on how to improve your audio quality.", "#", class: "title", style: "color: #00b8ac" %></p><br>
+<%= link_to "See our post here on how to improve your audio quality.", "#", class: "title", style: "color: #00b8ac" %></p>
 
-<%= form_for(@track) do |f| %>
+	<hr class="colorgraph">
+  <%= form_for(@track) do |f| %>
   <% if @track.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@track.errors.count, "error") %> prohibited your track from being saved:</h2>
@@ -18,98 +25,105 @@ station, so make sure it's a good one!<br><br>
     </div>
   <% end %>
   
-	<div class="field">
-    <%= f.label :title, class: "title" %><br />
-    <%= f.text_field :title, :autofocus => true, required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description, class: "title" %><br />
-    <%= f.text_area :description, autofocus: true, cols: 87, rows: 4 %>
-  </div>
-  
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
+  <h2 class="site-blue">Creator Info</h2>
+  <div class="form-group">
+     <div class="tooltip" style="float:left">more info
       <span class="tooltiptext">
         Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
         You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
       </span>
     </div>
-    <div class="title">Do you want to add a new pseudonym?&nbsp;</div><%= link_to "Click Here", new_pseudonym_path, class: "title", style: "color: #00b8ac" %><br />
-    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, prompt: 'Select pseudonym if you want. Ignore to use real name.') %><br />
+    <small id="genresHelp" class="form-text text-muted"><%= link_to "Click Here", new_pseudonym_path, style: "color: #00b8ac" %> if you want to add a new pseudonym. 
+    <i>Ignore this if you want to use your real name.</i></small><br />
+    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { prompt: 'Select a pseudonym.' }, {class: "form-control"}) %><br />
   </div>
   
-  <div class="field">
-    <div class="title">Need to make a new album for this?&nbsp;</div><%= link_to "Click here.", new_album_path, class: "title", style: "color: #00b8ac" %><br />
-    <%= f.collection_select(:album_id, current_user.albums, :id, :title, prompt: 'Select Album if there is one.') %><br />
-  </div>
-  
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        Whose voice is featured on this track?
-      </span>
-    </div>
-    <%= f.label "Read by:", class: "title" %><br />
-    <%= f.text_field :vocals, autofocus: true %>
+  <hr class="colorgraph">
+  <h2 class="site-blue">Track Details</h2>
+  <div class="form-group">
+    <%= f.text_field :title, :autofocus => true, required: true, class: "form-control input-lg", placeholder: "Title" %>
   </div>
 
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
+  <div class="form-group">
+    <%= f.text_area :description, class: "form-control", autofocus: true, placeholder: "Track description..." %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.collection_select(:album_id, current_user.albums, :id, :title, { prompt: 'Select an album, if any.' }, {class: "form-control"}) %><br />
+    <small id="albumHelp" class="form-text text-muted">Need to make a new album for this?&nbsp;<%= link_to "Click here.", new_album_path, class: "title", style: "color: #00b8ac" %></small>
+  </div>
+  
+  <div class="form-group">
+    <%= f.text_field :vocals, autofocus: true, class: "form-control", placeholder: "Read by..." %>
+    <small id="titleHelp" class="form-text text-muted">Whose voice is featured on this track?</small>
+  </div>
+  
+  <div class="form-group">
+  <%= f.text_field :tag_list, required: true, value: @track.tag_list.join(", "), placeholder: "Genres", class: "form-control" %><br/>
+  <div class="tooler float-left"><i class="fas fa-question-circle site-blue"></i>&nbsp;
+      <span class="toolertext">
         Select two genres that best represent your work. Double-check your spelling; if you 
         misspell the intended genre, your work will not show up where it needs to be so others can easily find it. The genres function in the same way tags do. 
-        If you would like to place your product in more than two genres, consider getting a pro account.
-      </span>
-    </div>
-  <i class="title", style="margin-left: .5rem; font-size: .8rem;">Add up to two genres. *Separate genres with commas. Example: 
-  "young adult, paranormal romance"</i><br>
-  <%= f.text_field :tag_list, required: true, value: @track.tag_list.join(", ") %>
-  </div>
-  
-  <div class="field">
-    <%= f.radio_button :explicit, 'standard' %> 
-    <%= label :explicit_standard, 'Not explicit' %>
-    <%= f.radio_button :explicit, 'explicit' %>
-    <%= label :explicit_explicit, 'Explicit content' %>
-  </div>
-  
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        Square images work best, as your track image will be cropped to equal width and height upon upload.
-      </span>
-    </div>
-    <%= f.label "Track image", class: "title"  %><br />
-    <%=  f.file_field :image %>
-  </div>
-  
-  <div class="field">
-    <%= f.label "Audio file", class: "title"  %><i class="title", style="margin-left: .5rem; font-size: .8rem;">(must be in mp3 format)</i><br />
-    <%=  f.file_field :audio %>
-  </div>
-  
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        If you link a product to this track, users who like the track will know exactly where to go to get more of what they want: your content.
-      </span>
-    </div>
-    <div class="title">Need to upload a new product listing for this?&nbsp;</div><%= link_to "Click here.", new_listing_path, class: "title", style: "color: #00b8ac" %><br />
-    <%= f.collection_select(:listing_id, current_user.listings, :id, :title, prompt: 'Select product listing if there is one.') %><br />
-  </div>
-  
-	<div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">
-        Is there another related product you can link this track with? Perhaps a physical product your audience might be interested in?
-      </span>
-    </div>
-    <%= f.label "Purchase link", class: "title" %><br />
-    <%= f.text_field :buy_url, :autofocus => true %>
+        If you would like to place your product in more than two genres, consider getting a pro account.</span>
+      </div>
+      <small id="genresHelp" class="form-text text-muted">Add up to two genres. *Separate genres with commas.<br/> 
+      <i>Example: "young adult, paranormal romance"</i></small>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Submit Track", class: "button button_highlight button_block" %>
+    <div class="row">
+      <div class="col-6 justify-content-center">
+          <%= f.radio_button :explicit, 'standard' %> 
+          <%= label :explicit_standard, 'Not explicit', class: "text-secondary" %>
+      </div>
+      <div class="col-6 justify-content-center">
+          <%= f.radio_button :explicit, 'explicit' %>
+          <%= label :explicit_explicit, 'Explicit content', class: "text-secondary" %>
+      </div>
+    </div>
+
+  
+  <hr class="colorgraph">
+  <h2 class="site-blue">Track Image</h2>
+  
+  <div class="row">
+    <div class="col-12 justify-content-center">
+      <%=  f.file_field :image, class: "form-control-file" %>
+      <small id="imageHelp" class="form-text text-secondary">For best results, use an image that's the same height and width.</small>
+    </div>
   </div>
-<% end %>
+  
+  <hr class="colorgraph">
+  <h2 class="site-blue">Audio File Info</h2>
+  <div class="row">
+    <div class="col-12 justify-content-center">
+      <%= f.label "Audio File", class: "text-secondary" %><br/>
+      <%=  f.file_field :audio, class: "form-control-file" %>
+      <div class="small" style="color: #fc0000;"><i>*Must be in mp3 format</i></div>
+    </div>
+  </div>
+  
+  <hr class="colorgraph">
+  <h2 class="site-blue">Linked Products</h2>
+  <p style="color: white;">If you link products to this track, users who like the track will know exactly where to go to get more of what they want: your content.</p></p>
+  <div class="form-group">
+    <%= f.collection_select(:listing_id, current_user.listings, :id, :title, { prompt: 'Select product listing, if any.' }, {class: "form-control"}) %>
+    <small id="albumHelp" class="form-text text-muted">Need to upload a new product listing to our marketplace for this?&nbsp;<%= link_to "Click here.", new_listing_path, class: "title", style: "color: #00b8ac" %></small>
+  </div>
+  
+	<div class="form-group">
+    <%= f.text_field :buy_url, :autofocus => true, class: "form-control", placeholder: "Purchase Link" %>
+    <small id="albumHelp" class="form-text text-muted">Is there another related product you can link this track with? Perhaps a physical product your audience might be interested in?</small>
+  </div>
+  
+  <hr class="colorgraph">
+	<div class="row justify-content-center">
+		<div class="col-xs-12 col-sm-12 col-md-6">
+		  <h3><%= f.submit "Submit Track", class: "btn btn-lg btn-outline-secondary btn-block mb-2" %></h3>
+		</div>
+	</div>
+
+      <% end %>
+      </fieldset>
+    </div>
+  </div>
+</div>

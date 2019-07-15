@@ -4,7 +4,7 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="bg-dark px-3 mt-3 mb-5 text-correct trans-bg-3 rounded-top">
           <div class="row py-3 border-bottom rounded-top">
             <div class="col-12">
@@ -29,16 +29,17 @@
               <% end %>
               
             <% end %>
+            <%= will_paginate @feed_items, previous_label: "Previous", next_label: "Next" %>
           <% else %>
             There is no activity in your feed. You should <%= link_to "follow someone", users_path %> or perhaps join a discussion.
           <% end %>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border">
-        	<div class="row py-3 bg-light border-bottom">
+      <div class="col-md-6">
+        <div class="bg-dark px-3 mt-3 mb-5 text-correct trans-bg rounded-top">
+        	<div class="row py-3 border-bottom rounded-top">
             <div class="col-12">
-              <h5 class="text-muted">Your Content</h5>
+              <h5 class="site-blue">Your Content</h5>
             </div>
           </div>
           <div class="row p-2 border-bottom">

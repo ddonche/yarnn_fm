@@ -1,0 +1,44 @@
+<div class="row">
+<% @albums.each do |album| %>
+    <div class="col-6">
+        <div>
+        	
+            <div class="trans-bg-3 px-2 pt-2 m-2 text-muted">
+
+                <div class="text-center">
+                    <div class="ribbon_box">
+			      		<% if album.serial == "serial" %>
+			        		<div class="ribbon"><span>SERIAL</span></div>
+			      		<% end %>
+				        <%= link_to album do %>
+							<%= image_tag album.image.url(:thumb), title: album.title, class: "image-full" %>
+						<% end %>
+					</div>
+                </div>
+                
+                <div class="text-left p-2 mt-2">
+					<h3 class="site-red"><%= link_to truncate(album.title, length: 24, separator: ' '), album_path(album) %></h3>
+
+                	<div class="row text-center small">
+                	    <div class="col-6">
+                	    	<i class="fas fa-headphones"></i>
+							<span class="ml-2"></span><%= pluralize( album.tracks.count, 'Track' ) %>
+						</div>
+						<div class="col-6">
+                        	<i class="fas fa-calendar-alt"></i>
+                			<span class="ml-2"></span>
+                			<% if album.year? %>
+                			    <%= album.year %>
+                			<% else %>
+                			    unk.
+                			<% end %>
+						</div>
+                	</div>
+                	
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<% end %>
+</div>

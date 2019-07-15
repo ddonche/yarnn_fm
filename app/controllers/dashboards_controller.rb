@@ -10,6 +10,7 @@ class DashboardsController < ApplicationController
     @topics = @user.topics.order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
     @blogs = @user.blogs.order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
     @listings = @user.listings.order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
+    @transactions = Transaction.all.where(seller: current_user).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     @users = @user.followers
     @followed_users = @user.following
     

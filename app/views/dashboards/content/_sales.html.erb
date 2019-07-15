@@ -1,0 +1,37 @@
+<h5 class="site-blue">Sales History</h5>
+
+<div class="row justify-content-center">
+    <div class="col-12">
+  
+    <small>You currently have <%= pluralize(current_user.listings.count, "listing") %> in the <%= link_to "marketplace", listings_path %>.<br />
+    <a href="#">Manage Listings</a><span style="margin-left: .5rem"></span>-<span style="margin-left: .5rem"></span>
+    <%= link_to "Add a new listing", new_listing_path %></small>
+    <div class="colorgraph mt-1 mb-1"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <h5>Title</h5>
+    </div>
+    <div class="col-5">
+        <h5>Info</h5>
+    </div>
+    <div class="col-3">
+        <h5>Buyer</h5>
+    </div>
+</div>
+<div class="row">
+    <% @transactions.each do |transaction| %>
+        <div class="col-3">
+            <small><%= link_to transaction.listing.title, listing_path(transaction.listing) %></small>
+        </div>
+        <div class="col-5">
+            <small><i><%= transaction.listing.filetype %></i> purchased on
+      			  <%= transaction.created_at.strftime("%Y-%m-%d") %> for <%= number_to_currency(transaction.listing.price) %></small>
+        </div>
+        <div class="col-3">
+            <small><%= link_to transaction.buyer.username, user_path(transaction.buyer) %></small>
+        </div>
+        <div class="grayline" style="width: 94%"></div>
+    <% end %>
+</div>

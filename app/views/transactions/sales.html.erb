@@ -2,9 +2,6 @@
 	<div id="banner" class="track_banner">
 	  <%= render 'layouts/header' %>
 	</div>
-  <% if user_signed_in? %>
-    <%= render 'layouts/subheader' %>
-  <% end %>
 	
   <%= render 'shared/alert' %>
 	<div id="breadcrumb">
@@ -39,7 +36,7 @@
               <span style="float:left"><%= link_to transaction.listing.title, listing_path(transaction.listing) %></span>
             </div>
             <div class="table-cell">
-              <p class="listing_info" style="float:left"><i><%= transaction.listing.filetype %></i> purchased on
+              <p class="listing_info ml-1" style="float:left"><i><%= transaction.listing.filetype %></i> purchased on
       			  <%= transaction.created_at.strftime("%Y-%m-%d") %> for <%= number_to_currency(transaction.listing.price) %></p>
             </div>
             <div class="table-cell">

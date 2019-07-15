@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="bg-dark px-3 mt-3 mb-5 text-correct trans-bg-3 rounded-top">
-          <div class="row py-3 border-bottom rounded-top">
+          <div class="row py-3 rounded-top">
             <div class="col-12">
               <h5 class="site-blue">Latest Activity</h5>
             </div>
@@ -14,7 +14,7 @@
           <% if @feed_items.any? %>
             <% @feed_items.each do |item| %>
               <% if lookup_context.template_exists?(item.activity_type, "dashboards/types", true) %>
-                <div class="row p-2 border-bottom border-secondary">
+                <div class="row p-2">
                   <div class="col-3 col-md-2">
                     <% if item.user.image? %>
                       <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, title: item.user.username %>
@@ -26,6 +26,7 @@
                     <%= render partial: "dashboards/types/#{item.activity_type}", locals: {item: item} %>
                   </div>
                 </div>
+                <div class="grayline" style="width: 94%;"></div>
               <% end %>
               
             <% end %>
@@ -37,12 +38,12 @@
       </div>
       <div class="col-md-6">
         <div class="bg-dark px-3 mt-3 mb-5 text-correct trans-bg rounded-top">
-        	<div class="row py-3 border-bottom rounded-top">
+        	<div class="row py-3 rounded-top">
             <div class="col-12">
               <h5 class="site-blue">Your Content</h5>
             </div>
           </div>
-          <div class="row p-2 border-bottom">
+          <div class="row p-2">
             <div class="col-12">
               <%= render partial: "dashboards/content" %>
             </div>

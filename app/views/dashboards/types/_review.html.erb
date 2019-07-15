@@ -15,16 +15,17 @@
 		<% end %>
     a 
     <div class="star-rating" style="display:inline-block" data-score= <%= Review.find(item.item_id).rating %> ></div> 
-    rating
+    rating<br />
+    <small><i class="fas fa-highlighter site-blue" title="reviews"></i>
+           <span class="ml-1 text-secondary"><%= Listing.find(item.parent_id).reviews.count %></span></small>
                
-    <hr class="colorgraph">
     <div class="row">
       
         <div class="border border-secondary my-1 p-2 pb-2 rounded">
           <%= link_to listing_path(item.item_id) do %>
     				<%= image_tag Listing.find(item.parent_id).image.url(:thumb), height: 100, class: "p-1 border border-secondary float-left mr-2" %>
     			<% end %>
-          <%= truncate(Listing.find(item.parent_id).description, length: 140) %>
+          <small><%= truncate(Listing.find(item.parent_id).description, length: 140) %></small>
           <br/>
           <div id="stars">
 						<div class="star-rating" data-score=<%= Listing.find(item.parent_id).avg_rating %> style="max-width: 10%;"></div>
@@ -34,16 +35,13 @@
     </div>
   </div>
   <div class="col-12 col-md-3 small text-center">
-    <small><%= time_ago_in_words(item.created_at) %> ago<br />
-      <i class="fas fa-highlighter site-blue" title="reviews"></i>
-      <span class="ml-1 site-red"><%= Listing.find(item.parent_id).reviews.count %></span>
-    </small>
-    <br />
-    <br />
-  <% Listing.find(item.parent_id).tag_list.map.each do |tag| %>
-      <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
-    <% end %>
+    <small><%= time_ago_in_words(item.created_at) %> ago<br /></small>
   </div>
+</div>
+<div class="row">
+    <% Listing.find(item.parent_id).tag_list.map.each do |tag| %>
+      <div class="tags"><%= link_to tag, tag_path(tag) %></div>
+    <% end %>
 </div>
 
 <script>

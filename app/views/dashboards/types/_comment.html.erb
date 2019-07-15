@@ -9,30 +9,35 @@
     commented on 
   
     <% if item.commentable_type == "Blog" %>
-      the blog post <%= link_to Blog.find(item.parent_id).title, blog_path(item.parent_id) %>
+      the blog post <i><%= link_to Blog.find(item.parent_id).title, blog_path(item.parent_id) %></i>
       
     <% elsif item.commentable_type == "Track" %>
 
-        the track <%= link_to Track.find(item.parent_id).title, track_path(item.parent_id) %>
+        the track <i><%= link_to Track.find(item.parent_id).title, track_path(item.parent_id) %></i>
 
     <% elsif item.commentable_type == "Topic" %>
-     the topic <%= link_to Topic.find(item.parent_id).title, topic_path(item.parent_id) %>
+     the topic <i><%= link_to Topic.find(item.parent_id).title, topic_path(item.parent_id) %></i>
       
-    <% end %>
+    <% end %><br />
+      <small>
+      <% if item.commentable_type == "Blog" %>
+        <i class="fas fa-comments site-blue" title="comments"></i>
+        <span class="ml-1 text-secondary"><%= Blog.find(item.parent_id).comments.count %></span>
+      <% elsif item.commentable_type == "Track" %>
+        <i class="fas fa-heart site-blue" title="stations"></i>
+        <span class="ml-1 text-secondary"><%= Track.find(item.parent_id).favorites.count %></span>
+        <i class="fas fa-comments site-blue ml-2" title="comments"></i>
+        <span class="ml-1 text-secondary"><%= Track.find(item.parent_id).comments.count %></span>
+        
+      <% elsif item.commentable_type == "Topic" %>
+        <i class="fas fa-comments site-blue" title="comments"></i>
+        <span class="ml-1 text-secondary"><%= Topic.find(item.parent_id).comments.count %></span>
+      <% end %></small>
     <div class="border border-secondary rounded mt-2 p-2">
-      <%= truncate(Comment.find(item.item_id).content, length: 120) %>
+      <small><%= truncate(Comment.find(item.item_id).content, length: 120) %></small>
     </div>
   </div>
   <div class="col-12 col-md-3 small text-center">
-    <small><%= time_ago_in_words(item.created_at) %> ago<br/>
-      <i class="fas fa-comments site-blue" title="comments"></i>
-      <% if item.commentable_type == "Blog" %>
-        <span class="ml-1 site-red"><%= Blog.find(item.parent_id).comments.count %></span>
-      <% elsif item.commentable_type == "Track" %>
-        <span class="ml-1 site-red"><%= Track.find(item.parent_id).comments.count %></span>
-      <% elsif item.commentable_type == "Topic" %>
-        <span class="ml-1 site-red"><%= Topic.find(item.parent_id).comments.count %></span>
-      <% end %>
-    </small>
+    <small><%= time_ago_in_words(item.created_at) %> ago</small>
   </div>
 </div>

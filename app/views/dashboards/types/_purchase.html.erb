@@ -13,31 +13,32 @@
 			<%= link_to Listing.find(item.item_id).pseudonym.name, user_path(Listing.find(item.item_id).user) %>
 		<% else %>
 			<%= link_to Listing.find(item.item_id).user.name, user_path(Listing.find(item.item_id).user) %>
-		<% end %>
-                    
-    <hr class="colorgraph">
-    <div class="row align-items-center">
-      <div class="col-4">
-        <%= link_to listing_path(item.item_id) do %>
-  				<%= image_tag Listing.find(item.item_id).image.url(:thumb), class: "image-full p-1 border" %>
-  			<% end %>
-      </div>
-      <div class="col-8">
-        <div class="border border-secondary rounded mt-2 p-2">
-          <%= truncate(Listing.find(item.item_id).description, length: 140) %>
+		<% end %><br />
+    <small><i class="fas fa-highlighter site-blue" title="reviews"></i>
+    <span class="ml-1 text-secondary"><%= Listing.find(item.item_id).reviews.count %></span></small>
+    
+    <div class="row">
+      
+        <div class="border border-secondary my-1 p-2 pb-2 rounded">
+          <%= link_to listing_path(item.item_id) do %>
+    				<%= image_tag Listing.find(item.item_id).image.url(:thumb), height: 100, class: "p-1 border border-secondary float-left mr-2" %>
+    			<% end %>
+          <small><%= truncate(Listing.find(item.item_id).description, length: 140) %></small>
+          <br/>
+          <div id="stars">
+						<div class="star-rating" data-score=<%= Listing.find(item.item_id).avg_rating %> style="max-width: 10%;"></div>
+					</div>
         </div>
-      </div>
+      
     </div>
+    
   </div>
   <div class="col-12 col-md-3 small text-center">
-      <small><%= time_ago_in_words(item.created_at) %> ago<br />
-      <i class="fas fa-highlighter site-blue" title="reviews"></i>
-      <span class="ml-1 site-red"><%= Listing.find(item.item_id).reviews.count %></span>
-      </small>
-      <br/>
-      <br/>
-    <% Listing.find(item.item_id).tag_list.map.each do |tag| %>
-      <span class="badge badge-info py-1 px-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
-    <% end %>
+      <small><%= time_ago_in_words(item.created_at) %> ago<br /></small>
   </div>
 </div>
+  <div class="row">
+    <% Listing.find(item.item_id).tag_list.map.each do |tag| %>
+      <div class="tags"><%= link_to tag, tag_path(tag) %></div>
+    <% end %> 
+  </div>

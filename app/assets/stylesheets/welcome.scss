@@ -29,6 +29,15 @@
   box-sizing: border-box;
 }
 
+#other_background_nocenter {
+  height: 100vh;
+  background-image: image-url('login_background.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 #other_background_overflow {
   background-image: image-url('dark-bg.gif');
   overflow-y: auto;

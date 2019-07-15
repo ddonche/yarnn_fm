@@ -7,18 +7,17 @@
     <% end %>
     
     made the blog post  
-    <i><%= link_to Blog.find(item.item_id).title, blog_path(item.item_id) %></i>
+    <i><%= link_to Blog.find(item.item_id).title, blog_path(item.item_id) %></i><br />
+    <small><i class="fas fa-comments site-blue"></i>
+      <span class="ml-1 text-secondary"><%= Blog.find(item.item_id).comments.count %></span></small>
     
     <div class="border border-secondary rounded mt-2 p-2">
-      <%= truncate(strip_tags(Blog.find(item.item_id).content), length: 200) %>
+      <small><%= truncate(strip_tags(Blog.find(item.item_id).content), length: 200) %></small>
     </div>
     
   </div>
   
   <div class="col-12 col-md-3 small text-center">
-      <small><%= time_ago_in_words(item.created_at) %> ago<br />
-      <i class="fas fa-comments site-blue"></i>
-      <span class="ml-1 site-red"><%= Blog.find(item.item_id).comments.count %></span>
-      </small>
+      <small><%= time_ago_in_words(item.created_at) %> ago</small>
   </div>
 </div>

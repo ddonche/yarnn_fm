@@ -7,7 +7,20 @@
     <% end %>
     
     quit following 
-    <%= link_to User.find(item.followed_id).username, user_path(item.followed_id) %>
+    <%= link_to User.find(item.followed_id).username, user_path(item.followed_id) %><br />
+    <small>
+      <i class="fas fa-headphones site-blue" title="tracks"></i>
+      <span class="ml-1 text-secondary"><%= User.find(item.followed_id).tracks.count %></span>
+      
+      <i class="fas fa-compact-disc site-blue ml-2" title="albums"></i>
+      <span class="ml-1 text-secondary"><%= User.find(item.followed_id).albums.count %></span>
+      
+      <i class="fas fa-user-astronaut site-blue ml-2" title="followers"></i>
+      <span class="ml-1 text-secondary"><%= User.find(item.followed_id).followers.count %></span>
+      
+      <i class="fas fa-shopping-cart site-blue ml-2" title="listings"></i>
+      <span class="ml-1 text-secondary"><%= User.find(item.followed_id).listings.count %></span>
+    </small>
   </div>
   <div class="col-12 col-md-3 small text-center">
       <small><%= time_ago_in_words(item.created_at) %> ago</small>

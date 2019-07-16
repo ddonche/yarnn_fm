@@ -1,12 +1,7 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
-	
-  <%= render 'shared/alert' %>
-	
-	<div class="container">
-      <div class="wrapper-side-left">
+<%= render 'shared/alert' %>
+<div class="container">
+	<div class="row">
+      <div class="col-3 trans-bg-3 rounded mr-2">
         <ul>
           <li><a href="#Overview">Overview</a></li>
           <li><a href="#Accounts">Accounts</a></li>
@@ -30,7 +25,7 @@
         </ul>
       </div>
   
-      <div class="side-box" style="width: 75%">
+      <div class="col-8 trans-bg-3 rounded text-correct">
         <div class="help-content">
           Welcome to the Yarnn.FM Help Center. Use this page to get better acquainted with the features and inner workings of the site.<br/>
         <a id="Overview"></a><h2>Overview</h2>
@@ -157,6 +152,5 @@
         
         </div>
       </div>
-
   </div>
 </div>

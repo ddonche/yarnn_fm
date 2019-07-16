@@ -3,12 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:stripe_connect]
+         :omniauthable, :omniauth_providers => [:stripe_connect, :facebook]
   
   mount_uploader :image, ImageUploader
   extend FriendlyId
   friendly_id :username, use: :slugged
-  enum user_type: { standard: 0, pro: 1 }
+  enum user_type: { standard: 0, pro: 1, banned: 2 }
   enum publisher_type: { normal: 0, publisher: 1 }
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h

@@ -259,9 +259,11 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   
   config.omniauth :stripe_connect,
-    "STRIPE_CONNECT_CLIENT_ID", "STRIPE_SECRET_KEY",
+    ENV[ 'STRIPE_CONNECT_CLIENT_ID' ], ENV[ 'STRIPE_SECRET_KEY' ],
     scope: 'read_write',
     stripe_landing: 'login'
+    
+  config.omniauth :facebook, ENV[ 'APP_ID' ], ENV[ 'APP_SECRET' ]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

@@ -263,7 +263,7 @@ Devise.setup do |config|
     scope: 'read_write',
     stripe_landing: 'login'
     
-  config.omniauth :facebook, ENV[ 'APP_ID' ], ENV[ 'APP_SECRET' ]
+  config.omniauth :facebook, ENV[ 'FB_APP_ID' ], ENV[ 'FB_APP_SECRET' ]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

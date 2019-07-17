@@ -264,7 +264,8 @@ Devise.setup do |config|
     stripe_landing: 'login'
     
   config.omniauth :facebook, ENV[ 'FB_APP_ID' ], ENV[ 'FB_APP_SECRET' ], 
-    scope: 'email', info_fields: 'email, name, image'
+    scope: 'email', info_fields: 'email, name, image', 
+    callback_url: "https://www.yarnn.fm/auth/facebook/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

@@ -746,14 +746,22 @@ class IpsumsController < ApplicationController
   
   def scifi
     capital_words5 = [
-      "Atomic", "Carbon", "Clone", "Density", "Device", "Earth", "Gravity", "Intergalactic", "Kilowatt", "Mars", "Jupiter", 
-      "Parallel Universe", "Pi", "Quantum", "Sentient", "Theoretical", "Teleport"
+      "Absolute zero", "Accelerometer", "Aperture", "Astronomy", "Atomic", "Big Bang", "Binary star", "Carbon", "Clone", "Density", 
+      "Climatology", "Concave", "Convection", "Coronal mass ejection", "Cosmic rays", "Darwin", "Descent phase", "Device", "Diffraction",
+      "Earth", "Electromagnetic", "Elliptical orbit", "Escape velocity", "Exobiology", "Extragalactic", "Filament", "Frequency",
+      "Flux capacitor", "Gravity", "Gyroscope", "Heat shield", "Heliocentric", "Hydrocarbons", "Hyperbolic", 
+      "Inflationary Universe", "Intergalactic", "Interstellar", "Isotope", "Jupiter", "K-band", "Kelvin", "Kilowatt", "Kuiper Belt", 
+      "Lander", "Luminosity", "Mach", "Mars", "Matter", "Micron", "Microwave", "Near-earth asteroid", "Nitrogen", "Nova", "Optics",
+      "Parallel Universe", "Pi", "Pixel", "Planets", "Photosynthesis", "Positron", "Probe", "Pulsar",
+      "Quantum", "Quasar", "Red Giant", "Reflector", "Retrograde", "Rover", 
+      "Sentient", "Solar storm", "Spectrometer", "Supernova", "Telemetry", "Theoretical", "Teleport", "Thrusters", "Titan",
+      "Van Allen radiation belt", "Voyager", "Wavelength", "Worlds", "X-band"
     ]
       
     words5 = [
       "acceleration", "acid", "aerodynamic", "alchemy", "aliens", "alpha rays", "android", "Andromeda", "antigravity", "ansible", "armada", 
       "artificial intelligence", "asteroid", 
-      "asteroid belt", "astrogate", "atmosphere", "atom", "avatar",  
+      "asteroid belt", "astrogate", "astrophysicist", "atmosphere", "atom", "avatar",  
       "base", "beam", "beings", "binomial", "biology", "biometrics", "black hole", "blasters", "booster", "Boyle",
       "bridge",
       "cannons", "captain", "catalyst", "celestial", "cells", "chemistry", "chromosomes", "Clarke", 
@@ -763,7 +771,8 @@ class IpsumsController < ApplicationController
       "dark matter", "deep space", "dimension", "diode", "dock", "Doppler", "drone", "DNA", "Dyson sphere",
       "eclipse", "Einstein", "electrons", "electronics", "engine", "entropy", 
       "equilibrium", "equinox", "ESP", "event horizon", "experiment", "extraterrestrials",  
-      "Faraday Cage", "faster-than-light", "field", "first contact", "fission", "fleet", "force field", "frequency", "friction", "fusion",
+      "Faraday Cage", "faster-than-light", "field", "first contact", "fission", "fleet", "force field", 
+      "fossil record", "frequency", "friction", "fusion",
       "galaxy", "gamma rays", "gases", "Geiger counter", "Gemini", "generation ship", "genetic engineering", "genetics",
       "hard drive", "helium", "helmet", "hive", "homeostasis", "homeworld", "hormones", 
       "humanoid", "humans", "hydrogen", "hyperdrive", "hyperspace", "hyperspeed", "hypothesis",
@@ -778,8 +787,8 @@ class IpsumsController < ApplicationController
       "parabola", "paradox", "parallax", "particles", "pH", "photons", "physics", "planetary", "plasma rifle", "Pluto", 
       "Plutonium", "precog", "prism", "propulsion",
       "quark",
-      "radioactive", "rays", "reactor", "red planet", "relativity", "replicant", "retinal scanner", "ringworld", "robot", "rocket", 
-      "satellite", "Saturn", "saucer", "science", "set phasers to stun", "shields", "signs of life", "singularity", "software", 
+      "radioactive", "rays", "reactor", "red planet", "limb regeneration", "relativity", "replicant", "retinal scanner", "ringworld", "robot", "rocket", 
+      "satellite", "Saturn", "saucer", "science", "set phasers to stun", "shields", "signs of life", "singularity", "software", "solar flares",
       "solar system", "solstice", "sonar", "space", "spacecraft", "space station", "space suit", "space-time", "spectrum", "star system", "subatomic", "supersonic",
       "tectonic shift", "telepathy", "telescope", "terminal velocity", "terraform", 
       "thermodynamics", "thermostat", "timeline", "time travel", "titanium", "torpedo", "tractor beam", "transmission", "turbine", 

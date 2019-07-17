@@ -1,37 +1,27 @@
-<div id="album_show">
-	
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
-	
-	<div id="breadcrumb">
-		Goodies
-			<span>/</span>
-		<%= link_to 'Generators', generators_path %>
-			<span>/</span>
-		Fantasy Portal
-	</div>
-	
-	<div class="wrapper_left">
-	  <div class="side-box">
-	    <div class="side-content">
-	    	<div class="ipsum">
-	      	<h2>Tavern and Inn Names</h2>
-	        <%= @taverns %>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+<div id="other_background_nocenter" style="overflow-y: auto;">
+	<div class="container trans-bg mt-6 pb-5 px-5 rounded">
 
-	<div class="wrapper_wide_right">
-	  <div class="side-box">
-	    <div class="side-content">
-	      <div class="ipsum">
-	        <h2>Fantasy Ipsum</h2>
-	        <%= @fantasy_ipsum %>
-	      </div>
-	    </div>
-	  </div>
+				<div class="row text-correct mt-4 px-4 justify-content-center">
+					<div class="col-12 my-4">
+						<div id="breadcrumb">
+							Goodies
+								<span>/</span>
+							<%= link_to 'Generators', generators_path %>
+								<span>/</span>
+							Fantasy Portal
+						</div>
+					</div>
+				</div>
+				<div class="row text-correct mt-4 pb-6 text-align-center">
+					<div class="col-4 pb-6">
+						<h2>Tavern and Inn Names</h2>
+				        <%= @taverns %>
+					</div>
+					<div class="col-8 text-correct mb-6 pb-6">
+					    <h2>Fantasy Ipsum</h2>
+				        <%= @fantasy_ipsum %>
+					</div>
+				</div>
+
 	</div>
-	
 </div>

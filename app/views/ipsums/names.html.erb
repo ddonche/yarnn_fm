@@ -1,15 +1,18 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
-  <div id="breadcrumb">
-		Goodies
-			<span>/</span>
-		<%= link_to 'Generators', generators_path %>
-			<span>/</span>
-		Ipsum
-	</div>
-	<div class="wrapper_skinny_left">
-	  <%= render 'names' %>
+<div id="other_background" style="overflow-y: auto;">
+	<div class="container trans-bg mt-6 rounded">
+		<div class="row text-correct mt-4">
+			<div class="col-12 my-4">
+			<div id="breadcrumb">
+				Goodies
+					<span>/</span>
+				<%= link_to 'Generators', generators_path %>
+					<span>/</span>
+				Names
+			</div>
+			</div>
+		</div>
+		<div class="col-12 text-correct mb-6">
+		  <%= render 'names' %>
+		</div>
 	</div>
 </div>

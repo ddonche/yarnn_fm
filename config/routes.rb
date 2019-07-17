@@ -72,13 +72,12 @@ Rails.application.routes.draw do
   get 'genres', to: 'tags#index'
 
   get 'generators', to: 'ipsums#show'
-  get 'ipsum', to: 'ipsums#ipsum'
-  get 'apocalpyse', to: 'ipsums#apocalypse'
-  get 'fantasy', to: 'ipsums#fantasy'
-  get 'horror', to: 'ipsums#horror'
-  get 'nature', to: 'ipsums#nature'
-  get 'modern', to: 'ipsums#modern'
-  get 'sci-fi', to: 'ipsums#scifi'
+  get 'apocalypse_ipsum', to: 'ipsums#apocalypse'
+  get 'fantasy_ipsum', to: 'ipsums#fantasy'
+  get 'horror_ipsum', to: 'ipsums#horror'
+  get 'nature_ipsum', to: 'ipsums#nature'
+  get 'modern_ipsum', to: 'ipsums#modern'
+  get 'scifi_ipsum', to: 'ipsums#scifi'
   get 'names_gen', to: 'ipsums#names'
   
   match "/404", :to => "errors#not_found", :via => :all

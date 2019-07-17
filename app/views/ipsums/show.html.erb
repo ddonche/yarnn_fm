@@ -1,29 +1,24 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
+<div id="other_background_nocenter" style="overflow-y: auto;">
+	<div class="container trans-bg mt-6 pb-5 px-5 rounded">
+
+		<div class="row text-correct mt-4 px-4 justify-content-center">
+			<div class="col-12 my-4">
+				<div id="breadcrumb">
+					Goodies
+						<span>/</span>
+					Generators
+				</div>
+			</div>
+		</div>
+		<div class="row text-correct mt-4 pb-6 text-align-center">
+			<div class="col-4 pb-6">
+				<%= render 'ipsums/sidebar' %>
+			</div>
+			<div class="col-8 text-correct mb-6 pb-6">
+			    <h2>Cool Random Content</h2>
+		        <p>Choose one of the options on the left to get your awesome random content!</p>
+			</div>
+		</div>
+
 	</div>
-  <div id="breadcrumb">
-		Goodies
-			<span>/</span>
-		Generators
-	</div>
-	
-  <div class="wrapper_skinny">
-    <div class="side-box">
-      <div class="side-content">
-        <div class="ipsum">
-          <h2>All Portals Generators</h2>
-          <ul>
-            <li>Apocalypse</li>
-            <li><%= link_to "Fantasy", fantasy_path %></li>
-            <li><%= link_to "Horror", horror_path %></li>
-            <li><%= link_to "Modern", modern_path %></li>
-            <li>Nature</li>
-            <li>Science Fiction</li>
-          </ul>
-          <%= link_to "Names", names_gen_path %><br />
-          <%= link_to "Ipsums", ipsum_path %>
-        </div>
-      </div>
-    </div>
 </div>

@@ -2,6 +2,100 @@ class IpsumsController < ApplicationController
   def show
   end
   
+  def apocalypse
+    capital_words4 = [
+      "Apocalypse", "Atlanta", "Atomic", "Batteries", "Biohazard", "Bottled water", "Bug-out bag", 
+      "Bullets", "Bunker", "Canned food", "Contagion", "Diesel", 
+      "Disease", "Doomsday",
+      "Double-barrel", "Emergency", "Epidemic", 
+      "End times", "Extinction", "Fallout", "Filter",
+      "Fuel", "Gas mask", "Gasoline", "Gear", "Gunpowder", "Hospital", "Humanity", "Iron sights", "Kit", 
+      "Loadout", "Mag", "Mutation", "Nuclear",
+      "Outbreak", "Pandemic", "Plague", "Radiation", "Repair", "Rifle", "Quarantine", "Scavenge", "Scrap",
+      "Shotgun", "Soldiers", "Supplies", "Virus", "Zombie"
+    ]
+      
+    words4 = [
+      "12 Monkeys", "28 Days", "9mm", "12-gauge", "abandoned", "A Boy and His Dog", "airwaves", "alcohol", 
+      "aluminum stove", "ammo", "ammo can", 
+      "ammunition", "amputation", "antenna", "antibiotics", "antidote", "armageddon", "armor-piercing", "army",
+      "arrows", "assembly", "asteroid", "atmosphere", "ATV", "axe", "axe handle",
+      "backpack", "barb wire", "barricade", "barter", "baseball bat with barbed wire", "beard", "binoculars", "blankets", "blockade",
+      "body armor", "bolt-action", "bombs", "The Book of Eli", "boots", 
+      "bow and arrow", "breech loader", "buckshot", "bulletproof", "burial site", "burning", "burn pit",
+      "cache", "caliber", "camo", "camouflage", "camp", "campfire", "campsite", "candles", "cannibals", "canning", 
+      "canteen", "capture", "cars", "carcass", "cartridge",
+      "catastrophe", "cataclysm", "cauterize", "CB radio", "CDC", "chainsaw", "chamber", "charcoal", 
+      "charger", "checkpoint", "chlorine", "civilization", "climate", "clinic", "coat",
+      "coffin", "collapse", "collision", "community", "compass", "convoy", "cook", "cordon", "corpse", "countdown", "crossbow", "crowbar", 
+      "crows",
+      "dagger", "damage", "dead", "death", "destruction", "detonate", "distilled", "divine retribution", "doctor", "dog", 
+      "doomed", "downfall", "dust cover", "dynamite",
+      "earthquakes", "electricity", "endangered species", "end of days", "end of the world", 
+      "engineer", "E-tool", "everyday carry", "every man for himself", 
+      "everyone you know is dead", "explosives", "Falling Skies", "fallout shelter", 
+      "famine", "FEMA camp", "field dressing", "fire", "firearms", 
+      "firing pin", "first aid kit", "fishing", "fission", "flak jacket",
+      "flames", "flare gun", "flashlight", "food", "forage", "fortified", "fortress",
+      "four horsemen", "frontier", "full metal jacket", "fusion",
+      "garden", "gather", "generator", "genetic mutation", "global", "global warming", 
+      "gravesite", "grenade", "grid", "guns", "gutted", "hacksaw", "hammer", "hand-crank", "hat",
+      "hatchet", "headlamp", "hell on earth", "helmet", "hideaway", "hockey stick", "hollow-point", "horse", "hotwire", 
+      "humvee", "hunting", "hurricanes", "hygiene",
+      "I Am Legend", "ice age", "incendiary", "iodine",
+      "jack", "jacket", "Jericho", "JP-8", "Jeep", "Jeremiah", "judgment", "jumper cables", "junk",
+      "kill or be killed", "knife",
+      "lamp", "landmines", "lantern", "The Last of Us", "leather", "Leatherman", "lever action", "light", "lighter", "live off the land",
+      "living dead", "looters",
+      "Mad Max", "magazine", "magnum", "map", "marksman", "mass graves", "matches", "medic", "medical supplies", "medicine", 
+      "mercenary", "meteor shower", "Metro 2033", "MRE", "mutant",
+      "NATO", "navigate", "negotiation", "non-perishables", "no one was ready for this", "nurse", "NVGs", "nylon",
+      "oil", "Omega Man", "outdoorsman",
+      "painkillers", "paracord", "party", "patient zero", "peanut butter", "pillage", "pistol", 
+      "Planet of the Apes", "planting", "plate carrier", "pliers", "poison", "pollution", 
+      "potassium", "prepper","propane", "provisions", "pump",
+      "pump-action", "purified water", "quiet", "radiation suit", "radio", "raid", "raiders", "ranger", "ransack", "rations", 
+      "ravagers", "rebuild", "reckoning", "reinforced",
+      "renegade", "rescue", "respirator", "resources", "resupply", "rimfire", "rope", "rotting", 
+      "rounds", "rovers", "rucksack",
+      "salt", "salvage", "savage", "saw", "sawed-off", "scientists", "screwdriver", "scripture", "shallow grave", "shells", 
+      "shelter", "shovel", "shrapnel", "sick", "sickness", "silencer", "sinners", "siphon", "sirens", "skin", "slavers", 
+      "slingshot", "smoke",
+      "sneak", "sniper", "solar flare", "solar panel", "Soylent Green", "spigot", "survival", "The Stand",
+      "starvation", "starving", "stash", "stitch", "storms", "stranded", "straps", "suture", "SUV",
+      "sword", "syringe", 
+      "tank", "tanto", "tent", "Terminator", "test subject", "the end is nigh", "the government isn't going to save us", 
+      "this is the reckoning", "tidal wave", "tinker", "tire iron", "together", "tools", 
+      "tracker", "trade", "transmission", "transmitter", "trapping", 
+      "travel", "tripwire", "truck", "tuna", "turn back", "two-way radio",
+      "undead", "unmarked grave", "urban",
+      "vaccine", "vault", "vegetation", "vehicle", "ventilation", "veteran", "vulture",
+      "walker", "walkie-talkie", "wanderer", "war", "warrior", "wasteland", "water", 
+      "water bag", "Waterworld", "we'll all starve to death if we don't find food", "whetstone", "wild", "wilderness", "wire", "wound", "wrench",
+      "you have to shoot them in the head"
+    ]
+    
+    apoccaps1 = capital_words4.sample
+    apoccaps2 = capital_words4.sample
+    apoccaps3 = capital_words4.sample
+    apoccaps4 = capital_words4.sample
+    apoccaps5 = capital_words4.sample
+    
+    sentence4_len1 = rand(5...30)
+    apoc1 = words4.sample(sentence4_len1).map(&:inspect).join(' ')
+    sentence4_len2 = rand(5...30)
+    apoc2 = words4.sample(sentence4_len2).map(&:inspect).join(' ')
+    sentence4_len3 = rand(5...30)
+    apoc3 = words4.sample(sentence4_len3).map(&:inspect).join(' ')
+    sentence4_len4 = rand(5...30)
+    apoc4 = words4.sample(sentence4_len4).map(&:inspect).join(' ')
+    sentence4_len5 = rand(5...30)
+    apoc5 = words4.sample(sentence4_len5).map(&:inspect).join(' ')
+    
+    @apocalypsum = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + ". " + apoccaps4 + " " + apoc4.delete('"') + ". " + apoccaps5 + " " + apoc5.delete('"') + "."
+  
+  end
+  
   def fantasy
     capital_words2 = [
       "Adventure", "Alchemist", "Amulet", "Apprentice", "Arcane", "Armor", "Broadsword", "Castle", 
@@ -98,7 +192,7 @@ class IpsumsController < ApplicationController
       "mayor", "maze", "mead", "medic", 
       "medicine", "melee", "mercenary", "merchant", "Merlin", "mermaid",
       "merrymaking", "messenger", "Middle Earth", "milkmaid", "mime", "miner", "minotaur", 
-      "minstrel", "mirror", "mirth", "mischief", "mist", "Mistborn", "moat", "monacle", "monarch", "monk", "Mordor",
+      "minstrel", "mirror", "mirth", "mischief", "mist", "Mistborn", "m'lady", "moat", "monacle", "monarch", "monk", "Mordor",
       "mount", "mule", "mummer", "murder holes", "mysterious", "nails", "nanny", "Narnia",
       "navigation", "necklace",
       "needle", "negotiation", "nephilim", "Neverland", "newt", "nightcap", "nightmare", 
@@ -133,7 +227,7 @@ class IpsumsController < ApplicationController
       "sorcerer", "soup", "sow", "spear", "specter", "spectral", "spellbook",
       "spellcaster", "spetum", "spike", "spinster", "spire", "spirit", "spoon", "spy", "spyglass", "squadron", "squire", 
       "stable", "staff", "stallion", "Stark", "statue", "steed", "steel",
-      "steeple", "stew", "stirrups",
+      "steeple", "stew", "stirrups", "storm the castle", 
       "storyteller", "stowaway", "studded leather", "summoner", "surcoat", "swashbuckler", "swindler", "swine", "tabard", "tablet", "tallow",
       "talons", "tanner", "tapestry", "Targaryen",
       "tariff",
@@ -185,7 +279,7 @@ class IpsumsController < ApplicationController
       "Craven", "Crazy", "Crisp", "Crawling", "Creeping", "Crooked", "Crouching", "Crowded", "Cruel", "Crumbling", "Crying", "Curly", "Cursed", 
       "Dancing", "Dandy", "Dark", 
       "Darkened", "Dastardly", "Dawn", "Dead", "Deadly", "Deaf", "Defiant", "Delightful", "Deserted", "Dim", "Dirty", "Dismal", "Drab", "Dragged", 
-      "Drifting", "Drowned", "Drowning", "Drunken", 
+      "Drifting", "dropped the keys when you try to use them", "Drowned", "Drowning", "Drunken", 
       "Dry", "Dusky", "Dusty", "Dying", "Eccentric", "Eager", "Early", "Eighth", "Emerald", "Empty", "Enchanted", "Evil",
       "Faithful", "Fallen", "Falling", "Famous", "Fat", "Feathered", "Fifth", "Filthy", "First", 
       "Fleet", "Flying", "Forbidden", "Foreign", "Forgetful", "Forgotten", "Forsaken", "Fortunate", "Fourth", "Freckled", "Frail", "Frayed", 
@@ -194,22 +288,25 @@ class IpsumsController < ApplicationController
       "Graceful", "Greedy", "Green", 
       "Grey", "Grieving", "Groaning", "Grouchy", "Grumbling", "Haggling", "Half", "Handsome", "Happy",
       "Hateful", "Headless", "Heather", "Hidden", "Hiding", "Hissing", "Honorable", "Hooded", "Hopeful", "Hot", "Howling", "Hungry", "Husky", "Icy", "Idle", 
-      "Inside", "Iron", "Ivory", "Jade", "Jolly", "Joyous", "Jumping", 
+      "I'll just go and check on that noise", 
+      "Inside", "Iron", "it can't be killed with conventional weapons", "Ivory", "Jade", "Jolly", "Joyous", "Jumping", 
       "Knocking", "Last", "Late", "Laughing", "Lazy",
-      "Leaky", "Leather", "Lewd", "Listening", "Little", "Loitering", "Looking", "Loose", "Loping",
+      "Leaky", "Leather", "Lewd", "Listening", "Little", "lock all the doors", "Loitering", "Looking", "Loose", "Loping",
       "Lost", "Loud", "Lucky", "Lying", "Mad", "Marble", "Marching", "Mean", "Melancholy", "Merciful", "Metal", "Mirthful", "Miserly", "Misty", "Mobile", 
       "Moaning", "Moping", "Morning", "Muddy", "Muggy", "Murky", "Muttering", "Mysterious", 
       "Nagging", "Naked", "Needy", "New", "Ninth", "Noisy",
       "Old", "Onyx", "Opal", "Opaline", "Orange", "Orphaned", "Outside", "Painful", "Painted", "Paltry", "Parched", "Pearl", 
       "Pearly", "Penned", "Piddly", "Pink", "Pious", "Pitched", "Plain", "Poisoned", "Poor", "Powerful", 
       "Pretty", "Pulled", "Purple", "Putrid", "Quailing", "Questing", "Questioning", "Quiet", "Quivering", 
-      "Ragged", "Ramshackle", "Rare", "Raw", "Rebellious", "Reborn", "Red", "Remembering", "Resting", "Restless", "Rich", "Roaming", "Roasted", 
+      "Ragged", "Ramshackle", "Rare", "Raw", "Rebellious", "Reborn", "Red", "R
+      emembering", "Resting", "Restless", "Rich", "Roaming", "Roasted", 
       "Rock", "Rooted", "Rotten", "Rough",
       "Roving", "Rowdy", "Ruddy", "Rueful", "Running", "Rusted", "Rusty", "Sable", "Sad", "Sallow",
       "Sapphire", "Scared", "Scarlet", "Scarred", "Scented", "Screaming", "Second", "Seedy", "Seventh",
       "Shady", "Shaking", "Shaky", "Shallow", "Shifting", "Shifty", "Shimmering", "Shining", "Shivering", "Shrunken", "Sickly",
       "Sighing", "Silly", "Silver", "Sinful", "Sixth", "Skinny", "Skirted", "Sleeping", "Sleepy", "Slender",
-      "Small", "Smelly", "Smirking", "Smoking", "Smoky", "Smooth", "Smug", "Sneaky", "Snowy", "Snug", "Soaring", "Soggy", "Sold", "Sorrowful", "Speckled", 
+      "Small", "Smelly", "Smirking", "Smoking", "Smoky", "Smooth", "Smug", "Sneaky", "Snowy", "Snug", "Soaring", "Soggy", 
+      "Sold", "Sorrowful", "Speckled", 
       "Speedy", "Spinning", 
       "Spirited", "Spoiled", "Spying", "Stale", "Standing", "Starry",
       "Steamy", "Steel", "Stiff", "Still", "Stilted", "Stinging", "Stingy", "Stolen", "Stone", "Strange", "Striped", 
@@ -345,7 +442,7 @@ class IpsumsController < ApplicationController
       "Bram Stoker", "breath", "bribe", "broken neck", "bruised", "bugs", "bump", "burial", "burial ground", "buried alive", "butcher",
       "cabin", "cage", "candle", "cannibal", "captive", "capture", "carcus", "car jacking", "carnival", "carousel", "car stall", 
       "carving", "case", "casket", "castle", "cat", "catacombs", "cave", "cellar", "cemetery", "chains", "chainsaw", "chamber", 
-      "charming", "chateau", "chatter", "chemicals", "childhood", "chilling", "chills", "chloroform", 
+      "charming", "chateau", "chatter", "check under the bed", "chemicals", "childhood", "chilling", "chills", "chloroform", 
       "choked", "chopping block", "chupacabra", "church", "circumstantial", "circus", 
       "circus tent", "clamor", "claustrophobic", "claws", "cleaners", "Clive Barker", "cloak", "closet", "cockroach", "coed", "coffin", "coma", 
       "concrete", "confined", "consumed", "control",
@@ -400,14 +497,14 @@ class IpsumsController < ApplicationController
       "neck", "needle", "neighborhood watch", "nerve-wracking", "nervous", "news", "newspaper", "nibble", "night", 
       "nightmare", "night watchman", "noose", "Nosferatu",
       "nostrils", "note", "nurse",
-      "occult", "officer", "old", "omen", "oozing", "open water", "operation", "oracle", "organ harvester", "organs", 
+      "occult", "officer", "old", "omen", "oozing", "opened up the gates of hell", "open water", "operation", "oracle", "organ harvester", "organs", 
       "orphanage", "Ouija board", 
       "outhouse", "overdose", "overpowered",
       "Pagan", "painting", "palm reading", "panel van", "panic room", "paralysis", "paramedic", "paranoia", "parking garage", 
       "passageway", "passed away", "pattern",
       "pentagram", "petrified", "phantom", "pinched",
       "plane crash", "plea bargain", "pleading", "pleasure", "pliers", "plot", "poisoned", 
-      "policeman", "poltergeist", "possessed", "pounce", "powerless",
+      "policeman", "poltergeist", "portal to another dimension", "possessed", "pounce", "powerless",
       "power outage", "prayer", "precognition", "pregnant", "premonition", "priest", "prison", "private investigator", 
       "profiler", "prophesy", "prostitute", 
       "psychic", "psychiatric hospital", "psycho", "psychologist", "pulp", "pump", "puppets", "pursued", "pyre",
@@ -429,15 +526,17 @@ class IpsumsController < ApplicationController
       "stranger", "strangled", "street walker", "succubus", "suicide", "summer camp", "supernatural", "surveillance",
       "suspect", "swab", "swamp", "SWAT", "sweat", "swollen", "symbols", "syringe",
       "talons", "tapping", "tarot", "tattered", "taxicab", "teeth", "temple", "tentacles", "terrified", 
+      "the car is stalled", "the government was experimenting", 
       "therapist", "throat", "thud", "thump", "Tobe Hooper", "tombstone", 
       "tooth", "town drunk", 
       "torture", "trafficking", "trailer", "trapped", "trash bags", "traumatized", "treachery", "tree branches", "trembling", "trenchcoat", 
-      "trial", "trigger", "troll", "troubled", "truck stop",
+      "trial", "trigger", "tripped and fell over a jutting tree root", "troll", "troubled", "truck stop",
       "trunk", "tunnel", "Twilight Zone", "twins", "twisted", "twitch",
       "UFO", "unconscious", "underground", "unknown", "unsolved", "unusual", "urn",
       "vacation", "vampire", "van", "veins", "vengeful spirit", "venom", "violated", "virgin", "visions", "voodoo", 
       "voodoo doll", "wailing", "The Walking Dead",
-      "ward", "warning", "warts", "weeping", "weird", "wendigo", "werewolf", "Wes Craven", "wheelchair", "wheezing", "whimper", "wilderness", "wilted", "wind", 
+      "ward", "warning", "warts", "weeping", "weird", "wendigo", 
+      "we're going to have to walk the rest of the way", "werewolf", "Wes Craven", "wheelchair", "wheezing", "whimper", "wilderness", "wilted", "wind", 
       "wind-up monkey", "witch", "witchcraft", 
       "witch doctor", "withered", "witness", "wolves", "woods", "woodshed", "worms", "wreck", "wrong turn",
       "zombie"
@@ -466,8 +565,8 @@ class IpsumsController < ApplicationController
   
   def modern
     capital_words = [
-      "2nd Amendment", "Alabama", "America", "Bama", "Boss 302", "Boy Scouts", "Cajun", "Carhartt", "Chevy", 
-      "Copenhagen", "Country music", "Dolly Parton", "Elvis", "Graceland", "Harley-Davidson", "Jack Daniels", "Jeep", "Kentucky", "Kid Rock", "Marlboro", 
+      "2nd Amendment", "Alabama", "America", "Bama", "Boss 302", "Boy Scouts", "Cajun", "Carhartt", "Chevy", "Chrome",
+      "Copenhagen", "Country music", "Dolly Parton", "Elvis", "Fire ants", "Graceland", "Harley-Davidson", "Jack Daniels", "Jeep", "Kentucky", "Kid Rock", "Marlboro", 
       "Mississippi", "Mustang", "NASCAR", "Nashville", "Reba", "Skoal", "Southern", "Tennessee", 
       "Travis Tritt", "VFW"
       ]
@@ -502,14 +601,14 @@ class IpsumsController < ApplicationController
       "holler", "Hollywood", "holster", "honky", "honky-tonk", "hood scoop", "hornet", "horse", 
       "horseshoe", "horsepower", "hotdog", "hotrod", "hound dog", "huntin", "hushpuppy", "hymnal", 
       "inbred", "iron sights",
-      "jackrabbit", "jackknife", "jaw", "jambalaya", "Jesus", "job site", "John Deere", "John Wayne", "juggalo", "jukebox",
+      "jackrabbit", "jackknife", "jaw", "jambalaya", "Jesus", "Jesus H. Christ", "job site", "John Deere", "John Wayne", "juggalo", "jukebox",
       "KC HiLites", "keg", "kerosine", "ketchup", "kibble", "kin", "kinfolk", "knee-high", "knife", "knuckle",
       "lever action", "lift kit", "lightning bugs", "long haul", "Louisiana", "LSU", "Lucky Strikes", "lug nuts", "lunchbox", "lures", 
       "mag", "MAGA", "magazine", "magnum", "mama", "mare", "Marine Corps", "mayonnaise", "McRib", "Memphis", "meth", "Michelob", 
       "molasses", "moonshine", "mosquito",
-      "Mtn Dew", "muddin", "muffler", "mullet", "muscle car", "National Anthem", "naw", "noodlin", "NRA",
+      "Mtn Dew", "muddin", "muffler", "mullet", "muscle car", "National Anthem", "naw", "nit-pickin", "noodlin", "NRA",
       "oak tree", "oil change", "Oklahoma", "okra", "Old Glory", "opiates", "ornery", "outhouse", "overalls", "oxy", "Ozarks",
-      "pace car", "pardner", "passel", "pepper", "Pepsi", "pew", "pickup", "piddly", "pit crew", "plantation", "plumb", "polecat", 
+      "pace car", "pardner", "passel", "pepper", "Pepsi", "pew", "pickup", "pig's feet", "piddly", "pit crew", "plantation", "plumb", "polecat", 
       "pony", "ponycar", "pork chops", "possum", "post-hole digger",  
       "potato salad", "preacher", "prepper", "primer", "propane", "pump action",
       "quarterback", "quarter mile", "quicksand", 
@@ -524,7 +623,7 @@ class IpsumsController < ApplicationController
       "skedaddle", "skeeter", "Skoal", "slaughter", "slingshot", "slop", "small-block", "Smith & Wesson", "smoked", 
       "Smokey and the Bandit", "smoothbore", 
       "snapping turtle",
-      "sow", "spark plug", "spitoon", "spitter", "spoiler", "spurs", "station wagon", "steak", "steel-toed", "steer",
+      "sow", "spark plug", "spitoon", "spitter", "spoiler", "spray paint", "spurs", "station wagon", "steak", "steel-toed", "steer",
       "Stetson", "succotash", "sumbitch", "supercharged", "supper", "swamp", "swather", "sweet tea", 
       "Tabasco", "tackle", "tackle box", "tadpole", "tarnation", "tater", "Texas", "these parts", "throttle", "t-top", "ticks",
       "torque", "tractor", "tradition", 
@@ -532,7 +631,7 @@ class IpsumsController < ApplicationController
       "tweaker", "twine",
       "uncle", "USA", "values", "varmint", "veterans", "Virginia",
       "waders", "wadn't", "wagon", "wagonwheel", "welder", "western", "West Virginia", "whiskey", "white lightning", "white trash", "whittle", 
-      "Winchester", "Winston", "work",
+      "Winchester", "Winston", "work", "wrastlin",
       "y'all", "yankee", "yeehaw", "yellow jacket", "yonder", "you betcha", 
       "Z-28"
     ]
@@ -559,13 +658,6 @@ class IpsumsController < ApplicationController
   end
   
   def nature 
-  end
-  
-  def scifi 
-  end
-
-  def ipsum
-
     capital_words3 = [
       "Alpine", "Basin", "Bay", "Canyon", "Cavern", "Creek", "Desert", "Estuary", "Evergreen", "Flower", "Forest", "Glacier", 
       "Gulf", "Gully", "Harbor", "Hill", "Icycle", "Island", "Jungle", "Knoll",
@@ -631,75 +723,6 @@ class IpsumsController < ApplicationController
       "wind", "windstorm", "winter", "woodland", "woods"
     ]
       
-	  capital_words4 = [
-      "Apocalypse", "Atlanta", "Atomic", "Batteries", "Biohazard", "Bottled water", "Bug-out bag", 
-      "Bullets", "Bunker", "Canned food", "Contagion", "Diesel", 
-      "Disease", "Doomsday",
-      "Double-barrel", "Emergency", "Epidemic", 
-      "End times", "Extinction", "Fallout", "Filter",
-      "Fuel", "Gas mask", "Gasoline", "Gear", "Gunpowder", "Hospital", "Humanity", "Iron sights", "Kit", 
-      "Loadout", "Mag", "Mutation", "Nuclear",
-      "Outbreak", "Pandemic", "Plague", "Radiation", "Repair", "Rifle", "Quarantine", "Scavenge", "Scrap",
-      "Shotgun", "Soldiers", "Supplies", "Virus", "Zombie"
-    ]
-      
-    words4 = [
-      "12 Monkeys", "28 Days", "9mm", "12-gauge", "abandoned", "A Boy and His Dog", "airwaves", "alcohol", 
-      "aluminum stove", "ammo", "ammo can", 
-      "ammunition", "amputation", "antenna", "antibiotics", "antidote", "armageddon", "armor-piercing", "army",
-      "arrows", "assembly", "asteroid", "atmosphere", "ATV", "axe", "axe handle",
-      "backpack", "barb wire", "barricade", "barter", "baseball bat", "beard", "binoculars", "blankets", "blockade",
-      "body armor", "bolt-action", "bombs", "The Book of Eli", "boots", 
-      "bow and arrow", "breech loader", "buckshot", "bulletproof", "burial site", "burning", "burn pit",
-      "cache", "caliber", "camo", "camouflage", "camp", "campfire", "campsite", "candles", "cannibals", "canning", 
-      "canteen", "capture", "cars", "carcass", "cartridge",
-      "catastrophe", "cataclysm", "cauterize", "CB radio", "CDC", "chainsaw", "chamber", "charcoal", 
-      "charger", "checkpoint", "chlorine", "civilization", "climate", "clinic", "coat",
-      "coffin", "collapse", "collision", "community", "compass", "convoy", "cook", "cordon", "corpse", "countdown", "crossbow", "crowbar", 
-      "crows",
-      "dagger", "damage", "dead", "death", "destruction", "detonate", "distilled", "divine retribution", "doctor", "dog", 
-      "doomed", "downfall", "dust cover", "dynamite",
-      "earthquakes", "electricity", "endangered species", "end of days", "end of the world", 
-      "engineer", "E-tool", "everyday carry", "every man for himself", "explosives", "Falling Skies", "fallout shelter", 
-      "famine", "FEMA camp", "field dressing", "fire", "firearms", 
-      "firing pin", "first aid kit", "fishing", "fission", "flak jacket",
-      "flames", "flare gun", "flashlight", "food", "forage", "fortified", "fortress",
-      "four horsemen", "frontier", "full metal jacket", "fusion",
-      "garden", "gather", "generator", "genetic mutation", "global", "global warming", 
-      "gravesite", "grenade", "grid", "guns", "gutted", "hacksaw", "hammer", "hand-crank", "hat",
-      "hatchet", "headlamp", "hell on earth", "helmet", "hideaway", "hockey stick", "hollow-point", "horse", "hotwire", 
-      "humvee", "hunting", "hurricanes", "hygiene",
-      "I Am Legend", "ice age", "incendiary", "iodine",
-      "jack", "jacket", "Jericho", "JP-8", "Jeep", "Jeremiah", "judgment", "jumper cables", "junk",
-      "kill or be killed", "knife",
-      "lamp", "landmines", "lantern", "The Last of Us", "leather", "Leatherman", "lever action", "light", "lighter", "live off the land",
-      "living dead", "looters",
-      "Mad Max", "magazine", "magnum", "map", "marksman", "mass graves", "matches", "medic", "medical supplies", "medicine", 
-      "mercenary", "meteor shower", "Metro 2033", "MRE", "mutant",
-      "NATO", "navigate", "negotiation", "non-perishables", "nurse", "NVGs", "nylon",
-      "oil", "Omega Man", "outdoorsman",
-      "painkillers", "paracord", "party", "patient zero", "peanut butter", "pillage", "pistol", 
-      "Planet of the Apes", "planting", "plate carrier", "pliers", "poison", "pollution", 
-      "potassium", "prepper","propane", "provisions", "pump",
-      "pump-action", "purified water", "quiet", "radiation suit", "radio", "raid", "raiders", "ranger", "ransack", "rations", 
-      "ravagers", "rebuild", "reckoning", "reinforced",
-      "renegade", "rescue", "respirator", "resources", "resupply", "rimfire", "rope", "rotting", 
-      "rounds", "rovers", "rucksack",
-      "salt", "salvage", "savage", "saw", "sawed-off", "scientists", "screwdriver", "scripture", "shallow grave", "shells", 
-      "shelter", "shovel", "shrapnel", "sick", "sickness", "silencer", "sinners", "siphon", "sirens", "skin", "slavers", 
-      "slingshot", "smoke",
-      "sneak", "sniper", "solar flare", "solar panel", "Soylent Green", "spigot", "survival", "The Stand",
-      "starvation", "starving", "stash", "stitch", "storms", "stranded", "straps", "suture", "SUV",
-      "sword", "syringe", 
-      "tank", "tanto", "tent", "Terminator", "test subject", "tidal wave", "tinker", "tire iron", "together", "tools", 
-      "tracker", "trade", "transmission", "transmitter", "trapping", 
-      "travel", "tripwire", "truck", "tuna", "two-way radio",
-      "undead", "unmarked grave", "urban",
-      "vaccine", "vault", "vegetation", "vehicle", "ventilation", "veteran", "vulture",
-      "walker", "walkie-talkie", "wanderer", "war", "warrior", "wasteland", "water", 
-      "water bag", "Waterworld", "whetstone", "wild", "wilderness", "wire", "wound", "wrench"
-    ]
-      
     naturecaps1 = capital_words3.sample
     naturecaps2 = capital_words3.sample
     naturecaps3 = capital_words3.sample
@@ -719,25 +742,75 @@ class IpsumsController < ApplicationController
     
     @nature_ipsum = naturecaps1 + " " + nature1.delete('"') + ". " + naturecaps2 + " " + nature2.delete('"') + ". " + naturecaps3 + " " + nature3.delete('"') + ". " + naturecaps4 + " " + nature4.delete('"') + ". " + naturecaps5 + " " + nature5.delete('"') + "."
     
-	  apoccaps1 = capital_words4.sample
-    apoccaps2 = capital_words4.sample
-    apoccaps3 = capital_words4.sample
-    apoccaps4 = capital_words4.sample
-    apoccaps5 = capital_words4.sample
-    
-    sentence4_len1 = rand(5...30)
-    apoc1 = words4.sample(sentence4_len1).map(&:inspect).join(' ')
-    sentence4_len2 = rand(5...30)
-    apoc2 = words4.sample(sentence4_len2).map(&:inspect).join(' ')
-    sentence4_len3 = rand(5...30)
-    apoc3 = words4.sample(sentence4_len3).map(&:inspect).join(' ')
-    sentence4_len4 = rand(5...30)
-    apoc4 = words4.sample(sentence4_len4).map(&:inspect).join(' ')
-    sentence4_len5 = rand(5...30)
-    apoc5 = words4.sample(sentence4_len5).map(&:inspect).join(' ')
-    
-    @apoc_ipsum = apoccaps1 + " " + apoc1.delete('"') + ". " + apoccaps2 + " " + apoc2.delete('"') + ". " + apoccaps3 + " " + apoc3.delete('"') + ". " + apoccaps4 + " " + apoc4.delete('"') + ". " + apoccaps5 + " " + apoc5.delete('"') + "."
+  end
   
+  def scifi
+    capital_words5 = [
+      "Atomic", "Carbon", "Clone", "Density", "Device", "Earth", "Gravity", "Intergalactic", "Kilowatt", "Mars", "Jupiter", 
+      "Parallel Universe", "Pi", "Quantum", "Sentient", "Theoretical", "Teleport"
+    ]
+      
+    words5 = [
+      "acceleration", "acid", "aerodynamic", "alchemy", "aliens", "alpha rays", "android", "Andromeda", "antigravity", "ansible", "armada", 
+      "artificial intelligence", "asteroid", 
+      "asteroid belt", "astrogate", "atmosphere", "atom", "avatar",  
+      "base", "beam", "beings", "binomial", "biology", "biometrics", "black hole", "blasters", "booster", "Boyle",
+      "bridge",
+      "cannons", "captain", "catalyst", "celestial", "cells", "chemistry", "chromosomes", "Clarke", 
+      "cloaking device", "cognition", "comet", 
+      "collapsed star", "computer", "condenser", "continuum", "core", "corona", "cosmic", "critical mass", 
+      "cryogenics", "cryo sleep", "cryostastis", "current", "cybernetics", "cyberspace", "cyborg",
+      "dark matter", "deep space", "dimension", "diode", "dock", "Doppler", "drone", "DNA", "Dyson sphere",
+      "eclipse", "Einstein", "electrons", "electronics", "engine", "entropy", 
+      "equilibrium", "equinox", "ESP", "event horizon", "experiment", "extraterrestrials",  
+      "Faraday Cage", "faster-than-light", "field", "first contact", "fission", "fleet", "force field", "frequency", "friction", "fusion",
+      "galaxy", "gamma rays", "gases", "Geiger counter", "Gemini", "generation ship", "genetic engineering", "genetics",
+      "hard drive", "helium", "helmet", "hive", "homeostasis", "homeworld", "hormones", 
+      "humanoid", "humans", "hydrogen", "hyperdrive", "hyperspace", "hyperspeed", "hypothesis",
+      "ignition", "inertia", "infinity", "infrared", "ionized", "ionosphere", "ions",
+      "joule",
+      "Kepler", "kinetic",
+      "laboratory", "lasers", "launch pad", "light saber", "light speed", "light year", "lunar",
+      "mad scientist", "magnetic", "mass", "meltdown", "Mercury", "meteorite", "microbe", "microscope", "Milky Way", "mitochondria", "module", 
+      "momentum", "moon", "moon base", "motor", "multiverse",
+      "nano", "nebula", "Neptune", "neutrino", "neutron", "Newton", "nuclear", "nucleus",
+      "observatory", "ohm", "orbit", "ornithopter", "Orion", "oxygen",
+      "parabola", "paradox", "parallax", "particles", "pH", "photons", "physics", "planetary", "plasma rifle", "Pluto", 
+      "Plutonium", "precog", "prism", "propulsion",
+      "quark",
+      "radioactive", "rays", "reactor", "red planet", "relativity", "replicant", "retinal scanner", "ringworld", "robot", "rocket", 
+      "satellite", "Saturn", "saucer", "science", "set phasers to stun", "shields", "signs of life", "singularity", "software", 
+      "solar system", "solstice", "sonar", "space", "spacecraft", "space station", "space suit", "space-time", "spectrum", "star system", "subatomic", "supersonic",
+      "tectonic shift", "telepathy", "telescope", "terminal velocity", "terraform", 
+      "thermodynamics", "thermostat", "timeline", "time travel", "titanium", "torpedo", "tractor beam", "transmission", "turbine", 
+      "ultraviolet", "universe", "uranium", "Uranus", 
+      "vaccine", "vacuum", "valence", "vector", "velocity", "Venus", "virus", "visitation", "volts", 
+      "warhead", "warp drive", "wave number", "white dwarf", "wormhole", 
+      "x-rays"
+    ]
+      
+    scificaps1 = capital_words5.sample
+    scificaps2 = capital_words5.sample
+    scificaps3 = capital_words5.sample
+    scificaps4 = capital_words5.sample
+    scificaps5 = capital_words5.sample
+    
+    sentence5_len1 = rand(5...30)
+    scifi1 = words5.sample(sentence5_len1).map(&:inspect).join(' ')
+    sentence5_len2 = rand(5...30)
+    scifi2 = words5.sample(sentence5_len2).map(&:inspect).join(' ')
+    sentence5_len3 = rand(5...30)
+    scifi3 = words5.sample(sentence5_len3).map(&:inspect).join(' ')
+    sentence5_len4 = rand(5...30)
+    scifi4 = words5.sample(sentence5_len4).map(&:inspect).join(' ')
+    sentence5_len5 = rand(5...30)
+    scifi5 = words5.sample(sentence5_len5).map(&:inspect).join(' ')
+    
+    @scifi_ipsum = scificaps1 + " " + scifi1.delete('"') + ". " + scificaps2 + " " + scifi2.delete('"') + ". " + scificaps3 + " " + scifi3.delete('"') + ". " + scificaps4 + " " + scifi4.delete('"') + ". " + scificaps5 + " " + scifi5.delete('"') + "."
+    
+  end
+
+  def ipsum
   end
   
   def names
@@ -999,5 +1072,5 @@ class IpsumsController < ApplicationController
     @name24 = ran_female12 + " " + ran_surname24
   
   end
-  helper_method :names
+
 end

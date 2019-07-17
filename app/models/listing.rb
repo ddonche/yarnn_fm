@@ -12,6 +12,7 @@ class Listing < ApplicationRecord
   validates :filetype, presence: true
   validates :image, file_size: { less_than: 1.megabytes }, presence: true
   validates :file, presence: true
+  validates_length_of :description, :minimum => 280, :too_short => "Description needs to be at least 280 characters"
   validates :tag_list, presence: true
   validates :year, numericality: { only_integer: true }, :allow_blank => true
   validates :isbn, format: { with: /\A[\d-]*\d[\d-]*\z/ }, :allow_blank => true

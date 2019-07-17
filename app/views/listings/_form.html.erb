@@ -96,7 +96,7 @@
   </div>
   
   <div class="row">
-    <div class="col-12 justify-content-center">
+    <div class="col-12 text-correct justify-content-center">
       <%= f.label "Cover image", class: "text-secondary" %><br/>
       <%=  f.file_field :image, class: "form-control-file" %>
     </div>
@@ -104,8 +104,8 @@
   <div class="row">
     <div class="col-12 justify-content-center">
       <%= f.label "Product File", class: "text-secondary" %><br/>
-      <%=  f.file_field :file, class: "form-control-file" %>
-      <div class="small" style="color: #fc0000;"><i>*Product file must be a zip file.</i></div>
+      <%=  f.file_field :file, class: "form-control-file" %><br />
+      <div class="small" style="color: #fc0000;"><i>*Image must be less than 1Mb. Product file must be a zip file.</i></div>
     </div>
   </div>
           <hr class="colorgraph">

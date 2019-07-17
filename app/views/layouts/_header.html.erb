@@ -3,8 +3,8 @@
   <!-- navbar -->
   <nav class="navbar navbar-expand-md fixed-top nav-menu navbar-top-image">
     <%= link_to root_path do %>
-	  		<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
-	  	<% end %>
+	  	<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
+	<% end %>
     <button class="navbar-toggler btn-outline-dark" type="button" data-toggle="collapse" data-target="#myNavbar">
       <span class="navbar-toggler-icon mt-2">   
 			   <i class="fa fa-navicon text-danger"></i>
@@ -84,7 +84,7 @@
 								<span class="site-blue"><%= @notifications.count %></span>
 							<% end %>
 						<% end %>
-					</li>
+			</li>
 					
 					<div class="dropdown">
 					  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -96,6 +96,7 @@
 					    <li class="dropdown-item navdrop-link"><%= link_to "Tracks", tracks_path %></li>
               <li class="dropdown-item navdrop-link"><%= link_to "Genres", genres_path %></li>
               <li class="dropdown-item navdrop-link"><%= link_to "Blog Posts", blogs_path %></li>
+              <li class="dropdown-item navdrop-link"><%= link_to "Generators", generators_path %></li>
 					  </ul>
 					</div>
           

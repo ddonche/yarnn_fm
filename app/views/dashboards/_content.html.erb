@@ -1,3 +1,23 @@
+<ul class="nav justify-content-center nav-text-tiny text-uppercase">
+  <li class="nav-item site-blue nav-link">
+    <i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @user.tracks.count %>)
+  </li>
+  <li class="nav-item site-blue nav-link">
+    <i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @user.albums.count %>)
+  </li>
+  <li class="nav-item site-blue nav-link">
+    <i class="fas fa-pen-nib site-blue" title="blog posts"></i> Blog Posts (<%= @user.blogs.count %>)
+  </li>
+  <li class="nav-item site-blue nav-link">
+    <i class="fas fa-comment-alt site-blue" title="topics"></i> Topics (<%= @user.topics.count %>)
+  </li>
+  <li class="nav-item site-blue nav-link">
+    <i class="fas fa-shopping-cart site-blue" title="listings"></i> Listings (<%= @user.listings.count %>)
+  </li>
+  <li class="nav-item site-blue nav-link">
+    <i class="fas fa-user-astronaut site-blue"></i> Followers (<%= @user.followers.count %>)
+  </li>
+</ul>
 <div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">

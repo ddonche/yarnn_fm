@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190717140011) do
+ActiveRecord::Schema.define(version: 20190717230446) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -76,8 +76,9 @@ ActiveRecord::Schema.define(version: 20190717140011) do
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "track_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "favorited_user_id"
     t.index ["track_id"], name: "index_favorites_on_track_id"
     t.index ["user_id", "track_id"], name: "index_favorites_on_user_id_and_track_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
@@ -232,22 +233,22 @@ ActiveRecord::Schema.define(version: 20190717140011) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             default: "", null: false
-    t.string   "encrypted_password",                default: "", null: false
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.integer  "sign_in_count",                        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "image"
-    t.string   "username",               limit: 22
+    t.string   "username",                  limit: 22
     t.string   "name"
-    t.integer  "user_type",                         default: 0
+    t.integer  "user_type",                            default: 0
     t.string   "slug"
     t.string   "bio"
     t.string   "confirmation_token"
@@ -255,12 +256,13 @@ ActiveRecord::Schema.define(version: 20190717140011) do
     t.datetime "confirmation_sent_at"
     t.string   "uid"
     t.string   "stripe_id"
-    t.integer  "publisher_type",                    default: 0
+    t.integer  "publisher_type",                       default: 0
     t.string   "website"
-    t.integer  "favorited_count",                   default: 0
+    t.integer  "favorited_count",                      default: 0
     t.string   "provider"
     t.string   "google_token"
     t.string   "google_refresh_token"
+    t.integer  "favorited_by_others_count"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

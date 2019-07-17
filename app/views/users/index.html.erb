@@ -1,41 +1,84 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
+<div id="other_background_nocenter" style="overflow-y: auto;">
+<%= render 'shared/alert' %>
 
-  <%= render 'shared/alert' %>
-  <div class="wrapper_skinny_left">
-    <h2>Some Intersting Stuff Here</h2>
-  </div>
-      
-    <div id="users">
-      <div class="wrapper_wide_right_right">
-			<ul class="cf">
-				<% @users.each do |user| %>
-					<li class="cf">
-						<div class="user_thumbnail">
-							<% if user.image? %>
-								<%= link_to image_tag(user.image.url(:thumb)), user_path(user), width: 50, title: user.username %>
-							<% else %>
-								<%= image_tag('default_track.jpg', width: 40, title: user.username) %>
-							<% end %>
-						</div>
-						<div class="user_overview">
-							<h2><%= link_to user.username, user_path(user) %> / <%= user.name %>
-							</h2>
-							<br />
-							<% if user.bio? %>
-							  <p class="description"><%= user.bio %></p><br />
-							<% else %>
-							  <p class="description">This user does not have a bio.</p><br />
-							<% end %>
-							<%= render 'users/stats', :user => user %>
-						</div>
-					</li>
-				<% end %>
-			</ul>
+	<section>
+	  <div class="container">
+	    <div class="row mx-auto">
+	      <div class="col-md-8 bg-dark px-3 mt-3 mb-5 text-correct trans-bg-3 rounded">
+	          <div class="row py-3">
+	            <div class="col-12">
+	              <h5 class="site-blue">Latest Users</h5>
+	            </div>
+	          </div>
+	          	<% @users.each do |user| %>
+                <div class="row p-2 mx-auto">
+                  <div class="col-4 col-md-3">
+	                  <% if user.image? %>
+											<%= link_to image_tag(user.image.url(:thumb), width: 60), user_path(user), title: user.username %>
+										<% else %>
+											<%= image_tag('default_track.jpg', width: 60, title: user.username) %>
+										<% end %>
+									<br /><br />
+									<h6><%= link_to user.username, user_path(user) %> / <%= user.name %></h6>
+                  </div>
+                  <div class="col-8 col-md-9">
+	                  <% if user.bio? %>
+										  <p class="description"><%= user.bio %></p><br />
+										<% else %>
+										  <p class="description">This user does not have a bio yet.</p><br />
+										<% end %>
+										<div class="col-12 col-md-9">
+									    	
+									      <i class="fas fa-headphones site-blue" title="tracks"></i>
+									      <span class="ml-1 text-secondary"><%= user.tracks.count %></span>
+									      
+									      <i class="fas fa-compact-disc site-blue ml-2" title="albums"></i>
+									      <span class="ml-1 text-secondary"><%= user.albums.count %></span>
+									      
+									      <i class="fas fa-pen-nib site-blue ml-2" title="blog posts"></i>
+									      <span class="ml-1 text-secondary"><%= user.blogs.count %></span>
+									      
+									      <i class="fas fa-user-astronaut site-blue ml-2" title="followers"></i>
+									      <span class="ml-1 text-secondary"><%= user.followers.count %></span>
+									      
+									      <i class="fas fa-shopping-cart site-blue ml-2" title="listings"></i>
+									      <span class="ml-1 text-secondary"><%= user.listings.count %></span>
+									      
+									      <i class="fas fa-heart site-blue ml-2" title="favorited"></i>
+									      <span class="ml-1 text-secondary"><%= user.favorited_count %></span>
+									      
+									      <%= link_to station_path(user) do %>
+												  <i class="fas fa-broadcast-tower ml-2 site-red title="station"></i>
+												<% end %>
+									     
 
-			<%= will_paginate @users, previous_label: "Previous", next_label: "Next" %>
-      </div>
-    </div>
+									  </div>
+                  </div>
+                  <div class="grayline mx-auto" style="width: 94%;"></div>
+                </div>
+                
+             <% end %>
+
+	           <%= will_paginate @users, previous_label: "Previous", next_label: "Next" %>
+	
+	      </div>
+	      
+	      <div class="col-md-4">
+	        <div class="bg-dark px-3 my-3 pb-5 text-correct trans-bg rounded">
+	        	<div class="row pt-3 rounded">
+	            <div class="col-12">
+	              <h5 class="site-blue"><i class="fas fa-fire site-blue" title="hot"></i>  Hot Right Now</h5>
+	            </div>
+	          </div>
+	          <div class="row p-2">
+	            <div class="col-12">
+	              <%= render 'popular' %>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</section>
 </div>

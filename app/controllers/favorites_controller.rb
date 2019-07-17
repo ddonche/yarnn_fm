@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 	before_action :find_track
 
   def favorite
-    @track.favorites.where(user_id: current_user.id).first_or_create
+    @track.favorites.where({user_id: current_user.id, favorited_user_id: @track.user_id}).first_or_create
     
     unless current_user.id == @track.user_id
       @track.user.increment!(:favorited_count)

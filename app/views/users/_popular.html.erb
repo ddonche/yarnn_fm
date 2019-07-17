@@ -1,0 +1,43 @@
+<% @popular_users.each do |popular| %>
+    <div class="row p-2 mx-auto">
+          <div class="col-4 col-md-3">
+            <% if popular.image? %>
+            	<%= link_to image_tag(popular.image.url(:thumb), width: 30), user_path(popular), title: popular.username %>
+            <% else %>
+            	<%= image_tag('default_track.jpg', width: 30, title: popular.username) %>
+            <% end %>
+						
+          </div>
+        <div class="col-8 col-md-9">
+          <h6><%= link_to popular.username, user_path(popular) %> / <%= popular.name %></h6>
+        </div>
+    </div>    
+    <div class="row">
+	    <div class="col-12" align="center">
+				<small>		    	
+                <i class="fas fa-headphones site-blue" title="tracks"></i>
+                <span class="ml-1 text-secondary"><%= popular.tracks.count %></span>
+                
+                <i class="fas fa-compact-disc site-blue ml-2" title="albums"></i>
+                <span class="ml-1 text-secondary"><%= popular.albums.count %></span>
+                
+                <i class="fas fa-pen-nib site-blue ml-2" title="blog posts"></i>
+                <span class="ml-1 text-secondary"><%= popular.blogs.count %></span>
+                
+                <i class="fas fa-user-astronaut site-blue ml-2" title="followers"></i>
+                <span class="ml-1 text-secondary"><%= popular.followers.count %></span>
+                
+                <i class="fas fa-shopping-cart site-blue ml-2" title="listings"></i>
+                <span class="ml-1 text-secondary"><%= popular.listings.count %></span>
+                
+                <i class="fas fa-heart site-blue ml-2" title="favorited"></i>
+                <span class="ml-1 text-secondary"><%= popular.favorited_count %></span>
+                
+                <%= link_to station_path(popular) do %>
+				<i class="fas fa-broadcast-tower ml-2 site-red title="station"></i>
+				<% end %>
+			    </small>
+	    </div>
+    <div class="grayline mx-auto" style="width: 94%;"></div>
+    </div>
+ <% end %>

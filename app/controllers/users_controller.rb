@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:index, :payout, :payment, :add_card]
 
   def index
-    @users = User.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
+    @users = User.order(created_at: :desc).paginate(:page => params[:page], :per_page => 24)
     @popular_users = User.order('favorited_count DESC')
   end
   

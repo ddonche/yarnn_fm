@@ -6,7 +6,7 @@ class Track < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :listings
   enum explicit: { standard: 0, explicit: 1 }
-
+  
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
   validates :audio, file_size: { less_than: 20.megabytes }, presence: true

@@ -137,6 +137,10 @@ a {
   border: 1px solid #e9e9e9;
 }
 
+.bordered {
+  border: 1px solid #868e96;
+}
+
 li.borderless {
   border-top: 0 none;
 }
@@ -291,7 +295,7 @@ li.borderless {
 .grayline {
   height: 1px;
   border-top: 0;
-  background: #333;
+  background: #868e96;
   margin: 4px 0;
 }
 

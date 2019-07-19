@@ -38,7 +38,7 @@ all ships.</p>
   </div>
 
   <div class="actions">
-    <%= f.submit "Submit", class: "button button_highlight button_block" %>
+    <%= f.button "Submit", class: "button button_highlight button_block", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %>
   </div>
   
 <% end %>

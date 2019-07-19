@@ -1,90 +1,69 @@
+<div id="other_background_nocenter" style="overflow-y: auto;">
 <%= render 'shared/alert' %>
-  
-<section>
-    <div class="container-fluid mb-4">
-        <div class="row">
-            <div class="col-md-3 col-sm-5 ">
-                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
-                	<div class="row py-2 mb-3 bg-light border-bottom">
-                        <div class="col-12">
-                          <h3 class="text-muted">Hot Serials</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-				<% @serials.each do |serial| %>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div>
-                        	
-                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
-    
-                                <div class="text-center">
-	                                <div class="ribbon_box">
-							        	<div class="ribbon"><span>SERIAL</span></div>
-								        <%= link_to serial do %>
-											<%= image_tag serial.image.url(:thumb), title: serial.title, class: "image-full" %>
-										<% end %>
-									</div>
-                                </div>
-                                
-                                <div class="text-left p-2 mt-2">
-									<h3 class="site-red"><%= link_to truncate(serial.title, length: 24, separator: ' '), album_path(serial) %></h3>
 
-                                    <div class="row">
-                                    	<div class="col-12 site-red small">
-                                    		<% if serial.user.image? %>
-    											<%= image_tag(serial.user.image.url(:tiny), style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: serial.user.username) %>
-    										<% else %>
-    											<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", serial: album.user.username) %>
-    										<% end %>
-    										
-    										<% if serial.pseudonym_id? %>
-    											<p class="ml-1" style="display:inline-block;"><%= link_to serial.pseudonym.name, user_path(serial.user) %></p>
-    										<% else %>
-    											<p class="ml-1" style="display:inline-block;"><%= link_to serial.user.name, user_path(serial.user) %></p>
-    										<% end %>
-                                    	</div>
-                                    </div>
-                                    <div class="grayline"></div>
-                                	<div class="row text-center">
-                                	    <div class="col-6">
-                                	    	<i class="fas fa-headphones site-blue"></i>
-                							<span class="ml-2"></span><%= pluralize( serial.tracks.count, 'Track' ) %>
-										</div>
-										<div class="col-6">
-		                                	<i class="fas fa-calendar-alt site-blue"></i>
-                                			<span class="ml-2"></span>
-                                			<% if serial.year? %>
-                                			    <%= serial.year %>
-                                			<% else %>
-                                			    unk.
-                                			<% end %>
-										</div>
-                                	</div>
-                                	
-                                </div>
+	<section>
+	  <div class="container">
+	    <div class="row mx-auto">
+            <div class="col-md-4">
+	        <div class="bg-dark px-3 my-3 pb-5 text-correct trans-bg-3 rounded">
+	        	<div class="row pt-3 rounded">
+	                <div class="col-12">
+	                    <h5 class="site-blue"><i class="fas fa-fire site-blue" title="hot"></i>  Hot Serials</h5>
+	                </div>
+	            </div>
+	            <div class="row p-2">
+	                <div class="col-12">
+	               <% @serials.each do |serial| %>
+                        <div class="row p-2 mx-auto">
+                              <div class="col-5">
+                                <%= link_to serial do %>
+    								<%= image_tag serial.image.url(:thumb), title: serial.title, class: "image-full" %>
+    							<% end %>	
+                              </div>
+                            <div class="col-7">
+                              <h5 class="site-red"><%= link_to truncate(serial.title, length: 24, separator: ' '), album_path(serial) %></h5>
+
+							<% if serial.pseudonym_id? %>
+								<small><%= link_to serial.pseudonym.name, user_path(serial.user) %></small>
+							<% else %>
+								<small><%= link_to serial.user.name, user_path(serial.user) %></small>
+							<% end %>
+							
+						<div class="row small mt-3">
+                    	    <div class="col-12">
+                    	    	<i class="fas fa-headphones site-blue"></i>
+    							<span class="ml-2"></span><%= serial.tracks.count %>
+    							<i class="fas fa-calendar-alt site-blue ml-2"></i>
+                    			<span class="ml-2"></span>
+                    			<% if serial.year? %>
+                    			    <%= serial.year %>
+                    			<% else %>
+                    			    unk.
+                    			<% end %>
+							</div>
+                    	</div>
                             </div>
-                        </div>
+                        </div>    
                         
-                    </div>
-                <% end %>
-                </div>
-            </div>
-            <div class="col-md-9 col-sm-7">
-                <div class="bg-white px-3 mt-3 mb-2 text-muted crown-border container-shadow">
-                    <div class="row py-2 bg-light border-bottom">
-                        <div class="col-12">
-                            <h3 class="text-muted">New Albums</h3>
-                        </div>
-                    </div>
-                </div>
-            
-				<div class="row">
-				<% @albums.each do |album| %>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="grayline mx-auto mt-1" style="width: 94%;"></div>
+                    
+                     <% end %>
+	                </div>
+	            </div>
+	        </div>
+	      </div>
+	      <div class="col-md-8 bg-dark px-3 mt-3 mb-5 pb-4 text-correct trans-bg-3 rounded">
+	          <div class="row py-3">
+	            <div class="col-12">
+	              <h5 class="site-blue">Latest Albums</h5>
+	            </div>
+	          </div>
+	          <div class="row">
+	          	<% @albums.each do |album| %>
+                    <div class="col-xl-4 col-md-6 mx-auto">
                         <div>
                         	
-                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
+                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border">
     
                                 <div class="text-center">
 	                                <div class="ribbon_box">
@@ -98,7 +77,7 @@
                                 </div>
                                 
                                 <div class="text-left p-2 mt-2">
-									<h3 class="site-red"><%= link_to truncate(album.title, length: 24, separator: ' '), album_path(album) %></h3>
+									<h5 class="site-red"><%= link_to truncate(album.title, length: 24, separator: ' '), album_path(album) %></h5>
 
                                     <div class="row">
                                     	<div class="col-12 site-red small">
@@ -115,14 +94,14 @@
     										<% end %>
                                     	</div>
                                     </div>
-                                    <div class="grayline"></div>
+                                    <div class="grayline text-secondary" style="width:94%"></div>
                                 	<div class="row text-center small">
                                 	    <div class="col-6">
-                                	    	<i class="fas fa-headphones"></i>
+                                	    	<i class="fas fa-headphones site-blue"></i>
                 							<span class="ml-2"></span><%= pluralize( album.tracks.count, 'Track' ) %>
 										</div>
 										<div class="col-6">
-		                                	<i class="fas fa-calendar-alt"></i>
+		                                	<i class="fas fa-calendar-alt site-blue"></i>
                                 			<span class="ml-2"></span>
                                 			<% if album.year? %>
                                 			    <%= album.year %>
@@ -138,11 +117,12 @@
                         
                     </div>
                 <% end %>
-                </div>
-              
-            </div>
-        </div>
-        <%= will_paginate @albums, previous_label: "Previous", next_label: "Next" %>
-    </div>
-    
-</section>
+            
+	           <%= will_paginate @albums, previous_label: "Previous", next_label: "Next" %>
+	           </div>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</section>
+</div>

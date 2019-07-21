@@ -1,9 +1,9 @@
 <% if user_signed_in? && current_user.favorited?(track) %>
   <%= link_to track_unfavorite_path(track), method: :post, remote: true do %>
     <i class="fas fa-heart site-red"></i> 
-  <% end %><span class="site-red ml-2"><%= track.favorites_count %></span>
+  <% end %><span class="text-secondary ml-2"><%= track.favorites_count %></span>
 <% else %>
   <%= link_to track_favorite_path(track), method: :post, remote: true do %>
     <i class="far fa-heart site-red"></i>
-  <% end %><span class="site-red ml-2"><%= track.favorites_count %></span>
+  <% end %><span class="text-secondary ml-2"><%= track.favorites_count %></span>
 <% end %>

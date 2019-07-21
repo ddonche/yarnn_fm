@@ -30,7 +30,9 @@
               <% end %>
               
             <% end %>
-            <%= will_paginate @feed_items, previous_label: "Previous", next_label: "Next" %>
+            <div class = "pagination-container mt-2">
+              <%= will_paginate @feed_items, previous_label: "Previous", next_label: "Next" %>
+            </div>
           <% else %>
             There is no activity in your feed. You should <%= link_to "follow someone", users_path %> or perhaps join a discussion.
           <% end %>

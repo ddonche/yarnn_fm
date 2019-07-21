@@ -25,8 +25,8 @@
           <%= link_to listing_path(item.item_id) do %>
     				<%= image_tag Listing.find(item.parent_id).image.url(:thumb), height: 100, class: "p-1 border border-secondary float-left mr-2" %>
     			<% end %>
-          <small><%= truncate(Listing.find(item.parent_id).description, length: 140) %></small>
-          <br/>
+          <small><%= truncate(Listing.find(item.parent_id).description, length: 124) %></small>
+          <br/><br />
           <div id="stars">
 						<div class="star-rating" data-score=<%= Listing.find(item.parent_id).avg_rating %> style="max-width: 10%;"></div>
 					</div>

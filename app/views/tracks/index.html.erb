@@ -1,41 +1,77 @@
+<div id="other_background_nocenter" style="overflow-y: auto;">
 <%= render 'shared/alert' %>
-  
-<section>
-    <div class="container-fluid mb-4">
-        <div class="row">
-            <div class="col-md-3 col-sm-5 ">
-                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
-                	<div class="row py-2 mb-3 bg-light border-bottom">
-                        <div class="col-12">
-                          <h3 class="text-muted">Coolness</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9 col-sm-7">
-                <div class="bg-white px-3 mt-3 mb-2 text-muted crown-border container-shadow">
-                    <div class="row py-2 bg-light border-bottom">
-                        <div class="col-12">
-                            <h3 class="text-muted">Latest Tracks</h3>
-                        </div>
-                    </div>
-                </div>
-            
-				<div class="row">
-				<% @tracks.each do |track| %>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
+
+	<section>
+	  <div class="container">
+	    <div class="row mx-auto">
+            <div class="col-md-4">
+	        <div class="bg-dark px-3 my-3 pb-5 text-correct trans-bg-3 rounded">
+	        	<div class="row pt-3 rounded">
+	                <div class="col-12">
+	                    <h5 class="site-blue"><i class="fas fa-fire site-blue" title="hot"></i>  Hot Tracks</h5>
+	                </div>
+	            </div>
+	            <div class="row p-2">
+	                <div class="col-12">
+	               <% @popular_tracks.each do |popular| %>
+                        <div class="row p-2 mx-auto">
+                              <div class="col-5">
+                                <%= link_to popular do %>
+    								<%= image_tag popular.image.url(:thumb), title: popular.title, class: "image-full" %>
+    							<% end %>	
+                              </div>
+                            <div class="col-7">
+                              <h5 class="site-red"><%= link_to truncate(popular.title, length: 24, separator: ' '), track_path(popular) %></h5>
+
+							<% if popular.pseudonym_id? %>
+								<small><%= link_to popular.pseudonym.name, user_path(popular.user) %></small>
+							<% else %>
+								<small><%= link_to popular.user.name, user_path(popular.user) %></small>
+							<% end %>
+							
+						<div class="row small mt-3">
+                    	    <div class="col-12">
+                    	    	<div id="favorites_<%= popular.id %>">
+    							    <%= render 'tracks/index_favorites', :track => popular %>
+    							</div>
+    							<%= link_to popular do %>
+                            		<i class="fas fa-comments site-blue"></i>
+                            	<% end %>
+                    			<span class="ml-2"></span><%= popular.comments.count %>
+							</div>
+                    	</div>
+                            </div>
+                        </div>    
+                        
+                        <div class="grayline-dark mx-auto mt-1" style="width: 94%;"></div>
+                    
+                     <% end %>
+	                </div>
+	            </div>
+	        </div>
+	      </div>
+	      <div class="col-md-8 bg-dark px-3 mt-3 mb-5 pb-4 text-correct trans-bg-3 rounded">
+	          <div class="row py-3">
+	            <div class="col-12">
+	              <h5 class="site-blue">Latest Tracks</h5>
+	            </div>
+	          </div>
+	          <div class="row">
+	          	<% @tracks.each do |track| %>
+                    <div class="col-xl-4 col-md-6 mx-auto">
                         <div>
-                            <div class="trans-bg-2 px-2 pt-2 m-2 text-correct">
+                        	
+                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border">
     
                                 <div class="text-center">
-									<%= link_to track do %>
+	                                <%= link_to track do %>
 										<%= image_tag track.image.url(:thumb), title: track.title, class: "image-full border-dark" %>
 									<% end %>
                                 </div>
                                 
                                 <div class="text-left p-2 mt-2">
-                                    <h4 class="site-red"><%= link_to truncate(track.title, length: 24, separator: ' '), track_path(track) %></h4>
-                                    
+									<h5 class="site-red"><%= link_to truncate(track.title, length: 24, separator: ' '), track_path(track) %></h5>
+
                                     <div class="row">
                                     	<div class="col-12 site-red small">
                                     		<% if track.user.image? %>
@@ -51,16 +87,16 @@
     										<% end %>
                                     	</div>
                                     </div>
-                                    <div class="grayline-dark"></div>
-                                	<div class="row text-center">
+                                    <div class="grayline" style="width:94%"></div>
+                                	<div class="row text-center small">
                                 	    <div class="col-6">
-	                            			<div id="favorites_<%= track.id %>">
+                							<div id="favorites_<%= track.id %>">
                 							    <%= render 'tracks/index_favorites', :track => track %>
                 							</div>
 										</div>
 										<div class="col-6">
-	                            			<%= link_to track do %>
-		                                		<i class="fas fa-comments text-muted"></i>
+                                			<%= link_to track do %>
+		                                		<i class="fas fa-comments site-blue"></i>
 		                                	<% end %>
                                 			<span class="ml-2"></span><%= track.comments.count %>
 										</div>
@@ -69,14 +105,15 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 <% end %>
-                </div>
-              
-            </div>
-        </div>
-        <%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
-    </div>
-    
-</section>
-<%= render 'tracks/latest' %>
+            
+	            <%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
+	           </div>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</section>
+</div>

@@ -7,6 +7,7 @@ class TracksController < ApplicationController
       @tracks = Track.tagged_with(params[:tag])
     else
       @tracks = Track.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
+      @popular_tracks = Track.order('favorites_count DESC')
     end
 	end
 

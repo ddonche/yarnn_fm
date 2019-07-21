@@ -3,4 +3,5 @@ class Review < ApplicationRecord
   belongs_to :listing
   validates :content, presence: true, length: { minimum: 300, maximum: 5000 }
   validates :rating, presence: true
+  has_many :activities, as: :eventable, dependent: :destroy
 end

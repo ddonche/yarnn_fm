@@ -18,7 +18,7 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(@user)
     
     Activity.create!(followed_id: @user.id, user_id: current_user.id,
-                                  activity_type: "unfollow")
+                                  eventable_type: "unfollow")
     respond_to do |format|
       format.html { redirect_to @user }
       format.js

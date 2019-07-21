@@ -28,6 +28,7 @@ class TransactionsController < ApplicationController
     
     @total_amount = (@listing.price * 100).to_i
     @charged_fee = (@listing.price * 15 - 30).to_i
+    @transferred_amount = (@listing.price - @ charged_fee).to_i
 
     charge_error = nil
   
@@ -38,7 +39,7 @@ class TransactionsController < ApplicationController
         else
           customer = Stripe::Customer.create(
             :email => params[:stripeEmail],
-            :source  => params[:stripeToken]
+            :source  => params[:stripeToken],
           )
           current_user.stripe_id = customer.id
           current_user.save
@@ -50,8 +51,10 @@ class TransactionsController < ApplicationController
                 :amount      => @total_amount,
                 :description => @listing.title,
                 :currency => 'usd',
-                :destination => @seller.uid,
-                :application_fee => @charged_fee
+                transfer_data: {
+                amount: @transferred_amount,
+                destination: @seller.uid,
+              },
             },
         )
   
@@ -66,8 +69,8 @@ class TransactionsController < ApplicationController
       else
         @transaction.save
         
-        Activity.create!(item_id: @listing.id, user_id: current_user.id,
-                                  activity_type: "purchase")
+        Activity.create!(eventable_id: @listing.id, user_id: current_user.id,
+                                  eventable_type: "purchase")
                                   
         Notification.create!(listing_id: @listing.id, 
                                 recipient_id: @listing.user_id, notified_by_id: current_user.id, 

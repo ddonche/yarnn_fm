@@ -31,8 +31,8 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       if @album.save
         
-        Activity.create!(item_id: @album.id, user_id: current_user.id,
-                                  activity_type: "album")
+        Activity.create!(eventable_id: @album.id, user_id: current_user.id,
+                                  eventable_type: "album")
         
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
         format.js

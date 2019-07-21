@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-	before_action :find_track, only: [:show, :edit, :update, :delete, :favorite]
+	before_action :find_track, only: [:show, :edit, :update, :destroy, :favorite]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -43,8 +43,8 @@ class TracksController < ApplicationController
     respond_to do |format|
       if @track.save
         
-        Activity.create!(item_id: @track.id, user_id: current_user.id,
-                                  activity_type: "track")
+        Activity.create!(eventable_id: @track.id, user_id: current_user.id,
+                                  eventable_type: "track")
                                   
         format.html { redirect_to @track, notice: 'Track was successfully created.' }
         format.js
@@ -68,7 +68,7 @@ class TracksController < ApplicationController
   def destroy
     @track.destroy
     respond_to do |format|
-      format.html { redirect_to albums_url, notice: 'Track was successfully deleted.' }
+      format.html { redirect_to root_path, notice: 'Track was successfully deleted.' }
     end
   end
   

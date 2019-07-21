@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-	before_action :find_listing, only: [:show, :edit, :update, :delete, :download]
+	before_action :find_listing, only: [:show, :edit, :update, :destroy, :download]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -49,8 +49,8 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
     respond_to do |format|
       if @listing.save
-        Activity.create!(item_id: @listing.id, user_id: current_user.id,
-                                  activity_type: "listing")
+        Activity.create!(eventable_id: @listing.id, user_id: current_user.id,
+                                  eventable_type: "listing")
                                   
         format.html { redirect_to @listing, notice: 'Your listing was successful.' }
         format.js

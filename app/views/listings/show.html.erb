@@ -13,6 +13,15 @@
 	  <% end %>
 			<span>/</span>
 		<%= @listing.title %>
+		
+	<% if @listing.user == current_user %>
+        <%= link_to edit_listing_path(@listing) do %>
+    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit Listing
+        <% end %>
+        <%= link_to listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash ml-2" title="delete"></i>&nbsp;Delete
+        <% end %>
+    <% end %>
 	</div>
   	
   <div class="container">

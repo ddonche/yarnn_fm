@@ -1,6 +1,7 @@
 class Blog < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable
+  has_many :activities, as: :eventable, dependent: :destroy
   enum published_status: { draft: 0, published: 1 }
 
   validates :title, presence: true

@@ -20,8 +20,8 @@ class PseudonymsController < ApplicationController
     respond_to do |format|
       if @pseudonym.save
         
-        Activity.create!(item_id: @pseudonym.id, user_id: current_user.id,
-                                  activity_type: "pseudonym")
+        Activity.create!(eventable_id: @pseudonym.id, user_id: current_user.id,
+                                  eventable_type: "pseudonym")
                                   
         format.html { redirect_to @user, notice: 'Pseudonym was successfully created.' }
         format.js

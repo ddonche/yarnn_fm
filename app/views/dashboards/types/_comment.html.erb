@@ -34,7 +34,7 @@
         <span class="ml-1 text-secondary"><%= Topic.find(item.parent_id).comments.count %></span>
       <% end %></small>
     <div class="border border-secondary rounded mt-2 p-2">
-      <small><%= truncate(Comment.find(item.item_id).content, length: 120) %></small>
+      <small><%= truncate(Comment.find(item.eventable_id).content, length: 120) %></small>
     </div>
   </div>
   <div class="col-12 col-md-3 small text-center">

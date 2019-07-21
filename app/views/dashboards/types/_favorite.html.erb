@@ -9,12 +9,12 @@
     
     added 
 
-    <i><%= link_to Track.find(item.item_id).title, track_path(item.item_id) %></i> 
+    <i><%= link_to Track.find(item.eventable_id).title, track_path(item.eventable_id) %></i> 
     by 
-    <% if Track.find(item.item_id).pseudonym_id? %>
-			<%= link_to Track.find(item.item_id).pseudonym.name, user_path(Track.find(item.item_id).user) %>
+    <% if Track.find(item.eventable_id).pseudonym_id? %>
+			<%= link_to Track.find(item.eventable_id).pseudonym.name, user_path(Track.find(item.eventable_id).user) %>
 		<% else %>
-			<%= link_to Track.find(item.item_id).user.name, user_path(Track.find(item.item_id).user) %>
+			<%= link_to Track.find(item.eventable_id).user.name, user_path(Track.find(item.eventable_id).user) %>
 		<% end %> to 
     
     <% if item.user == current_user %>

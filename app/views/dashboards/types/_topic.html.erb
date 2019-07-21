@@ -7,11 +7,11 @@
     <% end %>
     
     created the topic 
-    <%= link_to Topic.find(item.item_id).title, topic_path(item.item_id) %><br />
+    <%= link_to Topic.find(item.eventable_id).title, topic_path(item.eventable_id) %><br />
     <small><i class="fas fa-comments site-blue" title="comments"></i>
-      <span class="ml-1 text-secondary"><%= Topic.find(item.item_id).comments.count %></span></small>
+      <span class="ml-1 text-secondary"><%= Topic.find(item.eventable_id).comments.count %></span></small>
     <div class="border border-secondary rounded my-1 mt-2 p-2">
-      <small><%= truncate(Topic.find(item.item_id).content, length: 200) %></small>
+      <small><%= truncate(Topic.find(item.eventable_id).content, length: 200) %></small>
     </div>
   </div>
   <div class="col-12 col-md-3 small text-center">
@@ -21,7 +21,7 @@
   </div>
 </div>
 <div class="row">
-    <% Topic.find(item.item_id).tag_list.map.each do |tag| %>
+    <% Topic.find(item.eventable_id).tag_list.map.each do |tag| %>
       <div class="tags"><%= link_to tag, tag_path(tag) %></div>
     <% end %>
 </div>

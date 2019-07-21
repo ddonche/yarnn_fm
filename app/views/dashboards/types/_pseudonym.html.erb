@@ -7,9 +7,9 @@
     <% end %>
     
     <% if item.user.publisher_type == "publisher" %>
-      added a new author: <strong><%= Pseudonym.find(item.item_id).name %></strong>
+      added a new author: <strong><%= Pseudonym.find(item.eventable_id).name %></strong>
     <% else %>
-      created a new pseudonym: <strong><%= Pseudonym.find(item.item_id).name %></strong>
+      created a new pseudonym: <strong><%= Pseudonym.find(item.eventable_id).name %></strong>
     <% end %>
   </div>
   <div class="col-12 col-md-3 small text-center">

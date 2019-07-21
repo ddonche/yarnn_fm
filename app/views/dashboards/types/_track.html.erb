@@ -6,19 +6,19 @@
     <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    uploaded a new track: <i><%= link_to Track.find(item.item_id).title, track_path(item.item_id) %></i><br />   
+    uploaded a new track: <i><%= link_to Track.find(item.eventable_id).title, track_path(item.eventable_id) %></i><br />   
     <small><i class="fas fa-heart site-blue" title="stations"></i>
-      <span class="ml-1 text-secondary"><%= Track.find(item.item_id).favorites.count %></span>
+      <span class="ml-1 text-secondary"><%= Track.find(item.eventable_id).favorites.count %></span>
     <i class="fas fa-comments site-blue ml-2" title="comments"></i>
-      <span class="ml-1 text-secondary"><%= Track.find(item.item_id).comments.count %></span></small>
+      <span class="ml-1 text-secondary"><%= Track.find(item.eventable_id).comments.count %></span></small>
       
-      <%= link_to track_path(item.item_id) do %>
-				<%= image_tag Track.find(item.item_id).image.url(:thumb), class: "image-full p-1 border mt-2" %>
+      <%= link_to track_path(item.eventable_id) do %>
+				<%= image_tag Track.find(item.eventable_id).image.url(:thumb), class: "image-full p-1 border mt-2" %>
 			<% end %>
-      <small><%= truncate(Track.find(item.item_id).description, length: 140) %></small>
+      <small><%= truncate(Track.find(item.eventable_id).description, length: 140) %></small>
     
       <p class="mt-2">
-        <%= audio_tag(Track.find(item.item_id).audio, autoplay: false, controls: true) %>
+        <%= audio_tag(Track.find(item.eventable_id).audio, autoplay: false, controls: true) %>
       </p>
   </div>
   <div class="col-12 col-md-3 small text-center">
@@ -26,7 +26,7 @@
   </div>
 </div>
 <div class="row">
-    <% Track.find(item.item_id).tag_list.map.each do |tag| %>
+    <% Track.find(item.eventable_id).tag_list.map.each do |tag| %>
       <div class="tags"><%= link_to tag, tag_path(tag) %></div>
     <% end %>
 </div>

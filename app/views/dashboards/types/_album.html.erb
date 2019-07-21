@@ -6,12 +6,12 @@
     <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    created the album <i><%= link_to Album.find(item.item_id).title, album_path(item.item_id) %></i><br />
+    created the album <i><%= link_to Album.find(item.eventable_id).title, album_path(item.eventable_id) %></i><br />
     <small><i class="fas fa-headphones site-blue" title="tracks"></i>
-      <span class="ml-2"></span><%= Album.find(item.item_id).tracks.count %></small>
+      <span class="ml-2"></span><%= Album.find(item.eventable_id).tracks.count %></small>
     
     <div class="border border-secondary rounded mt-2 p-2">
-      <small><%= truncate(Album.find(item.item_id).description, length: 200) %></small>
+      <small><%= truncate(Album.find(item.eventable_id).description, length: 200) %></small>
     </div>
     
   </div>

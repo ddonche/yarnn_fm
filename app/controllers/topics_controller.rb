@@ -48,7 +48,7 @@ class TopicsController < ApplicationController
     respond_to do |format|
       if @topic.save
         
-        Activity.create!(item_id: @topic.id, user_id: current_user.id, activity_type: "topic")
+        Activity.create!(eventable_id: @topic.id, user_id: current_user.id, eventable_type: "topic")
                                   
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.js

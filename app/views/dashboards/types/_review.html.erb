@@ -14,7 +14,7 @@
 			<%= link_to Listing.find(item.parent_id).user.name, user_path(Listing.find(item.parent_id).user) %>
 		<% end %>
     a 
-    <div class="star-rating" style="display:inline-block" data-score= <%= Review.find(item.item_id).rating %> ></div> 
+    <div class="star-rating" style="display:inline-block" data-score= <%= Review.find(item.eventable_id).rating %> ></div> 
     rating<br />
     <small><i class="fas fa-highlighter site-blue" title="reviews"></i>
            <span class="ml-1 text-secondary"><%= Listing.find(item.parent_id).reviews.count %></span></small>
@@ -22,7 +22,7 @@
     <div class="row">
       
         <div class="border border-secondary my-1 p-2 pb-2 rounded">
-          <%= link_to listing_path(item.item_id) do %>
+          <%= link_to listing_path(item.eventable_id) do %>
     				<%= image_tag Listing.find(item.parent_id).image.url(:thumb), height: 100, class: "p-1 border border-secondary float-left mr-2" %>
     			<% end %>
           <small><%= truncate(Listing.find(item.parent_id).description, length: 124) %></small>

@@ -11,31 +11,10 @@
               <h5 class="site-blue">Latest Activity</h5>
             </div>
           </div>
-          <% if @feed_items.any? %>
-            <% @feed_items.each do |item| %>
-              <% if lookup_context.template_exists?(item.activity_type, "dashboards/types", true) %>
-                <div class="row p-2">
-                  <div class="col-3 col-md-2">
-                    <% if item.user.image? %>
-                      <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, title: item.user.username %>
-                    <% else %>
-                      <%= image_tag('default_track.jpg', width: 40, title: item.user.username) %>
-                    <% end %>
-                  </div>
-                  <div class="col-9 col-md-10">
-                    <%= render partial: "dashboards/types/#{item.activity_type}", locals: {item: item} %>
-                  </div>
-                </div>
-                <div class="grayline" style="width: 94%;"></div>
-              <% end %>
-              
-            <% end %>
-            <div class = "pagination-container mt-2">
-              <%= will_paginate @feed_items, previous_label: "Previous", next_label: "Next" %>
-            </div>
-          <% else %>
-            There is no activity in your feed. You should <%= link_to "follow someone", users_path %> or perhaps join a discussion.
-          <% end %>
+          
+          Feed items go here
+          
+          
         </div>
       </div>
       <div class="col-md-6">

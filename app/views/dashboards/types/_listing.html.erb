@@ -6,21 +6,21 @@
     <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    listed the <%= Listing.find(item.item_id).filetype %> 
-    <i><%= link_to Listing.find(item.item_id).title, listing_path(item.item_id) %></i> for sale in the marketplace
-    for <strong><%= number_to_currency(Listing.find(item.item_id).price) %></strong>.<br />
+    listed the <%= Listing.find(item.eventable_id).filetype %> 
+    <i><%= link_to Listing.find(item.eventable_id).title, listing_path(item.eventable_id) %></i> for sale in the marketplace
+    for <strong><%= number_to_currency(Listing.find(item.eventable_id).price) %></strong>.<br />
     
     <small><i class="fas fa-highlighter site-blue" title="reviews"></i>
-      <span class="ml-1 text-secondary"><%= Listing.find(item.item_id).reviews.count %></span></small>
+      <span class="ml-1 text-secondary"><%= Listing.find(item.eventable_id).reviews.count %></span></small>
 
         <div class="border border-secondary rounded my-1 p-2 pb-2">
-          <%= link_to listing_path(item.item_id) do %>
-    				<%= image_tag Listing.find(item.item_id).image.url(:thumb), height: 100, class: "p-1 border border-secondary float-left mr-2 pb-2" %>
+          <%= link_to listing_path(item.eventable_id) do %>
+    				<%= image_tag Listing.find(item.eventable_id).image.url(:thumb), height: 100, class: "p-1 border border-secondary float-left mr-2 pb-2" %>
     			<% end %>
-          <small><%= truncate(Listing.find(item.item_id).description, length: 124) %></small>
+          <small><%= truncate(Listing.find(item.eventable_id).description, length: 124) %></small>
           <br /><br />
           <div id="stars">
-						<div class="star-rating" data-score=<%= Listing.find(item.item_id).avg_rating %> style="max-width: 10%;"></div>
+						<div class="star-rating" data-score=<%= Listing.find(item.eventable_id).avg_rating %> style="max-width: 10%;"></div>
 					</div>
         </div>
   </div>
@@ -30,7 +30,7 @@
   </div>
 </div>
 <div class="row">
-  <% Listing.find(item.item_id).tag_list.map.each do |tag| %>
+  <% Listing.find(item.eventable_id).tag_list.map.each do |tag| %>
       <span class="tags"><%= link_to tag, tag_path(tag) %></span>
     <% end %>
 </div>

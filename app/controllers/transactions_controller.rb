@@ -28,7 +28,7 @@ class TransactionsController < ApplicationController
     
     @total_amount = (@listing.price * 100).to_i
     @charged_fee = (@listing.price * 15 - 30).to_i
-    @transferred_amount = (@listing.price - @ charged_fee).to_i
+    @transferred_amount = (@listing.price - @charged_fee).to_i
 
     charge_error = nil
   

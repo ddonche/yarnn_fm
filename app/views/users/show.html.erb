@@ -3,28 +3,72 @@
 
 	<section>
 	  <div class="container">
+	    
 	    <div class="row mx-auto">
             <div class="col-12">
 	            <div class="bg-dark px-3 my-3 pb-5 text-correct trans-bg-3 rounded">
-	        	<div class="row pt-3 rounded">
-	                <div class="col-5">
-	                    <%= render 'avatar' %>
-	                </div>
-	                <div class="col-7">
-	               <% if @pseudonyms.any? %>
-                  <%= render 'pseudonyms' %>
-                <% end %>
-                <%= render 'followers' %>
-                <%= render 'following' %>
-
-	                </div>
-	          </div>
-	       
-	        </div>
-	      </div>
-	      
+	        		<div class="row pt-3 rounded">
+		                <div class="col-4">
+		                	<div class="ribbon_box">
+						      <% if @user.publisher_type == "publisher" %>
+						        <div class="ribbon"><span>PUBLISHER</span></div>
+						      <% end %>
+						        <% if @user.image? %>
+						          <%= image_tag(@user.image.url(:thumb), class: "image-full", title: @user.username) %>
+						        <% else %>
+						          <%= image_tag('default_track.jpg', class: "image-full", title: @user.username) %>
+						        <% end %>
+						    </div>
+		                    <% if @pseudonyms.any? %>
+		                  		<%= render 'pseudonyms' %>
+		                	<% end %>
+		                	<%= render 'followers' %>
+		                	<%= render 'following' %>
+		                </div>
+		                
+		                <div class="col-8">
+		                	<h2><%= @user.name %> | @<%= @user.username %></h2>
+							    <% if @user.website? %>
+							      <i class="fas fa-globe site-blue" title="website"></i> <%= link_to @user.website, @user.website %><br><br>
+							    <% end %>
+							    <% if @user.bio? %>
+		                  			<%= @user.bio %>
+		                		<% end %>
+		                	<div class="grayline mx-auto my-3" style="width: 94%;"></div>
+							<ul class="nav justify-content-center nav-text-tiny text-uppercase">
+							  <li class="nav-item site-blue nav-link">
+							    <i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @user.tracks.count %>)
+							  </li>
+							  <li class="nav-item site-blue nav-link">
+							    <i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @user.albums.count %>)
+							  </li>
+							  <li class="nav-item site-blue nav-link">
+							    <i class="fas fa-pen-nib site-blue" title="blog posts"></i> Blog Posts (<%= @user.blogs.count %>)
+							  </li>
+							  <li class="nav-item site-blue nav-link">
+							    <i class="fas fa-comment-alt site-blue" title="topics"></i> Topics (<%= @user.topics.count %>)
+							  </li>
+							  <li class="nav-item site-blue nav-link">
+							    <i class="fas fa-shopping-cart site-blue" title="listings"></i> Listings (<%= @user.listings.count %>)
+							  </li>
+							  <li class="nav-item site-blue nav-link">
+							    <i class="fas fa-user-astronaut site-blue"></i> Followers (<%= @user.followers.count %>)
+							  </li>
+							  <li class="nav-item site-blue nav-link">
+							    <i class="fas fa-heart site-blue"></i> Favorited (<%= @user.favorited_count %>)
+							  </li>
+							</ul>
+		          
+		                </div>
+		                
+	          		</div>
+	        	</div>
+	      	</div>
 	    </div>
+	    
 	    <%= render 'users/audio' %>
+	  
 	  </div>
 	</section>
+
 </div>

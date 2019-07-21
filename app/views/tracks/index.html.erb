@@ -30,10 +30,12 @@
 							<% end %>
 							
 						<div class="row small mt-3">
-                    	    <div class="col-12">
+                    	    <div class="col-6">
                     	    	<div id="favorites_<%= popular.id %>">
     							    <%= render 'tracks/index_favorites', :track => popular %>
     							</div>
+    						</div>
+    						<div class="col-6">
     							<%= link_to popular do %>
                             		<i class="fas fa-comments site-blue"></i>
                             	<% end %>

@@ -51,10 +51,8 @@ class TransactionsController < ApplicationController
                 :amount      => @total_amount,
                 :description => @listing.title,
                 :currency => 'usd',
-                transfer_data: {
-                amount: @transferred_amount,
-                destination: @seller.uid,
-              },
+                :destination => @seller.uid,
+                :application_fee => @charged_fee
             },
         )
   

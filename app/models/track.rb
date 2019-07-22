@@ -4,7 +4,7 @@ class Track < ApplicationRecord
   belongs_to :pseudonym, optional: true
   has_many :favorites
   has_many :comments, as: :commentable
-  has_many :activities, as: :eventable, dependent: :destroy
+  has_many :activities, as: :eventable, dependent: :delete_all
   has_many :listings
   enum explicit: { standard: 0, explicit: 1 }
   

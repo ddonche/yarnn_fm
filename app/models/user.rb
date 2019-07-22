@@ -29,7 +29,7 @@ class User < ApplicationRecord
   has_many :favorite_tracks, through: :favorites, source: :track
   has_many :blogs, dependent: :destroy
   has_many :comments
-  has_many :activities
+  has_many :activities, as: :eventable, dependent: :delete_all
   has_many :pseudonyms, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :sales, class_name: "Transaction", foreign_key: "seller_id"

@@ -1,11 +1,11 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   def sales
     @transactions = Transaction.all.where(seller: current_user).order("created_at DESC")
   end
-  
+
   def purchases
      @transactions = Transaction.all.where(buyer: current_user).order("created_at DESC")
      @pseudo = Pseudonym.find_by(params[:pseudo_id])
@@ -25,13 +25,13 @@ class TransactionsController < ApplicationController
     @seller = @listing.user
     @transaction.listing_id = @listing.id
     @transaction.seller_id = @seller.id
-    
+
     @total_amount = (@listing.price * 100).to_i
     @charged_fee = (@listing.price * 15 - 30).to_i
     @transferred_amount = (@listing.price - @charged_fee).to_i
 
     charge_error = nil
-  
+
     if @transaction.valid?
       begin
         if !current_user.stripe_id.blank?
@@ -44,18 +44,18 @@ class TransactionsController < ApplicationController
           current_user.stripe_id = customer.id
           current_user.save
         end
-        
+
         charge = Stripe::Charge.create(
-            {
-                :customer => customer.id,
-                :amount      => @total_amount,
-                :description => @listing.title,
-                :currency => 'usd',
-                :destination => @seller.uid,
-                :application_fee => @charged_fee
-            },
+          customer: customer.id,
+          amount: @total_amount,
+          description: @listing.title,
+          currency: 'usd',
+          transfer_data: {
+            destination: @seller.uid,
+          },
+          application_fee: @charged_fee
         )
-  
+
       rescue Stripe::CardError => e
         charge_error = e.message
       end
@@ -66,12 +66,12 @@ class TransactionsController < ApplicationController
         end
       else
         @transaction.save
-        
+
         Activity.create!(eventable_id: @listing.id, user_id: current_user.id,
                                   eventable_type: "purchase")
-                                  
-        Notification.create!(listing_id: @listing.id, 
-                                recipient_id: @listing.user_id, notified_by_id: current_user.id, 
+
+        Notification.create!(listing_id: @listing.id,
+                                recipient_id: @listing.user_id, notified_by_id: current_user.id,
                                 notification_type: "purchase")
         respond_to do |format|
           format.html { redirect_to purchases_path, notice: 'Transaction successful. You may now download this.' }
@@ -82,7 +82,7 @@ class TransactionsController < ApplicationController
       render :new
     end
   end
-  
+
 
   def update
     respond_to do |format|

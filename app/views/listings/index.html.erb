@@ -1,6 +1,71 @@
 <section>
     <div class="container-fluid">
         <div class="row">
+            
+            <div class="col-md-9 col-sm-7">
+                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
+                    <div class="row py-2 bg-light border-bottom">
+                        <div class="col-12">
+                            <h3 class="text-muted">Latest Products</h3>
+                        </div>
+                    </div>
+                </div>
+            
+				<div class="row mb-5">
+				<% @listings.each do |listing| %>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div>
+                            <div class="trans-bg-2 p-2 m-2 text-correct">
+    
+                                <div class="text-center">
+                                    <%= link_to listing do %>
+										<%= image_tag listing.image.url(:thumb), title: listing.title, class: "image-full border-dark" %>
+									<% end %>
+                                </div>
+                                
+                                <div class="text-left p-2 mt-2">
+                                    <div class="small"><%= listing.filetype %></div>
+                                    <h3><%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing), class: "site-red" %></h3>
+                                    
+                                    <div class="row">
+                                    	<div class="col-12 site-red small">
+                                    		<% if listing.user.image? %>
+    											<%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
+    										<% else %>
+    											<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
+    										<% end %>
+    																		
+    										<% if listing.pseudonym_id? %>
+    											<p class="ml-1" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
+    										<% else %>
+    											<p class="ml-1" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
+    										<% end %>
+                                    	</div>
+                                    </div>
+                                    <div class="grayline-dark"></div>
+                                	<div class="row">
+                                	    <div class="col-12">
+                            			<div id="stars">
+											<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%;"></div>
+										</div>
+										</div>
+                                	</div>
+                                	<div class="row">
+                                	    <div class="col-12">
+										<span class="product-price">
+    	                                  <%= number_to_currency(listing.price) %>
+    	                                </span>
+    	                                </div>
+                                	</div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+              
+            </div>
             <div class="col-md-3 col-sm-5 px-3 mt-3 mb-5">
 			         <table class="table table-hover table-striped table-dark">
                       <thead>
@@ -104,70 +169,6 @@
                         </tr>
                       </tbody>
                     </table>
-            </div>
-            <div class="col-md-9 col-sm-7">
-                <div class="bg-white px-3 mt-3 mb-5 text-muted crown-border container-shadow">
-                    <div class="row py-2 bg-light border-bottom">
-                        <div class="col-12">
-                            <h3 class="text-muted">Latest Products</h3>
-                        </div>
-                    </div>
-                </div>
-            
-				<div class="row mb-5">
-				<% @listings.each do |listing| %>
-                    <div class="col-lg-3 col-md-6">
-                        <div>
-                            <div class="trans-bg-2 p-2 m-2 text-correct">
-    
-                                <div class="text-center">
-                                    <%= link_to listing do %>
-										<%= image_tag listing.image.url(:thumb), title: listing.title, class: "image-full border-dark" %>
-									<% end %>
-                                </div>
-                                
-                                <div class="text-left p-2 mt-2">
-                                    <div class="small"><%= listing.filetype %></div>
-                                    <h3><%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing), class: "site-red" %></h3>
-                                    
-                                    <div class="row">
-                                    	<div class="col-12 site-red small">
-                                    		<% if listing.user.image? %>
-    											<%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
-    										<% else %>
-    											<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
-    										<% end %>
-    																		
-    										<% if listing.pseudonym_id? %>
-    											<p class="ml-1" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
-    										<% else %>
-    											<p class="ml-1" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
-    										<% end %>
-                                    	</div>
-                                    </div>
-                                    <div class="grayline-dark"></div>
-                                	<div class="row">
-                                	    <div class="col-12">
-                            			<div id="stars">
-											<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%;"></div>
-										</div>
-										</div>
-                                	</div>
-                                	<div class="row">
-                                	    <div class="col-12">
-										<span class="product-price">
-    	                                  <%= number_to_currency(listing.price) %>
-    	                                </span>
-    	                                </div>
-                                	</div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <% end %>
-                </div>
-              
             </div>
         </div>
     </div>

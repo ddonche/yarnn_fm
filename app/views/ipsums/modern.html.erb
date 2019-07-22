@@ -1,17 +1,14 @@
 <div id="other_background_nocenter" style="overflow-y: auto;">
-	<div class="container trans-bg mt-6 pb-5 px-5 rounded">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">Goodies</li>
+    <li class="breadcrumb-item"><%= link_to 'Generators', generators_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">Modern Portal</li>
+  </ol>
+</nav>
+<%= render 'shared/alert' %>
+	<div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
 
-		<div class="row text-correct mt-4 px-4">
-			<div class="col-12 my-4">
-				<div id="breadcrumb">
-					Goodies
-						<span>/</span>
-					<%= link_to 'Generators', generators_path %>
-						<span>/</span>
-					Modern Portal
-				</div>
-			</div>
-		</div>
 		<div class="row text-correct mt-4 pb-6 text-align-center">
 			<div class="col-3 text-correct mb-6 pb-6">
 				<div class="row">

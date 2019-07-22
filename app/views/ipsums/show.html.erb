@@ -1,15 +1,13 @@
 <div id="other_background_nocenter" style="overflow-y: auto;">
-	<div class="container trans-bg mt-6 pb-5 px-5 rounded">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">Goodies</li>
+    <li class="breadcrumb-item active" aria-current="page">Generators and Ipsums</li>
+  </ol>
+</nav>
+<%= render 'shared/alert' %>
+	<div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
 
-		<div class="row text-correct mt-4 px-4 justify-content-center">
-			<div class="col-12 my-4">
-				<div id="breadcrumb">
-					Goodies
-						<span>/</span>
-					Generators
-				</div>
-			</div>
-		</div>
 		<div class="row text-correct mt-4 pb-6 text-align-center">
 			<div class="col-4 pb-6">
 				<%= render 'ipsums/sidebar' %>

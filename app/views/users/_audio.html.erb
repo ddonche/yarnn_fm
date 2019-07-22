@@ -48,7 +48,7 @@
 			buyButTarget:"_blank",
 			lyricsButTarget:"_blank",
 			showFacebookBut:false,
-			facebookAppID:"",
+			facebookAppID:"395394867776017",
 			facebookShareTitle:"Apollo - HTML5 Audio Player",
 			facebookShareDescription:"A top-notch sticky full width HTML5 Audio Player compatible with all major browsers and mobile devices.",
 			showTwitterBut:false,
@@ -100,33 +100,34 @@
 </head>
 
 <body bgcolor="#999999">
-	    <div class="audio7_html5">
-        	<audio id="lbg_audio7_html5_1" preload="metadata">
-        	<div class="xaudioplaylist">
-        	  <% @tracks.each do |track| %>
-			      <ul>
-              <li class="xtitle"><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %> (explicit)<% end %></li>
-              <li class="xauthor"><% if track.pseudonym_id? %>
-                                      <%= track.pseudonym.name %>
-                                    <% else %>
-                                      <%= track.user.name %> 
-                                    <% end %></li>
-              <li class="ximage"><%= track.image.url(:thumb) %></li>
-              <li class="xbuy"><% if track.listing_id? %>
-                                  <%= listing_path(track.listing_id) %>
+	<div class="audio7_html5">
+    <audio id="lbg_audio7_html5_1" preload="metadata">
+      <div class="xaudioplaylist">
+        <% @tracks.each do |track| %>
+			    <ul>
+            <li class="xtitle"><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %> (explicit)<% end %></li>
+            <li class="xauthor"><% if track.pseudonym_id? %>
+                                  <%= track.pseudonym.name %>
                                 <% else %>
-                                  <%= listings_path %>
-                                <% end %></li>
-              <li class="xlyrics">https://codecanyon.net/item/html5-radio-players-wordpress-plugins-bundle/19939049?ref=LambertGroup</li>
-              <li class="xcategory">ALL CATEGORIES;Classic;Jazz</li>
-              <li class="xsources_mp3"><%= track.audio.url %></li>
-              <li class="xsources_ogg"><%= track.audio.url %></li>
-            </ul>
-            <% end %>
-          </div>
-            No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
-            </audio>
-        </div>
-        <br style="clear:both;">
+                                  <%= track.user.name %> 
+                                <% end %>
+            </li>
+            <li class="ximage"><%= track.image.url(:thumb) %></li>
+            <li class="xbuy"> <% if track.listing_id? %>
+                              	<%= listing_path(track.listing_id) %>
+                              <% else %>
+                                <%= listings_path %>
+                              <% end %></li>
+            <li class="xlyrics">https://codecanyon.net/item/html5-radio-players-wordpress-plugins-bundle/19939049?ref=LambertGroup</li>
+            <li class="xcategory">ALL CATEGORIES;Classic;Jazz</li>
+            <li class="xsources_mp3"><%= track.audio.url %></li>
+            <li class="xsources_ogg"><%= track.audio.url %></li>
+          </ul>
+        <% end %>
+      </div>
+        No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
+    </audio>
+  </div>
+    <br style="clear:both;">
 </body>
 </html>

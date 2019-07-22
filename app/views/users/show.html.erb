@@ -65,9 +65,9 @@
 	        	</div>
 	      	</div>
 	    </div>
-	    
-	    <%= render 'users/audio' %>
-	  
+	    <% if @user.tracks.any? %>
+	    	<%= render 'users/audio' %>
+	  	<% end %>
 	  </div>
 	</section>
 

@@ -1,28 +1,28 @@
-<div class="side-box" style="margin-top: 0">
-  <div class="side-content">
     <% if @user.publisher_type == "publisher" %>
-      <h2>Authors</h2>
+      <h5>Authors</h5>
     <% else %>
-      <h2>Pseudonyms</h2>
+      <h5>Pseudonyms</h5>
     <% end %>
-    <ul>
+    <ul class="list-inline">
   		<% @pseudonyms.each do |pseudo| %>
-  			<li>
+  			<li class="list-inline-item">
   			  <p class="description"><%= pseudo.name %>
   			</li>
   		<% end %>
   		
       <% if @user.publisher_type == "publisher" %>
+            
 				<% if @user == current_user %>
-				  <br>
-				  <%= link_to "Add New Author", new_pseudonym_path %>
+				<small>
+				  <i class="fas fa-plus-circle site-blue" title="add new"></i> <%= link_to "Add New", new_pseudonym_path %>
+				  </small>
 				<% end %>
+				
 		  <% else %>
 				<% if @user == current_user %>
-				  <br>
-				  <%= link_to "Add New Pseudonym", new_pseudonym_path %>
+				<small>
+				  <i class="fas fa-plus-circle site-blue" title="add new"></i> <%= link_to "Add New", new_pseudonym_path %>
+				  </small>
 				<% end %>
 			<% end %>
   	</ul>
-  </div>
-</div>

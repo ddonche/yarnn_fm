@@ -8,11 +8,17 @@ module DeviseHelper
    resource: resource.class.model_name.human.downcase)
 
    html = <<-HTML
-   <div class="alert alert-error alert-block"> <button type="button"
-    class="close" data-dismiss="alert">x</button>
-    <h5>#{sentence}</h5>
-    #{messages}
-   </div>
+   <div class="bg-dark px-3 my-3 pb-1 text-correct rounded">
+        <div class="row pt-3 rounded">
+            <div class="col-12">
+               <div class="alert alert-error alert-block"> <button type="button"
+                class="close" data-dismiss="alert">x</button>
+                <h5 class="site-red">#{sentence}</h5>
+                #{messages}
+               </div>
+            </div>
+        </div>
+    </div>
    HTML
 
    html.html_safe

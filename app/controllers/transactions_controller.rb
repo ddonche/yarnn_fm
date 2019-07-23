@@ -67,7 +67,7 @@ class TransactionsController < ApplicationController
       else
         @transaction.save
 
-        Activity.create!(eventable_id: @listing.id, user_id: current_user.id,
+        Event.create!(eventable_id: @listing.id, user_id: current_user.id,
                                   eventable_type: "purchase")
 
         Notification.create!(listing_id: @listing.id,

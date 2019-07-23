@@ -4,7 +4,7 @@ class Listing < ApplicationRecord
   belongs_to :pseudonym, optional: true
   has_many :transactions, dependent: :delete_all
   has_many :reviews, dependent: :destroy
-  has_many :activities, as: :eventable, dependent: :destroy
+  has_many :events, as: :eventable, dependent: :destroy
   enum filetype: { ebook: 0, audio: 1, video: 2 }
 
   mount_uploader :file, FileUploader

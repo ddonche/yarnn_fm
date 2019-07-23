@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
 	
   def home
     if user_signed_in?
-      @activity = current_user.activities.build
+      @event = current_user.events.build
       @feed_items = current_user.feed.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
       respond_to do |format| 
         format.html

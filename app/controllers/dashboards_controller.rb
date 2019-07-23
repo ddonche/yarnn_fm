@@ -14,7 +14,7 @@ class DashboardsController < ApplicationController
     @users = @user.followers
     @followed_users = @user.following
     
-    @activity = current_user.activities.build
+    @event = current_user.events.build
     @feed_items = current_user.feed.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
     respond_to do |format| 
       format.html

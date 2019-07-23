@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         
-        Activity.create!(parent_id: @review.listing.id, eventable_id: @review.id, user_id: current_user.id,
+        Event.create!(parent_id: @review.listing.id, eventable_id: @review.id, user_id: current_user.id,
                                   eventable_type: "review")
                                   
         Notification.create!(listing_id: @listing.id, 

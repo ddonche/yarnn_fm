@@ -43,7 +43,7 @@ class TracksController < ApplicationController
     respond_to do |format|
       if @track.save
         
-        Activity.create!(eventable_id: @track.id, user_id: current_user.id,
+        Event.create!(eventable_id: @track.id, user_id: current_user.id,
                                   eventable_type: "track")
                                   
         format.html { redirect_to @track, notice: 'Track was successfully created.' }

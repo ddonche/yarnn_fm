@@ -11,7 +11,7 @@ module UserOnboarding
         steps = [:image?, :bio?, :has_favorite?, :has_followed?, :has_topic?, :has_comment?, :has_review?]
         complete = steps.select{ |step| send(step) }
         percent = complete.length / steps.length.to_f * 100
-        update(onboarding_completed_at: Time.current) if percent == 100
+        #update(onboarding_completed_at: Time.current) if percent == 100
         percent
     end
       

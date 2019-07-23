@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     unless current_user.id == @track.user_id
       @track.user.increment!(:favorited_count)
       
-      Activity.create!(eventable_id: @track.id, user_id: current_user.id,
+      Event.create!(eventable_id: @track.id, user_id: current_user.id,
                                   eventable_type: "favorite")
       Notification.create!(track_id: @track.id, 
                                   recipient_id: @track.user_id, notified_by_id: current_user.id, 
@@ -29,7 +29,7 @@ class FavoritesController < ApplicationController
     unless current_user.id == @track.user_id
       @track.user.decrement!(:favorited_count) unless @track.user.favorited_count.zero?
       
-      Activity.create!(eventable_id: @track.id, user_id: current_user.id,
+      Event.create!(eventable_id: @track.id, user_id: current_user.id,
                                   eventable_type: "unfavorite")
                                   
       Notification.create!(track_id: @track.id, 

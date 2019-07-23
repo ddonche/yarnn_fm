@@ -35,7 +35,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         if @blog.published_status == "published"
-          Activity.create!(eventable_id: @blog.id, user_id: current_user.id,
+          Event.create!(eventable_id: @blog.id, user_id: current_user.id,
                                     eventable_type: "blog")
         end
         

@@ -3,5 +3,5 @@ class Pseudonym < ApplicationRecord
  has_many :listings
  has_many :tracks
  has_many :albums
- has_many :activities, as: :eventable, dependent: :delete_all
+ has_many :events, as: :eventable, dependent: :delete_all
 end

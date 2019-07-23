@@ -10,19 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190723043455) do
-
-  create_table "activities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "followed_id"
-    t.integer  "eventable_id"
-    t.integer  "parent_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "commentable_type"
-    t.integer  "eventable_type"
-    t.index ["user_id"], name: "index_activities_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 20190723143525) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",               null: false
@@ -71,6 +59,18 @@ ActiveRecord::Schema.define(version: 20190723043455) do
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
     t.index ["sender_id", "receiver_id"], name: "index_conversations_on_sender_id_and_receiver_id", unique: true
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "followed_id"
+    t.integer  "eventable_id"
+    t.integer  "parent_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "commentable_type"
+    t.integer  "eventable_type"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|

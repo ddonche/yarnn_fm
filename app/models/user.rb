@@ -35,7 +35,7 @@ class User < ApplicationRecord
   has_many :favorite_tracks, through: :favorites, source: :track
   has_many :blogs, dependent: :destroy
   has_many :comments
-  has_many :activities, dependent: :delete_all
+  has_many :events, dependent: :delete_all
   has_many :pseudonyms, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :sales, class_name: "Transaction", foreign_key: "seller_id"
@@ -108,7 +108,7 @@ class User < ApplicationRecord
   def feed
     following_ids = "SELECT followed_id FROM relationships
                     WHERE follower_id = :user_id"
-    Activity.where("user_id IN (#{following_ids})
+    Event.where("user_id IN (#{following_ids})
               OR user_id = :user_id", user_id: id)
   end
   

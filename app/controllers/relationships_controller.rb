@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:followed_id])
     current_user.follow(@user)
     
-    Activity.create!(followed_id: @user.id, user_id: current_user.id,
+    Event.create!(followed_id: @user.id, user_id: current_user.id,
                                   eventable_type: "follow")
     respond_to do |format|
       format.html { redirect_to @user }
@@ -17,7 +17,7 @@ class RelationshipsController < ApplicationController
     @user = Relationship.find(params[:id]).followed
     current_user.unfollow(@user)
     
-    Activity.create!(followed_id: @user.id, user_id: current_user.id,
+    Event.create!(followed_id: @user.id, user_id: current_user.id,
                                   eventable_type: "unfollow")
     respond_to do |format|
       format.html { redirect_to @user }

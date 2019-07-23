@@ -19,6 +19,7 @@
 						          <%= image_tag('default_track.jpg', class: "image-full", title: @user.username) %>
 						        <% end %>
 						    </div>
+						    
 		                    <% if @pseudonyms.any? %>
 		                  		<%= render 'pseudonyms' %>
 		                	<% end %>
@@ -27,14 +28,32 @@
 		                </div>
 		                
 		                <div class="col-8">
-		                	<h2><%= @user.name %> | @<%= @user.username %></h2>
-							    <% if @user.website? %>
-							      <i class="fas fa-globe site-blue" title="website"></i> <%= link_to @user.website, @user.website %><br><br>
-							    <% end %>
-							    <% if @user.bio? %>
-		                  			<%= @user.bio %>
-		                		<% end %>
-		                	<div class="grayline mx-auto my-3" style="width: 94%;"></div>
+		                	<div class="row">
+		                		<div class="col-8">
+		                			<h2><%= @user.name %> | @<%= @user.username %></h2>
+		                		</div>
+		                		<div class="col-4">
+		                			<span class="float-right"><%= render 'users/follow_form' if user_signed_in? %></span>
+		                		</div>
+		                	</div>
+		                	
+		                	<div class="row">
+		                		<div class="col-4">
+			                		<% if @user.website? %>
+								      <i class="fas fa-globe site-blue" title="website"></i> <%= link_to @user.website, @user.website %><br><br>
+								    <% end %>
+		                		</div>
+							    <div class="col-8">
+							    	
+							    </div>
+							    <div class="col-12">
+								    <% if @user.bio? %>
+			                  			<%= @user.bio %>
+			                		<% end %>
+		                		</div>
+		                		<div class="grayline mx-auto my-3" style="width: 94%;"></div>
+		                	</div>
+		                	<div class="row">
 							<ul class="nav justify-content-center nav-text-tiny text-uppercase">
 							  <li class="nav-item site-blue nav-link">
 							    <i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @user.tracks.count %>)
@@ -58,7 +77,7 @@
 							    <i class="fas fa-heart site-blue"></i> Favorited (<%= @user.favorited_count %>)
 							  </li>
 							</ul>
-		          
+		          			</div>
 		                </div>
 		                
 	          		</div>

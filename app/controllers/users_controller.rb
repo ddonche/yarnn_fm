@@ -15,15 +15,6 @@ class UsersController < ApplicationController
     @followed_users = @user.following
   end
   
-  def create
-    @user = User.new(params[:user].permit(:name))
-    if verify_recaptcha(model: @user) && @user.save
-      redirect_to @user
-    else
-      render 'new'
-    end
-  end
-  
   def albums 
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers

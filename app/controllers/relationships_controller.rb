@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     current_user.follow(@user)
     
     Activity.create!(followed_id: @user.id, user_id: current_user.id,
-                                  activity_type: "follow")
+                                  eventable_type: "follow")
     respond_to do |format|
       format.html { redirect_to @user }
       format.js

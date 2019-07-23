@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include UserOnboarding
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,6 +26,10 @@ class User < ApplicationRecord
   has_many :listings, dependent: :destroy
   has_many :albums, dependent: :destroy
   has_many :tracks, dependent: :destroy
+  
+  # the line below I cannot get to work. I would like to put latest track for each of the popular
+  # users in the user index page
+  has_one  :latest_track, ->(track) { order(created_at: :desc).limit(1) }
   has_many :topics
   has_many :favorites, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track
@@ -84,6 +90,10 @@ class User < ApplicationRecord
   # Returns true is the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+  
+  def has_followed?
+    following.any?
   end
   
   def favorited?(track)

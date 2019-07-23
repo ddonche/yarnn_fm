@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190721182523) do
+ActiveRecord::Schema.define(version: 20190723043455) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -263,6 +263,7 @@ ActiveRecord::Schema.define(version: 20190721182523) do
     t.string   "google_token"
     t.string   "google_refresh_token"
     t.integer  "favorited_by_others_count"
+    t.datetime "onboarding_completed_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.order(created_at: :desc).paginate(:page => params[:page], :per_page => 24)
-    @popular_users = User.order('favorited_count DESC')
+    @popular_users = User.order('favorited_count DESC').paginate(:page => params[:page], :per_page => 24)
   end
   
   def show

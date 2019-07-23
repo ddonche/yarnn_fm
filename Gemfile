@@ -18,8 +18,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'dotenv-rails', '~> 2.5'
 
 # gems I've installed my damn self
-gem 'devise', '~> 4.2'
-gem 'mini_magick'
+gem "devise", ">= 4.6.0"
+gem "mini_magick", ">= 4.9.4"
 gem 'carrierwave'
 gem 'carrierwave-aws', '~> 1.3'
 gem 'carrierwave-audio', '1.0.9'

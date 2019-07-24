@@ -30,23 +30,18 @@
           </div>
           <% if current_user.onboarding_percent.round == 100 %>
           <div class="row p-2">
-            <div class="col-11 mx-auto bg-dark rounded p-4">
-            <i class="fas fa-award site-blue"></i> You have completed your onboarding profile!
+            <div class="col-11 mx-auto border border-secondary rounded p-4">
+              <i class="fas fa-award site-blue"></i> You have completed your onboarding profile!
             </div>
           </div>
           <% else %>
             
           <div class="row p-2">
-            <div class="col-11 mx-auto bg-dark rounded p-4">
+            <div class="col-11 mx-auto border border-secondary rounded pt-4 px-4 pb-2">
               <h5>Onboarding Profile</h5>
-              
-              
-              <small>Onboarding <%= current_user.onboarding_percent.round %>% complete</small>
-              <br />
-              <div class="progress">
+              <div class="progress mt-1 mb-2">
                 <div class="progress-bar" role="progressbar" style="width: <%= current_user.onboarding_percent.round %>%" aria-valuenow="<%= current_user.onboarding_percent.round %>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-              <br />
               <small>
                 <div>  
                   <%= onboarding_step_icon current_user.image? %>
@@ -77,6 +72,7 @@
                   Leave a Review in the Marketplace
                 </div>
               </small>
+              <small class="float-right site-blue"><em><%= current_user.onboarding_percent.round %>% complete</em></small>
             </div>
           </div>
           <% end %>

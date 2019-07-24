@@ -263,9 +263,6 @@ Devise.setup do |config|
     scope: 'read_write',
     stripe_landing: 'login'
 
-  config.omniauth :twitter,
-    ENV[ 'TWITTER_API_KEY' ], ENV[ 'TWITTER_API_SECRET' ]
-
   config.omniauth :facebook, ENV[ 'FB_APP_ID' ], ENV[ 'FB_APP_SECRET' ],
     scope: 'email', info_fields: 'email, name',
     callback_url: ENV['FB_REDIRECT_URI']

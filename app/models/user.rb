@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:stripe_connect, :facebook, :google_oauth2, :twitter]
+         :omniauthable, :omniauth_providers => [:stripe_connect, :facebook, :google_oauth2]
 
   mount_uploader :image, ImageUploader
   extend FriendlyId

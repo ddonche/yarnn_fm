@@ -27,4 +27,3 @@ Rails.application.config.assets.precompile += %w( player/jquery.mousewheel.min.j
 Rails.application.config.assets.precompile += %w( player/jquery.touchSwipe.min.js )
 Rails.application.config.assets.precompile += %w( player/audio7_html5.js )
 Rails.application.config.assets.precompile += %w( player/audio7_html5.css )
-

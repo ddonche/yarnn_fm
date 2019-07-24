@@ -1,3 +1,10 @@
+<title><%= @album.title %> | 
+    <% if @album.pseudonym_id? %>
+  	  <%= @album.pseudonym.name %>
+  	<% else %>
+  	  <%= @album.user.name %>
+  	<% end %>
+</title>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item site-red"><%= link_to @album.user.username, user_path(@album.user) %></li>

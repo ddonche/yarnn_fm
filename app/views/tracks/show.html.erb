@@ -1,3 +1,10 @@
+<title><%= @track.title %> | 
+    <% if @track.pseudonym_id? %>
+  	  <%= @track.pseudonym.name %>
+  	<% else %>
+  	  <%= @track.user.name %>
+  	<% end %>
+</title>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item site-red"><%= link_to @track.user.username, user_path(@track.user) %></li>

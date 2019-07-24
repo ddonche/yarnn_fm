@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   include UserOnboarding
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:stripe_connect, :facebook, :google_oauth2, :twitter]
-  
+
   mount_uploader :image, ImageUploader
   extend FriendlyId
   friendly_id :username, use: :slugged
@@ -15,18 +15,18 @@ class User < ApplicationRecord
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :crop_image
-  
+
   def crop_image
     image.recreate_versions! if crop_x.present?
   end
-  validates :username, presence: true, length: { minimum: 4, maximum: 22 } 
+  validates :username, presence: true, length: { minimum: 4, maximum: 22 }, allow_blank: true
   validates :name, presence: true
   validates :image, file_size: { less_than: 1.megabytes }
-  
+
   has_many :listings, dependent: :destroy
   has_many :albums, dependent: :destroy
   has_many :tracks, dependent: :destroy
-  
+
   # the line below I cannot get to work. I would like to put latest track for each of the popular
   # users in the user index page
   has_one  :latest_track, ->(track) { order(created_at: :desc).limit(1) }
@@ -49,22 +49,23 @@ class User < ApplicationRecord
   has_many :sent_conversations, class_name: 'Conversation', foreign_key: 'sender_id'
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
   has_many :messages, dependent: :destroy
-  has_many :following, through: :active_relationships, source: :followed 
+  has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  
+
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
+    where(email: auth.info.email).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name   # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
-      # If you are using confirmable and the provider(s) you use validate emails, 
+      # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       #user.skip_confirmation!
       user
     end
   end
-  
+
   #def self.from_omniauth(access_token)
   #  data = access_token.info
   #  user = User.where(email: data['email']).first
@@ -76,34 +77,34 @@ class User < ApplicationRecord
   #         password: Devise.friendly_token[0,20])
   #  end
   #end
-  
+
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
-  
+
   # Unfollows a user.
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
-  
+
   # Returns true is the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
   end
-  
+
   def has_followed?
     following.any?
   end
-  
+
   def favorited?(track)
     track.favorites.where(user_id: id).any?
   end
-  
+
   def reviewed?(listing)
     listing.reviews.where(user_id: id).any?
   end
-  
+
   # Returns a user's status feed.
   def feed
     following_ids = "SELECT followed_id FROM relationships
@@ -111,10 +112,10 @@ class User < ApplicationRecord
     Event.where("user_id IN (#{following_ids})
               OR user_id = :user_id", user_id: id)
   end
-  
+
   # Defines Tracks that were favorited
   def favorited_tracks
     favorite << track
   end
-  
+
 end

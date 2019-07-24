@@ -4,21 +4,21 @@
   <div class="container full-form-container" style="margin-top: 6rem;">
     <div class="row justify-content-center trans-bg p-3 mt-3 p-sm-4 mt-sm-5 rounded">
       <div class="col-11">
-        <fieldset> 
+        <fieldset>
         <%= image_tag("yarnn-icon.png", size: "96x72") %>
-        
+
 				<hr class="colorgraph">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
             <%= f.label :email, class: "text-secondary" %><br />
             <%= f.email_field :email, class: "form-control input-lg", placeholder: "Email Address" %>
           </div>
-    
+
           <div class="form-group">
             <%= f.label :password, class: "text-secondary" %><br />
             <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Password" %>
           </div>
-    
+
           <div class="row">
             <% if devise_mapping.rememberable? %>
                 <div class="col justify-content-center">
@@ -40,6 +40,10 @@
   					  <h3><%= link_to "Register", new_user_registration_path, :class => "btn btn-lg btn-outline-secondary btn-block mb-2" %></h3>
   					</div>
   				</div>
+          <div class="row">
+            <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: 'btn' %>
+            <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: 'btn' %>
+          </div>
 
         <% end %>
         </fieldset>

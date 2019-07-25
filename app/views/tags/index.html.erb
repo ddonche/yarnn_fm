@@ -1,29 +1,19 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
+<div id="other_background_nocenter">
 
   <%= render 'shared/alert' %>
   
-	<h2 style="text-align:center; margin-top: 1rem;">Explore Genres</h2>
-	<%= render 'shared/genres' %>
-	
-	<h2 style="text-align:center">Most Active Genres</h2>
-	<div id="albums" class="cf">
-		<div class="wrapper">
-			<ul class="cf">
-				<% @tags.each do |tag| %>
-						<li>
-							<div class="album_overview">
-								<h2><%= link_to tag.name, tag_path(tag.name) %> </h2>
-								<p class="track_count"><%= pluralize(tag.taggings_count, 'Total Item') %></p>
-							</div>
-						</li>
-				<% end %>
-			</ul>
-	
-			<%= will_paginate @tags, previous_label: "Previous", next_label: "Next" %>
-		</div>
-	</div>
-	
-</div>
+    <section>
+	  <div class="container mb-3">
+	    
+	    <div class="row mx-auto">
+            <div class="col-12">
+	            <div class="bg-dark px-3 my-3 pt-3 pb-2 text-correct trans-bg rounded">
+				      <div class="row p-2">
+						<%= render 'tags/tag_cards' %>
+							
+				      </div>
+	        	</div>
+	        </div>
+	    </div>
+	</section>
+</div>	

@@ -51,10 +51,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-.captcha iframe {
-  width: 100%;
-}
-
 a {
   text-decoration: none;
   color: #dc2020;
@@ -466,13 +462,13 @@ trix-toolbar .trix-button-group button {
     overflow-x: hidden;
   }
   
-.home-header {
-  font-size: 3em;
-  font-family: 'Teko', sans-serif;
-  line-height: 1em;
-  color: #fff;
-}
-  
+  .home-header {
+    font-size: 3em;
+    font-family: 'Teko', sans-serif;
+    line-height: 1em;
+    color: #fff;
+  }
+    
   .full-form-container {
     width: 85%;
   }
@@ -480,4 +476,9 @@ trix-toolbar .trix-button-group button {
   .wide-form-container {
     width: 90%;
   }
-} 
+    
+  .g-recaptcha {
+      transform: scale(0.75);
+      transform-origin: 0 0;
+  }
+}

@@ -1,7 +1,7 @@
 <% if @feed_items.any? %>
     <% @feed_items.each do |item| %>
       <% if lookup_context.template_exists?(item.eventable_type, "dashboards/types", true) %>
-        <div class="row p-2">
+        <div class="row py-4 px-3">
           <div class="col-3 col-md-2">
             <% if item.user.image? %>
               <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, title: item.user.username %>

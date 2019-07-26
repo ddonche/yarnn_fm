@@ -96,11 +96,15 @@
                     			<div class="col-6">
                     				<% if @track.album_id? %>
 										<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id), class: "site-red" %>
+								    <% else %>
+								        <b><i>Album:</i></b> <span class="site-red">none</span>
 									<% end %>	
                     			</div>
                     			<div class="col-6">
                     				<% if @track.vocals? %>
 										<b><i>Voiced by:</i></b> <%= @track.vocals %>
+									<% else %>
+									    <b><i>Voiced by:</i></b> unlisted
 									<% end %>
                     			</div>
                     		</div>

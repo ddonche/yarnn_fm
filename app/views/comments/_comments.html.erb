@@ -3,9 +3,11 @@
   <div class="row p-2">
     
     <div class="col-2">
-    	<%= link_to user_path(comment.user) do
-	     	image_tag(comment.user.image.url, width: 40)
-	  	end %>
+	  	<% if comment.user.image? %>
+				<%= image_tag comment.user.image.url(:thumb), width: 40 %>
+			<% else %>
+				<%= image_tag('default_track.jpg', style: "width: 40px") %>
+			<% end %>	
     </div>
     
     <div class="col-10">

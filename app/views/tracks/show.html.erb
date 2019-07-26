@@ -1,3 +1,5 @@
+<div id="other_background_nocenter" style="overflow-y: auto;">
+<%= render 'shared/alert' %>
 <title><%= @track.title %> | 
     <% if @track.pseudonym_id? %>
   	  <%= @track.pseudonym.name %>
@@ -33,7 +35,7 @@
     <div class="container-fluid mb-4">
         <div class="row">
             <div class="col-md-4 col-sm-6 ">
-                <div class="bg-white px-3 mt-md-3 mt-1 mb-md-3 mb-0 text-muted crown-border container-shadow">
+                <div class="bg-white px-3 mt-md-3 mt-1 mb-md-3 mb-0 text-muted crown-border rounded">
                 	<div class="row py-2 mb-3 bg-light border-bottom">
                         <div class="col-12">
                             <h3 class="site-red text-center text-lg-left"><%= @track.title %>
@@ -87,7 +89,7 @@
                 </div>
             </div>
             <div class="col-md-8 col-sm-6">
-                <div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border container-shadow">
+                <div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border rounded">
                     <div class="row py-2 bg-light border-bottom">
                     	<div class="col-6 small">
                     		<div class="row">
@@ -110,13 +112,11 @@
                     	</div>
                     	<div class="col-4 text-right">
                     		<% @track.tag_list.map.each do |tag| %>
-							    <span class="badge badge-info p-2 site-link-white"><%= link_to tag, tag_path(tag) %></span></h6>
+							    <span class="tags"><%= link_to tag, tag_path(tag) %></span>
 							<% end %>
                     	</div>
                     </div>
-                </div>
-                <% if @track.listing_id? %>
-            	<div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border container-shadow">
+                    <% if @track.listing_id? %>
                     <div class="row py-2 bg-light border-bottom">
                     	
                     	<div class="col-4">
@@ -148,20 +148,27 @@
 							<% end %>
                     	</div>
                     </div>
-                </div>
+                
                 <% end %>
+                </div>
+                
 				<div class="row">
                     <div class="col-12">
                         <div>
-                            <div class="bg-white px-2 pt-2 m-2 text-muted crown-border container-shadow">
-                                <% if user_signed_in? %>
-					              <%= render "comments/form" %>
-					            <% else %>
-					              <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
-					            <% end %>
-					            <%= render 'comments/comments', :commentable => @track %>
-                              
+                            <div class="blog_wrapper rounded crown-border">
+                		      <div class="row p-4">
+                		        <div class="col-12 mb-2">
+                  		        <% if user_signed_in? %>
+                                <%= render "comments/form" %>
+                              <% else %>
+                                <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
+                              <% end %>
                             </div>
+                            <div class="col-12">
+                              <%= render 'comments/comments', :commentable => @track %>
+                            </div>
+                          </div>
+                        </div>
                         </div>
                     </div>
           
@@ -172,6 +179,8 @@
     </div>
 <%= render 'track_play' %>
 </section>
+</div>
+
 
 <script>
   $('.star-rating').raty({

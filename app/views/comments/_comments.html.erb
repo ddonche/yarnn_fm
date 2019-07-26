@@ -1,17 +1,17 @@
-<h2>Comments</h2>
+<h3 class="site-blue">Comments</h3>
 <% @comments.each do |comment| %>
-  <div class="comment_box">
+  <div class="row p-2">
     
-    <div class="comment_user_image">
+    <div class="col-2">
     	<%= link_to user_path(comment.user) do
 	     	image_tag(comment.user.image.url, width: 40)
 	  	end %>
     </div>
     
-    <div class="comment_content">
-      <%= link_to comment.user.username, user_path(comment.user) %> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> <br />
+    <div class="col-10">
+      <small><strong><%= link_to comment.user.username, user_path(comment.user) %></strong> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> </small><br />
       <%= simple_format(comment.content) %>
     </div>
-    
+    <div class="grayline mx-auto" style="width: 94%;"></div>
   </div>
 <% end %>

@@ -6,7 +6,18 @@
       <div class="col-11">
         <fieldset>
         <%= image_tag("yarnn-icon.png", size: "96x72") %>
-
+          <div class="row mt-3">
+            <div class="col-6">
+              <%= link_to user_facebook_omniauth_authorize_path do %>
+          	  	<%= image_tag 'fb-login.jpg', width: 220, alt: 'Login with Facebook' %>
+          	  <% end %>
+            </div>
+            <div class="col-6">
+              <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+          	  	<%= image_tag 'google-login.jpg', width: 220, alt: 'Login with Facebook' %>
+          	  <% end %>
+            </div>
+          </div>
 				<hr class="colorgraph">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
@@ -40,10 +51,6 @@
   					  <h3><%= link_to "Register", new_user_registration_path, :class => "btn btn-lg btn-outline-secondary btn-block mb-2" %></h3>
   					</div>
   				</div>
-          <div class="row">
-            <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: 'btn' %>
-            <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: 'btn' %>
-          </div>
 
         <% end %>
         </fieldset>

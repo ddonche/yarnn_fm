@@ -78,6 +78,7 @@ Rails.application.routes.draw do
   get 'nature_ipsum', to: 'ipsums#nature'
   get 'modern_ipsum', to: 'ipsums#modern'
   get 'scifi_ipsum', to: 'ipsums#scifi'
+  get 'western_ipsum', to: 'ipsums#western'
   get 'names_gen', to: 'ipsums#names'
   
   match "/404", :to => "errors#not_found", :via => :all

@@ -15,9 +15,9 @@
 								    	<% end %>
 								        <% if @user.image? %>
 								        	
-								        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top", title: @user.username) %>
+								        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top p-3", title: @user.username) %>
 								        <% else %>
-								        	<%= image_tag('default_track.jpg', class: "card-img-top", title: @user.username) %>
+								        	<%= image_tag('default_track.jpg', class: "card-img-top p-3", title: @user.username) %>
 								        <% end %>
 							    	</div>
 							  
@@ -25,7 +25,7 @@
 							    <h4 class="site-blue"><%= @user.username %></h4>
 							    <p class="card-text">
 							    	<% if @user.bio? %>
-							    		<small><%= @user.bio %></small>
+							    		<small><%= simple_format(@user.bio) %></small>
 							    	<% else %>
 							    		<small>This user has not added a bio yet.</small>
 							    	<% end %>
@@ -137,7 +137,7 @@
 							<% if @user.tracks.any? %>
 								<%= render 'users/tracks' %>
 							<% else %>
-								<p>This user hasn't uploaded any tracks yet.</p>
+								<p><%= @user.username %> hasn't uploaded any tracks yet.</p>
 							<% end %>           
 				          </div>
 				          <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
@@ -149,7 +149,7 @@
 							<% if @user.albums.any? %>
 								<%= render 'users/albums' %>
 							<% else %>
-								<p>This user hasn't created any albums yet.</p>
+								<p><%= @user.username %> hasn't created any albums yet.</p>
 							<% end %>              
 				          </div>
 				          <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
@@ -161,7 +161,7 @@
 							<% if @user.listings.any? %>
 								<%= render 'users/listings' %>
 							<% else %>
-								<p>This user isn't currently selling anything in the marketplace.</p>
+								<p><%= @user.username %> isn't currently selling anything in the marketplace.</p>
 							<% end %>                
 				          </div>
 				          <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
@@ -173,7 +173,7 @@
 							<% if @user.blogs.any? %>
 								<%= render 'users/blogs' %>
 							<% else %>
-								<p>This user hasn't written any blog posts yet.</p>
+								<p><%= @user.username %> hasn't written any blog posts yet.</p>
 							<% end %>               
 				          </div>
 				          <div class="tab-pane fade p-3" id="five" role="tabpanel" aria-labelledby="five-tab">
@@ -185,7 +185,7 @@
 							<% if @user.topics.any? %>
 								<%= render 'users/topics' %>
 							<% else %>
-								<p>This user hasn't created any topics yet.</p>
+								<p><%= @user.username %> hasn't created any topics yet.</p>
 							<% end %>               
 				          </div>
 				          <div class="tab-pane fade p-3" id="six" role="tabpanel" aria-labelledby="six-tab">
@@ -197,7 +197,7 @@
 							<% if @user.reviews.any? %>
 								<%= render 'users/reviews' %>
 							<% else %>
-								<p>This user hasn't written any reviews yet.</p>
+								<p><%= @user.username %> hasn't written any reviews yet.</p>
 							<% end %>               
 				          </div>
 				

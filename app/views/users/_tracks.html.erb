@@ -1,6 +1,6 @@
 <div class="row">
 	<% @tracks.each do |track| %>
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-6 col-md-6 mb-4">
             <div class="card h-100">
                 <%= link_to track do %>
 					<%= image_tag track.image.url(:thumb), title: track.title, class: "image-full rounded" %>

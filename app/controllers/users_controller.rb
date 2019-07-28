@@ -10,23 +10,14 @@ class UsersController < ApplicationController
   def show
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @page_title = @user.username
-    @tracks = @user.tracks.order('created_at DESC').page(params[:page]).per(24)
+    @tracks = @user.tracks.order('created_at DESC').page(params[:page]).per(4)
+    @albums = @user.albums.order('created_at DESC').page(params[:page]).per(6)
+    @listings = @user.listings.order('created_at DESC').page(params[:page]).per(6)
+    @blogs = @user.blogs.order('created_at DESC').page(params[:page]).per(4)
+    @topics = @user.topics.order('created_at DESC').page(params[:page]).per(4)
+    @reviews = @user.reviews.order('created_at DESC').page(params[:page]).per(4)
     @users = @user.followers.limit(20)
     @followed_users = @user.following.limit(20)
-  end
-  
-  def albums 
-    @pseudonyms = @user.pseudonyms.order('created_at DESC')
-    @users = @user.followers
-    @followed_users = @user.following
-    @albums = @user.albums.page(params[:page]).per(24)
-  end
-  
-  def blogs 
-    @pseudonyms = @user.pseudonyms.order('created_at DESC')
-    @users = @user.followers
-    @followed_users = @user.following
-    @blogs = @user.blogs.page(params[:page]).per(24)
   end
   
   def favorites
@@ -46,14 +37,6 @@ class UsersController < ApplicationController
     @title = "Following"
     @users = @user.following
     render 'show_follow'
-  end
-  
-  def listings 
-    @pseudonyms = @user.pseudonyms.order('created_at DESC')
-    @pseudonym = Pseudonym.find_by(params[:pseudo_id])
-    @users = @user.followers
-    @followed_users = @user.following
-    @listings = @user.listings.page(params[:page]).per(24)
   end
   
   def payout

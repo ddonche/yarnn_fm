@@ -6,7 +6,7 @@
 	
 		    <div class="row mt-3">
 		    	<div class="col-xl-3 rounded">
-		    		<div class="row">
+		    		<div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card">
 								    <div class="ribbon_box">
@@ -51,7 +51,7 @@
 			    			
 					    </div>
 		    		</div>
-		    		<div class="row mt-3">
+		    		<div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card">
 							  <div class="card-body">
@@ -103,9 +103,33 @@
 		    	</div><!-- end left column -->
 		    	
 		    	<div class="col-xl-6">
-		    		<div class="card">
-						<div class="card-body">
-							<div class="row">
+		    		<div class="card mb-2 tab-card">
+				        <div class="card-header tab-card-header">
+				          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+				            <li class="nav-item">
+				                <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"><i class="fas fa-headphones site-blue mr-2" title="tracks"></i></a>
+				            </li>
+				            <li class="nav-item">
+				                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><i class="fas fa-compact-disc site-blue mr-2" title="albums"></i></a>
+				            </li>
+				            <li class="nav-item">
+				                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i></a>
+				            </li>
+				            <li class="nav-item">
+				                <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false"><i class="fas fa-pen-nib site-blue mr-2" title="blog posts"></i></a>
+				            </li>
+				            <li class="nav-item">
+				                <a class="nav-link" id="five-tab" data-toggle="tab" href="#five" role="tab" aria-controls="Five" aria-selected="false"><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i></a>
+				            </li>
+				            <li class="nav-item">
+				                <a class="nav-link" id="six-tab" data-toggle="tab" href="#six" role="tab" aria-controls="Six" aria-selected="false"><i class="fas fa-highlighter site-blue mr-2" title="reviews"></i></a>
+				            </li>
+				          </ul>
+				        </div>
+				
+				        <div class="tab-content" id="myTabContent">
+				          <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+				            <div class="row">
 								<div class="col-12">
 									<h4 class="card-title site-blue">Tracks</h4>
 								</div>
@@ -114,57 +138,103 @@
 								<%= render 'users/tracks' %>
 							<% else %>
 								<p>This user hasn't uploaded any tracks yet.</p>
-							<% end %>
-						</div>
-					</div>
+							<% end %>           
+				          </div>
+				          <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Albums</h4>
+								</div>
+							</div>
+							<% if @user.albums.any? %>
+								<%= render 'users/albums' %>
+							<% else %>
+								<p>This user hasn't created any albums yet.</p>
+							<% end %>              
+				          </div>
+				          <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Listings</h4>
+								</div>
+							</div>
+							<% if @user.listings.any? %>
+								<%= render 'users/listings' %>
+							<% else %>
+								<p>This user isn't currently selling anything in the marketplace.</p>
+							<% end %>                
+				          </div>
+				          <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Blog Posts</h4>
+								</div>
+							</div>
+							<% if @user.blogs.any? %>
+								<%= render 'users/blogs' %>
+							<% else %>
+								<p>This user hasn't written any blog posts yet.</p>
+							<% end %>               
+				          </div>
+				          <div class="tab-pane fade p-3" id="five" role="tabpanel" aria-labelledby="five-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Topics</h4>
+								</div>
+							</div>
+							<% if @user.topics.any? %>
+								<%= render 'users/topics' %>
+							<% else %>
+								<p>This user hasn't created any topics yet.</p>
+							<% end %>               
+				          </div>
+				          <div class="tab-pane fade p-3" id="six" role="tabpanel" aria-labelledby="six-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Reviews</h4>
+								</div>
+							</div>
+							<% if @user.reviews.any? %>
+								<%= render 'users/reviews' %>
+							<% else %>
+								<p>This user hasn't written any reviews yet.</p>
+							<% end %>               
+				          </div>
+				
+				        </div>
+				      </div><!-- end card -->
 		    	</div><!-- end middle column -->
 		    	
 		    	<div class="col-xl-3">
-		    		<div class="card">
+		    		<div class="card mb-2">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-12">
-									<h4 class="card-title float-left site-blue">Following</h4> <small class="float-right">view all</small>
+									<h4 class="card-title float-left site-blue">Following</h4> <small class="float-right"><a href="#">view all</a></small>
 								</div>
 							</div>
-							    <% if @followed_users.any? %>
-									<div class="row">
-										<div class="col-12 d-flex justify-content-between align-items-center">
-											<% @followed_users.each do |followed_user| %>
-								      			<%= link_to followed_user do %>
-											        <% if followed_user.image? %>
-											          <%= image_tag(followed_user.image.url(:thumb), width: 30, class: "rounded", title: followed_user.username) %>
-											        <% else %>
-											          <%= image_tag 'default_track.jpg', width: 30, class: "rounded", title: followed_user.username %> 
-											        <% end %>
-								      			<% end %>
-											<% end %>
-								   		</div>
-									</div>
-								<% end %>
-							<hr>
-							<div class="row">
-								<div class="col-12">
-									<h4 class="card-title float-left site-blue">Followers</h4> <small class="float-right">view all</small>
+						    
+						    <% if @followed_users.any? %>
+								<div class="row">
+									<div class="col-12 d-flex justify-content-between align-items-center">
+										<% @followed_users.each do |followed_user| %>
+							      			<%= link_to followed_user do %>
+										        <% if followed_user.image? %>
+										          <%= image_tag(followed_user.image.url(:thumb), width: 30, class: "rounded", title: followed_user.username) %>
+										        <% else %>
+										          <%= image_tag 'default_track.jpg', width: 30, class: "rounded", title: followed_user.username %> 
+										        <% end %>
+							      			<% end %>
+										<% end %>
+							   		</div>
 								</div>
-							</div>
-							    <% if @users.any? %>
-									<div class="row">
-										<div class="col-12 d-flex justify-content-between align-items-center">
-											<% @users.each do |user| %>
-								      			<%= link_to user do %>
-											        <% if user.image? %>
-											          <%= image_tag(user.image.url(:thumb), width: 30, class: "rounded", title: user.username) %>
-											        <% else %>
-											          <%= image_tag 'default_track.jpg', width: 30, class: "rounded", title: user.username %> 
-											        <% end %>
-								      			<% end %>
-											<% end %>
-								   		</div>
-									</div>
-								<% end %>	
-							</div>
+							<% else %>
+							<small><%= @user.username %> isn't following anybody yet.</small>
+							<% end %>
+							
 						</div>
+					</div><!-- end card -->
+
 		    	</div><!-- end right column -->
 		    </div><!-- end row -->
 		    

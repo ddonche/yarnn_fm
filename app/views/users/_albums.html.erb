@@ -1,0 +1,39 @@
+<div class="row">
+	<% @albums.each do |album| %>
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100">
+                <div class="ribbon_box">
+              		<% if album.serial == "serial" %>
+                		<div class="ribbon"><span>SERIAL</span></div>
+              		<% end %>
+            		<%= link_to album do %>
+					    <%= image_tag album.image.url(:thumb), title: album.title, class: "image-full card-img-top" %>
+				    <% end %>
+            	</div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= link_to truncate(album.title, length: 24, separator: ' ', class: "site-red"), album_path(album) %></h5>
+                    </h5>
+                	<div class="row small">
+						<div class="col-12">
+                			
+                        	<i class="fas fa-calendar site-blue"></i>
+                        	<% if album.year? %>
+                			    <span class="ml-1"></span><%= album.year %>
+                			<% else %>
+                			    <span class="ml-1"></span>unknown
+                			<% end %>
+						</div>
+                	</div>
+                </div>
+                <div class="card-footer">
+                    <small><i class="fas fa-headphones site-blue mr-2"></i>
+                        <%= pluralize( album.tracks.count, 'Track' ) %>
+                    </small>
+                </div>
+            </div>
+        </div>  
+    <% end %>
+        
+</div>
+<%= paginate @albums %>

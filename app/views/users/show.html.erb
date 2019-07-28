@@ -1,95 +1,173 @@
-<title><%= @user.username %> | Yarnn.FM
-</title>
-<div id="other_background_nocenter" style="overflow-y: auto;">
-<%= render 'shared/alert' %>
-
-	<section>
-	  <div class="container">
-	    
-	    <div class="row mx-auto">
-            <div class="col-12">
-	            <div class="bg-dark px-3 my-3 pb-5 text-correct trans-bg-3 rounded">
-	        		<div class="row pt-3 rounded">
-		                <div class="col-4">
-		                	<div class="ribbon_box">
-						      <% if @user.publisher_type == "publisher" %>
-						        <div class="ribbon"><span>PUBLISHER</span></div>
-						      <% end %>
-						        <% if @user.image? %>
-						          <%= image_tag(@user.image.url(:thumb), class: "image-full", title: @user.username) %>
-						        <% else %>
-						          <%= image_tag('default_track.jpg', class: "image-full", title: @user.username) %>
-						        <% end %>
-						    </div>
-						    
-		                    <% if @pseudonyms.any? %>
-		                  		<%= render 'pseudonyms' %>
-		                	<% end %>
-		                	<%= render 'followers' %>
-		                	<%= render 'following' %>
-		                </div>
-		                
-		                <div class="col-8">
-		                	<div class="row">
-		                		<div class="col-8">
-		                			<h2><%= @user.name %> | @<%= @user.username %></h2>
-		                		</div>
-		                		<div class="col-4">
-		                			<span class="float-right"><%= render 'users/follow_form' if user_signed_in? %></span>
-		                		</div>
-		                	</div>
-		                	
-		                	<div class="row">
-		                		<div class="col-4">
-			                		<% if @user.website? %>
-								      <i class="fas fa-globe site-blue" title="website"></i> <%= link_to @user.website, @user.website %><br><br>
-								    <% end %>
-		                		</div>
-							    <div class="col-8">
-							    	
+<title><%= @user.username %> | Yarnn.FM</title>
+<body style="background-color: #e4e0e0;">
+ 	<!-- Page Content -->
+ 	<section class="section-content bg padding-y-sm">
+		<div class="container">
+	
+		    <div class="row mt-3">
+		    	<div class="col-xl-3 rounded">
+		    		<div class="row">
+		    			<div class="col-12">
+		    				<div class="card">
+								    <div class="ribbon_box">
+								    	<% if @user.publisher_type == "publisher" %>
+								        	<div class="ribbon"><span>PUBLISHER</span></div>
+								    	<% end %>
+								        <% if @user.image? %>
+								        	
+								        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top", title: @user.username) %>
+								        <% else %>
+								        	<%= image_tag('default_track.jpg', class: "card-img-top", title: @user.username) %>
+								        <% end %>
+							    	</div>
+							  
+							  <div class="card-body">
+							    <h4 class="site-blue"><%= @user.username %></h4>
+							    <p class="card-text">
+							    	<% if @user.bio? %>
+							    		<small><%= @user.bio %></small>
+							    	<% else %>
+							    		<small>This user has not added a bio yet.</small>
+							    	<% end %>
+							    </p>
+							    <div class="row mb-2">
+							    	<div class="col-6 border-right text-center text-muted">
+							    		<small class="mb-1">Followers</small><br />
+							    		<b><%= @user.followers.count %></b>
+							    	</div>
+							    	<div class="col-6 text-center text-muted">
+							    		<small class="mb-1">Following</small><br/>
+							    		<b><%= @user.following.count %></b>
+							    	</div>
 							    </div>
-							    <div class="col-12">
-								    <% if @user.bio? %>
-			                  			<%= @user.bio %>
-			                		<% end %>
-		                		</div>
-		                		<div class="grayline mx-auto my-3" style="width: 94%;"></div>
-		                	</div>
-		                	<div class="row">
-							<ul class="nav justify-content-center nav-text-tiny text-uppercase">
-							  <li class="nav-item site-blue nav-link">
-							    <i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @user.tracks.count %>)
-							  </li>
-							  <li class="nav-item site-blue nav-link">
-							    <i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @user.albums.count %>)
-							  </li>
-							  <li class="nav-item site-blue nav-link">
-							    <i class="fas fa-pen-nib site-blue" title="blog posts"></i> Blog Posts (<%= @user.blogs.count %>)
-							  </li>
-							  <li class="nav-item site-blue nav-link">
-							    <i class="fas fa-comment-alt site-blue" title="topics"></i> Topics (<%= @user.topics.count %>)
-							  </li>
-							  <li class="nav-item site-blue nav-link">
-							    <i class="fas fa-shopping-cart site-blue" title="listings"></i> Listings (<%= @user.listings.count %>)
-							  </li>
-							  <li class="nav-item site-blue nav-link">
-							    <i class="fas fa-user-astronaut site-blue"></i> Followers (<%= @user.followers.count %>)
-							  </li>
-							  <li class="nav-item site-blue nav-link">
-							    <i class="fas fa-heart site-blue"></i> Favorited (<%= @user.favorited_count %>)
-							  </li>
-							</ul>
-		          			</div>
-		                </div>
-		                
-	          		</div>
-	        	</div>
-	      	</div>
-	    </div>
-	    <% if @user.tracks.any? %>
-	    	<%= render 'users/audio' %>
-	  	<% end %>
-	  </div>
+							    <div class="row mt-3">
+							    	<div class="col-12 text-center">
+							    		<%= render 'users/follow_form' if user_signed_in? %>
+							    	</div>
+							    </div>
+							    
+							  </div>
+							</div>
+			    			
+					    </div>
+		    		</div>
+		    		<div class="row mt-3">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							    <h4 class="card-title site-blue">About</h4>
+							    <h6 class="card-subtitle mb-2 text-muted"><%= @user.name %></h6>
+							    <% if @user.website? %>
+									<small><i class="fas fa-globe site-blue" title="website"></i> <%= link_to @user.website, @user.website %></small>
+								<% end %>
+							  </div>
+									<ul class="list-group list-group-flush">
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-headphones site-blue mr-2" title="tracks"></i> Tracks</small>
+									    <span class="badge site-blue badge-pill"><%= @user.tracks.count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-compact-disc site-blue mr-2" title="albums"></i> Albums</small>
+									    <span class="badge site-blue badge-pill"><%= @user.albums.count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i> Listings</small>
+									    <span class="badge site-blue badge-pill"><%= @user.listings.count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-user-astronaut site-blue mr-2"></i> Followers</small>
+									    <span class="badge site-blue badge-pill"><%= @user.followers.count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-broadcast-tower site-blue mr-2"></i> Stations</small>
+									    <span class="badge site-blue badge-pill"><%= @user.favorites.count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-pen-nib site-blue mr-2" title="blog posts"></i> Blog Posts</small>
+									    <span class="badge site-blue badge-pill"><%= @user.blogs.count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i> Topics</small>
+									    <span class="badge site-blue badge-pill"><%= @user.topics.count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-highlighter site-blue mr-2" title="reviews"></i> Reviews</small>
+									    <span class="badge site-blue badge-pill"><%= @user.reviews.count %></span>
+									  </li>
+									</ul>
+	
+							  
+							</div>
+		    			</div>
+		    		</div>
+		    	</div><!-- end left column -->
+		    	
+		    	<div class="col-xl-6">
+		    		<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Tracks</h4>
+								</div>
+							</div>
+							<% if @user.tracks.any? %>
+								<%= render 'users/tracks' %>
+							<% else %>
+								<p>This user hasn't uploaded any tracks yet.</p>
+							<% end %>
+						</div>
+					</div>
+		    	</div><!-- end middle column -->
+		    	
+		    	<div class="col-xl-3">
+		    		<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-12">
+									<h4 class="card-title float-left site-blue">Following</h4> <small class="float-right">view all</small>
+								</div>
+							</div>
+							    <% if @followed_users.any? %>
+									<div class="row">
+										<div class="col-12 d-flex justify-content-between align-items-center">
+											<% @followed_users.each do |followed_user| %>
+								      			<%= link_to followed_user do %>
+											        <% if followed_user.image? %>
+											          <%= image_tag(followed_user.image.url(:thumb), width: 30, class: "rounded", title: followed_user.username) %>
+											        <% else %>
+											          <%= image_tag 'default_track.jpg', width: 30, class: "rounded", title: followed_user.username %> 
+											        <% end %>
+								      			<% end %>
+											<% end %>
+								   		</div>
+									</div>
+								<% end %>
+							<hr>
+							<div class="row">
+								<div class="col-12">
+									<h4 class="card-title float-left site-blue">Followers</h4> <small class="float-right">view all</small>
+								</div>
+							</div>
+							    <% if @users.any? %>
+									<div class="row">
+										<div class="col-12 d-flex justify-content-between align-items-center">
+											<% @users.each do |user| %>
+								      			<%= link_to user do %>
+											        <% if user.image? %>
+											          <%= image_tag(user.image.url(:thumb), width: 30, class: "rounded", title: user.username) %>
+											        <% else %>
+											          <%= image_tag 'default_track.jpg', width: 30, class: "rounded", title: user.username %> 
+											        <% end %>
+								      			<% end %>
+											<% end %>
+								   		</div>
+									</div>
+								<% end %>	
+							</div>
+						</div>
+		    	</div><!-- end right column -->
+		    </div><!-- end row -->
+		    
+		</div><!-- end container -->
 	</section>
-
-</div>
+    

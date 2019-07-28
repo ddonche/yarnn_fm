@@ -2,32 +2,32 @@
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content bg padding-y-sm">
-<div class="container">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb mt-3">
-	  <% @listing.tag_list.map.each do |tag| %>
-	  	<div class="btn btn-outline-danger btn-sm mr-3">
-		  <%= link_to tag, tag_path(tag) %>
-		</div>
-	  <% end %>
-  </ol>
-</nav>
-<div class="row">
-<div class="col-xl-9 col-md-8 col-sm-12">
+	<div class="container">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb mt-3">
+			  <% @listing.tag_list.map.each do |tag| %>
+			  	<div class="btn btn-outline-danger btn-sm mr-3">
+				  <%= link_to tag, tag_path(tag) %>
+				</div>
+			  <% end %>
+		  </ol>
+		</nav>
+		<div class="row">
+			<div class="col-xl-9 col-md-8 col-sm-12">
 
 
 <main class="card">
 	<div class="row no-gutters">
 		<aside class="col-sm-4 border-right">
-<article class="gallery-wrap"> 
-<div class="img-big-wrap p-4">
-  <%= image_tag(@listing.image.url, class: "image-full rounded", title: @listing.title) %>
-</div> <!-- slider-product.// -->
+			<article class="gallery-wrap"> 
+				<div class="img-big-wrap p-4">
+  					<%= image_tag(@listing.image.url, class: "image-full rounded", title: @listing.title) %>
+				</div> <!-- slider-product.// -->
 
-</article> <!-- gallery-wrap .end// -->
+			</article> <!-- gallery-wrap .end// -->
 		</aside>
 		<aside class="col-sm-8">
-<article class="card-body">
+			<article class="card-body">
 <!-- short-info-wrap -->
 	<h2 class="title mb-1"><%= @listing.title %></h2>
 	<% if @listing.user == current_user %>

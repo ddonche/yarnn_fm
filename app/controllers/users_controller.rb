@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @page_title = @user.username
     @tracks = @user.tracks.order('created_at DESC').page(params[:page]).per(24)
-    @users = @user.followers
-    @followed_users = @user.following
+    @users = @user.followers.limit(20)
+    @followed_users = @user.following.limit(20)
   end
   
   def albums 

@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
   end
 
   def purchases
-     @transactions = Transaction.all.where(buyer: current_user).order("created_at DESC")
+     @transactions = Transaction.all.where(buyer: current_user).order("created_at DESC").page(params[:page]).per(24)
      @pseudo = Pseudonym.find_by(params[:pseudo_id])
   end
 

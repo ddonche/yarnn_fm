@@ -99,7 +99,7 @@
           <h2>Latest Topics</h2>
           <% if @topics.any? %>
             <%= render 'topics' %>
-            <%= will_paginate @topics, previous_label: "Previous", next_label: "Next" %>
+            <%= paginate @topics %>
           <% else %>
             <p>There are no topics in this genre.</p>
           <% end %>
@@ -241,7 +241,7 @@
 				<% end %>
 			</ul>
 
-			<%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
+			<%= paginate @tracks %>
       </div>
     </div>
       
@@ -282,7 +282,7 @@
   				<% end %>
   			</ul>
   	
-  			<%= will_paginate @listings, previous_label: "Previous", next_label: "Next" %>
+  			<%= paginate @listings %>
   		</div>
   	</div>
   </div>

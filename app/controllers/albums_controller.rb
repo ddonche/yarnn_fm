@@ -7,8 +7,8 @@ class AlbumsController < ApplicationController
     if params[:tag]
       @albums = Album.tagged_with(params[:tag])
     else
-      @albums = Album.joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
-      @serials = Album.where({ serial: "serial" }).joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+      @albums = Album.joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("created_at DESC").page(params[:page]).per(24)
+      @serials = Album.where({ serial: "serial" }).joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("created_at DESC").page(params[:page]).per(24)
     end
 	end
 
@@ -63,7 +63,7 @@ class AlbumsController < ApplicationController
 	private
 
 	def find_track
-		@tracks = Track.where(album_id: @album).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		@tracks = Track.where(album_id: @album).order("created_at DESC").page(params[:page]).per(10)
 	end
 
 	def find_album

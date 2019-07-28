@@ -4,7 +4,7 @@
 <section class="section-content bg padding-y-sm">
 <div class="container">
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb mt-2">
+  <ol class="breadcrumb mt-3">
 	  <% @listing.tag_list.map.each do |tag| %>
 	  	<div class="btn btn-outline-danger btn-sm mr-3">
 		  <%= link_to tag, tag_path(tag) %>
@@ -13,12 +13,12 @@
   </ol>
 </nav>
 <div class="row">
-<div class="col-xl-10 col-md-9 col-sm-12">
+<div class="col-xl-9 col-md-8 col-sm-12">
 
 
 <main class="card">
 	<div class="row no-gutters">
-		<aside class="col-sm-6 border-right">
+		<aside class="col-sm-4 border-right">
 <article class="gallery-wrap"> 
 <div class="img-big-wrap p-4">
   <%= image_tag(@listing.image.url, class: "image-full rounded", title: @listing.title) %>
@@ -26,10 +26,10 @@
 
 </article> <!-- gallery-wrap .end// -->
 		</aside>
-		<aside class="col-sm-6">
+		<aside class="col-sm-8">
 <article class="card-body">
 <!-- short-info-wrap -->
-	<h3 class="title mb-3"><%= @listing.title %></h3>
+	<h2 class="title mb-1"><%= @listing.title %></h2>
 	<% if @listing.user == current_user %>
 		<small>
 	        <%= link_to edit_listing_path(@listing) do %>
@@ -42,21 +42,22 @@
     <% end %>
     <% unless @listing.user == current_user %>
 		<% if @listing.pseudonym_id? %>
-			<%= @listing.pseudonym.name %> 
+			<%= @listing.pseudonym.name %> (@<%= @listing.user.username %>) 
 		<% else %>
-			<%= link_to @listing.user.name, user_path(@listing.user) %>
+			<%= link_to @listing.user.name, user_path(@listing.user) %> (@<%= @listing.user.username %>)
 		<% end %>
 	<% end %>
 
-<div class="mb-3"> 
-	<var class="price h3 site-blue"> 
+<div class="my-2"> 
+	<var class="price h4 site-blue"> 
 		<span class="currency">US <%= number_to_currency(@listing.price) %></span>
 	</var> 
 </div> <!-- price-detail-wrap .// -->
 <dl>
   <dt>Description</dt>
-  <dd><p><%= truncate(@listing.description, length: 140) %></p></dd>
+  <dd><p><%= truncate(@listing.description, length: 200) %></p></dd>
 </dl>
+<hr>
 <dl class="row">
   <dt class="col-sm-4">Format</dt>
   <dd class="col-sm-8"><%= @listing.filetype %></dd>
@@ -80,27 +81,33 @@
 <hr>
 	<div class="row">
 		<div class="col-12">
-			
-			<h4 class="mb-1"><i class="fas fa-headphones site-blue mr-2"></i>Associated Tracks</h4>
+			<h4 class="mb-1"><i class="fas fa-headphones site-blue mr-2 mb-3"></i>Associated Tracks (<%= @tracks_count %>)</h4>
 		</div>
-		
-				<% if @tracks.any? %>
-					<% @tracks.each do |track| %>
-						<div class="col-sm-7">
-							<h4>
-								<%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %> (explicit)<% end %>
-							</h4>
-						</div>
-						<div class="col-sm-5">
-							<i class="fas fa-broadcast-tower site-red" title="stations"></i>
-	      					<span class="ml-1 text-secondary">in <%= track.favorites.count %> stations</span>
-	      				</div>
-					<% end %>
-				<% else %>
-				<div class= "col-12">
-					<small>There are no associated tracks with this listing.</small>
-				</div>
-				<% end %>  <!-- item-property .// -->
+			<% if @tracks.any? %>
+			
+				<% @tracks.each do |track| %>
+					<div class="col-1">
+						<%= image_tag(track.image.url(:thumb), class: "rounded mb-1 ml-3", width: 30, title: track.title) %>
+					</div>
+					<div class="col-7">
+						<h5 class="ml-4">
+							<%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %> (explicit)<% end %>
+						</h5>
+					</div>
+					<div class="col-4">
+						<small>
+						<i class="fas fa-broadcast-tower site-red mr-1" title="stations"></i>
+      					in <%= track.favorites.count %> stations
+      					</small>
+      				</div>
+				<% end %>
+				<small style="float-right"><%= link_to_previous_page @tracks, '<< Previous' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to_next_page @tracks, 'Next >>' %></small>
+			
+			<% else %>
+			<div class= "col-12">
+				<small>There are no associated tracks with this listing.</small>
+			</div>
+			<% end %>  <!-- item-property .// -->
 		
 	</div> <!-- row.// -->
 	<hr>
@@ -157,15 +164,11 @@
 <!-- PRODUCT DETAIL .// -->
 
 </div> <!-- col // -->
-<aside class="col-xl-2 col-md-3 col-sm-12">
+<aside class="col-xl-3 col-md-4 col-sm-12">
 <div class="card">
 	<div class="card-header">
 		<h4 class="site-blue">
-		<% if @listing.pseudonym_id? %>
-			<%= @listing.pseudonym.name %> 
-		<% else %>
-			<%= link_to @listing.user.username, user_path(@listing.user) %>
-		<% end %>
+		@<%= link_to @listing.user.username, user_path(@listing.user) %>
 		</h4>
 	</div>
 	<div class="card-body small">
@@ -199,12 +202,12 @@
 	    <h5 class="site-blue">You May Like</h5>
 	</div>
 	<div class="card-body row">
-<div class="col-md-12 col-sm-3">
+<div class="col-md-12 col-sm-4">
 	<figure class="item border-bottom mb-3">
 			<h5 class="mb-1"><i class="fas fa-shopping-cart site-blue mr-2"></i><%= @random_listing.filetype %></h5>
 			<%= image_tag(@random_listing.image.url, class: "image-full rounded mb-2", title: @random_listing.title) %>
 			<figcaption class="info-wrap">
-				<h5 class="mb-0"><%= link_to @random_listing.title, listing_path(@random_listing) %></h5>
+				<h4 class="mb-0"><%= link_to @random_listing.title, listing_path(@random_listing) %></h4>
 				<small>
 				<% if @random_listing.pseudonym_id? %>
 					<%= link_to @random_listing.pseudonym.name, user_path(@random_listing.user) %> 
@@ -217,12 +220,12 @@
 			</figcaption>
 	</figure> <!-- card-product // -->
 </div> <!-- col.// -->
-<div class="col-md-12 col-sm-3">
+<div class="col-md-12 col-sm-4">
 <figure class="item border-bottom mb-3">
 	<h5 class="mb-1"><i class="fas fa-headphones site-blue mr-2"></i>Track</h5>
-		<%= image_tag(@random_track.image.url, class: "image-full rounded mb-2", title: @random_track.title) %>
+		<%= image_tag(@random_track.image.url(:thumb), class: "image-full rounded mb-2", title: @random_track.title) %>
 		<figcaption class="info-wrap">
-			<h5 class="mb-0"><%= link_to @random_track.title, track_path(@random_track) %><% if @random_track.explicit == "explicit" %> (explicit)<% end %></h5>
+			<h4 class="mb-0"><%= link_to @random_track.title, track_path(@random_track) %><% if @random_track.explicit == "explicit" %> (explicit)<% end %></h4>
 			<small>
 			<% if @random_track.pseudonym_id? %>
 				<%= link_to @random_track.pseudonym.name, user_path(@random_track.user) %> 
@@ -235,14 +238,14 @@
 		</figcaption>
 </figure> <!-- card-product // -->
 </div> <!-- col.// -->
-<div class="col-md-12 col-sm-3">
+<div class="col-md-12 col-sm-4">
 <figure class="item border-bottom mb-3">
-	<h5 class="mb-1"><i class="fas fa-compact-disc site-blue mr-2"></i>Album</h5>
+	<h4 class="mb-1"><i class="fas fa-compact-disc site-blue mr-2"></i>Album</h4>
 	<div class="ribbon_box">
   		<% if @random_album.serial == "serial" %>
     		<div class="ribbon"><span>SERIAL</span></div>
   		<% end %>
-		<%= image_tag(@random_album.image.url, class: "image-full rounded mb-2", title: @random_album.title) %>
+		<%= image_tag(@random_album.image.url(:thumb), class: "image-full rounded mb-2", title: @random_album.title) %>
 	</div>
 		
 		<figcaption class="info-wrap">

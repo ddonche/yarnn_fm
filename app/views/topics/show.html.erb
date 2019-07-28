@@ -22,7 +22,7 @@
             <h2 style="margin-bottom: .5rem">Latest Discussions</h2>
             <% if @topics.any? %>
               <%= render 'tags/topics' %>
-              <%= will_paginate @topics, previous_label: "Previous", next_label: "Next" %>
+              <%= paginate @topics %>
             <% else %>
               <p>There are no topics in this genre.</p>
             <% end %>

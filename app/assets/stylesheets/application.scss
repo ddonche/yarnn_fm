@@ -345,52 +345,6 @@ audio {
   color: #a2abb4;
 }
 
-.pagination-container {
-  width: 80%;
-  height: 40px;
-  margin: 0 auto;
-}
-
-.pagination a, .pagination span.current, .pagination span.gap {
-    text-align: center;
-    padding: 6px 9px;
-    margin: 0 5px;
-    font-size: .7em;
-    text-decoration: none;
-    border: 1px solid #dc0000;
-}
-
-.pagination {
-    span.current {
-      background-color: #dc0000;
-      color: white;
-    }
-    .first{
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .prev {
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .page{
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .next{
-        padding : 0;
-        float: none;
-        border: none;
-    }
-    .last{
-        padding : 0;
-        float: none;
-        border: none;
-    }
-}
 
 /* Tooltip container */
 .tooler {

@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
 
 	def index
 	  @pseudo = Pseudonym.find_by(params[:pseudo_id])
-    @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 24)
+    @blogs = Blog.all.order("created_at DESC").page(params[:page]).per(24)
 	end
 
 	def show

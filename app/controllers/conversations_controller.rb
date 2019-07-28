@@ -18,7 +18,7 @@ class ConversationsController < ApplicationController
   end
   
   def set_conversations
-    @conversations = Conversation.participating(current_user).order('updated_at DESC').paginate(:page => params[:page], :per_page => 24)
+    @conversations = Conversation.participating(current_user).order('updated_at DESC').page(params[:page]).per(24)
   end
 
   def check_participating!

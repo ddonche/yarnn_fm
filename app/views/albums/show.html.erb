@@ -163,7 +163,7 @@
               
             </div>
         </div>
-        <%= will_paginate @tracks, previous_label: "Previous", next_label: "Next" %>
+        <%= paginate @tracks %>
     </div>
     <% if @album.tracks.any? %>
 	   <%= render 'albums/audio' %>

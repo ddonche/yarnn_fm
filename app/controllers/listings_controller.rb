@@ -3,18 +3,19 @@ class ListingsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-    @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
+    @listings = Listing.all.order("created_at DESC").page(params[:page]).per(24)
 	end
 	
 	def genres
 	  @genre = request.path.split('/').last
     if params[:tag]
-      @listings = Listing.tagged_with(params[:tag]).order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
+      @listings = Listing.tagged_with(params[:tag]).order("created_at DESC").page(params[:page]).per(25)
     end
 	end
 
 	def show
-	  @tracks = Track.all.where(listing_id: @listing.id)
+	  @tracks = Track.all.where(listing_id: @listing.id).page(params[:page]).per(3)
+	  @tracks_count = Track.all.where(listing_id: @listing.id).count
     @reviews = @listing.reviews.order("created_at DESC")
     if user_signed_in?
       @user_review = Review.find_by(user_id: current_user.id, listing_id: @listing.id)
@@ -35,7 +36,7 @@ class ListingsController < ApplicationController
       @rand_avg_rating = @rand_reviews.average(:rating).round(2)
     end
     @random_track = Track.offset(rand(Track.count)).first
-    @random_album = Album.offset(rand(Album.count)).first
+    @random_album = Album.joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("RANDOM()").first
 	end
 	
 	def new

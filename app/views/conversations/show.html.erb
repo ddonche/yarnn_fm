@@ -30,7 +30,7 @@
 		      <div class="side-content">
 		        <h2>All Conversations</h2>
             <%= render @conversations %>
-            <%= will_paginate @conversations, previous_label: "Previous", next_label: "Next" %>
+            <%= paginate @conversations %>
           </div>
         </div>
 	    </div>

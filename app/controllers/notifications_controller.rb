@@ -1,7 +1,7 @@
 class NotificationsController < ApplicationController
 
   def index
-    @notifications = Notification.where({ read: false, recipient_id: current_user.id }).order('created_at DESC')
+    @notifications = Notification.where({ read: false, recipient_id: current_user.id }).order('created_at DESC').page(params[:page]).per(24)
   end
   
   def toggle_read

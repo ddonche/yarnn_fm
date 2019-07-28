@@ -3,14 +3,14 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:index, :payout, :payment, :add_card]
 
   def index
-    @users = User.order(created_at: :desc).paginate(:page => params[:page], :per_page => 24)
-    @popular_users = User.order('favorited_count DESC').paginate(:page => params[:page], :per_page => 24)
+    @users = User.order(created_at: :desc).page(params[:page]).per(24)
+    @popular_users = User.order('favorited_count DESC').page(params[:page]).per(24)
   end
   
   def show
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @page_title = @user.username
-    @tracks = @user.tracks.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
+    @tracks = @user.tracks.order('created_at DESC').page(params[:page]).per(24)
     @users = @user.followers
     @followed_users = @user.following
   end
@@ -19,21 +19,21 @@ class UsersController < ApplicationController
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers
     @followed_users = @user.following
-    @albums = @user.albums.paginate(:page => params[:page], :per_page => 24)
+    @albums = @user.albums.page(params[:page]).per(24)
   end
   
   def blogs 
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers
     @followed_users = @user.following
-    @blogs = @user.blogs.paginate(:page => params[:page], :per_page => 24)
+    @blogs = @user.blogs.page(params[:page]).per(24)
   end
   
   def favorites
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @users = @user.followers
     @followed_users = @user.following
-    @favorite_items = @user.favorite_tracks.paginate(:page => params[:page], :per_page => 24)
+    @favorite_items = @user.favorite_tracks.page(params[:page]).per(24)
   end
   
   def followers
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     @pseudonym = Pseudonym.find_by(params[:pseudo_id])
     @users = @user.followers
     @followed_users = @user.following
-    @listings = @user.listings.paginate(:page => params[:page], :per_page => 24)
+    @listings = @user.listings.page(params[:page]).per(24)
   end
   
   def payout

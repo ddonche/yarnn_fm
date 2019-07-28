@@ -27,6 +27,15 @@ class ListingsController < ApplicationController
     end
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
     @transaction = Transaction.new
+    @random_listing = Listing.offset(rand(Listing.count)).first
+    @rand_reviews = @random_listing.reviews.order("created_at DESC")
+    if @rand_reviews.empty?
+      @rand_avg_rating = 0
+    else
+      @rand_avg_rating = @rand_reviews.average(:rating).round(2)
+    end
+    @random_track = Track.offset(rand(Track.count)).first
+    @random_album = Album.offset(rand(Album.count)).first
 	end
 	
 	def new

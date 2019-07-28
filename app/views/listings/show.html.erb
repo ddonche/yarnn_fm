@@ -1,121 +1,281 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  <%= render 'shared/alert' %>
-	<div id="breadcrumb">
-	  <%= link_to @listing.user.username, user_path(@listing.user) %>
-	    <span>/</span>
-	  <% if @listing.pseudonym_id? %>
-	  	<%= @listing.pseudonym.name %>
-	  <% else %>
-	  	<%= @listing.user.name %>
-	  <% end %>
-			<span>/</span>
-		<%= @listing.title %>
-		
-	<% if @listing.user == current_user %>
-        <%= link_to edit_listing_path(@listing) do %>
-    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit Listing
-        <% end %>
-        <%= link_to listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fa fa-trash ml-2" title="delete"></i>&nbsp;Delete
-        <% end %>
-    <% end %>
-	</div>
-  	
-  <div class="container">
-    <div class="wrapper-side-left" style="width: 25%">
-  		<div class="main_avatar">
-  			<%= image_tag(@listing.image.url, class: "image", title: @listing.title) %>
-	
-	      <div class="side-box">
-	        <div class="side-content">
-	          <h2>Genres</h2>
-	          <p class="track_count"><% @listing.tag_list.map.each do |tag| %><span style="margin-right: .5rem"><i><%= link_to tag, tag_path(tag) %></span></i><% end %></p>
-	        </div>
-	      </div>
-	      <div class="side-box">
-	        <div class="side-content">
-	          <h2>Associated Tracks</h2> 
-	          <% if @tracks.any? %>
-		    			<% @tracks.each do |track| %>
-		    			<p class="track_count">
-	              <%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %> (explicit)<% end %><br>
-	            </p>
-	            <% end %>
-	          <% else %>
-	          	<p class="track_count">There are no associated tracks with this listing.</p>
-	          <% end %>
-	        </div>
-	      </div>
-	    </div>
-		</div>
-  
-		<div class="wrapper-med-right" style="width: 70%; clear: right">
-		    <div class="side-box" style="width: 96%">
-		      <div class="side-content">
-		        <div class="icons">
-		        	<h2><%= @listing.title %>
-										<% if @listing.user == current_user %>
-										  <%= link_to edit_listing_path(@listing) do %>
-											  <%= image_tag'icons/gear.svg', width: 12 %>
-										  <% end %>
-										<% end %></h2>
-							<p class="track_count">
-							<%= link_to @listing.user.username, user_path(@listing.user) %> /
-								<% if @listing.pseudonym_id? %>
-									<%= @listing.pseudonym.name %> 
-								<% else %>
-									<%= @listing.user.name %></p>
-								<% end %>
-		        	<div class="star-rating" data-score= <%= @avg_rating %> ></div> 
-		        	<br>
-		        	<p class="track_count"><%= simple_format(@listing.description) %></p>
-		        	<br>
-						<% if @listing.publisher? %>
-							<p class="track_count"><b><i>Publisher:</i></b> <%= @listing.publisher %></p>
-						<% end %>
-						<% if @listing.isbn? %>
-							<p class="track_count"><b><i>ISBN:</i></b> <%= @listing.isbn %></p>
-						<% end %>
-						<% if @listing.year? %>
-							<p class="track_count"><b><i>Year:</i></b> <%= @listing.year %></p>
-						<% end %>
-						<p class="track_count"><b><i>Format:</i></b> <%= @listing.filetype %></p>
-						<% if user_signed_in? %>
-							<% unless @listing.user == current_user %>
-								<% if @purchased.empty? %>
-									<br>
-									<%= render 'listing_transaction_form', transaction: @transaction %><br>
-									<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
-								<% else %>
-									<br>
-									<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
-								<% end %>
-							<% end %>
-						<% end %>
-            </div>
-		      </div>
-		    </div>
+<body style="background-color: #e4e0e0;">
 
-        <div class="side-box" style="width: 96%">
-		      <div class="side-content">
-		        <% if user_signed_in? %>
-		        	<% if current_user.reviewed?(@listing) %>
-		        		<%= link_to "Edit your review", edit_listing_review_path(@listing, @user_review) %>
-		        	<% else %>
-              	<%= link_to "Leave a Review", new_listing_review_path(@listing) %>
-              <% end %>
-            <% else %>
-              <div class="small" style="color: #fc0000;"><i><b>You must be logged in to review this product.</b></i></div>
-            <% end %>
-            <%= render 'reviews' %>
-          </div>
-        </div>
-		  </div>
-			<% if @tracks.any? %>
-				<%= render 'audio' %>
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content bg padding-y-sm">
+<div class="container">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mt-2">
+	  <% @listing.tag_list.map.each do |tag| %>
+	  	<div class="btn btn-outline-danger btn-sm mr-3">
+		  <%= link_to tag, tag_path(tag) %>
+		</div>
+	  <% end %>
+  </ol>
+</nav>
+<div class="row">
+<div class="col-xl-10 col-md-9 col-sm-12">
+
+
+<main class="card">
+	<div class="row no-gutters">
+		<aside class="col-sm-6 border-right">
+<article class="gallery-wrap"> 
+<div class="img-big-wrap p-4">
+  <%= image_tag(@listing.image.url, class: "image-full rounded", title: @listing.title) %>
+</div> <!-- slider-product.// -->
+
+</article> <!-- gallery-wrap .end// -->
+		</aside>
+		<aside class="col-sm-6">
+<article class="card-body">
+<!-- short-info-wrap -->
+	<h3 class="title mb-3"><%= @listing.title %></h3>
+	<% if @listing.user == current_user %>
+		<small>
+	        <%= link_to edit_listing_path(@listing) do %>
+	    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit
+	        <% end %>
+	        <%= link_to listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } do %>
+	            <i class="fa fa-trash ml-2" title="delete"></i>&nbsp;Delete
+	        <% end %>
+	    </small><br />
+    <% end %>
+    <% unless @listing.user == current_user %>
+		<% if @listing.pseudonym_id? %>
+			<%= @listing.pseudonym.name %> 
+		<% else %>
+			<%= link_to @listing.user.name, user_path(@listing.user) %>
+		<% end %>
+	<% end %>
+
+<div class="mb-3"> 
+	<var class="price h3 site-blue"> 
+		<span class="currency">US <%= number_to_currency(@listing.price) %></span>
+	</var> 
+</div> <!-- price-detail-wrap .// -->
+<dl>
+  <dt>Description</dt>
+  <dd><p><%= truncate(@listing.description, length: 140) %></p></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-4">Format</dt>
+  <dd class="col-sm-8"><%= @listing.filetype %></dd>
+
+  <dt class="col-sm-4">Publisher</dt>
+  <dd class="col-sm-8"><% if @listing.publisher? %>
+												<%= @listing.publisher %>
+											 <% end %> </dd>
+
+  <dt class="col-sm-4">ISBN</dt>
+  <dd class="col-sm-8"><% if @listing.isbn? %>
+												<%= @listing.isbn %>
+											 <% end %> </dd>
+  <dt class="col-sm-4">Year</dt>
+  <dd class="col-sm-8"><% if @listing.year? %>
+												<%= @listing.year %>
+											 <% end %> </dd>
+	<dt class="col-sm-4"><div class="star-rating" data-score= <%= @avg_rating %></div></dt>
+  	<dd class="col-sm-8"><%= pluralize(@listing.reviews.count, "review") %></dd>
+</dl>
+<hr>
+	<div class="row">
+		<div class="col-12">
+			
+			<h4 class="mb-1"><i class="fas fa-headphones site-blue mr-2"></i>Associated Tracks</h4>
+		</div>
+		
+				<% if @tracks.any? %>
+					<% @tracks.each do |track| %>
+						<div class="col-sm-7">
+							<h4>
+								<%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %> (explicit)<% end %>
+							</h4>
+						</div>
+						<div class="col-sm-5">
+							<i class="fas fa-broadcast-tower site-red" title="stations"></i>
+	      					<span class="ml-1 text-secondary">in <%= track.favorites.count %> stations</span>
+	      				</div>
+					<% end %>
+				<% else %>
+				<div class= "col-12">
+					<small>There are no associated tracks with this listing.</small>
+				</div>
+				<% end %>  <!-- item-property .// -->
+		
+	</div> <!-- row.// -->
+	<hr>
+	<div class="row">
+		<div class= "col-12">
+		<% if user_signed_in? %>
+			<% unless @listing.user == current_user %>
+				<% if @purchased.empty? %>
+					<%= render 'listing_transaction_form', transaction: @transaction %>
+				<% else %>
+					<div class="btn btn-primary">
+					  <%= link_to 'Download', purchases_path, :class => "btn text-white" %>
+					</div>
+				<% end %>
 			<% end %>
- 	</div>
-</div>
+		<% else %>
+			<div class="btn btn-primary">
+			  <%= link_to 'Login to Purchase', new_user_session_path, :class => "btn text-white" %>
+			</div><br />
+			<small><i class="site-red">You must be logged in so the product will appear in your downloads.</i></small>
+		<% end %>
+		</div>
+	</div>
+<!-- short-info-wrap .// -->
+</article> <!-- card-body.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+</main> <!-- card.// -->
+
+<!-- PRODUCT DETAIL -->
+<article class="card mt-3">
+	<div class="card-body">
+		<h4>Description</h4>
+			<p><%= simple_format(@listing.description) %></p>
+	</div> <!-- card-body.// -->
+</article> <!-- card.// -->
+
+<!-- PRODUCT DETAIL -->
+<article class="card mt-3">
+	<div class="card-body">
+			<% if user_signed_in? %>
+		     <% if current_user.reviewed?(@listing) %>
+		        <%= link_to "Edit your review", edit_listing_review_path(@listing, @user_review) %>
+		     <% else %>
+            <%= link_to "Leave a Review", new_listing_review_path(@listing) %>
+         <% end %>
+      <% else %>
+         <div class="small mb-2" style="color: #fc0000;"><i><b>You must be logged in to review this product.</b></i></div>
+      <% end %>
+      <%= render 'reviews' %>
+	</div> <!-- card-body.// -->
+</article> <!-- card.// -->
+
+<!-- PRODUCT DETAIL .// -->
+
+</div> <!-- col // -->
+<aside class="col-xl-2 col-md-3 col-sm-12">
+<div class="card">
+	<div class="card-header">
+		<h4 class="site-blue">
+		<% if @listing.pseudonym_id? %>
+			<%= @listing.pseudonym.name %> 
+		<% else %>
+			<%= link_to @listing.user.username, user_path(@listing.user) %>
+		<% end %>
+		</h4>
+	</div>
+	<div class="card-body small">
+		 <div class="ribbon_box">
+	      <% if @listing.user.publisher_type == "publisher" %>
+	        <div class="ribbon"><span>PUBLISHER</span></div>
+	      <% end %>
+	        <% if @listing.user.image? %>
+	          <%= image_tag(@listing.user.image.url(:thumb), class: "image-full", title: @listing.user.username) %>
+	        <% else %>
+	          <%= image_tag('default_track.jpg', class: "image-full", title: @listing.user.username) %>
+	        <% end %>
+	    </div> 
+		 <hr>
+		 <i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @listing.user.tracks.count %>)
+		 <hr>
+		 <i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @listing.user.albums.count %>)
+		 <hr>
+		 <i class="fas fa-shopping-cart site-blue" title="listings"></i> Listings (<%= @listing.user.listings.count %>) 
+		 <hr>
+		 <i class="fas fa-user-astronaut site-blue"></i> Followers (<%= @listing.user.followers.count %>)
+		 	<% if user_signed_in? && current_user != @listing.user %>
+		 	<hr>
+	          <%= render 'follow_form' %>
+	        <% end %>
+		 
+	</div> <!-- card-body.// -->
+</div> <!-- card.// -->
+<div class="card mt-3">
+	<div class="card-header">
+	    <h5 class="site-blue">You May Like</h5>
+	</div>
+	<div class="card-body row">
+<div class="col-md-12 col-sm-3">
+	<figure class="item border-bottom mb-3">
+			<h5 class="mb-1"><i class="fas fa-shopping-cart site-blue mr-2"></i><%= @random_listing.filetype %></h5>
+			<%= image_tag(@random_listing.image.url, class: "image-full rounded mb-2", title: @random_listing.title) %>
+			<figcaption class="info-wrap">
+				<h5 class="mb-0"><%= link_to @random_listing.title, listing_path(@random_listing) %></h5>
+				<small>
+				<% if @random_listing.pseudonym_id? %>
+					<%= link_to @random_listing.pseudonym.name, user_path(@random_listing.user) %> 
+				<% else %>
+					<%= link_to @random_listing.user.name, user_path(@random_listing.user) %>
+				<% end %>
+				</small><br />
+				<%= number_to_currency(@random_listing.price) %>
+				<div class="star-rating" data-score= <%= @rand_avg_rating %></div>
+			</figcaption>
+	</figure> <!-- card-product // -->
+</div> <!-- col.// -->
+<div class="col-md-12 col-sm-3">
+<figure class="item border-bottom mb-3">
+	<h5 class="mb-1"><i class="fas fa-headphones site-blue mr-2"></i>Track</h5>
+		<%= image_tag(@random_track.image.url, class: "image-full rounded mb-2", title: @random_track.title) %>
+		<figcaption class="info-wrap">
+			<h5 class="mb-0"><%= link_to @random_track.title, track_path(@random_track) %></h5>
+			<small>
+			<% if @random_track.pseudonym_id? %>
+				<%= link_to @random_track.pseudonym.name, user_path(@random_track.user) %> 
+			<% else %>
+				<%= link_to @random_track.user.name, user_path(@random_track.user) %>
+			<% end %>
+			</small><br />
+			<small><i class="fas fa-broadcast-tower site-red mr-2" title="stations"></i>
+	      	in <%= pluralize( @random_track.favorites.count, 'Stations' ) %></small>
+		</figcaption>
+</figure> <!-- card-product // -->
+</div> <!-- col.// -->
+<div class="col-md-12 col-sm-3">
+<figure class="item border-bottom mb-3">
+	<h5 class="mb-1"><i class="fas fa-compact-disc site-blue mr-2"></i>Album</h5>
+	<div class="ribbon_box">
+  		<% if @random_album.serial == "serial" %>
+    		<div class="ribbon"><span>SERIAL</span></div>
+  		<% end %>
+		<%= image_tag(@random_album.image.url, class: "image-full rounded mb-2", title: @random_album.title) %>
+	</div>
+		
+		<figcaption class="info-wrap">
+			<h5 class="mb-0"><%= link_to @random_album.title, album_path(@random_album) %></h5>
+			<small>
+			<% if @random_album.pseudonym_id? %>
+				<%= link_to @random_album.pseudonym.name, user_path(@random_album.user) %> 
+			<% else %>
+				<%= link_to @random_album.user.name, user_path(@random_album.user) %>
+			<% end %>
+			</small><br />
+			<small><i class="fas fa-headphones site-blue mr-2"></i>
+            <%= pluralize( @random_album.tracks.count, 'Track' ) %></small>
+		</figcaption>
+</figure> <!-- card-product // -->
+</div> <!-- col.// -->
+	</div> <!-- card-body.// -->
+</div> <!-- card.// -->
+</aside> <!-- col // -->
+</div> <!-- row.// -->
+
+
+
+</div><!-- container // -->
+</section>
+<!-- ========================= SECTION CONTENT .END// ========================= -->
+</body>
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

@@ -222,7 +222,7 @@
 	<h5 class="mb-1"><i class="fas fa-headphones site-blue mr-2"></i>Track</h5>
 		<%= image_tag(@random_track.image.url, class: "image-full rounded mb-2", title: @random_track.title) %>
 		<figcaption class="info-wrap">
-			<h5 class="mb-0"><%= link_to @random_track.title, track_path(@random_track) %></h5>
+			<h5 class="mb-0"><%= link_to @random_track.title, track_path(@random_track) %><% if @random_track.explicit == "explicit" %> (explicit)<% end %></h5>
 			<small>
 			<% if @random_track.pseudonym_id? %>
 				<%= link_to @random_track.pseudonym.name, user_path(@random_track.user) %> 
@@ -231,7 +231,7 @@
 			<% end %>
 			</small><br />
 			<small><i class="fas fa-broadcast-tower site-red mr-2" title="stations"></i>
-	      	in <%= pluralize( @random_track.favorites.count, 'Stations' ) %></small>
+	      	in <%= pluralize( @random_track.favorites.count, 'Stations' ) %></small><br/>
 		</figcaption>
 </figure> <!-- card-product // -->
 </div> <!-- col.// -->

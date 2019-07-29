@@ -193,8 +193,7 @@ module Fantasy
           "Graceful", "Greedy", "Green", 
           "Grey", "Grieving", "Groaning", "Grouchy", "Grumbling", "Haggling", "Half", "Handsome", "Happy",
           "Hateful", "Headless", "Heather", "Hidden", "Hiding", "Hissing", "Honorable", "Hooded", "Hopeful", "Hot", "Howling", "Hungry", "Husky", "Icy", "Idle", 
-          "I'll just go and check on that noise", 
-          "Inside", "Iron", "it can't be killed with conventional weapons", "Ivory", "Jade", "Jolly", "Joyous", "Jumping", 
+          "Inside", "Iron", "Ivory", "Jade", "Jolly", "Joyous", "Jumping", 
           "Knocking", "Last", "Late", "Laughing", "Lazy",
           "Leaky", "Leather", "Lewd", "Listening", "Little", "lock all the doors", "Loitering", "Looking", "Loose", "Loping",
           "Lost", "Loud", "Lucky", "Lying", "Mad", "Marble", "Marching", "Mean", "Melancholy", "Merciful", "Metal", "Mirthful", "Miserly", "Misty", "Mobile", 
@@ -318,5 +317,68 @@ module Fantasy
         
         @taverns = "The ".html_safe + tav1_1 + " " + tav2_1 + "<br>".html_safe + tav2_2 + " and " + tav2_3 + "<br>".html_safe + tav1_2 + " " + tav2_4 + " " + tav3_1 + "<br>".html_safe + "The " + tav2_5 + "'s" + " " + tav2_6 + "<br>".html_safe + "The ".html_safe + tav1_3 + " " + tav2_7 + "<br>".html_safe + tav2_8 + " and " + tav2_9 + "<br>".html_safe + tav1_4 + " " + tav2_10 + " " + tav3_2 + "<br>".html_safe + tav1_5 + " " + tav2_11 + "'s" + " " + tav2_12
     
+        fletter = ["a", "ar", "b", "br", "c", "cr", "ch", "chr", "d", "d'", "dh", "dr", "e", "er", "f", "fr", "g", "gh", "gr", "h", 
+            "i", "ir", "j", "k", "kr", "l", "m", "n", "n'", "o", "o'", "or", "p", "q'", "qu", 
+            "r", "r'", "s", "s'", "sh", "shr", "st", "str", "t", "t'", "th", "tr", "u", "ur", "v", "vr", "w", "wr", "x", "y", "z", "zh"]  
+          
+        first_syl = [ 
+          "ab", "ac", "ach", "ack", "ad", "ae", "aech", "aed", "ael", "aem", "aen", "aesh", "aeth", "af", "ag", "ah", "ai", 
+          "aib", "aich", "aid", "aik", "ail", "aim", "ain", "air", "aip", "ais", "aish", "aist", "ait", "aith", "aiv", "aix", "ak", "al", "ald", "alf", "alm", "aln", "am", "an",
+          "anch", "and", "anf", "ang", "ans", "ansh", "ant", "anth", "ao", "ap", "ar", 
+          "ard", "arg", "arl", "arm", "arn", "ars", "art", "arth", "as", "ash", "ast", "at", "ath", "au", "av", "aw", 
+          "awd", "awe", "awl", "awn", "aws", "awst", "awt", "awth", "ax", "ay", "az",
+          "ea", "eb", "ec", "ech", "eck", "ed", "ef", "eg", "eh", "ei", 
+          "eib", "eich", "eid", "eik", "eil", "eim", "ein", "eir", "eip", "eis", "eish", "eist", "eit", "eith", "eiv", "eix", "ek", "el", "eld", "elf", "elm", "eln", "els", "elt", "em", "en", 
+          "ench", "end", "enf", "eng", "ens", "ensh", "ent", "enth","eo", "eod", "eol", "eom", "eon", "ep", "er", 
+          "erd", "erg", "erl", "erm", "ern", "ers", "ert", "erth",
+          "es", "esh", "est", "et", "eth", "eu", "ev", "ew", 
+          "ewd", "ewe", "ewl", "ewn", "ews", "ewst", "ewt", "ewth", "ex", "ey", "ez",
+          "ia", "iac", "iack", "iad", "iag", "ial", "iam", "ian", "ias", "iat", "iath", "ib", "ic", "ich", "ick", "id", "if", "ig", "ih", "ik", "il", "im", "in", "inch",
+          "ind", "ing", "ins", "insh", "int", "inth", "io", "iod", "iol", "iom", "ion", "ior", "ios", "ip", "ir", 
+          "ird", "irg", "irl", "irm", "irn", "irs", "irt", "irth", "is", 
+          "ish", "ist", "it", "ith", "iu", "iul", "ium", "iun", "iur", "ius", "iv", "ix", "iy", "iz",
+          "oa", "oach", "oad", "oaf", "oag", "oah", "oak", "oal", "oam", "oan", "oar", "oas", "oat", "oax", "ob", "oc", "och", "ock", "od", 
+          "oe", "of", "og", "oh", "oi", 
+          "oib", "oich", "oid", "oik", "oil", "oim", "oin", "oir", "oip", "ois", "oish", "oist", "oit", "oith", "oiv", "oix", "oj", "ok", "ol", "old", "olf", "olm", "oln", "ols", "olt", "om", "on", 
+          "onch", "ond", "ong", "ons", "onsh", "ont", "onth", "op", "oq", 
+          "or", "ord", "org", "orl", "orm", "orn", "ors", "ort", "orth", 
+          "os", "osh", "ost", "ot", "oth", "ou", "ov", "ow", "owd", "owe", "owl", "own", "ows", "owst", "owt", "owth", "ox", "oy", "oz",
+          "ua", "ub", "uc", "uch", "uck", "ud", "ue", "uf", "ug", "uh", "ui", 
+          "uib", "uich", "uid", "uik", "uil", "uim", "uin", "uir", "uip", "uis", "uish", "uist", "uit", "uith", "uiv", "uix","uj", "uk", "ul", "uld", "ulf", "ulm", "uln", "uls", "ult", "ulv", "um", "un", 
+          "und", "ung", "uns", "unsh", "unt", "unth", "uo", "up", 
+          "uq", "ur", "urd", "urg", "url", "urm", "urn", "urs", "urt", "urth", "us", "ush", "ust", "ut", "uth", "uv", "ux", "uy", "uz",
+          "y", "ych", "yd", "yk", "yl", "ym", "yn", "yo", "yp", "yr", "ys", "ysh", "yt", "yth", "yv", "yx", "yz"
+          ]
+          
+        consonants = [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "x", "z" ]
+          
+        vowels = [ "a", "e", "i", "o", "u", "y"
+          ]
+          
+        vowels2 = ["a", "ae", "ai", "ao", "au", "ay", 
+                  "e", "ei", "eo", "eu", "ey",
+                  "i", "ia", "ie", "io", "iu", "iy",
+                  "o", "oa", "oe", "oi", "ou", "oy",
+                  "u", "ua", "ue", "ui", "uo", "uy",
+                  "y", "ya", "ye", "yi", "yo", "yu"
+                  ]
+          
+
+        fname01 = fletter.sample + first_syl.sample
+        fname1 = fletter.sample + first_syl.sample
+        fname2 = fletter.sample + first_syl.sample + vowels.sample
+        fname3 = fletter.sample + first_syl.sample
+        fname4 = fletter.sample + first_syl.sample + vowels2.sample
+        fname5 = fletter.sample + first_syl.sample
+        fname6 = fletter.sample + first_syl.sample + vowels.sample + consonants.sample
+        fname7 = fletter.sample + first_syl.sample + vowels.sample + consonants.sample
+        fname8 = fletter.sample + first_syl.sample + vowels.sample + consonants.sample + first_syl.sample
+        fname9 = fletter.sample + first_syl.sample + vowels.sample + consonants.sample + first_syl.sample + vowels.sample
+        fname10 = fletter.sample + first_syl.sample + vowels.sample + consonants.sample + vowels2.sample
+        fname11 = fletter.sample + first_syl.sample + vowels.sample + consonants.sample + vowels.sample
+        fname12 = fletter.sample + first_syl.sample + vowels.sample + consonants.sample + first_syl.sample
+
+                  
+        @fnames = "".html_safe + fname01.delete('"').capitalize + "<br>".html_safe + fname1.delete('"').capitalize + "<br>".html_safe + fname2.delete('"').capitalize + "<br>".html_safe + fname3.delete('"').capitalize + "<br>".html_safe + fname4.delete('"').capitalize + "<br>".html_safe + fname5.delete('"').capitalize + "<br>".html_safe + fname6.delete('"').capitalize + "<br>".html_safe + fname7.delete('"').capitalize + "<br>".html_safe + fname8.delete('"').capitalize + "<br>".html_safe + fname9.delete('"').capitalize + "<br>".html_safe + fname10.delete('"').capitalize + "<br>".html_safe + fname11.delete('"').capitalize + "<br>".html_safe + fname12.delete('"').capitalize + "<br>".html_safe
     end
 end

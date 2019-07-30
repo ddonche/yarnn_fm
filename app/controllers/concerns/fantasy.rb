@@ -56,8 +56,8 @@ module Fantasy
           "dragoon", "drawbridge", "dreadnought", "dress", "drifter", "drover", 
           "drummer", "dryad",
           "duchess", "duel", "Dumbledore", "dungeon", "Earthsea", "economy", "eggs", "elemental", "embargo", "emissary", "empath", "emerald", 
-          "Emperor", "Empress", "enchantment", 
-          "engineer", "enigma", "Ensign", "entrails", 
+          "emperor", "empress", "enchantment", 
+          "engineer", "enigma", "ensign", "entrails", 
           "envoy", "escape", "escort", "espionage", "ethereal", "Everwind", "evil", 
           "evocation", "exalted", "Excalibur", "executioner", 
           "exorcism", "exorcist", "expedition", "fairy dust", "falconer", 
@@ -152,11 +152,11 @@ module Fantasy
           "wine skin", "winged", "witch", "wolfpack", "Wonderland", "wool", "wormwood", "woven", "writ", "wyrm", "yarn", "yoke"
           ]
         
-        fantasy_caps1 = capital_words2.sample
-        fantasy_caps2 = capital_words2.sample
-        fantasy_caps3 = capital_words2.sample
-        fantasy_caps4 = capital_words2.sample
-        fantasy_caps5 = capital_words2.sample
+        fantasy_caps1 = words2.sample.capitalize
+        fantasy_caps2 = words2.sample.capitalize
+        fantasy_caps3 = words2.sample.capitalize
+        fantasy_caps4 = words2.sample.capitalize
+        fantasy_caps5 = words2.sample.capitalize
         
         sentence2_len1 = rand(5...30)
         fantasy1 = words2.sample(sentence2_len1).map(&:inspect).join(' ')
@@ -317,42 +317,51 @@ module Fantasy
         
         @taverns = "The ".html_safe + tav1_1 + " " + tav2_1 + "<br>".html_safe + tav2_2 + " and " + tav2_3 + "<br>".html_safe + tav1_2 + " " + tav2_4 + " " + tav3_1 + "<br>".html_safe + "The " + tav2_5 + "'s" + " " + tav2_6 + "<br>".html_safe + "The ".html_safe + tav1_3 + " " + tav2_7 + "<br>".html_safe + tav2_8 + " and " + tav2_9 + "<br>".html_safe + tav1_4 + " " + tav2_10 + " " + tav3_2 + "<br>".html_safe + tav1_5 + " " + tav2_11 + "'s" + " " + tav2_12
     
-        fletter = ["a", "ar", "b", "br", "c", "cr", "ch", "chr", "d", "d'", "dh", "dr", "e", "er", "f", "fr", "g", "gh", "gr", "h", 
-            "i", "ir", "j", "k", "kr", "l", "m", "n", "n'", "o", "o'", "or", "p", "q'", "qu", 
-            "r", "r'", "s", "s'", "sh", "shr", "st", "str", "t", "t'", "th", "tr", "u", "ur", "v", "vr", "w", "wr", "x", "y", "z", "zh"]  
+        fletter = ["a", "ab", "ac", "ad", "af", "ag", "ak", "al", "am", "an", "ap", "ar", "as", "at", "av", "ax", "ay", "az", 
+                  "b", "bl", "br", "c", "cr", "ch", "chr", "d", "d'", "dh", "dr", 
+                  "e", "e'", "eb", "ec", "ed", "ef", "eg", "ek", "el", "em", "en", "ep", "er", "es", "et", "ev", "ex", "ey", "ez", 
+                  "f", "fr", "g", "gh", "gr", "h", 
+                  "i", "i'", "ib", "ic", "id", "if", "ig", "ik", "il", "im", "in", "ip", "ir", "is", "it", "iv", "ix", "iy", "iz", 
+                  "j", "jh", "k", "kh", "kr", "l", "m", "n", "n'", 
+                  "o", "o'", "ob", "oc", "od", "of", "og", "ok", "ol", "om", "on", "op", "or", "os", "ot", "ov", "ox", "oy", "oz", 
+                  "p", "pr", "q'", "qu", 
+                  "r", "r'", "s", "s'", "sh", "shr", "st", "str", "sv", "t", "t'", "th", "tr", 
+                  "u", "u'", "ub", "uc", "ud", "uf", "ug", "uk", "ul", "um", "un", "up", "ur", "us", "ut", "uv", "ux", "uy", "uz", 
+                  "v", "vr", "w", 
+                  "wr", "x", "y", "z", "zh"]  
           
         first_syl = [ 
-          "ab", "ac", "ach", "ack", "ad", "ae", "aech", "aed", "ael", "aem", "aen", "aesh", "aeth", "af", "ag", "ah", "ai", 
+          "-", "ab", "ac", "ach", "ack", "ad", "ae", "aech", "aed", "ael", "aem", "aen", "aesh", "aeth", "af", "ag", "ah", "ai", 
           "aib", "aich", "aid", "aik", "ail", "aim", "ain", "air", "aip", "ais", "aish", "aist", "ait", "aith", "aiv", "aix", "ak", "al", "ald", "alf", "alm", "aln", "am", "an",
           "anch", "and", "anf", "ang", "ans", "ansh", "ant", "anth", "ao", "ap", "ar", 
           "ard", "arg", "arl", "arm", "arn", "ars", "art", "arth", "as", "ash", "ast", "at", "ath", "au", "av", "aw", 
           "awd", "awe", "awl", "awn", "aws", "awst", "awt", "awth", "ax", "ay", "az",
-          "ea", "eb", "ec", "ech", "eck", "ed", "ef", "eg", "eh", "ei", 
+          "-", "ea", "eb", "ec", "ech", "eck", "ed", "ef", "eg", "eh", "ei", 
           "eib", "eich", "eid", "eik", "eil", "eim", "ein", "eir", "eip", "eis", "eish", "eist", "eit", "eith", "eiv", "eix", "ek", "el", "eld", "elf", "elm", "eln", "els", "elt", "em", "en", 
           "ench", "end", "enf", "eng", "ens", "ensh", "ent", "enth","eo", "eod", "eol", "eom", "eon", "ep", "er", 
           "erd", "erg", "erl", "erm", "ern", "ers", "ert", "erth",
           "es", "esh", "est", "et", "eth", "eu", "ev", "ew", 
           "ewd", "ewe", "ewl", "ewn", "ews", "ewst", "ewt", "ewth", "ex", "ey", "ez",
-          "ia", "iac", "iack", "iad", "iag", "ial", "iam", "ian", "ias", "iat", "iath", "ib", "ic", "ich", "ick", "id", "if", "ig", "ih", "ik", "il", "im", "in", "inch",
+          "-", "ia", "iac", "iack", "iad", "iag", "ial", "iam", "ian", "ias", "iat", "iath", "ib", "ic", "ich", "ick", "id", "if", "ig", "ih", "ik", "il", "im", "in", "inch",
           "ind", "ing", "ins", "insh", "int", "inth", "io", "iod", "iol", "iom", "ion", "ior", "ios", "ip", "ir", 
           "ird", "irg", "irl", "irm", "irn", "irs", "irt", "irth", "is", 
-          "ish", "ist", "it", "ith", "iu", "iul", "ium", "iun", "iur", "ius", "iv", "ix", "iy", "iz",
-          "oa", "oach", "oad", "oaf", "oag", "oah", "oak", "oal", "oam", "oan", "oar", "oas", "oat", "oax", "ob", "oc", "och", "ock", "od", 
+          "ish", "ist", "it", "ith", "iu", "iul", "ium", "iun", "iur", "ius", "iv", "ix", "iy", "iz", 
+          "-", "oa", "oach", "oad", "oaf", "oag", "oah", "oak", "oal", "oam", "oan", "oar", "oas", "oat", "oax", "ob", "oc", "och", "ock", "od", 
           "oe", "of", "og", "oh", "oi", 
           "oib", "oich", "oid", "oik", "oil", "oim", "oin", "oir", "oip", "ois", "oish", "oist", "oit", "oith", "oiv", "oix", "oj", "ok", "ol", "old", "olf", "olm", "oln", "ols", "olt", "om", "on", 
           "onch", "ond", "ong", "ons", "onsh", "ont", "onth", "op", "oq", 
           "or", "ord", "org", "orl", "orm", "orn", "ors", "ort", "orth", 
-          "os", "osh", "ost", "ot", "oth", "ou", "ov", "ow", "owd", "owe", "owl", "own", "ows", "owst", "owt", "owth", "ox", "oy", "oz",
-          "ua", "ub", "uc", "uch", "uck", "ud", "ue", "uf", "ug", "uh", "ui", 
+          "os", "osh", "ost", "ot", "oth", "ou", "ov", "ow", "owd", "owe", "owl", "own", "ows", "owst", "owt", "owth", "ox", "oy", "oz", "-",
+          "-", "ua", "ub", "uc", "uch", "uck", "ud", "ue", "uf", "ug", "uh", "ui", 
           "uib", "uich", "uid", "uik", "uil", "uim", "uin", "uir", "uip", "uis", "uish", "uist", "uit", "uith", "uiv", "uix","uj", "uk", "ul", "uld", "ulf", "ulm", "uln", "uls", "ult", "ulv", "um", "un", 
           "und", "ung", "uns", "unsh", "unt", "unth", "uo", "up", 
           "uq", "ur", "urd", "urg", "url", "urm", "urn", "urs", "urt", "urth", "us", "ush", "ust", "ut", "uth", "uv", "ux", "uy", "uz",
           "y", "ych", "yd", "yk", "yl", "ym", "yn", "yo", "yp", "yr", "ys", "ysh", "yt", "yth", "yv", "yx", "yz"
           ]
           
-        consonants = [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "x", "z" ]
+        consonants = [ "-", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "x", "z" ]
           
-        vowels = [ "a", "e", "i", "o", "u", "y"
+        vowels = [ "-", "a", "e", "i", "o", "u", "y"
           ]
           
         vowels2 = ["a", "ae", "ai", "ao", "au", "ay", 

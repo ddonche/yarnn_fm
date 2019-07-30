@@ -187,7 +187,7 @@
 		 <hr>
 		 <i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @listing.user.albums.count %>)
 		 <hr>
-		 <i class="fas fa-shopping-cart site-blue" title="listings"></i> Listings (<%= @listing.user.listings.count %>) 
+		 <i class="fas fa-shopping-cart site-blue" title="listings"></i> Products (<%= @listing.user.listings.count %>) 
 		 <hr>
 		 <i class="fas fa-user-astronaut site-blue"></i> Followers (<%= @listing.user.followers.count %>)
 		 	<% if user_signed_in? && current_user != @listing.user %>

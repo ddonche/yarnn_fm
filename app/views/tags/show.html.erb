@@ -1,300 +1,140 @@
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title><%= request.path %></title>
-     
-  <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"><!-- icons -->
-  <%= stylesheet_link_tag    'player/jquery.mCustomScrollbar.css', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'player/artwork5.css"', media: 'all', 'data-turbolinks-track' => true %>
-
-  <%= javascript_include_tag 'player/jquery-3.2.1.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery.easing.1.3.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery-ui.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery.ui.touch-punch.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jquery.mCustomScrollbar.concat.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/jsmediatags.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/hls.min.js', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'player/new.js', 'data-turbolinks-track': 'reload' %>
-    
-  <script type="text/javascript">
-
-      var hap_player;  
-
-      jQuery( document ).on('turbolinks:load', function() {
-          
-          var settings = {
-              instanceName:"artwork5",
-              sourcePath:"",
-              activePlaylist:"",
-              activeItem:0,
-              volume:0.5,
-              autoPlay:false,
-              preload:"auto",
-              randomPlay:true,
-              loopingOn:true,
-              mediaEndAction:"next",
-              soundCloudAppId:"",
-              gDriveAppId:"",
-              usePlaylistScroll:true,
-              playlistScrollOrientation:"vertical",
-              playlistScrollTheme:"dark-2",
-              useKeyboardNavigationForPlayback:false,
-              facebookAppId:"644413448983338",
-              useNumbersInPlaylist: true,
-              sortableTracks: false,
-              playlistItemContent:"title"
-          };
-
-          hap_player = $("#hap-wrapper").hap(settings);
-
-          $('.hap-playlist-toggle').on('click', function(){
-
-              var playerHolder = $('.hap-player-holder'),
-                  ease = 'easeInOutCubic',
-                  time = 500,
-                  openValue = $("#hap-wrapper").width() - 50;
-
-              if(!hap_player.playlistOpened){
-                  playerHolder.stop().animate({'left': openValue+'px'},{duration: time, easing: ease, complete:function(){
-                          playerHolder.addClass('hap-player-holder-opened');
-                      }
-                  });
-              }else{
-                  playerHolder.css('left', playerHolder.css('left')).removeClass('hap-player-holder-opened').stop().animate({'left': 0+'px'},{duration: time, easing: ease});
-              }   
-              hap_player.playlistOpened = !hap_player.playlistOpened;
-
-          })
-
-      });
-
-  </script>
-</head>
-
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
-	
-	<div id="breadcrumb">
-		<%= link_to "all genres", genres_path %> / <%= link_to "products", genre_path(@genre) %> / full <%= @genre %> portal
-	</div>
-  <%= render 'shared/alert' %>
-	
-  <div class="wrapper_skinny_left">
-    <div class="main_avatar">
-
-      <div class="side-box">
-        <div class="side-content">
-					<div class="album_overview">
-						<p class="track_count"><h2><%= request.path.split('/').last %></h2></p> 
-						<p class="track_count"><%= pluralize( @tag_count, 'Track' ) %></p> 
-						<p class="track_count"><%= link_to pluralize( @listings_count, 'Products' ), genre_path(@genre) %></p>
-						<p class="track_count"><%= pluralize( @topics_count, 'Discussion' ) %></p>
-					</div>
-        </div>
-      </div>
-      
-      <div class="side-box">
-        <div class="side-content">
-          <h2>Latest Topics</h2>
-          <% if @topics.any? %>
-            <%= render 'topics' %>
-            <%= paginate @topics %>
-          <% else %>
-            <p>There are no topics in this genre.</p>
-          <% end %>
-        </div>
-      </div>
-      
-      <div class="side-box">
-        <div class="side-content">
-          <% if user_signed_in?  %>
-            <h2>New Topic For This Genre</h2>
-            <%= render "topics/quick_form" %>
-          <% else %>
-            <p style="color: #DC2020"><i><b>You must be logged in to create new posts.</b></i></p>
-        	<% end %> 
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <% if @tracks.any? %>
-    <div id="tracks">
-  		<div class="wrapper_wide_right" style="margin: 0">
-		  
-        <div id="hap-wrapper">
-
-            <div class="hap-player-outer">
-
-                <div class="hap-playlist-holder">
-                    <div class="hap-playlist-inner">
-                        <div class="hap-playlist-content">
-                            <% @tracks.each do |track| %>
-                            <div class="hap-playlist-item" data-type="audio" data-mp3="<%= track.audio.url %>" data-thumb="<%= track.image.url(:thumb) %>">
-                                <a class="hap-playlist-non-selected" href="#">
-                                    <span class="hap-playlist-title"><%= track.user.username %> / <%= track.user.name %> - <%= track.title %></span>
-                                </a>
-                            </div>
-                            <% end %>
-                            
-                        </div>
-                    </div>
-                </div>
-             
-                <div class="hap-player-holder">
-                 
-                    <div class="hap-player-thumb-wrapper">
-                        <div class="hap-player-thumb"></div>
-
-                        <div class="hap-preloader"></div>
-
-                        <div class="hap-playlist-toggle hap-contr-btn" data-tooltip="Playlist"><i class="fas fa-th-list hap-icon-color"></i></div>
-
-                        <div class="hap-share-holder">
-                            <div class="hap-share-item" data-type="tumblr" data-tooltip="tumblr"><i class="fab fa-tumblr-square hap-icon-color"></i></div>
-                            <div class="hap-share-item" data-type="twitter" data-tooltip="twitter"><i class="fab fa-twitter-square hap-icon-color"></i></div>
-                            <div class="hap-share-item" data-type="facebook" data-tooltip="facebook"><i class="fab fa-facebook-square hap-icon-color"></i></div>
-                            <div class="hap-share-item" data-type="googleplus" data-tooltip="googleplus"><i class="fab fa-google-plus-square hap-icon-color"></i></div>
-                        </div>
-                        <div class="hap-share-toggle hap-contr-btn" data-tooltip="Share"><i class="fas fa-share-square hap-icon-color"></i></div>
-                       
-                    </div>
-
-                    <div class="hap-player-right">
-
-                        <div class="hap-seekbar">
-                            <div class="hap-progress-bg"></div>
-                            <div class="hap-load-level"></div>
-                            <div class="hap-progress-level"></div>
-                        </div> 
-
-                        <p class="hap-media-time-total">0:00</p>
-                        <p class="hap-media-time-current">0:00</p>
-
-                        <div class="hap-center-elements">
-
-                            <div class="hap-info">
-                                <p class="hap-player-title"></p>
-                                <p class="hap-player-artist"></p>
-                            </div>
-
-                            <div class="hap-controls">
-
-                                <div class="hap-prev-toggle hap-contr-btn"><i class="fas fa-backward hap-icon-color"></i></div>
-                                <div class="hap-playback-toggle hap-contr-btn"><i class="fas fa-play hap-icon-color"></i></div>
-                                <div class="hap-next-toggle hap-contr-btn"><i class="fas fa-forward hap-icon-color"></i></div>
-
-                            </div>    
-
-                            <div class="hap-volume-seekbar">
-                                 <div class="hap-volume-bg"></div>
-                                 <div class="hap-volume-level"><div class="hap-volume-drag"></div></div>
-                            </div>
-
-                        </div>    
-
-                        <div class="hap-random-toggle hap-contr-btn" data-tooltip="Shuffle"><i class="fas fa-random hap-icon-color"></i></div>
-                        <div class="hap-loop-toggle hap-contr-btn" data-tooltip="Loop"><i class="fas fa-sync-alt hap-icon-color"></i></div>
-
-                    </div>
-                      
-                </div>
-
-            </div> 
-
-          <div class="hap-tooltip"><p></p></div>  
-
-        </div>    
-      </div>
-      
-      <div class="wrapper_wide_right_right" style="margin: 0">
-      <div id="tracks">
-			<ul class="cf">
-				<% @tracks.each do |track| %>
-					<li class="cf">
-						<div class="track_thumbnail">
-							<% if track.image? %>
-								<%= link_to image_tag(track.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
-							<% else %>
-								<%= link_to image_tag(track.user.image.url(:thumb)), track_path(track), width: 100, title: track.title %>
-							<% end %>
-						</div>
-						<div class="track_overview">
-							<h2><%= link_to track.title, track_path(track) %><% if track.explicit == "explicit" %>&nbsp;(explicit)<% end %>
-    						<% if track.album_id? %>
-    							/ <%= link_to track.album.title, album_path(track.album_id) %>
-    						<% end %>
-							</h2>
-	            <div class="icons">
-							  <%= link_to track.user.username, user_path(track.user) %> / <%= track.user.name %> / <i>Voiced by:</i> <%= track.vocals %>
-							</div>
-							<br /><br />
-							<p class="description"><%= truncate(track.description, length: 160) %></p><br />
-							<div class="icons_container">
-							  <div id="favorites">
-							    <%= render 'albums/favorites', :track => track %>
+<title><%= request.path %> | Yarnn.FM</title>
+<body style="background-color: #e4e0e0;">
+ 	<!-- Page Content -->
+ 	<section class="section-content bg padding-y-sm">
+		<div class="container">
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb mt-3">
+					    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+					    <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li>
+					    <li class="breadcrumb-item active" aria-current="page"><%= @genre.capitalize %> Portal</li>
+				  </ol>
+				</nav>
+		    <div class="row mt-3">
+		    	<div class="col-xl-3 rounded">
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							    <h4 class="card-title site-blue"><%= request.path.split('/').last %></h4>
+							    <h6 class="card-subtitle mb-2 text-muted">Genre Portal</h6>
 							  </div>
-						  </div>
+									<ul class="list-group list-group-flush">
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-headphones site-blue mr-2" title="tracks"></i> Tracks</small>
+									    <span class="badge site-blue badge-pill"><%= @tag_count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i> Products</small>
+									    <span class="badge site-blue badge-pill"><%= @listings_count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i> Topics</small>
+									    <span class="badge site-blue badge-pill"><%= @topics_count %></span>
+									  </li>
+									</ul>
+	
+							  
+							</div>
+		    			</div>
+		    		</div>
+		    	</div><!-- end left column -->
+		    	
+		    	<div class="col-xl-6">
+		    		<div class="card mb-2 tab-card">
+				        <div class="card-header tab-card-header">
+				          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+				            <li class="nav-item">
+				                <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"><i class="fas fa-headphones site-blue mr-2" title="tracks"></i></a>
+				            </li>
+				            <li class="nav-item">
+				                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><i class="fas fa-shopping-cart site-blue mr-2" title="products"></i></a>
+				            </li>
+				            <li class="nav-item">
+				                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i></a>
+				            </li>
+				          </ul>
+				        </div>
+				
+				        <div class="tab-content" id="myTabContent">
+				          <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Tracks</h4>
+								</div>
+							</div>
+							<% if @tracks.any? %>
+								<%= render 'tags/tracks' %>
+							<% else %>
+								<p>This genre doesn't have any tracks yet.</p>
+							<% end %>           
+				          </div>
+
+				          <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Products</h4>
+								</div>
+							</div>
+							<% if @listings.any? %>
+								<%= render 'tags/listings' %>
+							<% else %>
+								<p>This genre doesn't have any products in the marketplace.</p>
+							<% end %>                
+				          </div>
+				          <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+				            <div class="row">
+								<div class="col-12">
+									<h4 class="card-title site-blue">Topics</h4>
+								</div>
+							</div>
+							<% if @topics.any? %>
+								<%= render 'tags/topics' %>
+							<% else %>
+								<p>No one has created any topics yet.</p>
+							<% end %>               
+				          </div>				
+				        </div>
+				      </div><!-- end card -->
+				      <div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							    <h4 class="card-title site-blue">Create a Topic</h4>
+							    <h6 class="card-subtitle mb-2 text-muted">Genre Portal</h6>
+							  </div>
+								<% if user_signed_in?  %>
+            			<h2>New Topic For This Genre</h2>
+            			<%= render "topics/quick_form" %>
+								<% else %>
+									<p style="color: #DC2020"><i><b>You must be logged in to create new posts.</b></i></p>
+								<% end %> 
+							</div>
+		    			</div>
+		    		</div>
+		    	</div><!-- end middle column -->
+
+		    	
+		    	<div class="col-xl-3">
+		    		<div class="card mb-2">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-12">
+									<h4 class="card-title float-left site-blue">Following</h4> <small class="float-right"><a href="#">view all</a></small>
+								</div>
+							</div>
+						    
+						    
+								<div class="row">
+									<div class="col-12 d-flex justify-content-between align-items-center">
+										<p>Nothing to see here yet.</p>
+							   	</div>
+								</div>
 						</div>
-					</li>
-				<% end %>
-			</ul>
+					</div><!-- end card -->
 
-			<%= paginate @tracks %>
-      </div>
-    </div>
-      
-  </div>
-  <% end %>
-  <% if @listings.any? %>
-  <div class="wrapper-med-right" style="width: 65%">
-		<div id="listings" class="cf">
-			<h2 style="margin: 0 1rem .5rem 1rem">Latest Products</h2>
-				<ul class="cf">
-  				<% @listings.each do |listing| %>
-  						<li>
-  							<%= link_to listing do %>
-  								<%= image_tag listing.image.url(:thumb) %>
-  							<% end %>
-  							<div class="listing_overview">
-  							  <p class="listing_type"><%= listing.filetype %></p>
-  								<h2><%= link_to listing.title, listing_path(listing) %></h2>
-  								<div id="stars">
-  									<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
-  								</div>
-									<br>
-									
-									<% if listing.user.image? %>
-					          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
-					        <% else %>
-					          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
-					        <% end %>
-									
-									<% if listing.pseudonym_id? %>
-										<p class="listing_info" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
-									<% else %>
-										<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
-									<% end %>
-									<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p>
-  							</div>
-  						</li>
-  				<% end %>
-  			</ul>
-  	
-  			<%= paginate @listings %>
-  		</div>
-  	</div>
-  </div>
-  <% end %>
-</div>
-
-<script>
-  $('.star-rating').raty({
-    path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
-</script>
+		    	</div><!-- end right column -->
+		    </div><!-- end row -->
+		    
+		</div><!-- end container -->
+	</section>

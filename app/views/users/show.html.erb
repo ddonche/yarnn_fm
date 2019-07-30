@@ -71,7 +71,7 @@
 									    <span class="badge site-blue badge-pill"><%= @user.albums.count %></span>
 									  </li>
 									  <li class="list-group-item d-flex justify-content-between align-items-center">
-									    <small><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i> Listings</small>
+									    <small><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i> Products</small>
 									    <span class="badge site-blue badge-pill"><%= @user.listings.count %></span>
 									  </li>
 									  <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -113,7 +113,7 @@
 				                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><i class="fas fa-compact-disc site-blue mr-2" title="albums"></i></a>
 				            </li>
 				            <li class="nav-item">
-				                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i></a>
+				                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i class="fas fa-shopping-cart site-blue mr-2" title="products"></i></a>
 				            </li>
 				            <li class="nav-item">
 				                <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false"><i class="fas fa-pen-nib site-blue mr-2" title="blog posts"></i></a>
@@ -155,7 +155,7 @@
 				          <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
 				            <div class="row">
 								<div class="col-12">
-									<h4 class="card-title site-blue">Listings</h4>
+									<h4 class="card-title site-blue">Products</h4>
 								</div>
 							</div>
 							<% if @user.listings.any? %>

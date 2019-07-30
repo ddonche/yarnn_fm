@@ -76,11 +76,11 @@ module Apocalypse
           "you have to shoot them in the head"
         ]
         
-        apoccaps1 = capital_words4.sample
-        apoccaps2 = capital_words4.sample
-        apoccaps3 = capital_words4.sample
-        apoccaps4 = capital_words4.sample
-        apoccaps5 = capital_words4.sample
+        apoccaps1 = words4.sample.capitalize
+        apoccaps2 = words4.sample.capitalize
+        apoccaps3 = words4.sample.capitalize
+        apoccaps4 = words4.sample.capitalize
+        apoccaps5 = words4.sample.capitalize
         
         sentence4_len1 = rand(5...30)
         apoc1 = words4.sample(sentence4_len1).map(&:inspect).join(' ')

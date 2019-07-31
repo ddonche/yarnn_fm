@@ -6,12 +6,12 @@
   
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.password_field :username %>
+    <%= f.text_field :username %>
   </div>
   
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.password_field :name %>
+    <%= f.text_field :name %>
   </div>
 
   <% if f.object.class.require_password_on_accepting %>

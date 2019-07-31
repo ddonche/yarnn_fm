@@ -1,6 +1,10 @@
-class InvitationsController < Devise::InvitationsController
+class Users::InvitationsController < Devise::InvitationsController
 
   before_action :update_sanitized_params, only: :update
+  
+  def edit
+    super
+  end
 
   # PUT /resource/invitation
   def update

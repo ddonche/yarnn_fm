@@ -10,6 +10,5 @@ module DeviseWhitelist
     devise_parameter_sanitizer.permit(:account_update, keys: [
       :username, :email, :password, :password_confirmation, :name, :image, :bio, :uid, :stripe_id, :publisher_type, :user_type, :website
     ])
-    devise_parameter_sanitizer.permit(:accept_invitation, keys: [:name, :username, :password, :password_confirmation, :email])
   end
 end

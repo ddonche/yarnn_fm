@@ -1,32 +1,51 @@
-<h2><%= t "devise.invitations.edit.header" %></h2>
+<body style="background-color: #e4e0e0;">
+ 	<!-- Page Content -->
 
-<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :invitation_token, readonly: true %>
-  
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow zindex-100">
+        <div class="card-body px-md-5 py-3 justify-content-center">
+          <div class="text-center mb-1">
+            <%= image_tag("yarnn-icon-red.png", width: 100) %>
+            <h2 class="site-blue">Bare Minimums</h2>
+            <p class="text-muted mb-0">Just set these items and you'll be ready!</p>
+          </div>
+          <hr class="colorgraph">
+          <span class="clearfix"></span>
+            
+            <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <%= f.hidden_field :invitation_token, readonly: true %>
+          
+          <form>
+            
+            <div class="form-group">
+              <%= f.label :username, class: "small site-blue" %><br />
+              <%= f.text_field :username, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :name, class: "small site-blue" %><br />
+              <%= f.text_field :name, class: "form-control" %>
+              <small id="nameHelp" class="form-text site-red text-center">Ideally, use your real name. You can add unlimited pseudonyms later.</small>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, class: "small site-blue" %><br />
+              <%= f.password_field :password, class: "form-control" %>
+            </div>
+             <div class="form-group">
+              <%= f.label :password_confirmation, class: "small site-blue" %><br />
+              <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
+          
+            <button type="submit" class="btn btn-info btn-block">Submit</button>
+          </form>
+          
+          <% end %>
 
-  <% if f.object.class.require_password_on_accepting %>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
+
+        </div>
+      </div>
     </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t("devise.invitations.edit.submit_button") %>
   </div>
-<% end %>
+</div>

@@ -68,7 +68,7 @@
                           		<% if @album.serial == "serial" %>
                             		<div class="ribbon"><span>SERIAL</span></div>
                           		<% end %>
-                    			<%= image_tag @album.image.url(:thumb), title: @album.title, class: "image-full" %>
+                    			<%= image_tag @album.image.url, title: @album.title, class: "image-full" %>
                     		</div>
                     		
                     		<div class="row">

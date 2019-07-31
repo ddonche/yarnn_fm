@@ -76,6 +76,7 @@ Rails.application.routes.draw do
   get 'fantasy_ipsum', to: 'ipsums#fantasy'
   get 'horror_ipsum', to: 'ipsums#horror'
   get 'nature_ipsum', to: 'ipsums#nature'
+  get 'military_ipsum', to: 'ipsums#military'
   get 'modern_ipsum', to: 'ipsums#modern'
   get 'scifi_ipsum', to: 'ipsums#scifi'
   get 'western_ipsum', to: 'ipsums#western'

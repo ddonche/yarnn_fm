@@ -14,16 +14,16 @@ module Names
       "C.", "Caden", "Caesar", "Cam", "Cameron", "Carey", "Carl", "Casper", "Cecil", "Chance", "Charles", "Chase", "Chuck", "Claude", 
       "Claudius", "Clay", "Clayton", "Clifton", "Cliff", "Clive", "Colby", "Connor", "Cooper", "Cord", "Cordell", 
       "Cornelius", "Cort", 
-      "Cory", "Courtney", "Crispin", "Curt", "Curtis",
+      "Cory", "Courtney", "Crispin", "Curt", "Curtis", "Cy", "Cyrus", 
       "D.", "Dade", "Dallas", "Dale", "Damarcus", "Damien", "Damon", "Dan", "Daniel", "Danny", "Darius", "Darrel", "Darren", 
       "Dave", "David", "Davis", "Dax", "Dean",
       "Delbert", "Dell", "Dennis", "Denny", "Desmond", "Devan", "Diego", "Dixon", "Dolf", "Don", "Donald", "Donaldo", "Doug", 
       "Douglas", "Drew", "Drake",
       "Dustin", "Dusty", "Duke", "Dutch",
-      "E.", "Earl", "Ed", "Eddie", "Edgar", "Eduardo", "Edward", "Elias", "Elijah", "Ellis", "Elmer", "Elrod", "Elrond",
+      "E.", "Earl", "Ed", "Eddie", "Edgar", "Eduardo", "Edward", "Edwin", "Elias", "Elijah", "Ellis", "Elmer", "Elrod", "Elrond",
       "Elroy", "Elvis", "Ender", "Ennis", 
       "Ernie", "Ernest", "Ernesto", "Eugene", "Evan", "Everett", "Ezekiel", "Ezra",
-      "F.", "Fabio", "Favian", "Felipe", "Ferdinand", "Fernando", "Francis", "Francisco", "Frank", "Franklin", "Fred", "Freddy",
+      "F.", "Fabio", "Favian", "Felipe", "Ferdinand", "Fernando", "Ferris", "Francis", "Francisco", "Frank", "Franklin", "Fred", "Freddy",
       "G.", "Gabe", "Gabriel", "Garrett", "Gary", "Gavin", "Gaylord", "Gene", "Geoff", "Geoffrey", "George", "Gerald", "Geraldo", 
       "Gerard", "Glen", "Gordon", "Gordy", "Grant", "Greg", "Grover", "Guy",
       "H.", "Hal", "Hamlet", "Hank", "Harlon", "Harrison", "Harry", "Harvey", "Hawk", "Henry", "Herman", "Higgins", "Holden", 
@@ -37,7 +37,7 @@ module Names
       "Justice", "Justin",
       "K.", "Kai", "Karl", "Keihl", "Keith", "Kell", "Keller", "Ken", "Kenneth", "Kenny", "Kurt", "Kyle", 
       "L.", "Ladamien", "Ladarius", "Lamont", "Lance", "Lane", "Larry", "Lawrence", "Lee", "Lenny", "Leo", "Leonard", "Leonardo", "Levi", 
-      "Lewis", "Lex", "Liam", "Lionel", "Livius", "Logan", 
+      "Lewis", "Lex", "Leyton", "Liam", "Lionel", "Livius", "Logan", 
       "Lonn", "Lorin", 
       "Lou", "Louis", "Lucas", 
       "Luke", "Luther", "Lyle",
@@ -55,10 +55,10 @@ module Names
       "Richie", "Rigel", "Rip", "River", 
       "Rob", "Robbie", "Robert", "Roberto", "Rod", "Roderick", "Rodney",
       "Rodrigo", "Roger", "Roland", "Ron", "Ronald", "Ronaldo", "Ronnie", "Roosevelt", "Rorian", 
-      "Rory", "Ross", "Rudolf", "Rudolph", "Rufus", "Russ", "Russell", "Rusty", "Ryan", 
+      "Rory", "Ross", "Rudolf", "Rudolph", "Rufus", "Russ", "Russell", "Rusty", "Rutherford", "Ryan", 
       "S.", "Sal", "Sam", "Sammy", "Samson", "Samuel", "Saul", "Sawyer", "Scott", "Seamus", "Sean", "Sebastian", "Seth", "Shane", 
       "Shannon", "Shaun", "Shawn", "Sherman",
-      "Shooter", "Sonny", "Squire", "Stacey", "Stan", 
+      "Shooter", "Silas", "Sonny", "Squire", "Stacey", "Stan", 
       "Stanley", "Stefan", "Stephan",
       "Stephen", "Sterling", "Steve", "Steven", "Stewart", 
       "Stuart", "Syd", "Sydney", "Sylvester",
@@ -100,22 +100,32 @@ module Names
       "Charlotte", "Chastity", "Cheryl",
       "Chevonne", "Chloe", "Cicilia", "Cicily", "Clarice", "Claudia", "Cora", "Coral", "Coraline", "Corey", "Corina",
       "Courtney", "Crystal", "Cynthia",
-      "D.", "Daisy", "Dani", "Danielle", "Daphne", "Darby", "Darcy", "Darla", "Deb", "Debbie", "Deborah", "Dee", "Delaney", "Delilah", 
+      
+      "D.", "Daisy", "Dani", "Danielle", "Daphne", "Darby", "Darcy", "Dariah", "Darla", "Deb", "Debbie", "Deborah", "Dee", "Delaney", "Delilah", 
       "Denise", "Destiny", "Dolores", "Donna",
+      
       "E.", "Eden", "Edith", "Eleanor", "Elena", "Elise", "Elizabeth", "Eloise", "Elowyn", "Emma", "Emerald", "Emogen", "Esme", "Esmerelda", "Eva", 
       "Eve", "Evelyn", "Ever", "Everly",
-      "F.", "Fae", "Faith", "Fawn", "Fay", "Felicia", "Fiona", "Flo", "Florence", "Fran", "Francesca", 
+      
+      "F.", "Fae", "Faith", "Fanny", "Fawn", "Fay", "Felicia", "Fiona", "Flo", "Florence", "Fran", "Francesca", 
+      
       "G.", "Gabby", "Gabriella", "Gabrielle", "Gay", "Gayle", "Gena", "Genevieve", "Georgia", "Geraldine", "Ginger", "Glenda", "Gloria", "Glory", 
       "Grace", "Gretchen", "Gwyn", "Gwyndalyn", "Gwyneth", 
+      
       "H.", "Hanna", "Hannah", "Hayley", "Hazel", "Helga", "Henrietta", "Hermione", "Holly", "Hope", "Hunter",
+      
       "I.", "Imogen", "Ingrid", "Irene", "Ireland", "Irma", "Isabelle", "Ivy",
+      
       "J.", "Jaime", "Jamie", "Janelle", "Janet", "Janice", "Janine", "January", "Jean", "Jen", "Jennifer", "Jenny", "Jude", "Judy", 
       "June", "Justine", 
+      
       "K.", "Kacy", "Kat", "Kate", "Katherine", "Kay", "Kayla", "Kendall", "Kendra", "Kendyl", "Kim", "Kimberly", "Kylie",
+      
       "L.", "Lacey", "Ladonna", "Lakeisha", "Lana", "Lauren", "Laurie", "Lavender", "Leah", "Leigh", "Lena", 
       "Lexi", "Leticia", "Liberty", "Linda", "Lisa", 
       "Lisbeth", "Lois",
       "Louise", "Lucy", "Luna", "Lynn", "Lynnette",
+      
       "M.", "Macy", "Madonna", "Mae", "Maggie", "Masie", "Marcy", "Margaret", "Margo", "Maria", "Mariah", "Marigold", 
       "Martha", "Martina", "Mary", "Matilda",
       "Maude", "Maurine", "May", "Meg", "Megan",
@@ -124,24 +134,35 @@ module Names
       "Merrivale", "Mia", "Michaela", "Michelle",
       "Mila", "Mildred", "Milly", "Missy", "Misty",
       "Monica", "Monique", "Murielle", "Murietta", "Muse", "Musetta", "Mya",
+      
       "N.", "Nadia", "Nadine", "Nancy", "Nelly", "Nettie", "Nina", "Noelle", "Nora", "Norine",
+      
       "O.", "Oakley", "Octavia", "Odessa", "Odette", "Olga", "Olive", "Olivia", "Opal", "Oriana",
+      
       "P.", "Pam", "Pamela", "Paris", "Patricia", "Patty", "Paula", "Paulene", "Paulette", "Penelope", "Penny", 
       "Phoebe", "Phoenix", "Pia", "Piper",
+      
       "Q.",
+      
       "R.", "Rachel", "Rae", "Rain", "Reagan", "Reba", "Rebecca", "Reece", "Renee", "Rhianna", "Rhiannon", "Rhonda", "Ripley", "Roberta", 
-      "Robin", "Rochelle", "Roquelle", "Rosa", "Rose", "Rowen", "Ruby", "Rumor",
+      "Robin", "Rochelle", "Roquelle", "Rosa", "Rose", "Rowen", "Roxanna", "Roxanne", "Roxy", "Ruby", "Rumor", "Ruth",
       
       "S.", "Sage", "Sally", "Sam", "Sammy", "Sandy", "Sarah", "Scarlett", "Shana", "Shannon", "Shauna", "Shawna", "Sherry", "Sheryl", "Sierra", "Skye", 
       "Skyler", "Snow", "Solest", "Stacey", "Starla", "Stella", "Steph", "Stephanie", "Sterling", "Stormy", "Summer", "Susan", 
       "Susanna", "Susie", "Sydney",
       
       "T.", "Tabby", "Tabitha", "Tamara", "Tammy", "Taylor", "Terri", "Theresa", "Tilda", "Tracey", "Trin", "Trinity", "Trudy",
+      
       "U.", "Ulla", "Ulyanna", "Uma", "Ursula",
+      
       "V.", "Velvet", "Vera", "Verona", "Veronica", "Vesper", "Vicki", "Victoria", "Violet", "Virgina",
-      "W.", "Wanda", "Wendy", "Whisper", "Whitney", "Willa", "Willow", "Winter",
+      
+      "W.", "Wanda", "Wendy", "Whisper", "Whitney", "Wilhemina", "Willa", "Willow", "Winter",
+      
       "X.", 
+      
       "Y.", "Yasmine", "Yolanda", "Yvonne", 
+      
       "Z.", "Zara", "Zelda", "Zena", "Zoe", "Zora"
     ]
       

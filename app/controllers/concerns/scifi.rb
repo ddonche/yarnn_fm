@@ -3,7 +3,7 @@ module Scifi
     
     def scifi
         capital_words5 = [
-          "Absolute zero", "Accelerometer", "Aperture", "Astronomy", "Atomic", "Big Bang", "Binary star", "Carbon", "Clone", "Density", 
+           
           "Climatology", "Concave", "Convection", "Coronal mass ejection", "Cosmic rays", "Darwin", "Descent phase", "Device", "Diffraction",
           "Earth", "Electromagnetic", "Elliptical orbit", "Escape velocity", "Exobiology", "Extragalactic", "Filament", "Frequency",
           "Flux capacitor", "Gravity", "Gyroscope", "Heat shield", "Heliocentric", "Hydrocarbons", "Hyperbolic", 
@@ -16,16 +16,17 @@ module Scifi
         ]
           
         words5 = [
-          "acceleration", "acid", "aerodynamic", "alchemy", "aliens", "alpha rays", "android", "Andromeda", "antigravity", "ansible", "armada", 
+          "absolute zero", "acceleration", "accelerometer", "acid", "aerodynamic", "alchemy", "aliens", "alpha rays", "android", 
+          "Andromeda", "antigravity", "ansible", "aperture", "armada", 
           "artificial intelligence", "asteroid", 
-          "asteroid belt", "astrogate", "astrophysicist", "atmosphere", "atom", "avatar",  
-          "base", "beam", "beings", "binomial", "biology", "biometrics", "black hole", "blasters", "booster", "bootstrap paradox", "Boyle",
+          "asteroid belt", "astrogate", "astronomy", "astrophysicist", "atmosphere", "atom", "atomic", "avatar",  
+          "base", "beam", "beings", "Big Bang", "binary star", "binomial", "biology", "biometrics", "black hole", "blasters", "booster", "bootstrap paradox", "Boyle",
           "bridge",
-          "cannons", "captain", "catalyst", "celestial", "cells", "chemistry", "chromosomes", "Clarke", 
-          "cloaking device", "cognition", "comet", 
+          "cannons", "captain", "carbon", "catalyst", "celestial", "cells", "chemistry", "chromosomes", "Clarke", 
+          "cloaking device", "clone", "cognition", "comet", 
           "collapsed star", "computer", "condenser", "continuum", "core", "corona", "cosmic", "critical mass", 
           "cryogenics", "cryo sleep", "cryostastis", "current", "cybernetics", "cyberspace", "cyborg",
-          "dark matter", "deep space", "dimension", "diode", "dock", "Doppler", "drone", "DNA", "Dyson sphere",
+          "dark matter", "deep space", "density", "dimension", "diode", "dock", "Doppler", "drone", "DNA", "Dyson sphere",
           "eclipse", "Einstein", "electrons", "electronics", "engine", "entropy", 
           "equilibrium", "equinox", "ESP", "event horizon", "experiment", "extraterrestrials",  
           "Faraday Cage", "faster-than-light", "field", "first contact", "fission", "fleet", "force field", 
@@ -55,11 +56,11 @@ module Scifi
           "x-rays"
         ]
           
-        scificaps1 = capital_words5.sample
-        scificaps2 = capital_words5.sample
-        scificaps3 = capital_words5.sample
-        scificaps4 = capital_words5.sample
-        scificaps5 = capital_words5.sample
+        scificaps1 = words5.sample.capitalize
+        scificaps2 = words5.sample.capitalize
+        scificaps3 = words5.sample.capitalize
+        scificaps4 = words5.sample.capitalize
+        scificaps5 = words5.sample.capitalize
         
         sentence5_len1 = rand(5...30)
         scifi1 = words5.sample(sentence5_len1).map(&:inspect).join(' ')

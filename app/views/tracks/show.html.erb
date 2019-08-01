@@ -1,5 +1,4 @@
 <div id="other_background_nocenter" style="overflow-y: auto;">
-<%= render 'shared/alert' %>
 <title><%= @track.title %> | 
     <% if @track.pseudonym_id? %>
   	  <%= @track.pseudonym.name %>
@@ -9,22 +8,21 @@
 </title>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item site-red"><%= link_to @track.user.username, user_path(@track.user) %></li>
+    <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to @track.user.username, user_path(@track.user) %></li>
     <li class="breadcrumb-item">
-        <% if @track.pseudonym_id? %>
-  		  <%= @track.pseudonym.name %>
-  		<% else %>
-  		  <%= @track.user.name %>
-  		<% end %></li>
-    <li class="breadcrumb-item active" aria-current="page"><%= @track.title %></li>
+        <% if @track.album_id? %>
+  		  <i class="fas fa-compact-disc site-blue mx-2" title="album"></i><%= link_to @track.album.title, album_path(@track.album_id) %>
+  		<% end %>
+  	</li>
+    <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-headphones site-blue mx-2" title="track"></i><%= @track.title %></li>
     
     <% if @track.user == current_user %>
     <li class="breadcrumb-item site-red">
         <%= link_to edit_track_path(@track) do %>
-    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit Track
+    	    <small><i class="fas fa-cog site-red mx-2"></i>Edit Track</small>
         <% end %>
         <%= link_to track_path(@track), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fa fa-trash ml-2" title="delete"></i>&nbsp;Delete
+            <small><i class="fa fa-trash mx-2 site-red" title="delete"></i>Delete</small>
         <% end %>
     </li>
     <% end %>

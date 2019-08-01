@@ -120,6 +120,20 @@ a {
   }
 }
 
+.btn-site-blue {
+  color: #fff;
+  background-color: #00b8ac;
+  border-color: #00b8ac;
+  &:hover {
+    -webkit-filter: brightness(85%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    }
+}
+
 .pagination > li > a
 {
     background-color: white;

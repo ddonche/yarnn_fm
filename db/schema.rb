@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190731074457) do
+ActiveRecord::Schema.define(version: 20190801031637) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at",               null: false
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20190731074457) do
     t.integer  "listing_id"
     t.integer  "pseudonym_id"
     t.integer  "favorites_count", default: 0
+    t.string   "voice_site"
     t.index ["pseudonym_id"], name: "index_tracks_on_pseudonym_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end

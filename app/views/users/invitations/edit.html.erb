@@ -1,18 +1,16 @@
-<body style="background-color: #e4e0e0;">
+<div id="other_background_nocenter" style="overflow-y: auto;">
  	<!-- Page Content -->
 
-<div class="container my-3">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow zindex-100">
-        <div class="card-body px-md-5 py-3 justify-content-center">
+<div class="container full-form-container mt-2">
+  <div class="row justify-content-center trans-bg p-3 mt-3 p-sm-4 mt-sm-5 rounded">
+    <div class="col-11">
+
           <div class="text-center mb-1">
-            <%= image_tag("yarnn-icon-red.png", width: 100) %>
-            <h2 class="site-blue">Bare Minimums</h2>
+            <%= image_tag("yarnn-icon.png", size: "96x72") %>
+            <h2 class="site-blue">Registration Info</h2>
             <p class="text-muted mb-0">Just set these items and you'll be ready!</p>
           </div>
           <hr class="colorgraph">
-          <span class="clearfix"></span>
             
             <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
@@ -22,30 +20,27 @@
             
             <div class="form-group">
               <%= f.label :username, class: "small site-blue" %><br />
-              <%= f.text_field :username, class: "form-control" %>
+              <%= f.text_field :username, class: "form-control", placeholder: "Johnny3000, etc." %>
             </div>
             <div class="form-group">
               <%= f.label :name, class: "small site-blue" %><br />
-              <%= f.text_field :name, class: "form-control" %>
+              <%= f.text_field :name, class: "form-control", placeholder: "John F. Doe, etc." %>
               <small id="nameHelp" class="form-text site-red text-center">Ideally, use your real name. You can add unlimited pseudonyms later.</small>
             </div>
             <div class="form-group">
               <%= f.label :password, class: "small site-blue" %><br />
-              <%= f.password_field :password, class: "form-control" %>
+              <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
             </div>
              <div class="form-group">
               <%= f.label :password_confirmation, class: "small site-blue" %><br />
-              <%= f.password_field :password_confirmation, class: "form-control" %>
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Again" %>
             </div>
-          
-            <button type="submit" class="btn btn-site-blue btn-block">Submit</button>
+            <hr class="colorgraph">
+            <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Processing..." } %></h3>
           </form>
           
           <% end %>
 
-
-        </div>
-      </div>
     </div>
   </div>
 </div>

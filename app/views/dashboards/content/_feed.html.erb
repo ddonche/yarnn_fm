@@ -4,7 +4,7 @@
         <div class="row py-4 px-3">
           <div class="col-3 col-md-2">
             <% if item.user.image? %>
-              <%= image_tag User.find(item.user).image.url(:thumb),  width: 40, title: item.user.username %>
+              <%= image_tag User.find(item.user_id).image.url(:thumb),  width: 40, title: item.user.username %>
             <% else %>
               <%= image_tag('default_track.jpg', width: 40, title: item.user.username) %>
             <% end %>

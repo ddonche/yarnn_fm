@@ -1,44 +1,44 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.6.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.7'
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'rails', github: 'rails/rails'
+gem 'puma'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-gem 'dotenv-rails', '~> 2.5'
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'dotenv-rails'
 
 # gems I've installed my damn self
-gem "devise", ">= 4.6.0"
-gem "mini_magick", ">= 4.9.4"
+gem 'devise', git: 'https://github.com/plataformatec/devise.git'
+gem "mini_magick"
 gem 'carrierwave'
-gem 'carrierwave-aws', '~> 1.3'
-gem 'carrierwave-audio', '1.0.9'
-gem 'carrierwave-ffmpeg', '~> 1.0'
-gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
+gem 'carrierwave-aws'
+gem 'carrierwave-audio'
+gem 'carrierwave-ffmpeg'
+gem 'streamio-ffmpeg'
 gem 'file_validators'
-gem 'friendly_id', '~> 5.1.0'
-gem 'rmagick', '~> 2.16'
+gem 'friendly_id'
+gem 'rmagick'
 gem 'kaminari'
-gem 'acts-as-taggable-on', '~> 5.0'
-gem 'font-awesome-sass', '~> 5.9.0'
-gem 'stripe', '~> 3.0.0'
-gem 'omniauth-stripe-connect', '~> 2.10.0'
+gem 'acts-as-taggable-on'
+gem 'font-awesome-sass'
+gem 'stripe'
+gem 'omniauth-stripe-connect'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'trix'
-gem 'aws-sdk', '~> 3'
-gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
-gem 'bootstrap', '~> 4.1.3'
+gem 'aws-sdk'
+gem 'sprockets-rails'
+gem 'bootstrap'
 gem "recaptcha"
 gem 'devise_invitable', '~> 2.0.0'
 
@@ -48,10 +48,10 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.0.5'
+  gem 'web-console'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
   gem 'awesome_print'
   gem 'rb-readline'
 end

@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   get 'about', to: 'welcome#about'
   get 'help', to: 'welcome#help'
   get 'privacy', to: 'welcome#privacy'
+  get 'flags', to: 'flags#index'
   
   get 'dashboard' => 'dashboards#index'
   get '/payout_method' => 'users#payout'

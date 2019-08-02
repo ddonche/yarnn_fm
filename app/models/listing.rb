@@ -5,6 +5,7 @@ class Listing < ApplicationRecord
   has_many :transactions, dependent: :delete_all
   has_many :reviews, dependent: :destroy
   has_many :events, as: :eventable, dependent: :destroy
+  has_many :flags, as: :flaggable, dependent: :delete_all
   enum filetype: { ebook: 0, audio: 1, video: 2 }
 
   mount_uploader :file, FileUploader

@@ -41,6 +41,7 @@ gem 'sprockets-rails'
 gem 'bootstrap'
 gem "recaptcha"
 gem 'devise_invitable', '~> 2.0.0'
+gem 'petergate'
 
 group :development, :test do
   gem 'byebug', platform: :mri

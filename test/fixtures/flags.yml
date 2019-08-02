@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flaggable_type: 1
+  flaggable_id: 1
+  flagged_by_id: 1
+
+two:
+  flaggable_type: 1
+  flaggable_id: 1
+  flagged_by_id: 1

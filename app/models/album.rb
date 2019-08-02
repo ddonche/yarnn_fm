@@ -2,6 +2,7 @@ class Album < ActiveRecord::Base
   belongs_to :user
   has_many :tracks
   has_many :events, as: :eventable, dependent: :delete_all
+  has_many :flags, as: :flaggable, dependent: :delete_all
   belongs_to :pseudonym, optional: true
   enum serial: { nonserial: 0, serial: 1 }
   

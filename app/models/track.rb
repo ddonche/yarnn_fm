@@ -5,6 +5,7 @@ class Track < ApplicationRecord
   has_many :favorites
   has_many :comments, as: :commentable
   has_many :events, as: :eventable, dependent: :delete_all
+  has_many :flags, as: :flaggable, dependent: :delete_all
   has_many :listings
   enum explicit: { standard: 0, explicit: 1 }
   

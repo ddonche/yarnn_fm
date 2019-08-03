@@ -27,10 +27,10 @@
           
               <div class="table-row">
                 <div class="tiny-table-cell" style="width: 10%;">
-                  <% if notification.notified_by.image? %>
-                    <%= image_tag User.find(notification.notified_by).image.url,  width: 40, class: "image", title: notification.notified_by.username %>
+                  <% if notification.notified_by_id.image? %>
+                    <%= image_tag User.find(notification.notified_by_id).image.url,  width: 40, class: "image", title: notification.notified_by_id.username %>
                   <% else %>
-                    <%= image_tag('default_track.jpg', width: 40, class: "image", title: notification.notified_by.username) %>
+                    <%= image_tag('default_track.jpg', width: 40, class: "image", title: notification.notified_by_id.username) %>
                   <% end %>
                 </div>
                     

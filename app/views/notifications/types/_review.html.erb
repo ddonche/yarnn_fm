@@ -1,6 +1,6 @@
 <div class="tiny-table-cell" style="width: 58%;">
-  <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-  reviewed <%= link_to Listing.find(notification.listing_id).title, listing_path(notification.listing_id) %>
+  <%= link_to User.find(notification.notified_by_id).username, user_path(notification.notified_by_id) %> 
+  reviewed <%= link_to Listing.find(notification.notifiable_id).title, listing_path(notification.notifiable_id) %>
 </div>
 <div class="tiny-table-cell" style="width: 22%;">
   <div class="small">

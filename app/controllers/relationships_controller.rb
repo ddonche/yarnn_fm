@@ -7,6 +7,8 @@ class RelationshipsController < ApplicationController
     
     Event.create!(followed_id: @user.id, user_id: current_user.id,
                                   eventable_type: "follow")
+    Notification.create!(recipient_id: @user.id, notified_by_id: current_user.id,
+                                  notifiable_type: "follow")                              
     respond_to do |format|
       format.html { redirect_to @user }
       format.js
@@ -19,6 +21,8 @@ class RelationshipsController < ApplicationController
     
     Event.create!(followed_id: @user.id, user_id: current_user.id,
                                   eventable_type: "unfollow")
+    Notification.create!(recipient_id: @user.id, notified_by_id: current_user.id,
+                                  notifiable_type: "unfollow")                               
     respond_to do |format|
       format.html { redirect_to @user }
       format.js

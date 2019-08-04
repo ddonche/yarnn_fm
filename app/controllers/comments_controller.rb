@@ -22,9 +22,9 @@ class CommentsController < ApplicationController
                                   eventable_type: "comment", commentable_type: @comment.commentable_type)
       
       unless current_user.id == @commentable.user_id
-      Notification.create!(commentable_id: @commentable.id, comment_id: @comment.id, 
+      Notification.create!(parent_id: @commentable.id, notifiable_id: @comment.id, 
                                   recipient_id: @commentable.user_id, notified_by_id: current_user.id, 
-                                  notification_type: "comment", commentable_type: @comment.commentable_type)
+                                  notifiable_type: "comment", commentable_type: @comment.commentable_type)
       end
       redirect_to @commentable, notice: "Comment created."
     else

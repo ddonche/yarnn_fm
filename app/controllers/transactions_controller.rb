@@ -70,7 +70,7 @@ class TransactionsController < ApplicationController
         Event.create!(eventable_id: @listing.id, user_id: current_user.id,
                                   eventable_type: "purchase")
 
-        Notification.create!(listing_id: @listing.id,
+        Notification.create!(notifiable_id: @listing.id,
                                 recipient_id: @listing.user_id, notified_by_id: current_user.id,
                                 notification_type: "purchase")
         respond_to do |format|

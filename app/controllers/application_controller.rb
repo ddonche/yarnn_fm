@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
   def set_notifications
     if user_signed_in?
-      @notifications = Notification.where({ read: false, recipient_id: current_user.id })
+      @notifications = Notification.where({ read_status: false, recipient_id: current_user.id })
     end
   end
 end

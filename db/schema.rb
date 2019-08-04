@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_042749) do
+ActiveRecord::Schema.define(version: 2019_08_04_014838) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -136,21 +136,15 @@ ActiveRecord::Schema.define(version: 2019_08_02_042749) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "recipient_id"
     t.integer "notified_by_id"
-    t.integer "review_id"
-    t.integer "comment_id"
-    t.integer "listing_id"
-    t.integer "commentable_id"
-    t.integer "topics_id"
-    t.integer "conversation_id"
-    t.integer "message_id"
-    t.integer "notification_type"
-    t.boolean "read", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "track_id"
-    t.string "commentable_type"
+    t.integer "recipient_id"
+    t.integer "notifiable_id"
+    t.integer "parent_id"
+    t.integer "commentable_type"
+    t.integer "notifiable_type"
+    t.boolean "read_status", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pseudonyms", force: :cascade do |t|

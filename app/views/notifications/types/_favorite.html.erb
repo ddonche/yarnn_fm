@@ -1,6 +1,6 @@
 <div class="tiny-table-cell" style="width: 58%;">
-  <%= link_to User.find(notification.notified_by).username, user_path(notification.notified_by) %> 
-  added <%= link_to Track.find(notification.track_id).title, track_path(notification.track_id) %> to 
+  <%= link_to User.find(notification.notified_by_id).username, user_path(notification.notified_by_id) %> 
+  added <%= link_to Track.find(notification.notifiable_id).title, track_path(notification.notifiable_id) %> to 
   their station
 </div>
 <div class="tiny-table-cell" style="width: 22%;">

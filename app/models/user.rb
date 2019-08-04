@@ -36,15 +36,13 @@ class User < ApplicationRecord
   has_many :albums, dependent: :destroy
   has_many :tracks, dependent: :destroy
 
-  # the line below I cannot get to work. I would like to put latest track for each of the popular
-  # users in the user index page
-  has_one  :latest_track, ->(track) { order(created_at: :desc).limit(1) }
   has_many :topics
   has_many :favorites, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track
   has_many :blogs, dependent: :destroy
   has_many :comments
   has_many :events, dependent: :delete_all
+  has_many :notifications, dependent: :delete_all
   has_many :flags
   has_many :flags, as: :flaggable, dependent: :delete_all
   has_many :pseudonyms, dependent: :destroy

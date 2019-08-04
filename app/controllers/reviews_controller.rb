@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
         Event.create!(parent_id: @review.listing.id, eventable_id: @review.id, user_id: current_user.id,
                                   eventable_type: "review")
                                   
-        Notification.create!(listing_id: @listing.id, 
+        Notification.create!(notifiable_id: @listing.id, 
                                 recipient_id: @listing.user_id, notified_by_id: current_user.id, 
                                 notification_type: "review")
                                 

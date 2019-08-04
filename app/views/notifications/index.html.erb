@@ -23,18 +23,18 @@
 
           <% if @notifications.any? %>
             <% @notifications.each do |notification| %>
-              <% if lookup_context.template_exists?(notification.notification_type, "notifications/types", true) %>
+              <% if lookup_context.template_exists?(notification.notifiable_type, "notifications/types", true) %>
           
               <div class="table-row">
                 <div class="tiny-table-cell" style="width: 10%;">
-                  <% if notification.notified_by_id.image? %>
-                    <%= image_tag User.find(notification.notified_by_id).image.url,  width: 40, class: "image", title: notification.notified_by_id.username %>
+                  <% if User.find(notification.notified_by_id).image? %>
+                    <%= image_tag User.find(notification.notified_by_id).image.url,  width: 40, class: "image", title: User.find(notification.notified_by_id).username %>
                   <% else %>
                     <%= image_tag('default_track.jpg', width: 40, class: "image", title: notification.notified_by_id.username) %>
                   <% end %>
                 </div>
                     
-                  <%= render partial: "notifications/types/#{notification.notification_type}", locals: {notification: notification} %>
+                  <%= render partial: "notifications/types/#{notification.notifiable_type}", locals: {notification: notification} %>
                 
                   <div class="tiny-table-cell" style="width: 20%;">
                     <div class="small">

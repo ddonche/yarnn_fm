@@ -18,9 +18,9 @@ class MessagesController < ApplicationController
     else
       @recipient = @conversation.receiver_id
     end
-    Notification.create!(message_id: @message.id, 
+    Notification.create!(notifiable_id: @message.id, 
                       recipient_id: @recipient,
-                      conversation_id: @conversation.id,
+                      parent_id: @conversation.id,
                       notified_by_id: current_user.id, notification_type: "message")
     flash[:success] = "Your message was sent!"
     redirect_to conversation_path(@conversation)

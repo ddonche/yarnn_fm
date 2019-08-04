@@ -14,7 +14,7 @@
 		</nav>
 		<div class="row">
 			<div class="col-xl-9 col-md-8 col-sm-12">
-
+<%= render 'shared/alert' %>
 
 <main class="card">
 	<div class="row no-gutters">
@@ -55,7 +55,13 @@
 </div> <!-- price-detail-wrap .// -->
 <dl>
   <dt>Description</dt>
-  <dd><p><%= truncate(@listing.description, length: 200) %></p></dd>
+  <dd><p><%= truncate(@listing.description, length: 200) %></p>
+  <% if @user_flag.try(:any?) %>
+        <small><i class="fas fa-flag site-red mr-2"></i>You reported this.</small>
+    <% else %>
+        <%= render "listings/flag_form" %>
+    <% end %>
+  </dd>
 </dl>
 <hr>
 <dl class="row">
@@ -270,7 +276,9 @@
 
 
 </div><!-- container // -->
-<%= render 'audio' %>
+<% if @tracks.any? %>
+	<%= render 'audio' %>
+<% end %>
 </section>
 <!-- ========================= SECTION CONTENT .END// ========================= -->
 </body>

@@ -37,6 +37,10 @@ class ListingsController < ApplicationController
     end
     @random_track = Track.offset(rand(Track.count)).first
     @random_album = Album.joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("RANDOM()").first
+    @flag = Flag.new
+    if user_signed_in?
+      @user_flag = Flag.where(flagged_by_id: current_user.id, flaggable_id: @listing.id)
+    end
 	end
 	
 	def new

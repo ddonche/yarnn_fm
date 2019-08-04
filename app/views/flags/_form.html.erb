@@ -1,0 +1,61 @@
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Flag this 
+  </button>
+</p>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-body mb-2">
+      <%= form_for [@flag] do |f| %>
+        <% if @flag.errors.any? %>
+            <div class="error_messages">
+            <h3>Please correct the following errors.</h3>
+            <ul>
+                <% @flag.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <small class="site-red">Select the most appropriate flag for this content:</small>
+        <div class="row mt-2">
+
+            <div class="col-4 justify-content-center">
+                <%= f.radio_button :flag_type, 'abuse' %> 
+                <%= label :flag_type_abuse, 'Abusive', class: 'text-secondary' %>
+    		</div>
+    		<div class="col-4 justify-content-center">
+                <%= f.radio_button :flag_type, 'spam' %> 
+                <%= label :flag_type_spam, 'Spam', class: 'text-secondary' %>
+    		</div>
+    		<div class="col-4 justify-content-center">
+                <%= f.radio_button :flag_type, 'explicit' %> 
+                <%= label :flag_type_explicit, 'Should be marked explicit', class: 'text-secondary' %>
+    		</div>
+    		<div class="col-4 justify-content-center">
+                <%= f.radio_button :flag_type, 'file' %> 
+                <%= label :flag_type_file, 'File broken or corrupted', class: 'text-secondary' %>
+    		</div>
+    		<div class="col-4 justify-content-center">
+                <%= f.radio_button :flag_type, 'virus' %> 
+                <%= label :flag_type_virus, 'Virus in download file', class: 'text-secondary' %>
+    		</div>
+    		<div class="col-4 justify-content-center">
+                <%= f.radio_button :flag_type, 'standards' %> 
+                <%= label :flag_type_standards, 'Violates community standards', class: 'text-secondary' %>
+    		</div>
+    		<div class="col-4 justify-content-center">
+                <%= f.radio_button :flag_type, 'copyright' %> 
+                <%= label :flag_type_copyright, 'Copyright violation', class: 'text-secondary' %>
+    		</div>
+          </div>
+          
+          <hr class="colorgraph">
+  		  <div class="row">
+  			<div class="col-xs-12 col-sm-12 col-md-6">
+  			  <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %></h3>
+  			</div>
+  		  </div>
+    <% end %>
+  </div>
+</div>

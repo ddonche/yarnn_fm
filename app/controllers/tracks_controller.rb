@@ -25,6 +25,10 @@ class TracksController < ApplicationController
     @comment = Comment.new
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing&.id)
     @transaction = Transaction.new
+    @flag = Flag.new
+    if user_signed_in?
+      @user_flag = Flag.where(flagged_by_id: current_user.id, flaggable_id: @track.id)
+    end
 	end
 	
 	def new

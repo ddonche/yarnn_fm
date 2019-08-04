@@ -1,0 +1,64 @@
+<div class="row pl-2 py-2">
+  <div class="col-12">
+    <small>
+      <a data-target="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fas fa-flag site-red mr-2"></i>report this listing
+      </a>
+    </small>
+  </div>
+</div>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-body mb-2">
+      <%= form_for [@flag] do |f| %>
+        <% if @flag.errors.any? %>
+            <div class="error_messages">
+            <h3>Please correct the following errors.</h3>
+            <ul>
+                <% @flag.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <small class="site-red">Select the most appropriate flag for this content:</small>
+        <div class="row mt-2">
+
+          <div class="col-6 justify-content-center">
+                <%= f.radio_button :flag_type, 'abuse' %> 
+                <%= label :flag_type_abuse, 'Abusive', class: 'text-secondary' %>
+    		  </div>
+      		<div class="col-6 justify-content-center">
+                  <%= f.radio_button :flag_type, 'spam' %> 
+                  <%= label :flag_type_spam, 'Spam', class: 'text-secondary' %>
+      		</div>
+      		<div class="col-6 justify-content-center">
+                  <%= f.radio_button :flag_type, 'virus' %> 
+                  <%= label :flag_type_explicit, 'Virus in download', class: 'text-secondary' %>
+      		</div>
+      		<div class="col-6 justify-content-center">
+                  <%= f.radio_button :flag_type, 'file' %> 
+                  <%= label :flag_type_file, 'Download file broken', class: 'text-secondary' %>
+      		</div>
+      		<div class="col-12 justify-content-center">
+                  <%= f.radio_button :flag_type, 'standards' %> 
+                  <%= label :flag_type_standards, 'Violates community standards', class: 'text-secondary' %>
+      		</div>
+      		<div class="col-6 justify-content-center">
+                  <%= f.radio_button :flag_type, 'copyright' %> 
+                  <%= label :flag_type_copyright, 'Copyright violation', class: 'text-secondary' %>
+      		</div>
+    		  <%= f.hidden_field :flaggable_type, value: 'listing' %>
+    		  <%= f.hidden_field :flaggable_id, value: @listing.id %>
+        
+        </div>
+          
+        <hr class="colorgraph">
+  		  <div class="row">
+  			<div class="col-xs-12 col-sm-12 col-md-6">
+  			  <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %></h3>
+  			</div>
+  		  </div>
+    <% end %>
+  </div>
+</div>

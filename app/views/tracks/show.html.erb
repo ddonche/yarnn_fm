@@ -165,8 +165,13 @@
                             <div class="blog_wrapper rounded crown-border">
                 		      <div class="row p-4">
                 		        <div class="col-12 mb-2">
-                  		        <% if user_signed_in? %>
+                  		      <% if user_signed_in? %>
                                 <%= render "comments/form" %>
+                                <% if @user_flag.try(:any?) %>
+                                    <small><i class="fas fa-flag site-red mx-2"></i>You reported this.</small>
+                                <% else %>
+                                    <%= render "tracks/flag_form" %>
+                                <% end %>
                               <% else %>
                                 <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
                               <% end %>

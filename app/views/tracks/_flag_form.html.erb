@@ -24,27 +24,27 @@
         <small class="site-red">Select the most appropriate flag for this content:</small>
         <div class="row mt-2">
 
-          <div class="col-4 justify-content-center">
+          <div class="col-12 col-md-6 justify-content-center">
                 <%= f.radio_button :flag_type, 'abuse' %> 
                 <%= label :flag_type_abuse, 'Abusive', class: 'text-secondary' %>
     		  </div>
-      		<div class="col-4 justify-content-center">
+      		<div class="col-12 col-md-6 justify-content-center">
                   <%= f.radio_button :flag_type, 'spam' %> 
                   <%= label :flag_type_spam, 'Spam', class: 'text-secondary' %>
       		</div>
-      		<div class="col-4 justify-content-center">
+      		<div class="col-12 col-md-6 justify-content-center">
                   <%= f.radio_button :flag_type, 'explicit' %> 
                   <%= label :flag_type_explicit, 'Should be marked explicit', class: 'text-secondary' %>
       		</div>
-      		<div class="col-4 justify-content-center">
+      		<div class="col-12 col-md-6 justify-content-center">
                   <%= f.radio_button :flag_type, 'file' %> 
                   <%= label :flag_type_file, 'Poor audio file quality', class: 'text-secondary' %>
       		</div>
-      		<div class="col-4 justify-content-center">
+      		<div class="col-12 col-md-6 justify-content-center">
                   <%= f.radio_button :flag_type, 'standards' %> 
                   <%= label :flag_type_standards, 'Violates community standards', class: 'text-secondary' %>
       		</div>
-      		<div class="col-4 justify-content-center">
+      		<div class="col-12 col-md-6 justify-content-center">
                   <%= f.radio_button :flag_type, 'copyright' %> 
                   <%= label :flag_type_copyright, 'Copyright violation', class: 'text-secondary' %>
       		</div>

@@ -61,19 +61,19 @@ class AlbumsController < ApplicationController
   end
 
 	private
-
-	def find_track
-		@tracks = Track.where(album_id: @album).order("created_at DESC").page(params[:page]).per(10)
-	end
-
-	def find_album
-		if params[:id].nil?
-			@album = current_album
-		else
-			@album = Album.find(params[:id])
-		end
-	end
 	
+  	def find_track
+  		@tracks = Track.where(album_id: @album).order("created_at DESC").page(params[:page]).per(10)
+  	end
+  
+  	def find_album
+  		if params[:id].nil?
+  			@album = current_album
+  		else
+  			@album = Album.find(params[:id])
+  		end
+  	end
+  	
     def album_params
       params.require(:album).permit(:title, :description, :user_id, :pseudonym_id, :editor,
                                     :image, :year, :vocals, :tag_list, :serial)

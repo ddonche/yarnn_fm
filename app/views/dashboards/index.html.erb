@@ -60,6 +60,10 @@
                   Follow Another User
                 </div>
                 <div>
+                  <%= onboarding_step_icon current_user.has_invited? %>
+                  Invite Someone
+                </div>
+                <div>
                   <%= onboarding_step_icon current_user.has_topic? %>
                   Create a Topic in a Genre
                 </div>

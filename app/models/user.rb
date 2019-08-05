@@ -109,6 +109,10 @@ class User < ApplicationRecord
   def favorited?(track)
     track.favorites.where(user_id: id).any?
   end
+  
+  def has_invited?
+    User.where(invited_by_id: id).any?
+  end
 
   def reviewed?(listing)
     listing.reviews.where(user_id: id).any?

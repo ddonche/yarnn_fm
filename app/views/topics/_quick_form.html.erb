@@ -1,31 +1,36 @@
-<%= form_for(@topic) do |f| %>
+<%= form_for [@topic] do |f| %>
     <% if @topic.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
-  
+        <div class="error_messages">
+        <h3>Please correct the following errors.</h3>
         <ul>
-        <% @topic.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+            <% @topic.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
         </ul>
       </div>
     <% end %>
+    <div class="row px-3 pb-1">
+      <div class="col-12 justify-content-center">
+        <div class="form-group">
+          <%= f.text_field :title, required: true, class: "form-control input-lg", placeholder: "Subject" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row px-3 pb-1">
+      <div class="col-12 justify-content-center">
+        <form class="form-inline">
+            <div class="form-group">
+                <%= f.text_area :content, placeholder: "Topic content...", class: "form-control mr-2" %>
+            </div>
+            <%= f.hidden_field :tag_list, value: @genre %>
+        </form>
+      </div>
+    </div>
+    <div class="row px-3 pb-3">
+      <div class="col-12 justify-content-center">
+        <%= f.submit "Submit", class: "btn btn-danger"%>      
+      </div>
+    </div>
 
-  	<div class="field">
-      <%= f.label :title, class: "title" %><br />
-      <%= f.text_field :title, :autofocus => true, required: true %>
-    </div>
-    
-    <div class="field">
-      <%= f.label :content, class: "title" %><br />
-      <%= f.text_area :content, autofocus: true %>
-    </div>
-    
-    <%= f.hidden_field :tag_list, value: @genre %>
-    
-  
-    <div class="actions">
-      <%= f.submit "Submit", class: "button button_highlight button_block" %>
-    </div>
-    
-  <% end %>
+<% end %>

@@ -1,0 +1,31 @@
+<%= form_for(@topic) do |f| %>
+    <% if @topic.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+  
+        <ul>
+        <% @topic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  	<div class="field">
+      <%= f.label :title, class: "title" %><br />
+      <%= f.text_field :title, :autofocus => true, required: true %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :content, class: "title" %><br />
+      <%= f.text_area :content, autofocus: true %>
+    </div>
+    
+    <%= f.hidden_field :tag_list, value: @genre %>
+    
+  
+    <div class="actions">
+      <%= f.submit "Submit", class: "button button_highlight button_block" %>
+    </div>
+    
+  <% end %>

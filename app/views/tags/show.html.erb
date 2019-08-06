@@ -100,12 +100,12 @@
 		    			<div class="col-12">
 		    				<div class="card">
 							  <div class="card-body">
-							    <h4 class="card-title site-blue">Create a Topic</h4>
+							    <h4 class="card-title site-blue">Create a Topic for <%= @genre %></h4>
 							    <h6 class="card-subtitle mb-2 text-muted">Genre Portal</h6>
 							  </div>
 								<% if user_signed_in?  %>
-            			<h2>New Topic For This Genre</h2>
-            			<%= render "topics/quick_form" %>
+								
+            						<%= render "tags/topics_form" %>
 								<% else %>
 									<p style="color: #DC2020"><i><b>You must be logged in to create new posts.</b></i></p>
 								<% end %> 

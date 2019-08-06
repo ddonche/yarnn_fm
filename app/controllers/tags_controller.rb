@@ -32,10 +32,6 @@ class TagsController < ApplicationController
     end
     if user_signed_in?
       @topic = current_user.topics.build
-      respond_to do |format| 
-        format.html
-        format.js
-      end
     end
     @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(3)
     @listings = Listing.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(12)

@@ -118,7 +118,11 @@
                             <span class="ml-2 site-red"><%= @track.comments.count %></span>
                     	</div>
                     	<div class="col-4 text-right">
-                    		Tags will go here.
+                    		<% @track.tags.map(&:name).each do |tag| %>
+                			  	<div class="btn btn-outline-danger btn-sm mr-3">
+                				  <%= link_to tag, tag_path(tag) %>
+                				</div>
+            			  <% end %>
                     	</div>
                     </div>
                     <% if @track.listing_id? %>

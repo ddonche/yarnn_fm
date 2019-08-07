@@ -5,7 +5,11 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb mt-3">
-			  Tags will go here.
+			  <% @listing.tags.map(&:name).each do |tag| %>
+			  	<div class="btn btn-outline-danger btn-sm mr-3">
+				  <%= link_to tag, tag_path(tag) %>
+				</div>
+			  <% end %>
 		  </ol>
 		</nav>
 		<div class="row">

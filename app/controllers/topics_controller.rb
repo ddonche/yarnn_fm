@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
 	def index
     if params[:tag]
-      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
+      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(2)
     else
       @topics = Topic.all.order('created_at DESC')
     end
@@ -16,7 +16,7 @@ class TopicsController < ApplicationController
 	  @commentable = @topic
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
-    @topics = Topic.tagged_with(@tag).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
+    @topics = Topic.tagged_with(@tag).order("created_at DESC").page(params[:page]).per(3)
   end
 	
 	def new
@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
     respond_to do |format|
       if @topic.save
         puts @topic
-        Activity.create!(eventable_id: @topic.id, user_id: current_user.id, eventable_type: "topic")
+        Event.create!(eventable_id: @topic.id, user_id: current_user.id, eventable_type: "topic")
                                   
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.js

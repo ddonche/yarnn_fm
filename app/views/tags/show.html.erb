@@ -7,7 +7,7 @@
 				  <ol class="breadcrumb mt-3">
 					    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
 					    <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li>
-					    <li class="breadcrumb-item active" aria-current="page"><%= @genre.capitalize %> Portal</li>
+					    <li class="breadcrumb-item active" aria-current="page"><%= @genre %> Portal</li>
 				  </ol>
 				</nav>
 		    <div class="row mt-3">
@@ -16,7 +16,7 @@
 		    			<div class="col-12">
 		    				<div class="card">
 							  <div class="card-body">
-							    <h4 class="card-title site-blue"><%= request.path.split('/').last %></h4>
+							    <h4 class="card-title site-blue"><%= @genre %></h4>
 							    <h6 class="card-subtitle mb-2 text-muted">Genre Portal</h6>
 							  </div>
 									<ul class="list-group list-group-flush">

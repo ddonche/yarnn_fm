@@ -1,4 +1,6 @@
 class Track < ApplicationRecord
+  include Taggable
+  
   belongs_to :user
   belongs_to :album, optional: true
   belongs_to :pseudonym, optional: true
@@ -20,5 +22,9 @@ class Track < ApplicationRecord
   
   def crop_image
     image.recreate_versions! if crop_x.present?
+  end
+  
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).tracks
   end
 end

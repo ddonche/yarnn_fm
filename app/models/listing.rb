@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  include Taggable
+  
   belongs_to :user
   belongs_to :track
   belongs_to :pseudonym, optional: true
@@ -25,6 +27,10 @@ class Listing < ApplicationRecord
   
   def crop_image
     image.recreate_versions! if crop_x.present?
+  end
+  
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).listings
   end
   
   def avg_rating

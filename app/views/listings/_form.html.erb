@@ -69,6 +69,11 @@
         <%= f.text_field :price, autofocus: true, class: "form-control", placeholder: "Price" %>
       <small id="titleHelp" class="form-text text-muted">Do not include the dollar sign. All currency is USD until further notice.</small>
       </div>
+      <div class="col-12 justify-content-center">
+        <small><%= f.label :tag_list, "Genres (separated by commas)", class: "site-blue" %></small><br />
+        <%= f.text_field :tag_list, class: "form-control", placeholder: "Genres" %>
+        <small id="titleHelp" class="form-text text-muted">Enter up to two genres.</small>
+      </div>
     </div>
   
   <hr class="colorgraph">

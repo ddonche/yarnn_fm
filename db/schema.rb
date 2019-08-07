@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_045729) do
+ActiveRecord::Schema.define(version: 2019_08_07_053911) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -172,6 +172,21 @@ ActiveRecord::Schema.define(version: 2019_08_07_045729) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "listing_id"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.datetime "created_at"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "topics", force: :cascade do |t|

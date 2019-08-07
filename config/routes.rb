@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get :albums
       get :tracks
       get :listings
+      get :topics
     end
   end
   

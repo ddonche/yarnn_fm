@@ -39,9 +39,7 @@
   </div>
 </div>
 <div class="row">
-    <% Listing.find(item.parent_id).tag_list.map.each do |tag| %>
-      <div class="tags"><%= link_to tag, tag_path(tag) %></div>
-    <% end %>
+    Tags
 </div>
 
 <script>

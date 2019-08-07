@@ -118,9 +118,7 @@
                             <span class="ml-2 site-red"><%= @track.comments.count %></span>
                     	</div>
                     	<div class="col-4 text-right">
-                    		<% @track.tag_list.map.each do |tag| %>
-							    <span class="tags"><%= link_to tag, tag_path(tag) %></span>
-							<% end %>
+                    		Tags will go here.
                     	</div>
                     </div>
                     <% if @track.listing_id? %>

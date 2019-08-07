@@ -1,43 +1,31 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+	before_action :find_topic, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
 
-  def index
-    @pseudo = Pseudonym.find_by(params[:pseudo_id])
-    if user_signed_in?
-      @topic = current_user.topics.build
-    end
+	def index
     if params[:tag]
-      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(2)
+      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').paginate(:page => params[:page], :per_page => 2)
     else
       @topics = Topic.all.order('created_at DESC')
     end
-    respond_to do |format| 
-      format.html
-      format.js
-    end
-  end
+	end
 
   def show
-    if @topic.pseudo_id?
-      @pseudo = Pseudonym.find(@topic.pseudo_id)
-    end
     @tag = @topic.tag_list
     @topics_count = Topic.tagged_with(@tag).count
 	  @commentable = @topic
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
-    @topics = Topic.tagged_with(@tag).order("created_at DESC").page(params[:page]).per(3)
+    @topics = Topic.tagged_with(@tag).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
   end
-
-  def new
+	
+	def new
     @topic = current_user.topics.build
-    @genre = request.path.split('/').last
     respond_to do |format| 
       format.html
       format.js
     end
-  end
+	end
 
   def edit
   end
@@ -47,12 +35,13 @@ class TopicsController < ApplicationController
     @genre = request.path.split('/').last
     respond_to do |format|
       if @topic.save
-        
-        Event.create!(eventable_id: @topic.id, user_id: current_user.id, eventable_type: "topic")
+        puts @topic
+        Activity.create!(eventable_id: @topic.id, user_id: current_user.id, eventable_type: "topic")
                                   
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.js
       else
+        puts @topic
         format.html { render :new }
         format.js
       end
@@ -76,14 +65,12 @@ class TopicsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+	private
+  	def find_topic
+  		@topic = Topic.find(params[:id])
+  	end
+  	
     def topic_params
-      params.require(:topic).permit(:content, :title, :tag_list, :pseudo_id)
+      params.require(:topic).permit(:content, :title, :tag_list)
     end
 end

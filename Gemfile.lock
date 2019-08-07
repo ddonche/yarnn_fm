@@ -93,8 +93,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    acts-as-taggable-on (5.0.0)
-      activerecord (>= 4.2.8)
     autoprefixer-rails (9.6.1)
       execjs
     awesome_print (1.8.0)
@@ -1072,7 +1070,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on
   awesome_print
   aws-sdk
   bootstrap
@@ -1099,7 +1096,7 @@ DEPENDENCIES
   petergate
   pg
   puma
-  rails!
+  rails (~> 6.1.0.alpha)!
   rails_12factor
   rb-readline
   recaptcha

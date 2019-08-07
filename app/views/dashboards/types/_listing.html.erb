@@ -30,9 +30,7 @@
   </div>
 </div>
 <div class="row">
-  <% Listing.find(item.eventable_id).tag_list.map.each do |tag| %>
-      <span class="tags"><%= link_to tag, tag_path(tag) %></span>
-    <% end %>
+  Tags
 </div>
 
 <script>

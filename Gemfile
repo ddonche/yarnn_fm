@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 6.1.0.alpha', github: 'rails/rails'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
@@ -29,7 +29,6 @@ gem 'file_validators'
 gem 'friendly_id'
 gem 'rmagick'
 gem 'kaminari'
-gem 'acts-as-taggable-on'
 gem 'font-awesome-sass'
 gem 'stripe'
 gem 'omniauth-stripe-connect'

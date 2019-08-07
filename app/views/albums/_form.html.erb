@@ -12,23 +12,23 @@ might also make an album for a full-length novel, and upload select audio tracks
 
 	<hr class="colorgraph">
 	<%= form_for(@album) do |f| %>
-  <% if @album.errors.any? %>
-    <div class="bg-dark px-3 my-3 pb-1 text-correct rounded">
-        <div class="row pt-3 rounded">
-            <div class="col-12">
-               <div class="alert alert-error alert-block"> <button type="button"
-                class="close" data-dismiss="alert">x</button>
-                <h5 class='site-red'><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h5>
-                <ul>
-                  <% @album.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-               </div>
-            </div>
-        </div>
-    </div>
-  <% end %>
+    <% if @album.errors.any? %>
+      <div class="bg-dark px-3 my-3 pb-1 text-correct rounded">
+          <div class="row pt-3 rounded">
+              <div class="col-12">
+                 <div class="alert alert-error alert-block"> <button type="button"
+                  class="close" data-dismiss="alert">x</button>
+                  <h5 class='site-red'><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h5>
+                  <ul>
+                    <% @album.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                 </div>
+              </div>
+          </div>
+      </div>
+    <% end %>
   
   <h2 class="site-blue">Creator Info</h2>
   <div class="form-group">

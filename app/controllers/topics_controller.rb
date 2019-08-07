@@ -13,6 +13,8 @@ class TopicsController < ApplicationController
   def show
     @tag = @topic.tag_list
     @topics_count = Topic.tagged_with(@tag).count
+    @track_count = Track.tagged_with(@tag).count
+    @listing_count = Listing.tagged_with(@tag).count
 	  @commentable = @topic
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new

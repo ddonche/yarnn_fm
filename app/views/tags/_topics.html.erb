@@ -1,12 +1,11 @@
-<% @topics.each do |topic| %>
-  <div class="topics_index">
-    <ul>
-      <li>
-        <%= link_to topic.title, topic_path(topic) %><br>
-        <div class="topics_index_content"><%= truncate(topic.content, length: 92) %></div>
-        <%= link_to topic.user.username, user_path(topic.user_id) %> - 
-        <i><%= time_ago_in_words(topic.created_at) %> ago </i>
-      </li>
-    </ul>
-  </div>
-<% end %>
+<div class="row">
+    <% @topics.each do |topic| %>
+        <div class="col-9">
+            <%= link_to topic.title, topic_path(topic) %>
+        </div>
+        <div class="col-3">
+            <small><i class="fas fa-comments site-blue" title="comments"></i>
+            <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
+        </div>
+    <% end %>
+</div>

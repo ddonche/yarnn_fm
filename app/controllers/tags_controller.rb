@@ -21,7 +21,7 @@ class TagsController < ApplicationController
   
   def show
     @tracks = Track.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(24)
-    @tag_count = Track.tagged_with(params[:tag]).count
+    @track_count = Track.tagged_with(params[:tag]).count
     @topics_count = Topic.tagged_with(params[:tag]).count
     @listings_count = Listing.tagged_with(params[:tag]).count
     

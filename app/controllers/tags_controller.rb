@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  
+
   def index
     #@tags = Tag.most_used(100).page(params[:page]).per(24)
     @track_count = Track.tagged_with(params[:tag]).count
@@ -24,9 +24,10 @@ class TagsController < ApplicationController
     @tag_count = Track.tagged_with(params[:tag]).count
     @topics_count = Topic.tagged_with(params[:tag]).count
     @listings_count = Listing.tagged_with(params[:tag]).count
-    @tag = Tag.name
-    @genre = request.path.split('/').last.titleize
-    #@genre = @genre_pre.gsub!('%20', ' ')
+    
+    @genre_pre = request.path.split('/').last.titleize
+    @genre = @genre_pre.gsub('%20', ' ')
+    
     @pseudo = Pseudonym.find_by(params[:pseudo_id])
     def current_url
       url_for :only_path
@@ -39,5 +40,5 @@ class TagsController < ApplicationController
   end
   
   private
-  
+	
 end

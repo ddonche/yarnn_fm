@@ -1,5 +1,11 @@
 <title><%= @genre %> | Yarnn.FM</title>
-<body style="background-color: #e4e0e0;">
+
+<% if lookup_context.template_exists?(@style, "tags/styles", true) %>
+    <%= render partial: "tags/styles/#{@style}" %>
+<% else %>
+	<body style="background-color: #e4e0e0;">
+<% end %>
+
  	<!-- Page Content -->
  	<section class="section-content bg padding-y-sm">
 		<div class="container">

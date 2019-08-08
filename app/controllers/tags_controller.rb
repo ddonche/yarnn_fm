@@ -9,6 +9,7 @@ class TagsController < ApplicationController
     @genre_pre1 = request.path.split('/').last
     @genre_pre2 = @genre_pre1.gsub('%20', ' ')
     @genre = @genre_pre2.split.map(&:capitalize).join(' ')
+    @style = @genre.split.map(&:downcase).join('_')
     
     @tracks = Track.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(24)
     @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(24)

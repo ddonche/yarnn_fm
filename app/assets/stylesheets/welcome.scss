@@ -38,6 +38,14 @@
   box-sizing: border-box;
 }
 
+#tag_background_nocenter {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 #other_background_overflow {
   background-image: image-url('dark-bg.gif');
   overflow-y: auto;
@@ -51,4 +59,16 @@
   text-align: center;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+.tag_style_horror {
+  background-image: url('https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_horror_background.jpg');
+}
+
+.tag_style_military {
+  background-image: url('https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_mil_background.jpg');
+}
+
+.tag_style_scifi {
+  background-image: url('https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_scifi_background.jpg');
 }

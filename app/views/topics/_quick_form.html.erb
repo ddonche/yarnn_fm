@@ -26,7 +26,13 @@
         </form>
       </div>
     </div>
-    <%= f.hidden_field :tag_list, value: @genre %>
+    
+    <div class="form-group">
+      <small><%= f.label :tag_list, "Genres (separated by commas)", class: "site-blue" %></small><br />
+      <%= f.text_field :tag_list, class: "form-control", value: @genre %>
+      <small id="titleHelp" class="form-text text-muted">Enter up to two genres.</small>
+    </div>
+    
     <div class="row px-3 pb-3">
       <div class="col-12 justify-content-center">
         <%= f.submit "Submit", class: "btn btn-danger"%>      

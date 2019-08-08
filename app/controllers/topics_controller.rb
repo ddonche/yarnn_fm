@@ -12,13 +12,17 @@ class TopicsController < ApplicationController
 
   def show
     @tag = @topic.tag_list
-    @topics_count = Topic.tagged_with(@tag).count
-    @track_count = Track.tagged_with(@tag).count
-    @listing_count = Listing.tagged_with(@tag).count
+    @genre = @tag.split.map(&:capitalize).join(' ')
+    
+    @tag_id = Tag.where(name: @tag)
+    @topics_count = Tagging.where(tag_id: @tag_id, taggable_type: "Topic").count
+    @track_count = Tagging.where(tag_id: @tag_id, taggable_type: "Track").count
+    @listing_count = Tagging.where(tag_id: @tag_id, taggable_type: "Listing").count
 	  @commentable = @topic
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
     @topics = Topic.tagged_with(@tag).order("created_at DESC").page(params[:page]).per(3)
+    
   end
 	
 	def new
@@ -34,7 +38,9 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(topic_params)
-    @genre = request.path.split('/').last
+    @genre_pre1 = request.path.split('/').last
+    @genre = @genre_pre1.gsub('%20', ' ')
+
     respond_to do |format|
       if @topic.save
         puts @topic

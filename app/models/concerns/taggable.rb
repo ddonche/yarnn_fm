@@ -15,10 +15,4 @@ module Taggable
       Tag.where(name: name.strip).first_or_create!
     end
   end
-
-  module ClassMethods
-    def tag_counts
-      Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
-    end
-  end
 end

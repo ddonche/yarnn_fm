@@ -6,7 +6,10 @@ class TopicsController < ApplicationController
     if params[:tag]
       @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(2)
     else
-      @topics = Topic.all.order('created_at DESC')
+      @topics = Topic.all.order('created_at DESC').page(params[:page]).per(16)
+    end
+    if user_signed_in?
+      @topic = current_user.topics.build
     end
 	end
 
@@ -43,13 +46,11 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
-        puts @topic
         Event.create!(eventable_id: @topic.id, user_id: current_user.id, eventable_type: "topic")
                                   
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.js
       else
-        puts @topic
         format.html { render :new }
         format.js
       end

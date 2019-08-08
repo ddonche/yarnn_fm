@@ -1,14 +1,16 @@
-<%= form_for [@topic] do |f| %>
+<%= form_for(@topic) do |f| %>
     <% if @topic.errors.any? %>
-        <div class="error_messages">
-        <h3>Please correct the following errors.</h3>
+      <div id="error_explanation">
+        <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+  
         <ul>
-            <% @topic.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
+        <% @topic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
         </ul>
       </div>
     <% end %>
+
     <div class="row px-3 pb-1">
       <div class="col-12 justify-content-center">
         <div class="form-group">
@@ -19,24 +21,25 @@
     
     <div class="row px-3 pb-1">
       <div class="col-12 justify-content-center">
-        <form class="form-inline">
-            <div class="form-group">
-                <%= f.text_area :content, placeholder: "Topic content...", class: "form-control mr-2" %>
-            </div>
-        </form>
+          <div class="form-group">
+              <%= f.text_area :content, required: true, placeholder: "Topic content...", class: "form-control mr-2" %>
+          </div>
       </div>
     </div>
     
-    <div class="form-group">
-      <small><%= f.label :tag_list, "Genres (separated by commas)", class: "site-blue" %></small><br />
-      <%= f.text_field :tag_list, class: "form-control", value: @genre %>
-      <small id="titleHelp" class="form-text text-muted">Enter up to two genres.</small>
+    <div class="row px-3 pb-1">
+      <div class="col-12 justify-content-center">
+        <div class="form-group">
+          <%= f.text_field :tag_list, required: true, class: "form-control", placeholder: "Genres" %>
+          <small id="titleHelp" class="form-text text-muted">Enter up to two genres, separated by commas.</small>
+        </div>
+      </div>
     </div>
     
     <div class="row px-3 pb-3">
       <div class="col-12 justify-content-center">
-        <%= f.submit "Submit", class: "btn btn-danger"%>      
+        <%= f.submit "Submit", class: "btn btn-danger" %>      
       </div>
     </div>
-
+    
 <% end %>

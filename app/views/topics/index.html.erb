@@ -1,7 +1,105 @@
-<div class="wrapper_wide_right">
-  <% @topics.each do |topic| %>
-    <h1><%= topic.title %></h1>
-    <%= topic.content %><br />
-    <%= link_to topic.user.username, user_path(topic.user_id) %>
-  <% end %>
-</div>
+<title>Topics | Yarnn.FM</title>
+<body style="background-color: #e4e0e0;">
+
+ 	<!-- Page Content -->
+ 	<section class="section-content bg padding-y-sm">
+		<div class="container">
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb mt-3">
+					    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+					    <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li>
+					    <li class="breadcrumb-item active" aria-current="page">Topics</li>
+				  </ol>
+				</nav>
+		    <div class="row mt-3">
+		    	<div class="col-xl-2 rounded">
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							    <h4 class="card-title site-blue"></h4>
+							    <h6 class="card-subtitle mb-2 text-muted">Something here</h6>
+							  </div>
+									
+							</div>
+		    			</div>
+		    		</div>
+		    	</div><!-- end left column -->
+		    	
+		    	<div class="col-xl-7">
+				    <div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+								  <div class="card-body">
+								    <h4 class="card-title site-blue">Create a New Topic</h4>
+								    <h6 class="card-subtitle mb-2 text-muted">Genre Portal</h6>
+								  </div>
+									<% if user_signed_in?  %>
+	            				<%= render "topics/quick_form" %>
+									<% else %>
+								  <div class="row px-3 pb-1">
+                    <div class="col-12">
+									    <p style="color: #DC2020"><i><b>You must be logged in to create new topics.</b></i></p>
+									  </div>
+									</div>
+								<% end %> 
+							</div>
+		    			</div>
+		    		</div>
+		    		<div class="card">
+								  <div class="card-body">
+								    <h4 class="card-title site-blue">Latest Topic</h4>
+								    <h6 class="card-subtitle mb-2 text-muted">Main Genres</h6>
+								  
+					    		<% @topics.each do |topic| %>
+			  		    		<div class="row">
+			                <div class="col-12 col-md-9 small">
+			                    <%= link_to topic.title, topic_path(topic) %><br />
+			                    <small><i class="fas fa-comments site-blue" title="comments"></i>
+			                      <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
+			                    <div class="border border-secondary rounded my-1 mt-2 p-2">
+			                      <small><%= truncate(topic.content, length: 200) %></small>
+			                    </div>
+			                    <%= link_to topic.user.username, user_path(topic.user_id) %>
+			                </div>
+			                <div class="col-12 col-md-3 small text-center">
+			                  <small>
+			                    <%= time_ago_in_words(topic.created_at) %> ago<br />
+			                  </small>
+			                </div>
+			              </div>
+			              <div class="row">
+			                  Tags
+			              </div>
+			            <% end %>
+		    				</div>
+		    			</div>	
+		    		
+		    	</div><!-- end middle column -->
+
+		    	
+		    	<div class="col-xl-3">
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							    <h6 class="card-subtitle mb-2 text-muted">Latest Topics</h6>
+							    <small>
+				  					<% if @topics.any? %>
+				                      <%= render 'tags/topics' %>
+				                      <%= paginate @topics %>
+				                    <% else %>
+				                      <p>There are no topics in this genre.</p>
+				                    <% end %>
+			                  </small>
+							  </div>
+							</div>
+		    			</div>
+		    		</div>
+		    	<!-- end card -->
+
+		    	</div><!-- end right column -->
+		    </div><!-- end row -->
+		    
+		</div><!-- end container -->
+	</section>

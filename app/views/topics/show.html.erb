@@ -37,7 +37,11 @@
 		    			<div class="col-12">
 		    				<div class="card">
 							  <div class="card-body">
-							    <h6 class="card-subtitle mb-2 text-muted">Latest <%= @genre %> Topics</h6>
+							  	<div class="row">
+										<div class="col-12">
+											<h6 class="card-title float-left text-muted">Latest <%= @genre %> Topics</h6> <h6 class="float-right site-red"><%= link_to "all topics", topics_path %></h6>
+										</div>
+									</div>
 							    <small>
   							    <% if @topics.any? %>
                       <%= render 'tags/topics' %>

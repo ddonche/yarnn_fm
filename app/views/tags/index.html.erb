@@ -1,19 +1,19 @@
-<div id="other_background_nocenter">
+<div id="other_background_nocenter" style="overflow-y: auto;">
 
   <%= render 'shared/alert' %>
   
     <section>
 	  <div class="container mb-3">
 	    
-	    <div class="row mx-auto">
-            <div class="col-12">
-	            <div class="bg-dark px-3 my-3 pt-3 pb-2 text-correct trans-bg rounded">
-				      <div class="row p-2">
-						<%= render 'tags/tag_cards' %>
-							
-				      </div>
-	        	</div>
-	        </div>
+	    <div class="row mx-auto bg">
+	    	<div class="col-12">
+        	<div class="card">
+						<div class="card-body">
+	        
+							<%= render 'tags/tag_cards' %>
+			      
+        		</div>
+	    		</div>
 	    </div>
 	</section>
 </div>	

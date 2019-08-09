@@ -30,50 +30,48 @@
 				    <div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card">
-								  <div class="card-body">
-								    <h4 class="card-title site-blue">Create a New Topic</h4>
-								    <h6 class="card-subtitle mb-2 text-muted">Genre Portal</h6>
-								  </div>
+								<div class="card-body">
 									<% if user_signed_in?  %>
-	            				<%= render "topics/quick_form" %>
+	            						<%= render "topics/quick_form" %>
 									<% else %>
-								  <div class="row px-3 pb-1">
-                    <div class="col-12">
-									    <p style="color: #DC2020"><i><b>You must be logged in to create new topics.</b></i></p>
-									  </div>
-									</div>
-								<% end %> 
+										<div class="row px-3 pb-1">
+	                    					<div class="col-12">
+										    	<p style="color: #DC2020"><i><b>You must be logged in to create new topics.</b></i></p>
+										  	</div>
+										</div>
+									<% end %> 
+								</div>
 							</div>
 		    			</div>
 		    		</div>
 		    		<div class="card">
-								  <div class="card-body">
-								    <h4 class="card-title site-blue">Latest Topic</h4>
-								    <h6 class="card-subtitle mb-2 text-muted">Main Genres</h6>
+						<div class="card-body">
+						    <h4 class="card-title site-blue">Latest Topics</h4>
+						    <h6 class="card-subtitle mb-2 text-muted">Main Genres</h6>
 								  
-					    		<% @topics.each do |topic| %>
-			  		    		<div class="row">
-			                <div class="col-12 col-md-9 small">
-			                    <%= link_to topic.title, topic_path(topic) %><br />
-			                    <small><i class="fas fa-comments site-blue" title="comments"></i>
-			                      <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
-			                    <div class="border border-secondary rounded my-1 mt-2 p-2">
-			                      <small><%= truncate(topic.content, length: 200) %></small>
-			                    </div>
-			                    <%= link_to topic.user.username, user_path(topic.user_id) %>
-			                </div>
-			                <div class="col-12 col-md-3 small text-center">
-			                  <small>
-			                    <%= time_ago_in_words(topic.created_at) %> ago<br />
-			                  </small>
-			                </div>
-			              </div>
-			              <div class="row">
-			                  Tags
-			              </div>
-			            <% end %>
-		    				</div>
-		    			</div>	
+					    	<% @topics.each do |topic| %>
+			  		    		<div class="row p-2">
+			  		    			<div class="col-1">
+			  		    				<%= image_tag('default_track.jpg', width: 30, title: "genre") %>
+			  		    			</div>
+			                		<div class="col-11 col-md-9">
+			                			
+			                    		<%= link_to topic.title, topic_path(topic) %><br />
+			                    		<% topic.tags.map(&:name).each do |tag| %>
+			                			  	<div class="tags">
+			                				  <%= link_to tag, tag_path(tag) %>
+			                				</div>
+			            			  	<% end %>
+				                    	<small class="text-secondary"><i class="fas fa-comments site-blue mx-1" title="replies"></i><%= topic.comments.count %> replies |
+				                    		<%= time_ago_in_words(topic.created_at) %> ago by <%= link_to topic.user.username, user_path(topic.user_id) %>
+				                  		</small>
+				                	</div>
+				              		
+				              	</div>
+				              	<div class="lightline mx-auto"></div>
+			            	<% end %>
+		    			</div>
+		    		</div><!-- end card -->	
 		    		
 		    	</div><!-- end middle column -->
 

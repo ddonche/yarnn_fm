@@ -2,7 +2,7 @@ class TagsController < ApplicationController
 
   def index
     #@tags = Tag.most_used(100).page(params[:page]).per(24)
-    @track_count = Track.tagged_with(params[:tag]).count
+    #@track_count = Track.tagged_with(params[:tag]).count
   end
   
   def show

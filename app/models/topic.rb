@@ -1,5 +1,6 @@
 class Topic < ApplicationRecord
   include Taggable
+  before_save :downcase_fields
   
   belongs_to :user
   has_many :comments, as: :commentable
@@ -16,6 +17,10 @@ class Topic < ApplicationRecord
     self.tags = names.split(',').map do |name|
       Tag.where(name: name.strip).first_or_create!
     end
+  end
+  
+  def downcase_fields
+    self.tag_list.downcase!
   end
   
 end

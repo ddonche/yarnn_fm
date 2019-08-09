@@ -51,8 +51,7 @@ class TopicsController < ApplicationController
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.js
       else
-        format.html { render :new }
-        format.js
+        format.html { redirect_back(fallback_location: root_path, alert: "There was a problem. Try again later.") }
       end
     end
   end

@@ -52,9 +52,17 @@
 					    	<% @topics.each do |topic| %>
 			  		    		<div class="row p-2">
 			  		    			<div class="col-1">
-			  		    				<%= image_tag('default_track.jpg', width: 30, title: "genre") %>
+			  		    				<% topic.tags.map(&:name).each do |tag| %>
+			  		    					<% @icon = tag.split.map(&:downcase).join('_') %>
+				  		    				<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+				  		    					
+											    <%= render partial: "topics/icons/#{@icon}" %>
+											<% else %>
+												<%= image_tag('default_track.jpg', width: 30, title: "genre", class: "pt-1") %>
+											<% end %>
+										<% end %>
 			  		    			</div>
-			                		<div class="col-11 col-md-9">
+			                		<div class="col-11">
 			                			
 			                    		<%= link_to topic.title, topic_path(topic) %><br />
 			                    		<% topic.tags.map(&:name).each do |tag| %>

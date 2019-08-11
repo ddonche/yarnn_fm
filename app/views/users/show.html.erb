@@ -69,16 +69,16 @@
 							  	<div class="row">
 							  		<div class="col-12">
 								    	<h4 class="card-title site-blue float-left">Links</h4>
-									    <% if @user.link.present? %>
-										    <% if @user == current_user %>
-									  			<%= link_to edit_link_path(@user.link) do %>
-									  				<h6 class="site-red float-right align-baseline">edit links</h6>
+								    	<% if @user == current_user %>
+										    <% if @user.link.present? %>
+										  			<%= link_to edit_link_path(@user.link) do %>
+										  				<h6 class="site-red float-right align-baseline">edit links</h6>
+				    							    <% end %>
+											<% else %>
+												<%= link_to new_link_path(@user.link) do %>
+									  				<h6 class="site-red float-right align-baseline">add links</h6>
 			    							    <% end %>
-										  	<% end %>
-										<% else %>
-											<%= link_to new_link_path(@user.link) do %>
-								  				<h6 class="site-red float-right align-baseline">add links</h6>
-		    							    <% end %>
+										    <% end %>
 									    <% end %>
 							    	</div>
 							    </div>

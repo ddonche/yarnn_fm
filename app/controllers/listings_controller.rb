@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 	before_action :find_listing, only: [:show, :edit, :update, :destroy, :download]
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show, :genres]
 
 	def index
     @listings = Listing.all.order("created_at DESC").page(params[:page]).per(24)

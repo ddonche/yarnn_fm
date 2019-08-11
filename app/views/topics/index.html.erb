@@ -51,7 +51,7 @@
 								  
 					    	<% @topics.each do |topic| %>
 			  		    		<div class="row p-2">
-			  		    			<div class="col-1">
+			  		    			<div class="col-2 col-md-1">
 			  		    				<% topic.tags.map(&:name).each do |tag| %>
 			  		    					<% @icon = tag.split.map(&:downcase).join('_') %>
 				  		    				<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
@@ -62,7 +62,7 @@
 											<% end %>
 										<% end %>
 			  		    			</div>
-			                		<div class="col-11">
+			                		<div class="col-10 col-md-11">
 			                			
 			                    		<%= link_to topic.title, topic_path(topic) %><br />
 			                    		<% topic.tags.map(&:name).each do |tag| %>

@@ -75,6 +75,10 @@
 									  				<h6 class="site-red float-right align-baseline">edit links</h6>
 			    							    <% end %>
 										  	<% end %>
+										<% else %>
+											<%= link_to new_link_path(@user.link) do %>
+								  				<h6 class="site-red float-right align-baseline">add links</h6>
+		    							    <% end %>
 									    <% end %>
 							    	</div>
 							    </div>

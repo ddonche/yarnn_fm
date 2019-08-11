@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resource :subscription
   
   resources :pseudonyms
+  resources :links, only: [:new, :edit, :update, :create, :destroy]
   
   resources :blogs do
     resources :comments

@@ -1,0 +1,138 @@
+<fieldset> 
+    <%= image_tag("yarnn-icon.png", size: "120x90") %>
+    <div class="small site-red">Enter the full URL to your profiles here.</div>
+	<hr class="colorgraph">
+    <%= form_for [@user, @link] do |f| %>
+    
+    <% if @link.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@link.errors.count, "error") %> prohibited your links from being saved:</h2>
+    
+          <ul>
+          <% @link.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :website, class: "form-control", placeholder: "Your website" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-globe"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :facebook, class: "form-control", placeholder: "Facebook" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-facebook-f"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :twitter, class: "form-control", placeholder: "Twitter" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :instagram, class: "form-control", placeholder: "Instagram" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :youtube, class: "form-control", placeholder: "Youtube" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-youtube"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :snapchat, class: "form-control", placeholder: "Snapchat" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-snapchat-ghost"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :patreon, class: "form-control", placeholder: "Patreon" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-patreon"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :amazon, class: "form-control", placeholder: "Amazon" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-amazon"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :vimeo, class: "form-control", placeholder: "Vimeo" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-vimeo-v"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :itunes, class: "form-control", placeholder: "iTunes" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-itunes-note"></i></span>
+            </div>
+        </div>
+    </div>
+      
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :stitcher, class: "form-control", placeholder: "Stitcher" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-globe"></i></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :soundcloud, class: "form-control", placeholder: "Soundcloud" %>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fab fa-soundcloud"></i></span>
+            </div>
+        </div>
+    </div>
+      
+      
+    <hr class="colorgraph">
+      
+  	<div class="row justify-content-center">
+		<div class="col-xs-12 col-sm-12 col-md-6">
+		  <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %></h3>
+		</div>
+	</div>
+
+    <% end %>
+
+</fieldset>

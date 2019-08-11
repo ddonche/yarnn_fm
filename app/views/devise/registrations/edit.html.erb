@@ -48,11 +48,6 @@
             <%= f.text_area :bio, :autofocus => true, class: "form-control" %>
           </div>
           
-        	<div class="form-group">
-            <%= f.label "Website URL", class: "text-secondary" %><br />
-            <%= f.text_field :website, :autofocus => true, class: "form-control" %>
-          </div>
-          
           <div class="form-group">
             <label class="btn btn-danger" for="my-file-selector">
               <%= f.file_field :image, id: 'my-file-selector', style: 'display: none', onchange: "document.getElementById('upload-file-info').textContent = this.value" %>

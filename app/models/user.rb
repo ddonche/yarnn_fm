@@ -35,7 +35,7 @@ class User < ApplicationRecord
   has_many :listings, dependent: :destroy
   has_many :albums, dependent: :destroy
   has_many :tracks, dependent: :destroy
-
+  has_one  :link, dependent: :destroy
   has_many :topics
   has_many :favorites, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track

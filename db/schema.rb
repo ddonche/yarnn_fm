@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_053911) do
+ActiveRecord::Schema.define(version: 2019_08_11_012116) do
 
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -103,6 +103,26 @@ ActiveRecord::Schema.define(version: 2019_08_07_053911) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "facebook"
+    t.string "twitter"
+    t.string "youtube"
+    t.string "instagram"
+    t.string "reddit"
+    t.string "amazon"
+    t.string "patreon"
+    t.string "github"
+    t.string "snapchat"
+    t.string "vimeo"
+    t.string "soundcloud"
+    t.string "itunes"
+    t.string "stitcher"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "website"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -250,7 +270,6 @@ ActiveRecord::Schema.define(version: 2019_08_07_053911) do
     t.string "uid"
     t.string "stripe_id"
     t.integer "publisher_type", default: 0
-    t.string "website"
     t.integer "favorited_count", default: 0
     t.string "provider"
     t.string "google_token"

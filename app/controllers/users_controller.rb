@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @blogs = @user.blogs.order('created_at DESC').page(params[:page]).per(4)
     @topics = @user.topics.order('created_at DESC').page(params[:page]).per(4)
     @reviews = @user.reviews.order('created_at DESC').page(params[:page]).per(4)
+    @link = @user.link
     @users = @user.followers.limit(20)
     @followed_users = @user.following.limit(20)
   end

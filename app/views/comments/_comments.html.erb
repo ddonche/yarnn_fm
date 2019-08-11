@@ -14,6 +14,7 @@
       <small><strong><%= link_to comment.user.username, user_path(comment.user) %></strong> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> </small><br />
       <%= simple_format(comment.content) %>
     </div>
-    <div class="grayline mx-auto" style="width: 94%;"></div>
+    
   </div>
+  <div class="lightline mx-auto"></div>
 <% end %>

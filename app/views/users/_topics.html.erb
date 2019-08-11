@@ -1,11 +1,30 @@
-<div class="row">
+
     <% @topics.each do |topic| %>
-        <div class="col-9">
-            <%= link_to topic.title, topic_path(topic) %>
-        </div>
-        <div class="col-3">
-            <small><i class="fas fa-comments site-blue" title="comments"></i>
-            <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
-        </div>
-    <% end %>
-</div>
+  		<div class="row p-2">
+  			<div class="col-1">
+  				<% topic.tags.map(&:name).each do |tag| %>
+  					<% @icon = tag.split.map(&:downcase).join('_') %>
+      				<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+      					
+					    <%= render partial: "topics/icons/#{@icon}" %>
+					<% else %>
+						<%= image_tag('default_track.jpg', width: 30, title: "genre", class: "pt-1") %>
+					<% end %>
+				<% end %>
+  			</div>
+    		<div class="col-11">
+    			
+        		<%= link_to topic.title, topic_path(topic) %><br />
+        		<% topic.tags.map(&:name).each do |tag| %>
+    			  	<div class="tags">
+    				  <%= link_to tag, tag_path(tag) %>
+    				</div>
+			  	<% end %>
+            	<small class="text-secondary"><i class="fas fa-comments site-blue mx-1" title="replies"></i><%= topic.comments.count %> replies |
+            		<%= time_ago_in_words(topic.created_at) %> ago by <%= link_to topic.user.username, user_path(topic.user_id) %>
+          		</small>
+        	</div>
+      		
+      	</div>
+      	<div class="lightline mx-auto"></div>
+	<% end %>

@@ -8,7 +8,7 @@ class Blog < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, BlogimageUploader
   validates :image, file_size: { less_than: 1.megabytes }
          
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h

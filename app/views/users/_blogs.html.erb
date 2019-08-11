@@ -1,1 +1,13 @@
-Blogs here.
+<% @blogs.each do |blog| %>
+  	<div class="row p-2">
+		<div class="col-12">
+			
+    		<%= link_to blog.title, blog_path(blog) %><br />
+        	<small class="text-secondary"><i class="fas fa-comments site-blue mx-1" title="replies"></i><%= blog.comments.count %> comments |
+        		<%= time_ago_in_words(blog.created_at) %> ago by <%= link_to blog.user.username, user_path(blog.user_id) %>
+      		</small>
+    	</div>
+  		
+  	</div>
+  	<div class="lightline mx-auto"></div>
+<% end %>

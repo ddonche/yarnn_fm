@@ -1,95 +1,74 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  <% if user_signed_in? %>
-    <%= render 'layouts/subheader' %>
-  <% end %>
-  
-  <div id="breadcrumb">
-		<%= link_to "all genres", genres_path %> / <%= link_to "full genre portal", tag_path(@genre) %> / 
-		<%= link_to "all products", listings_path %> / genre products
-	</div>
-	
-  <%= render 'shared/alert' %>
-  
-		<div class="container">
-        <div class="wrapper-side-left">
-        	<h2 style="margin: 0 1rem .5rem 1rem">Genres</h2>
-        	<ul>
-	        	<li><%= link_to "Action Adventure", genre_path("action-adventure") %></li>
-	        	<li><%= link_to "Apocalypse", genre_path("apocalypse") %></li>
-	        	<li><%= link_to "Crime", genre_path("crime") %></li>
-	        	<li><%= link_to "Erotica", genre_path("erotica") %></li>
-	        	<li><%= link_to "Fantasy", genre_path("fantasy") %></li>
-	        	<li><%= link_to "Historical Fiction", genre_path("historical-fiction") %></li>
-	        	<li><%= link_to "Horror", genre_path("horror") %></li>
-	        	<li><%= link_to "International Thriller", genre_path("international-thriller") %></li>
-						<li><%= link_to "Literary Fiction", genre_path("literary-fiction") %></li>
-						<li><%= link_to "Military", genre_path("military") %></li>
-		        <li><%= link_to "Mystery", genre_path("mystery") %></li>
-		        <li><%= link_to "Nonfiction", genre_path("nonfiction") %></li>
-		        		<li style="margin-left: 2rem"><%= link_to "Business", genre_path("business") %></li>
-			        	<li style="margin-left: 2rem"><%= link_to "Inspirational", genre_path("inspirational") %></li>
-			        	<li style="margin-left: 2rem"><%= link_to "Memoir", genre_path("memoir") %></li>
-			        	<li style="margin-left: 2rem"><%= link_to "Self-help", genre_path("self-help") %></li>
-			          <li style="margin-left: 2rem"><%= link_to "True Crime", genre_path("true-crime") %></li>	
-		        <li><%= link_to "Poetry", genre_path("poetry") %></li>
-		        <li><%= link_to "Religion", genre_path("religion") %></li>
-		        <li><%= link_to "Romance", genre_path("romance") %></li>
-		        		<li style="margin-left: 2rem"><%= link_to "Paranormal Romance", genre_path("paranormal-romance") %></li>
-		        <li><%= link_to "Science Fiction", genre_path("science-fiction") %></li>
-		        <li><%= link_to "Speculative Fiction", genre_path("speculative-fiction") %></li>
-		        <li><%= link_to "Thriller", genre_path("thriller") %></li>
-		        <li><%= link_to "Western", genre_path("western") %></li>
-		        <li><%= link_to "Young Adult", genre_path("young-adult") %></li>
-	        </ul>
-        </div>
-        
-        <div class="wrapper-med-right">
-					<div id="listings" class="cf">
-						<h2 style="margin: 0 1rem .5rem 1rem">Latest in <%= @genre %></h2>
-							<ul class="cf">
-								<% @listings.each do |listing| %>
-										<li>
-											<%= link_to listing do %>
-												<%= image_tag listing.image.url(:thumb), title: listing.title %>
-											<% end %>
-											
-											<div class="listing_overview">
-											  <p class="listing_type"><%= listing.filetype %></p>
-												<h2><%= link_to truncate(listing.title, length: 24, separator: ' '), listing_path(listing) %></h2>
-												<div id="stars">
-													<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%; margin-0;"></div>
-												</div>
-												<br>
-												
-												<% if listing.user.image? %>
-								          <%= image_tag(listing.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: listing.user.username) %>
-								        <% else %>
-								          <%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: listing.user.username) %>
-								        <% end %>
-												
-												<% if listing.pseudonym_id? %>
-													<p class="listing_info" style="display:inline-block;"><%= link_to listing.pseudonym.name, user_path(listing.user) %></p>
-												<% else %>
-													<p class="listing_info" style="display:inline-block;"><%= link_to listing.user.name, user_path(listing.user) %></p>
-												<% end %>
-												<p class="listing_price"><b><%= number_to_currency(listing.price) %></b></p>
-	
-											</div>
-										</li>
-								<% end %>
-							</ul>
-							<%= paginate @listings %>
-					</div>
+<body style="background-color: #e4e0e0;">
+  <!-- Page Content -->
+  <div class="container">
 
+    <div class="row">
+      <div class="col-lg-9">
+        
+        <div id="carouselExampleIndicators2" class="carousel slide my-4" data-ride="carousel">
+          <div class="carousel-inner shadow-sm rounded" role="listbox">
+            <div class="carousel-item active">
+              <%= link_to genre_path("poetry") do %>
+								<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/banners/market-under-banner.jpg', class: 'd-block img-fluid', alt: "Under Banner") %>
+							<% end %>
+            </div>
+          </div>
         </div>
         
+
+        <div class="row">
+				<% @listings.each do |listing| %>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <%= link_to listing do %>
+								<%= image_tag listing.image.url(:thumb), title: listing.title, class: "card-img-top" %>
+							<% end %>
+              <div class="card-body">
+                <h5 class="card-title">
+                  
+                  <%= link_to listing.title, listing_path(listing), class: "site-red" %>
+                </h5>
+                <% if listing.pseudonym_id? %>
+    							<small><%= link_to listing.pseudonym.name, user_path(listing.user) %></small>
+    						<% else %>
+    							<small><%= link_to listing.user.name, user_path(listing.user) %></small>
+    						<% end %>
+                <h4><%= number_to_currency(listing.price) %></h4>
+                <div class="small"><%= listing.filetype %></div>
+              </div>
+              <div class="card-footer">
+                <div id="stars">
+									<div class="star-rating" data-score=<%= listing.avg_rating %> style="max-width: 10%;"></div>
+								</div>
+              </div>
+            </div>
+          </div>  
+        <% end %>
+        
+        </div>
+       <%= paginate @listings %>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+      
+      <div class="col-lg-3">
+        <div class="card mt-4">
+          <div class="card-header bg-secondary">
+            <h2 class="text-white">Genres</h2>
+          </div>
+        <%= render 'listings/genre_list' %>
+      </div>
+      </div>
+      <!-- /.col-lg-3 -->
+
     </div>
-	</div>
-</div>
+    <!-- /.row -->
 
+  </div>
+  <!-- /.container -->
+
+</body>
 <script>
   $('.star-rating').raty({
     path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',

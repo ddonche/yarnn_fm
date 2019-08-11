@@ -6,19 +6,23 @@
     <div class="row">
       <div class="col-md-3 mt-2">
         <div class="blog_wrapper rounded p-3">
-          <h4 class="site-blue">Blogs by <%= @blog.user.username %></h4>
+          <h4 class="site-blue">Posts by <%= @blog.user.username %></h4>
           <% @blogs.each do |blog| %>
+            <% if blog.image? %>
             	<div class="row p-2">
-          		<div class="col-12">
-          			<small>
-              		<%= link_to blog.title, blog_path(blog) %><br />
-                  	<div class="text-secondary"><i class="fas fa-comments site-blue mx-1" title="replies"></i><%= blog.comments.count %> comments |
-                  		<%= time_ago_in_words(blog.created_at) %> ago
-                		</div>
-                </small>
-              	</div>
-            		
-            	</div>
+          	    <div class="col-12">
+                  <%= image_tag blog.image.url(:thumb), width: "100%", class: "mt-1 p-1 border" %>
+          	    </div>
+          	  </div>
+          	 <% end %>
+          	  <div class="row px-2 py-1">
+        		    <div class="col-12">
+            		  <%= link_to truncate(blog.title, length: 50), blog_path(blog) %><br />
+                	<small class="text-secondary"><i class="fas fa-comments site-blue mr-1" title="replies"></i><%= blog.comments.count %> comments |
+                		<%= time_ago_in_words(blog.created_at) %> ago 
+              		</small>
+            	  </div>
+          	  </div>
             	<div class="lightline mx-auto"></div>
           <% end %>
           <small>
@@ -60,7 +64,9 @@
 							</ul>
           </div><!-- end blog info class -->
           <div class="blog_content">
-            <%= image_tag @blog.image.url, width: "100%", class: "mt-4 p-2 border" %>
+            <% if @blog.image? %>
+              <%= image_tag @blog.image.url, width: "100%", class: "mt-4 p-2 border" %>
+            <% end %>
           </div>
           <div class="blog_content">
             <%= @blog.content.html_safe %>

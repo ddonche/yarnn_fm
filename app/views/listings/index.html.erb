@@ -30,7 +30,9 @@
         <div id="carouselExampleIndicators2" class="carousel slide my-4" data-ride="carousel">
           <div class="carousel-inner shadow-sm rounded" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="https://yarnn.s3-us-west-2.amazonaws.com/banners/market-under-banner.jpg" alt="Under Banner">
+              <%= link_to genre_path("poetry") do %>
+								<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/banners/market-under-banner.jpg', class: 'd-block img-fluid', alt: "Under Banner") %>
+							<% end %>
             </div>
           </div>
         </div>
@@ -77,40 +79,7 @@
           <div class="card-header bg-secondary">
             <h2 class="text-white">Genres</h2>
           </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= link_to "Action", tag_path("action-adventure") %></li>
-          <li class="list-group-item"><%= link_to "Apocalypse", tag_path("apocalypse") %></li>
-          <li class="list-group-item"><%= link_to "Business", tag_path("business") %></li>
-          <li class="list-group-item"><%= link_to "Children's", tag_path("childrens") %></li>
-          <li class="list-group-item"><%= link_to "Classics", tag_path("classics") %></li>
-          <li class="list-group-item"><%= link_to "Comedy", tag_path("comedy") %></li>
-          <li class="list-group-item"><%= link_to "Crime", tag_path("crime") %></li>
-          <li class="list-group-item"><%= link_to "Erotica", tag_path("erotica") %></li>
-          <li class="list-group-item"><%= link_to "Fantasy", tag_path("fantasy") %></li>
-          <li class="list-group-item"><%= link_to "Financial", tag_path("financial") %></li>
-          <li class="list-group-item"><%= link_to "History", tag_path("history") %></li>
-          <li class="list-group-item"><%= link_to "Historical Fiction", tag_path("historical-fiction") %></li>
-          <li class="list-group-item"><%= link_to "Horror", tag_path("horror") %></li>
-          <li class="list-group-item"><%= link_to "Inspirational", tag_path("inspirational") %></li>
-          <li class="list-group-item"><%= link_to "LGBTQ", tag_path("lgbtq") %></li>
-          <li class="list-group-item"><%= link_to "Memoir", tag_path("memoir") %></li>
-          <li class="list-group-item"><%= link_to "Military", tag_path("military") %></li>
-          <li class="list-group-item"><%= link_to "Mystery", tag_path("mystery") %></li>
-          <li class="list-group-item"><%= link_to "Nonfiction", tag_path("nonfiction") %></li>
-          <li class="list-group-item"><%= link_to "Paranormal Romance", tag_path("paranormal-romance") %></li>
-          <li class="list-group-item"><%= link_to "Philosophy", tag_path("philosophy") %></li>
-          <li class="list-group-item"><%= link_to "Poetry", tag_path("poetry") %></li>
-          <li class="list-group-item"><%= link_to "Religion", tag_path("religion") %></li>
-          <li class="list-group-item"><%= link_to "Romance", tag_path("romance") %></li>
-          <li class="list-group-item"><%= link_to "Science Fiction", tag_path("science-fiction") %></li>
-          <li class="list-group-item"><%= link_to "Self Help", tag_path("self-help") %></li>
-          <li class="list-group-item"><%= link_to "Spy Thriller", tag_path("spy-thriller") %></li>
-          <li class="list-group-item"><%= link_to "Thriller", tag_path("thriller") %></li>
-          <li class="list-group-item"><%= link_to "True Crime", tag_path("true-crime") %></li>
-          <li class="list-group-item"><%= link_to "Western", tag_path("western") %></li>
-          <li class="list-group-item"><%= link_to "Women's", tag_path("womens") %></li>
-          <li class="list-group-item"><%= link_to "Young Adult", tag_path("young-adult") %></li>
-        </ul>
+        <%= render 'listings/genre_list' %>
       </div>
       </div>
       <!-- /.col-lg-3 -->

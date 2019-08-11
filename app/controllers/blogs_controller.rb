@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
     if @blog.pseudo_id?
       @pseudo = Pseudonym.find(@blog.pseudo_id)
     end
-    @blogs = Blog.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(3)
+    @blogs = Blog.where(user_id: @user.id).order("created_at DESC").page(params[:page]).per(5)
 	  @users = @user.followers
     @followed_users = @user.following
 	  @commentable = @blog

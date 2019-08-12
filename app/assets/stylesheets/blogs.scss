@@ -9,7 +9,6 @@
   padding: 1rem 2rem;
 }
   
-  
   .blog_wrapper {
     width: 100%;
     background: #fff;
@@ -20,7 +19,7 @@
       font-style: italic;
       border-left: solid 15px #00b8ac;
       border-right: solid 3px #00b8ac;
-      padding: 15px 20px 15px 56px;
+      padding: 15px 20px;
       margin: 0 0 20px;
       position: relative;
     }
@@ -84,35 +83,30 @@
       }
     }
     pre {
-        font-size: 90%;
-        line-height: 1.2em;
-        font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-        white-space: pre;
-      	word-spacing: normal;
-      	word-break: normal;
-      	word-wrap: normal;
-      	line-height: 1.5;
-        height:1%;
-        width: auto;
-        display: block;
-        clear: both;
-        color: #555555;
-        padding: 1em 1em;
-        margin: auto 40px auto 40px;
-        background: #f4f4f4;
-        border: solid 1px #e1e1e1;
-    } 
-    code { 
-        font-size: 90%;
-        line-height: 1.2em;
-        font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+      font-size: 14px;
+      font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+      width: auto;
+      display: block;
+      clear: both;
+      tab-size: 4;
+      overflow: auto;
+      border: solid 1px #e1e1e1;
+      border-left: solid 12px #e1e1e1;
+      padding: 14px;
+      padding-left: 1.8em;
+      
+      /* Fixed line height */
+      line-height: 24px;
+      
+      /* Use repeating-linear-gradient for background image */
+      background-image: repeating-linear-gradient(
+          180deg,
+          #f7f7f7 0px,
+          #f7f7f7 24px,
+          #fff 24px,
+          #fff 48px);
     
-        display: inline; 
-        color: #555555;
-        padding: 1em 1em;
-        background: #f4f4f4;
-        -moz-tab-size: 4;
-        -o-tab-size: 4;
-        tab-size: 4;
+      /* Offset the background along the y-axis by top padding */
+      background-position: 0 14px;
     }
   }

@@ -67,7 +67,9 @@ trix-toolbar .trix-button-group {
   /*border: 1px solid #bbb;
   border-top-color: #ccc;
   border-bottom-color: #888;
-  border-radius: 3px;*/ }
+  border-radius: 3px;*/
+  
+}
   trix-toolbar .trix-button-group:not(:first-child) {
     margin-left: 1.5vw; }
     @media (max-device-width: 768px) {
@@ -369,7 +371,7 @@ trix-editor .attachment__metadata {
 }
 
   .trix-content blockquote::before{
-    font-family:Arial;
+    font-family:Teko;
     content: "\201C";
     color:#dc2020;
     font-size:5em;

@@ -1,24 +1,22 @@
-<%= content_for(:meta_og) do %>
-    <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="<%= @blog.title %>" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<%= request.original_url %>" />
-    <% if @blog.image %>
-    <meta property="og:image" content="<%= @blog.image.url %>" />
-    <% end %>
-    <meta property="og:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>" />
-    <meta property="og:site_name" content="Yarnn.FM" />
-    <meta property="og:published_time" content="<%= @blog.created_at.strftime('%Y-%m-%d %H:%M') %>" />
-    
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="article">
-    <meta name="twitter:site" content="<%= request.original_url %>">
-    <meta name="twitter:title" content="<%= @blog.title %>">
-    <meta name="twitter:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>">
-    <meta name="twitter:creator" content="<%= @blog.user.username %>">
-    <% if @blog.image %>
-    <meta name="twitter:image:src" content="<%= @blog.image.url %>">
-    <% end %>
+<!-- Facebook -->
+<meta property="og:title" content="<%= @blog.title %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<% if @blog.image %>
+<meta property="og:image" content="<%= @blog.image.url %>" />
+<% end %>
+<meta property="og:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>" />
+<meta property="og:site_name" content="Yarnn.FM" />
+<meta property="og:published_time" content="<%= @blog.created_at.strftime('%Y-%m-%d %H:%M') %>" />
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="article">
+<meta name="twitter:site" content="<%= request.original_url %>">
+<meta name="twitter:title" content="<%= @blog.title %>">
+<meta name="twitter:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>">
+<meta name="twitter:creator" content="<%= @blog.user.username %>">
+<% if @blog.image %>
+<meta name="twitter:image:src" content="<%= @blog.image.url %>">
 <% end %>
 
 <div id="other_background_nocenter" style="overflow-y: auto;">

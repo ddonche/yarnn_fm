@@ -2,7 +2,7 @@
     <meta property="og:title" content="<%= @blog.title %>" />
     <meta property="og:type" content="article" />
     <meta property="og:published_time" content="<%= @blog.created_at.strftime('%Y-%m-%d %H:%M') %>" />
-    <meta property="og:description" content="<%= truncate(@blog.body, length: 250) %>" />
+    <meta property="og:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>" />
     <% if @blog.image %>
       <meta property="og:image" content="<%= @blog.image.url %>" />
     <% end %>

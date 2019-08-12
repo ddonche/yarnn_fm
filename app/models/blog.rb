@@ -1,4 +1,6 @@
 class Blog < ApplicationRecord
+  has_rich_text :body
+  
   belongs_to :user
   has_many :comments, as: :commentable
   has_many :events, as: :eventable, dependent: :delete_all

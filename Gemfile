@@ -34,13 +34,15 @@ gem 'stripe'
 gem 'omniauth-stripe-connect'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'trix'
 gem 'aws-sdk'
 gem 'sprockets-rails'
 gem 'bootstrap'
 gem "recaptcha"
 gem 'devise_invitable', '~> 2.0.0'
 gem 'petergate'
+gem "actiontext", require: "action_text"
+gem "image_processing", "~> 1.2"
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,18 +1,19 @@
-
+.special_title {
+  font-family: 'Teko', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  color: #rgba(0,0,0,.84);
+  line-height: 48px;
+  letter-spacing: 0;
+  padding: 1rem 2rem;
+}
+  
+  
   .blog_wrapper {
     width: 100%;
     background: #fff;
     border: 1px solid #e1e1e1;
-    h1 {
-      font-family: 'Teko', sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 48px;
-      color: #rgba(0,0,0,.84);
-      line-height: 48px;
-      letter-spacing: 0;
-      padding: 1rem 2rem;
-    }
     blockquote {
       background: #e0dcdc;
       padding: 1rem;
@@ -22,15 +23,6 @@
       padding: 15px 20px 15px 56px;
       margin: 0 0 20px;
       position: relative;
-    }
-    blockquote::before {
-      content: "\201C"; /*Unicode for Left Double Quote*/
-      font-family: Georgia, serif;
-      font-size: 60px;
-      font-weight: bold;
-      position: absolute;
-      left: .5rem;
-      top: 1.5rem;
     }
     .blog_info {
       display: block;
@@ -75,10 +67,9 @@
     }
     .blog_content {
       padding: 1rem 2rem;
-      line-height: 2rem;
-      font-size: 20px;
+      line-height: 1.7em;
+      font-size: 1em;
       display: block;
-      font-family: 'Libre Baskerville', serif;
       font-style: normal;
       color: rgba(0,0,0,.84);
       word-break: break-word;

@@ -8,7 +8,7 @@ class Blog < ApplicationRecord
   enum published_status: { draft: 0, published: 1 }
 
   validates :title, presence: true
-  validates :content, presence: true
+  validates :body, presence: true
 
   mount_uploader :image, BlogimageUploader
   validates :image, file_size: { less_than: 1.megabytes }

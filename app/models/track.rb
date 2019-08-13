@@ -1,6 +1,10 @@
+require 'elasticsearch/model'
+
 class Track < ApplicationRecord
   include Taggable
-  
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :user
   belongs_to :album, optional: true
   belongs_to :pseudonym, optional: true
@@ -10,7 +14,7 @@ class Track < ApplicationRecord
   has_many :flags, as: :flaggable, dependent: :delete_all
   has_many :listings
   enum explicit: { standard: 0, explicit: 1 }
-  
+
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
   validates :audio, file_size: { less_than: 20.megabytes }, presence: true
@@ -19,11 +23,11 @@ class Track < ApplicationRecord
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :crop_image
-  
+
   def crop_image
     image.recreate_versions! if crop_x.present?
   end
-  
+
   def self.tagged_with(name)
     Tag.find_by_name!(name).tracks
   end

@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -13,6 +13,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
   <%= tag :meta, :name => "stripe-key", :content => ENV["PUBLISHABLE_KEY"] %>
+  
+  <% if content_for?(:head) %>
+    <%= yield(:head) %>
+  <% end %>
 </head>
 
 <% if current_page?(root_path) %>

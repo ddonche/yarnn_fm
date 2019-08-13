@@ -1,4 +1,4 @@
-<head>
+<% content_for :head do %>
 <!-- Facebook -->
   <meta property="og:title" content="<%= @blog.title %>" />
   <meta property="og:type" content="website" />
@@ -10,15 +10,15 @@
   <meta property="og:site_name" content="Yarnn.FM" />
   
   <!-- Twitter Card data -->
-  <meta name="twitter:card" content="article">
-  <meta name="twitter:site" content="<%= request.original_url %>">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@totaldanarchy">
   <meta name="twitter:title" content="<%= @blog.title %>">
   <meta name="twitter:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>">
   <meta name="twitter:creator" content="<%= @blog.user.username %>">
   <% if @blog.image %>
   <meta name="twitter:image:src" content="<%= @blog.image.url %>">
   <% end %>
-</head>
+<% end %>
 
 <div id="other_background_nocenter" style="overflow-y: auto;">
 <%= render 'shared/alert' %>

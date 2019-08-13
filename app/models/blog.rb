@@ -1,4 +1,6 @@
 class Blog < ApplicationRecord
+  has_rich_text :body
+  
   belongs_to :user
   has_many :comments, as: :commentable
   has_many :events, as: :eventable, dependent: :delete_all
@@ -6,10 +8,10 @@ class Blog < ApplicationRecord
   enum published_status: { draft: 0, published: 1 }
 
   validates :title, presence: true
-  validates :content, presence: true
+  validates :body, presence: true
 
   mount_uploader :image, BlogimageUploader
-  validates :image, file_size: { less_than: 1.megabytes }
+  validates :image, file_size: { less_than: 1.megabytes }, presence: true
          
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :crop_image

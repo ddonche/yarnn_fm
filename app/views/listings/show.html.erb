@@ -1,3 +1,28 @@
+<% content_for :head do %>
+<!-- Facebook -->
+  <meta property="og:title" content="<%= @listing.title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <% if @listing.image? %>
+  <meta property="og:image:url" content="<%= @listing.image.url %>" />
+  <% end %>
+  <meta property="og:image:height" content="900" />
+  <meta property="og:image:width" content="600" />
+  <meta property="og:description" content="<%= truncate(@listing.description, length: 250) %>" />
+  <meta property="og:site_name" content="Yarnn.FM" />
+  <meta property="fb:app_id" content="395394867776017" />
+  
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@totaldanarchy">
+  <meta name="twitter:title" content="<%= @listing.title %>">
+  <meta name="twitter:description" content="<%= truncate(@listing.description, length: 250) %>">
+  <meta name="twitter:creator" content="<%= @listing.user.username %>">
+  <% if @listing.image? %>
+  <meta name="twitter:image:src" content="<%= @listing.image.url %>">
+  <% end %>
+<% end %>
+
 <body style="background-color: #e4e0e0;">
 
 <!-- ========================= SECTION CONTENT ========================= -->
@@ -19,7 +44,7 @@
 <main class="card">
 	<div class="row no-gutters">
 		<aside class="col-sm-4 border-right">
-			<article class="gallery-wrap"> 
+			<article class="gallery-wrap">
 				<div class="img-big-wrap p-4">
   					<%= image_tag(@listing.image.url, class: "image-full rounded", title: @listing.title) %>
 				</div> <!-- slider-product.// -->
@@ -42,16 +67,16 @@
     <% end %>
     <% unless @listing.user == current_user %>
 		<% if @listing.pseudonym_id? %>
-			<%= @listing.pseudonym.name %> (@<%= @listing.user.username %>) 
+			<%= @listing.pseudonym.name %> (@<%= @listing.user.username %>)
 		<% else %>
 			<%= link_to @listing.user.name, user_path(@listing.user) %> (@<%= @listing.user.username %>)
 		<% end %>
 	<% end %>
 
-<div class="my-2"> 
-	<var class="price h4 site-blue"> 
+<div class="my-2">
+	<var class="price h4 site-blue">
 		<span class="currency">US <%= number_to_currency(@listing.price) %></span>
-	</var> 
+	</var>
 </div> <!-- price-detail-wrap .// -->
 <dl>
   <dt>Description</dt>
@@ -90,7 +115,7 @@
 			<h4 class="mb-1"><i class="fas fa-headphones site-blue mr-2 mb-3"></i>Associated Tracks (<%= @tracks_count %>)</h4>
 		</div>
 			<% if @tracks.any? %>
-			
+
 				<% @tracks.each do |track| %>
 					<div class="col-1">
 						<%= image_tag(track.image.url(:thumb), class: "rounded mb-1 ml-3", width: 30, title: track.title) %>
@@ -108,13 +133,13 @@
       				</div>
 				<% end %>
 				<small style="float-right"><%= link_to_previous_page @tracks, '<< Previous' %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to_next_page @tracks, 'Next >>' %></small>
-			
+
 			<% else %>
 			<div class= "col-12">
 				<small>There are no associated tracks with this listing.</small>
 			</div>
 			<% end %>  <!-- item-property .// -->
-		
+
 	</div> <!-- row.// -->
 	<hr>
 	<div class="row">
@@ -187,20 +212,20 @@
 	        <% else %>
 	          <%= image_tag('default_track.jpg', class: "image-full", title: @listing.user.username) %>
 	        <% end %>
-	    </div> 
+	    </div>
 		 <hr>
 		 <i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @listing.user.tracks.count %>)
 		 <hr>
 		 <i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @listing.user.albums.count %>)
 		 <hr>
-		 <i class="fas fa-shopping-cart site-blue" title="listings"></i> Products (<%= @listing.user.listings.count %>) 
+		 <i class="fas fa-shopping-cart site-blue" title="listings"></i> Products (<%= @listing.user.listings.count %>)
 		 <hr>
 		 <i class="fas fa-user-astronaut site-blue"></i> Followers (<%= @listing.user.followers.count %>)
 		 	<% if user_signed_in? && current_user != @listing.user %>
 		 	<hr>
 	          <%= render 'follow_form' %>
 	        <% end %>
-		 
+
 	</div> <!-- card-body.// -->
 </div> <!-- card.// -->
 <div class="card mt-3">
@@ -216,7 +241,7 @@
 				<h4 class="mb-0"><%= link_to @random_listing.title, listing_path(@random_listing) %></h4>
 				<small>
 				<% if @random_listing.pseudonym_id? %>
-					<%= link_to @random_listing.pseudonym.name, user_path(@random_listing.user) %> 
+					<%= link_to @random_listing.pseudonym.name, user_path(@random_listing.user) %>
 				<% else %>
 					<%= link_to @random_listing.user.name, user_path(@random_listing.user) %>
 				<% end %>
@@ -234,7 +259,7 @@
 			<h4 class="mb-0"><%= link_to @random_track.title, track_path(@random_track) %><% if @random_track.explicit == "explicit" %> (explicit)<% end %></h4>
 			<small>
 			<% if @random_track.pseudonym_id? %>
-				<%= link_to @random_track.pseudonym.name, user_path(@random_track.user) %> 
+				<%= link_to @random_track.pseudonym.name, user_path(@random_track.user) %>
 			<% else %>
 				<%= link_to @random_track.user.name, user_path(@random_track.user) %>
 			<% end %>
@@ -247,25 +272,27 @@
 <div class="col-md-12 col-sm-4">
 <figure class="item border-bottom mb-3">
 	<h4 class="mb-1"><i class="fas fa-compact-disc site-blue mr-2"></i>Album</h4>
-	<div class="ribbon_box">
-  		<% if @random_album.serial == "serial" %>
-    		<div class="ribbon"><span>SERIAL</span></div>
-  		<% end %>
-		<%= image_tag(@random_album.image.url(:thumb), class: "image-full rounded mb-2", title: @random_album.title) %>
-	</div>
-		
+  <% if @random_album %>
+    <div class="ribbon_box">
+        <% if @random_album&.serial == "serial" %>
+          <div class="ribbon"><span>SERIAL</span></div>
+        <% end %>
+        <%= image_tag(@random_album&.image&.url(:thumb), class: "image-full rounded mb-2", title: @random_album&.title) %>
+    </div>
+
 		<figcaption class="info-wrap">
-			<h5 class="mb-0"><%= link_to @random_album.title, album_path(@random_album) %></h5>
+			<h5 class="mb-0"><%= link_to @random_album&.title, album_path(@random_album) %></h5>
 			<small>
 			<% if @random_album.pseudonym_id? %>
-				<%= link_to @random_album.pseudonym.name, user_path(@random_album.user) %> 
+				<%= link_to @random_album&.pseudonym.name, user_path(@random_album&.user) %>
 			<% else %>
-				<%= link_to @random_album.user.name, user_path(@random_album.user) %>
+				<%= link_to @random_album&.user.name, user_path(@random_album&.user) %>
 			<% end %>
 			</small><br />
 			<small><i class="fas fa-headphones site-blue mr-2"></i>
-            <%= pluralize( @random_album.tracks.count, 'Track' ) %></small>
+            <%= pluralize( @random_album&.tracks.count, 'Track' ) %></small>
 		</figcaption>
+  <% end %>
 </figure> <!-- card-product // -->
 </div> <!-- col.// -->
 	</div> <!-- card-body.// -->

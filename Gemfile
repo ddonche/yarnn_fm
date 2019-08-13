@@ -19,7 +19,7 @@ gem 'dotenv-rails'
 
 # gems I've installed my damn self
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-aws'
 gem 'carrierwave-audio'
@@ -40,9 +40,12 @@ gem 'bootstrap'
 gem "recaptcha"
 gem 'devise_invitable', '~> 2.0.0'
 gem 'petergate'
-gem "actiontext", require: "action_text"
-gem "image_processing", "~> 1.2"
+gem 'actiontext', require: 'action_text'
+gem 'image_processing', '~> 1.2'
 gem 'webpacker'
+gem 'pg'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -58,7 +61,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 

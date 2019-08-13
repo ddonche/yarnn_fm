@@ -6,7 +6,7 @@
   <% if @listing.image? %>
   <meta property="og:image:url" content="<%= @listing.image.url %>" />
   <% end %>
-  <meta property="og:description" content="<%= truncate(@listing.content, length: 250) %>" />
+  <meta property="og:description" content="<%= truncate(@listing.description, length: 250) %>" />
   <meta property="og:site_name" content="Yarnn.FM" />
   <meta property="og:fb:app_id" content="395394867776017" />
   
@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@totaldanarchy">
   <meta name="twitter:title" content="<%= @listing.title %>">
-  <meta name="twitter:description" content="<%= truncate(@listing.content, length: 250) %>">
+  <meta name="twitter:description" content="<%= truncate(@listing.description, length: 250) %>">
   <meta name="twitter:creator" content="<%= @listing.user.username %>">
   <% if @listing.image? %>
   <meta name="twitter:image:src" content="<%= @listing.image.url %>">

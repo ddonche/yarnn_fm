@@ -1,3 +1,25 @@
+<% content_for :head do %>
+<!-- Facebook -->
+  <meta property="og:title" content="<%= @track.title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <% if @track.image %>
+  <meta property="og:image:url" content="<%= @track.image.url %>" />
+  <% end %>
+  <meta property="og:description" content="<%= truncate(@track.content, length: 250) %>" />
+  <meta property="og:site_name" content="Yarnn.FM" />
+  
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@totaldanarchy">
+  <meta name="twitter:title" content="<%= @track.title %>">
+  <meta name="twitter:description" content="<%= truncate(@track.content, length: 250) %>">
+  <meta name="twitter:creator" content="<%= @track.user.username %>">
+  <% if @track.image %>
+  <meta name="twitter:image:src" content="<%= @track.image.url %>">
+  <% end %>
+<% end %>
+
 <div id="other_background_nocenter" style="overflow-y: auto;">
 <title><%= @track.title %> | 
     <% if @track.pseudonym_id? %>

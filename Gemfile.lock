@@ -1036,7 +1036,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.1)
     streamio-ffmpeg (3.0.2)
       multi_json (~> 1.8)
     stripe (4.22.0)
@@ -1105,7 +1104,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen
   sprockets-rails
-  sqlite3
   streamio-ffmpeg
   stripe
   trix

@@ -1,11 +1,24 @@
-<%= content_for(:meta_og) do %>
-    <meta property="og:title" content="<%= @blog.title %>" />
-    <meta property="og:type" content="article" />
-    <meta property="og:published_time" content="<%= @blog.created_at.strftime('%Y-%m-%d %H:%M') %>" />
-    <meta property="og:description" content="<%= @blog.content.html_safe.truncate(250) %>" />
-    <% if @blog.image %>
-      <meta property="og:image" content="<%= @blog.image.url %>" />
-    <% end %>
+<% content_for :head do %>
+<!-- Facebook -->
+  <meta property="og:title" content="<%= @blog.title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <% if @blog.image? %>
+  <meta property="og:image:url" content="<%= @blog.image.url %>" />
+  <% end %>
+  <meta property="og:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>" />
+  <meta property="og:site_name" content="Yarnn.FM" />
+  <meta property="fb:app_id" content="395394867776017" />
+  
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@totaldanarchy">
+  <meta name="twitter:title" content="<%= @blog.title %>">
+  <meta name="twitter:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>">
+  <meta name="twitter:creator" content="<%= @blog.user.username %>">
+  <% if @blog.image? %>
+  <meta name="twitter:image:src" content="<%= @blog.image.url %>">
+  <% end %>
 <% end %>
 
 <div id="other_background_nocenter" style="overflow-y: auto;">
@@ -14,7 +27,7 @@
   <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-3 mt-2">
+      <div class="col-md-3 mt-2 order-2">
         <div class="blog_wrapper rounded p-3">
           <h4 class="site-blue">Posts by <%= @blog.user.username %></h4>
           <% @blogs.each do |blog| %>
@@ -27,7 +40,7 @@
           	 <% end %>
           	  <div class="row px-2 py-1">
         		    <div class="col-12">
-            		  <%= link_to truncate(blog.title, length: 50), blog_path(blog) %><br />
+            		  <h5><%= link_to truncate(blog.title, length: 50), blog_path(blog) %></h5>
                 	<small class="text-secondary"><i class="fas fa-comments site-blue mr-1" title="replies"></i><%= blog.comments.count %> comments |
                 		<%= time_ago_in_words(blog.created_at) %> ago 
               		</small>
@@ -40,11 +53,11 @@
           </small>
         </div>
       </div>
-      <div class="col-md-9 mt-2">
+      <div class="col-md-9 mt-2 order-1">
       
         <div class="blog_wrapper rounded p-3">
           <div class="title-box">
-            <h1><%= @blog.title %></h1>
+            <h1 class="special_title"><%= @blog.title %></h1>
           </div>
           
           <div class="blog_info">
@@ -81,7 +94,7 @@
             <% end %>
           </div>
           <div class="blog_content">
-            <%= @blog.content.html_safe %>
+            <%= @blog.body %>
           </div>
         </div>
         

@@ -1,0 +1,66 @@
+<title>Blogs | Yarnn.FM</title>
+<body style="background-color: #e4e0e0;">
+
+ 	<!-- Page Content -->
+ 	<section class="section-content bg padding-y-sm">
+		<div class="container">
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb mt-3">
+					    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+					    <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li>
+					    <li class="breadcrumb-item active" aria-current="page">Blogs</li>
+				  </ol>
+				</nav>
+			<%= render 'shared/alert' %>
+		    <div class="row mt-3">
+
+		    	<div class="col-xl-7">
+		    		<div class="card">
+						<div class="card-body">
+						    <h4 class="site-blue">Latest Posts</h4>
+                              <% @blogs.each do |blog| %>
+                              <div class="row p-2">
+                                  
+                                  <div class="col-12 col-md-4">
+                                     <% if blog.image? %>
+                                          <%= image_tag blog.image.url(:thumb), width: "100%", class: "my-1 p-1 border" %>
+                                  	 <% end %>
+                                  </div>
+                                  <div class="col-12 col-md-8">
+                                      <h5><%= link_to blog.title, blog_path(blog) %></h5>
+                                      <small class="text-secondary"><%= truncate(strip_tags(blog.body.to_s), length: 100)%></small><br />
+                                      <div class="mt-2"></div>
+                                    	<small class="text-secondary"><i class="fas fa-comments site-blue mr-1" title="replies"></i><%= blog.comments.count %> comments |
+                                    		<%= time_ago_in_words(blog.created_at) %> ago by <%= link_to blog.user.username, user_path(blog.user) %>
+                                  		</small>
+                                  </div>
+                              </div>
+                             <div class="lightline mx-auto"></div>
+                              <% end %>
+			            	<%= paginate @blogs %>
+		    			</div>
+		    		</div><!-- end card -->	
+		    		
+		    	</div><!-- end middle column -->
+
+		    	
+		    	<div class="col-xl-5">
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							    <h6 class="card-subtitle mb-2 text-muted">Other Stuff</h6>
+							    <small>
+				  					
+			                  </small>
+							  </div>
+							</div>
+		    			</div>
+		    		</div>
+		    	<!-- end card -->
+
+		    	</div><!-- end right column -->
+		    </div><!-- end row -->
+		    
+		</div><!-- end container -->
+	</section>

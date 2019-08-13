@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' },
   controllers: {invitations: 'users/invitations', registrations: 'users/registrations', omniauth_callbacks: 'omniauth_callbacks'}
-  
+
   authenticated do
     root :to => 'dashboards#index', as: :authenticated
   end
-  
+
   root 'welcome#index'
-  
+
   resources :users do
     member do
       get :following, :followers
@@ -18,55 +18,57 @@ Rails.application.routes.draw do
       get :topics
     end
   end
-  
+
   resource :subscription
-  
+
   resources :pseudonyms
   resources :links, only: [:new, :edit, :update, :create, :destroy]
-  
+
   resources :blogs do
     resources :comments
   end
-  
+
   resources :topics do
     resources :comments
   end
-  
+
   resources :relationships, only: [:create, :destroy]
   get 'station/:id', to: 'users#favorites', as: :station
-  
+
   resources :albums, :path => '/albums'
-  
+
   resources :tracks do
     resources :comments
     post 'favorite', to: 'favorites#favorite'
     post 'unfavorite', to: 'favorites#unfavorite'
   end
-  
+
   resources :listings, :path => "marketplace/" do
     resources :transactions
     resources :reviews, except: [:show, :index]
     get 'download', on: :member
   end
-  
+
   get 'marketplace/genre/:tag', to: 'listings#genres', as: :genre
-  
+
   resources :notifications do
     member do
       get :toggle_read
     end
   end
-  
+
   get 'about', to: 'welcome#about'
   get 'help', to: 'welcome#help'
   get 'privacy', to: 'welcome#privacy'
   resources :flags, only: [:new, :create, :index]
-  
+
   get 'dashboard' => 'dashboards#index'
   get '/payout_method' => 'users#payout'
   get 'sales', to: 'transactions#sales'
   get 'purchases', to: 'transactions#purchases'
-  
+
+  get '/search', to: 'searches#result'
+
   resources :messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   match '/conversations', to: 'conversations#index', via: 'get'
@@ -84,7 +86,7 @@ Rails.application.routes.draw do
   get 'scifi_ipsum', to: 'ipsums#scifi'
   get 'western_ipsum', to: 'ipsums#western'
   get 'names_gen', to: 'ipsums#names'
-  
+
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
 end

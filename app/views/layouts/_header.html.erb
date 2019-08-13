@@ -4,16 +4,19 @@
   <nav class="navbar navbar-expand-md fixed-top nav-menu navbar-top-image">
     <%= link_to root_path do %>
 	  	<%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
-	<% end %>
+	  <% end %>
     <button class="navbar-toggler btn-outline-dark" type="button" data-toggle="collapse" data-target="#myNavbar">
-      <span class="navbar-toggler-icon mt-2">   
+      <span class="navbar-toggler-icon mt-2">
 			   <i class="fa fa-bars text-danger"></i>
 			</span>
     </button>
     <div class="collapse navbar-collapse justify-content-end text-uppercase nav-text scrollable" id="myNavbar">
       <ul class="navbar-nav">
+        <form class="form-inline" action="<%= search_path %>">
+          <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       	<% unless user_signed_in? %>
-      	
           <div class="dropdown">
 					  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					    EXPLORE
@@ -27,22 +30,22 @@
               <li class="dropdown-item navdrop-link"><%= link_to "Generators", generators_path %></li>
 					  </ul>
 					</div>
-					
+
 	        <li class="nav-item">
 	        	<%= link_to listings_path, :class => "nav-link text-correct m-2 menu-item" do %>
 				  <i class="fas fa-shopping-cart text-correct"></i> Marketplace
 				<% end %>
 	        </li>
-	        
+
 	        <li class="nav-item">
 	          <%= link_to "Login", new_user_session_path, :class => "nav-link text-correct m-2 menu-item" %>
 	        </li>
-	        
+
 	        <li class="nav-item">
 	          <%= link_to "Register", new_user_registration_path, :class => "nav-link text-correct m-2 menu-item" %>
 	        </li>
 	      <% else %>
-	      
+
 		      <div class="dropdown">
 						  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text text-uppercase m-2" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 						    <i class="fas fa-cog text-correct mr-2"></i><%= current_user.username %>
@@ -61,7 +64,7 @@
 						    <li class="dropdown-item navdrop-link"><%= link_to "Create Album", new_album_path %></li>
 	              <li class="dropdown-item navdrop-link"><%= link_to "Create Blog Post", new_blog_path %></li>
 	              <div class="dropdown-divider"></div>
-	            	
+
 	            	<!--- Seller Stuff --->
 								<% if current_user.uid? %>
 								<li class="dropdown-item navdrop-link"><%= link_to "Sell Something", new_listing_path %></li>
@@ -70,14 +73,14 @@
 	            	<% else %>
 	            	<li class="dropdown-item navdrop-link"><%= link_to "Become a Seller", payout_method_path %></li>
 	            	<% end %>
-	            	
+
 	            	<div class="dropdown-divider"></div>
 	            	<li class="dropdown-item navdrop-link current"><%= link_to destroy_user_session_path, method: :delete do %>
 			        		<i class="fas fa-sign-out-alt text-light fa-lg"></i> Log Out
 			          <% end %></li>
 						  </ul>
 						</div>
-	        
+
 	        <li class="nav-item">
 	        	<%= link_to notifications_path(current_user), :class => "nav-link text-light m-2" do %>
 							<i class="fas fa-comments text-correct mr-1"></i>
@@ -86,7 +89,7 @@
 							<% end %>
 						<% end %>
 			</li>
-					
+
 					<div class="dropdown">
 					  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					    EXPLORE
@@ -101,17 +104,17 @@
               <li class="dropdown-item navdrop-link"><%= link_to "Generators", generators_path %></li>
 					  </ul>
 					</div>
-          
+
 	        <li class="nav-item">
 	        	<%= link_to listings_path, :class => "nav-link text-correct m-2 menu-item" do %>
 						  <i class="fas fa-shopping-cart text-correct"></i> Marketplace
 						<% end %>
 	        </li>
-	        
+
 	        <%= link_to  destroy_user_session_path, method: :delete, :class => "nav-link text-light m-2 menu-item" do %>
         		<i class="fas fa-sign-out-alt site-red fa-lg" title="logout"></i>
           <% end %>
-          
+
 	      <% end %>
       </ul>
     </div>

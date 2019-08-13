@@ -81,7 +81,7 @@
 <dl>
   <dt>Description</dt>
   <dd><p><%= truncate(@listing.description, length: 200) %></p>
-  <% if @user_flag.try(:any?) %>
+  	<% if @user_flag.try(:any?) %>
         <small><i class="fas fa-flag site-red mr-2"></i>You reported this.</small>
     <% else %>
         <%= render "listings/flag_form" %>

@@ -59,7 +59,7 @@
           <div class="title-box">
             <h1 class="special_title"><%= @blog.title %></h1>
           </div>
-          
+          <div class="col-12">
           <div class="blog_info">
             <div class="blog_info_user_avatar mt-2">
 								<% if @blog.user.image? %>
@@ -73,6 +73,11 @@
               <%= time_ago_in_words(@blog.created_at) %> ago
               <% if @blog.user == current_user %>
                 <i class="fas fa-cog site-red mr-1 ml-3"></i><%= link_to "edit", edit_blog_path(@blog) %>
+              <% end %>
+              <% if @user_flag.try(:any?) %>
+                  <i class="fas fa-flag site-red ml-3 mr-2"></i>You reported this.
+              <% else %>
+                  <%= render "blogs/flag_form" %>
               <% end %>
             </div>
             
@@ -88,6 +93,7 @@
 								</li>
 							</ul>
           </div><!-- end blog info class -->
+          </div>
           <div class="blog_content">
             <% if @blog.image? %>
               <%= image_tag @blog.image.url, width: "100%", class: "mt-4 p-2 border" %>

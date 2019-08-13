@@ -18,6 +18,10 @@ class BlogsController < ApplicationController
 	  @commentable = @blog
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
+    @flag = Flag.new
+    if user_signed_in?
+      @user_flag = Flag.where(flagged_by_id: current_user.id, flaggable_id: @blog.id)
+    end
 	end
 	
 	def new

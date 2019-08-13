@@ -893,6 +893,19 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+    elasticsearch (7.3.0)
+      elasticsearch-api (= 7.3.0)
+      elasticsearch-transport (= 7.3.0)
+    elasticsearch-api (7.3.0)
+      multi_json
+    elasticsearch-model (6.0.0)
+      activesupport (> 3)
+      elasticsearch (> 1)
+      hashie
+    elasticsearch-rails (6.0.0)
+    elasticsearch-transport (7.3.0)
+      faraday
+      multi_json
     erubi (1.8.0)
     execjs (2.7.0)
     faraday (0.15.4)
@@ -1082,6 +1095,8 @@ DEPENDENCIES
   devise!
   devise_invitable (~> 2.0.0)
   dotenv-rails
+  elasticsearch-model
+  elasticsearch-rails
   file_validators
   font-awesome-sass
   friendly_id

@@ -3,7 +3,7 @@
   <meta property="og:title" content="<%= @blog.title %>" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<%= request.original_url %>" />
-  <% if @blog.image %>
+  <% if @blog.image? %>
   <meta property="og:image:url" content="<%= @blog.image.url %>" />
   <% end %>
   <meta property="og:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>" />
@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="<%= @blog.title %>">
   <meta name="twitter:description" content="<%= truncate(strip_tags(@blog.body.to_s), length: 250)%>">
   <meta name="twitter:creator" content="<%= @blog.user.username %>">
-  <% if @blog.image %>
+  <% if @blog.image? %>
   <meta name="twitter:image:src" content="<%= @blog.image.url %>">
   <% end %>
 <% end %>

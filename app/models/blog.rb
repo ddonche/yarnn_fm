@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
   has_rich_text :body
+  acts_as_votable
   
   belongs_to :user
   has_many :comments, as: :commentable

@@ -12,10 +12,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end text-uppercase nav-text scrollable" id="myNavbar">
       <ul class="navbar-nav">
-        <form class="form-inline" action="<%= search_path %>">
-          <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+
       	<% unless user_signed_in? %>
           <div class="dropdown">
 					  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -119,6 +116,14 @@
           <% end %>
 
 	      <% end %>
+	      <form class="form-inline" action="<%= search_path %>">
+        	<div class="input-group">
+          		<input name="q" class="form-control-sm" type="search" placeholder="Search" aria-label="Search">
+          		<div class="input-group-append">
+          			<button class="btn btn-sm btn-outline-secondary text-correct" type="submit"><i class="fa fa-search"></i></button>
+          		</div>
+          	</div>
+        </form>
       </ul>
     </div>
   </nav>

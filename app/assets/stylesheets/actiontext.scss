@@ -359,30 +359,16 @@ trix-editor .attachment__metadata {
   .trix-content blockquote {
     font-size: 1em;
     color: #222;
-    width:70%;
+    width:95%;
     font-style:italic;
     font-weight: 450;
     margin: 10px auto;
-    padding: 1.2em 30px 1.2em 75px;
+    padding: 1em 1.2em 1em 1.5em;
     border-left:8px solid #dc2020 ;
     line-height:1.6;
     position: relative;
     background:#e2e9e9;
 }
-
-  .trix-content blockquote::before{
-    font-family:Teko;
-    content: "\201C";
-    color:#dc2020;
-    font-size:5em;
-    position: absolute;
-    left: 10px;
-    top:-10px;
-  }
-  
-   .trix-content blockquote::after{
-    content: '';
-  }
   
   .trix-content blockquote span{
     display:block;

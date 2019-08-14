@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-	before_action :find_blog, only: [:show, :edit, :update, :delete]
+	before_action :find_blog, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -70,9 +70,30 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def upvote
+    if @blog.user != current_user
+      @blog.upvote_by current_user
+    
+      respond_to do |format|
+        format.html { redirect_to @blog }
+        format.js
+      end
+    end
+  end
+  
+  def downvote
+    if @blog.user != current_user
+      @blog.downvote_by current_user
+  
+      respond_to do |format|
+        format.html { redirect_to @blog }
+        format.js
+      end
+    end
+  end
 
 	private
-
 	def find_blog
 		@blog = Blog.find(params[:id])
 	end

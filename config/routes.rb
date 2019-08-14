@@ -25,11 +25,29 @@ Rails.application.routes.draw do
   resources :links, only: [:new, :edit, :update, :create, :destroy]
 
   resources :blogs do
+    member do
+      put 'like', to: 'blogs#upvote'
+      put 'dislike', to: 'blogs#downvote'
+    end
     resources :comments
+      member do
+        put 'like', to: 'comments#upvote'
+        put 'dislike', to: 'comments#downvote'
+      end
+      resources :notations
   end
 
   resources :topics do
+    member do
+      put 'like', to: 'topics#upvote'
+      put 'dislike', to: 'topics#downvote'
+    end
     resources :comments
+      member do
+        put 'like', to: 'comments#upvote'
+        put 'dislike', to: 'comments#downvote'
+      end
+      resources :notations
   end
 
   resources :relationships, only: [:create, :destroy]
@@ -39,6 +57,11 @@ Rails.application.routes.draw do
 
   resources :tracks do
     resources :comments
+      member do
+        put 'like', to: 'comments#upvote'
+        put 'dislike', to: 'comments#downvote'
+      end
+      resources :notations
     post 'favorite', to: 'favorites#favorite'
     post 'unfavorite', to: 'favorites#unfavorite'
   end

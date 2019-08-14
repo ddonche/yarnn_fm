@@ -1,5 +1,6 @@
 class Topic < ApplicationRecord
   include Taggable
+  acts_as_votable
   before_save :downcase_fields
   
   belongs_to :user

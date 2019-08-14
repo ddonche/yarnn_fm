@@ -46,6 +46,7 @@ gem 'webpacker'
 gem 'pg'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'acts_as_votable', '~> 0.12.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

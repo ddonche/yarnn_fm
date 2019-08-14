@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_231501) do
+ActiveRecord::Schema.define(version: 2019_08_14_013152) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
-    t.integer "record_id", null: false
+    t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -43,10 +46,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "albums", force: :cascade do |t|
+  create_table "albums", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
-  create_table "blogs", force: :cascade do |t|
+  create_table "blogs", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.integer "published_status"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", id: :serial, force: :cascade do |t|
     t.text "content"
     t.string "commentable_type"
     t.integer "commentable_id"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "conversations", force: :cascade do |t|
+  create_table "conversations", id: :serial, force: :cascade do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
     t.datetime "created_at", null: false
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "followed_id"
     t.integer "eventable_id"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "track_id"
     t.datetime "created_at", null: false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.integer "flag_type"
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
+  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.string "website"
   end
 
-  create_table "listings", force: :cascade do |t|
+  create_table "listings", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.decimal "price"
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
+  create_table "messages", id: :serial, force: :cascade do |t|
     t.text "body"
     t.boolean "read", default: false
     t.integer "conversation_id"
@@ -201,7 +201,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pseudonyms", force: :cascade do |t|
+  create_table "pseudonyms", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -209,7 +209,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["user_id"], name: "index_pseudonyms_on_user_id"
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", id: :serial, force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -219,7 +219,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", id: :serial, force: :cascade do |t|
     t.integer "rating"
     t.text "content"
     t.datetime "created_at", null: false
@@ -229,9 +229,9 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer "tag_id"
+    t.bigint "tag_id"
     t.string "taggable_type"
-    t.integer "taggable_id"
+    t.bigint "taggable_id"
     t.datetime "created_at"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
     t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
@@ -243,7 +243,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "topics", force: :cascade do |t|
+  create_table "topics", id: :serial, force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -251,7 +251,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.integer "user_id"
   end
 
-  create_table "tracks", force: :cascade do |t|
+  create_table "tracks", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -267,11 +267,12 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.integer "pseudonym_id"
     t.integer "favorites_count", default: 0
     t.string "voice_site"
+    t.integer "play_count"
     t.index ["pseudonym_id"], name: "index_tracks_on_pseudonym_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "transactions", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "listing_id"
@@ -279,7 +280,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.integer "seller_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -326,5 +327,28 @@ ActiveRecord::Schema.define(version: 2019_08_11_231501) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.string "voter_type"
+    t.bigint "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "albums", "pseudonyms"
+  add_foreign_key "events", "users"
+  add_foreign_key "listings", "pseudonyms"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "pseudonyms", "users"
+  add_foreign_key "tracks", "pseudonyms"
 end

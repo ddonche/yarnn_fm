@@ -101,8 +101,11 @@ module Names
       "Chevonne", "Chloe", "Cicilia", "Cicily", "Clarice", "Claudia", "Cora", "Coral", "Coraline", "Corey", "Corina",
       "Courtney", "Crystal", "Cynthia",
       
-      "D.", "Daisy", "Dani", "Danielle", "Daphne", "Darby", "Darcy", "Dariah", "Darla", "Deb", "Debbie", "Deborah", "Dee", "Delaney", "Delilah", 
-      "Denise", "Destiny", "Dolores", "Donna",
+      "D.", "Dahlia", "Daisy", "Dana", "Dani", "Danica", "Daniella", "Danielle", "Daphne", "Darby", "Darcy", "Dariah", "Darla", 
+      "Darlene", "Dawn", 
+      "Deanna", "Deb", "Debbie", "Deborah", 
+      "Dee", "Delaney", "Della", "Delilah", "Demi",
+      "Denise", "Desi", "Desiree", "Destiny", "Diamond", "Diana", "Diane", "Dolores", "Donna", "Dorothy",
       
       "E.", "Eden", "Edith", "Eleanor", "Elena", "Elise", "Elizabeth", "Eloise", "Elowyn", "Emma", "Emerald", "Emogen", "Esme", "Esmerelda", "Eva", 
       "Eve", "Evelyn", "Ever", "Everly",
@@ -144,14 +147,14 @@ module Names
       
       "Q.",
       
-      "R.", "Rachel", "Rae", "Rain", "Reagan", "Reba", "Rebecca", "Reece", "Renee", "Rhianna", "Rhiannon", "Rhonda", "Ripley", "Roberta", 
+      "R.", "Rachel", "Rae", "Rain", "Reagan", "Reba", "Rebecca", "Reece", "Rena", "Renee", "Rhianna", "Rhiannon", "Rhonda", "Ripley", "Roberta", 
       "Robin", "Rochelle", "Roquelle", "Rosa", "Rose", "Rowen", "Roxanna", "Roxanne", "Roxy", "Ruby", "Rumor", "Ruth",
       
       "S.", "Sage", "Sally", "Sam", "Sammy", "Sandy", "Sarah", "Scarlett", "Shana", "Shannon", "Shauna", "Shawna", "Sherry", "Sheryl", "Sierra", "Skye", 
       "Skyler", "Snow", "Solest", "Stacey", "Starla", "Stella", "Steph", "Stephanie", "Sterling", "Stormy", "Summer", "Susan", 
       "Susanna", "Susie", "Sydney",
       
-      "T.", "Tabby", "Tabitha", "Tamara", "Tammy", "Taylor", "Terri", "Theresa", "Tilda", "Tracey", "Trin", "Trinity", "Trudy",
+      "T.", "Tabby", "Tabitha", "Tamara", "Tammy", "Taylor", "Terri", "Theresa", "Tilda", "Tracey", "Trin", "Trinity", "Trixy", "Trudy",
       
       "U.", "Ulla", "Ulyanna", "Uma", "Ursula",
       

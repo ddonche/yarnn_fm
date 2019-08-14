@@ -72,6 +72,28 @@ class TopicsController < ApplicationController
       format.html { redirect_to root_path, notice: 'Topic was successfully deleted.' }
     end
   end
+  
+  def upvote
+    if @topic.user != current_user
+      @topic.upvote_by current_user
+    
+      respond_to do |format|
+        format.html { redirect_to @topic }
+        format.js
+      end
+    end
+  end
+  
+  def downvote
+    if @topic.user != current_user
+      @topic.downvote_by current_user
+  
+      respond_to do |format|
+        format.html { redirect_to @topic }
+        format.js
+      end
+    end
+  end
 
 	private
   	def find_topic

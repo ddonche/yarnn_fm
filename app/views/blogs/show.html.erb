@@ -36,47 +36,61 @@
             <h1><%= @blog.title %></h1>
           </div>
           
-          <div class="row mb-2">
+          <div class="row">
+            <div class="col-3 col-md-2 align-center">
+              <% if @blog.user.image? %>
+								<%= image_tag @blog.user.image.url(:thumb), class: "image-full" %>
+							<% else %>
+								<%= image_tag('default_track.jpg', class: "image-full") %>
+							<% end %>
+            </div>
+            <div class="col-9 col-md-10">
+              <div class="row mb-2">
+                    <div class="col-12">
+                      <small><i>Posted by</i></small> <%= link_to @blog.user.name, user_path(@blog.user), class: "mx-1" %>
+      						    <small><i>- <%= time_ago_in_words(@blog.created_at) %> ago</i>
+      						    
+      						    <% if @blog.user == current_user %>
+                        <i class="fas fa-cog site-red mr-1 ml-3"></i><%= link_to "edit", edit_blog_path(@blog) %>
+                      <% end %>
+                      </small>
+                    </div>
+              </div><!-- end row -->
+              <div class="row mb-4">
                 <div class="col-12">
-                  
-                  <small><i>Posted by</i></small> <%= link_to @blog.user.name, user_path(@blog.user), class: "mx-1" %>
-  						    <i>- <%= time_ago_in_words(@blog.created_at) %> ago</i>
-  						    <small>
-  						    <% if @blog.user == current_user %>
-                    <i class="fas fa-cog site-red mr-1 ml-3"></i><%= link_to "edit", edit_blog_path(@blog) %>
-                  <% end %>
-                  <% if @user_flag.try(:any?) %>
-                      <i class="fas fa-flag site-red ml-3 mr-2"></i>You reported this.
-                  <% else %>
-                      <%= render "blogs/flag_form" %>
-                  <% end %>
-                  </small>
-  						    
-  						    
+                  <ul class="nav text-uppercase mb-2">
+      								<li class="site-blue small mr-3">
+      									<i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @blog.user.tracks.count %>)
+      								</li>
+      								<li class="site-blue small mr-3">
+      									<i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @blog.user.albums.count %>)
+      								</li>
+      								<li class="site-blue small mr-3">
+      									<i class="fas fa-pen-nib site-blue" title="blog posts"></i> Blog Posts (<%= @blog.user.blogs.count %>)
+      								</li>
+      						</ul>
+      						<ul class="nav">
+      								<li class="mr-3">
+      								  <%= link_to like_blog_path(@blog), method: :put, remote: true do %><i class="far fa-thumbs-up site-red" title="upvotes"></i><% end %> <div id="upvote" style="display: inline;"><%= @blog.get_upvotes.size %></div>
+      								</li>
+      								<li class="mr-3">
+      								  <%= link_to dislike_blog_path(@blog), method: :put, remote: true do %><i class="far fa-thumbs-down site-red" title="downvotes"></i><% end %> <div id="downvote" style="display: inline;"><%= @blog.get_downvotes.size %></div>
+      								</li>
+      								<li class="mr-3">
+      								  <small>
+      								  <% if @user_flag.try(:any?) %>
+                            <i class="fas fa-flag site-red ml-3 mr-2"></i>You reported this.
+                        <% else %>
+                            <%= render "blogs/flag_form" %>
+                        <% end %>
+                        </small>
+      								</li>
+      						</ul>
+  
                 </div>
-            </div><!-- end row -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <ul class="nav text-uppercase">
-    								<li class="site-blue small mr-3">
-    									<i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @blog.user.tracks.count %>)
-    								</li>
-    								<li class="site-blue small mr-3">
-    									<i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @blog.user.albums.count %>)
-    								</li>
-    								<li class="site-blue small mr-3">
-    									<i class="fas fa-pen-nib site-blue" title="blog posts"></i> Blog Posts (<%= @blog.user.blogs.count %>)
-    								</li>
-    								<li class="site-red mr-3">
-    								  <%= link_to like_blog_path(@blog), method: :put, remote: true do %><i class="fa fa-chevron-up" title="upvotes"></i><% end %> <div id="upvote" style="display: inline;"><%= @blog.get_upvotes.size %></div>
-    								</li>
-    								<li class="site-red">
-    								  <%= link_to dislike_blog_path(@blog), method: :put, remote: true do %><i class="fa fa-chevron-down" title="downvotes"></i><% end %> <div id="downvote" style="display: inline;"><%= @blog.get_downvotes.size %></div>
-    								</li>
-    						</ul>
-
-              </div>
-            </div><!-- end row -->
+              </div><!-- end row -->
+            </div>
+          </div>
             
         </div><!-- end column -->
       </div>

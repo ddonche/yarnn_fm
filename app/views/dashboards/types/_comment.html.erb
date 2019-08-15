@@ -39,5 +39,26 @@
   </div>
   <div class="col-12 col-md-3 small text-center">
     <small><%= time_ago_in_words(item.created_at) %> ago</small>
+      <div class="row justify-content-center">
+        <% if item.commentable_type == "Track" %>
+          <% Track.find(item.parent_id).tags.map(&:name).each do |tag| %>
+      			<% @icon = tag.split.map(&:downcase).join('_') %>
+      			<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+      			    <%= render partial: "topics/icons/#{@icon}" %>
+      			<% else %>
+      				<%= image_tag('default_track.jpg', width: 30, title: "genre", class: "pt-1") %>
+      			<% end %>
+      		<% end %>
+      	<% elsif item.commentable_type == "Topic" %>
+        	<% Topic.find(item.parent_id).tags.map(&:name).each do |tag| %>
+        			<% @icon = tag.split.map(&:downcase).join('_') %>
+        			<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+        			    <%= render partial: "topics/icons/#{@icon}" %>
+        			<% else %>
+        				<%= image_tag('default_track.jpg', width: 30, title: "genre", class: "pt-1") %>
+        			<% end %>
+        		<% end %>
+        <% end %>
+    </div>
   </div>
 </div>

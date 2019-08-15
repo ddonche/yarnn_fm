@@ -17,7 +17,7 @@
 		    	<div class="col-xl-7">
 		    		<div class="card">
 						<div class="card-body">
-						    <h4 class="site-blue">Latest Posts</h4>
+						    <h3 class="site-blue">Latest Posts</h3>
                               <% @blogs.each do |blog| %>
                               <div class="row p-2">
                                   
@@ -27,7 +27,7 @@
                                   	 <% end %>
                                   </div>
                                   <div class="col-12 col-md-8">
-                                      <h5><%= link_to blog.title, blog_path(blog) %></h5>
+                                      <h4><%= link_to blog.title, blog_path(blog) %></h4>
                                       <small class="text-secondary"><%= truncate(strip_tags(blog.body.to_s), length: 100)%></small><br />
                                       <div class="mt-2"></div>
                                     	<small class="text-secondary"><i class="fas fa-comments site-blue mr-1" title="replies"></i><%= blog.comments.count %> comments |

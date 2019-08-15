@@ -12,6 +12,30 @@
     
     <div class="col-10">
       <small><strong><%= link_to comment.user.username, user_path(comment.user) %></strong> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> </small><br />
+      	<ul class="nav mb-2">
+      	  <% if @commentable = @blog %>
+						<li class="mr-3">
+						  <%= link_to like_blog_comment_path(@blog, comment), method: :put, remote: true do %><i class="far fa-thumbs-up site-red" title="upvotes"></i><% end %> <div id="upvote-<%= comment.id %>" style="display: inline;"><%= comment.get_upvotes.size %></div>
+						</li>
+						<li class="mr-3">
+						  <%= link_to dislike_blog_comment_path(@blog, comment), method: :put, remote: true do %><i class="far fa-thumbs-down site-red" title="downvotes"></i><% end %> <div id="downvote-<%= comment.id %>" style="display: inline;"><%= comment.get_downvotes.size %></div>
+						</li>
+					<% elsif @commentable = @track %>
+					  <li class="mr-3">
+						  <%= link_to like_track_comment_path(@track, comment), method: :put, remote: true do %><i class="far fa-thumbs-up site-red" title="upvotes"></i><% end %> <div id="upvote-<%= comment.id %>" style="display: inline;"><%= comment.get_upvotes.size %></div>
+						</li>
+						<li class="mr-3">
+						  <%= link_to dislike_track_comment_path(@track, comment), method: :put, remote: true do %><i class="far fa-thumbs-down site-red" title="downvotes"></i><% end %> <div id="downvote-<%= comment.id %>" style="display: inline;"><%= comment.get_downvotes.size %></div>
+						</li>
+					<% else %>
+					  <li class="mr-3">
+						  <%= link_to like_topic_comment_path(@topic, comment), method: :put, remote: true do %><i class="far fa-thumbs-up site-red" title="upvotes"></i><% end %> <div id="upvote-<%= comment.id %>" style="display: inline;"><%= comment.get_upvotes.size %></div>
+						</li>
+						<li class="mr-3">
+						  <%= link_to dislike_topic_comment_path(@topic, comment), method: :put, remote: true do %><i class="far fa-thumbs-down site-red" title="downvotes"></i><% end %> <div id="downvote-<%= comment.id %>" style="display: inline;"><%= comment.get_downvotes.size %></div>
+						</li>
+					<% end %>
+				</ul>
       <%= simple_format(comment.content) %>
     </div>
     

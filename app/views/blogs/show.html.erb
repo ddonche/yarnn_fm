@@ -30,13 +30,13 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <% if @blog.image? %>
-              <%= image_tag @blog.image.url, width: "100%", class: "mt-4 p-2 border" %>
+              <%= image_tag @blog.image.url, class: "mt-4 mb-2 p-2 border image-full" %>
             <% end %>
           <div class="post-heading mt-2">
             <h1><%= @blog.title %></h1>
           </div>
           
-          <div class="row">
+          <div class="row mt-2">
             <div class="col-3 col-md-2 align-center">
               <% if @blog.user.image? %>
 								<%= image_tag @blog.user.image.url(:thumb), class: "image-full" %>

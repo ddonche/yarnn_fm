@@ -29,12 +29,13 @@ Rails.application.routes.draw do
       put 'like', to: 'blogs#upvote'
       put 'dislike', to: 'blogs#downvote'
     end
-    resources :comments
+    resources :comments do
       member do
         put 'like', to: 'comments#upvote'
         put 'dislike', to: 'comments#downvote'
       end
       resources :notations
+    end
   end
 
   resources :topics do
@@ -42,12 +43,13 @@ Rails.application.routes.draw do
       put 'like', to: 'topics#upvote'
       put 'dislike', to: 'topics#downvote'
     end
-    resources :comments
+    resources :comments do
       member do
         put 'like', to: 'comments#upvote'
         put 'dislike', to: 'comments#downvote'
       end
       resources :notations
+    end
   end
 
   resources :relationships, only: [:create, :destroy]
@@ -56,12 +58,13 @@ Rails.application.routes.draw do
   resources :albums, :path => '/albums'
 
   resources :tracks do
-    resources :comments
+    resources :comments do
       member do
         put 'like', to: 'comments#upvote'
         put 'dislike', to: 'comments#downvote'
       end
       resources :notations
+    end
     post 'favorite', to: 'favorites#favorite'
     post 'unfavorite', to: 'favorites#unfavorite'
   end

@@ -1,0 +1,31 @@
+<div id="background-other">
+ <%= render 'layouts/header' %>
+  
+  <div class="wrapper_skinny">
+    <h2>Reply to Comment</h2>
+    <div id="form">
+        <%= form_for [@commentable, @comment, @notation] do |f| %>
+          <% if @notation.errors.any? %>
+              <div class="error_messages">
+                <h3>Please correct the following errors.</h3>
+                <ul>
+                <% @notation.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+        
+            <div class="field">
+              <%= f.text_area :content %>
+            </div>
+
+          <br />
+          <div class="actions">
+            <%= f.submit "Submit", class: "button button_highlight button_block" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+</div>

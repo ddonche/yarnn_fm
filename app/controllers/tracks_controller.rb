@@ -91,7 +91,7 @@ class TracksController < ApplicationController
 	end
 	
   def track_params
-    params.require(:track).permit(:title, :description, :user_id, :explicit,
+    params.require(:track).permit(:title, :description, :user_id, :explicit, :duration,
                                   :image, :audio, :album_id, :vocals, :voice_site, :tag_list, 
                                   :buy_url, :listing_id, :pseudonym_id, :favorites_count)
   end

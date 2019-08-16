@@ -37,6 +37,24 @@
 					<% end %>
 				</ul>
       <%= simple_format(comment.content) %>
+       
+       <div class="comment-content">
+			    <% if comment.notations.any? %>
+			      <%= render 'notations/notations', comment: comment %>
+			    <% end %>
+			    
+			      <h6 class="float-right">
+			      <% if @commentable = @track %>
+			        <%= link_to "reply", new_track_comment_notation_path(@track, comment) %>
+			      <% elsif @commentable = @blog %>
+			        <%= link_to "reply", new_blog_comment_notation_path(@blog, comment) %>
+			      <% else %>
+			        <%= link_to "reply", new_topic_comment_notation_path(@topic, comment) %>
+			      <% end %>
+			      </h6>
+			    
+			  </div>
+			  
     </div>
     
   </div>

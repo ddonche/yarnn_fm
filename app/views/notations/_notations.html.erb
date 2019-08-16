@@ -1,0 +1,28 @@
+<% notations = comment.notations %>
+<% notations.each do |notation| %>
+  <div class="row light-bg mb-1">
+      <div class="col-11">
+        <small>
+        <%= notation.content %> - 
+        
+          <%= link_to notation.user.username, user_path(notation.user) %> 
+          <%= time_ago_in_words(notation.created_at) %> ago
+          
+          <% if (user_signed_in? && (current_user.id == notation.user_id)) %>
+            <% if @commentable = @track %>
+              <%= link_to track_comment_notation_path(@track, comment, notation), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash small ml-3" title="delete"></i><% end %>
+            <% elsif @commentable = @blog %>
+              <%= link_to blog_comment_notation_path(@blog, comment, notation), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash small ml-3" title="delete"></i><% end %>
+            <% else %>
+              <%= link_to topic_comment_notation_path(@topic, comment, notation), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash small ml-3" title="delete"></i><% end %>
+            <% end %>
+          <% end %>
+        </small>
+    
+    
+    </div>
+  </div>
+<% end %>

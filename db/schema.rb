@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_230224) do
+ActiveRecord::Schema.define(version: 2019_08_16_141604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_230224) do
     t.string "editor"
     t.integer "pseudonym_id"
     t.integer "serial", default: 0, null: false
+    t.integer "tracks_count"
     t.index ["pseudonym_id"], name: "index_albums_on_pseudonym_id"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_230224) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "pseudo_id"
+    t.integer "comments_count"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
@@ -174,6 +176,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_230224) do
     t.string "file"
     t.string "image"
     t.integer "pseudonym_id"
+    t.integer "reviews_count"
     t.index ["pseudonym_id"], name: "index_listings_on_pseudonym_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
@@ -257,6 +260,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_230224) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.integer "user_id"
+    t.integer "comments_count"
   end
 
   create_table "tracks", id: :serial, force: :cascade do |t|
@@ -277,6 +281,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_230224) do
     t.string "voice_site"
     t.integer "play_count"
     t.integer "duration"
+    t.integer "comments_count"
     t.index ["pseudonym_id"], name: "index_tracks_on_pseudonym_id"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
@@ -328,6 +333,9 @@ ActiveRecord::Schema.define(version: 2019_08_15_230224) do
     t.integer "invited_by_id"
     t.string "invited_by_type"
     t.string "roles"
+    t.integer "tracks_count"
+    t.integer "comments_count"
+    t.integer "topics_count"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true

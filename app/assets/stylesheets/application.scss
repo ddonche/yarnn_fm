@@ -386,51 +386,6 @@ audio {
   border: 1px solid #131520;
 }
 
-.alert-good {
-  background: linear-gradient(rgba(33, 85, 33, .7), rgba(33, 85, 33, .9)), url('bg-dark.jpeg');
-  border-radius: 5px;
-  border: 1px solid #a2abb4;
-  color: #a2abb4;
-}
-
-.alert-bad {
-  background: linear-gradient(rgba(161, 0, 0, .7), rgba(161, 0, 0, .9)), url('bg-dark.jpeg');
-  border-radius: 5px;
-  border: 1px solid #a2abb4;
-  color: #a2abb4;
-}
-
-
-/* Tooltip container */
-.tooler {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted #DC2020;
-    font-size: .85rem;
-}
-
-/* Tooltip text */
-.tooler .toolertext {
-    visibility: hidden;
-    width: 200px;
-    background-color: #e0e0e0;
-    color: #333;
-    text-align: center;
-    line-height: 1.5;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
- 
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooler:hover .toolertext {
-    visibility: visible;
-}
-
 trix-toolbar .trix-button-group button {
   background-color: white;
 }
@@ -470,6 +425,18 @@ trix-toolbar .trix-button-group button {
 }
 
 @media only screen and (max-width : 768px) {
+  
+  .blog_content {
+      padding: .5rem 1rem;
+      line-height: 1.25rem;
+      font-size: .7rem;
+  }
+  
+  body {
+    font-size: .8rem;
+    line-height: 1.25rem;
+  }
+  
   .dropdown-menu {
     max-height: 200px;
     overflow-y: auto;

@@ -5,10 +5,10 @@ class Track < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
-  belongs_to :user
-  belongs_to :album, optional: true
+  belongs_to :user, counter_cache: true
+  belongs_to :album, optional: true, counter_cache: true
   belongs_to :pseudonym, optional: true
-  has_many :favorites
+  has_many :favorites, counter_cache: true
   has_many :comments, as: :commentable
   has_many :events, as: :eventable, dependent: :delete_all
   has_many :flags, as: :flaggable, dependent: :delete_all

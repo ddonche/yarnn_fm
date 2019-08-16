@@ -3,7 +3,7 @@ class Topic < ApplicationRecord
   acts_as_votable
   before_save :downcase_fields
   
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   has_many :comments, as: :commentable
   has_many :events, as: :eventable, dependent: :destroy
   has_many :flags, as: :flaggable, dependent: :destroy

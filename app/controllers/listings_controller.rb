@@ -12,7 +12,8 @@ class ListingsController < ApplicationController
     @genre = @genre_pre2.split.map(&:capitalize).join(' ')
     if params[:tag]
       @listings = Listing.tagged_with(params[:tag]).order("created_at DESC").page(params[:page]).per(25)
-      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').limit(4)
+      #@topics = Topic.tagged_with(params[:tag]).joins(:comments).order("comments.created_at DESC").limit(3)
+      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').limit(3)
     end
 	end
 

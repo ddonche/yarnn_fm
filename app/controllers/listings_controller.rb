@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
     if params[:tag]
       @listings = Listing.tagged_with(params[:tag]).order("created_at DESC").page(params[:page]).per(25)
       #@topics = Topic.tagged_with(params[:tag]).joins(:comments).order("comments.created_at DESC").limit(3)
-      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').limit(3)
+      @topics = Topic.tagged_with(params[:tag]).includes(:latest_comment).order('created_at DESC').limit(3)
     end
 	end
 

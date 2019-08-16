@@ -72,7 +72,13 @@
 			                				</div>
 			            			  	<% end %>
 				                    	<small class="text-secondary"><i class="fas fa-comments site-blue mx-1" title="replies"></i><%= topic.comments.count %> replies |
-				                    		<%= time_ago_in_words(topic.created_at) %> ago by <%= link_to topic.user.username, user_path(topic.user_id) %>
+				                    		<% if topic.comments.any? %>
+				                    			last reply by <%= link_to topic.latest_comment.user.username, user_path(topic.latest_comment.user) %>
+				                    			<%= time_ago_in_words(topic.latest_comment.created_at) %> ago
+				                    		<% else %>
+				                    		by <%= link_to topic.user.username, user_path(topic.user_id) %>
+				                    		<%= time_ago_in_words(topic.created_at) %> ago 
+				                    		<% end %>
 				                  		</small>
 				                	</div>
 				              		

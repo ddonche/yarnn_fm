@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
 	def index
     if params[:tag]
-      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(2)
+      @topics = Topic.tagged_with(params[:tag]).includes(:latest_comment).order('created_at DESC').page(params[:page]).per(2)
     else
       @topics = Topic.all.order('created_at DESC').page(params[:page]).per(16)
     end
@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
 	  @commentable = @topic
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
-    @topics = Topic.tagged_with(@tag).order("created_at DESC").page(params[:page]).per(3)
+    @topics = Topic.tagged_with(@tag).includes(:latest_comment).order("created_at DESC").page(params[:page]).per(3)
     
   end
 	

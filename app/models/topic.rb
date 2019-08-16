@@ -7,6 +7,8 @@ class Topic < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :events, as: :eventable, dependent: :destroy
   has_many :flags, as: :flaggable, dependent: :destroy
+  
+  has_one :latest_comment, -> { order(created_at: :desc).limit(1) }, class_name: "Comment", foreign_key: :commentable_id
 
   validates :content, presence: true, length: { minimum: 2, maximum: 10000 }
   

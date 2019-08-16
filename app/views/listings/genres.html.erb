@@ -38,8 +38,16 @@
                       
                         <tr>
                           <th scope="row"><small><%= link_to topic.title, topic_path(topic) %></small></th>
-                          <td><small><%= link_to topic.user.username, user_path(topic.user) %></small></td>
-                          <td><small><%= time_ago_in_words(topic.created_at) %> ago</small></td>
+                          <% if topic.comments.any? %>
+	                    			<td><small><%= link_to topic.latest_comment.user.username, user_path(topic.latest_comment.user) %></td>
+	                    		<% else %>
+	                    		  <td><small><%= link_to topic.user.username, user_path(topic.user) %></small></td> 
+	                    		<% end %>
+	                    		<% if topic.comments.any? %>
+	                    			<td><small><%= time_ago_in_words(topic.latest_comment.created_at) %> ago</small></td>
+	                    		<% else %>
+                            <td><small><%= time_ago_in_words(topic.created_at) %> ago</small></td>
+                          <% end %>
                           <td><small class="float-right"><i class="fas fa-comments site-blue" title="comments"></i>
                               <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
                           </td>

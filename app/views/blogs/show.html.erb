@@ -109,7 +109,7 @@
     	        <% if user_signed_in? %>
                 <%= render "comments/form" %>
               <% else %>
-                <div class="small" style="color: #fc0000;"><em><strong>You must be logged in to comment.</strong></em></div>
+                <small><em>You must be <b><%= link_to "logged in", new_user_session_path %></b> to comment.</em></small>
               <% end %>
             </div>
             <div class="col-12">

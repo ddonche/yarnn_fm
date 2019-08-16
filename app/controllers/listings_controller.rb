@@ -7,9 +7,12 @@ class ListingsController < ApplicationController
 	end
 	
 	def genres
-	  @genre = request.path.split('/').last
+	  @genre_pre1 = request.path.split('/').last
+    @genre_pre2 = @genre_pre1.gsub('%20', ' ')
+    @genre = @genre_pre2.split.map(&:capitalize).join(' ')
     if params[:tag]
       @listings = Listing.tagged_with(params[:tag]).order("created_at DESC").page(params[:page]).per(25)
+      @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').limit(4)
     end
 	end
 

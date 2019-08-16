@@ -37,7 +37,7 @@
 									<% else %>
 										<div class="row px-3 pb-1">
 	                    					<div class="col-12">
-										    	<p style="color: #DC2020"><i><b>You must be logged in to create new topics.</b></i></p>
+										    	<small><em>You must be <b><%= link_to "logged in", new_user_session_path %></b> to create new topics.</em></small>
 										  	</div>
 										</div>
 									<% end %> 

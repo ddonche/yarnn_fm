@@ -15,6 +15,40 @@
           </div>
         </div>
         
+        <div class="row mb-3">
+          <div class="col-11 bg-white rounded mx-auto">
+            <div class="row p-2">
+                <div class="col-12">
+                  <h4 class="site-blue">Latest Topics in <%= @genre %></h4>
+                  <div class="lightline mx-auto"></div>
+                </div>
+              
+              <% if @topics.any? %>
+                <% @topics.each do |topic| %>
+                <div class="lightline mx-auto"></div>
+                    <div class="col-5">
+                        <%= link_to topic.title, topic_path(topic) %>
+                    </div> 
+                    <div class="col-5">
+                      <small>- posted by <%= link_to topic.user.username, user_path(topic.user) %>
+                        <i><%= time_ago_in_words(topic.created_at) %> ago</i> </small>
+                    </div>
+                    <div class="col-2">
+                        <small class="float-right"><i class="fas fa-comments site-blue" title="comments"></i>
+                        <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
+                    </div>
+                <% end %>
+              <% else %>
+                <div class="col-12">
+                  <small class><i>There are no topics yet for this genre. Would you like to <b><%= link_to "create one", tag_path(@genre.downcase) %></b>?</i></small>
+                </div>
+                
+              <% end %>
+              
+            </div>
+          </div>
+        </div>
+        
 
         <div class="row">
 				<% @listings.each do |listing| %>

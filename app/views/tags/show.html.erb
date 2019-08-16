@@ -44,20 +44,59 @@
 							</div>
 		    			</div>
 		    		</div>
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							  	<div class="row">
+									<div class="col-12">
+										<h6 class="card-title float-left site-blue">Latest Topics</h6> <h6 class="float-right site-red"><%= link_to "all topics", topics_path %></h6>
+									</div>
+								</div>
+							    
+							    <small>
+				  					<% if @topics.any? %>
+				                      <%= render 'tags/topics' %>
+				                      <%= paginate @topics %>
+				                    <% else %>
+				                      <p>There are no topics in this genre.</p>
+				                    <% end %>
+			                  	</small>
+			                  	
+							  </div>
+							</div>
+		    			</div>
+		    		</div>
 		    	</div><!-- end left column -->
+
 		    	
-		    	<div class="col-xl-6">
+		    	<div class="col-xl-9">
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body">
+							    <% if user_signed_in?  %>
+            						<%= render "tags/topics_form" %>
+								<% else %>
+									<div class="row px-3">
+										<small class "site-red"><i><b>You must be logged in to create new posts.</b></i></small>
+									</div>
+								<% end %> 
+							  </div>
+							</div>
+		    			</div>
+		    		</div>
 		    		<div class="card mb-2 tab-card">
 				        <div class="card-header tab-card-header">
 				          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
 				            <li class="nav-item">
-				                <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"><i class="fas fa-headphones site-blue mr-2" title="tracks"></i></a>
+				                <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"><i class="fas fa-headphones site-blue mr-2" title="tracks"></i> Tracks</a>
 				            </li>
 				            <li class="nav-item">
-				                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><i class="fas fa-shopping-cart site-blue mr-2" title="products"></i></a>
+				                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><i class="fas fa-shopping-cart site-blue mr-2" title="products"></i> Products</a>
 				            </li>
 				            <li class="nav-item">
-				                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i></a>
+				                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i> Topics</a>
 				            </li>
 				          </ul>
 				        </div>
@@ -102,53 +141,11 @@
 				          </div>				
 				        </div>
 				      </div><!-- end card -->
-				      <div class="row mb-2">
-		    			<div class="col-12">
-		    				<div class="card">
-							  <div class="card-body">
-							    <h4 class="card-title site-blue">Create a Topic for <%= @genre %></h4>
-							    <h6 class="card-subtitle mb-2 text-muted">Genre Portal</h6>
-							    <% if user_signed_in?  %>
-            						<%= render "tags/topics_form" %>
-								<% else %>
-									<div class="row px-3">
-										<small class "site-red"><i><b>You must be logged in to create new posts.</b></i></small>
-									</div>
-								<% end %> 
-							  </div>
-							</div>
-		    			</div>
-		    		</div>
+				      
 		    	</div><!-- end middle column -->
 
 		    	
-		    	<div class="col-xl-3">
-		    		<div class="row mb-2">
-		    			<div class="col-12">
-		    				<div class="card">
-							  <div class="card-body">
-							  	<div class="row">
-									<div class="col-12">
-										<h6 class="card-title float-left site-blue">Latest Topics</h6> <h6 class="float-right site-red"><%= link_to "all topics", topics_path %></h6>
-									</div>
-								</div>
-							    
-							    <small>
-				  					<% if @topics.any? %>
-				                      <%= render 'tags/topics' %>
-				                      <%= paginate @topics %>
-				                    <% else %>
-				                      <p>There are no topics in this genre.</p>
-				                    <% end %>
-			                  	</small>
-			                  	
-							  </div>
-							</div>
-		    			</div>
-		    		</div>
-		    	<!-- end card -->
-
-		    	</div><!-- end right column -->
+		    	
 		    </div><!-- end row -->
 		    
 		</div><!-- end container -->

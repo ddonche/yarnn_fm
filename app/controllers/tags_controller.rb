@@ -14,7 +14,7 @@ class TagsController < ApplicationController
     @tag_id = Tag.where(name: @genre_pre2)
     
     @tracks = Track.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(12)
-    @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(3)
+    @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(12)
     @listings = Listing.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(12)
 
     @topics_count = Tagging.where(tag_id: @tag_id, taggable_type: "Topic").count

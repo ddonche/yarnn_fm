@@ -1,7 +1,7 @@
 module ApplicationHelper
   
-  def current_user_subscribed?
-    user_signed_in? && current_user_subscribed?
+  def subscribed?
+    user_signed_in? && current_user.stripe_subscription_id?
   end 
 
   def stripe_express_path
@@ -11,6 +11,10 @@ module ApplicationHelper
   def onboarding_step_icon(step_completed)
     color = step_completed ? "site-blue" : "site-red"
     content_tag :i, nil, class: ["fas", "fa-check", color, "mr-2"]
+  end
+  
+  def titleize(str)
+    str.gsub('_', ' ').capitalize
   end
   
   def bootstrap_class_for flash_type

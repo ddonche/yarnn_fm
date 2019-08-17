@@ -74,11 +74,6 @@ class User < ApplicationRecord
       user
     end
   end
-  
-  #Check if user has a subscription
-  def subscribed?
-    stripe_subscription_id?
-  end
 
   # Follows a user.
   def follow(other_user)

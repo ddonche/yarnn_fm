@@ -1,0 +1,25 @@
+<!-- header -->
+<header>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-md fixed-top nav-menu navbar-top-image">
+	  <%= image_tag 'yarnn-text-logo.png', width: 120, alt: 'Yarnn icon', id: "logo" %>
+      <ul class="navbar-nav ml-auto">
+      	<% unless user_signed_in? %>
+	        <li class="nav-item">
+	          <%= link_to "Login", new_user_session_path, :class => "nav-link text-correct m-2 menu-item" %>
+	        </li>
+	        <li class="nav-item">
+	          <%= link_to "Register", new_user_registration_path, :class => "nav-link text-correct m-2 menu-item" %>
+	        </li>
+	     <% else %>
+	        <li class="nav-item">
+                <%= link_to  destroy_user_session_path, method: :delete, :class => "nav-link text-light m-2 menu-item" do %>
+        		    <i class="fas fa-sign-out-alt site-red fa-lg" title="logout"></i>
+                <% end %>
+            </li>
+	    <% end %>
+      </ul>
+  </nav>
+  <!-- end of navbar -->
+</header>
+<!-- end of header -->

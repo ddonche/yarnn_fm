@@ -92,6 +92,7 @@ Rails.application.routes.draw do
   get '/payout_method' => 'users#payout'
   get 'sales', to: 'transactions#sales'
   get 'purchases', to: 'transactions#purchases'
+  resources :pricing, only:[:index]
 
   get '/search', to: 'searches#result'
 

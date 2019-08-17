@@ -1,4 +1,9 @@
 module ApplicationHelper
+  
+  def current_user_subscribed?
+    user_signed_in? && current_user_subscribed?
+  end 
+
   def stripe_express_path
     "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_DBKdHaMG5Mv9P18R4p7BvO6FQtvW80NI&scope=read_write"
   end

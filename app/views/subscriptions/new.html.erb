@@ -7,6 +7,7 @@
             <div class="text-center mb-1">
               <%= image_tag("yarnn-icon.png", size: "96x72") %>
               <h2 class="site-blue">You're about to go premium...</h2>
+              <p class="site-blue">Chosen plan: <strong><%= params[:plan] %></strong></p>
               <p class="text-correct">By subscribing, you'll have access to tons of pro features. If you prefer to remain with a free account, you'll still be able to 
                 upload new tracks, albums, listings, post topics and comments, leave reviews, follow other users, and add your favorite tracks to your 
                 official station.</p>
@@ -19,15 +20,16 @@
                   </div>
                   <% end %>
                   <label class="amount">
-                  <h4 class="text-correct">Amount: $5.99</h4>
+                  <h4 class="text-correct">Amount: $4.99</h4>
                   </label>
                 </article>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="Yarnn.FM Premium Subscription"
-                  data-amount="599"
+                  data-amount="499"
+                  data-image="https://s3-us-west-2.amazonaws.com/yarnn/default_yarnn.jpg"
                   data-locale="auto"></script>
-                <input type=”hidden” name=”stripeToken” />
+                <input type="hidden" name="stripeToken" />
               <% end %>
               
                 <i class="fab fa-stripe site-blue" style="font-size: 36px;"></i> <br/>

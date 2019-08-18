@@ -1,56 +1,40 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  <%= render 'shared/alert' %>
-  
-  <div class="form_wrapper_skinny">
-    <div id="form">
-    <h2>Choose a subscription plan</h2>
-    <p>By subscribing, you'll have access to tons of pro features. If you prefer to remain with a free account, you'll still be able to 
-    upload new tracks, albums, listings, post topics and comments, leave reviews, follow other users, and add your favorite tracks to your 
-    official station.</p>
-    <br>
-    <%= form_for subscription_path, id: "subscription-form" do |f| %>
-      <div class="tooltip" style="float:right">more info
-        <span class="tooltiptext">Your credit card info is never stored anywhere on our servers. Everything happens securely through Stripe.</span>
-      </div>
-      
-      <div class="table">
-        <div class="field">
-          <div class="table-row" style="border-bottom: none">
-            <div class="tiny-table-cell" style="width: 85%">
-              <%= f.label :card_number, "Credit Card Number", class: "title" %><br>
-              <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number" } %>
+<div id="other_background_nocenter" style="overflow-y: auto;">
+<%= render 'shared/alert' %>
+  <div class="container full-form-container mt-2">
+    <div class="row justify-content-center trans-bg p-3 mt-3 p-sm-4 mt-sm-5 rounded">
+      <div class="col-11">
+        
+            <div class="text-center mb-1">
+              <%= image_tag("yarnn-icon.png", size: "96x72") %>
+              <h2 class="site-blue">You're about to go premium...</h2>
+              <p class="text-correct">By subscribing, you'll have access to tons of pro features. If you prefer to remain with a free account, you'll still be able to 
+                upload new tracks, albums, listings, post topics and comments, leave reviews, follow other users, and add your favorite tracks to your 
+                official station.</p>
+                
+              <%= form_tag subscription_path, id: "subscription-form" do %>
+                <article>
+                  <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+                  <% end %>
+                  <label class="amount">
+                  <h4 class="text-correct">Amount: $5.99</h4>
+                  </label>
+                </article>
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="Yarnn.FM Premium Subscription"
+                  data-amount="599"
+                  data-locale="auto"></script>
+                <input type=”hidden” name=”stripeToken” />
+              <% end %>
+              
+                <i class="fab fa-stripe site-blue" style="font-size: 36px;"></i> <br/>
+                <small class="site-red">Your credit card info is never stored anywhere on our servers.<br />
+                Everything happens securely through Stripe.</small>
             </div>
-            <div class="tiny-table-cell" style="width: 15%">
-              <%= f.label :card_code, "CVC", class: "title" %><br>
-              <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc" } %>
-            </div>
-          </div>
-        </div>
+            
       </div>
-          
-      <div class="table">
-        <div class="field">
-          <div class="table-row" style="border-bottom: none">
-            <div class="tiny-table-cell" style="width: 50%">
-              <%= f.label "Exp Month", class: "title" %><br>
-              <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month" } %>
-            </div>
-            <div class="tiny-table-cell" style="width: 50%">
-              <%= f.label "Exp Year", class: "title" %><br>
-              <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year" } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="actions">
-        <%= f.submit "Complete Order", class: "button button_highlight button_block" %>
-      </div>
-      
-    <% end %>
     </div>
   </div>
-</div>

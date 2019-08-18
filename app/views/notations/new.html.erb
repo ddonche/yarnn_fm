@@ -1,31 +1,39 @@
-<div id="background-other">
- <%= render 'layouts/header' %>
-  
-  <div class="wrapper_skinny">
-    <h2>Reply to Comment</h2>
-    <div id="form">
-        <%= form_for [@commentable, @comment, @notation] do |f| %>
-          <% if @notation.errors.any? %>
-              <div class="error_messages">
-                <h3>Please correct the following errors.</h3>
-                <ul>
-                <% @notation.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %>
-        
-            <div class="field">
-              <%= f.text_area :content %>
-            </div>
+<div id="other_background_nocenter" style="overflow-y: auto;">
 
-          <br />
-          <div class="actions">
-            <%= f.submit "Submit", class: "button button_highlight button_block" %>
-          </div>
-        <% end %>
+  <div class="container full-form-container mt-2">
+    <div class="row justify-content-center trans-bg p-3 mt-3 p-sm-4 mt-sm-5 rounded">
+      <div class="col-11">
+        
+            <div class="text-center mb-1">
+              <%= image_tag("yarnn-icon.png", size: "96x72") %>
+              <h2 class="site-blue">Reply to Comment</h2>
+            </div>
+            <hr class="colorgraph">
+            <span class="clearfix"></span>
+              
+            <%= form_for [@commentable, @comment, @notation] do |f| %>
+              <% if @notation.errors.any? %>
+                <div class="error_messages">
+                  <h3>Please correct the following errors.</h3>
+                  <ul>
+                  <% @notation.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+            
+              <form>
+                <div class="form-group">
+                  <%= f.label :content, class: "small site-blue" %><br />
+                  <%= f.text_area :content, class: "form-control", placeholder: "Use this for a quick response to a comment..." %>
+                </div>
+                <hr class="colorgraph">
+                <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %></h3>
+              </form>
+            
+            <% end %>
+
+      </div>
     </div>
   </div>
-
-</div>

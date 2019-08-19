@@ -37,6 +37,7 @@ class TopicsController < ApplicationController
 	end
 
   def edit
+    @topic = current_user.topics.find(params[:id])
   end
 
   def create
@@ -67,6 +68,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic = current_user.topics.find(params[:id])
     @topic.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Topic was successfully deleted.' }

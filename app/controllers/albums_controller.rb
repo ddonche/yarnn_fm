@@ -24,6 +24,7 @@ class AlbumsController < ApplicationController
 	end
 
   def edit
+    @album = current_user.albums.find(params[:id])
   end
 
   def create
@@ -54,6 +55,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    @album = current_user.albums.find(params[:id])
     @album.destroy
     respond_to do |format|
       format.html { redirect_to albums_url, notice: 'Album was successfully deleted.' }

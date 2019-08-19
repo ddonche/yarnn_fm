@@ -33,6 +33,7 @@ class BlogsController < ApplicationController
 	end
 
   def edit
+    @blog = current_user.blogs.find(params[:id])
   end
 
   def create
@@ -64,6 +65,7 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    @blog = current_user.blogs.find(params[:id])
     @blog.destroy
     respond_to do |format|
       format.html { redirect_to albums_url, notice: 'Post was successfully deleted.' }

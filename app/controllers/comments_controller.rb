@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
   end
   
   def update
@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to @commentable, notice: 'Comment was eradicated.' }

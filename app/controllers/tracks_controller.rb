@@ -40,6 +40,7 @@ class TracksController < ApplicationController
 	end
 
   def edit
+    @track = current_user.tracks.find(params[:id])
   end
 
   def create
@@ -70,6 +71,7 @@ class TracksController < ApplicationController
   end
 
   def destroy
+    @track = current_user.tracks.find(params[:id])
     @track.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Track was successfully deleted.' }

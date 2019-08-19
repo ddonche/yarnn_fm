@@ -26,6 +26,7 @@ class SubscriptionsController < ApplicationController
     options = {
       stripe_id: customer.id,
       stripe_subscription_id: subscription.id,
+      roles: "subscriber"
     }
 
     current_user.update(options)

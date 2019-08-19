@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = current_user.reviews.find(params[:id])
   end
 
   def create
@@ -43,6 +44,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = current_user.reviews.find(params[:id])
     @review.destroy
     respond_to do |format|
       format.html { redirect_to @listing, notice: 'Review was successfully destroyed.' }

@@ -61,6 +61,7 @@ class ListingsController < ApplicationController
 	end
 
   def edit
+    @listing = current_user.listings.find(params[:id])
   end
 
   def create
@@ -90,6 +91,7 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+    @listing = current_user.listings.find(params[:id])
     @listing.destroy
     respond_to do |format|
       format.html { redirect_to listings_url, notice: 'Your listing was successfully deleted.' }

@@ -1,4 +1,7 @@
 class IpsumsController < ApplicationController
+  access all: [:new, :create], 
+                subscriber: :all, admin: :all
+                
   include Apocalypse
   include Fantasy
   include Horror

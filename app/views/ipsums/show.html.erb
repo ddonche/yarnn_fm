@@ -1,22 +1,40 @@
-<div id="other_background_nocenter" style="overflow-y: auto;">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">Goodies</li>
-    <li class="breadcrumb-item active" aria-current="page">Generators and Ipsums</li>
-  </ol>
-</nav>
-<%= render 'shared/alert' %>
-	<div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
+<title>Generators | Yarnn.FM</title>
 
-		<div class="row text-correct mt-4 pb-6 text-align-center">
-			<div class="col-4 pb-6">
-				<%= render 'ipsums/sidebar' %>
-			</div>
-			<div class="col-8 text-correct mb-6 pb-6">
-			    <h2>Cool Random Content</h2>
-		        <p>Choose one of the options on the left to get your awesome random content!</p>
-			</div>
+ 	<!-- Page Content -->
+ 	<section class="section-content bg padding-y-sm">
+		<div class="container">
+			
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb mt-3 shadow-sm">
+				    <li class="breadcrumb-item">Goodies</li>
+				    <li class="breadcrumb-item active" aria-current="page">Generators and Ipsums</li>
+			  </ol>
+			</nav>
+			<%= render 'shared/alert' %>
+			
+			<% if current_user.stripe_subscription_id?  %>
+				<div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
+			
+					<div class="row text-correct mt-4 pb-6 text-align-center">
+						<div class="col-4 pb-6">
+								<%= render 'ipsums/sidebar' %>
+						</div>
+						<div class="col-8 text-correct mb-6 pb-6">
+						    <h2>Cool Random Content</h2>
+					        <p>Choose one of the options on the left to get your awesome random content!</p>
+						</div>
+					</div>
+			
+				</div>
+			<% else %>
+				<div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
+					<div class="row text-correct mt-4 pb-6 text-align-center">
+						<div class="col-12">
+							<h2>Access Denied</h2>
+							<p>You must be a <%= link_to "premium user", new_subscription_path %> to view this content.</p>
+						</div>
+					</div>
+				</div>
+			<% end %>
 		</div>
-
-	</div>
-</div>
+	</section>

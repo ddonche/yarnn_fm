@@ -28,13 +28,6 @@ class SubscriptionsController < ApplicationController
       stripe_subscription_id: subscription.id,
     }
 
-    options.merge!(
-      card_last4: params[:user][:card_last4],
-      card_exp_month: params[:user][:card_exp_month],
-      card_exp_year: params[:user][:card_exp_year],
-      card_type: params[:user][:card_type]
-    ) if params[:user][:card_last4]
-
     current_user.update(options)
 
     redirect_to root_path, notice: "Your subscription was setup successfully!"

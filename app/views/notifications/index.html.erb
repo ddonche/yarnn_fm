@@ -30,7 +30,7 @@
                   <% if User.find(notification.notified_by_id).image? %>
                     <%= image_tag User.find(notification.notified_by_id).image.url,  width: 40, class: "image", title: User.find(notification.notified_by_id).username %>
                   <% else %>
-                    <%= image_tag('default_track.jpg', width: 40, class: "image", title: notification.notified_by_id.username) %>
+                    <%= image_tag('default_track.jpg', width: 40, class: "image", title: User.find(notification.notified_by_id).username) %>
                   <% end %>
                 </div>
                     

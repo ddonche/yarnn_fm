@@ -21,9 +21,9 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
     if session[:previous_url] == root_path
-      content_path
+      dashboard_path
     else
-      session[:previous_url] || content_path
+      session[:previous_url] || dashboard_path
     end
   end
 end

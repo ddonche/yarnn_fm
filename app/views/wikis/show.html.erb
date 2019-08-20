@@ -25,7 +25,7 @@
                     <div class="row mb-2">
                       <div class="col-12">
                         <small><i>Last updated <%= time_ago_in_words(@wiki.updated_at) %> ago</i>
-                				  <% if current_user.role == "admin" %>
+                				  <% if user_signed_in? && current_user.role == "admin" %>
                             <i class="fas fa-cog site-red mr-1 ml-2"></i><%= link_to "edit", edit_wiki_path(@wiki) %>
                             <i class="fas fa-plus-circle site-red mr-1 ml-2"></i><%= link_to "new article", new_wiki_path %>
                           <% end %>

@@ -39,7 +39,6 @@ gem 'sprockets-rails'
 gem 'bootstrap'
 gem "recaptcha"
 gem 'devise_invitable', '~> 2.0.0'
-gem 'petergate'
 gem 'actiontext', require: 'action_text'
 gem 'image_processing', '~> 1.2'
 gem 'webpacker'

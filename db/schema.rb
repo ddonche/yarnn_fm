@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_011121) do
+ActiveRecord::Schema.define(version: 2019_08_20_014839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,7 +332,6 @@ ActiveRecord::Schema.define(version: 2019_08_20_011121) do
     t.integer "invitation_limit"
     t.integer "invited_by_id"
     t.string "invited_by_type"
-    t.string "roles"
     t.integer "tracks_count"
     t.integer "comments_count"
     t.integer "topics_count"
@@ -341,6 +340,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_011121) do
     t.integer "card_exp_month"
     t.integer "card_exp_year"
     t.string "card_type"
+    t.integer "role", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true

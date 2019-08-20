@@ -1,49 +1,46 @@
 class WikisController < ApplicationController
-  access all: [:index, :show], 
-                user: {except: [:new, :edit, :update, :destroy]}, admin: :all
 	before_action :find_wiki, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 	end
 
 	def show
-        @user = @wiki.user
-        if @user.pseudo_id?
-          @pseudo = Pseudonym.find(@wiki.pseudo_id)
-        end
-        @comments = @commentable.comments.order("created_at DESC")
-        @comment = Comment.new
-        @flag = Flag.new
-        if user_signed_in?
-          @user_flag = Flag.where(flagged_by_id: current_user.id, flaggable_id: @wiki.id)
-        end
+    @user = @wiki.user
+    @commentable = @wiki
+    @comments = @commentable.comments.order("created_at DESC")
+    @comment = Comment.new
+    @flag = Flag.new
+    if user_signed_in?
+      @user_flag = Flag.where(flagged_by_id: current_user.id, flaggable_id: @wiki.id)
+    end
 	end
 	
 	def new
-        @wiki = current_user.wikis.build
-        respond_to do |format| 
-          format.html
-          format.js
-        end
+    @wiki = current_user.wikis.build
+    respond_to do |format| 
+      format.html
+      format.js
+    end
 	end
 
     def edit
     end
     
     def create
-        @wiki = current_user.wikis.build(wiki_params)
-        respond_to do |format|
-            if @wiki.save
-                Event.create!(eventable_id: @wiki.id, user_id: current_user.id,
-                                        eventable_type: "wiki")
-        
-                format.html { redirect_to @wiki, notice: 'Wiki article was successfully created.' }
-                format.js
-            else
-                format.html { render :new }
-                format.js
-            end
+      @wiki = current_user.wikis.build(wiki_params)
+      respond_to do |format|
+        if @wiki.save
+            Event.create!(eventable_id: @wiki.id, user_id: current_user.id,
+                                    eventable_type: "wiki")
+    
+            format.html { redirect_to @wiki, notice: 'Wiki article was successfully created.' }
+            format.js
+        else
+            format.html { render :new }
+            format.js
         end
+      end
     end
 
     def update

@@ -1,0 +1,60 @@
+<%= render 'shared/alert' %>
+
+  <!-- Page Header -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          
+          <div class="post-heading mt-2">
+            <h1><%= @wiki.title %></h1>
+          </div>
+          
+          <div class="row mt-2">
+            <div class="col-12">
+              <div class="row mb-2">
+                    <div class="col-12">
+                      <small><i>Last updated <%= time_ago_in_words(@wiki.updated_at) %> ago</i>
+      						    
+      				  <% if current_user.role == "admin" %>
+                        <i class="fas fa-cog site-red mr-1 ml-2"></i><%= link_to "edit", edit_wiki_path(@wiki) %>
+                        <i class="fas fa-plus-circle site-red mr-1 ml-2"></i><%= link_to "new article", new_wiki_path %>
+                      <% end %>
+                      </small>
+                    </div>
+              </div><!-- end row -->
+              <div class="row mb-1">
+                <div class="col-12">
+                    <ul class="nav">
+  						<li class="mr-3">
+  						  <%= link_to like_wiki_path(@wiki), method: :put, remote: true do %><i class="far fa-thumbs-up site-red" title="upvotes"></i><% end %> <div id="upvote" style="display: inline;"><%= @wiki.get_upvotes.size %></div>
+  						</li>
+  						<li class="mr-3">
+  						  <%= link_to dislike_wiki_path(@wiki), method: :put, remote: true do %><i class="far fa-thumbs-down site-red" title="downvotes"></i><% end %> <div id="downvote" style="display: inline;"><%= @wiki.get_downvotes.size %></div>
+  						</li>
+      				</ul>
+                  <hr class="colorgraph">
+                </div>
+                
+              </div><!-- end row -->
+            </div>
+          </div>
+            
+        </div><!-- end column -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <%= @wiki.body %>
+          <hr class="colorgraph my-3">
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>

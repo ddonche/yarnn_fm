@@ -998,8 +998,6 @@ GEM
       omniauth (~> 1.3)
       omniauth-oauth2 (~> 1.4)
     orm_adapter (0.5.0)
-    petergate (2.0.1)
-      activerecord (> 4.0.0)
     pg (1.1.4)
     popper_js (1.14.5)
     puma (4.0.1)
@@ -1120,7 +1118,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-stripe-connect
-  petergate
   pg
   puma
   rails (~> 6.1.0.alpha)!

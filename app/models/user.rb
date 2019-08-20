@@ -1,13 +1,4 @@
 class User < ApplicationRecord
-  ############################################################################################
-  ## PeterGate Roles                                                                        ##
-  ## The :user role is added by default and shouldn't be included in this list.             ##
-  ## The :root_admin can access any page regardless of access settings. Use with caution!   ##
-  ## The multiple option can be set to true if you need users to have multiple roles.       ##
-  petergate(roles: [:admin, :moderator], multiple: false)                                   ##
-  ############################################################################################ 
- 
-
   include UserOnboarding
 
   # Include default devise modules. Others available are:
@@ -19,7 +10,8 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   extend FriendlyId
   friendly_id :username, use: :slugged
-  enum user_type: { standard: 0, pro: 1, banned: 2 }
+  enum user_type: { standard: 0, premium: 1, banned: 2 }
+  enum role: { user: 0, admin: 1, moderator: 2 }
   enum publisher_type: { normal: 0, publisher: 1 }
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h

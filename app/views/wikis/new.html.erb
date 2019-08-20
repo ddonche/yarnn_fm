@@ -7,7 +7,11 @@
 
     <div class="form_wrapper_skinny">
       <div id="form">
-        <%= render "form" %>
+        <% if current_user.role == "admin" %>
+          <%= render "form" %>
+        <% else %>
+          <p>You do not have permission to do this.</p>
+        <% end %>
       </div>
     </div>
   </div>

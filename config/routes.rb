@@ -74,6 +74,20 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
     get 'download', on: :member
   end
+  
+  resources :wikis, :path => 'wiki/' do
+    member do
+      put 'like', to: 'wikis#upvote'
+      put 'dislike', to: 'wikis#downvote'
+    end
+    resources :comments do
+      member do
+        put 'like', to: 'comments#upvote'
+        put 'dislike', to: 'comments#downvote'
+      end
+      resources :notations
+    end
+  end
 
   get 'marketplace/genre/:tag', to: 'listings#genres', as: :genre
 

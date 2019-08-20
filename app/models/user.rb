@@ -40,6 +40,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track
   has_many :blogs, dependent: :destroy
+  has_many :wikis
   has_many :comments
   has_many :events, dependent: :delete_all
   has_many :notifications, dependent: :delete_all

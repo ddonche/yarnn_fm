@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-12 col-md-9 small">
+    <% if item.user == current_user %>
+      You
+    <% else %>
+      <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+    <% end %>
+    
+    created the wiki article 
+    <%= link_to Wiki.find(item.eventable_id).title, wiki_path(item.eventable_id) %><br />
+    <div class="border border-secondary rounded my-1 mt-2 p-2">
+      <small><%= truncate(strip_tags(Wiki.find(item.eventable_id).body.to_s), length: 200)%></small>
+    </div>
+  </div>
+  <div class="col-12 col-md-3 small text-center">
+    <small>
+      <%= time_ago_in_words(item.created_at) %> ago<br />
+    </small>
+  </div>
+  
+</div>

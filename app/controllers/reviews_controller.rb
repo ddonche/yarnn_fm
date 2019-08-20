@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
                                   
         Notification.create!(notifiable_id: @listing.id, 
                                 recipient_id: @listing.user_id, notified_by_id: current_user.id, 
-                                notification_type: "review")
+                                notifiable_type: "review")
                                 
         format.html { redirect_to @listing, notice: 'Review was successfully created.' }
       else

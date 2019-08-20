@@ -1,6 +1,4 @@
 class FlagsController < ApplicationController
-  access all: [:new, :create], 
-                user: {except: [:index]}, admin: :all
   
   def index
     @page_title = "Content Flags"

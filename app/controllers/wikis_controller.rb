@@ -85,7 +85,7 @@ class WikisController < ApplicationController
 
 	private
 	def find_wiki
-		@wiki = Wiki.find(params[:id])
+		@wiki = Wiki.friendly.find(params[:id])
 	end
 	
   def wiki_params

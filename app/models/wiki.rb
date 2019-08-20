@@ -1,4 +1,5 @@
 class Wiki < ApplicationRecord
+  extend FriendlyId
   has_rich_text :body
   acts_as_votable
   
@@ -9,4 +10,5 @@ class Wiki < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
+  friendly_id :title, use: :slugged
 end

@@ -100,6 +100,7 @@ Rails.application.routes.draw do
   get 'about', to: 'welcome#about'
   get 'help', to: 'welcome#help'
   get 'privacy', to: 'welcome#privacy'
+  get 'terms', to: 'welcome#terms'
   resources :flags, only: [:new, :create, :index]
 
   get 'dashboard' => 'dashboards#index'

@@ -477,6 +477,7 @@ trix-toolbar .trix-button-group button {
 	z-index: 1;
 	/*margin-bottom: 75px;*/
 	padding-top: 10px;
+	margin-top: 20px;
 }
 .ms_footer_wrapper:after {
 	position: absolute;
@@ -513,7 +514,7 @@ trix-toolbar .trix-button-group button {
 	margin-top: 5px;
 }
 h1.footer_title {
-	font-size: 18px;
+	font-size: 22px;
 	text-transform: capitalize;
 	position: relative;
 	padding-bottom: 10px;
@@ -531,6 +532,12 @@ h1.footer_title:after {
 	background: -moz-radial-gradient(50% 50%, ellipse closest-side, #3bc8e7, rgba(255, 42, 112, 0) 60%);
 	background: -ms-radial-gradient(50% 50%, ellipse closest-side, #3bc8e7, rgba(255, 42, 112, 0) 60%);
 	background: -o-radial-gradient(50% 50%, ellipse closest-side, #3bc8e7, rgba(255, 42, 112, 0) 60%);
+}
+h1.footer_links {
+	font-size: 22px;
+	text-transform: capitalize;
+	position: relative;
+	margin-bottom: 8px;
 }
 .footer_box p {
 	color: #ffffff;

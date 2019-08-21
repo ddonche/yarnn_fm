@@ -15,9 +15,9 @@
 								    	<% end %>
 								        <% if @user.image? %>
 								        	
-								        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top p-3", title: @user.username) %>
+								        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top rounded p-3", title: @user.username) %>
 								        <% else %>
-								        	<%= image_tag('default_track.jpg', class: "card-img-top p-3", title: @user.username) %>
+								        	<%= image_tag('default_track.jpg', class: "card-img-top rounded p-3", title: @user.username) %>
 								        <% end %>
 							    	</div>
 							  
@@ -263,7 +263,7 @@
 								</div>
 							</div>
 						    
-						    <% if @followed_users.any? %>
+						    <% if @followed_users.exists? %>
 								<div class="row">
 									<div class="col-12 d-flex justify-content-between align-items-center">
 										<% @followed_users.each do |followed_user| %>

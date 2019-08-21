@@ -31,7 +31,7 @@
     			<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
     			    <%= render partial: "topics/icons/#{@icon}" %>
     			<% else %>
-    				<%= image_tag('default_track.jpg', width: 30, title: "genre", class: "pt-1") %>
+    				<%= image_tag('default_track.jpg', width: 30, title: "#{@icon}", class: "round pt-1") %>
     			<% end %>
     		<% end %>
     </div>

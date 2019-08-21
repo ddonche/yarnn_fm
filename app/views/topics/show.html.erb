@@ -39,7 +39,7 @@
 				  		    	<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
 				  		    		<%= render partial: "topics/icons/#{@icon}" %>
 										<% else %>
-											<%= image_tag('default_track.jpg', width: 30, title: "genre", class: "pt-1") %>
+											<%= image_tag('default_track.jpg', width: 30, title: "#{@icon}", class: "rounded pt-1") %>
 										<% end %>
 									<% end %>
 									<h4 class="card-title site-blue"><%= link_to @genre, tag_path(@tag) %></h4></td>
@@ -97,12 +97,12 @@
           <div class="blog_info">
             <div class="blog_info_user_avatar">
 								<% if @topic.user.image? %>
-									<%= image_tag @topic.user.image.url(:thumb), width: 60 %>
+									<%= image_tag @topic.user.image.url(:thumb), width: 60, class: "rounded" %>
 								<% else %>
-									<%= image_tag('default_track.jpg', style: "width: 60px") %>
+									<%= image_tag('default_track.jpg', style: "width: 60px", class: "rounded") %>
 								<% end %>								
 							</div>
-            <div class="blog_info_user_name"><%= link_to @topic.user.name, user_path(@topic.user) %></div> 
+            <div class="blog_info_user_name"><h4><%= link_to @topic.user.name, user_path(@topic.user) %></h4></div> 
             <div class="blog_info_date">
               <%= time_ago_in_words(@topic.created_at) %> ago
               <% if @topic.user == current_user %>

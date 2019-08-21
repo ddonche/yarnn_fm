@@ -13,12 +13,12 @@
 	          	<% @users.each do |user| %>
                 <div class="row p-2 mx-auto">
                   <div class="col-4 col-md-3">
-	                  <% if user.image? %>
-											<%= link_to image_tag(user.image.url(:thumb), width: 60), user_path(user), title: user.username %>
-										<% else %>
-											<%= image_tag('default_track.jpg', width: 60, title: user.username) %>
-										<% end %>
-									<br /><br />
+	                <% if user.image? %>
+						<%= link_to image_tag(user.image.url(:thumb), width: 60, class: "rounded"), user_path(user), title: user.username %>
+					<% else %>
+						<%= image_tag('default_track.jpg', width: 60, class: "rounded", title: user.username) %>
+					<% end %>
+				<br /><br />
 									<h6><%= link_to user.username, user_path(user) %> / <%= user.name %></h6>
                   </div>
                   <div class="col-8 col-md-9">
@@ -35,8 +35,8 @@
 									      <i class="fas fa-compact-disc site-blue ml-2" title="albums"></i>
 									      <span class="ml-1 text-secondary"><%= user.albums.count %></span>
 									      
-									      <i class="fas fa-pen-nib site-blue ml-2" title="blog posts"></i>
-									      <span class="ml-1 text-secondary"><%= user.blogs.count %></span>
+									      <i class="fas fa-comment site-blue ml-2" title="blog posts"></i>
+									      <span class="ml-1 text-secondary"><%= user.topics.count %></span>
 									      
 									      <i class="fas fa-user-astronaut site-blue ml-2" title="followers"></i>
 									      <span class="ml-1 text-secondary"><%= user.followers.count %></span>

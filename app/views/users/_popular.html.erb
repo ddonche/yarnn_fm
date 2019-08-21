@@ -2,9 +2,9 @@
     <div class="row p-2 mx-auto">
           <div class="col-4 col-md-3">
             <% if popular.image? %>
-            	<%= link_to image_tag(popular.image.url(:thumb), width: 30), user_path(popular), title: popular.username %>
+            	<%= link_to image_tag(popular.image.url(:thumb), width: 30, class: "rounded"), user_path(popular), title: popular.username %>
             <% else %>
-            	<%= image_tag('default_track.jpg', width: 30, title: popular.username) %>
+            	<%= image_tag('default_track.jpg', width: 30, class: "rounded", title: popular.username) %>
             <% end %>
 						
           </div>

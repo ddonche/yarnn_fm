@@ -15,8 +15,8 @@
       <i class="fas fa-compact-disc site-blue ml-2" title="albums"></i>
       <span class="ml-1 text-secondary"><%= User.find(item.followed_id).albums.count %></span>
       
-      <i class="fas fa-pen-nib site-blue ml-2" title="blog posts"></i>
-      <span class="ml-1 text-secondary"><%= User.find(item.followed_id).blogs.count %></span>
+      <i class="fas fa-comment site-blue ml-2" title="blog posts"></i>
+      <span class="ml-1 text-secondary"><%= User.find(item.followed_id).topics.count %></span>
       
       <i class="fas fa-user-astronaut site-blue ml-2" title="followers"></i>
       <span class="ml-1 text-secondary"><%= User.find(item.followed_id).followers.count %></span>

@@ -1,0 +1,11 @@
+<div class="row">
+    <% @topics.each do |topic| %>
+        <div class="col-9">
+            <%= link_to topic.title, topic_path(topic) %>
+        </div>
+        <div class="col-3">
+            <small><i class="fas fa-comments site-blue" title="comments"></i>
+            <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
+        </div>
+    <% end %>
+</div>

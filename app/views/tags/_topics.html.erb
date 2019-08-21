@@ -1,11 +1,43 @@
-<div class="row">
-    <% @topics.each do |topic| %>
-        <div class="col-9">
-            <%= link_to topic.title, topic_path(topic) %>
-        </div>
-        <div class="col-3">
-            <small><i class="fas fa-comments site-blue" title="comments"></i>
-            <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
-        </div>
-    <% end %>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><h6>Subject</h6></th>
+      <th scope="col"><h6>Last Post by</h6></th>
+      <th scope="col"><h6>When</h6></th>
+      <th scope="col"><h6 class="float-right">Replies</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @topics.each do |topic| %>
+      
+        <tr>
+          <th scope="row"><small><%= link_to topic.title, topic_path(topic) %></small></th>
+            <% if topic.comments.any? %>
+        			<td><% if topic.latest_comment.user.image? %>
+                    <%= image_tag topic.latest_comment.user.image.url,  width: 25, class: "image mr-1", title: topic.latest_comment.user.username %>
+                  <% else %>
+                    <%= image_tag('default_track.jpg', width: 25, class: "image mr-1", title: topic.latest_comment.user.username) %>
+                  <% end %>
+        			  <small><%= link_to topic.latest_comment.user.username, user_path(topic.latest_comment.user) %></td>
+        		<% else %>
+        		  <td>
+        		    <% if topic.user.image? %>
+                  <%= image_tag topic.user.image.url,  width: 25, class: "image mr-1", title: topic.user.username %>
+                <% else %>
+                  <%= image_tag('default_track.jpg', width: 25, class: "image mr-1", title: topic.user.username) %>
+                <% end %>
+        		    <small><%= link_to topic.user.username, user_path(topic.user) %></small></td> 
+        		<% end %>
+        		<% if topic.comments.any? %>
+        			<td><small><%= time_ago_in_words(topic.latest_comment.created_at) %> ago</small></td>
+        		<% else %>
+            <td><small><%= time_ago_in_words(topic.created_at) %> ago</small></td>
+          <% end %>
+          <td><small class="float-right"><i class="fas fa-comments site-blue" title="comments"></i>
+              <span class="ml-1 text-secondary"><%= topic.comments.count %></span></small>
+          </td>
+        </tr>
+      
+      <% end %>
+  </tbody>
+</table>

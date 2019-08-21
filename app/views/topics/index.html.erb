@@ -101,7 +101,7 @@
 							    <h6 class="card-subtitle mb-2 text-muted">Latest Topics</h6>
 							    <small>
 				  					<% if @topics.any? %>
-				                      <%= render 'tags/topics' %>
+				                      <%= render 'tags/topics_simple' %>
 				                      <%= paginate @topics %>
 				                    <% else %>
 				                      <p>There are no topics in this genre.</p>

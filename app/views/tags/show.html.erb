@@ -85,7 +85,7 @@
 							    
 							    <small>
 				  					<% if @topics.any? %>
-				                      <%= render 'tags/topics' %>
+				                      <%= render 'tags/topics_simple' %>
 				                      <%= paginate @topics %>
 				                    <% else %>
 				                      <p>There are no topics in this genre.</p>

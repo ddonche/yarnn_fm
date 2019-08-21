@@ -27,10 +27,10 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col"><small>Subject</small></th>
-                      <th scope="col"><small>Last Post by</small></th>
-                      <th scope="col"><small>When</small></th>
-                      <th scope="col"><small class="float-right">Replies</small></th>
+                      <th scope="col"><h6>Subject</h6></th>
+                      <th scope="col"><h6>Last Post by</h6></th>
+                      <th scope="col"><h6>When</h6></th>
+                      <th scope="col"><h6 class="float-right">Replies</h6></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -39,10 +39,21 @@
                         <tr>
                           <th scope="row"><small><%= link_to topic.title, topic_path(topic) %></small></th>
                           <% if topic.comments.any? %>
-	                    			<td><small><%= link_to topic.latest_comment.user.username, user_path(topic.latest_comment.user) %></td>
-	                    		<% else %>
-	                    		  <td><small><%= link_to topic.user.username, user_path(topic.user) %></small></td> 
-	                    		<% end %>
+                      			<td><% if topic.latest_comment.user.image? %>
+                                  <%= image_tag topic.latest_comment.user.image.url,  width: 25, class: "image mr-1", title: topic.latest_comment.user.username %>
+                                <% else %>
+                                  <%= image_tag('default_track.jpg', width: 25, class: "image mr-1", title: topic.latest_comment.user.username) %>
+                                <% end %>
+                      			  <small><%= link_to topic.latest_comment.user.username, user_path(topic.latest_comment.user) %></td>
+                      		<% else %>
+                      		  <td>
+                      		    <% if topic.user.image? %>
+                                <%= image_tag topic.user.image.url,  width: 25, class: "image mr-1", title: topic.user.username %>
+                              <% else %>
+                                <%= image_tag('default_track.jpg', width: 25, class: "image mr-1", title: topic.user.username) %>
+                              <% end %>
+                      		    <small><%= link_to topic.user.username, user_path(topic.user) %></small></td> 
+                      		<% end %>
 	                    		<% if topic.comments.any? %>
 	                    			<td><small><%= time_ago_in_words(topic.latest_comment.created_at) %> ago</small></td>
 	                    		<% else %>

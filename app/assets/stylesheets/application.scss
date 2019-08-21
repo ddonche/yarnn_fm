@@ -227,7 +227,7 @@ audio {
 }
 
 .trans-bg {
-  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url('bg-dark.jpeg');
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url('https://yarnn.s3-us-west-2.amazonaws.com/bg-dark.jpg');
 }
 
 .trans-bg-light {
@@ -471,7 +471,7 @@ trix-toolbar .trix-button-group button {
 
 /*====Footer Css Start====*/
 .ms_footer_wrapper {
-	background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url('bg-dark.jpeg');
+	background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .9)), url('https://yarnn.s3-us-west-2.amazonaws.com/bg-dark.jpg');
 	background-size: cover;
 	position: relative;
 	z-index: 1;

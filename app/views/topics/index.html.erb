@@ -44,12 +44,13 @@
 							</div>
 		    			</div>
 		    		</div>
-		    		<div class="card">
+		    		<div class="card mb-3">
 						<div class="card-body shadow-sm">
 						    <h4 class="card-title site-blue">Latest Topics</h4>
 						    <h6 class="card-subtitle mb-2 text-muted">Main Genres</h6>
 								  
 					    	<% @topics.each do |topic| %>
+					    	<div class="lightline mx-auto"></div>
 			  		    		<div class="row p-2">
 			  		    			<div class="col-2 col-md-1">
 			  		    				<% topic.tags.map(&:name).each do |tag| %>
@@ -82,7 +83,7 @@
 				                	</div>
 				              		
 				              	</div>
-				              	<div class="lightline mx-auto"></div>
+				              	
 				              	
 			            	<% end %>
 			            	<%= paginate @topics %>

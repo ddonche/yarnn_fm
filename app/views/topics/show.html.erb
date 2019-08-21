@@ -33,7 +33,7 @@
             <div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card">
-							  <div class="card-body text-center">
+							  <div class="card-body text-center shadow-sm">
 					      	<% @topic.tags.map(&:name).each do |tag| %>
 		  		    			<% @icon = tag.split.map(&:downcase).join('_') %>
 				  		    	<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>

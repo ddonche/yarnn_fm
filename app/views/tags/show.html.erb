@@ -48,7 +48,10 @@
 		    		<div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card">
-							  <div class="card-body shadow-sm">
+							  <div class="card-body card-body text-center shadow-sm">
+				  		    	<% if lookup_context.template_exists?(@style, "topics/icons", true) %>
+			  		    		<%= render partial: "topics/icons/#{@style}" %>
+								<% end %>
 							    <h4 class="card-title site-blue"><%= @genre %></h4>
 							    <h6 class="card-subtitle mb-2 text-muted">Content Portal</h6>
 							  </div>

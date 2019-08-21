@@ -1,49 +1,37 @@
-<div id="other_background_nocenter" style="overflow-y: auto;">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item site-red"><%= link_to current_user.username, user_path(current_user) %></li>
-    <li class="breadcrumb-item">
-        Purchase History</li>
-  </ol>
-</nav>
-<%= render 'shared/alert' %>
-
-  <div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
-
-		<div class="row text-correct mt-4 pb-6 text-align-center">
-			<div class="col-4 pb-3">
-			  <h5>Title</h5>
-			</div>
-			<div class="col-2 pb-3">
-			  <h5>Seller</h5>
-			</div>
-			<div class="col-5 pb-3">
-			  <h5>Info</h5>
-			</div>
-			<div class="col-1 pb-3">
-			  <h5>Link</h5>
-			</div>
-		</div>
-    <div class="row text-correct mt-2 text-align-center">
-      <% @transactions.each do |transaction| %>
-          <div class="col-4 mb-3">
-            <%= link_to transaction.listing.title, listing_path(transaction.listing) %>
-          </div>
-          <div class="col-2 mb-3">
-            <%= link_to transaction.seller.username, user_path(transaction.seller) %>
-          </div>
-          <div class="col-5 mb-3">
-            <i class="site-blue"><%= transaction.listing.filetype %></i> purchased on
-      			<%= transaction.created_at.strftime("%Y-%m-%d") %> for <%= number_to_currency(transaction.listing.price) %>
-          </div>
-          <div class="col-1 mb-3">
-            <%= link_to transaction.listing.file.url do %>
-        		<i class="fas fa-download site-red" title="download"></i>
+<div class="container">
+  <nav aria-label="breadcrumb">
+	  <ol class="breadcrumb mt-3 shadow-sm">
+		    <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to current_user.username, user_path(current_user) %></li>
+        <li class="breadcrumb-item">Sales History</li>
+	  </ol>
+	</nav>
+  <%= render 'shared/alert' %>
+    
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"><h5>Title</h5></th>
+              <th scope="col"><h5>Seller</h5></th>
+              <th scope="col"><h5>Info</h5></th>
+              <th scope="col"><h5>Link</h5></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @transactions.each do |transaction| %>
+              <tr>
+                <th scope="row"><h5><%= link_to transaction.listing.title, listing_path(transaction.listing) %></h5></th>
+                <td><%= link_to transaction.seller.username, user_path(transaction.seller) %></td>
+                <td><p class="listing_info ml-1" style="float:left"><i><%= transaction.listing.filetype %></i> purchased on
+            			  <%= transaction.created_at.strftime("%Y-%m-%d") %> for <%= number_to_currency(transaction.listing.price) %></p></td>
+                <td><%= link_to transaction.listing.file.url do %>
+                  		<i class="fas fa-download site-red" title="download"></i>
+                    <% end %></td>
+              </tr>
           <% end %>
-        
-          </div>
-        <div class="grayline mx-auto mb-3" style="width: 94%;"></div>
-      <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-	</div>
 </div>

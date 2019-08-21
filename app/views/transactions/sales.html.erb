@@ -1,49 +1,40 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-	
+<div class="container">
+  <nav aria-label="breadcrumb">
+	  <ol class="breadcrumb mt-3 shadow-sm">
+		    <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to current_user.username, user_path(current_user) %></li>
+        <li class="breadcrumb-item">Sales History</li>
+	  </ol>
+	</nav>
   <%= render 'shared/alert' %>
-	<div id="breadcrumb">
-	  <%= link_to current_user.username, user_path(current_user) %>
-			<span>/</span>
-		Sales History
-	</div>
-
-  <div class="wrapper_wide">
-    <div class="side-box">
-      <div class="side-content">
+  
+    <div class="row justify-content-center">
+      <div class="col-10">
         <p style="margin-right: .5rem">You currently have <%= pluralize(current_user.listings.count, "listing") %> in the <%= link_to "marketplace", listings_path %>.
         -<span style="margin-left: .5rem"><a href="#">Manage Listings</a><span style="margin-left: .5rem"></span>-<span style="margin-left: .5rem"></span><%= link_to "Add a new listing", new_listing_path %></p>
       </div>
     </div>
-    <div class="side-box">
-      <div class="table">
-        <div class="table-row">
-          <div class="table-head" style="width: 25%">
-            <h2 style="float:left">Title</h2>
-          </div>
-          <div class="table-head">
-            <h2 style="float:left">Info</h2>
-          </div>
-          <div class="table-head">
-            <h2 style="float:right">Buyer</h2>
-          </div>
-        </div>
-      <% @transactions.each do |transaction| %>
-          <div class="table-row">
-            <div class="table-cell" style="width: 25%">
-              <span style="float:left"><%= link_to transaction.listing.title, listing_path(transaction.listing) %></span>
-            </div>
-            <div class="table-cell">
-              <p class="listing_info ml-1" style="float:left"><i><%= transaction.listing.filetype %></i> purchased on
-      			  <%= transaction.created_at.strftime("%Y-%m-%d") %> for <%= number_to_currency(transaction.listing.price) %></p>
-            </div>
-            <div class="table-cell">
-              <span style="float:right;"><%= link_to transaction.buyer.username, user_path(transaction.buyer) %></span>
-            </div>
-          </div>
-      <% end %>
+    
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"><h5>Title</h5></th>
+              <th scope="col"><h5>Info</h5></th>
+              <th scope="col"><h5>Buyer</h5></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @transactions.each do |transaction| %>
+              <tr>
+                <th scope="row"><h5><%= link_to transaction.listing.title, listing_path(transaction.listing) %></h5></th>
+                <td><p class="listing_info ml-1" style="float:left"><i><%= transaction.listing.filetype %></i> purchased on
+            			  <%= transaction.created_at.strftime("%Y-%m-%d") %> for <%= number_to_currency(transaction.listing.price) %></p></td>
+                <td><%= link_to transaction.buyer.username, user_path(transaction.buyer) %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
 </div>

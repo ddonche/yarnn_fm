@@ -31,8 +31,8 @@
   	<% end %>
 </title>
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item site-red"><%= link_to @album.user.username, user_path(@album.user) %></li>
+  <ol class="breadcrumb mt-3 shadow-sm">
+	<li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to @album.user.username, user_path(@album.user) %></li>
     <li class="breadcrumb-item">
         <% if @album.pseudonym_id? %>
   		  <%= @album.pseudonym.name %>
@@ -40,7 +40,6 @@
   		  <%= @album.user.name %>
   		<% end %></li>
     <li class="breadcrumb-item active" aria-current="page"><%= @album.title %></li>
-    
     <% if @album.user == current_user %>
     <li class="breadcrumb-item site-red">
         <%= link_to edit_album_path(@album) do %>

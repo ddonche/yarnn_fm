@@ -32,7 +32,7 @@
   	<% end %>
 </title>
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb m-3">
+  <ol class="breadcrumb mr-3">
     <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to @track.user.username, user_path(@track.user) %></li>
     <% if @track.album_id? %>
     <li class="breadcrumb-item">

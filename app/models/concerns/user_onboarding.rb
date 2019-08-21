@@ -17,18 +17,18 @@ module UserOnboarding
     end
       
     def has_favorite?
-        favorites.any?
+        favorites.exists?
     end
     
     def has_topic?
-        topics.any?
+        topics.exists?
     end
     
     def has_comment?
-        comments.any?
+        comments.exists?
     end
     
     def has_review?
-        reviews.any?
+        reviews.exists?
     end
 end

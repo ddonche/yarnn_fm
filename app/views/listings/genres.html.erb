@@ -40,17 +40,17 @@
                           <th scope="row"><small><%= link_to topic.title, topic_path(topic) %></small></th>
                           <% if topic.comments.any? %>
                       			<td><% if topic.latest_comment.user.image? %>
-                                  <%= image_tag topic.latest_comment.user.image.url,  width: 25, class: "image mr-1", title: topic.latest_comment.user.username %>
+                                  <%= image_tag topic.latest_comment.user.image.url,  width: 25, class: "image rounded mr-1", title: topic.latest_comment.user.username %>
                                 <% else %>
-                                  <%= image_tag('default_track.jpg', width: 25, class: "image mr-1", title: topic.latest_comment.user.username) %>
+                                  <%= image_tag('default_track.jpg', width: 25, class: "image rounded mr-1", title: topic.latest_comment.user.username) %>
                                 <% end %>
                       			  <small><%= link_to topic.latest_comment.user.username, user_path(topic.latest_comment.user) %></td>
                       		<% else %>
                       		  <td>
                       		    <% if topic.user.image? %>
-                                <%= image_tag topic.user.image.url,  width: 25, class: "image mr-1", title: topic.user.username %>
+                                <%= image_tag topic.user.image.url,  width: 25, class: "image rounded mr-1", title: topic.user.username %>
                               <% else %>
-                                <%= image_tag('default_track.jpg', width: 25, class: "image mr-1", title: topic.user.username) %>
+                                <%= image_tag('default_track.jpg', width: 25, class: "image rounded mr-1", title: topic.user.username) %>
                               <% end %>
                       		    <small><%= link_to topic.user.username, user_path(topic.user) %></small></td> 
                       		<% end %>

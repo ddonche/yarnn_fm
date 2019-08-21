@@ -61,6 +61,10 @@
   box-sizing: border-box;
 }
 
+.tag_style_fantasy {
+  background-image: url('https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_fantasy_background.jpg');
+}
+
 .tag_style_horror {
   background-image: url('https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_horror_background.jpg');
 }
@@ -75,4 +79,8 @@
 
 .tag_style_scifi {
   background-image: url('https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_scifi_background.jpg');
+}
+
+.tag_style_western {
+  background-image: url('https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_western_background.jpg');
 }

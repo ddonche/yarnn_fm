@@ -4,7 +4,387 @@ Trix 1.2.0
 Copyright © 2019 Basecamp, LLC
 http://trix-editor.org/*/
 
+trix-editor {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0.4em 0.6em;
+  min-height: 5em;
+  outline: none; }
+trix-toolbar * {
+  box-sizing: border-box; }
+trix-toolbar .trix-button-row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between; }
+trix-toolbar .trix-button-group {
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #bbb;
+  border-top-color: #ccc;
+  border-bottom-color: #888;
+  border-radius: 3px; }
+  trix-toolbar .trix-button-group:not(:first-child) {
+    margin-left: 1.5vw; }
+    @media (max-device-width: 768px) {
+      trix-toolbar .trix-button-group:not(:first-child) {
+        margin-left: 0; } }
+trix-toolbar .trix-button-group-spacer {
+  -webkit-box-flex: 1;
+          flex-grow: 1; }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button-group-spacer {
+      display: none; } }
+trix-toolbar .trix-button {
+  position: relative;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+  background: transparent; }
+  trix-toolbar .trix-button:not(:first-child) {
+    border-left: 1px solid #ccc; }
+  trix-toolbar .trix-button.trix-active {
+    background: #cbeefa;
+    color: black; }
+  trix-toolbar .trix-button:not(:disabled) {
+    cursor: pointer; }
+  trix-toolbar .trix-button:disabled {
+    color: rgba(0, 0, 0, 0.125); }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button {
+      letter-spacing: -0.01em;
+      padding: 0 0.3em; } }
+trix-toolbar .trix-button--icon {
+  font-size: inherit;
+  width: 2.6em;
+  height: 1.6em;
+  max-width: calc(0.8em + 4vw);
+  text-indent: -9999px; }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button--icon {
+      height: 2em;
+      max-width: calc(0.8em + 3.5vw); } }
+  trix-toolbar .trix-button--icon::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+    content: "";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; }
+    @media (max-device-width: 768px) {
+      trix-toolbar .trix-button--icon::before {
+        right: 6%;
+        left: 6%; } }
+  trix-toolbar .trix-button--icon.trix-active::before {
+    opacity: 1; }
+  trix-toolbar .trix-button--icon:disabled::before {
+    opacity: 0.125; }
+trix-toolbar .trix-button--icon-attach::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M16.5%206v11.5a4%204%200%201%201-8%200V5a2.5%202.5%200%200%201%205%200v10.5a1%201%200%201%201-2%200V6H10v9.5a2.5%202.5%200%200%200%205%200V5a4%204%200%201%200-8%200v12.5a5.5%205.5%200%200%200%2011%200V6h-1.5z%22%2F%3E%3C%2Fsvg%3E);
+  top: 8%;
+  bottom: 4%; }
+trix-toolbar .trix-button--icon-bold::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M15.6%2011.8c1-.7%201.6-1.8%201.6-2.8a4%204%200%200%200-4-4H7v14h7c2.1%200%203.7-1.7%203.7-3.8%200-1.5-.8-2.8-2.1-3.4zM10%207.5h3a1.5%201.5%200%201%201%200%203h-3v-3zm3.5%209H10v-3h3.5a1.5%201.5%200%201%201%200%203z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-italic::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M10%205v3h2.2l-3.4%208H6v3h8v-3h-2.2l3.4-8H18V5h-8z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-link::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M9.88%2013.7a4.3%204.3%200%200%201%200-6.07l3.37-3.37a4.26%204.26%200%200%201%206.07%200%204.3%204.3%200%200%201%200%206.06l-1.96%201.72a.91.91%200%201%201-1.3-1.3l1.97-1.71a2.46%202.46%200%200%200-3.48-3.48l-3.38%203.37a2.46%202.46%200%200%200%200%203.48.91.91%200%201%201-1.3%201.3z%22%2F%3E%3Cpath%20d%3D%22M4.25%2019.46a4.3%204.3%200%200%201%200-6.07l1.93-1.9a.91.91%200%201%201%201.3%201.3l-1.93%201.9a2.46%202.46%200%200%200%203.48%203.48l3.37-3.38c.96-.96.96-2.52%200-3.48a.91.91%200%201%201%201.3-1.3%204.3%204.3%200%200%201%200%206.07l-3.38%203.38a4.26%204.26%200%200%201-6.07%200z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-strike::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.73%2014l.28.14c.26.15.45.3.57.44.12.14.18.3.18.5%200%20.3-.15.56-.44.75-.3.2-.76.3-1.39.3A13.52%2013.52%200%200%201%207%2014.95v3.37a10.64%2010.64%200%200%200%204.84.88c1.26%200%202.35-.19%203.28-.56.93-.37%201.64-.9%202.14-1.57s.74-1.45.74-2.32c0-.26-.02-.51-.06-.75h-5.21zm-5.5-4c-.08-.34-.12-.7-.12-1.1%200-1.29.52-2.3%201.58-3.02%201.05-.72%202.5-1.08%204.34-1.08%201.62%200%203.28.34%204.97%201l-1.3%202.93c-1.47-.6-2.73-.9-3.8-.9-.55%200-.96.08-1.2.26-.26.17-.38.38-.38.64%200%20.27.16.52.48.74.17.12.53.3%201.05.53H7.23zM3%2013h18v-2H3v2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-quote::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M6%2017h3l2-4V7H5v6h3zm8%200h3l2-4V7h-6v6h3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-heading-1::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12%209v3H9v7H6v-7H3V9h9zM8%204h14v3h-6v12h-3V7H8V4z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-code::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.2%2012L15%2015.2l1.4%201.4L21%2012l-4.6-4.6L15%208.8l3.2%203.2zM5.8%2012L9%208.8%207.6%207.4%203%2012l4.6%204.6L9%2015.2%205.8%2012z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-bullet-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%204a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm4%203h14v-2H8v2zm0-6h14v-2H8v2zm0-8v2h14V5H8z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-number-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M2%2017h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1%203h1.8L2%2013.1v.9h3v-1H3.2L5%2010.9V10H2v1zm5-6v2h14V5H7zm0%2014h14v-2H7v2zm0-6h14v-2H7v2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-undo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.5%208c-2.6%200-5%201-6.9%202.6L2%207v9h9l-3.6-3.6A8%208%200%200%201%2020%2016l2.4-.8a10.5%2010.5%200%200%200-10-7.2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-redo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.4%2010.6a10.5%2010.5%200%200%200-16.9%204.6L4%2016a8%208%200%200%201%2012.7-3.6L13%2016h9V7l-3.6%203.6z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-decrease-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-8.3-.3l2.8%202.9L6%2014.2%204%2012l2-2-1.4-1.5L1%2012l.7.7zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-increase-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-6.9-1L1%2014.2l1.4%201.4L6%2012l-.7-.7-2.8-2.8L1%209.9%203.1%2012zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-dialogs {
+  position: relative; }
+trix-toolbar .trix-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 15px 10px;
+  background: #fff;
+  box-shadow: 0 0.3em 1em #ccc;
+  border-top: 2px solid #888;
+  border-radius: 5px;
+  z-index: 5; }
+trix-toolbar .trix-input--dialog {
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0.5em 0.8em;
+  margin: 0 10px 0 0;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+  trix-toolbar .trix-input--dialog.validate:invalid {
+    box-shadow: #F00 0px 0px 1.5px 1px; }
+trix-toolbar .trix-button--dialog {
+  font-size: inherit;
+  padding: 0.5em;
+  border-bottom: none; }
+trix-toolbar .trix-dialog--link {
+  max-width: 600px; }
+trix-toolbar .trix-dialog__link-fields {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: baseline;
+          align-items: baseline; }
+  trix-toolbar .trix-dialog__link-fields .trix-input {
+    -webkit-box-flex: 1;
+            flex: 1; }
+  trix-toolbar .trix-dialog__link-fields .trix-button-group {
+    -webkit-box-flex: 0;
+            flex: 0 0 content;
+    margin: 0; }
+trix-editor [data-trix-mutable]:not(.attachment__caption-editor) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
+trix-editor [data-trix-mutable]::-moz-selection,
+trix-editor [data-trix-cursor-target]::-moz-selection, trix-editor [data-trix-mutable] ::-moz-selection {
+  background: none; }
+trix-editor [data-trix-mutable]::selection,
+trix-editor [data-trix-cursor-target]::selection, trix-editor [data-trix-mutable] ::selection {
+  background: none; }
+
+trix-editor [data-trix-mutable].attachment__caption-editor:focus::-moz-selection {
+  background: highlight; }
+trix-editor [data-trix-mutable].attachment__caption-editor:focus::selection {
+  background: highlight; }
+
+trix-editor [data-trix-mutable].attachment.attachment--file {
+  box-shadow: 0 0 0 2px highlight;
+  border-color: transparent; }
+trix-editor [data-trix-mutable].attachment img {
+  box-shadow: 0 0 0 2px highlight; }
+trix-editor .attachment {
+  position: relative; }
+  trix-editor .attachment:hover {
+    cursor: default; }
+trix-editor .attachment--preview .attachment__caption:hover {
+  cursor: text; }
+trix-editor .attachment__progress {
+  position: absolute;
+  z-index: 1;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: 5%;
+  width: 90%;
+  opacity: 0.9;
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in; }
+  trix-editor .attachment__progress[value="100"] {
+    opacity: 0; }
+trix-editor .attachment__caption-editor {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+trix-editor .attachment__toolbar {
+  position: absolute;
+  z-index: 1;
+  top: -0.9em;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+trix-editor .trix-button-group {
+  display: -webkit-inline-box;
+  display: inline-flex; }
+trix-editor .trix-button {
+  position: relative;
+  float: left;
+  color: #666;
+  white-space: nowrap;
+  font-size: 80%;
+  padding: 0 0.8em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: transparent; }
+  trix-editor .trix-button:not(:first-child) {
+    border-left: 1px solid #ccc; }
+  trix-editor .trix-button.trix-active {
+    background: #cbeefa; }
+  trix-editor .trix-button:not(:disabled) {
+    cursor: pointer; }
+trix-editor .trix-button--remove {
+  text-indent: -9999px;
+  display: inline-block;
+  padding: 0;
+  outline: none;
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid highlight;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25); }
+  trix-editor .trix-button--remove::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+    content: "";
+    background-image: url(data:image/svg+xml,%3Csvg%20height%3D%2224%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19%206.4L17.6%205%2012%2010.6%206.4%205%205%206.4l5.6%205.6L5%2017.6%206.4%2019l5.6-5.6%205.6%205.6%201.4-1.4-5.6-5.6z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%; }
+  trix-editor .trix-button--remove:hover {
+    border-color: #333; }
+    trix-editor .trix-button--remove:hover::before {
+      opacity: 1; }
+trix-editor .attachment__metadata-container {
+  position: relative; }
+trix-editor .attachment__metadata {
+  position: absolute;
+  left: 50%;
+  top: 2em;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  max-width: 90%;
+  padding: 0.1em 0.6em;
+  font-size: 0.8em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px; }
+  trix-editor .attachment__metadata .attachment__name {
+    display: inline-block;
+    max-width: 100%;
+    vertical-align: bottom;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  trix-editor .attachment__metadata .attachment__size {
+    margin-left: 0.2em;
+    white-space: nowrap; }
+@charset "UTF-8";
+.trix-content {
+  line-height: 1.5; }
+  .trix-content * {
+    box-sizing: border-box; }
+  .trix-content h1 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin: 0; }
+  .trix-content blockquote {
+    margin: 0 0 0 0.3em;
+    padding: 0 0 0 0.6em;
+    border-left: 0.3em solid #ccc; }
+  .trix-content pre {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-family: monospace;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.5em;
+    white-space: pre;
+    background-color: #eee;
+    overflow-x: auto; }
+  .trix-content ul, .trix-content ol, .trix-content li {
+    margin: 0;
+    padding: 0; }
+    .trix-content ul li, .trix-content ol li, .trix-content li li {
+      margin-left: 1em; }
+  .trix-content img {
+    max-width: 100%;
+    height: auto; }
+  .trix-content .attachment {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0; }
+    .trix-content .attachment a {
+      color: inherit;
+      text-decoration: none; }
+      .trix-content .attachment a:hover, .trix-content .attachment a:visited:hover {
+        color: inherit; }
+  .trix-content .attachment__caption {
+    padding: 0;
+    text-align: center; }
+    .trix-content .attachment__caption .attachment__name + .attachment__size::before {
+      content: ' · '; }
+  .trix-content .attachment--preview {
+    width: 100%;
+    text-align: center; }
+    .trix-content .attachment--preview .attachment__caption {
+      color: #666;
+      font-size: 0.9em;
+      line-height: 1.2; }
+  .trix-content .attachment--file {
+    color: #333;
+    line-height: 1;
+    margin: 0 2px 2px 0;
+    padding: 0.4em 1em;
+    border: 1px solid #bbb;
+    border-radius: 5px; }
+  .trix-content .attachment-gallery {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    .trix-content .attachment-gallery .attachment {
+      -webkit-box-flex: 1;
+              flex: 1 0 33%;
+      padding: 0 0.5em;
+      max-width: 33%; }
+    .trix-content .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
+      flex-basis: 50%;
+      max-width: 50%; }
 @charset "UTF-8";
 /* line 13, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment-gallery > action-text-attachment,
@@ -74,32 +454,32 @@ trix-toolbar .trix-button-group {
   border-radius: 3px;*/
 }
 
-/* line 71, app/assets/stylesheets/actiontext.scss */
+/* line 73, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button-group:not(:first-child) {
   margin-left: 1.5vw;
 }
 
 @media (max-device-width: 768px) {
-  /* line 74, app/assets/stylesheets/actiontext.scss */
+  /* line 76, app/assets/stylesheets/actiontext.scss */
   trix-toolbar .trix-button-group:not(:first-child) {
     margin-left: 0;
   }
 }
 
-/* line 76, app/assets/stylesheets/actiontext.scss */
+/* line 78, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button-group-spacer {
   -webkit-box-flex: 1;
           flex-grow: 1;
 }
 
 @media (max-device-width: 768px) {
-  /* line 79, app/assets/stylesheets/actiontext.scss */
+  /* line 81, app/assets/stylesheets/actiontext.scss */
   trix-toolbar .trix-button-group-spacer {
     display: none;
   }
 }
 
-/* line 81, app/assets/stylesheets/actiontext.scss */
+/* line 83, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button {
   position: relative;
   float: left;
@@ -110,42 +490,41 @@ trix-toolbar .trix-button {
   padding: 0 0.5em;
   margin: 0;
   outline: none;
-  border: none;
   border: 1px solid #ddd;
   border-radius: 0;
   background: transparent;
 }
 
-/* line 95, app/assets/stylesheets/actiontext.scss */
+/* line 96, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button:not(:first-child) {
   /*border-left: 1px solid #ccc;*/
 }
 
-/* line 97, app/assets/stylesheets/actiontext.scss */
+/* line 98, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button.trix-active {
-  background: #cbeefa;
+  background: #95dbd6;
   color: black;
 }
 
-/* line 100, app/assets/stylesheets/actiontext.scss */
+/* line 101, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button:not(:disabled) {
   cursor: pointer;
 }
 
-/* line 102, app/assets/stylesheets/actiontext.scss */
+/* line 103, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button:disabled {
   color: rgba(0, 0, 0, 0.125);
 }
 
 @media (max-device-width: 768px) {
-  /* line 105, app/assets/stylesheets/actiontext.scss */
+  /* line 106, app/assets/stylesheets/actiontext.scss */
   trix-toolbar .trix-button {
     letter-spacing: -0.01em;
     padding: 0 0.3em;
   }
 }
 
-/* line 108, app/assets/stylesheets/actiontext.scss */
+/* line 109, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon {
   font-size: inherit;
   width: 2.6em;
@@ -155,14 +534,14 @@ trix-toolbar .trix-button--icon {
 }
 
 @media (max-device-width: 768px) {
-  /* line 115, app/assets/stylesheets/actiontext.scss */
+  /* line 116, app/assets/stylesheets/actiontext.scss */
   trix-toolbar .trix-button--icon {
     height: 2em;
     max-width: calc(0.8em + 3.5vw);
   }
 }
 
-/* line 118, app/assets/stylesheets/actiontext.scss */
+/* line 119, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon::before {
   display: inline-block;
   position: absolute;
@@ -178,101 +557,101 @@ trix-toolbar .trix-button--icon::before {
 }
 
 @media (max-device-width: 768px) {
-  /* line 131, app/assets/stylesheets/actiontext.scss */
+  /* line 132, app/assets/stylesheets/actiontext.scss */
   trix-toolbar .trix-button--icon::before {
     right: 6%;
     left: 6%;
   }
 }
 
-/* line 134, app/assets/stylesheets/actiontext.scss */
+/* line 135, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon.trix-active::before {
   opacity: 1;
 }
 
-/* line 136, app/assets/stylesheets/actiontext.scss */
+/* line 137, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon:disabled::before {
   opacity: 0.125;
 }
 
-/* line 138, app/assets/stylesheets/actiontext.scss */
+/* line 139, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-attach::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M16.5%206v11.5a4%204%200%201%201-8%200V5a2.5%202.5%200%200%201%205%200v10.5a1%201%200%201%201-2%200V6H10v9.5a2.5%202.5%200%200%200%205%200V5a4%204%200%201%200-8%200v12.5a5.5%205.5%200%200%200%2011%200V6h-1.5z%22%2F%3E%3C%2Fsvg%3E);
   top: 8%;
   bottom: 4%;
 }
 
-/* line 142, app/assets/stylesheets/actiontext.scss */
+/* line 143, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-bold::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M15.6%2011.8c1-.7%201.6-1.8%201.6-2.8a4%204%200%200%200-4-4H7v14h7c2.1%200%203.7-1.7%203.7-3.8%200-1.5-.8-2.8-2.1-3.4zM10%207.5h3a1.5%201.5%200%201%201%200%203h-3v-3zm3.5%209H10v-3h3.5a1.5%201.5%200%201%201%200%203z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 144, app/assets/stylesheets/actiontext.scss */
+/* line 145, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-italic::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M10%205v3h2.2l-3.4%208H6v3h8v-3h-2.2l3.4-8H18V5h-8z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 146, app/assets/stylesheets/actiontext.scss */
+/* line 147, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-link::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M9.88%2013.7a4.3%204.3%200%200%201%200-6.07l3.37-3.37a4.26%204.26%200%200%201%206.07%200%204.3%204.3%200%200%201%200%206.06l-1.96%201.72a.91.91%200%201%201-1.3-1.3l1.97-1.71a2.46%202.46%200%200%200-3.48-3.48l-3.38%203.37a2.46%202.46%200%200%200%200%203.48.91.91%200%201%201-1.3%201.3z%22%2F%3E%3Cpath%20d%3D%22M4.25%2019.46a4.3%204.3%200%200%201%200-6.07l1.93-1.9a.91.91%200%201%201%201.3%201.3l-1.93%201.9a2.46%202.46%200%200%200%203.48%203.48l3.37-3.38c.96-.96.96-2.52%200-3.48a.91.91%200%201%201%201.3-1.3%204.3%204.3%200%200%201%200%206.07l-3.38%203.38a4.26%204.26%200%200%201-6.07%200z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 148, app/assets/stylesheets/actiontext.scss */
+/* line 149, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-strike::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.73%2014l.28.14c.26.15.45.3.57.44.12.14.18.3.18.5%200%20.3-.15.56-.44.75-.3.2-.76.3-1.39.3A13.52%2013.52%200%200%201%207%2014.95v3.37a10.64%2010.64%200%200%200%204.84.88c1.26%200%202.35-.19%203.28-.56.93-.37%201.64-.9%202.14-1.57s.74-1.45.74-2.32c0-.26-.02-.51-.06-.75h-5.21zm-5.5-4c-.08-.34-.12-.7-.12-1.1%200-1.29.52-2.3%201.58-3.02%201.05-.72%202.5-1.08%204.34-1.08%201.62%200%203.28.34%204.97%201l-1.3%202.93c-1.47-.6-2.73-.9-3.8-.9-.55%200-.96.08-1.2.26-.26.17-.38.38-.38.64%200%20.27.16.52.48.74.17.12.53.3%201.05.53H7.23zM3%2013h18v-2H3v2z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 150, app/assets/stylesheets/actiontext.scss */
+/* line 151, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-quote::before {
   background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M6%2017h3l2-4V7H5v6h3zm8%200h3l2-4V7h-6v6h3z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 152, app/assets/stylesheets/actiontext.scss */
+/* line 153, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-heading-1::before {
   background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12%209v3H9v7H6v-7H3V9h9zM8%204h14v3h-6v12h-3V7H8V4z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 154, app/assets/stylesheets/actiontext.scss */
+/* line 155, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-code::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.2%2012L15%2015.2l1.4%201.4L21%2012l-4.6-4.6L15%208.8l3.2%203.2zM5.8%2012L9%208.8%207.6%207.4%203%2012l4.6%204.6L9%2015.2%205.8%2012z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 156, app/assets/stylesheets/actiontext.scss */
+/* line 157, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-bullet-list::before {
   background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%204a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm4%203h14v-2H8v2zm0-6h14v-2H8v2zm0-8v2h14V5H8z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 158, app/assets/stylesheets/actiontext.scss */
+/* line 159, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-number-list::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M2%2017h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1%203h1.8L2%2013.1v.9h3v-1H3.2L5%2010.9V10H2v1zm5-6v2h14V5H7zm0%2014h14v-2H7v2zm0-6h14v-2H7v2z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 160, app/assets/stylesheets/actiontext.scss */
+/* line 161, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-undo::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.5%208c-2.6%200-5%201-6.9%202.6L2%207v9h9l-3.6-3.6A8%208%200%200%201%2020%2016l2.4-.8a10.5%2010.5%200%200%200-10-7.2z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 162, app/assets/stylesheets/actiontext.scss */
+/* line 163, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-redo::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.4%2010.6a10.5%2010.5%200%200%200-16.9%204.6L4%2016a8%208%200%200%201%2012.7-3.6L13%2016h9V7l-3.6%203.6z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 164, app/assets/stylesheets/actiontext.scss */
+/* line 165, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-decrease-nesting-level::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-8.3-.3l2.8%202.9L6%2014.2%204%2012l2-2-1.4-1.5L1%2012l.7.7zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 166, app/assets/stylesheets/actiontext.scss */
+/* line 167, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--icon-increase-nesting-level::before {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-6.9-1L1%2014.2l1.4%201.4L6%2012l-.7-.7-2.8-2.8L1%209.9%203.1%2012zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E);
 }
 
-/* line 168, app/assets/stylesheets/actiontext.scss */
+/* line 169, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-dialogs {
   position: relative;
 }
 
-/* line 170, app/assets/stylesheets/actiontext.scss */
+/* line 171, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-dialog {
   position: absolute;
   top: 0;
@@ -287,7 +666,7 @@ trix-toolbar .trix-dialog {
   z-index: 5;
 }
 
-/* line 182, app/assets/stylesheets/actiontext.scss */
+/* line 183, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-input--dialog {
   font-size: inherit;
   font-weight: normal;
@@ -302,24 +681,24 @@ trix-toolbar .trix-input--dialog {
   -moz-appearance: none;
 }
 
-/* line 194, app/assets/stylesheets/actiontext.scss */
+/* line 195, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-input--dialog.validate:invalid {
   box-shadow: #F00 0px 0px 1.5px 1px;
 }
 
-/* line 196, app/assets/stylesheets/actiontext.scss */
+/* line 197, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-button--dialog {
   font-size: inherit;
   padding: 0.5em;
   border-bottom: none;
 }
 
-/* line 200, app/assets/stylesheets/actiontext.scss */
+/* line 201, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-dialog--link {
   max-width: 600px;
 }
 
-/* line 202, app/assets/stylesheets/actiontext.scss */
+/* line 203, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-dialog__link-fields {
   display: -webkit-box;
   display: flex;
@@ -327,20 +706,20 @@ trix-toolbar .trix-dialog__link-fields {
           align-items: baseline;
 }
 
-/* line 205, app/assets/stylesheets/actiontext.scss */
+/* line 206, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-dialog__link-fields .trix-input {
   -webkit-box-flex: 1;
           flex: 1;
 }
 
-/* line 207, app/assets/stylesheets/actiontext.scss */
+/* line 208, app/assets/stylesheets/actiontext.scss */
 trix-toolbar .trix-dialog__link-fields .trix-button-group {
   -webkit-box-flex: 0;
           flex: 0 0 content;
   margin: 0;
 }
 
-/* line 210, app/assets/stylesheets/actiontext.scss */
+/* line 211, app/assets/stylesheets/actiontext.scss */
 trix-editor [data-trix-mutable]:not(.attachment__caption-editor) {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -348,13 +727,13 @@ trix-editor [data-trix-mutable]:not(.attachment__caption-editor) {
   user-select: none;
 }
 
-/* line 216, app/assets/stylesheets/actiontext.scss */
+/* line 217, app/assets/stylesheets/actiontext.scss */
 trix-editor [data-trix-mutable]::-moz-selection,
 trix-editor [data-trix-cursor-target]::-moz-selection, trix-editor [data-trix-mutable] ::-moz-selection {
   background: none;
 }
 
-/* line 219, app/assets/stylesheets/actiontext.scss */
+/* line 220, app/assets/stylesheets/actiontext.scss */
 trix-editor [data-trix-mutable]::-moz-selection,
 trix-editor [data-trix-cursor-target]::-moz-selection, trix-editor [data-trix-mutable] ::-moz-selection {
   background: none;
@@ -364,12 +743,12 @@ trix-editor [data-trix-cursor-target]::selection, trix-editor [data-trix-mutable
   background: none;
 }
 
-/* line 223, app/assets/stylesheets/actiontext.scss */
+/* line 224, app/assets/stylesheets/actiontext.scss */
 trix-editor [data-trix-mutable].attachment__caption-editor:focus::-moz-selection {
   background: highlight;
 }
 
-/* line 225, app/assets/stylesheets/actiontext.scss */
+/* line 226, app/assets/stylesheets/actiontext.scss */
 trix-editor [data-trix-mutable].attachment__caption-editor:focus::-moz-selection {
   background: highlight;
 }
@@ -377,33 +756,33 @@ trix-editor [data-trix-mutable].attachment__caption-editor:focus::selection {
   background: highlight;
 }
 
-/* line 228, app/assets/stylesheets/actiontext.scss */
+/* line 229, app/assets/stylesheets/actiontext.scss */
 trix-editor [data-trix-mutable].attachment.attachment--file {
   box-shadow: 0 0 0 2px highlight;
   border-color: transparent;
 }
 
-/* line 231, app/assets/stylesheets/actiontext.scss */
+/* line 232, app/assets/stylesheets/actiontext.scss */
 trix-editor [data-trix-mutable].attachment img {
   box-shadow: 0 0 0 2px highlight;
 }
 
-/* line 233, app/assets/stylesheets/actiontext.scss */
+/* line 234, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment {
   position: relative;
 }
 
-/* line 235, app/assets/stylesheets/actiontext.scss */
+/* line 236, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment:hover {
   cursor: default;
 }
 
-/* line 237, app/assets/stylesheets/actiontext.scss */
+/* line 238, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment--preview .attachment__caption:hover {
   cursor: text;
 }
 
-/* line 239, app/assets/stylesheets/actiontext.scss */
+/* line 240, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__progress {
   position: absolute;
   z-index: 1;
@@ -416,12 +795,12 @@ trix-editor .attachment__progress {
   transition: opacity 200ms ease-in;
 }
 
-/* line 248, app/assets/stylesheets/actiontext.scss */
+/* line 249, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__progress[value="100"] {
   opacity: 0;
 }
 
-/* line 250, app/assets/stylesheets/actiontext.scss */
+/* line 251, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__caption-editor {
   display: inline-block;
   width: 100%;
@@ -439,7 +818,7 @@ trix-editor .attachment__caption-editor {
   -moz-appearance: none;
 }
 
-/* line 265, app/assets/stylesheets/actiontext.scss */
+/* line 266, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__toolbar {
   position: absolute;
   z-index: 1;
@@ -449,13 +828,13 @@ trix-editor .attachment__toolbar {
   text-align: center;
 }
 
-/* line 272, app/assets/stylesheets/actiontext.scss */
+/* line 273, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button-group {
   display: -webkit-inline-box;
   display: inline-flex;
 }
 
-/* line 274, app/assets/stylesheets/actiontext.scss */
+/* line 275, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button {
   position: relative;
   float: left;
@@ -465,27 +844,27 @@ trix-editor .trix-button {
   padding: 0 0.8em;
   margin: 0;
   outline: none;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 0;
   background: transparent;
 }
 
-/* line 286, app/assets/stylesheets/actiontext.scss */
+/* line 287, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button:not(:first-child) {
-  border-left: 1px solid #ccc;
+  /*border-left: 1px solid #ccc;*/
 }
 
-/* line 288, app/assets/stylesheets/actiontext.scss */
+/* line 289, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button.trix-active {
-  background: #cbeefa;
+  background: #95dbd6;
 }
 
-/* line 290, app/assets/stylesheets/actiontext.scss */
+/* line 291, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button:not(:disabled) {
   cursor: pointer;
 }
 
-/* line 292, app/assets/stylesheets/actiontext.scss */
+/* line 293, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button--remove {
   text-indent: -9999px;
   display: inline-block;
@@ -500,7 +879,7 @@ trix-editor .trix-button--remove {
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
 }
 
-/* line 304, app/assets/stylesheets/actiontext.scss */
+/* line 305, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button--remove::before {
   display: inline-block;
   position: absolute;
@@ -516,22 +895,22 @@ trix-editor .trix-button--remove::before {
   background-size: 90%;
 }
 
-/* line 317, app/assets/stylesheets/actiontext.scss */
+/* line 318, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button--remove:hover {
   border-color: #333;
 }
 
-/* line 319, app/assets/stylesheets/actiontext.scss */
+/* line 320, app/assets/stylesheets/actiontext.scss */
 trix-editor .trix-button--remove:hover::before {
   opacity: 1;
 }
 
-/* line 321, app/assets/stylesheets/actiontext.scss */
+/* line 322, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__metadata-container {
   position: relative;
 }
 
-/* line 323, app/assets/stylesheets/actiontext.scss */
+/* line 324, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__metadata {
   position: absolute;
   left: 50%;
@@ -546,7 +925,7 @@ trix-editor .attachment__metadata {
   border-radius: 3px;
 }
 
-/* line 334, app/assets/stylesheets/actiontext.scss */
+/* line 335, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__metadata .attachment__name {
   display: inline-block;
   max-width: 100%;
@@ -556,23 +935,23 @@ trix-editor .attachment__metadata .attachment__name {
   white-space: nowrap;
 }
 
-/* line 341, app/assets/stylesheets/actiontext.scss */
+/* line 342, app/assets/stylesheets/actiontext.scss */
 trix-editor .attachment__metadata .attachment__size {
   margin-left: 0.2em;
   white-space: nowrap;
 }
 
-/* line 345, app/assets/stylesheets/actiontext.scss */
+/* line 346, app/assets/stylesheets/actiontext.scss */
 .trix-content {
   line-height: 1.5;
 }
 
-/* line 347, app/assets/stylesheets/actiontext.scss */
+/* line 348, app/assets/stylesheets/actiontext.scss */
 .trix-content * {
   box-sizing: border-box;
 }
 
-/* line 349, app/assets/stylesheets/actiontext.scss */
+/* line 350, app/assets/stylesheets/actiontext.scss */
 .trix-content h1 {
   font-family: 'Teko', sans-serif;
   font-style: normal;
@@ -583,19 +962,31 @@ trix-editor .attachment__metadata .attachment__size {
   letter-spacing: 0;
 }
 
-/* line 358, app/assets/stylesheets/actiontext.scss */
+/* line 359, app/assets/stylesheets/actiontext.scss */
 .trix-content blockquote {
-  background: #e0dcdc;
-  padding: 1rem;
+  font-size: 1em;
+  color: #222;
+  width: 95%;
   font-style: italic;
-  border-left: solid 15px #00b8ac;
-  border-right: solid 3px #00b8ac;
-  padding: 15px 20px 15px 56px;
-  margin: 0 0 20px;
+  font-weight: 450;
+  margin: 10px auto;
+  padding: 1em 1.2em 1em 1.5em;
+  border-left: 8px solid #dc2020;
+  line-height: 1.6;
   position: relative;
+  background: #e2e9e9;
 }
 
-/* line 368, app/assets/stylesheets/actiontext.scss */
+/* line 373, app/assets/stylesheets/actiontext.scss */
+.trix-content blockquote span {
+  display: block;
+  color: #333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+/* line 380, app/assets/stylesheets/actiontext.scss */
 .trix-content pre {
   display: inline-block;
   width: 100%;
@@ -609,24 +1000,24 @@ trix-editor .attachment__metadata .attachment__size {
   overflow-x: auto;
 }
 
-/* line 379, app/assets/stylesheets/actiontext.scss */
+/* line 391, app/assets/stylesheets/actiontext.scss */
 .trix-content ul, .trix-content ol, .trix-content li {
   margin: 0;
   padding: 0;
 }
 
-/* line 382, app/assets/stylesheets/actiontext.scss */
+/* line 394, app/assets/stylesheets/actiontext.scss */
 .trix-content ul li, .trix-content ol li, .trix-content li li {
   margin-left: 1em;
 }
 
-/* line 384, app/assets/stylesheets/actiontext.scss */
+/* line 396, app/assets/stylesheets/actiontext.scss */
 .trix-content img {
   max-width: 100%;
   height: auto;
 }
 
-/* line 387, app/assets/stylesheets/actiontext.scss */
+/* line 399, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment {
   display: inline-block;
   position: relative;
@@ -635,42 +1026,42 @@ trix-editor .attachment__metadata .attachment__size {
   padding: 0;
 }
 
-/* line 393, app/assets/stylesheets/actiontext.scss */
+/* line 405, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 396, app/assets/stylesheets/actiontext.scss */
+/* line 408, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment a:hover, .trix-content .attachment a:visited:hover {
   color: inherit;
 }
 
-/* line 398, app/assets/stylesheets/actiontext.scss */
+/* line 410, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment__caption {
   padding: 0;
   text-align: center;
 }
 
-/* line 401, app/assets/stylesheets/actiontext.scss */
+/* line 413, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment__caption .attachment__name + .attachment__size::before {
   content: ' · ';
 }
 
-/* line 403, app/assets/stylesheets/actiontext.scss */
+/* line 415, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment--preview {
   width: 100%;
   text-align: center;
 }
 
-/* line 406, app/assets/stylesheets/actiontext.scss */
+/* line 418, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment--preview .attachment__caption {
   color: #666;
   font-size: 0.9em;
   line-height: 1.2;
 }
 
-/* line 410, app/assets/stylesheets/actiontext.scss */
+/* line 422, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment--file {
   color: #333;
   line-height: 1;
@@ -680,7 +1071,7 @@ trix-editor .attachment__metadata .attachment__size {
   border-radius: 5px;
 }
 
-/* line 417, app/assets/stylesheets/actiontext.scss */
+/* line 429, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment-gallery {
   display: -webkit-box;
   display: flex;
@@ -690,7 +1081,7 @@ trix-editor .attachment__metadata .attachment__size {
   padding: 0;
 }
 
-/* line 423, app/assets/stylesheets/actiontext.scss */
+/* line 435, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment-gallery .attachment {
   -webkit-box-flex: 1;
           flex: 1 0 33%;
@@ -698,7 +1089,7 @@ trix-editor .attachment__metadata .attachment__size {
   max-width: 33%;
 }
 
-/* line 427, app/assets/stylesheets/actiontext.scss */
+/* line 439, app/assets/stylesheets/actiontext.scss */
 .trix-content .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
   flex-basis: 50%;
   max-width: 50%;
@@ -853,49 +1244,61 @@ trix-editor .attachment__metadata .attachment__size {
   border: 1px solid #e1e1e1;
 }
 
-/* line 16, app/assets/stylesheets/blogs.scss */
+/* line 17, app/assets/stylesheets/blogs.scss */
 .blog_wrapper blockquote {
-  background: #e0dcdc;
-  padding: 1rem;
+  font-size: 1em;
+  color: #222;
+  width: 95%;
   font-style: italic;
-  border-left: solid 15px #00b8ac;
-  border-right: solid 3px #00b8ac;
-  padding: 15px 20px;
-  margin: 0 0 20px;
+  font-weight: 450;
+  margin: 10px auto;
+  padding: 1em 1.2em 1em 1.5em;
+  border-left: 8px solid #dc2020;
+  line-height: 1.6;
   position: relative;
+  background: #e2e9e9;
 }
 
-/* line 26, app/assets/stylesheets/blogs.scss */
+/* line 31, app/assets/stylesheets/blogs.scss */
+.blog_wrapper blockquote span {
+  display: block;
+  color: #333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+/* line 39, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info {
   display: block;
   padding-left: 2rem;
 }
 
-/* line 29, app/assets/stylesheets/blogs.scss */
+/* line 42, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_user_avatar {
   float: left;
 }
 
-/* line 32, app/assets/stylesheets/blogs.scss */
+/* line 45, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_user_name {
   display: inline-block;
   font-size: .8rem;
   margin-left: 1rem;
 }
 
-/* line 36, app/assets/stylesheets/blogs.scss */
+/* line 49, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_user_name a {
   text-decoration: none;
   color: #DC2020;
   font-weight: 700;
 }
 
-/* line 40, app/assets/stylesheets/blogs.scss */
+/* line 53, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_user_name a:hover {
   color: #00b8ac;
 }
 
-/* line 45, app/assets/stylesheets/blogs.scss */
+/* line 58, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_date {
   display: inline-block;
   font-size: .8rem;
@@ -904,18 +1307,18 @@ trix-editor .attachment__metadata .attachment__size {
   margin-left: 1rem;
 }
 
-/* line 51, app/assets/stylesheets/blogs.scss */
+/* line 64, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_date a {
   text-decoration: none;
   color: #DC2020;
 }
 
-/* line 54, app/assets/stylesheets/blogs.scss */
+/* line 67, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_date a:hover {
   color: #00b8ac;
 }
 
-/* line 59, app/assets/stylesheets/blogs.scss */
+/* line 72, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_info .blog_info_user_stats {
   display: inline-block;
   font-size: .75rem;
@@ -924,7 +1327,7 @@ trix-editor .attachment__metadata .attachment__size {
   margin-left: .4rem;
 }
 
-/* line 67, app/assets/stylesheets/blogs.scss */
+/* line 80, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_content {
   padding: 1rem 2rem;
   line-height: 1.7em;
@@ -936,19 +1339,19 @@ trix-editor .attachment__metadata .attachment__size {
   word-wrap: break-word;
 }
 
-/* line 76, app/assets/stylesheets/blogs.scss */
+/* line 89, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_content a {
   text-decoration: none;
   color: #DC2020;
   font-weight: 700;
 }
 
-/* line 80, app/assets/stylesheets/blogs.scss */
+/* line 93, app/assets/stylesheets/blogs.scss */
 .blog_wrapper .blog_content a:hover {
   color: #00b8ac;
 }
 
-/* line 85, app/assets/stylesheets/blogs.scss */
+/* line 98, app/assets/stylesheets/blogs.scss */
 .blog_wrapper pre {
   font-size: 14px;
   font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
@@ -969,6 +1372,11 @@ trix-editor .attachment__metadata .attachment__size {
   background-image: repeating-linear-gradient(180deg, #f7f7f7 0px, #f7f7f7 24px, #fff 24px, #fff 48px);
   /* Offset the background along the y-axis by top padding */
   background-position: 0 14px;
+}
+
+/* line 127, app/assets/stylesheets/blogs.scss */
+ol {
+  list-style-position: inside;
 }
 /* line 1, app/assets/stylesheets/dashboards.scss */
 .crown-border {
@@ -3959,6 +4367,10 @@ yx-axis
 	.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{ background-color: #fff; background-color: rgba(255,255,255,0.9); }
 	
 	/* ---------------------------------------- */
+/* line 1, app/assets/stylesheets/searches.scss */
+.search-result {
+  background-color: #f4f4f4;
+}
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -23261,18 +23673,33 @@ readers do not read off random characters that represent icons */
 }
 
 /* line 64, app/assets/stylesheets/welcome.scss */
+.tag_style_fantasy {
+  background-image: url("https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_fantasy_background.jpg");
+}
+
+/* line 68, app/assets/stylesheets/welcome.scss */
 .tag_style_horror {
   background-image: url("https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_horror_background.jpg");
 }
 
-/* line 68, app/assets/stylesheets/welcome.scss */
+/* line 72, app/assets/stylesheets/welcome.scss */
 .tag_style_military {
   background-image: url("https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_mil_background.jpg");
 }
 
-/* line 72, app/assets/stylesheets/welcome.scss */
+/* line 76, app/assets/stylesheets/welcome.scss */
+.tag_style_premium {
+  background-image: url("https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_premium_background.jpg");
+}
+
+/* line 80, app/assets/stylesheets/welcome.scss */
 .tag_style_scifi {
   background-image: url("https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_scifi_background.jpg");
+}
+
+/* line 84, app/assets/stylesheets/welcome.scss */
+.tag_style_western {
+  background-image: url("https://yarnn.s3-us-west-2.amazonaws.com/backgrounds/tag_western_background.jpg");
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -42533,7 +42960,7 @@ html {
 /* line 29, app/assets/stylesheets/application.scss */
 body {
   padding-top: 80px;
-  background: #000;
+  background: #d9dada;
   position: relative;
   min-height: 100%;
 }
@@ -42949,6 +43376,11 @@ audio {
 }
 
 /* line 368, app/assets/stylesheets/application.scss */
+.light-bg {
+  background: #f0f0f0;
+}
+
+/* line 372, app/assets/stylesheets/application.scss */
 .grayline {
   height: 1px;
   border-top: 0;
@@ -42956,7 +43388,7 @@ audio {
   margin: 4px 0;
 }
 
-/* line 375, app/assets/stylesheets/application.scss */
+/* line 379, app/assets/stylesheets/application.scss */
 .grayline-dark {
   height: 1px;
   border-top: 0;
@@ -42964,62 +43396,12 @@ audio {
   margin: 4px 0;
 }
 
-/* line 382, app/assets/stylesheets/application.scss */
+/* line 386, app/assets/stylesheets/application.scss */
 .border-dark {
   border: 1px solid #131520;
 }
 
-/* line 386, app/assets/stylesheets/application.scss */
-.alert-good {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 85, 33, 0.7)), to(rgba(33, 85, 33, 0.9))), url("bg-dark.jpeg");
-  background: linear-gradient(rgba(33, 85, 33, 0.7), rgba(33, 85, 33, 0.9)), url("bg-dark.jpeg");
-  border-radius: 5px;
-  border: 1px solid #a2abb4;
-  color: #a2abb4;
-}
-
-/* line 393, app/assets/stylesheets/application.scss */
-.alert-bad {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(161, 0, 0, 0.7)), to(rgba(161, 0, 0, 0.9))), url("bg-dark.jpeg");
-  background: linear-gradient(rgba(161, 0, 0, 0.7), rgba(161, 0, 0, 0.9)), url("bg-dark.jpeg");
-  border-radius: 5px;
-  border: 1px solid #a2abb4;
-  color: #a2abb4;
-}
-
-/* Tooltip container */
-/* line 402, app/assets/stylesheets/application.scss */
-.tooler {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted #DC2020;
-  font-size: .85rem;
-}
-
-/* Tooltip text */
-/* line 410, app/assets/stylesheets/application.scss */
-.tooler .toolertext {
-  visibility: hidden;
-  width: 200px;
-  background-color: #e0e0e0;
-  color: #333;
-  text-align: center;
-  line-height: 1.5;
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-/* line 427, app/assets/stylesheets/application.scss */
-.tooler:hover .toolertext {
-  visibility: visible;
-}
-
-/* line 431, app/assets/stylesheets/application.scss */
+/* line 390, app/assets/stylesheets/application.scss */
 trix-toolbar .trix-button-group button {
   background-color: white;
 }
@@ -43029,11 +43411,11 @@ trix-toolbar .trix-button-group button {
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* line 442, app/assets/stylesheets/application.scss */
+  /* line 401, app/assets/stylesheets/application.scss */
   .full-form-container {
     width: 600px;
   }
-  /* line 446, app/assets/stylesheets/application.scss */
+  /* line 405, app/assets/stylesheets/application.scss */
   .wide-form-container {
     width: 800px;
   }
@@ -43044,43 +43426,314 @@ trix-toolbar .trix-button-group button {
   ##Screen = B/w 768px to 1024px
 */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  /* line 459, app/assets/stylesheets/application.scss */
+  /* line 418, app/assets/stylesheets/application.scss */
   .full-form-container {
     width: 700px;
   }
-  /* line 463, app/assets/stylesheets/application.scss */
+  /* line 422, app/assets/stylesheets/application.scss */
   .wide-form-container {
     width: 900px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 470, app/assets/stylesheets/application.scss */
+  /* line 430, app/assets/stylesheets/application.scss */
+  .blog_content {
+    padding: .5rem 1rem;
+    line-height: 1.25rem;
+    font-size: .7rem;
+  }
+  /* line 436, app/assets/stylesheets/application.scss */
+  body {
+    font-size: .8rem;
+    line-height: 1.25rem;
+  }
+  /* line 441, app/assets/stylesheets/application.scss */
   .dropdown-menu {
     max-height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
   }
-  /* line 476, app/assets/stylesheets/application.scss */
+  /* line 447, app/assets/stylesheets/application.scss */
   .home-header {
     font-size: 3em;
     font-family: 'Teko', sans-serif;
     line-height: 1em;
     color: #fff;
   }
-  /* line 483, app/assets/stylesheets/application.scss */
+  /* line 454, app/assets/stylesheets/application.scss */
   .full-form-container {
     width: 85%;
   }
-  /* line 487, app/assets/stylesheets/application.scss */
+  /* line 458, app/assets/stylesheets/application.scss */
   .wide-form-container {
     width: 90%;
   }
-  /* line 491, app/assets/stylesheets/application.scss */
+  /* line 462, app/assets/stylesheets/application.scss */
   .g-recaptcha {
     -webkit-transform: scale(0.6);
             transform: scale(0.6);
     -webkit-transform-origin: 0 0;
             transform-origin: 0 0;
   }
+}
+
+/* 
+  ## Miraculous Theme related
+  ##
+*/
+/*====Footer Css Start====*/
+/* line 474, app/assets/stylesheets/application.scss */
+.ms_footer_wrapper {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.9))), url("bg-dark.jpeg");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("bg-dark.jpeg");
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  /*margin-bottom: 75px;*/
+  padding-top: 10px;
+}
+
+/* line 482, app/assets/stylesheets/application.scss */
+.ms_footer_wrapper:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: -ms-linear-gradient(-90deg, #14182a 0%, rgba(32, 167, 196, 0) 100%);
+  background-color: rgba(20, 24, 42, 0.3);
+}
+
+/* line 495, app/assets/stylesheets/application.scss */
+.ms_footer_inner {
+  padding: 0px 80px 2px 80px;
+}
+
+/* line 498, app/assets/stylesheets/application.scss */
+.footer_box {
+  margin-top: 35px;
+  padding-right: 55px;
+}
+
+/* line 502, app/assets/stylesheets/application.scss */
+.ms_footer_logo {
+  text-align: center;
+  padding-left: 80px;
+  padding-bottom: 25px;
+}
+
+/* line 507, app/assets/stylesheets/application.scss */
+.ms_footer_logo span {
+  display: block;
+  width: 100%;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* line 516, app/assets/stylesheets/application.scss */
+h1.footer_title {
+  font-size: 22px;
+  text-transform: capitalize;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+/* line 523, app/assets/stylesheets/application.scss */
+h1.footer_title:after {
+  width: 100px;
+  height: 5px;
+  content: "";
+  position: absolute !important;
+  bottom: 0;
+  left: -15px;
+  z-index: 0;
+  background: -o-radial-gradient(50% 50%, ellipse closest-side, #3bc8e7, rgba(255, 42, 112, 0) 60%);
+}
+
+/* line 536, app/assets/stylesheets/application.scss */
+h1.footer_links {
+  font-size: 22px;
+  text-transform: capitalize;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+/* line 542, app/assets/stylesheets/application.scss */
+.footer_box p {
+  color: #ffffff;
+  line-height: 25px;
+  margin: 0px;
+}
+
+/* line 547, app/assets/stylesheets/application.scss */
+.footer_box.footer_app p {
+  margin-bottom: 5px;
+}
+
+/* line 550, app/assets/stylesheets/application.scss */
+.footer_box a.foo_app_btn {
+  display: inline-block;
+  padding: 10px 15px 10px 0px;
+}
+
+/* line 554, app/assets/stylesheets/application.scss */
+.footer_box a.foo_app_btn img {
+  border-radius: 5px;
+}
+
+/* line 557, app/assets/stylesheets/application.scss */
+.footer_box.footer_subscribe p {
+  margin-bottom: 15px;
+}
+
+/* line 560, app/assets/stylesheets/application.scss */
+.footer_box.footer_subscribe .form-group {
+  margin-bottom: 20px;
+}
+
+/* line 563, app/assets/stylesheets/application.scss */
+.footer_box.footer_subscribe .ms_btn {
+  height: 40px;
+  line-height: 42px;
+  width: auto;
+  padding: 0px 22px;
+  margin-left: 0px;
+}
+
+/* line 570, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+/* line 575, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info li {
+  width: 100%;
+  display: inline-block;
+}
+
+/* line 579, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info li .foo_con_icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+  border-radius: 5px;
+  background-image: -ms-linear-gradient(90deg, #161a2e 0%, #ed3fb3 0%, #3bc8e7 0%, #20a7c4 100%);
+}
+
+/* line 591, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info li .foo_con_data {
+  width: calc(100% - 40px);
+  float: left;
+  padding-left: 20px;
+  margin-bottom: 3px;
+}
+
+/* line 597, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info li .foo_con_data span {
+  display: block;
+  line-height: 25px;
+  color: #ffffff;
+}
+
+/* line 602, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info li .foo_con_data span.con-title {
+  text-transform: capitalize;
+}
+
+/* line 605, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info li .foo_con_data span a {
+  color: #ffffff;
+}
+
+/* line 608, app/assets/stylesheets/application.scss */
+.footer_box.footer_contacts ul.foo_con_info li .foo_con_data span a:hover {
+  color: #3bc8e7;
+}
+
+/* line 611, app/assets/stylesheets/application.scss */
+.foo_sharing {
+  width: 100%;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* line 616, app/assets/stylesheets/application.scss */
+.share_title {
+  display: inline-block;
+  color: #fff;
+  text-transform: capitalize;
+  float: left;
+  line-height: 33px;
+}
+
+/* line 623, app/assets/stylesheets/application.scss */
+.foo_sharing ul {
+  padding: 0px;
+  margin: 0px;
+  float: left;
+  padding-left: 25px;
+}
+
+/* line 629, app/assets/stylesheets/application.scss */
+.foo_sharing ul li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* line 633, app/assets/stylesheets/application.scss */
+.foo_sharing ul li a {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 5px;
+  background-image: -ms-linear-gradient(90deg, #161a2e 0%, #ed3fb3 0%, #3bc8e7 0%, #20a7c4 100%);
+}
+
+/* line 645, app/assets/stylesheets/application.scss */
+.foo_sharing ul li a:hover {
+  box-shadow: 0 0 18px 0 #3bc8e7;
+}
+
+/* line 648, app/assets/stylesheets/application.scss */
+.footer_box.footer_subscribe input.form-control {
+  width: 93%;
+}
+
+/* line 651, app/assets/stylesheets/application.scss */
+.ms_copyright {
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+  display: inline-block;
+}
+
+/* line 657, app/assets/stylesheets/application.scss */
+.ms_copyright p {
+  color: #ffffff;
+  margin: 0px;
+  padding: 20px 0px;
+}
+
+/* line 663, app/assets/stylesheets/application.scss */
+.footer_border {
+  width: 250px;
+  height: 1px;
+  margin: 0 auto;
+  z-index: 0;
+  background: -o-radial-gradient(50% 50%, ellipse closest-side, #3bc8e7, rgba(255, 42, 112, 0) 60%);
 }

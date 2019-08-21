@@ -100,7 +100,7 @@
 							  <div class="card-body shadow-sm">
 							    <h6 class="card-subtitle mb-2 text-muted">Latest Topics</h6>
 							    <small>
-				  					<% if @topics.any? %>
+				  					<% if @topics.exists? %>
 				                      <%= render 'tags/topics_simple' %>
 				                      <%= paginate @topics %>
 				                    <% else %>

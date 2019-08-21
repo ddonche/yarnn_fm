@@ -87,7 +87,7 @@
 								</div>
 							    
 							    <small>
-				  					<% if @topics.any? %>
+				  					<% if @topics.exists? %>
 				                      <%= render 'tags/topics_simple' %>
 				                      <%= paginate @topics %>
 				                    <% else %>
@@ -145,7 +145,7 @@
 									<h4 class="card-title site-blue">Tracks</h4>
 								</div>
 							</div>
-							<% if @tracks.any? %>
+							<% if @tracks.exists? %>
 								<%= render 'tags/tracks' %>
 							<% else %>
 								<p>This genre doesn't have any tracks yet.</p>
@@ -158,7 +158,7 @@
 									<h4 class="card-title site-blue">Products</h4>
 								</div>
 							</div>
-							<% if @listings.any? %>
+							<% if @listings.exists? %>
 								<%= render 'tags/listings' %>
 							<% else %>
 								<p>This genre doesn't have any products in the marketplace.</p>
@@ -171,7 +171,7 @@
 									<h4 class="card-title site-blue">Topics</h4>
 								</div>
 							</div>
-							<% if @topics.any? %>
+							<% if @topics.exists? %>
 								<%= render 'tags/topics' %>
 							<% else %>
 								<p>No one has created any topics yet.</p>
@@ -185,7 +185,7 @@
 									<h4 class="card-title site-blue">Topics</h4>
 								</div>
 							</div>
-							<% if @topics.any? %>
+							<% if @topics.exists? %>
 								<%= render 'tags/topics' %>
 							<% else %>
 								<p>No one has created any topics yet.</p>

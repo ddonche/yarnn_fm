@@ -183,7 +183,7 @@
 									<h4 class="card-title site-blue">Tracks</h4>
 								</div>
 							</div>
-							<% if @user.tracks.any? %>
+							<% if @user.tracks.exists? %>
 								<%= render 'users/tracks' %>
 							<% else %>
 								<p><%= @user.username %> hasn't uploaded any tracks yet.</p>
@@ -195,7 +195,7 @@
 									<h4 class="card-title site-blue">Albums</h4>
 								</div>
 							</div>
-							<% if @user.albums.any? %>
+							<% if @user.albums.exists? %>
 								<%= render 'users/albums' %>
 							<% else %>
 								<p><%= @user.username %> hasn't created any albums yet.</p>
@@ -207,7 +207,7 @@
 									<h4 class="card-title site-blue">Products</h4>
 								</div>
 							</div>
-							<% if @user.listings.any? %>
+							<% if @user.listings.exists? %>
 								<%= render 'users/listings' %>
 							<% else %>
 								<p><%= @user.username %> isn't currently selling anything in the marketplace.</p>
@@ -219,7 +219,7 @@
 									<h4 class="card-title site-blue">Blog Posts</h4>
 								</div>
 							</div>
-							<% if @user.blogs.any? %>
+							<% if @user.blogs.exists? %>
 								<%= render 'users/blogs' %>
 							<% else %>
 								<p><%= @user.username %> hasn't written any blog posts yet.</p>
@@ -231,7 +231,7 @@
 									<h4 class="card-title site-blue">Topics</h4>
 								</div>
 							</div>
-							<% if @user.topics.any? %>
+							<% if @user.topics.exists? %>
 								<%= render 'users/topics' %>
 							<% else %>
 								<p><%= @user.username %> hasn't created any topics yet.</p>
@@ -243,7 +243,7 @@
 									<h4 class="card-title site-blue">Reviews</h4>
 								</div>
 							</div>
-							<% if @user.reviews.any? %>
+							<% if @user.reviews.exists? %>
 								<%= render 'users/reviews' %>
 							<% else %>
 								<p><%= @user.username %> hasn't written any reviews yet.</p>

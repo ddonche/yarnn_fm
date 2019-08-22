@@ -446,6 +446,14 @@ trix-toolbar .trix-button-group button {
     letter-spacing: 3px;
   }
   
+  .nav-text-footer {
+    font-size: 10px !important;
+  }
+  
+  h1.footer_title {
+	font-size: 18px !important;
+}
+  
   .dropdown-menu {
     max-height: 200px;
     overflow-y: auto;
@@ -665,11 +673,9 @@ h1.footer_title:after {
 .ms_copyright {
 	text-align: center;
 	width: 100%;
-	display: inline-block;
-}
-.ms_copyright p {
-	color: #ffffff;
-	padding-top: 20px;
+	color: #666;
+	font-size: 12px;
+	padding: 10px 0;
 }
 
 .footer_border {

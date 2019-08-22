@@ -18,7 +18,12 @@
 		    				<div class="card">
 							  <div class="card-body shadow-sm">
 							    <h4 class="card-title site-blue"></h4>
-							    <h6 class="card-subtitle mb-2 text-muted">Something here</h6>
+							    <h6 class="card-subtitle mb-2 text-muted">Need Help?</h6>
+							    <%= link_to tag_path("support") do %>
+							    <%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/banners/support-desk.jpg', title: "action", class: "image-full") %>
+							    <small class="mt-1"><%= link_to "Visit Support", tag_path("support") %><br />
+							    Ask questions, post about site errors, or request a feature.</small>
+							    <% end %>
 							  </div>
 									
 							</div>

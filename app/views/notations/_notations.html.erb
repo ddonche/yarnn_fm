@@ -6,7 +6,10 @@
         <%= notation.content %> - 
         
           <h6 style= "display: inline-block"><%= link_to notation.user.username, user_path(notation.user) %> ,</h6> 
-          <%= time_ago_in_words(notation.created_at) %> ago
+          <%= time_ago_in_words(notation.created_at) %> ago 
+          <% if (user_signed_in? && current_user.role == "admin") %>
+            <div class="small ml-3 text-secondary" style="display:inline-block">#<%= notation.id %></div>
+          <% end %>
           
           <% if (user_signed_in? && (current_user.id == notation.user_id)) %>
             <% if @commentable = @track %>

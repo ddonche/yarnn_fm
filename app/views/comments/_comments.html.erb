@@ -12,7 +12,11 @@
     </div>
     
     <div class="col-10">
-      <h5 style= "display: inline-block"><%= link_to comment.user.username, user_path(comment.user) %></h5> <small>- <i><%= time_ago_in_words(comment.created_at) %> ago</i> </small><br />
+      <h5 style= "display: inline-block"><%= link_to comment.user.username, user_path(comment.user) %></h5> <small>- <i><%= time_ago_in_words(comment.created_at) %> ago</i> </small>
+      <% if (user_signed_in? && current_user.role == "admin") %>
+        <div class="small ml-3 text-secondary" style="display:inline-block">#<%= comment.id %></div>
+      <% end %>
+          <br />
       	<ul class="nav mb-2">
       	  <% if @commentable = @blog %>
 						<li class="mr-3">

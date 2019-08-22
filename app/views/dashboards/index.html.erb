@@ -20,7 +20,7 @@
         <div class="px-3 my-3 pb-5 text-secondary bg-white rounded">
         	<div class="row pt-3 rounded">
             <div class="col-12 ml-3">
-              <h5 class="site-blue">Hello, <%= current_user.username %>!</h5>
+              <% if current_user.role == "admin" %><i class="fas fa-cog text-correct mr-2"></i><% end %><h5 class="site-blue" style="display: inline-block">Hello, <%= current_user.username %>!</h5>
               <% if current_user.stripe_subscription_id? %>
                 <h6 class="text-secondary">Your Account Type: <i class="fas fa-crown text-secondary small"></i> Premium</h6>
               <% else %>

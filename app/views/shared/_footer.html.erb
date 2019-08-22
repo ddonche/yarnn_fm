@@ -50,7 +50,7 @@
     <div class="ms_footer_inner">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="footer_box">
+                <div class="footer_box footer_subscribe">
                     <h1 class="footer_title site-blue">Yarnn.FM</h1>
                     <p>Our primary mission is to provide users with quality audio short stories and poems.<br /><br />
                     We are here to help authors and poets get heard. Literally. </p>
@@ -65,51 +65,59 @@
                 </div>
                 
             </div>
-            <div class="col-lg-2 col-md-6 col-sm-12">
-                <div class="footer_box footer_app">
-                    <h1 class="footer_title site-blue">Resources</h1>
-
-                    <h1 class= "footer_links"><%= link_to "About", wiki_path(1) %></h1>
-                    <h1 class= "footer_links"><%= link_to "Terms", terms_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "Privacy", privacy_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "Knowledge Base", wiki_path(1) %></h1>
-                    <h1 class= "footer_links"><%= link_to "Help Forum", tag_path("support") %></h1>
-                    <h1 class= "footer_links"><%= link_to "Go Premium", pricing_index_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "API", root_path %></h1>
-                   
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6 col-sm-12">
-                <div class="footer_box footer_app">
-                    <h1 class="footer_title site-blue">Content</h1>
-                    
-                    <h1 class= "footer_links"><%= link_to "Albums", albums_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "Tracks", tracks_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "Products", listings_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "Topics", topics_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "Genres", genres_path %></h1>
-                    <h1 class= "footer_links"><%= link_to "Blogs", blogs_path %></h1>
-                   
-                </div>
-            </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <div class="footer_box footer_subscribe">
-                  <h1 class="footer_title site-blue">subscribe</h1>
-                  <p>Subscribe to our newsletter and get latest updates and offers.</p>
-                  <form>
-                      <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Enter Your Name">
-                      </div>
-                      <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Enter Your Email">
-                      </div>
-                      <div class="form-group">
-                          <a href="#" class="ms_btn">sign me up</a>
-                      </div>
-                  </form>
-              </div>
-          </div>
-        </div>
+                <div class="footer_box footer_app">
+                  <div class="row">
+                    <div class="col-6">
+                      <h1 class="footer_title site-blue">Resources</h1>
+  
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "About", wiki_path(1) %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Terms", terms_path %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Privacy", privacy_path %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Help Center", wiki_path(1) %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Help Forum", tag_path("support") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Sellers", payout_method_path %></div>
+                    </div> 
+                    <div class="col-6">
+                      <h1 class="footer_title site-blue">Content</h1>
+                      
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Albums", albums_path %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Tracks", tracks_path %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Products", listings_path %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Topics", topics_path %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Genres", genres_path %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Blogs", blogs_path %></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="footer_box footer_app">
+                  <div class="row">
+                    <div class="col-6">
+                      <h1 class="footer_title site-blue">Top Genres</h1>
+  
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Thriller", tag_path("thriller") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Fantasy", tag_path("fantasy") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Young Adult", tag_path("young adult") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Horror", tag_path("horror") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Paranormal", tag_path("paranormal") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Sci-Fi", tag_path("science fiction") %></div>
+                    </div> 
+                    <div class="col-6">
+                      <h1 class="footer_title site-blue">Top Non-Fiction</h1>
+                      
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Business", tag_path("business") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Religion", tag_path("religion") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "History", tag_path("history") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "True Crime", tag_path("true crime") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Self-help", tag_path("self-help") %></div>
+                      <div class= "nav-text-footer text-uppercase"><%= link_to "Philosophy", tag_path("philosophy") %></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
     </div>
     <!----Copyright---->
     <div class="col-12">

@@ -27,9 +27,9 @@
                       <tr>
                         <th scope="row">
                           <% if User.find(notification.notified_by_id).image? %>
-                            <%= image_tag User.find(notification.notified_by_id).image.url,  width: 40, class: "image", title: User.find(notification.notified_by_id).username %>
+                            <%= image_tag User.find(notification.notified_by_id).image.url(:thumb),  width: 40, class: "rounded", title: User.find(notification.notified_by_id).username %>
                           <% else %>
-                            <%= image_tag('default_track.jpg', width: 40, class: "image", title: User.find(notification.notified_by_id).username) %>
+                            <%= image_tag('default_track.jpg', width: 40, class: "rounded", title: User.find(notification.notified_by_id).username) %>
                           <% end %>
                         </th>
                         <td><%= render partial: "notifications/types/#{notification.notifiable_type}", locals: {notification: notification} %></td>

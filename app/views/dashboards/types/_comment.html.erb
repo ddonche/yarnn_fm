@@ -46,7 +46,7 @@
       			<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
       			    <%= render partial: "topics/icons/#{@icon}" %>
       			<% else %>
-      				<%= image_tag('default_track.jpg', width: 30, title: "genre", class: "round pt-1") %>
+      				<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/icons/default-site-blue.png', width: 30, title: "#{@icon}", class: "pt-1") %>
       			<% end %>
       		<% end %>
       	<% elsif item.commentable_type == "Topic" %>

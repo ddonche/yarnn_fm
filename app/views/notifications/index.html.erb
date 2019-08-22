@@ -1,57 +1,52 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-	  <%= render 'layouts/header' %>
-	</div>
-  
-	<div id="breadcrumb">
-	  <%= link_to current_user.username, user_path(current_user) %>
-			<span>/</span>
-		Notifications
-	</div>
-	
+<div class="container">
+  <nav aria-label="breadcrumb">
+	  <ol class="breadcrumb mt-3 shadow-sm">
+		    <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to current_user.username, user_path(current_user) %></li>
+        <li class="breadcrumb-item">Notifications</li>
+	  </ol>
+	</nav>
   <%= render 'shared/alert' %>
     
-  <% if @notifications.count > 21 %>
-    <div class ="pagination-container">
-      <%= paginate @notifications %>
-    </div>
-  <% end %>    
-  
-    <div class="wrapper_wide">
-      <div class="side-box">
-        <div class="table">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <%= paginate @notifications %>
 
-          <% if @notifications.any? %>
-            <% @notifications.each do |notification| %>
-              <% if lookup_context.template_exists?(notification.notifiable_type, "notifications/types", true) %>
-          
-              <div class="table-row">
-                <div class="tiny-table-cell" style="width: 10%;">
-                  <% if User.find(notification.notified_by_id).image? %>
-                    <%= image_tag User.find(notification.notified_by_id).image.url,  width: 40, class: "image", title: User.find(notification.notified_by_id).username %>
-                  <% else %>
-                    <%= image_tag('default_track.jpg', width: 40, class: "image", title: User.find(notification.notified_by_id).username) %>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col"><h5>User</h5></th>
+                    <th scope="col"><h5>Info</h5></th>
+                    <th scope="col"><h5>When</h5></th>
+                    <th scope="col"><h5>Mark Read</h5></th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% if @notifications.any? %>
+                  <% @notifications.each do |notification| %>
+                    <% if lookup_context.template_exists?(notification.notifiable_type, "notifications/types", true) %>
+                      <tr>
+                        <th scope="row">
+                          <% if User.find(notification.notified_by_id).image? %>
+                            <%= image_tag User.find(notification.notified_by_id).image.url,  width: 40, class: "image", title: User.find(notification.notified_by_id).username %>
+                          <% else %>
+                            <%= image_tag('default_track.jpg', width: 40, class: "image", title: User.find(notification.notified_by_id).username) %>
+                          <% end %>
+                        </th>
+                        <td><%= render partial: "notifications/types/#{notification.notifiable_type}", locals: {notification: notification} %></td>
+                        <td><small><%= time_ago_in_words(notification.created_at) %> ago</small></td>
+                        <td><small>
+                              <%= link_to 'mark as read', toggle_read_notification_path(notification) %>
+                            </small>
+                        </td>
+                      </tr>
+                    <% end %>
                   <% end %>
-                </div>
-                    
-                  <%= render partial: "notifications/types/#{notification.notifiable_type}", locals: {notification: notification} %>
                 
-                  <div class="tiny-table-cell" style="width: 20%;">
-                    <div class="small">
-                      <%= link_to 'mark as read', toggle_read_notification_path(notification) %>
-                    </div>
-                  </div>
-                </div>
-                
-              <% end %>
-              
+            <% else %>
+              You have no notifications.
             <% end %>
-          <% else %>
-            You have no notifications.
-          <% end %>
-          
-        </div>
+            </tbody>
+          </table>
       </div>
     </div>
-    
 </div>

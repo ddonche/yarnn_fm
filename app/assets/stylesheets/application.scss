@@ -45,6 +45,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
 }
 
+.h-50 {
+  height: 50px;
+}
+
 .home-header {
   font-size: 4em;
   font-family: 'Teko', sans-serif;
@@ -435,6 +439,11 @@ trix-toolbar .trix-button-group button {
   body {
     font-size: .8rem;
     line-height: 1.25rem;
+  }
+  
+  .nav-text {
+    font-size: 10px;
+    letter-spacing: 3px;
   }
   
   .dropdown-menu {

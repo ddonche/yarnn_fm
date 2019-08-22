@@ -15,6 +15,9 @@ class NotationsController < ApplicationController
     @notation = @comment.notations.new(notation_params) 
     @notation.user_id = current_user.id if current_user
     if @notation.save
+      Notification.create!(parent_id: @commentable.id, notifiable_id: @comment.id, 
+                                  recipient_id: @comment.user_id, notified_by_id: current_user.id, 
+                                  notifiable_type: "notation", commentable_type: @comment.commentable_type)
       redirect_to @commentable
     else
       render :new
@@ -36,8 +39,7 @@ class NotationsController < ApplicationController
   end
 
   def destroy
-    @notation = Notation.find(params[:id])
-    @notation.destroy
+    Notation.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to @commentable, notice: 'Reply was eradicated.' }
     end

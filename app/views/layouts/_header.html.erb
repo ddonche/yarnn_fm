@@ -14,26 +14,6 @@
       <ul class="navbar-nav">
 
       	<% unless user_signed_in? %>
-          <div class="dropdown">
-			  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			    EXPLORE
-			    <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu nav-text p-2" aria-labelledby="dropdownMenu1">
-			    <li class="dropdown-item navdrop-link"><%= link_to "Genres", genres_path %></li>
-			    <li class="dropdown-item navdrop-link"><%= link_to "Albums", albums_path %></li>
-			    <li class="dropdown-item navdrop-link"><%= link_to "Tracks", tracks_path %></li>
-			    <li class="dropdown-item navdrop-link"><%= link_to "Topics", topics_path %></li>
-			    <li class="dropdown-item navdrop-link"><%= link_to "Blog Posts", blogs_path %></li>
-			    <li class="dropdown-item navdrop-link"><%= link_to "Users", users_path %></li>
-			  </ul>
-			</div>
-
-	        <li class="nav-item">
-	        	<%= link_to listings_path, :class => "nav-link text-correct m-2 menu-item" do %>
-				  <i class="fas fa-shopping-cart text-correct"></i> Marketplace
-				<% end %>
-	        </li>
 	        
 	        <% unless subscribed? %>
 	        <li class="nav-item">
@@ -95,27 +75,6 @@
 							<% end %>
 						<% end %>
 			</li>
-
-					<div class="dropdown">
-					  <button class="btn btn-outline-secondary dropdown-toggle text-correct nav-text m-2" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-					    EXPLORE
-					    <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu nav-text p-2" aria-labelledby="dropdownMenu1">
-					  	<li class="dropdown-item navdrop-link"><%= link_to "Genres", genres_path %></li>
-					    <li class="dropdown-item navdrop-link"><%= link_to "Albums", albums_path %></li>
-					    <li class="dropdown-item navdrop-link"><%= link_to "Tracks", tracks_path %></li>
-					    <li class="dropdown-item navdrop-link"><%= link_to "Topics", topics_path %></li>
-					    <li class="dropdown-item navdrop-link"><%= link_to "Blog Posts", blogs_path %></li>
-					    <li class="dropdown-item navdrop-link"><%= link_to "Users", users_path %></li>
-					  </ul>
-					</div>
-
-	        <li class="nav-item">
-	        	<%= link_to listings_path, :class => "nav-link text-correct m-2 menu-item" do %>
-						  <i class="fas fa-shopping-cart text-correct"></i> Marketplace
-						<% end %>
-	        </li>
 	        
 	        <% unless subscribed? %>
 	        <li class="nav-item">
@@ -154,5 +113,46 @@
     </div>
   </nav>
   <!-- end of navbar -->
+<div class="d-flex flex-column flex-md-row justify-content-center p-1 px-md-4 bg-white border-bottom shadow-sm">
+
+  <ul class="nav justify-content-center nav-text-tiny text-uppercase">
+    <li class="nav-item site-blue nav-link site-stat">
+    	<%= link_to genres_path, :class => "nav-text text-dark m-2 menu-item" do %>
+			<i class="fas fa-tags text-dark"></i> GENRES
+		<% end %>	
+	</li>
+	<li class="nav-item site-blue nav-link site-stat">
+    	<%= link_to albums_path, :class => "nav-text text-dark m-2 menu-item" do %>
+			<i class="fas fa-compact-disc text-dark"></i> ALBUMS
+		<% end %>
+	</li>
+	<li class="nav-item site-blue nav-link site-stat">
+    	<%= link_to tracks_path, :class => "nav-text text-dark m-2 menu-item" do %>
+			<i class="fas fa-headphones text-dark"></i> TRACKS
+		<% end %>
+	</li>
+	<li class="nav-item site-blue nav-link site-stat">
+    	<%= link_to topics_path, :class => "nav-text text-dark m-2 menu-item" do %>
+			<i class="fas fa-comment-alt text-dark"></i> TOPICS
+		<% end %>
+	</li>
+	<li class="nav-item site-blue nav-link site-stat">
+    	<%= link_to blogs_path, :class => "nav-text text-dark m-2 menu-item" do %>
+			<i class="fas fa-pen-nib text-dark"></i> BLOGS
+		<% end %>
+	</li>
+	<li class="nav-item site-blue nav-link site-stat">
+    	<%= link_to users_path, :class => "nav-text text-dark m-2 menu-item" do %>
+			<i class="fas fa-user-astronaut text-dark"></i> USERS
+		<% end %>
+	</li>
+	<li class="nav-item site-blue nav-link site-stat">
+		<%= link_to listings_path, :class => "nav-text text-dark m-2 menu-item" do %>
+			<i class="fas fa-shopping-cart text-dark"></i> Marketplace
+		<% end %>
+	</li>
+	</ul>
+  </nav>
+</div>
 </header>
 <!-- end of header -->

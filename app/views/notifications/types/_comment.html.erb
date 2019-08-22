@@ -1,16 +1,8 @@
-<div class="tiny-table-cell" style="width: 58%;">
-  <%= link_to User.find(notification.notified_by_id).username, user_path(notification.notified_by_id) %> 
-  commented on 
+<h5 style="display: inline-block"><%= link_to User.find(notification.notified_by_id).username, user_path(notification.notified_by_id) %></h5> commented on 
   <% if notification.commentable_type == "Blog" %>
-    <%= link_to Blog.find(notification.parent_id).title, blog_path(notification.parent_id) %>
+    your blog post <h5 style="display: inline-block"><%= link_to Blog.find(notification.parent_id).title, blog_path(notification.parent_id) %></h5>
   <% elsif notification.commentable_type == "Track" %>
-    <%= link_to Track.find(notification.parent_id).title, track_path(notification.parent_id) %>
+    your track <h5 style="display: inline-block"><%= link_to Track.find(notification.parent_id).title, track_path(notification.parent_id) %></h5>
   <% elsif notification.commentable_type == "Topic" %>
-    <%= link_to Topic.find(notification.parent_id).title, topic_path(notification.parent_id) %>
+    your topic <h5 style="display: inline-block"><%= link_to Topic.find(notification.parent_id).title, topic_path(notification.parent_id) %></h5>
   <% end %>
-</div>
-<div class="tiny-table-cell" style="width: 22%;">
-  <div class="small">
-    <%= time_ago_in_words(notification.created_at) %> ago
-  </div>                  
-</div>

@@ -1,10 +1,2 @@
-<div class="tiny-table-cell" style="width: 58%;">
-  <%= link_to User.find(notification.notified_by_id).username, user_path(notification.notified_by_id) %> 
-  sent you a private 
-  <%= link_to 'message', conversation_path(notification.parent_id) %> 
-</div>
-<div class="tiny-table-cell" style="width: 22%;">
-  <div class="small">
-    <%= time_ago_in_words(notification.created_at) %> ago
-  </div>
-</div>
+<h5 style="display: inline-block"><%= link_to User.find(notification.notified_by_id).username, user_path(notification.notified_by_id) %></h5> 
+  sent you a private <%= link_to 'message', conversation_path(notification.parent_id) %> 

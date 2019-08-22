@@ -1,0 +1,9 @@
+<h5 style="display: inline-block"><%= link_to User.find(notification.notified_by_id).username, user_path(notification.notified_by_id) %></h5> replied
+to your comment on 
+  <% if notification.commentable_type == "Blog" %>
+    the blog post <h5 style="display: inline-block"><%= link_to Blog.find(notification.parent_id).title, blog_path(notification.parent_id) %></h5>
+  <% elsif notification.commentable_type == "Track" %>
+    the track <h5 style="display: inline-block"><%= link_to Track.find(notification.parent_id).title, track_path(notification.parent_id) %></h5>
+  <% elsif notification.commentable_type == "Topic" %>
+    the topic <h5 style="display: inline-block"><%= link_to Topic.find(notification.parent_id).title, topic_path(notification.parent_id) %></h5>
+  <% end %>

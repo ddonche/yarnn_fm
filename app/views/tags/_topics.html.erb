@@ -11,10 +11,20 @@
       <% @topics.each do |topic| %>
       
         <tr>
-          <th scope="row"><small><%= link_to topic.title, topic_path(topic) %></small></th>
+          <th scope="row">
+            <small><%= link_to topic.title, topic_path(topic) %>
+              <% if @style == "support" %>
+              	
+            		<% if topic.solved_status == "solved" %>
+		        		  (solved)
+		        	  <% end %>
+		        	  
+          		<% end %>
+            </small>
+          </th>
             <% if topic.comments.any? %>
         			<td><% if topic.latest_comment.user.image? %>
-                    <%= image_tag topic.latest_comment.user.image.url,  width: 25, class: "image rounded mr-1", title: topic.latest_comment.user.username %>
+                    <%= image_tag topic.latest_comment.user.image.url(:thumb),  width: 25, class: "image rounded mr-1", title: topic.latest_comment.user.username %>
                   <% else %>
                     <%= image_tag('default_track.jpg', width: 25, class: "image rounded mr-1", title: topic.latest_comment.user.username) %>
                   <% end %>
@@ -22,7 +32,7 @@
         		<% else %>
         		  <td>
         		    <% if topic.user.image? %>
-                  <%= image_tag topic.user.image.url,  width: 25, class: "image rounded mr-1", title: topic.user.username %>
+                  <%= image_tag topic.user.image.url(:thumb),  width: 25, class: "image rounded mr-1", title: topic.user.username %>
                 <% else %>
                   <%= image_tag('default_track.jpg', width: 25, class: "image rounded mr-1", title: topic.user.username) %>
                 <% end %>

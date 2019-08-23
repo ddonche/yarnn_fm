@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-	before_action :find_topic, only: [:show, :edit, :update, :destroy]
+	before_action :find_topic, only: [:show, :edit, :update, :destroy, :toggle_status]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -96,6 +96,15 @@ class TopicsController < ApplicationController
       end
     end
   end
+  
+  def toggle_status
+    if @topic.unsolved?
+      @topic.solved! 
+    elsif @topic.solved?
+      @topic.unsolved!
+    end
+    redirect_to topic_path(@topic), notice: 'Question status has been updated.'
+  end
 
 	private
   	def find_topic
@@ -103,6 +112,6 @@ class TopicsController < ApplicationController
   	end
   	
     def topic_params
-      params.require(:topic).permit(:content, :title, :tag_list)
+      params.require(:topic).permit(:content, :title, :solved_status, :tag_list)
     end
 end

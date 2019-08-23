@@ -2,6 +2,7 @@ class Topic < ApplicationRecord
   include Taggable
   acts_as_votable
   before_save :downcase_fields
+  enum solved_status: { unsolved: 0, solved: 1 }
   
   belongs_to :user, counter_cache: true
   has_many :comments, as: :commentable

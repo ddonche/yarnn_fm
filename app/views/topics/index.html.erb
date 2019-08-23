@@ -69,8 +69,17 @@
 										<% end %>
 			  		    			</div>
 			                		<div class="col-10 col-md-11">
-			                			
-			                    		<%= link_to topic.title, topic_path(topic) %><br />
+			                    		<%= link_to topic.title, topic_path(topic) %>
+			                    		<% if @icon == "support" %>
+			                    			<small>
+				                			<% if topic.solved_status == "solved" %>
+								        		(solved)
+								        	<% else %>
+								        		(unsolved)
+								        	<% end %>
+								        	</small>
+			                			<% end %>
+			                    		<br />
 			                    		<% topic.tags.map(&:name).each do |tag| %>
 			                			  	<div class="tags">
 			                				  <%= link_to tag, tag_path(tag) %>

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     member do
       put 'like', to: 'topics#upvote'
       put 'dislike', to: 'topics#downvote'
+      get :toggle_status
     end
     resources :comments do
       member do

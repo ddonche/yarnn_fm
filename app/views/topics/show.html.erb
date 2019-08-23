@@ -93,7 +93,10 @@
       <div class="col-md-9">
       
         <div class="blog_wrapper rounded crown-border p-3">
-          <h1><%= @topic.title %></h1>
+        	<% if @genre == "Support" && @topic.solved_status == "solved" %>
+        		<h3 style="display:inline-block"><i class="fas fa-check site-blue mr-1" title="solved"></i></h3>
+        	<% end %>
+          <h1 style="display:inline-block"><%= @topic.title %></h1>
           <div class="blog_info">
             <div class="blog_info_user_avatar">
 								<% if @topic.user.image? %>
@@ -102,12 +105,21 @@
 									<%= image_tag('default_track.jpg', style: "width: 60px", class: "rounded") %>
 								<% end %>								
 							</div>
-            <div class="blog_info_user_name"><h4><%= link_to @topic.user.name, user_path(@topic.user) %></h4></div> 
+            <div class="blog_info_user_name"><h4><%= link_to @topic.user.username, user_path(@topic.user) %></h4></div> 
             <div class="blog_info_date">
               <%= time_ago_in_words(@topic.created_at) %> ago
               <% if @topic.user == current_user %>
                 <i class="fas fa-cog site-red mr-1 ml-3"></i><%= link_to "edit", edit_topic_path(@topic) %>
               <% end %>
+              <% if @genre == "Support" %>
+	              <% if (user_signed_in? && current_user.role == "admin") or (@topic.user == current_user )%>
+	              	<% if @topic.solved_status == "unsolved" %>
+	              		<%= link_to toggle_status_topic_path(@topic), method: :get do %><i class="fas fa-times site-red mr-1 ml-3" title="mark this as solved"></i><% end %><h6 class="site-red" style="display:inline-block">Unsolved</h6>
+						      <% else %>
+						        <%= link_to toggle_status_topic_path(@topic), method: :get do %><i class="fas fa-check site-blue mr-1 ml-3" title="mark this as unsolved"></i><% end %><h6 class="site-blue" style="display:inline-block">Solved</h6>
+						      <% end %>
+							  <% end %>
+							 <% end %>
             </div>
             <ul class="nav nav-text-tiny text-uppercase">
 								<li class="nav-item site-blue nav-link">

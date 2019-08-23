@@ -18,8 +18,12 @@
 					<% else %>
 						<%= image_tag('default_track.jpg', width: 60, class: "rounded", title: user.username) %>
 					<% end %>
-				<br /><br />
-									<h6><%= link_to user.username, user_path(user) %> / <%= user.name %></h6>
+					<br /><br />
+					<h6><%= link_to user.username, user_path(user) %> / <%= user.name %></h6>
+					<% if (user_signed_in? && current_user.role == "admin") %>
+				        <div class="small text-secondary" style="display:inline-block">#<%= user.id %><br />
+				        <%= user.email %></div>
+				    <% end %>
                   </div>
                   <div class="col-8 col-md-9">
 	                  <% if user.bio? %>

@@ -41,11 +41,11 @@ gem "recaptcha"
 gem 'devise_invitable', '~> 2.0.0'
 gem 'actiontext', require: 'action_text'
 gem 'image_processing', '~> 1.2'
-gem 'webpacker'
 gem 'pg'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'acts_as_votable', '~> 0.12.0'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 
 group :development, :test do
   gem 'byebug', platform: :mri

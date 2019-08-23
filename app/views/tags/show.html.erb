@@ -201,7 +201,9 @@
 		    	
 		    	
 		    </div><!-- end row -->
-		    
+		    <% if @tracks.exists? %>
+		    	<%= render 'audio' %>
+		    <% end %>
 		</div><!-- end container -->
 	</section>
 <% end %>

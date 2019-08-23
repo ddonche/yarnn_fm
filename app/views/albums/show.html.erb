@@ -189,7 +189,7 @@
         </div>
         <%= paginate @tracks %>
     </div>
-    <% if @album.tracks.any? %>
+    <% if @album.tracks.exists? %>
 	   <%= render 'albums/audio' %>
 	<% end %>
 </section>

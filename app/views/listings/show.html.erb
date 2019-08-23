@@ -303,7 +303,7 @@
 
 
 </div><!-- container // -->
-<% if @tracks.any? %>
+<% if @tracks.exists? %>
 	<%= render 'audio' %>
 <% end %>
 </section>

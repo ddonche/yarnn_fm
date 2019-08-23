@@ -1,4 +1,8 @@
 {
+  "scripts": {
+  "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
+  "heroku-postbuild": "npm run webpack:deploy"
+  },
   "dependencies": {
     "@rails/actiontext": "^6.0.0-rc2",
     "@rails/webpacker": "^4.0.7",
@@ -8,8 +12,3 @@
     "webpack-dev-server": "^3.8.0"
   }
 }
-
-"scripts": {
-  "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
-  "heroku-postbuild": "npm run webpack:deploy"
-},

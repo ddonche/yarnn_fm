@@ -1,6 +1,7 @@
 <% if @feed_items.any? %>
     <% @feed_items.each do |item| %>
       <% if lookup_context.template_exists?(item.eventable_type, "dashboards/types", true) %>
+      <div class="lightline mx-auto" style="width: 94%;"></div>
         <div class="row py-4 px-3">
           <div class="col-3 col-md-2">
             <% if item.user.image? %>
@@ -13,7 +14,7 @@
             <%= render partial: "dashboards/types/#{item.eventable_type}", locals: {item: item} %>
           </div>
         </div>
-        <div class="grayline mx-auto" style="width: 94%;"></div>
+        
       <% end %>
       
     <% end %>

@@ -1,0 +1,2239 @@
+@charset "UTF-8";
+/*
+available controllers:
+	- whiteControllers
+	- blackControllers
+*/
+/* the border 
+
+.audio7_html5Bg {
+	position:relative;
+}
+*/
+/* line 15, app/assets/stylesheets/player/audio7_html5.scss */
+.the_wrapper {
+  /*border:1px solid #FF0000;*/
+  overflow: visible !important;
+}
+
+/* the container */
+/* line 21, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5 {
+  /*background:#0000CC;
+	padding:5px;*/
+}
+
+/* line 25, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5 a {
+  -webkit-transition: none 0s;
+  transition: none 0s;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* line 32, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5 * {
+  box-sizing: content-box;
+}
+
+/* line 38, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5_sticky {
+  width: 100%;
+  position: fixed;
+  z-index: 999999;
+  bottom: 0px;
+  left: 0px;
+  margin-left: 0;
+  /*border:1px solid #F00;*/
+}
+
+/* line 47, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5_min {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 9999999;
+  cursor: pointer;
+}
+
+/* line 54, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5_arrow_down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #000000;
+}
+
+/* line 61, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5_arrow_up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #000000;
+}
+
+/* line 69, app/assets/stylesheets/player/audio7_html5.scss */
+.xaudioplaylist {
+  display: none;
+}
+
+/* jquery ui styles */
+/* line 74, app/assets/stylesheets/player/audio7_html5.scss */
+.ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  margin-left: -0.6em;
+  cursor: default;
+  outline: none;
+}
+
+/* line 83, app/assets/stylesheets/player/audio7_html5.scss */
+.ui-slider-range {
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  border: 0 none;
+  position: absolute;
+  z-index: 1;
+}
+
+/* line 94, app/assets/stylesheets/player/audio7_html5.scss */
+.ui-progressbar {
+  /*height: 5px;*/
+}
+
+/* line 97, app/assets/stylesheets/player/audio7_html5.scss */
+.ui-progressbar-value {
+  height: 100%;
+}
+
+/* whiteControllers */
+/* line 104, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers {
+  float: left;
+  position: relative;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 113, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioCloseBut {
+  top: -24px !important;
+  width: 32px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  background: url(controllers/whiteControllers/close-off.png) no-repeat;
+  /*border:1px solid #090;*/
+}
+
+/* line 123, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioCloseBut:hover {
+  background: url(controllers/whiteControllers/close-on.png) no-repeat;
+}
+
+/* line 127, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioOpenBut {
+  background: url(controllers/whiteControllers/open-off.png) no-repeat;
+}
+
+/* line 130, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioOpenBut:hover {
+  background: url(controllers/whiteControllers/open-on.png) no-repeat;
+}
+
+/* line 134, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioControls {
+  /*clear: both;*/
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 141, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .ximage {
+  top: -23px !important;
+  position: absolute;
+  width: 149px;
+  height: 134px;
+  border-radius: 5px;
+  /*border:1px solid #FFF;*/
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*background:url(controllers/whiteControllers/support2.png) no-repeat;*/
+}
+
+/* rewind */
+/* line 156, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioRewind {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  background: url(controllers/whiteControllers/rewind-off.png) no-repeat;
+}
+
+/* line 168, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioRewind:hover {
+  background: url(controllers/whiteControllers/rewind-on.png) no-repeat;
+}
+
+/* line 171, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioShuffle {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 19px;
+  height: 14px;
+  background: url(controllers/whiteControllers/shuffle-off.png) no-repeat;
+}
+
+/* line 183, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioShuffle:hover {
+  background: url(controllers/whiteControllers/shuffle-on.png) no-repeat;
+}
+
+/* line 186, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioShuffleON {
+  background: url(controllers/whiteControllers/shuffle-on.png) no-repeat;
+}
+
+/* line 190, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioDownload {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 15px;
+  height: 14px;
+  background: url(controllers/whiteControllers/download-off.png) no-repeat;
+}
+
+/* line 202, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioDownload:hover {
+  background: url(controllers/whiteControllers/download-on.png) no-repeat;
+}
+
+/* line 206, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioBuy {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 97px;
+  height: 28px;
+  background: url(controllers/whiteControllers/buy-off.png) no-repeat;
+}
+
+/* line 218, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioBuy:hover {
+  background: url(controllers/whiteControllers/buy-on.png) no-repeat;
+}
+
+/* line 222, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioLyrics {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 15px;
+  height: 14px;
+  background: url(controllers/whiteControllers/lyrics-off.png) no-repeat;
+}
+
+/* line 234, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioLyrics:hover {
+  background: url(controllers/whiteControllers/lyrics-on.png) no-repeat;
+}
+
+/* line 238, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioFacebook {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 7px;
+  height: 14px;
+  background: url(controllers/whiteControllers/facebook-off.png) no-repeat;
+}
+
+/* line 250, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioFacebook:hover {
+  background: url(controllers/whiteControllers/facebook-on.png) no-repeat;
+}
+
+/* line 254, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioTwitter {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  background: url(controllers/whiteControllers/twitter-off.png) no-repeat;
+}
+
+/* line 266, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioTwitter:hover {
+  background: url(controllers/whiteControllers/twitter-on.png) no-repeat;
+}
+
+/* line 270, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPopup {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 19px;
+  height: 15px;
+  background: url(controllers/whiteControllers/popup-off.png) no-repeat;
+  border: 1px solid #0FC;
+}
+
+/* line 283, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPopup:hover {
+  background: url(controllers/whiteControllers/popup-on.png) no-repeat;
+}
+
+/* play */
+/* line 290, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPlay {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 52px;
+  height: 52px;
+  background: url(controllers/whiteControllers/play-off.png) no-repeat;
+}
+
+/* line 301, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPlay:hover {
+  background: url(controllers/whiteControllers/play-on.png) no-repeat;
+}
+
+/* pause */
+/* line 305, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPause {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 52px;
+  height: 52px;
+  background: url(controllers/whiteControllers/pause-off.png) no-repeat;
+}
+
+/* line 316, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPause:hover {
+  background: url(controllers/whiteControllers/pause-on.png) no-repeat;
+}
+
+/* prev */
+/* line 320, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPrev {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  background: url(controllers/whiteControllers/prev-off.png) no-repeat;
+}
+
+/* line 331, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioPrev:hover {
+  background: url(controllers/whiteControllers/prev-on.png) no-repeat;
+}
+
+/* next */
+/* line 335, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioNext {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  background: url(controllers/whiteControllers/next-off.png) no-repeat;
+}
+
+/* line 346, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioNext:hover {
+  background: url(controllers/whiteControllers/next-on.png) no-repeat;
+}
+
+/*show/hide playlist */
+/* line 352, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioShowHidePlaylist {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 12px;
+  height: 14px;
+  background: url(controllers/whiteControllers/showhideplaylist-off.png) no-repeat;
+}
+
+/* line 364, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioShowHidePlaylist:hover {
+  background: url(controllers/whiteControllers/showhideplaylist-on.png) no-repeat;
+}
+
+/* volume button Mute & UnMute*/
+/* line 375, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeButton {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 11px;
+  height: 12px;
+  background: url(controllers/whiteControllers/volume-off.png) no-repeat;
+}
+
+/* line 386, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeButton:hover {
+  background: url(controllers/whiteControllers/volume-on.png) no-repeat;
+}
+
+/* line 390, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeButtonMuted {
+  background: url(controllers/whiteControllers/volumeMute-off.png) no-repeat;
+}
+
+/* line 393, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeButtonMuted:hover {
+  background: url(controllers/whiteControllers/volumeMute-on.png) no-repeat;
+}
+
+/* volume slider */
+/* line 398, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeSlider {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  width: 6px;
+  height: 60px;
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+  /*background: #fff000;*/
+}
+
+/* line 414, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeSlider .ui-slider-handle {
+  display: none;
+}
+
+/* line 418, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeSlider .ui-slider-handle.ui-state-hover {
+  /*background: #fff000;*/
+}
+
+/* line 422, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .VolumeSlider .ui-slider-range {
+  position: relative;
+  width: 6px;
+  /*background: #00F; blue*/
+}
+
+/* timer */
+/* line 430, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioTimer_a {
+  /*float:left;*/
+  position: absolute;
+  /*top:10px;
+	left:15px;*/
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+  /*border:1px solid #F00;*/
+}
+
+/* line 443, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioTimer_b {
+  /*float:left;*/
+  position: absolute;
+  /*top:10px;
+	right:15px;*/
+  display: block;
+  margin: 0;
+  height: auto;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  font-weight: normal;
+  /*border:1px solid #F00;*/
+}
+
+/* buffer */
+/* line 461, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioBuffer {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  /*width:100%;*/
+}
+
+/* line 472, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioBuffer .ui-widget-header {
+  /*background:#93C; mauve*/
+}
+
+/* seek */
+/* line 476, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioSeek {
+  /*clear:both;*/
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  /*margin-top:-9px; margin:5px 0px 5px 0px; (AudioBuffer) + height:4px;*/
+}
+
+/* line 487, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioSeek .ui-slider-handle {
+  display: none;
+}
+
+/* line 491, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioSeek .ui-slider-handle.ui-state-hover {
+  /*background: #fff000;*/
+}
+
+/* line 495, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .AudioSeek .ui-slider-range {
+  height: 7px;
+}
+
+/*song Author & Title*/
+/* line 502, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .songTitle {
+  font-family: 'Teko', cursive;
+  font-size: 14px;
+  text-transform: capitalize;
+  position: absolute;
+  float: left;
+  display: block;
+  overflow: hidden;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+  /*border:1px solid #CC6;*/
+}
+
+/* line 518, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .songTitleInside {
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* line 523, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .songTitleInside a {
+  color: #dc2020;
+}
+
+/* line 524, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .songTitleInside a:visited {
+  color: #dc2020;
+}
+
+/* line 525, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .songTitleInside a:hover {
+  color: #00b8ac;
+}
+
+/* line 527, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .songAuthor {
+  font-family: 'Teko', cursive;
+  font-size: 20px;
+  text-transform: uppercase;
+  position: absolute;
+  float: left;
+  display: block;
+  overflow: hidden;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+  /*border:1px solid #CC6;*/
+}
+
+/* playlist */
+/* line 546, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .selectedCategDiv {
+  cursor: pointer;
+  margin: 0;
+  padding: 0px 0px;
+  text-align: center;
+  /*font-size:13px;
+	line-height:1.5;
+	font-weight:bold;*/
+  background-image: url(controllers/whiteControllers/categories_arrow_bg.png);
+  background-repeat: no-repeat;
+}
+
+/* line 557, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .innerSelectedCategDiv {
+  cursor: pointer;
+  overflow: hidden;
+  height: 25px;
+  width: 80%;
+  margin: 0;
+  padding: 0px 10%;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: bold;
+  background-image: url(controllers/whiteControllers/categories_arrow_bg.png);
+  background-repeat: no-repeat;
+}
+
+/* line 572, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .searchDiv {
+  margin: 0;
+  padding: 0;
+  background-image: url(controllers/whiteControllers/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+}
+
+/* line 580, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .search_term {
+  background-color: #FFF;
+  border: 1px solid #333333;
+  color: #000000;
+  font: 11px Arial, Helvetica, sans-serif;
+  margin: 3px 0px 3px 30px;
+  padding: 1px;
+  height: 14px;
+}
+
+/* line 590, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .thumbsHolderWrapper {
+  position: absolute;
+  height: 100%;
+  margin-top: 0px;
+  overflow: hidden;
+}
+
+/* line 596, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .thumbsHolderVisibleWrapper {
+  /*position:absolute;*/
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  clear: both;
+  /*new*/
+}
+
+/* line 603, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .thumbsHolder {
+  position: absolute;
+  text-align: left;
+}
+
+/* thumbsOFF */
+/* line 608, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .thumbsHolder_ThumbOFF {
+  display: block;
+  height: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  border-bottom: 1px solid #ff0000;
+  line-height: 2.4em;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* line 618, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .thumbsHolder_ThumbOFF .padding {
+  padding: 2px 10px 10px 10px;
+}
+
+/*  scroller start */
+/* line 624, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical {
+  display: none;
+  position: absolute;
+  width: 9px;
+}
+
+/* line 630, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider {
+  position: relative;
+}
+
+/* line 631, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 16px;
+  cursor: pointer;
+  background: url(controllers/whiteControllers/scrollerFaceOFF.png) 0 0 no-repeat;
+}
+
+/* line 632, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider .ui-slider-handle:hover {
+  background: url(controllers/whiteControllers/scrollerFaceON.png) 0 0 no-repeat;
+}
+
+/* line 633, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  border: 0;
+}
+
+/* line 636, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider-vertical {
+  width: 9px;
+  height: 100px;
+}
+
+/* line 637, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider-vertical .ui-slider-handle {
+  left: 0px;
+  margin-left: 0px;
+  margin-bottom: -16px !important;
+  border: 0;
+}
+
+/* line 638, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+
+/* line 639, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+
+/* line 640, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+
+/* Component containers
+----------------------------------*/
+/* line 645, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical.ui-widget-content {
+  /*background: #ff7800;*/
+}
+
+/* line 646, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.whiteControllers .slider-vertical .ui-widget-header {
+  /*background: #24ff00;*/
+}
+
+/* Corner radius */
+/* Interaction states
+----------------------------------
+.audio7_html5.whiteControllers .slider-vertical.ui-state-default {background: #000000; }
+.audio7_html5.whiteControllers .slider-vertical.ui-state-hover { background: #FFF000;  }
+*/
+/*  scroller end */
+/* blackControllers */
+/* line 662, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers {
+  float: left;
+  position: relative;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 671, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioCloseBut {
+  top: -24px !important;
+  width: 32px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  background: url(../controllers/blackControllers/close-off.png) no-repeat;
+  /*border:1px solid #090;*/
+}
+
+/* line 681, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioCloseBut:hover {
+  background: url(../controllers/blackControllers/close-on.png) no-repeat;
+}
+
+/* line 685, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioOpenBut {
+  background: url(../controllers/blackControllers/open-off.gif) no-repeat;
+}
+
+/* line 688, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioOpenBut:hover {
+  background: url(../controllers/blackControllers/open-on.gif) no-repeat;
+}
+
+/* line 692, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioControls {
+  /*clear: both;*/
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 699, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .ximage {
+  top: -23px !important;
+  position: absolute;
+  background-color: #d9d9d9;
+  width: 149px;
+  height: 149px;
+  /*border-radius: 5px;*/
+  /*border:1px solid #d9d9d9;*/
+  box-shadow: 3px 3px 19px 0px rgba(0, 0, 0, 0.54);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*background:url(../controllers/blackControllers/support2.png) no-repeat;*/
+}
+
+/* rewind */
+/* line 718, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioRewind {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  background: url(../controllers/blackControllers/rewind-off.png) no-repeat;
+}
+
+/* line 730, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioRewind:hover {
+  background: url(../controllers/blackControllers/rewind-on.png) no-repeat;
+}
+
+/* line 733, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioShuffle {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 19px;
+  height: 14px;
+  background: url(../controllers/blackControllers/shuffle-off.png) no-repeat;
+}
+
+/* line 745, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioShuffle:hover {
+  background: url(../controllers/blackControllers/shuffle-on.png) no-repeat;
+}
+
+/* line 748, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioShuffleON {
+  background: url(../controllers/blackControllers/shuffle-on.png) no-repeat;
+}
+
+/* line 752, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioDownload {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 15px;
+  height: 14px;
+  background: url(../controllers/blackControllers/download-off.png) no-repeat;
+}
+
+/* line 764, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioDownload:hover {
+  background: url(../controllers/blackControllers/download-on.png) no-repeat;
+}
+
+/* line 768, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioBuy {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 97px;
+  height: 28px;
+  background: url(../controllers/blackControllers/buy-off.png) no-repeat;
+}
+
+/* line 780, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioBuy:hover {
+  background: url(../controllers/blackControllers/buy-on.png) no-repeat;
+}
+
+/* line 784, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioLyrics {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 15px;
+  height: 14px;
+  background: url(../controllers/blackControllers/lyrics-off.png) no-repeat;
+}
+
+/* line 796, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioLyrics:hover {
+  background: url(../controllers/blackControllers/lyrics-on.png) no-repeat;
+}
+
+/* line 800, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioFacebook {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 7px;
+  height: 14px;
+  background: url(../controllers/blackControllers/facebook-off.png) no-repeat;
+}
+
+/* line 812, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioFacebook:hover {
+  background: url(../controllers/blackControllers/facebook-on.png) no-repeat;
+}
+
+/* line 816, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioTwitter {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  background: url(../controllers/blackControllers/twitter-off.png) no-repeat;
+}
+
+/* line 828, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioTwitter:hover {
+  background: url(../controllers/blackControllers/twitter-on.png) no-repeat;
+}
+
+/* line 832, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPopup {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 19px;
+  height: 15px;
+  background: url(../controllers/blackControllers/popup-off.png) no-repeat;
+  border: 1px solid #0FC;
+}
+
+/* line 845, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPopup:hover {
+  background: url(../controllers/blackControllers/popup-on.png) no-repeat;
+}
+
+/* play */
+/* line 852, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPlay {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 52px;
+  height: 52px;
+  background: url(../controllers/blackControllers/play-off.png) no-repeat;
+}
+
+/* line 863, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPlay:hover {
+  background: url(../controllers/blackControllers/play-on.png) no-repeat;
+}
+
+/* pause */
+/* line 867, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPause {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 52px;
+  height: 52px;
+  background: url(../controllers/blackControllers/pause-off.png) no-repeat;
+}
+
+/* line 878, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPause:hover {
+  background: url(../controllers/blackControllers/pause-on.png) no-repeat;
+}
+
+/* prev */
+/* line 882, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPrev {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  background: url(../controllers/blackControllers/prev-off.png) no-repeat;
+}
+
+/* line 893, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioPrev:hover {
+  background: url(../controllers/blackControllers/prev-on.png) no-repeat;
+}
+
+/* next */
+/* line 897, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioNext {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  background: url(../controllers/blackControllers/next-off.png) no-repeat;
+}
+
+/* line 908, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioNext:hover {
+  background: url(../controllers/blackControllers/next-on.png) no-repeat;
+}
+
+/*show/hide playlist */
+/* line 914, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioShowHidePlaylist {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 12px;
+  height: 14px;
+  background: url(../controllers/blackControllers/showhideplaylist-off.png) no-repeat;
+}
+
+/* line 926, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioShowHidePlaylist:hover {
+  background: url(../controllers/blackControllers/showhideplaylist-on.png) no-repeat;
+}
+
+/* volume button Mute & UnMute*/
+/* line 937, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeButton {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 11px;
+  height: 12px;
+  background: url(../controllers/blackControllers/volume-off.png) no-repeat;
+}
+
+/* line 948, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeButton:hover {
+  background: url(../controllers/blackControllers/volume-on.png) no-repeat;
+}
+
+/* line 952, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeButtonMuted {
+  background: url(../controllers/blackControllers/volumeMute-off.png) no-repeat;
+}
+
+/* line 955, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeButtonMuted:hover {
+  background: url(../controllers/blackControllers/volumeMute-on.png) no-repeat;
+}
+
+/* volume slider */
+/* line 960, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeSlider {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  width: 6px;
+  height: 60px;
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+  /*background: #fff000;*/
+}
+
+/* line 976, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeSlider .ui-slider-handle {
+  display: none;
+}
+
+/* line 980, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeSlider .ui-slider-handle.ui-state-hover {
+  /*background: #fff000;*/
+}
+
+/* line 984, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .VolumeSlider .ui-slider-range {
+  position: relative;
+  width: 6px;
+  /*background: #00F; blue*/
+}
+
+/* timer */
+/* line 992, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioTimer_a {
+  /*float:left;*/
+  position: absolute;
+  /*top:10px;
+	left:15px;*/
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+  /*border:1px solid #F00;*/
+}
+
+/* line 1005, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioTimer_b {
+  /*float:left;*/
+  position: absolute;
+  /*top:10px;
+	right:15px;*/
+  display: block;
+  margin: 0;
+  height: auto;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  font-weight: normal;
+  /*border:1px solid #F00;*/
+}
+
+/* buffer */
+/* line 1023, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioBuffer {
+  /*float:left;*/
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  /*width:100%;*/
+}
+
+/* line 1034, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioBuffer .ui-widget-header {
+  /*background:#93C; mauve*/
+}
+
+/* seek */
+/* line 1038, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioSeek {
+  /*clear:both;*/
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  height: 7px;
+  margin: 0;
+  padding: 0;
+  /*margin-top:-9px; margin:5px 0px 5px 0px; (AudioBuffer) + height:4px;*/
+}
+
+/* line 1049, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioSeek .ui-slider-handle {
+  display: none;
+}
+
+/* line 1053, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioSeek .ui-slider-handle.ui-state-hover {
+  /*background: #fff000;*/
+}
+
+/* line 1057, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .AudioSeek .ui-slider-range {
+  height: 7px;
+}
+
+/*song Author & Title*/
+/* line 1064, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .songTitle {
+  font-family: 'Teko', cursive;
+  font-size: 22px;
+  text-transform: capitalize;
+  position: absolute;
+  float: left;
+  display: block;
+  overflow: hidden;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+  /*border:1px solid #CC6;*/
+}
+
+/* line 1080, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .songTitleInside {
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* line 1085, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .songTitleInside a {
+  color: #dc2020;
+}
+
+/* line 1086, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .songTitleInside a:visited {
+  color: #dc2020;
+}
+
+/* line 1087, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .songTitleInside a:hover {
+  color: #00b8ac;
+}
+
+/* line 1089, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .songAuthor {
+  font-family: 'Teko', cursive;
+  font-size: 26px;
+  position: absolute;
+  float: left;
+  display: block;
+  overflow: hidden;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: normal;
+  /*border:1px solid #CC6;*/
+}
+
+/* playlist */
+/* line 1107, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .selectedCategDiv {
+  cursor: pointer;
+  margin: 0;
+  padding: 0px 0px;
+  text-align: center;
+  /*font-size:13px;
+	line-height:1.5;
+	font-weight:bold;*/
+  background-image: url(../controllers/blackControllers/categories_arrow_bg.png);
+  background-repeat: no-repeat;
+}
+
+/* line 1118, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .innerSelectedCategDiv {
+  cursor: pointer;
+  overflow: hidden;
+  height: 25px;
+  width: 80%;
+  margin: 0;
+  padding: 0px 10%;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: bold;
+  background-image: url(../controllers/blackControllers/categories_arrow_bg.png);
+  background-repeat: no-repeat;
+}
+
+/* line 1133, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .searchDiv {
+  margin: 0;
+  padding: 0;
+  background-image: url(../controllers/blackControllers/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+}
+
+/* line 1141, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .search_term {
+  background-color: #FFF;
+  border: 1px solid #333333;
+  color: #000000;
+  font: 11px Arial, Helvetica, sans-serif;
+  margin: 3px 0px 3px 30px;
+  padding: 1px;
+  height: 14px;
+}
+
+/* line 1151, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolderWrapper {
+  position: absolute;
+  height: 100%;
+  margin-top: 0px;
+  overflow: hidden;
+}
+
+/* line 1157, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolderVisibleWrapper {
+  /*position:absolute;*/
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  clear: both;
+  /*new*/
+}
+
+/* line 1164, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolder {
+  position: absolute;
+  text-align: left;
+}
+
+/* thumbsOFF */
+/* line 1169, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolder_ThumbOFF {
+  display: block;
+  height: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  border-bottom: 1px solid #ff0000;
+  line-height: 2.4em;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* line 1180, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolder_ThumbOFF a {
+  color: #d9d9d9;
+}
+
+/* line 1181, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolder_ThumbOFF a:visited {
+  color: #d9d9d9;
+}
+
+/* line 1182, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolder_ThumbOFF a:hover {
+  color: #00b8ac;
+}
+
+/* line 1184, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .thumbsHolder_ThumbOFF .padding {
+  padding: 2px 10px 10px 10px;
+}
+
+/*  scroller start */
+/* line 1190, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical {
+  display: none;
+  position: absolute;
+  width: 9px;
+}
+
+/* line 1196, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider {
+  position: relative;
+}
+
+/* line 1197, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 16px;
+  cursor: pointer;
+  background: url(../controllers/blackControllers/scrollerFaceOFF.png) 0 0 no-repeat;
+}
+
+/* line 1198, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider .ui-slider-handle:hover {
+  background: url(../controllers/blackControllers/scrollerFaceON.png) 0 0 no-repeat;
+}
+
+/* line 1199, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  border: 0;
+}
+
+/* line 1202, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider-vertical {
+  width: 9px;
+  height: 100px;
+}
+
+/* line 1203, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider-vertical .ui-slider-handle {
+  left: 0px;
+  margin-left: 0px;
+  margin-bottom: -16px !important;
+  border: 0;
+}
+
+/* line 1204, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+
+/* line 1205, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+
+/* line 1206, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+
+/* Component containers
+----------------------------------*/
+/* line 1211, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical.ui-widget-content {
+  /*background: #ff7800;*/
+}
+
+/* line 1212, app/assets/stylesheets/player/audio7_html5.scss */
+.audio7_html5.blackControllers .slider-vertical .ui-widget-header {
+  /*background: #24ff00;*/
+}
+
+/* Corner radius */
+/* Interaction states
+----------------------------------
+.audio7_html5.blackControllers .slider-vertical.ui-state-default {background: #000000; }
+.audio7_html5.blackControllers .slider-vertical.ui-state-hover { background: #FFF000;  }
+*/
+/*  scroller end */
+/* Interaction states
+----------------------------------
+.audio7_html5.giant .slider-vertical.ui-state-default {background: #000000; }
+.audio7_html5.giant .slider-vertical.ui-state-hover { background: #FFF000;  }
+*/
+/*  scroller end */
+/* line 1241, app/assets/stylesheets/player/audio7_html5.scss */
+.hideElement {
+  display: none;
+}
+
+/* line 1245, app/assets/stylesheets/player/audio7_html5.scss */
+.clearBoth {
+  clear: both;
+}
+
+/*
+==============================================
+perspectiveDownZero        Made by Christian Pucci
+==============================================
+*/
+/* line 1269, app/assets/stylesheets/player/audio7_html5.scss */
+.perspectiveDownZero {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: perspectiveDownZero;
+  animation-name: perspectiveDownZero;
+  -webkit-animation-duration: 0s;
+  animation-duration: 0s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes perspectiveDownZero {
+  0% {
+    -webkit-transform-origin: 0 100%;
+    -webkit-transform: perspective(800px) rotateX(0deg);
+  }
+  100% {
+    -webkit-transform-origin: 0 100%;
+    -webkit-transform: perspective(800px) rotateX(-180deg);
+  }
+}
+
+@keyframes perspectiveDownZero {
+  0% {
+    -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+    -webkit-transform: perspective(800px) rotateX(0deg);
+            transform: perspective(800px) rotateX(0deg);
+  }
+  100% {
+    -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+    -webkit-transform: perspective(800px) rotateX(-180deg);
+            transform: perspective(800px) rotateX(-180deg);
+  }
+}
+
+/* line 1306, app/assets/stylesheets/player/audio7_html5.scss */
+.barsContainer {
+  position: absolute;
+  width: 184px;
+  height: 60px;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+  /* Chrome, Safari, Opera */
+  /* IE 9 */
+  transform: translate(-50%, 0%);
+}
+
+/* line 1319, app/assets/stylesheets/player/audio7_html5.scss */
+#bars {
+  height: 40px;
+  margin: 0px 0 0 0px;
+  position: absolute;
+  width: 184px;
+}
+
+/* line 1326, app/assets/stylesheets/player/audio7_html5.scss */
+.bar {
+  background: #ffffff;
+  bottom: 0px;
+  height: 5px;
+  position: absolute;
+  width: 3px;
+}
+
+/* line 1337, app/assets/stylesheets/player/audio7_html5.scss */
+.sound {
+  -webkit-animation-name: sound;
+  animation-name: sound;
+  -webkit-animation-duration: 0ms;
+  animation-duration: 0ms;
+  -webkit-animation-delay: -800ms;
+  -animation-delay: -800ms;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes sound {
+  0% {
+    opacity: .90;
+    height: 3px;
+  }
+  100% {
+    opacity: 1;
+    height: 38px;
+  }
+}
+
+@keyframes sound {
+  0% {
+    opacity: .90;
+    height: 3px;
+  }
+  100% {
+    opacity: 1;
+    height: 38px;
+  }
+}
+
+/* line 1369, app/assets/stylesheets/player/audio7_html5.scss */
+.sound2 {
+  -webkit-animation-name: sound2;
+  animation-name: sound2;
+  -webkit-animation-duration: 0ms;
+  animation-duration: 0ms;
+  -webkit-animation-delay: -800ms;
+  -animation-delay: -800ms;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+@-webkit-keyframes sound2 {
+  0% {
+    opacity: .10;
+    height: 3px;
+  }
+  100% {
+    opacity: .20;
+    height: 15px;
+  }
+}
+
+@keyframes sound2 {
+  0% {
+    opacity: .10;
+    height: 3px;
+  }
+  100% {
+    opacity: .20;
+    height: 15px;
+  }
+}
+
+/* line 1400, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(1) {
+  left: 1px;
+  -webkit-animation-duration: 464ms;
+          animation-duration: 464ms;
+}
+
+/* line 1401, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(2) {
+  left: 5px;
+  -webkit-animation-duration: 433ms;
+          animation-duration: 433ms;
+}
+
+/* line 1402, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(3) {
+  left: 9px;
+  -webkit-animation-duration: 387ms;
+          animation-duration: 387ms;
+}
+
+/* line 1403, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(4) {
+  left: 13px;
+  -webkit-animation-duration: 458ms;
+          animation-duration: 458ms;
+}
+
+/* line 1404, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(5) {
+  left: 17px;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+}
+
+/* line 1405, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(6) {
+  left: 21px;
+  -webkit-animation-duration: 407ms;
+          animation-duration: 407ms;
+}
+
+/* line 1406, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(7) {
+  left: 25px;
+  -webkit-animation-duration: 421ms;
+          animation-duration: 421ms;
+}
+
+/* line 1407, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(8) {
+  left: 29px;
+  -webkit-animation-duration: 399ms;
+          animation-duration: 399ms;
+}
+
+/* line 1408, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(9) {
+  left: 33px;
+  -webkit-animation-duration: 467ms;
+          animation-duration: 467ms;
+}
+
+/* line 1409, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(10) {
+  left: 37px;
+  -webkit-animation-duration: 422ms;
+          animation-duration: 422ms;
+}
+
+/* line 1409, app/assets/stylesheets/player/audio7_html5.scss */
+​
+.bar:nth-child(11) {
+  left: 100px;
+  -webkit-animation-duration: 515ms;
+          animation-duration: 515ms;
+}
+
+/* line 1412, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(12) {
+  left: 41px;
+  -webkit-animation-duration: 474ms;
+          animation-duration: 474ms;
+}
+
+/* line 1413, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(13) {
+  left: 45px;
+  -webkit-animation-duration: 433ms;
+          animation-duration: 433ms;
+}
+
+/* line 1414, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(14) {
+  left: 49px;
+  -webkit-animation-duration: 407ms;
+          animation-duration: 407ms;
+}
+
+/* line 1415, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(15) {
+  left: 53px;
+  -webkit-animation-duration: 458ms;
+          animation-duration: 458ms;
+}
+
+/* line 1416, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(16) {
+  left: 57px;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
+}
+
+/* line 1417, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(17) {
+  left: 61px;
+  -webkit-animation-duration: 427ms;
+          animation-duration: 427ms;
+}
+
+/* line 1418, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(18) {
+  left: 65px;
+  -webkit-animation-duration: 441ms;
+          animation-duration: 441ms;
+}
+
+/* line 1419, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(19) {
+  left: 69px;
+  -webkit-animation-duration: 419ms;
+          animation-duration: 419ms;
+}
+
+/* line 1420, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(20) {
+  left: 73px;
+  -webkit-animation-duration: 487ms;
+          animation-duration: 487ms;
+}
+
+/* line 1422, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(21) {
+  left: 77px;
+  -webkit-animation-duration: 412ms;
+          animation-duration: 412ms;
+}
+
+/* line 1423, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(22) {
+  left: 81px;
+  -webkit-animation-duration: 444ms;
+          animation-duration: 444ms;
+}
+
+/* line 1424, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(23) {
+  left: 85px;
+  -webkit-animation-duration: 403ms;
+          animation-duration: 403ms;
+}
+
+/* line 1425, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(24) {
+  left: 89px;
+  -webkit-animation-duration: 377ms;
+          animation-duration: 377ms;
+}
+
+/* line 1426, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(25) {
+  left: 93px;
+  -webkit-animation-duration: 428ms;
+          animation-duration: 428ms;
+}
+
+/* line 1427, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(26) {
+  left: 97px;
+  -webkit-animation-duration: 370ms;
+          animation-duration: 370ms;
+}
+
+/* line 1428, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(27) {
+  left: 101px;
+  -webkit-animation-duration: 377ms;
+          animation-duration: 377ms;
+}
+
+/* line 1429, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(28) {
+  left: 105px;
+  -webkit-animation-duration: 411ms;
+          animation-duration: 411ms;
+}
+
+/* line 1430, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(29) {
+  left: 109px;
+  -webkit-animation-duration: 399ms;
+          animation-duration: 399ms;
+}
+
+/* line 1431, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(30) {
+  left: 113px;
+  -webkit-animation-duration: 457ms;
+          animation-duration: 457ms;
+}
+
+/* line 1433, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(31) {
+  left: 117px;
+  -webkit-animation-duration: 442ms;
+          animation-duration: 442ms;
+}
+
+/* line 1434, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(32) {
+  left: 121px;
+  -webkit-animation-duration: 474ms;
+          animation-duration: 474ms;
+}
+
+/* line 1435, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(33) {
+  left: 125px;
+  -webkit-animation-duration: 433ms;
+          animation-duration: 433ms;
+}
+
+/* line 1436, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(34) {
+  left: 129px;
+  -webkit-animation-duration: 407ms;
+          animation-duration: 407ms;
+}
+
+/* line 1437, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(35) {
+  left: 133px;
+  -webkit-animation-duration: 458ms;
+          animation-duration: 458ms;
+}
+
+/* line 1438, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(36) {
+  left: 137px;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
+}
+
+/* line 1439, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(37) {
+  left: 141px;
+  -webkit-animation-duration: 427ms;
+          animation-duration: 427ms;
+}
+
+/* line 1440, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(38) {
+  left: 145px;
+  -webkit-animation-duration: 441ms;
+          animation-duration: 441ms;
+}
+
+/* line 1441, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(39) {
+  left: 149px;
+  -webkit-animation-duration: 419ms;
+          animation-duration: 419ms;
+}
+
+/* line 1442, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(40) {
+  left: 153px;
+  -webkit-animation-duration: 487ms;
+          animation-duration: 487ms;
+}
+
+/* line 1444, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(41) {
+  left: 157px;
+  -webkit-animation-duration: 442ms;
+          animation-duration: 442ms;
+}
+
+/* line 1445, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(42) {
+  left: 161px;
+  -webkit-animation-duration: 474ms;
+          animation-duration: 474ms;
+}
+
+/* line 1446, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(43) {
+  left: 165px;
+  -webkit-animation-duration: 433ms;
+          animation-duration: 433ms;
+}
+
+/* line 1447, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(44) {
+  left: 169px;
+  -webkit-animation-duration: 407ms;
+          animation-duration: 407ms;
+}
+
+/* line 1448, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(45) {
+  left: 173px;
+  -webkit-animation-duration: 458ms;
+          animation-duration: 458ms;
+}
+
+/* line 1449, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(46) {
+  left: 177px;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
+}
+
+/* line 1450, app/assets/stylesheets/player/audio7_html5.scss */
+.bar:nth-child(47) {
+  left: 181px;
+  -webkit-animation-duration: 427ms;
+          animation-duration: 427ms;
+}
+
+/* line 1466, app/assets/stylesheets/player/audio7_html5.scss */
+.ac {
+  z-index: 99;
+  position: absolute;
+  width: 58px;
+  height: 106px;
+  top: 2px;
+  right: -18%;
+  background: url(controllers/whiteControllers/AC.png);
+  background-repeat: no-repeat;
+}
+
+/*
+==============================================
+openUpLeftRetournApollo      Made by Christian Pucci
+==============================================
+*/
+/* line 1486, app/assets/stylesheets/player/audio7_html5.scss */
+.openUpLeftRetournApollo {
+  -webkit-animation-name: openUpLeftRetournApollo;
+  animation-name: openUpLeftRetournApollo;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes openUpLeftRetournApollo {
+  0% {
+    -webkit-transform-origin: 13% 18%;
+    -webkit-transform: rotate(0deg);
+    -webkit-animation-timing-function: ease-in-out;
+  }
+  100% {
+    -webkit-transform-origin: 13% 18%;
+    -webkit-transform: rotate(44deg);
+    -webkit-animation-timing-function: ease-out;
+  }
+}
+
+@keyframes openUpLeftRetournApollo {
+  0% {
+    -webkit-transform-origin: 13% 18%;
+            transform-origin: 13% 18%;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  100% {
+    -webkit-transform-origin: 13% 18%;
+            transform-origin: 13% 18%;
+    -webkit-transform: rotate(44deg);
+            transform: rotate(44deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+/*
+==============================================
+openUpLeftRetournApollo2      Made by Christian Pucci
+==============================================
+*/
+/* line 1532, app/assets/stylesheets/player/audio7_html5.scss */
+.openUpLeftRetournApollo2 {
+  -webkit-animation-name: openUpLeftRetournApollo2;
+  animation-name: openUpLeftRetournApollo2;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes openUpLeftRetournApollo2 {
+  0% {
+    -webkit-transform-origin: 13% 18%;
+    -webkit-transform: rotate(44deg);
+    -webkit-animation-timing-function: ease-in-out;
+  }
+  100% {
+    -webkit-transform-origin: 13% 18%;
+    -webkit-transform: rotate(0deg);
+    -webkit-animation-timing-function: ease-out;
+  }
+}
+
+@keyframes openUpLeftRetournApollo2 {
+  0% {
+    -webkit-transform-origin: 13% 18%;
+            transform-origin: 13% 18%;
+    -webkit-transform: rotate(44deg);
+            transform: rotate(44deg);
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  100% {
+    -webkit-transform-origin: 13% 18%;
+            transform-origin: 13% 18%;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+/* line 1574, app/assets/stylesheets/player/audio7_html5.scss */
+.disc {
+  position: absolute;
+  width: 111px;
+  height: 111px;
+  left: 12.3%;
+  top: 10.7%;
+  background: url(controllers/whiteControllers/DiscVinil.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-animation-name: Wheel1;
+  animation-name: Wheel1;
+  -webkit-animation-delay: 1s;
+  -animation-delay: 1s;
+  -webkit-animation-duration: 11s;
+  animation-duration: 11s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  /**/
+}
+
+/* line 1606, app/assets/stylesheets/player/audio7_html5.scss */
+.Wheel1 {
+  -webkit-animation-name: Wheel1;
+  animation-name: Wheel1;
+  -webkit-animation-duration: 11s;
+  animation-duration: 11s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  /*ease ease-in ease-out ease-in-out*/
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  /*number|initial|inherit*/
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes Wheel1 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1440deg);
+  }
+}
+
+@keyframes Wheel1 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1440deg);
+            transform: rotate(1440deg);
+  }
+}
+
+/* line 1646, app/assets/stylesheets/player/audio7_html5.scss */
+.Wheel2 {
+  -webkit-animation-name: Wheel2;
+  animation-name: Wheel2;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  /*ease ease-in ease-out ease-in-out*/
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  /*number|initial|inherit*/
+  animation-iteration-count: 1;
+}
+
+@-webkit-keyframes Wheel2 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes Wheel2 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/* line 1678, app/assets/stylesheets/player/audio7_html5.scss */
+.pickUp_on {
+  position: absolute;
+  top: -23px !important;
+  /*top:0;*/
+  z-index: 1;
+  left: 0;
+  width: 149px;
+  height: 134px;
+  background: url(controllers/whiteControllers/support.png);
+  background-repeat: no-repeat;
+}
+
+/* line 1693, app/assets/stylesheets/player/audio7_html5.scss */
+.pickUp_off {
+  position: absolute;
+  top: -23px !important;
+  /*top:0;*/
+  z-index: 5;
+  left: 0;
+  width: 149px;
+  height: 134px;
+  background: url(controllers/whiteControllers/support.png);
+  background-repeat: no-repeat;
+}
+
+/* line 1709, app/assets/stylesheets/player/audio7_html5.scss */
+.pause_lbg {
+  -webkit-animation-play-state: paused !important;
+  animation-play-state: paused !important;
+}

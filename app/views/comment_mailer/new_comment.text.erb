@@ -1,0 +1,13 @@
+A new comment was posted on "<%= @commentable.title %>".
+
+    <%= @comment.content %>
+    Posted by: <%= @comment.user.username %>
+    
+To reply to this comment, please visit your content at:
+    <% if @commentable.model_name.human == "Track" %>
+        <%= track_url(@commentable) %>
+    <% elsif @commentable.model_name.human == "Topic" %>
+        <%= topic_url(@commentable) %>
+    <% else @commentable.model_name.human == "Blog" %>
+        <%= blog_url(@commentable) %>
+    <% end %>

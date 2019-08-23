@@ -1,0 +1,9 @@
+<p>A new comment was posted on "<%= @commentable.title %>".</p>
+<blockquote>
+    <em><%= @comment.content %></em>
+    Posted by: <%= @comment.user.username %>
+</blockquote>
+<p>
+To reply to this comment, please visit the site at:<br/>
+<%= link_to "This Page", @commentable %>
+</p>

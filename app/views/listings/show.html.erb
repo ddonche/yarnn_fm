@@ -22,9 +22,6 @@
   <meta name="twitter:image:src" content="<%= @listing.image.url %>">
   <% end %>
 <% end %>
-
-<body style="background-color: #e4e0e0;">
-
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content bg padding-y-sm">
 	<div class="container">
@@ -183,7 +180,7 @@
 		     <% if current_user.reviewed?(@listing) %>
 		        <%= link_to "Edit your review", edit_listing_review_path(@listing, @user_review) %>
 		     <% else %>
-            <%= link_to "Leave a Review", new_listing_review_path(@listing) %>
+	           	<%= render 'reviews/form' %>
          <% end %>
       <% else %>
          <div class="small mb-2" style="color: #fc0000;"><i><b>You must be logged in to review this product.</b></i></div>

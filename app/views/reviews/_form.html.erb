@@ -1,47 +1,69 @@
-<h2>You Are Reviewing <span style="color: #00b8ac"><%= @listing.title %></span> by 
-  <% if @listing.pseudonym_id? %>
-    <%= @listing.pseudonym.name %>
-  <% else %>
-    <%= @listing.user.name %>
-  <% end %>
-</h2>
-<p>Reviews are an important part of the artistic cycle. They not only help an artist reach a potentially new audience member, 
-well-written reviews provide valuable feedback to the creator, which helps them improve the quality of subsequent works. Honest reviews are better than 
-puff pieces and smear campaigns. Please only review a title you have actually read, heard, or watched.<br><br>
+<div class="row p-2">
+  <div class="col-12">
+    <small>
+      <a data-target="#collapseReview" data-toggle="collapse" aria-expanded="false" aria-controls="collapseReview">
+        <h5 class="card-subtitle inline-block text-muted"><i class="fas fa-plus-circle site-blue mr-2"></i>Leave a Review</h5>
+      </a>
+    </small>
+  </div>
+</div>
 
-Additionally, a review cannot consist of only a rating. You must actually provide some degree of feedback other than "it sucked" or "best ever!"
-Remember, if you want to spare the world from a terrible writer, the best thing you could do is provide constructive criticism. A rising tide lifts 
-all ships.</p>
-<br><br>
-<%= form_for [@listing, @review] do |f| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-      <ul>
-      <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="collapse" id="collapseReview">
+    <%= form_for [@listing, @review] do |f| %>
+      <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+    
+          <ul>
+          <% @review.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div id="star-rating"></div>
-
-  <div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">Do not review a product you haven't experienced. Do not leave a "competitor" a negative review. If you are leaving a 
-      review in which you were paid, you must state so. If you are connected to the artist in any way, consider disclosing the nature of your relationship.</span>
-    </div>
-    <%= f.label :content, class: "title" %><br><br>
-    <%= f.text_area :content, cols: 87, rows: 4, autofocus: true, required: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button "Submit", class: "button button_highlight button_block", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %>
-  </div>
-  
-<% end %>
+      
+        <div class="row px-3 pb-1">
+          <div class="col-12">
+          Reviews are an important part of the artistic cycle. They not only help an artist reach a potentially new audience member, 
+          well-written reviews provide valuable feedback to the creator, which helps them improve the quality of subsequent works. Honest reviews are better than 
+          puff pieces and smear campaigns. Please only review a title you have actually read, heard, or watched.<br><br>
+          
+          Additionally, a review cannot consist of only a rating. You must actually provide some degree of feedback other than "it sucked" or "best ever!"
+          Remember, if you want to spare the world from a terrible writer, the best thing you could do is provide constructive criticism. A rising tide lifts 
+          all ships.<br><br>
+          
+          Do not review a product you haven't experienced. Do not leave a "competitor" a negative review. If you are leaving a 
+          review in which you were paid, you must state so. If you are connected to the artist in any way, consider 
+          disclosing the nature of your relationship.<br><br>
+          
+          <small class="site-red"><i>Reviews must be a minimum of 300 characters and a maximum of 5000. If you don't see ratings
+          stars below this, refresh your page.</i></small>
+          
+          </div>
+        </div>  
+      
+        <div class="row px-3 mb-2">
+          <div class="col-12">
+            <div id="star-rating"></div>
+          </div>
+        </div>
+        
+        <div class="row px-3 pb-1">
+          <div class="col-12 justify-content-center">
+              <div class="form-group">
+                  <%= f.text_area :content, placeholder: "what do you think about this?", class: "form-control mr-2" %>
+              </div>
+          </div>
+        </div>
+        
+        <div class="row px-3 pb-3">
+          <div class="col-12 justify-content-center">
+            <%= f.button "Submit", class: "btn btn-danger", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %>
+          </div>
+        </div>
+        
+    <% end %>
+</div>
 
 <script>
   $('#star-rating').raty({

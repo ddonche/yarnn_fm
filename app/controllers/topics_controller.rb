@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
       @topics = Topic.tagged_with(params[:tag]).includes(:latest_comment).order('created_at DESC').page(params[:page]).per(2)
     else
       @topics = Topic.all.order('created_at DESC').page(params[:page]).per(16)
+      @active = Topic.order('last_comment_at DESC').limit(8)
     end
     if user_signed_in?
       @topic = current_user.topics.build
@@ -25,6 +26,7 @@ class TopicsController < ApplicationController
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
     @topics = Topic.tagged_with(@tag).includes(:latest_comment).order("created_at DESC").page(params[:page]).per(3)
+    @active = Topic.tagged_with(@tag).includes(:latest_comment).order('last_comment_at DESC').page(params[:page]).per(8)
     
   end
 	

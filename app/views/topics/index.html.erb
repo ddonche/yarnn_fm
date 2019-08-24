@@ -112,13 +112,12 @@
 		    			<div class="col-12">
 		    				<div class="card">
 							  <div class="card-body shadow-sm">
-							    <h6 class="card-subtitle mb-2 text-muted">Latest Topics</h6>
+							    <h6 class="card-subtitle mb-2 text-muted">Last Updated</h6>
 							    <small>
-				  					<% if @topics.exists? %>
-				                      <%= render 'tags/topics_simple' %>
-				                      <%= paginate @topics %>
+				  					<% if @active.exists? %>
+				                      <%= render 'topics/topics_simple' %>
 				                    <% else %>
-				                      <p>There are no topics in this genre.</p>
+				                      <p>There are no topics to show now.</p>
 				                    <% end %>
 			                  </small>
 							  </div>

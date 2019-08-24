@@ -17,6 +17,11 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(allowed_params) 
     @comment.user_id = current_user.id if current_user
     if @comment.save
+      
+      if @commentable.model_name.human == "Topic"
+        @commentable.update_attributes(:last_comment_at => Time.now)
+      end
+      
       CommentMailer.new_comment(@comment).deliver_now
       
       Event.create!(parent_id: @commentable.id, eventable_id: @comment.id, user_id: current_user.id,

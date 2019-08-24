@@ -73,7 +73,7 @@
 							  <div class="card-body">
 							  	<div class="row">
 										<div class="col-12">
-											<h6 class="card-title float-left text-muted">Latest <%= @genre %> Topics</h6> <h6 class="float-right site-red"><%= link_to "all topics", topics_path %></h6>
+											<h6 class="card-title float-left text-muted">Active <%= @genre %> Topics</h6> <h6 class="float-right site-red"><%= link_to "all topics", topics_path %></h6>
 										</div>
 									</div>
 							    <small>
@@ -97,6 +97,9 @@
         		<h3 style="display:inline-block"><i class="fas fa-check site-blue mr-1" title="solved"></i></h3>
         	<% end %>
           <h1 style="display:inline-block"><%= @topic.title %></h1>
+          <% if (user_signed_in? && current_user.role == "admin") %>
+		        <div class="small ml-3 text-secondary" style="display:inline-block">#<%= @topic.id %></div>
+		      <% end %>
           <div class="blog_info">
             <div class="blog_info_user_avatar">
 								<% if @topic.user.image? %>

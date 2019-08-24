@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_030624) do
+ActiveRecord::Schema.define(version: 2019_08_24_025755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -262,6 +262,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_030624) do
     t.integer "user_id"
     t.integer "comments_count"
     t.integer "solved_status", default: 0
+    t.datetime "last_comment_at"
   end
 
   create_table "tracks", id: :serial, force: :cascade do |t|

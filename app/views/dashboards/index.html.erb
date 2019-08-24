@@ -1,110 +1,135 @@
-<div id="other_background_nocenter" style="overflow-y: auto;">
-<%= render 'shared/alert' %>
+<title>Dashboard | Yarnn.FM</title>
 
-<section>
-  <div class="container">
-    <div class="row p-3">
-      <div class="col-md-8">
-        <div class="px-3 mt-3 mb-5 pb-4 text-secondary bg-white rounded">
-          <div class="row py-3 rounded-top">
-            <div class="col-12">
-              <h5 class="site-blue">Latest Activity</h5>
-            </div>
-          </div>
-          
-        <%= render 'dashboards/content/feed' %>
-          
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="px-3 my-3 pb-5 text-secondary bg-white rounded">
-        	<div class="row pt-3 rounded">
-            <div class="col-12 ml-3">
-              <% if current_user.role == "admin" %><i class="fas fa-cog text-correct mr-2"></i><% end %><h5 class="site-blue" style="display: inline-block">Hello, <%= current_user.username %>!</h5>
-              <% if current_user.stripe_subscription_id? %>
-                <h6 class="text-secondary">Your Account Type: <i class="fas fa-crown text-secondary small"></i> Premium</h6>
-              <% else %>
-                <h6 class="text-secondary">Your Account Type: Free</h6>
-              <% end %>
-            </div>
-          </div>
-          <div class="row p-2">
-            <div class="col-12">
-              <%= render partial: "dashboards/content" %>
-            </div>
-          </div>
-          <% if current_user.onboarding_percent.round == 100 %>
-          <div class="row p-2">
-            <div class="col-11 mx-auto border border-secondary rounded p-4">
-              <i class="fas fa-award site-blue"></i> You have completed your onboarding profile!
-            </div>
-          </div>
-          <% else %>
-            
-          <div class="row px-2">
-            <div class="col-sm-12">
-               <div id="divInfo" class="alert alert-warning alert-dismissible fade show" role="alert">
-                 
-                      <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block">Quick Announcement</h5></div> 
-                   
-                      <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
-            
-                    <small>
-                      <p class="mb-0">The audio player is acting up all of a sudden and some of the styling/buttons aren't showing up. Just wanted you to know
-                      I am working on it. - <%= link_to "Sven", user_path(1) %></p>
-                    </small>
-           
-              </div>
-            </div>
-          </div>
-          
-          <div class="row p-2">
-            <div class="col-11 mx-auto border border-secondary rounded pt-4 px-4 pb-2">
-              <h5>Onboarding Profile</h5>
-              <div class="progress mt-1 mb-2">
-                <div class="progress-bar" role="progressbar" style="width: <%= current_user.onboarding_percent.round %>%" aria-valuenow="<%= current_user.onboarding_percent.round %>" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <small>
-                <div>  
-                  <%= onboarding_step_icon current_user.image? %>
-                  Add an Avatar
-                </div>
-                <div>
-                  <%= onboarding_step_icon current_user.bio? %>
-                  Add a Bio
-                </div>
-                <div>
-                  <%= onboarding_step_icon current_user.has_favorite? %>
-                  Add a Track to Your Station
-                </div>
-                <div>
-                  <%= onboarding_step_icon current_user.has_followed? %>
-                  Follow Another User
-                </div>
-                <div>
-                  <%= onboarding_step_icon current_user.has_invited? %>
-                  Invite Someone
-                </div>
-                <div>
-                  <%= onboarding_step_icon current_user.has_topic? %>
-                  Create a Topic in a Genre
-                </div>
-                <div>
-                  <%= onboarding_step_icon current_user.has_comment? %>
-                  Comment on Something
-                </div>
-                <div>
-                  <%= onboarding_step_icon current_user.has_review? %>
-                  Leave a Review in the Marketplace
-                </div>
-              </small>
-              <small class="float-right site-blue"><em><%= current_user.onboarding_percent.round %>% complete</em></small>
-            </div>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
+ 	<!-- Page Content -->
+ 	<section class="section-content bg padding-y-sm">
+		<div class="container">
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb mt-3 shadow-sm">
+      		    <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><h5 style="display:inline-block"><%= link_to current_user.username, user_path(current_user) %></h5></li>
+              <li class="breadcrumb-item">Dashboard</li>
+      	  </ol>
+				</nav>
+				<%= render 'shared/alert' %>
+		    <div class="row mt-3">
+
+		    	<div class="col-xl-4">
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body shadow-sm">
+							    
+							    <div class="row p-2">
+                    <div class="col-12">
+                      
+                        <a data-target="#collapseStats" data-toggle="collapse" aria-expanded="true" aria-controls="collapseStats">
+                          <h4 class="card-subtitle inline-block text-muted float-left"><% if current_user.role == "admin" %><i class="fas fa-cog text-correct mr-2"></i><% end %>Hello, <%= current_user.username %>!</h4>
+                          <i class="fas fa-ellipsis-v float-right site-red inline-block" title="toggle stats visibility"></i>
+                        </a>
+                      
+                    </div>
+                  </div>
+							    
+							    <div class="collapse show" id="collapseStats">
+                  <% if current_user.stripe_subscription_id? %>
+                    <h6 class="text-secondary ml-2 mb-2">Your Account Type: <i class="fas fa-crown text-secondary small"></i> Premium</h6>
+                  <% else %>
+                    <h6 class="text-secondary ml-2 mb-2">Your Account Type: Free</h6>
+                  <% end %>
+                  <%= render partial: "dashboards/content" %>
+							  
+							    <% if current_user.onboarding_percent.round == 100 %>
+                    <div class="row p-2">
+                      <div class="col-11 mx-auto border border-secondary rounded p-4">
+                        <i class="fas fa-award site-blue"></i> You have completed your onboarding profile!
+                      </div>
+                    </div>
+                  <% else %>
+                      
+                    <div class="row px-2 mt-2">
+                      <div class="col-sm-12">
+                         <div id="divInfo" class="alert alert-warning alert-dismissible fade show" role="alert">
+                           
+                                <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block">Quick Announcement</h5></div> 
+                             
+                                <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
+                      
+                              <small>
+                                <p class="mb-0">The audio player is acting up all of a sudden and some of the styling/buttons aren't showing up. Just wanted you to know
+                                I am working on it. - <%= link_to "Sven", user_path(1) %></p>
+                              </small>
+                     
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row p-2">
+                      <div class="col-11 mx-auto border border-secondary rounded pt-4 px-4 pb-2">
+                        <h5>Onboarding Profile</h5>
+                        <div class="progress mt-1 mb-2">
+                          <div class="progress-bar" role="progressbar" style="width: <%= current_user.onboarding_percent.round %>%" aria-valuenow="<%= current_user.onboarding_percent.round %>" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>
+                          <div>  
+                            <%= onboarding_step_icon current_user.image? %>
+                            Add an Avatar
+                          </div>
+                          <div>
+                            <%= onboarding_step_icon current_user.bio? %>
+                            Add a Bio
+                          </div>
+                          <div>
+                            <%= onboarding_step_icon current_user.has_favorite? %>
+                            Add a Track to Your Station
+                          </div>
+                          <div>
+                            <%= onboarding_step_icon current_user.has_followed? %>
+                            Follow Another User
+                          </div>
+                          <div>
+                            <%= onboarding_step_icon current_user.has_invited? %>
+                            Invite Someone
+                          </div>
+                          <div>
+                            <%= onboarding_step_icon current_user.has_topic? %>
+                            Create a Topic in a Genre
+                          </div>
+                          <div>
+                            <%= onboarding_step_icon current_user.has_comment? %>
+                            Comment on Something
+                          </div>
+                          <div>
+                            <%= onboarding_step_icon current_user.has_review? %>
+                            Leave a Review in the Marketplace
+                          </div>
+                        </small>
+                        <small class="float-right site-blue"><em><%= current_user.onboarding_percent.round %>% complete</em></small>
+                      </div>
+                    </div>
+                    <% end %>
+							  </div>
+							  </div><!-- end collapse div -->
+							</div>
+		    			</div>
+		    		</div>
+		    	<!-- end card -->
+
+		    	</div><!-- end left column -->
+		    	
+		    	<div class="col-xl-8">
+				    <div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+								<div class="card-body shadow-sm">
+								  <h4 class="card-title site-blue">Latest Activity</h4>
+						      <h6 class="card-subtitle mb-2 text-muted">Followed and You</h6>
+						      <%= render 'dashboards/content/feed' %>
+								</div>
+							</div>
+		    			</div>
+		    		</div><!-- end card -->	
+		    		
+		    	</div><!-- end right column -->
+		    </div><!-- end row -->
+		    
+		</div><!-- end container -->
+	</section>

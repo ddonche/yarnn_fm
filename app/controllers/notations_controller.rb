@@ -15,6 +15,11 @@ class NotationsController < ApplicationController
     @notation = @comment.notations.new(notation_params) 
     @notation.user_id = current_user.id if current_user
     if @notation.save
+      
+      if @commentable.model_name.human == "Topic"
+        @commentable.update_attributes(:last_comment_at => Time.now)
+      end
+      
       Notification.create!(parent_id: @commentable.id, notifiable_id: @comment.id, 
                                   recipient_id: @comment.user_id, notified_by_id: current_user.id, 
                                   notifiable_type: "notation", commentable_type: @comment.commentable_type)

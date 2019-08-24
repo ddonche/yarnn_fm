@@ -113,42 +113,42 @@
     </div>
   </nav>
   <!-- end of navbar -->
-<div class="d-flex flex-column flex-md-row justify-content-center p-1 px-md-4 bg-white border-bottom shadow-sm">
+<div class="d-flex flex-column flex-md-row justify-content-center p-1 bg-white border-bottom shadow-sm">
 
   <ul class="nav justify-content-center nav-text-tiny text-uppercase">
     <li class="nav-item site-blue nav-link site-stat">
     	<%= link_to genres_path, :class => "nav-text text-dark m-2 menu-item" do %>
-			<i class="fas fa-tags text-dark"></i> GENRES
+			<i class="fas fa-tags text-dark" title="genres"></i> <div class="hide-mobile show-inline">GENRES</div>
 		<% end %>	
 	</li>
 	<li class="nav-item site-blue nav-link site-stat">
     	<%= link_to albums_path, :class => "nav-text text-dark m-2 menu-item" do %>
-			<i class="fas fa-compact-disc text-dark"></i> ALBUMS
+			<i class="fas fa-compact-disc text-dark" title="albums"></i> <div class="hide-mobile show-inline">ALBUMS</div>
 		<% end %>
 	</li>
 	<li class="nav-item site-blue nav-link site-stat">
     	<%= link_to tracks_path, :class => "nav-text text-dark m-2 menu-item" do %>
-			<i class="fas fa-headphones text-dark"></i> TRACKS
+			<i class="fas fa-headphones text-dark" title="tracks"></i> <div class="hide-mobile show-inline">TRACKS</div>
 		<% end %>
 	</li>
 	<li class="nav-item site-blue nav-link site-stat">
     	<%= link_to topics_path, :class => "nav-text text-dark m-2 menu-item" do %>
-			<i class="fas fa-comment-alt text-dark"></i> TOPICS
+			<i class="fas fa-comment-alt text-dark" title="topics"></i> <div class="hide-mobile show-inline">TOPICS</div>
 		<% end %>
 	</li>
 	<li class="nav-item site-blue nav-link site-stat">
     	<%= link_to blogs_path, :class => "nav-text text-dark m-2 menu-item" do %>
-			<i class="fas fa-pen-nib text-dark"></i> BLOGS
+			<i class="fas fa-pen-nib text-dark" title="blogs"></i> <div class="hide-mobile show-inline">BLOGS</div>
 		<% end %>
 	</li>
 	<li class="nav-item site-blue nav-link site-stat">
     	<%= link_to users_path, :class => "nav-text text-dark m-2 menu-item" do %>
-			<i class="fas fa-user-astronaut text-dark"></i> USERS
+			<i class="fas fa-user-astronaut text-dark" title="users"></i> <div class="hide-mobile show-inline">USERS</div>
 		<% end %>
 	</li>
 	<li class="nav-item site-blue nav-link site-stat">
 		<%= link_to listings_path, :class => "nav-text text-dark m-2 menu-item" do %>
-			<i class="fas fa-shopping-cart text-dark"></i> Marketplace
+			<i class="fas fa-shopping-cart text-dark" title="marketplace"></i> <div class="hide-mobile show-inline">Marketplace</div>
 		<% end %>
 	</li>
 	</ul>

@@ -15,7 +15,7 @@ class TagsController < ApplicationController
     
     @tracks = Track.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(12)
     @topics = Topic.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(12)
-    @active = Topic.tagged_with(params[:tag]).order('last_comment_at DESC').page(params[:page]).per(8)
+    @active = Topic.tagged_with(params[:tag]).order('last_comment_at DESC').limit(8)
     @listings = Listing.tagged_with(params[:tag]).order('created_at DESC').page(params[:page]).per(12)
 
     @topics_count = Tagging.where(tag_id: @tag_id, taggable_type: "Topic").count

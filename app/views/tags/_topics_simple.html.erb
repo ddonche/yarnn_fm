@@ -1,11 +1,11 @@
-<div class="row">
-    <% @active.each do |active| %>
-        <div class="col-9">
-            <%= link_to active.title, topic_path(active) %>
+<% @active.each do |active| %>
+    <div class="lightline mx-auto"></div>
+        <div class="row">
+            <div class="col-10">
+                <%= link_to active.title, topic_path(active) %>
+            </div>
+            <div class="col-2">
+                <small><span class="text-secondary tags"><%= active.comments.count %></span></small>
+            </div>
         </div>
-        <div class="col-3">
-            <small><i class="fas fa-comments site-blue" title="comments"></i>
-            <span class="ml-1 text-secondary"><%= active.comments.count %></span></small>
-        </div>
-    <% end %>
-</div>
+<% end %>

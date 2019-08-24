@@ -1,11 +1,25 @@
-<div class="row">
-    <% @active.each do |active| %>
-        <div class="col-9">
-            <%= link_to active.title, topic_path(active) %>
+<% @active.each do |active| %>
+    <div class="lightline mx-auto"></div>
+        <div class="row">
+            <div class="col-2">
+                <small>
+                <% active.tags.map(&:name).each do |tag| %>
+  					<% @icon = tag.split.map(&:downcase).join('_') %>
+      				<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+      					
+					    <%= render partial: "topics/icons/#{@icon}" %>
+					<% else %>
+						<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/icons/default-site-blue.png', width: 30, title: "#{@icon}", class: "pt-1") %>
+					<% end %>
+				<% end %>
+                    
+                </small>
+            </div>
+            <div class="col-8">
+                <%= link_to active.title, topic_path(active) %>
+            </div>
+            <div class="col-2">
+                <small><span class="text-secondary tags"><%= active.comments.count %></span></small>
+            </div>
         </div>
-        <div class="col-3">
-            <small><i class="fas fa-comments site-blue" title="comments"></i>
-            <span class="ml-1 text-secondary"><%= active.comments.count %></span></small>
-        </div>
-    <% end %>
-</div>
+<% end %>

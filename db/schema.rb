@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_025755) do
+ActiveRecord::Schema.define(version: 2019_08_25_020310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,7 +105,8 @@ ActiveRecord::Schema.define(version: 2019_08_24_025755) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "commentable_type"
-    t.integer "eventable_type"
+    t.integer "eventable_type_old"
+    t.string "eventable_type"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -121,12 +122,14 @@ ActiveRecord::Schema.define(version: 2019_08_24_025755) do
   end
 
   create_table "flags", force: :cascade do |t|
-    t.integer "flaggable_type"
+    t.integer "flaggable_type_old"
     t.integer "flaggable_id"
     t.integer "flagged_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "flag_type"
+    t.integer "flag_type_old"
+    t.string "flaggable_type"
+    t.string "flag_type"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -205,11 +208,13 @@ ActiveRecord::Schema.define(version: 2019_08_24_025755) do
     t.integer "recipient_id"
     t.integer "notifiable_id"
     t.integer "parent_id"
-    t.integer "commentable_type"
-    t.integer "notifiable_type"
+    t.integer "commentable_type_old"
+    t.integer "notifiable_type_old"
     t.boolean "read_status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "commentable_type"
+    t.string "notifiable_type"
   end
 
   create_table "pseudonyms", id: :serial, force: :cascade do |t|

@@ -61,7 +61,10 @@
                 <div class="bg-white px-3 mt-md-3 mt-1 mb-md-3 mb-0 text-muted crown-border rounded">
                 	<div class="row py-2 mb-3 bg-light border-bottom">
                         <div class="col-12">
-                            <h3 class="site-red text-center text-lg-left"><%= @track.title %>
+                            <h3 class="site-red text-center text-lg-left" style="display:inline-block"><%= @track.title %>
+                            <% if (user_signed_in? && current_user.role == "admin") %>
+                                <div class="small ml-3 text-secondary" style="display:inline-block">#<%= @track.id %></div>
+                            <% end %>
                             <%= @track.duration %> 
                                 <% if @track.user == current_user %>
     							    <%= link_to edit_track_path(@track) do %>

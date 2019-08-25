@@ -4,6 +4,7 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:followed_id])
     current_user.follow(@user)
+    FollowMailer.new_follow(@user, current_user).deliver_now
     
     Event.create!(followed_id: @user.id, user_id: current_user.id,
                                   eventable_type: "follow")

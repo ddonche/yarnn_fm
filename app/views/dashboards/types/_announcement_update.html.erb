@@ -6,7 +6,7 @@
     <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    made an announcement:  
+    updated their announcement:  
     
     <h5><%= Announcement.find(item.eventable_id).title %></h5>
     <div class="border border-secondary rounded mt-2 p-2">
@@ -16,6 +16,6 @@
   </div>
   
   <div class="col-12 col-md-3 small text-center">
-      <small><%= time_ago_in_words(item.created_at) %> ago</small>
+      <small><%= time_ago_in_words(item.updated_at) %> ago</small>
   </div>
 </div>

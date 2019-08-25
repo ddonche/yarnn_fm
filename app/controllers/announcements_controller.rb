@@ -39,7 +39,7 @@ class AnnouncementsController < ApplicationController
     respond_to do |format|
       if @announcement.update(announcement_params)
         Event.create!(eventable_id: @announcement.id, user_id: current_user.id,
-                                    eventable_type: "announcement")
+                                    eventable_type: "announcement_update")
                                     
         format.html { redirect_to current_user, notice: 'Announcement was successfully updated.' }
       else

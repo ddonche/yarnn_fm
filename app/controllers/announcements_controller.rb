@@ -38,10 +38,14 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.find(params[:id])
     respond_to do |format|
       if @announcement.update(announcement_params)
+        # delete previous announcement event because there is only one announcement. The dashboard feed will show the same content
+        # for multiple ones, so it ends up looking stupid.
+        Event.where(eventable_type: "announcement", user_id: current_user.id).delete_all
+        
         Event.create!(eventable_id: @announcement.id, user_id: current_user.id,
-                                    eventable_type: "announcement_update")
+                                    eventable_type: "announcement")
                                     
-        format.html { redirect_to current_user, notice: 'Announcement was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Announcement was successfully updated.' }
       else
         format.html { render :edit }
       end

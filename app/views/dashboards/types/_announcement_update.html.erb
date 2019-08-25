@@ -3,10 +3,10 @@
     <% if item.user == current_user %>
       You
     <% else %>
-    <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+      <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
     <% end %>
     
-    updated their announcement:  
+    updated the announcement:  
     
     <h5><%= Announcement.find(item.eventable_id).title %></h5>
     <div class="border border-secondary rounded mt-2 p-2">

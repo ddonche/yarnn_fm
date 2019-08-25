@@ -26,12 +26,8 @@
   <% end %>
   <h2 class="site-blue">Creator Info</h2>
   <div class="form-group">
-     <div class="tooltip" style="float:left">more info
-      <span class="tooltiptext">
-        Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
-        You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
-      </span>
-    </div>
+    <a href="#" data-toggle="tooltip" title="Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
+        You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.">more info</a>
     <small id="genresHelp" class="form-text text-muted"><%= link_to "Click Here", new_pseudonym_path, style: "color: #00b8ac" %> if you want to add a new pseudonym. 
     <i>Ignore this if you want to use your real name.</i></small><br />
     <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { prompt: 'Select a pseudonym.' }, {class: "form-control"}) %><br />
@@ -79,7 +75,7 @@
   <hr class="colorgraph">
   <h2 class="site-blue">Downloadable File Info</h2>
   <div class="field">
-    <%= f.label "Select File Type", class: "text-secondary" %><br>
+    <%= f.label "Select File Type", class: "text-white" %><br>
     <%= f.radio_button :filetype, 'ebook' %> 
     <%= label :filetype_ebook, 'Ebook' %>
     <%= f.radio_button :filetype, 'audio' %>
@@ -90,13 +86,13 @@
   
   <div class="row">
     <div class="col-12 text-correct justify-content-center">
-      <%= f.label "Cover image", class: "text-secondary" %><br/>
+      <%= f.label "Cover image", class: "text-white" %><br/>
       <%=  f.file_field :image, class: "form-control-file" %>
     </div>
   </div>
   <div class="row">
     <div class="col-12 justify-content-center">
-      <%= f.label "Product File", class: "text-secondary" %><br/>
+      <%= f.label "Product File", class: "text-white" %><br/>
       <%=  f.file_field :file, class: "form-control-file" %><br />
       <div class="small" style="color: #fc0000;"><i>*Image must be less than 1Mb. Product file must be a zip file.</i></div>
     </div>
@@ -113,3 +109,9 @@
       </div>
     </div>
   </div>
+  
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

@@ -13,6 +13,7 @@ class DashboardsController < ApplicationController
     @transactions = Transaction.all.where(seller: current_user).order("created_at DESC").page(params[:page]).per(10)
     @users = @user.followers
     @followed_users = @user.following
+    @announcement = Announcement.find(2)
     
     @event = current_user.events.build
     @feed_items = current_user.feed.order("created_at DESC").page(params[:page]).per(20)

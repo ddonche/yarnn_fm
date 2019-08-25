@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :load_commentable
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :record_owner, only: [:edit, :update, :destroy]
 
   def index
     @comments = @commentable.comments.order("created_at DESC").page(params[:page]).per(24)
@@ -39,7 +40,7 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @comment = current_user.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
   
   def update
@@ -86,6 +87,14 @@ class CommentsController < ApplicationController
   end
 
   private
+  
+  def record_owner
+	  @comment = Comment.find(params[:id])
+    unless @comment.user_id == current_user.id
+      flash[:notice] = 'Access denied as you are not creator of this comment'
+      redirect_to root_path
+    end
+  end
 
   def load_commentable
     resource, id = request.path.split('/')[1,2]

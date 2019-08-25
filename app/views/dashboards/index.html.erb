@@ -54,7 +54,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
                       
                               <small>
-                                <p class="mb-0">The invite emails time out when you try to accept. This is a new issue, and I am working on a fix. - <%= link_to "Sven", user_path(1) %></p>
+                                <p class="mb-0"><%= @announcement.body %> - <%= link_to "Sven", user_path(1) %></p>
                               </small>
                      
                         </div>

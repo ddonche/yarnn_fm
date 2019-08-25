@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :pseudonyms
   resources :links, only: [:new, :edit, :update, :create, :destroy]
+  resources :announcements, only: [:new, :edit, :update, :create, :destroy]
 
   resources :blogs do
     member do

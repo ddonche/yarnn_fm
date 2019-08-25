@@ -11,6 +11,5 @@ class CommentMailer < ApplicationMailer
 
     mail to: @commentable.user.email, 
     subject: "#{@comment.user.username} replied to you on Yarnn.FM."
-    content_type: "text/html"
   end
 end

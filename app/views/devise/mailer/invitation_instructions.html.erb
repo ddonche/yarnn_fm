@@ -1,9 +1,16 @@
 <h3>You've been invited to try Yarnn.FM!</h3>
 
-<p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
-
-<p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %></p>
-
+<p>Hi, 
+<br />
+I sent out a small handful of invites to my new site, Yarnn.FM, which is a Spotify/Pandora 
+for short stories and poetry (it's also a marketplace like Etsy and a forum, etc.). 
+<br />
+I wanted to follow up and let you know that the email contained an accept link that was broken, please disregard that email. This link is the one that should work. 
+<br />
+Thank you for your consideration in this matter, and I really hope to see you on Yarnn!
+<br />
+-Dan Donche</p>
+<br />
 <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, invitation_token: @token) %></p>
 
 <% if @resource.invitation_due_at %>

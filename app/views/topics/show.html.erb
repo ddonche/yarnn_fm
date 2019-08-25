@@ -28,67 +28,6 @@
   <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-
-            <div class="row mb-2">
-		    			<div class="col-12">
-		    				<div class="card">
-							  <div class="card-body text-center shadow-sm">
-					      	<% @topic.tags.map(&:name).each do |tag| %>
-		  		    			<% @icon = tag.split.map(&:downcase).join('_') %>
-				  		    	<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
-				  		    		<%= render partial: "topics/icons/#{@icon}" %>
-										<% else %>
-											<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/icons/default-site-blue.png', width: 30, title: "#{@icon}", class: "pt-1") %>
-										<% end %>
-									<% end %>
-									<h4 class="card-title site-blue"><%= link_to @genre, tag_path(@tag) %></h4></td>
-									<h6 class="card-subtitle mb-2 text-muted">Genre Info</h6></td>
-							  </div>
-									<ul class="list-group list-group-flush">
-										<% unless @genre == "Support" || @genre == "Premium" %>
-									  <li class="list-group-item d-flex justify-content-between align-items-center">
-									    <small><i class="fas fa-headphones site-blue mr-2" title="tracks"></i> Tracks</small>
-									    <span class="badge site-blue badge-pill"><%= @track_count %></span>
-									  </li>
-									  <li class="list-group-item d-flex justify-content-between align-items-center">
-									    <small><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i> Products</small>
-									    <span class="badge site-blue badge-pill"><%= @listing_count %></span>
-									  </li>
-									  <% end %>
-									  <li class="list-group-item d-flex justify-content-between align-items-center">
-									    <small><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i> Topics</small>
-									    <span class="badge site-blue badge-pill"><%= @topics_count %></span>
-									  </li>
-									</ul>
-	
-							  
-							</div>
-		    			</div>
-		    		</div>
-		    		
-		    		<div class="row mb-2">
-		    			<div class="col-12">
-		    				<div class="card">
-							  <div class="card-body">
-							  	<div class="row">
-										<div class="col-12">
-											<h6 class="card-title float-left text-muted">Active <%= @genre %> Topics</h6> <h6 class="float-right site-red"><%= link_to "all topics", topics_path %></h6>
-										</div>
-									</div>
-							    <small>
-  							    <% if @topics.exists? %>
-                      <%= render 'tags/topics_simple' %>
-                      <div class="mt-2"><%= paginate @topics %></div>
-                    <% else %>
-                      <p>There are no topics in this genre.</p>
-                    <% end %>
-                  </small>
-							  </div>
-							</div>
-		    			</div>
-		    		</div>
-      </div>
      
       <div class="col-md-9">
       
@@ -157,6 +96,67 @@
             </div>
           
         </div>
+        <div class="col-md-3">
+
+            <div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+							  <div class="card-body text-center shadow-sm">
+					      	<% @topic.tags.map(&:name).each do |tag| %>
+		  		    			<% @icon = tag.split.map(&:downcase).join('_') %>
+				  		    	<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+				  		    		<%= render partial: "topics/icons/#{@icon}" %>
+										<% else %>
+											<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/icons/default-site-blue.png', width: 30, title: "#{@icon}", class: "pt-1") %>
+										<% end %>
+									<% end %>
+									<h4 class="card-title site-blue"><%= link_to @genre, tag_path(@tag) %></h4></td>
+									<h6 class="card-subtitle mb-2 text-muted">Genre Info</h6></td>
+							  </div>
+									<ul class="list-group list-group-flush">
+										<% unless @genre == "Support" || @genre == "Premium" %>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-headphones site-blue mr-2" title="tracks"></i> Tracks</small>
+									    <span class="badge site-blue badge-pill"><%= @track_count %></span>
+									  </li>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-shopping-cart site-blue mr-2" title="listings"></i> Products</small>
+									    <span class="badge site-blue badge-pill"><%= @listing_count %></span>
+									  </li>
+									  <% end %>
+									  <li class="list-group-item d-flex justify-content-between align-items-center">
+									    <small><i class="fas fa-comment-alt site-blue mr-2" title="topics"></i> Topics</small>
+									    <span class="badge site-blue badge-pill"><%= @topics_count %></span>
+									  </li>
+									</ul>
+	
+							  
+							</div>
+		    			</div>
+		    		</div>
+		    		
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card">
+								  <div class="card-body">
+								  	<div class="row">
+											<div class="col-12">
+												<h6 class="card-title float-left text-muted">Active <%= @genre %> Topics</h6> <h6 class="float-right site-red"><%= link_to "all topics", topics_path %></h6>
+											</div>
+										</div>
+								    <small>
+	  							    <% if @topics.exists? %>
+	                      <%= render 'tags/topics_simple' %>
+	                      <div class="mt-2"><%= paginate @topics %></div>
+	                    <% else %>
+	                      <p>There are no topics in this genre.</p>
+	                    <% end %>
+	                  </small>
+								  </div>
+								</div>
+		    			</div>
+		    		</div>
+      	</div>
       </div>
     </div>
   </section>

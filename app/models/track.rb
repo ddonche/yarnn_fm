@@ -1,9 +1,9 @@
-require 'elasticsearch/model'
+#require 'elasticsearch/model'
 
 class Track < ApplicationRecord
   include Taggable
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  #include Elasticsearch::Model
+  #include Elasticsearch::Model::Callbacks
 
   belongs_to :user, counter_cache: true
   belongs_to :album, optional: true, counter_cache: true

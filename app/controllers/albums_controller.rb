@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
 	before_action :find_album, only: [:show, :edit, :update, :dashboard]
-	before_action :find_track, only: [:show, :dashboard]
+	before_action :find_track, only: [:dashboard]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -13,6 +13,11 @@ class AlbumsController < ApplicationController
 	end
 
 	def show
+	  @tracks = Track.where(album_id: @album).order("created_at DESC").page(params[:page]).per(10)
+	  respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+    end
 	end
 	
 	def new

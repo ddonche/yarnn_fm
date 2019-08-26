@@ -1,9 +1,9 @@
-require 'elasticsearch/model'
+#require 'elasticsearch/model'
 
 class Listing < ApplicationRecord
   include Taggable
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  #include Elasticsearch::Model
+  #include Elasticsearch::Model::Callbacks
 
   belongs_to :user
   belongs_to :track

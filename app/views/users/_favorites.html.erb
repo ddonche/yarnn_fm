@@ -1,0 +1,32 @@
+<div class="row">
+	<% @favorite_items.each do |track| %>
+        <div class="col-lg-3 col-6 mb-4">
+            <div class="card h-100">
+                <%= link_to track do %>
+					<%= image_tag track.image.url(:thumb), title: track.title, class: "card-img-top" %>
+				<% end %>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= link_to truncate(track.title, length: 24, separator: ' ', class: "site-red"), track_path(track) %></h5>
+                    </h5>
+                    <div class="grayline" style="width:94%"></div>
+                	<div class="row text-center small">
+                	    <div class="col-6">
+							<div id="favorites_<%= track.id %>">
+							    <%= render 'tracks/index_favorites', :track => track %>
+							</div>
+						</div>
+						<div class="col-6">
+                			<%= link_to track do %>
+                        		<i class="fas fa-comments site-blue"></i>
+                        	<% end %>
+                			<span class="ml-2"></span><%= track.comments.count %>
+						</div>
+                	</div>
+                </div>
+            </div>
+        </div>  
+    <% end %>
+        
+</div>
+<%= paginate @favorite_items %>

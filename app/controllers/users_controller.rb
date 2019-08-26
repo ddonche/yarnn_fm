@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @users = @user.followers.limit(20)
     @followed_users = @user.following.limit(20)
     @announcement = @user.announcement
+    @favorites_count = @user.favorite_tracks.count
   end
   
   def favorites

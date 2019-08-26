@@ -1,44 +1,92 @@
-<div id="album_show">
-	<div id="banner" class="track_banner">
-		<%= render 'layouts/header' %>
-	</div>
-  <%= render 'shared/alert' %>
-  <div class="wrapper_skinny_left">
-    <%= render 'avatar' %>
-    <% if @pseudonyms.any? %>
-      <%= render 'pseudonyms' %>
-    <% end %>
-    <%= render 'followers' %>
-    <%= render 'following' %>
-  </div>
-      
-  <div class="wrapper_wide_right_right">
-    <div id ="index-nav-container">
-      <div class = "table-row">
-        <div class="table-cell"><%= image_tag('icons/microphone.svg', height: 40) %><br />
-          <%= link_to "audio tracks", user_path(@user) %></div>
-        <div class="table-cell"><%= image_tag('icons/cassette.svg', height: 40) %><br />
-          <%= link_to "albums", albums_user_path(@user) %></div>
-        <div class="table-cell"><%= image_tag('icons/blog.svg', height: 30) %><br />
-          <%= link_to "blog posts", blogs_user_path(@user) %></div>
-        <div class="table-cell"><%= image_tag('icons/station.svg', height: 33) %><br />
-          <%= link_to "station", station_path(@user) %></div>
-      </div>
-    </div>
-  </div>
-  
-  <% if @favorite_items.any? %>
-    <div class="wrapper_wide_right_right">
-        <div class="side-box">
-          <div class="side-content">
-             <p><%= @user.username %>'s station has <%= pluralize(@favorite_items.count, "Tracks") %>.</p>
-          </div>
-  	   </div>
-  	 </div>
-  <% end %>
-  <%= render 'users/station' %>
-</div>
 
-  <div class="wrapper_wide_right_right">
-    <%= render 'shared/content_footer' %>
-  </div>
+  
+  
+  <%= render 'users/station' %>
+
+<!-- Page Content -->
+ 	<section class="section-content bg padding-y-sm">
+		<div class="container">
+	
+		    <div class="row mt-3">
+		      <%= render 'shared/alert' %>
+		    	<div class="col-xl-3 rounded">
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card shadow-sm">
+								    <div class="ribbon_box">
+								    	<% if @user.publisher_type == "publisher" %>
+								        	<div class="ribbon"><span>PUBLISHER</span></div>
+								    	<% end %>
+								        <% if @user.image? %>
+								        	
+								        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top rounded p-3", title: @user.username) %>
+								        <% else %>
+								        	<%= image_tag('default_track.jpg', class: "card-img-top rounded p-3", title: @user.username) %>
+								        <% end %>
+							    	</div>
+							  
+							  <div class="card-body">
+							  	<div class="row">
+								  	<div class="col-12">
+								  		<h4 class="card-title float-left site-blue"><%= @user.username %></h4> 
+								  		<% if @user == current_user %>
+								  			<%= link_to edit_registration_path(current_user) do %>
+								  			<h4 class="float-right site-red">
+		    								    <i class="fas fa-cog" title="edit account"></i>
+		    								</h4>
+		    							    <% end %>
+								  		<% end %>
+	    						    </div>
+    						    </div>
+							    <p class="card-text">
+							    	<% if @user.bio? %>
+							    		<small><%= simple_format(@user.bio) %></small>
+							    	<% else %>
+							    		<small>This user has not added a bio yet.</small>
+							    	<% end %>
+							    </p>
+							    <div class="row mb-2">
+							    	<div class="col-6 border-right text-center text-muted">
+							    		<small class="mb-1">Followers</small><br />
+							    		<b><%= @user.followers.count %></b>
+							    	</div>
+							    	<div class="col-6 text-center text-muted">
+							    		<small class="mb-1">Following</small><br/>
+							    		<b><%= @user.following.count %></b>
+							    	</div>
+							    </div>
+							    <div class="row mt-3">
+							    	<div class="col-12 text-center">
+							    		<%= render 'users/follow_form' if user_signed_in? %>
+							    	</div>
+							    </div>
+							    
+							  </div>
+							</div>
+			    			
+					    </div>
+		    		</div>
+		    	</div><!--end left column -->
+		    	<div class="col-xl-9">
+		    	  <div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card shadow-sm">
+							  <div class="card-body">
+							    <% if @favorite_items.any? %>
+                      <h4 style="display:inline-block;">The <%= link_to @user.username, user_path(@user) %> Station</h4> has <%= pluralize(@favorite_items.count, "Tracks") %>.</p>
+                  <% end %>
+							    <h6 class="card-subtitle mb-2 text-muted">Favorite Tracks</h6>
+							  
+							 <% if @favorite_items.exists? %>
+								<%= render 'users/favorites' %>
+							<% else %>
+								<p><%= @user.username %> hasn't favorited any tracks yet.</p>
+							<% end %>
+							</div>
+							</div>
+		    			</div>
+		    		</div>
+		    	</div><!-- end middle column -->
+		    </div>
+		</div><!-- end container -->
+	</section>

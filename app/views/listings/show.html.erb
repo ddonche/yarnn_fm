@@ -25,8 +25,18 @@
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content bg padding-y-sm">
 	<div class="container">
+		<div class="row mt-2">
+          <div class="col-sm-12">
+             <div id="divInfo" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
+                  <small>
+                    <p class="mb-0">If there are tracks for this product and the audio playlist doesn't show up automatically, try refreshing your page.</p>
+                  </small>
+            </div>
+          </div>
+        </div>
 		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb mt-3">
+		  <ol class="breadcrumb mt-1">
 			  <% @listing.tags.map(&:name).each do |tag| %>
 			  	<div class="btn btn-outline-danger btn-sm mr-3">
 				  <%= link_to tag, tag_path(tag) %>

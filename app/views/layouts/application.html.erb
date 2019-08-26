@@ -23,7 +23,7 @@
 <% if current_page?(root_path) %>
   <body class="no-margin">
 <% else %>
-  <body>
+  <body <%= yield(:body_attributes) %>>
 <% end %>
   <%= render 'layouts/header' %>
   <%= yield %>

@@ -33,8 +33,18 @@
  	<!-- Page Content -->
  	<section class="section-content bg padding-y-sm">
 		<div class="container">
+			<div class="row mt-2">
+	          <div class="col-sm-12">
+	             <div id="divInfo" class="alert alert-info alert-dismissible fade show" role="alert">
+	                    <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
+	                  <small>
+	                    <p class="mb-0">If there are tracks for this genre and the audio playlist doesn't show up automatically, try refreshing your page.</p>
+	                  </small>
+	            </div>
+	          </div>
+	        </div>
 				<nav aria-label="breadcrumb">
-				  <ol class="breadcrumb mt-3 shadow-sm">
+				  <ol class="breadcrumb mt-1 shadow-sm">
 					    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
 					    <% unless @genre == "Support" || @genre == "Premium" %>
 					    <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li>
@@ -42,7 +52,7 @@
 					    <li class="breadcrumb-item active" aria-current="page"><%= @genre %> Portal</li>
 				  </ol>
 				</nav>
-			
+				
 		    <div class="row mt-3">
 		    	<div class="col-xl-3 rounded">
 		    		<div class="row mb-2">

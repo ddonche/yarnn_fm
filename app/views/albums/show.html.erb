@@ -30,8 +30,18 @@
   	  <%= @album.user.name %>
   	<% end %>
 </title>
+<div class="row mt-2">
+  <div class="col-sm-12">
+     <div id="divInfo" class="alert alert-info alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
+          <small>
+            <p class="mb-0">If there are tracks for this album and the audio playlist doesn't show up automatically, try refreshing your page.</p>
+          </small>
+    </div>
+  </div>
+</div>
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb mt-3 shadow-sm">
+  <ol class="breadcrumb mt-1 shadow-sm">
 	<li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to @album.user.username, user_path(@album.user) %></li>
     <li class="breadcrumb-item">
         <% if @album.pseudonym_id? %>

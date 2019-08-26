@@ -3,7 +3,7 @@
   <meta property="og:title" content="<%= @topic.title %>" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<%= request.original_url %>" />
-  <meta property="og:image:url" content="<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/banners/topic-image.jpg') %>" />
+  <meta property="og:image:url" content="https://yarnn.s3-us-west-2.amazonaws.com/banners/topic-image.jpg" />
   <meta property="og:description" content="<%= truncate(@topic.content, length: 250) %>" />
   <meta property="og:site_name" content="Yarnn.FM" />
   <meta property="fb:app_id" content="395394867776017" />
@@ -14,7 +14,7 @@
   <meta name="twitter:title" content="<%= @topic.title %>">
   <meta name="twitter:description" content="<%= truncate(@topic.content, length: 250) %>">
   <meta name="twitter:creator" content="<%= @topic.user.username %>">
-  <meta name="twitter:image:src" content="<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/banners/topic-image.jpg') %>">
+  <meta name="twitter:image:src" content="https://yarnn.s3-us-west-2.amazonaws.com/banners/topic-image.jpg">
 <% end %>
 <div id="other_background_nocenter" style="overflow-y: auto;">
 <%= render 'shared/alert' %>

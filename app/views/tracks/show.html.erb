@@ -76,7 +76,7 @@
 		<aside class="col-sm-8">
 			<article class="card-body">
 <!-- short-info-wrap -->
-	<h2 class="title mb-1" style="display:inline-block;"><%= @track.title %></h2>
+	<h2 class="title" style="display:inline-block;"><%= @track.title %></h2>
 	<% if (user_signed_in? && current_user.role == "admin") %>
         <div class="small ml-3 text-secondary" style="display:inline-block">#<%= @track.id %></div>
     <% end %>
@@ -91,14 +91,12 @@
 	    </small><br />
     <% end %>
     <br />
-    <% unless @track.user == current_user %>
-		<% if @track.pseudonym_id? %>
-			<h4 style="mb-2"><%= @track.pseudonym.name %> (@<%= @track.user.username %>)</h4>
-		<% else %>
-			<h4 style="mb-2"><%= link_to @track.user.name, user_path(@track.user) %> (@<%= @track.user.username %>)</h4>
-		<% end %>
+	<% if @track.pseudonym_id? %>
+		<h4 style="mb-2 site-blue"><%= @track.pseudonym.name %> (@<%= @track.user.username %>)</h4>
+	<% else %>
+		<h4 style="mb-2 site-blue"><%= link_to @track.user.name, user_path(@track.user) %> (@<%= @track.user.username %>)</h4>
 	<% end %>
-
+	<br />
 <dl>
   <dt>Description</dt>
   <dd><p><%= truncate(@track.description, length: 200) %></p>

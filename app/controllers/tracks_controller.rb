@@ -1,4 +1,5 @@
 class TracksController < ApplicationController
+  require 'taglib'
 	before_action :find_track, only: [:show, :edit, :update, :destroy, :favorite]
 	before_action :authenticate_user!, except: [:index, :show]
 
@@ -25,6 +26,15 @@ class TracksController < ApplicationController
     @comment = Comment.new
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing&.id)
     @transaction = Transaction.new
+    @random_listing = Listing.offset(rand(Listing.count)).first
+    @rand_reviews = @random_listing.reviews.order("created_at DESC")
+    if @rand_reviews.empty?
+      @rand_avg_rating = 0
+    else
+      @rand_avg_rating = @rand_reviews.average(:rating).round(2)
+    end
+    @random_track = Track.offset(rand(Track.count)).first
+    @random_album = Album.joins(:tracks).group("albums.id").having("count(tracks.id)>0").order("RANDOM()").first
     @flag = Flag.new
     if user_signed_in?
       @user_flag = Flag.where(flagged_by_id: current_user.id, flaggable_id: @track.id)
@@ -47,7 +57,6 @@ class TracksController < ApplicationController
     @track = current_user.tracks.build(track_params)
     respond_to do |format|
       if @track.save
-        
         Event.create!(eventable_id: @track.id, user_id: current_user.id,
                                   eventable_type: "track")
                                   
@@ -63,6 +72,16 @@ class TracksController < ApplicationController
   def update
     respond_to do |format|
       if @track.update(track_params)
+        file = params[:audio]
+        TagLib::FileRef.open(file) do |fileref|
+            unless fileref.null?
+                tag = fileref.tag
+                # properties = fileref.audio_properties
+                properties = fileref.audio_properties
+                properties.length
+                @track.update_column(:duration => properties.length)
+            end
+        end
         format.html { redirect_to @track, notice: 'Track was successfully updated.' }
       else
         format.html { render :edit }

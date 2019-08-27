@@ -14,157 +14,158 @@
   
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@totaldanarchy">
+  <meta name="twitter:site" content="@yarnnfm">
   <meta name="twitter:title" content="<%= @track.title %>">
   <meta name="twitter:description" content="<%= truncate(@track.description, length: 250) %>">
   <meta name="twitter:creator" content="<%= @track.user.username %>">
   <% if @track.image? %>
       <meta name="twitter:image:src" content="<%= @track.image.url %>">
   <% end %>
-<% end %>
-
-<div id="other_background_nocenter" style="overflow-y: auto;">
-<title><%= @track.title %> | 
+  <title><%= @track.title %> | 
     <% if @track.pseudonym_id? %>
   	  <%= @track.pseudonym.name %>
   	<% else %>
   	  <%= @track.user.name %>
   	<% end %>
-</title>
-<div class="row mt-2">
-  <div class="col-sm-12">
-     <div id="divInfo" class="alert alert-info alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
-          <small>
-            <p class="mb-0">If the audio playlist doesn't show up automatically, try refreshing the page.</p>
-          </small>
-    </div>
-  </div>
-</div>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb mr-3">
-    <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to @track.user.username, user_path(@track.user) %></li>
-    <% if @track.album_id? %>
-    <li class="breadcrumb-item">
-  	    <i class="fas fa-compact-disc site-blue mx-2" title="album"></i><%= link_to @track.album.title, album_path(@track.album_id) %>
-  	</li>
-  	<% end %>
-    <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-headphones site-blue mx-2" title="track"></i><%= @track.title %></li>
-    
-    <% if @track.user == current_user %>
-    <li class="breadcrumb-item site-red">
-        <%= link_to edit_track_path(@track) do %>
-    	    <small><i class="fas fa-cog site-red mx-2"></i>Edit Track</small>
-        <% end %>
-        <%= link_to track_path(@track), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <small><i class="fa fa-trash mx-2 site-red" title="delete"></i>Delete</small>
-        <% end %>
-    </li>
-    <% end %>
-  </ol>
-</nav>
-<%= render 'shared/alert' %>
-<section>
-    <div class="container-fluid mb-4">
-        <div class="row">
-            <div class="col-md-4 col-sm-6 ">
-                <div class="bg-white px-3 mt-md-3 mt-1 mb-md-3 mb-0 text-muted crown-border rounded">
-                	<div class="row py-2 mb-3 bg-light border-bottom">
-                        <div class="col-12">
-                            <h3 class="site-red text-center text-lg-left" style="display:inline-block"><%= @track.title %>
-                            <% if (user_signed_in? && current_user.role == "admin") %>
-                                <div class="small ml-3 text-secondary" style="display:inline-block">#<%= @track.id %></div>
-                            <% end %>
-                            <%= @track.duration %> 
-                                <% if @track.user == current_user %>
-    							    <%= link_to edit_track_path(@track) do %>
-    								    <i class="fas fa-cog site-red ml-2" style="font-size: 18px;"></i>
-    							    <% end %>
-    						    <% end %>
-                            </h3>
-                    		<div class="row">
-                        		<div class="col-lg-6 col-md-12 text-center text-lg-left">
-                            		<% if @track.user.image? %>
-        								<%= image_tag(@track.user.image.url, style: "width: 20px !important; display: inline-block;  border: none; vertical-align:middle;", title: @track.user.username) %>
-        							<% else %>
-        								<%= image_tag('default_track.jpg', style: "width: 20px !important; display: inline-block; border: none; vertical-align:middle;", title: @track.user.username) %>
-        							<% end %>
-        							
-        							<% if @track.pseudonym_id? %>
-        								<p class="ml-1 site-red" style="display:inline-block;"><%= link_to @track.pseudonym.name, user_path(@track.user) %></p>
-        							<% else %>
-        								<p class="ml-1 site-red" style="display:inline-block;"><%= link_to @track.user.name, user_path(@track.user) %></p>
-        							<% end %>
-    							</div>
-    							<div class="col-lg-6 col-md-12 text-center text-lg-right mb-lg-0 mb-2">
-        							<% if user_signed_in? && current_user != @track.user %>
-                                      <%= render 'follow_form' %>
-                                    <% end %>
-    							</div>
-							</div>
-                        
-                            <div class="ribbon_box">
-                            	<% if @track.album_id? %>
-	                          		<% if @track.album.serial == "serial" %>
-	                            		<div class="ribbon"><span>SERIAL</span></div>
-	                          		<% end %>
-                          		<% end %>
-                    			<%= image_tag @track.image.url(:thumb), title: @track.title, class: "image-full" %>
-                    		</div>
-                    		
-                    		<div class="row">
-                            	<div class="col-12">
-                                	<div class="row p-2">
-                                	    <div class="col-12">
-                                	    	<%= @track.description %>
-        								</div>
-                                	</div>
-                            	</div>
-                            </div>
-                		</div>
-                    </div>
-                </div>
+  </title>
+<% end %>
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content bg padding-y-sm">
+	<div class="container">
+		<div class="row mt-2">
+          <div class="col-sm-12">
+             <div id="divInfo" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
+                  <small>
+                    <p class="mb-0">If there are tracks for this product and the audio playlist doesn't show up automatically, try refreshing your page.</p>
+                  </small>
             </div>
-            <div class="col-md-8 col-sm-6">
-                <div class="bg-white px-3 mt-md-3 mt-1 mb-2 text-muted crown-border rounded">
-                    <div class="row py-2 bg-light border-bottom">
-                    	<div class="col-6 small">
-                    		<div class="row">
-                    			<div class="col-6">
-                    				<% if @track.album_id? %>
-										<b><i>Album:</i></b> <%= link_to @track.album.title, album_path(@track.album_id), class: "site-red" %>
-								    <% else %>
-								        <b><i>Album:</i></b> <span class="site-red">none</span>
-									<% end %>	
-                    			</div>
-                    			<div class="col-6">
-                    				<% if @track.vocals? %>
-										<b><i>Voiced by:</i></b> 
-										<% if @track.voice_site? %>
-										    <small><i class="fas fa-globe site-blue" title="website"></i> <%= link_to @track.vocals, @track.voice_site %></small>
-										<% else %>
-										    <%= @track.vocals %>
-										<% end %>
-									<% else %>
-									    <b><i>Voiced by:</i></b> unlisted
-									<% end %>
-                    			</div>
-                    		</div>
-                    	</div>
-                    	<div class="col-2">
-                    		<%= render 'tracks/index_favorites', :track => @track %>
-                    		<i class="fas fa-comments text-muted ml-3"></i>
-                            <span class="ml-2 site-red"><%= @track.comments.count %></span>
-                    	</div>
-                    	<div class="col-4 text-right">
-                    		<% @track.tags.map(&:name).each do |tag| %>
-                			  	<div class="btn btn-outline-danger btn-sm mr-3">
-                				  <%= link_to tag, tag_path(tag) %>
-                				</div>
-            			  <% end %>
-                    	</div>
-                    </div>
-                    <% if @track.listing_id? %>
+          </div>
+        </div>
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb mt-1">
+
+                <li class="breadcrumb-item"><i class="fas fa-user-astronaut site-blue mx-2" title="user"></i><%= link_to @track.user.username, user_path(@track.user) %></li>
+                <% if @track.album_id? %>
+                <li class="breadcrumb-item">
+              	    <i class="fas fa-compact-disc site-blue mx-2" title="album"></i><%= link_to @track.album.title, album_path(@track.album_id) %>
+              	</li>
+              	<% end %>
+                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-headphones site-blue mx-2" title="track"></i><%= @track.title %></li>
+                
+                <% if @track.user == current_user %>
+                <li class="breadcrumb-item site-red">
+                    <%= link_to edit_track_path(@track) do %>
+                	    <small><i class="fas fa-cog site-red mx-2"></i>Edit Track</small>
+                    <% end %>
+                    <%= link_to track_path(@track), method: :delete, data: { confirm: "Are you sure?" } do %>
+                        <small><i class="fa fa-trash mx-2 site-red" title="delete"></i>Delete</small>
+                    <% end %>
+                </li>
+                <% end %>
+
+			  <% @track.tags.map(&:name).each do |tag| %>
+			  	<div class="btn btn-outline-danger btn-sm ml-3">
+				  <%= link_to tag, tag_path(tag) %>
+				</div>
+			  <% end %>
+		  </ol>
+		</nav>
+		<div class="row">
+			<div class="col-xl-9 col-md-8 col-sm-12">
+<%= render 'shared/alert' %>
+
+<main class="card">
+	<div class="row no-gutters">
+		<aside class="col-sm-4 border-right">
+			<article class="gallery-wrap">
+				<div class="img-big-wrap p-4">
+				    <div class="ribbon_box">
+                    	<% if @track.album_id? %>
+                      		<% if @track.album.serial == "serial" %>
+                        		<div class="ribbon"><span>SERIAL</span></div>
+                      		<% end %>
+                  		<% end %>
+            			<%= image_tag @track.image.url, title: @track.title, class: "image-full rounded" %>
+            		</div>
+				</div> <!-- slider-product.// -->
+
+			</article> <!-- gallery-wrap .end// -->
+		</aside>
+		<aside class="col-sm-8">
+			<article class="card-body">
+<!-- short-info-wrap -->
+	<h2 class="title mb-1" style="display:inline-block;"><%= @track.title %></h2>
+	<% if (user_signed_in? && current_user.role == "admin") %>
+        <div class="small ml-3 text-secondary" style="display:inline-block">#<%= @track.id %></div>
+    <% end %>
+	<% if @track.user == current_user %>
+		<small>
+	        <%= link_to edit_track_path(@track) do %>
+	    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit
+	        <% end %>
+	        <%= link_to track_path(@track), method: :delete, data: { confirm: "Are you sure?" } do %>
+	            <i class="fa fa-trash ml-2" title="delete"></i>&nbsp;Delete
+	        <% end %>
+	    </small><br />
+    <% end %>
+    <% unless @track.user == current_user %>
+		<% if @track.pseudonym_id? %>
+			<%= @track.pseudonym.name %> (@<%= @track.user.username %>)
+		<% else %>
+			<%= link_to @track.user.name, user_path(@track.user) %> (@<%= @track.user.username %>)
+		<% end %>
+	<% end %>
+
+<dl>
+  <dt>Description</dt>
+  <dd><p><%= truncate(@track.description, length: 200) %></p>
+  	<% if @user_flag.try(:any?) %>
+        <small><i class="fas fa-flag site-red mr-2"></i>You reported this.</small>
+    <% else %>
+        <%= render "tracks/flag_form" %>
+    <% end %>
+  </dd>
+</dl>
+<hr>
+<dl class="row">
+  <dt class="col-sm-4">Vocals</dt>
+  <dd class="col-sm-8">
+    <% if @track.vocals? %>
+    	<% if @track.voice_site? %>
+    	    <i class="fas fa-globe site-blue" title="website"></i> <%= link_to @track.vocals, @track.voice_site %>
+    	<% else %>
+    	    <%= @track.vocals %>
+    	<% end %>
+    <% else %>
+        Unlisted
+    <% end %>      
+  </dd>
+
+  <dt class="col-sm-4">Album</dt>
+  <dd class="col-sm-8"> 
+      <% if @track.album_id? %>
+    	<%= link_to @track.album.title, album_path(@track.album_id) %>
+    <% else %>
+        None
+    <% end %>
+  </dd>
+
+  <dt class="col-sm-4">Explicit</dt>
+  <dd class="col-sm-8">
+      <% if @track.explicit? %>
+		Explicit
+	  <% else %>
+	    Not Explicit
+	 <% end %> 
+  </dd>
+</dl>
+<hr>
+	<div class="row">
+		<div class="col-12">
+			<h4 class="mb-1"><i class="fas fa-shopping-cart site-blue mr-2 mb-3"></i>Linked Product</h4>
+		</div>
+			<% if @track.listing_id? %>
                     <div class="row py-2 bg-light border-bottom">
                     	
                     	<div class="col-4">
@@ -175,16 +176,7 @@
 									
 							<h2><%= number_to_currency(@listing.price) %></h2>
 		
-	  						<% unless @listing.user == current_user %>
-							<% if @purchased.empty? %>
-								<br>
-								<%= render 'listings/listing_transaction_form', transaction: @transaction %><br>
-								<%= link_to "Buy It Now", new_listing_transaction_path(@listing), data: { no_turbolink: true }, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
-							<% else %>
-								<br>
-								<%= link_to "Download", purchases_path, class: "button button_blue button_block", style: "color: #fff; width: 30%" %>
-							<% end %>
-						<% end %>
+					
                     	</div>
                     	<div class="col-5">
                     		<h3>Description:</h3>
@@ -196,45 +188,180 @@
 							<% end %>
                     	</div>
                     </div>
-                
-                <% end %>
-                </div>
-                
-				<div class="row">
-                    <div class="col-12">
-                        <div>
-                            <div class="blog_wrapper rounded crown-border">
-                		      <div class="row p-4">
-                		        <div class="col-12 mb-2">
-                  		      <% if user_signed_in? %>
-                                <%= render "comments/form" %>
-                                <% if @user_flag.try(:any?) %>
-                                    <small><i class="fas fa-flag site-red mx-2"></i>You reported this.</small>
-                                <% else %>
-                                    <%= render "tracks/flag_form" %>
-                                <% end %>
-                              <% else %>
-                                <small><em>You must be <b><%= link_to "logged in", new_user_session_path %></b> to comment.</em></small>
-                              <% end %>
-                            </div>
-                            <div class="col-12">
-                              <%= render 'comments/comments', :commentable => @track %>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-          
-                </div>
-              
-            </div>
-        </div>
+
+			<% else %>
+			<div class= "col-12">
+				<small>There is no linked product with this track.</small>
+			</div>
+			<% end %>  <!-- item-property .// -->
+
+	</div> <!-- row.// -->
+	<hr>
+	<% if @track.listing_id? %>
+	<div class="row">
+		<div class= "col-12">
+		  
+    		<% if user_signed_in? %>
+    			<% unless @listing.user == current_user %>
+    				<% if @purchased.empty? %>
+    					<%= render 'listing_transaction_form', transaction: @transaction %>
+    				<% else %>
+    					<div class="btn btn-primary">
+    					  <%= link_to 'Download', purchases_path, :class => "btn text-white" %>
+    					</div>
+    				<% end %>
+    			<% end %>
+    		<% else %>
+    			<div class="btn btn-primary">
+    			  <%= link_to 'Login to Purchase', new_user_session_path, :class => "btn text-white" %>
+    			</div><br />
+    			<small><i class="site-red">You must be logged in so the product will appear in your downloads.</i></small>
+    		<% end %>
+    	  
+		</div>
+	</div>
+	<% end %>
+<!-- short-info-wrap .// -->
+</article> <!-- card-body.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+</main> <!-- card.// -->
+
+<!-- PRODUCT DETAIL -->
+<article class="card mt-3">
+	<div class="card-body">
+		<h4>Description</h4>
+			<p><%= simple_format(@track.description) %></p>
+	</div> <!-- card-body.// -->
+</article> <!-- card.// -->
+
+<!-- PRODUCT DETAIL -->
+<article class="card mt-3">
+	<div class="card-body">
+		 <% if user_signed_in? %>
+            <%= render "comments/form" %>
+          <% else %>
+            <small><em>You must be <b><%= link_to "logged in", new_user_session_path %></b> to comment.</em></small>
+          <% end %>
+      <%= render 'comments/comments', :commentable => @track %>
+	</div> <!-- card-body.// -->
+</article> <!-- card.// -->
+
+<!-- PRODUCT DETAIL .// -->
+
+</div> <!-- col // -->
+<aside class="col-xl-3 col-md-4 col-sm-12">
+<div class="card">
+	<div class="card-header">
+		<h4 class="site-blue">
+		@<%= link_to @track.user.username, user_path(@track.user) %>
+		</h4>
+	</div>
+	<div class="card-body small">
+		 <div class="ribbon_box">
+	      <% if @track.user.publisher_type == "publisher" %>
+	        <div class="ribbon"><span>PUBLISHER</span></div>
+	      <% end %>
+	        <% if @track.user.image? %>
+	          <%= image_tag(@track.user.image.url(:thumb), class: "image-full", title: @track.user.username) %>
+	        <% else %>
+	          <%= image_tag('default_track.jpg', class: "image-full", title: @track.user.username) %>
+	        <% end %>
+	    </div>
+		 <hr>
+		 <i class="fas fa-headphones site-blue" title="tracks"></i> Tracks (<%= @track.user.tracks.count %>)
+		 <hr>
+		 <i class="fas fa-compact-disc site-blue" title="albums"></i> Albums (<%= @track.user.albums.count %>)
+		 <hr>
+		 <i class="fas fa-shopping-cart site-blue" title="listings"></i> Products (<%= @track.user.listings.count %>)
+		 <hr>
+		 <i class="fas fa-user-astronaut site-blue"></i> Followers (<%= @track.user.followers.count %>)
+		 	<% if user_signed_in? && current_user != @track.user %>
+		 	<hr>
+	          <%= render 'follow_form' %>
+	        <% end %>
+
+	</div> <!-- card-body.// -->
+</div> <!-- card.// -->
+<div class="card mt-3">
+	<div class="card-header">
+	    <h5 class="site-blue">You May Like</h5>
+	</div>
+	<div class="card-body row">
+<div class="col-md-12 col-sm-4">
+	<figure class="item border-bottom mb-3">
+			<h5 class="mb-1"><i class="fas fa-shopping-cart site-blue mr-2"></i><%= @random_listing.filetype %></h5>
+			<%= image_tag(@random_listing.image.url, class: "image-full rounded mb-2", title: @random_listing.title) %>
+			<figcaption class="info-wrap">
+				<h4 class="mb-0"><%= link_to @random_listing.title, listing_path(@random_listing) %></h4>
+				<small>
+				<% if @random_listing.pseudonym_id? %>
+					<%= link_to @random_listing.pseudonym.name, user_path(@random_listing.user) %>
+				<% else %>
+					<%= link_to @random_listing.user.name, user_path(@random_listing.user) %>
+				<% end %>
+				</small><br />
+				<%= number_to_currency(@random_listing.price) %>
+				<div class="star-rating" data-score= <%= @rand_avg_rating %></div>
+			</figcaption>
+	</figure> <!-- card-product // -->
+</div> <!-- col.// -->
+<div class="col-md-12 col-sm-4">
+<figure class="item border-bottom mb-3">
+	<h5 class="mb-1"><i class="fas fa-headphones site-blue mr-2"></i>Track</h5>
+		<%= image_tag(@random_track.image.url(:thumb), class: "image-full rounded mb-2", title: @random_track.title) %>
+		<figcaption class="info-wrap">
+			<h4 class="mb-0"><%= link_to @random_track.title, track_path(@random_track) %><% if @random_track.explicit == "explicit" %> (explicit)<% end %></h4>
+			<small>
+			<% if @random_track.pseudonym_id? %>
+				<%= link_to @random_track.pseudonym.name, user_path(@random_track.user) %>
+			<% else %>
+				<%= link_to @random_track.user.name, user_path(@random_track.user) %>
+			<% end %>
+			</small><br />
+			<small><i class="fas fa-broadcast-tower site-red mr-2" title="stations"></i>
+	      	in <%= pluralize( @random_track.favorites.count, 'Station' ) %></small><br/>
+		</figcaption>
+</figure> <!-- card-product // -->
+</div> <!-- col.// -->
+<div class="col-md-12 col-sm-4">
+<figure class="item border-bottom mb-3">
+	<h4 class="mb-1"><i class="fas fa-compact-disc site-blue mr-2"></i>Album</h4>
+  <% if @random_album %>
+    <div class="ribbon_box">
+        <% if @random_album&.serial == "serial" %>
+          <div class="ribbon"><span>SERIAL</span></div>
+        <% end %>
+        <%= image_tag(@random_album&.image&.url(:thumb), class: "image-full rounded mb-2", title: @random_album&.title) %>
     </div>
+
+		<figcaption class="info-wrap">
+			<h5 class="mb-0"><%= link_to @random_album&.title, album_path(@random_album) %></h5>
+			<small>
+			<% if @random_album.pseudonym_id? %>
+				<%= link_to @random_album&.pseudonym.name, user_path(@random_album&.user) %>
+			<% else %>
+				<%= link_to @random_album&.user.name, user_path(@random_album&.user) %>
+			<% end %>
+			</small><br />
+			<small><i class="fas fa-headphones site-blue mr-2"></i>
+            <%= pluralize( @random_album&.tracks.count, 'Track' ) %></small>
+		</figcaption>
+  <% end %>
+</figure> <!-- card-product // -->
+</div> <!-- col.// -->
+	</div> <!-- card-body.// -->
+</div> <!-- card.// -->
+</aside> <!-- col // -->
+</div> <!-- row.// -->
+
+
+
+</div><!-- container // -->
 <%= render 'track_play' %>
 </section>
-</div>
-
-
+<!-- ========================= SECTION CONTENT .END// ========================= -->
+</body>
 <script>
   $('.star-rating').raty({
     path: 'https://s3-us-west-2.amazonaws.com/yarnn/stars',

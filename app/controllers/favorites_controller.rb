@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
                                   eventable_type: "favorite")
       Notification.create!(notifiable_id: @track.id, 
                                   recipient_id: @track.user_id, notified_by_id: current_user.id, 
-                                  notification_type: "favorite")
+                                  notifiable_type: "favorite")
     end
     
     @track.increment!(:favorites_count)
@@ -34,7 +34,7 @@ class FavoritesController < ApplicationController
                                   
       Notification.create!(notifiable_id: @track.id, 
                                   recipient_id: @track.user_id, notified_by_id: current_user.id, 
-                                  notification_type: "unfavorite")
+                                  notifiable_type: "unfavorite")
     end
     
     @track.decrement!(:favorites_count) unless @track.favorites_count.zero?

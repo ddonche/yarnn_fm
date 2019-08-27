@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :image, file_size: { less_than: 1.megabytes }
 
-  has_one :announcement, dependent: :destroy
+  has_one  :announcement, dependent: :destroy
   has_many :listings, dependent: :destroy
   has_many :albums, dependent: :destroy
   has_many :tracks, dependent: :destroy
@@ -36,7 +36,7 @@ class User < ApplicationRecord
   has_many :wikis
   has_many :comments
   has_many :events, dependent: :delete_all
-  has_many :notifications, dependent: :delete_all
+  has_many :notifications, foreign_key: 'notified_by_id', dependent: :delete_all
   has_many :flags
   has_many :flags, as: :flaggable, dependent: :delete_all
   has_many :pseudonyms, dependent: :destroy

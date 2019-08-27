@@ -90,6 +90,9 @@
 	        <% end %>
 	    </small><br />
     <% end %>
+    <div id="favorites_<%= @track.id %>">
+	    <%= render 'tracks/favorites', :track => @track %>
+	</div>
     <br />
 	<% if @track.pseudonym_id? %>
 		<h4 style="mb-2 site-blue"><%= @track.pseudonym.name %> (@<%= @track.user.username %>)</h4>

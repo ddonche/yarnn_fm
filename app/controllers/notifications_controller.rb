@@ -7,10 +7,10 @@ class NotificationsController < ApplicationController
   
   def toggle_read
     @notification = Notification.find(params[:id])
-    if @notification.read_status.unread?
-      @notification.read_status.read! 
-    elsif @notification.read_status.read?
-      @notification.read_status.unread!
+    if @notification.unread?
+      @notification.read! 
+    elsif @notification.read?
+      @notification.unread!
     end
     redirect_to notifications_path
   end

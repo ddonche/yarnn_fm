@@ -1,5 +1,4 @@
 class TracksController < ApplicationController
-  require 'taglib'
 	before_action :find_track, only: [:show, :edit, :update, :destroy, :favorite]
 	before_action :authenticate_user!, except: [:index, :show]
 
@@ -72,16 +71,6 @@ class TracksController < ApplicationController
   def update
     respond_to do |format|
       if @track.update(track_params)
-        file = params[:audio]
-        TagLib::FileRef.open(file) do |fileref|
-            unless fileref.null?
-                tag = fileref.tag
-                # properties = fileref.audio_properties
-                properties = fileref.audio_properties
-                properties.length
-                @track.update_column(:duration => properties.length)
-            end
-        end
         format.html { redirect_to @track, notice: 'Track was successfully updated.' }
       else
         format.html { render :edit }

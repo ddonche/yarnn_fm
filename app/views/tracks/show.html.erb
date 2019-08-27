@@ -166,28 +166,22 @@
 			<h4 class="mb-1"><i class="fas fa-shopping-cart site-blue mr-2 mb-3"></i>Linked Product</h4>
 		</div>
 			<% if @track.listing_id? %>
-                    <div class="row py-2 bg-light border-bottom">
-                    	
+
                     	<div class="col-4">
-                    			
-							<h2 class="site-red"><%= link_to @listing.title, listing_path(@track.listing_id) %></h2>
-							<span class="small"><%= @listing.filetype %></span>		
-							<div class="star-rating" data-score=<%= @listing.avg_rating %> ></div>
-									
-							<h2><%= number_to_currency(@listing.price) %></h2>
-		
-					
-                    	</div>
-                    	<div class="col-5">
-                    		<h3>Description:</h3>
-                    		<%= @listing.description %>
-                    	</div>
-                    	<div class="col-3">
                     		<%= link_to listing_path(@track.listing_id) do %>
 								<%= image_tag @listing.image.url(:thumb), title: @listing.title, class: "image-full" %>
 							<% end %>
+
                     	</div>
-                    </div>
+                    	<div class="col-8">
+                    		<h2 class="site-red"><%= link_to @listing.title, listing_path(@track.listing_id) %></h2>
+							<span class="small"><%= @listing.filetype %></span>		
+							<div class="star-rating" data-score=<%= @avg_rating %> ></div>
+									
+							<h2 class="site-blue"><%= number_to_currency(@listing.price) %></h2>
+                    		<h4>Description:</h4>
+                    		<p><%= truncate(@listing.description, length: 200) %></p>
+                    	</div>
 
 			<% else %>
 			<div class= "col-12">
@@ -204,7 +198,7 @@
     		<% if user_signed_in? %>
     			<% unless @listing.user == current_user %>
     				<% if @purchased.empty? %>
-    					<%= render 'listing_transaction_form', transaction: @transaction %>
+    					<%= render 'listings/listing_transaction_form', transaction: @transaction %>
     				<% else %>
     					<div class="btn btn-primary">
     					  <%= link_to 'Download', purchases_path, :class => "btn text-white" %>

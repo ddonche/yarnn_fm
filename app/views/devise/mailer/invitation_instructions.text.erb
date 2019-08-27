@@ -1,3 +1,9 @@
+<% if User.find_by_id(@resource.invited_by_id).name? %>
+  <%= User.find_by_id(@resource.invited_by_id).name %> 
+<% else %>
+  <%=User.find_by_id(@resource.invited_by_id).username %>
+<% end %> has invited you to try Yarnn.FM!
+
 <%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %>
 
 <%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %>

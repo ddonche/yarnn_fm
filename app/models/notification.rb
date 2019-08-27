@@ -3,6 +3,6 @@ class Notification < ApplicationRecord
                             purchase: 6, unfavorite: 7, notation: 8, like: 9, dislike: 10 }
   enum read_status: { read: true, unread: false }
   enum commentable_type_old: { Blog: 0, Track: 1, Topic: 2 }
-  belongs_to :notified_by, class_name: 'User', foreign_key: :user_id
+  belongs_to :notified_by, class_name: 'User'
   belongs_to :notifiable, polymorphic: true
 end

@@ -1,4 +1,11 @@
-<h3>You've been invited to try Yarnn.FM!</h3>
+<h3>
+<% if User.find_by_id(@resource.invited_by_id).name? %>
+  <%= User.find_by_id(@resource.invited_by_id).name %> 
+<% else %>
+  <%=User.find_by_id(@resource.invited_by_id).username %>
+<% end %> has invited to try Yarnn.FM!
+</h3>
+
 
 <p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
 

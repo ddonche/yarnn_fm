@@ -21,6 +21,9 @@ class TracksController < ApplicationController
         @avg_rating = @listing.reviews.average(:rating).round(2)
       end
 	  end
+	  if @track.album_id?
+	    @album = Album.find(@track.album_id)
+	  end
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing&.id)

@@ -328,20 +328,20 @@
 						    
 						    <% if @followed_users.exists? %>
 								<div class="row">
-									<div class="col-12 d-flex justify-content-between align-items-center">
+									<div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
 										<% @followed_users.each do |followed_user| %>
 							      			<%= link_to followed_user do %>
 										        <% if followed_user.image? %>
-										          <%= image_tag(followed_user.image.url(:thumb), width: 30, class: "rounded", title: followed_user.username) %>
+										          <%= image_tag(followed_user.image.url(:thumb), width: 30, class: "rounded m-1", title: followed_user.username) %>
 										        <% else %>
-										          <%= image_tag 'default_track.jpg', width: 30, class: "rounded", title: followed_user.username %> 
+										          <%= image_tag 'default_track.jpg', width: 30, class: "rounded m-1", title: followed_user.username %> 
 										        <% end %>
 							      			<% end %>
 										<% end %>
 							   		</div>
 								</div>
 							<% else %>
-							<small><%= @user.username %> isn't following anybody yet.</small>
+								<small><%= @user.username %> isn't following anybody yet.</small>
 							<% end %>
 							
 						</div>

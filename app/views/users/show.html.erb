@@ -1,4 +1,32 @@
-<title><%= @user.username %> | Yarnn.FM</title>
+<% content_for :head do %>
+<!-- Facebook -->
+  <meta property="og:title" content="<%= @user.username %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <% if @user.image? %>
+      <meta property="og:image:url" content="<%= @user.image.url %>" />
+  <% else %>
+	  <meta property="og:image:url" content="<%= image_tag('default_track.jpg') %>" />
+  <% end %>
+  <meta property="og:image:height" content="600" />
+  <meta property="og:image:width" content="600" />
+  <meta property="og:description" content="<%= @user.username %>'s Profile" />
+  <meta property="og:site_name" content="Yarnn.FM" />
+  <meta property="fb:app_id" content="395394867776017" />
+  
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yarnnfm">
+  <meta name="twitter:title" content="<%= @user.username %>">
+  <meta name="twitter:description" content="<%= @user.username %>'s Profile">
+  <meta name="twitter:creator" content="<%= @user.username %>">
+  <% if @user.image? %>
+      <meta name="twitter:image:src" content="<%= @user.image.url %>" />
+  <% else %>
+	  <meta name="twitter:image:src" content="<%= image_tag('default_track.jpg') %>" />
+  <% end %>
+  <title><%= @user.username %> | Yarnn.FM</title>
+<% end %>
  	<!-- Page Content -->
  	<section class="section-content bg padding-y-sm">
 		<div class="container">

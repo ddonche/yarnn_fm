@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Facebook -->
+  <meta property="og:title" content="Yarnn.FM | Audio Short Stories & Poetry" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image:url" content="https://yarnn.s3-us-west-2.amazonaws.com/banners/topic-image.jpg" />
+  <meta property="og:description" content="Upload audio stories, sell ebooks, and more..." />
+  <meta property="og:site_name" content="Yarnn.FM" />
+  <meta property="fb:app_id" content="395394867776017" />
+  
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@yarnnfm">
+  <meta name="twitter:title" content="Yarnn.FM | Audio Short Stories & Poetry">
+  <meta name="twitter:description" content="Upload audio stories, sell ebooks, and more...">
+  <meta name="twitter:image:src" content="https://yarnn.s3-us-west-2.amazonaws.com/banners/topic-image.jpg">
+<% end %>
   
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">

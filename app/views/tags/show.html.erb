@@ -49,7 +49,7 @@
 					    <% unless @genre == "Support" || @genre == "Premium" %>
 					    <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li>
 					    <% end %>
-					    <li class="breadcrumb-item active" aria-current="page"><%= @genre %> Portal</li>
+					    <li class="breadcrumb-item active" aria-current="page"><%= @genre.upcase %> Portal</li>
 				  </ol>
 				</nav>
 				
@@ -62,7 +62,7 @@
 				  		    	<% if lookup_context.template_exists?(@style, "topics/icons", true) %>
 			  		    		<%= render partial: "topics/icons/#{@style}" %>
 								<% end %>
-							    <h4 class="card-title site-blue"><%= @genre %></h4>
+							    <h4 class="card-title site-blue"><%= @genre.upcase %></h4>
 							    <h6 class="card-subtitle mb-2 text-muted">Content Portal</h6>
 							  </div>
 									<ul class="list-group list-group-flush">

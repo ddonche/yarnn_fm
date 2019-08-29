@@ -20,6 +20,9 @@ class NotationsController < ApplicationController
         @commentable.update_attributes(:last_comment_at => Time.now)
       end
       
+      Event.create!(parent_id: @commentable.id, eventable_id: @comment.id, user_id: current_user.id,
+                                  eventable_type: "notation", commentable_type: @comment.commentable_type)
+                                  
       Notification.create!(parent_id: @commentable.id, notifiable_id: @comment.id, 
                                   recipient_id: @comment.user_id, notified_by_id: current_user.id, 
                                   notifiable_type: "notation", commentable_type: @comment.commentable_type)

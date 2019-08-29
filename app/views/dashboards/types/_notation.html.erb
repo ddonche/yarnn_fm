@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-12 col-md-9 small">
+    <% if item.user == current_user %>
+      You
+    <% else %>
+    <%= link_to User.find(item.user_id).username, user_path(item.user_id) %> 
+    <% end %>
+    
+    replied to a comment on 
+  
+    <% if item.commentable_type == "Blog" %>
+      the blog post <i><%= link_to Blog.find(item.parent_id).title, blog_path(item.parent_id) %></i>
+      
+    <% elsif item.commentable_type == "Track" %>
+
+        the track <i><%= link_to Track.find(item.parent_id).title, track_path(item.parent_id) %></i>
+
+    <% elsif item.commentable_type == "Topic" %>
+     the topic <i><%= link_to Topic.find(item.parent_id).title, topic_path(item.parent_id) %></i>
+      
+    <% end %><br />
+
+  </div>
+  <div class="col-12 col-md-3 small text-center">
+    <small><%= time_ago_in_words(item.created_at) %> ago</small>
+      <div class="row justify-content-center">
+        <% if item.commentable_type == "Track" %>
+          <% Track.find(item.parent_id).tags.map(&:name).each do |tag| %>
+      			<% @icon = tag.split.map(&:downcase).join('_') %>
+      			<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+      			    <%= render partial: "topics/icons/#{@icon}" %>
+      			<% else %>
+      				<%= image_tag('https://yarnn.s3-us-west-2.amazonaws.com/icons/default-site-blue.png', width: 30, title: "#{@icon}", class: "pt-1") %>
+      			<% end %>
+      		<% end %>
+      	<% elsif item.commentable_type == "Topic" %>
+        	<% Topic.find(item.parent_id).tags.map(&:name).each do |tag| %>
+        			<% @icon = tag.split.map(&:downcase).join('_') %>
+        			<% if lookup_context.template_exists?(@icon, "topics/icons", true) %>
+        			    <%= render partial: "topics/icons/#{@icon}" %>
+        			<% else %>
+        				<%= image_tag('default_track.jpg', width: 30, title: "#{@icon}", class: "round pt-1") %>
+        			<% end %>
+        		<% end %>
+        <% end %>
+    </div>
+  </div>
+</div>

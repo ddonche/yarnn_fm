@@ -1,37 +1,50 @@
-<h2>Add Author Or Pseudonym</h2>
 
-<p>You can have an unlimited number of authors (publisher accounts) or pseudonyms attached to your account. This makes it easy to associate any of your content with the appropriate 
+  <div class="container full-form-container mt-2">
+    <div class="row justify-content-center trans-bg p-3 p-sm-4 rounded">
+      <div class="col-11">
+      
+          <div class="text-center mb-1">
+            <%= image_tag("yarnn-icon.png", size: "96x72") %>
+            <h2 class="site-blue">Add Author Or Pseudonym</h2>
+          </div>
+          
+          <p class="text-white">You can have an unlimited number of authors (publisher accounts) or pseudonyms attached to your account. This makes it easy to associate any of your content with the appropriate 
 pseudonym or author. For example, if you upload a track under a pseudonym, your track's info will display the pseudonym instead of your real name, however, the 
 link will always point back to your account*. This makes it easier for people to find your stuff all in one place. This also makes it so you don't have 
 to create a new account for each different pseudonym (unless you really, positively, absolutely want to).</p><br>
 
-*Materials uploaded via a publisher account will display the author info, same as a pseudonym, but will always link back to the publisher account. If you would 
-rather have the material appear under the author's account, simply transfer ownership to the author (or vice-versa). 
+<small class="text-white">*Materials uploaded via a publisher account will display the author info, same as a pseudonym, but will always link back to the publisher account. If you would 
+rather have the material appear under the author's account, simply transfer ownership to the author (or vice-versa).</small>
 
-<%= form_for(@pseudonym) do |f| %>
-  <% if @pseudonym.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pseudonym.errors.count, "error") %> prohibited this pseudonym from being saved:</h2>
+          <hr class="colorgraph">
+          <span class="clearfix"></span>
+            
+          <%= form_for(@pseudonym) do |f| %>
+            <% if @pseudonym.errors.any? %>
+              <div id="error_explanation">
+                <h2 class="errors"><%= pluralize(@pseudonym.errors.count, "error") %> prohibited this pseudonym from being saved:</h2>
+          
+                <ul>
+                <% @pseudonym.errors.full_messages.each do |message| %>
+                  <li class="errors"><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+          
+            <form>
+              <div class="form-group">
+                <%= f.label "Author/Pseudonym", class: "site-blue" %><br />
+                <%= f.text_field :name, :autofocus => true, required: true, class: "form-control" %>
+                <small class="form-text text-muted">Pseudonyms/Authors added here will be available to you when you go to add new tracks, listings, topics, and blogs.</small>
+              </div>
+              <hr class="colorgraph">
+              <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Sending..." } %></h3>
+            </form>
+            <%= link_to 'Cancel', 'javascript:history.back()' %><br />
+          <% end %>
 
-      <ul>
-      <% @pseudonym.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        
+      </div>
     </div>
-  <% end %>
-  
-	<div class="field">
-    <div class="tooltip" style="float:right">more info
-      <span class="tooltiptext">Pseudonyms/Authors added here will be available to you when you go to add new tracks, listings, topics, and blogs.</span>
-    </div>
-    <%= f.label "Author/Pseudonym", class: "title" %><br />
-    <%= f.text_field :name, :autofocus => true, required: true %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Submit", class: "button button_highlight button_block" %>
-  </div>
-<% end %>
-
-<%= link_to 'Cancel', 'javascript:history.back()' %><br />

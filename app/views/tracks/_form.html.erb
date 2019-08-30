@@ -1,12 +1,12 @@
-<div id="other_background" style="overflow-y: auto;">
-  
-  <div class="container full-form-container">
-    <div class="row justify-content-center trans-bg-3 p-3 mt-3 mb-md-3 p-sm-4 mt-sm-5 rounded">
+<div class="container full-form-container mt-2">
+    <div class="row justify-content-center trans-bg-3 p-3 p-sm-4 rounded">
       <div class="col-11">
         <fieldset> 
-        <%= image_tag("yarnn-icon.png", size: "120x90") %>
-        <h2 class="site-blue">Create New Track</h2>
-        <p style="color: white;">Use this form to upload a new track. Tracks are the key feature of this site, so it helps to have high-quality audio (see link below). You can also set your track under a pseudonym, include a link to a related product (Amazon, iTunes, etc.), 
+        <div class="text-center mb-1">
+            <%= image_tag("yarnn-icon.png", size: "120x90") %>
+            <h2 class="site-blue">Create/Edit New Track</h2>
+        </div>
+        <p style="color: white;">Tracks are the key feature of this site, so it helps to have high-quality audio. You can also set your track under a pseudonym, include a link to a related product (Amazon, iTunes, etc.), 
 and upload a virtual product of your own into our marketplace. People will also be able to favorite your track to add it to their official 
 station, so make sure it's a good one!<br><br>
 <%= link_to "See our post here on how to improve your audio quality.", "#", class: "title", style: "color: #00b8ac" %></p>
@@ -15,11 +15,11 @@ station, so make sure it's a good one!<br><br>
   <%= form_for(@track) do |f| %>
   <% if @track.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@track.errors.count, "error") %> prohibited your track from being saved:</h2>
+      <h2 class="errors"><%= pluralize(@track.errors.count, "error") %> prohibited your track from being saved:</h2>
 
       <ul>
       <% @track.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class= "errors"><%= message %></li>
       <% end %>
       </ul>
     </div>
@@ -33,40 +33,40 @@ station, so make sure it's a good one!<br><br>
         You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
       </span>
     </div>
-    <small id="genresHelp" class="form-text text-muted"><%= link_to "Click Here", new_pseudonym_path, style: "color: #00b8ac" %> if you want to add a new pseudonym. 
-    <i>Ignore this if you want to use your real name.</i></small><br />
+    <small class="form-text text-muted">Need to <%= link_to "add a new pseudonym", new_pseudonym_path %> for this?</small>
+    <small class="form-text text-muted"><i>Ignore this if you want to use your real name.</i></small><br />
     <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { prompt: 'Select a pseudonym.' }, {class: "form-control"}) %><br />
   </div>
   
   <hr class="colorgraph">
   <h2 class="site-blue">Track Details</h2>
   <div class="form-group">
-    <%= f.text_field :title, :autofocus => true, required: true, class: "form-control input-lg", placeholder: "Title" %>
+    <%= f.text_field :title, required: true, class: "form-control input-lg", placeholder: "Title" %>
   </div>
 
   <div class="form-group">
-    <%= f.text_area :description, class: "form-control", autofocus: true, placeholder: "Track description..." %>
+    <%= f.text_area :description, class: "form-control", placeholder: "Track description..." %>
   </div>
   
   <div class="form-group">
     <%= f.collection_select(:album_id, current_user.albums, :id, :title, { prompt: 'Select an album, if any.' }, {class: "form-control"}) %><br />
-    <small id="albumHelp" class="form-text text-muted">Need to make a new album for this?&nbsp;<%= link_to "Click here.", new_album_path, class: "title", style: "color: #00b8ac" %></small>
+    <small id="albumHelp" class="form-text text-muted">Need to make a new album for this? <%= link_to "Click here.", new_album_path %></small>
   </div>
   
   <div class="form-group">
-    <%= f.text_field :vocals, autofocus: true, class: "form-control", placeholder: "Read by..." %>
+    <%= f.text_field :vocals, class: "form-control", placeholder: "Read by..." %>
     <small id="titleHelp" class="form-text text-muted">Whose voice is featured on this track?</small>
   </div>
   
   <div class="form-group">
-    <%= f.text_field :voice_site, autofocus: true, class: "form-control", placeholder: "Actor site" %>
+    <%= f.text_field :voice_site, class: "form-control", placeholder: "Actor site" %>
     <small id="titleHelp" class="form-text text-muted">Link to voice actor site so other users can find them.</small>
   </div>
   
   <div class="form-group">
     <small><%= f.label :tag_list, "Genres (separated by commas)", class: "site-blue" %></small><br />
     <%= f.text_field :tag_list, class: "form-control", placeholder: "Genres" %>
-    <small id="titleHelp" class="form-text text-muted">Enter up to two genres.</small>
+    <small id="titleHelp" class="form-text text-muted">Enter up to two genres. (error will reference "Tag list" for this)</small>
   </div>
 
     <div class="row">
@@ -86,7 +86,7 @@ station, so make sure it's a good one!<br><br>
   
   <div class="row">
     <div class="col-12 justify-content-center">
-      <%=  f.file_field :image, class: "form-control-file" %>
+      <%=  f.file_field :image, class: "form-control-file site-blue" %>
       <small id="imageHelp" class="form-text text-secondary">For best results, use an image that's the same height and width.</small>
     </div>
   </div>
@@ -96,7 +96,7 @@ station, so make sure it's a good one!<br><br>
   <div class="row">
     <div class="col-12 justify-content-center">
       <%= f.label "Audio File", class: "text-secondary" %><br/>
-      <%=  f.file_field :audio, class: "form-control-file" %>
+      <%=  f.file_field :audio, class: "form-control-file site-blue" %>
       <div class="small" style="color: #fc0000;"><i>*Must be in mp3, wav, or ogg format</i></div>
     </div>
   </div>
@@ -110,7 +110,7 @@ station, so make sure it's a good one!<br><br>
   </div>
   
 	<div class="form-group">
-    <%= f.text_field :buy_url, :autofocus => true, class: "form-control", placeholder: "Purchase Link" %>
+    <%= f.text_field :buy_url, class: "form-control", placeholder: "Purchase Link" %>
     <small id="albumHelp" class="form-text text-muted">Is there another related product you can link this track with? Perhaps a physical product your audience might be interested in?</small>
   </div>
   

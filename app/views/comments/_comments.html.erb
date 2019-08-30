@@ -43,11 +43,11 @@
 				</ul>
       <%= simple_format(comment.content) %>
       <% if comment.youtube? %>
-      	<div class="video-container mb-1">
+      	<div class="video-container mb-3">
       		<iframe width="853" height="480" src="https://www.youtube.com/embed/<%= comment.youtube %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
       	</div>
       <% end %>
-       <div class="comment-content">
+        <div class="comment-content mt-1">
 			    <% if comment.notations.any? %>
 			      <%= render 'notations/notations', comment: comment %>
 			    <% end %>
@@ -62,7 +62,7 @@
 			      <% end %>
 			      </h6>
 			    
-			  </div>
+	    </div>
 			  
     </div>
     

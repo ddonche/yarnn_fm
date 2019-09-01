@@ -8,7 +8,7 @@
   <%= render 'shared/alert' %>
     
     <div class="row justify-content-center">
-      <div class="col-12">
+      <div class="col-12 col-sm-11">
         <%= paginate @notifications %>
 
               <table class="table">
@@ -47,6 +47,7 @@
             <% end %>
             </tbody>
           </table>
+          <%= paginate @notifications %>
       </div>
     </div>
 </div>

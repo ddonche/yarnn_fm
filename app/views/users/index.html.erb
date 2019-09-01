@@ -35,7 +35,7 @@
 						    <% end %>
 	                		<br /><br />
 			                <% if user.bio? %>
-							  <p class="description"><%= user.bio %></p><br />
+							  <p class="description" style="text-overflow: ellipsis"><%= user.bio %></p><br />
 							<% else %>
 							  <p class="description">This user does not have a bio yet.</p><br />
 							<% end %>

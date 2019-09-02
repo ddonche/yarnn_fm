@@ -21,10 +21,7 @@
 							<% else %>
 								<%= image_tag('default_track.jpg', class: "image-full rounded mb-2", title: user.username) %>
 							<% end %>
-			
-						    <% if user_signed_in? && current_user != user %>
-			                    <%= render 'index_follow_form', :user => user %>
-		                    <% end %>
+
                   		</div><!-- end col-4 -->
                   
                   		<div class="col-9 col-md-10">
@@ -33,19 +30,13 @@
 						        <div class="small text-secondary" style="display:inline-block">#<%= user.id %> 
 						        <%= user.email %></div>
 						    <% end %>
-	                		<br /><br />
+	                		<br />
 			                <% if user.bio? %>
-							  <p class="ellipses"><%= user.bio %></p><br />
-							<% else %>
-							  <p class="description">This user does not have a bio yet.</p><br />
+							  <div class="ellipses"><%= user.bio %></div>
 							<% end %>
-					
 				    	
 							<i class="fas fa-headphones site-blue" title="tracks"></i>
 							<span class="ml-1 text-secondary"><%= user.tracks.count %></span>
-							
-							<i class="fas fa-comment site-blue ml-2" title="blog posts"></i>
-							<span class="ml-1 text-secondary"><%= user.topics.count %></span>
 							
 							<i class="fas fa-user-astronaut site-blue ml-2" title="followers"></i>
 							<span class="ml-1 text-secondary"><%= user.followers.count %></span>
@@ -56,6 +47,10 @@
 							<%= link_to station_path(user) do %>
 								<i class="fas fa-broadcast-tower ml-2 site-red" title="station"></i>
 							<% end %>
+							
+							<% if user_signed_in? && current_user != user %>
+			                    <%= render 'index_follow_form', :user => user %>
+		                    <% end %>
 					 
 						</div><!-- end col5 -->
 					

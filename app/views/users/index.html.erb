@@ -14,7 +14,7 @@
 	            <% @users.each do |user| %>
 	            	<div class="grayline mx-auto" style="width: 94%;"></div>
 	                <div class="row p-2 mx-auto">
-	                	<div class="col-4 col-md-3">
+	                	<div class="col-3 col-md-2">
 			                
 			                <% if user.image? %>
 								<%= link_to image_tag(user.image.url(:thumb), class: "image-full rounded mb-2"), user_path(user), title: user.username %>
@@ -27,7 +27,7 @@
 		                    <% end %>
                   		</div><!-- end col-4 -->
                   
-                  		<div class="col-8 col-md-9">
+                  		<div class="col-9 col-md-10">
                   			<h6 style="display: inline-block;"><%= link_to user.username, user_path(user) %> / <%= user.name %></h6>
 							<% if (user_signed_in? && current_user.role == "admin") %>
 						        <div class="small text-secondary" style="display:inline-block">#<%= user.id %> 
@@ -35,7 +35,7 @@
 						    <% end %>
 	                		<br /><br />
 			                <% if user.bio? %>
-							  <p class="description" style="text-overflow: ellipsis"><%= user.bio %></p><br />
+							  <p class="ellipses"><%= user.bio %></p><br />
 							<% else %>
 							  <p class="description">This user does not have a bio yet.</p><br />
 							<% end %>

@@ -40,6 +40,12 @@ body {
   margin-top: 0;
 }
 
+.ellipses {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .main-content {
   flex: 1;
 }

@@ -1,6 +1,6 @@
 <%= form_for(current_user.active_relationships.build) do |f| %>
   <div><%= hidden_field_tag :followed_id, user.id %></div>
   <%= button_tag(type: 'submit', class: "btn btn-info btn-block") do %>
-    Follow
+    <h6>Follow</h6>
   <% end %>
 <% end %>

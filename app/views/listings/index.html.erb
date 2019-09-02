@@ -61,7 +61,7 @@
     							<small><%= link_to listing.user.name, user_path(listing.user) %></small>
     						<% end %>
     						<% if listing.sale_price.present? %>
-            			<br /><small class="site-red" style="text-decoration: line-through;"><%= number_to_currency(listing.price) %></small><h4 class="ml-2" style="display:inline-block"><%= number_to_currency(listing.sale_price) %></h4>
+            			<br /><h4 style="display:inline-block"><%= number_to_currency(listing.sale_price) %></h4><small class="site-red ml-2" style="text-decoration: line-through;"><%= number_to_currency(listing.price) %></small>
             		<% else %>
             			<h4><%= number_to_currency(listing.price) %></h4>
             		<% end %>

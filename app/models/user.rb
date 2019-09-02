@@ -39,6 +39,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: 'notified_by_id', dependent: :delete_all
   has_many :flags
   has_many :flags, as: :flaggable, dependent: :delete_all
+  has_many :logs
   has_many :pseudonyms, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :sales, class_name: "Transaction", foreign_key: "seller_id"

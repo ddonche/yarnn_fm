@@ -42,21 +42,21 @@
 		    		<div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card shadow-sm">
-								    <div class="ribbon_box">
-								    	<% if @user.publisher_type == "publisher" %>
-								        	<div class="ribbon"><span>PUBLISHER</span></div>
-								    	<% end %>
-								        <% if @user.image? %>
-								        	
-								        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top rounded p-3", title: @user.username) %>
-								        <% else %>
-								        	<%= image_tag('default_track.jpg', class: "card-img-top rounded p-3", title: @user.username) %>
-								        <% end %>
-							    	</div>
+								    
 							  
 							  <div class="card-body">
 							  	<div class="row">
 								  	<div class="col-12">
+								  		<div class="ribbon_box mb-2">
+									    	<% if @user.publisher_type == "publisher" %>
+									        	<div class="ribbon"><span>PUBLISHER</span></div>
+									    	<% end %>
+									        <% if @user.image? %>
+									        	<%= image_tag(@user.image.url(:thumb), class: "card-img-top rounded", title: @user.username) %>
+									        <% else %>
+									        	<%= image_tag('default_track.jpg', class: "card-img-top rounded", title: @user.username) %>
+									        <% end %>
+								    	</div>
 								  		<h4 class="card-title float-left site-blue"><%= @user.username %></h4> 
 								  		<% if @user == current_user %>
 								  			<%= link_to edit_registration_path(current_user) do %>

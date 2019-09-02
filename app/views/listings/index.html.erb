@@ -46,7 +46,7 @@
 								<%= image_tag listing.image.url(:thumb), title: listing.title, class: "card-img-top" %>
 							<% end %>
               <div class="card-body">
-                <h5 class="card-title">
+                <h5 class="card-title ellipses">
                   
                   <%= link_to listing.title, listing_path(listing), class: "site-red" %>
                 </h5>

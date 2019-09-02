@@ -40,9 +40,9 @@
 						  </button>
 				  <ul class="dropdown-menu p-2 nav-text" aria-labelledby="dropdownMenu2">
 				    <li class="dropdown-item navdrop-link"><%= link_to "Dashboard", dashboard_path %></li>
-				    <li class="dropdown-item navdrop-link"><%= link_to "Profile", user_path(current_user) %></li>
+				    <li class="dropdown-item navdrop-link"><%= link_to "Edit Account", edit_registration_path(current_user) %></li>
+				    <li class="dropdown-item navdrop-link"><%= link_to "My Page", user_path(current_user) %></li>
 				    <li class="dropdown-item navdrop-link"><%= link_to "Invite People", new_user_invitation_path %></li>
-          			<li class="dropdown-item navdrop-link"><%= link_to "Edit Account", edit_registration_path(current_user) %></li>
           		  <div class="dropdown-divider"></div>
 	                <li class="dropdown-item navdrop-link"><%= link_to "My Station", station_path(current_user) %></li>
 	                <li class="dropdown-item navdrop-link"><%= link_to "My Downloads", purchases_path %></li>

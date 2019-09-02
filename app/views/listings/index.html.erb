@@ -43,7 +43,12 @@
           <div class="col-6 col-lg-3 mb-4">
             <div class="card h-100">
               <%= link_to listing do %>
-								<%= image_tag listing.image.url(:thumb), title: listing.title, class: "card-img-top" %>
+                <div class="ribbon_box">
+    				    	<% if listing.sale_price.present? %>
+    				        	<div class="ribbon-sale"><span>SALE</span></div>
+    				    	<% end %>
+    				    	<%= image_tag listing.image.url(:thumb), title: listing.title, class: "card-img-top" %>
+    			    	</div>
 							<% end %>
               <div class="card-body">
                 <h5 class="card-title ellipses">
@@ -55,7 +60,13 @@
     						<% else %>
     							<small><%= link_to listing.user.name, user_path(listing.user) %></small>
     						<% end %>
-                <h4><%= number_to_currency(listing.price) %></h4>
+    						<% if listing.sale_price.present? %>
+            			<br /><small class="site-red" style="text-decoration: line-through;"><%= number_to_currency(listing.price) %></small><h4 class="ml-2" style="display:inline-block"><%= number_to_currency(listing.sale_price) %></h4>
+            		<% else %>
+            			<h4><%= number_to_currency(listing.price) %></h4>
+            		<% end %>
+            		
+                
                 <div class="small"><%= listing.filetype %></div>
               </div>
               <div class="card-footer">

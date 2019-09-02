@@ -15,7 +15,11 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
     @listing = Listing.find(params[:listing_id])
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
-    @price = @listing.price * 100
+    if @listing.sale_price.present?
+      @price = @listing.sale_price * 100
+    else
+      @price = @listing.price * 100
+    end
   end
 
   def create

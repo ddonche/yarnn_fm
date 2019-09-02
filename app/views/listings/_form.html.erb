@@ -36,34 +36,38 @@
   <hr class="colorgraph">
   <h2 class="site-blue">Listing Main Details</h2>
   <div class="form-group">
-    <%= f.text_field :title, :autofocus => true, required: true, class: "form-control input-lg", placeholder: "Title" %>
+    <%= f.text_field :title, required: true, class: "form-control input-lg", placeholder: "Title" %>
   </div>
 
   <div class="form-group">
-    <%= f.text_area :description, class: "form-control", autofocus: true, placeholder: "Listing description..." %>
+    <%= f.text_area :description, class: "form-control", placeholder: "Listing description..." %>
   </div>
   
   <hr class="colorgraph">
   <h2 class="site-blue">Secondary Details</h2>
     <div class="row">
       <div class="col-12 justify-content-center">
-        <%= f.text_field :publisher, autofocus: true, class: "form-control mb-3", placeholder: "Publisher" %>
+        <%= f.text_field :publisher, class: "form-control mb-3", placeholder: "Publisher" %>
       </div>
       <div class="col-12 justify-content-center">
-        <%= f.text_field :year, autofocus: true, class: "form-control mb-3", placeholder: "Year" %>
+        <%= f.text_field :year, class: "form-control mb-3", placeholder: "Year" %>
       </div>
       <div class="col-12 justify-content-center">
-        <%= f.text_field :isbn, autofocus: true, class: "form-control", placeholder: "ISBN" %>
+        <%= f.text_field :isbn, class: "form-control", placeholder: "ISBN" %>
         <small id="titleHelp" class="form-text text-muted">If you have both a 10-digit and a 13-digit ISBN, enter the 13 digit one here. 
         If you do not have one, leave this field blank. <%= link_to "Go here if you need an ISBN.", "https://www.myidentifiers.com/Get-your-isbn-now", class: "title", style: "color: #00b8ac" %></small>
         </small>
       </div>
       <div class="col-12 justify-content-center">
-        <%= f.text_field :language, autofocus: true, class: "form-control mb-3", placeholder: "Language" %>
+        <%= f.text_field :language, class: "form-control mb-3", placeholder: "Language" %>
       </div>
       <div class="col-12 justify-content-center">
-        <%= f.text_field :price, autofocus: true, class: "form-control", placeholder: "Price" %>
+        <%= f.text_field :price, class: "form-control", placeholder: "Price" %>
       <small id="titleHelp" class="form-text text-muted">Do not include the dollar sign. All currency is USD until further notice.</small>
+      </div>
+      <div class="col-12 justify-content-center">
+        <%= f.text_field :sale_price, class: "form-control", placeholder: "Sale Price" %>
+      <small id="titleHelp" class="form-text text-muted">Do not include the dollar sign. If this product is not on sale, leave this blank.</small>
       </div>
       <div class="col-12 justify-content-center">
         <small><%= f.label :tag_list, "Genres (separated by commas)", class: "site-blue" %></small><br />

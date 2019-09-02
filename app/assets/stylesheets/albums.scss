@@ -46,52 +46,47 @@
   border-bottom: 3px solid transparent;
   border-top: 3px solid #007870;
 }
-
-.ribbon_box_small {
-  width: 100%;
-  position: relative;
-  margin: 0 auto;
-}
-.ribbon_small {
+.ribbon-sale {
   position: absolute;
-  left: -2px; top: -2px;
+  left: -5px; top: -5px;
   z-index: 1;
   overflow: hidden;
-  width: 38px; height: 38px;
+  width: 75px; height: 75px;
   text-align: right;
 }
-.ribbon_small span {
-  font-size: 5px;
+
+.ribbon-sale span {
+  font-size: 10px;
   font-weight: bold;
   color: #FFF;
   text-transform: uppercase;
   text-align: center;
-  line-height: 10px;
+  line-height: 20px;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   width: 100px;
   display: block;
-  background: #79A70A;
-  background: linear-gradient(#00B8AC 0%, #007870 100%);
+  background: #dc0000;
+  background: linear-gradient(#DC0000 0%, #b50202 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
-  top: 9px; left: -11px;
+  top: 19px; left: -21px;
 }
-.ribbon_small span::before {
+.ribbon-sale span::before {
   content: "";
   position: absolute; left: 0px; top: 100%;
   z-index: -1;
-  border-left: 3px solid #007870;
+  border-left: 3px solid #b50202;
   border-right: 3px solid transparent;
   border-bottom: 3px solid transparent;
-  border-top: 3px solid #007870;
+  border-top: 3px solid #b50202;
 }
-.ribbon_small span::after {
+.ribbon-sale span::after {
   content: "";
   position: absolute; right: 0px; top: 100%;
   z-index: -1;
   border-left: 3px solid transparent;
-  border-right: 3px solid #007870;
+  border-right: 3px solid #b50202;
   border-bottom: 3px solid transparent;
-  border-top: 3px solid #007870;
+  border-top: 3px solid #b50202;
 }

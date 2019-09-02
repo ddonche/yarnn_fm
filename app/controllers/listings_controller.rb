@@ -118,6 +118,6 @@ class ListingsController < ApplicationController
 	
   def listing_params
     params.require(:listing).permit(:title, :description, :user_id, :isbn, :filetype, :pseudonym_id,
-                                  :year, :price, :publisher, :language, :tag_list, :file, :image)
+                                  :year, :price, :sale_price, :publisher, :language, :tag_list, :file, :image)
   end
 end

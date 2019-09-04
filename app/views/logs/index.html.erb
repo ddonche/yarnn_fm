@@ -8,6 +8,7 @@
           <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
+                  <th scope="col"><h5>#</h5></th>
                   <th scope="col"><h5>Date</h5></th>
                   <th scope="col"><h5>Info</h5></th>
                 </tr>
@@ -16,6 +17,7 @@
               <tbody>
                 <% @logs.each do |log| %>
                 <tr>
+                  <td><%= log.id %></td>
                   <td><%= time_ago_in_words(log.created_at) %> ago</td>
                   <td><%= log.body %></td>
                 </tr>

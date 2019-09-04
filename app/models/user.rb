@@ -35,10 +35,10 @@ class User < ApplicationRecord
   has_many :blogs, dependent: :destroy
   has_many :wikis
   has_many :comments
-  has_many :events, dependent: :delete_all
-  has_many :notifications, foreign_key: 'notified_by_id', dependent: :delete_all
+  has_many :events, dependent: :destroy
+  has_many :notifications, foreign_key: 'notified_by_id', dependent: :destroy
   has_many :flags
-  has_many :flags, as: :flaggable, dependent: :delete_all
+  has_many :flags, as: :flaggable, dependent: :destroy
   has_many :logs
   has_many :pseudonyms, dependent: :destroy
   has_many :reviews, dependent: :destroy

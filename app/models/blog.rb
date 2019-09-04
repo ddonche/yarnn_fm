@@ -4,8 +4,8 @@ class Blog < ApplicationRecord
   
   belongs_to :user
   has_many :comments, as: :commentable
-  has_many :events, as: :eventable, dependent: :delete_all
-  has_many :flags, as: :flaggable, dependent: :delete_all
+  has_many :events, as: :eventable, dependent: :destroy
+  has_many :flags, as: :flaggable, dependent: :destroy
   enum published_status: { draft: 0, published: 1 }
 
   validates :title, presence: true, if: -> (blog) { !blog.draft? }

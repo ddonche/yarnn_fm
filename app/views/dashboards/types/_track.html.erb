@@ -13,7 +13,7 @@
       <span class="ml-1 text-secondary"><%= Track.find(item.eventable_id).comments.count %></span></small>
       
       <%= link_to track_path(item.eventable_id) do %>
-				<%= image_tag Track.find(item.eventable_id).image.url(:thumb), class: "image-full p-1 border mt-2" %>
+				<%= image_tag Track.find(item.eventable_id).image.url, class: "image-full p-1 border mt-2" %>
 			<% end %>
       <small><%= truncate(Track.find(item.eventable_id).description, length: 140) %></small>
     

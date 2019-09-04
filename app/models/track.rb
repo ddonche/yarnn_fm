@@ -10,8 +10,8 @@ class Track < ApplicationRecord
   belongs_to :pseudonym, optional: true
   has_many :favorites, counter_cache: true
   has_many :comments, as: :commentable
-  has_many :events, as: :eventable, dependent: :delete_all
-  has_many :flags, as: :flaggable, dependent: :delete_all
+  has_many :events, as: :eventable, dependent: :destroy
+  has_many :flags, as: :flaggable, dependent: :destroy
   has_many :listings
   enum explicit: { standard: 0, explicit: 1 }
 

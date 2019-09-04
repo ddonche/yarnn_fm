@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <%= render 'shared/alert' %>
+    
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <%= paginate @logs %>
 
-<h1>Logs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @logs.each do |log| %>
-      <tr>
-        <td><%= log.user_id %></td>
-        <td><%= log.body %></td>
-        <td><%= link_to 'Show', log %></td>
-        <td><%= link_to 'Edit', edit_log_path(log) %></td>
-        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Log', new_log_path %>
+          <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col"><h5>Date</h5></th>
+                  <th scope="col"><h5>Info</h5></th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <% @logs.each do |log| %>
+                <tr>
+                  <td><%= time_ago_in_words(log.created_at) %> ago</td>
+                  <td><%= log.body %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          
+          
+          <%= paginate @logs %>
+      </div>
+    </div>
+</div>

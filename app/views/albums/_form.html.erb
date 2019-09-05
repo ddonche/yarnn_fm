@@ -40,7 +40,7 @@ might also make an album for a full-length novel, and upload select audio tracks
     </div>
     <small id="genresHelp" class="form-text text-muted"><%= link_to "Click Here", new_pseudonym_path, style: "color: #00b8ac" %> if you want to add a new pseudonym. 
     <i>Ignore this if you want to use your real name.</i></small><br />
-    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { prompt: 'Select a pseudonym.' }, {class: "form-control"}) %><br />
+    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { :include_blank => 'Select a pseudonym.' }, {class: "form-control"}) %><br />
   </div>
   
   <hr class="colorgraph">

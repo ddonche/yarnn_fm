@@ -4,6 +4,7 @@ class Listing < ApplicationRecord
   include Taggable
   #include Elasticsearch::Model
   #include Elasticsearch::Model::Callbacks
+  has_rich_text :body
 
   belongs_to :user
   belongs_to :track

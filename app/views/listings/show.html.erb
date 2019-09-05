@@ -91,13 +91,13 @@
 			<h3 class="site-blue" style="display: inline-block;"><%= number_to_currency(@listing.sale_price) %></h3>
 			<div class="site-red ml-2" style="text-decoration: line-through; display: inline-block">US <%= number_to_currency(@listing.price) %></div>
 		<% else %>
-			<span class="currency">US <%= number_to_currency(@listing.price) %></span>
+			<h3 class="site-blue">US <%= number_to_currency(@listing.price) %></h3>
 		<% end %>
 	</var>
 </div> <!-- price-detail-wrap .// -->
 <dl>
   <dt>Description</dt>
-  <dd><p><%= truncate(@listing.description, length: 200) %></p>
+  <dd><p><%= truncate(strip_tags(@listing.body.to_s), length: 200)%></p>
   	<% if @user_flag.try(:any?) %>
         <small><i class="fas fa-flag site-red mr-2"></i>You reported this.</small>
     <% else %>
@@ -189,6 +189,7 @@
 <article class="card mt-3">
 	<div class="card-body">
 		<h4>Description</h4>
+		<%= @listing.body %>
 			<p><%= simple_format(@listing.description) %></p>
 	</div> <!-- card-body.// -->
 </article> <!-- card.// -->

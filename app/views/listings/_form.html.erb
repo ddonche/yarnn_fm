@@ -1,11 +1,12 @@
-<div id="other_background" style="overflow-y: auto;">
-  
-  <div class="container full-form-container">
-    <div class="row justify-content-center trans-bg-3 p-3 mt-3 mb-md-3 p-sm-4 mt-sm-5 rounded">
+<div class="container full-form-container mt-2">
+    <div class="row justify-content-center bg-white p-3 p-sm-4 rounded">
       <div class="col-11">
         <fieldset> 
-        <%= image_tag("yarnn-icon.png", size: "120x90") %>
-        <p style="color: white;">Use this form to create or edit a listing to sell in our marketplace. Your listing must be a virtual product (downloadable), as we don't capture 
+        <div class="text-center mb-1">
+            <%= image_tag("yarnn-icon-red.png", width: 90) %>
+            <h2 class="site-blue">Create/Edit Product Listing</h2>
+        </div>
+        <p>Use this form to create or edit a listing to sell in our marketplace. Your listing must be a virtual product (downloadable), as we don't capture 
           shipping information. Once your listing is live, you can link it to any of your tracks so people who like your tracks can know where to buy the 
           associated product (to link a track to a product listing, just edit the track). Ebooks, audio files, and videos are all typical products.</p>
           <div class="small" style="color: #fc0000;"><i>By adding listings to the marketplace, you agree to abide by copyright laws associated with the content
@@ -26,60 +27,75 @@
   <% end %>
   <h2 class="site-blue">Creator Info</h2>
   <div class="form-group">
-    <a href="#" data-toggle="tooltip" title="Pseudonyms added here will be available to you when you go to add new tracks, listings, topics, and blogs.
-        You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.">more info</a>
-    <small id="genresHelp" class="form-text text-muted"><%= link_to "Click Here", new_pseudonym_path, style: "color: #00b8ac" %> if you want to add a new pseudonym. 
-    <i>Ignore this if you want to use your real name.</i></small><br />
-    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { prompt: 'Select a pseudonym.' }, {class: "form-control"}) %><br />
+    <h4 class="site-blue">Pseudonym or Real Name?</h4>
+    <small class="form-text text-muted"><i>Ignore this if you want to use your real name.</i></small>
+    <%= f.collection_select(:pseudonym_id, current_user.pseudonyms, :id, :name, { :include_blank => 'Select pseudonym, if any.' }, {class: "form-control mt-2"}) %>
+    <small id="albumHelp" class="form-text text-muted">Need to make a new pseudonym for this? <%= link_to "Click here.", new_pseudonym_path %>
+     Note: this will open the pseudonym form and you will lose progress here. 
+     You can also skip this step, add a pseudonym later, then edit your album to include the pseudonym.
+    </small>
   </div>
   
   <hr class="colorgraph">
   <h2 class="site-blue">Listing Main Details</h2>
   <div class="form-group">
+    <h4 class="site-blue">Title</h4>
     <%= f.text_field :title, required: true, class: "form-control input-lg", placeholder: "Title" %>
   </div>
 
   <div class="form-group">
+    <h4 class="site-blue">Product Description</h4>
+    <%= f.rich_text_area :body, rows: 15 %>
     <%= f.text_area :description, class: "form-control", placeholder: "Listing description..." %>
   </div>
   
   <hr class="colorgraph">
   <h2 class="site-blue">Secondary Details</h2>
-    <div class="row">
-      <div class="col-12 justify-content-center">
-        <%= f.text_field :publisher, class: "form-control mb-3", placeholder: "Publisher" %>
-      </div>
-      <div class="col-12 justify-content-center">
+    <div class="form-group">
+      <h4 class="site-blue">Publisher</h4>
+      <%= f.text_field :publisher, class: "form-control mb-3", placeholder: "Publisher" %>
+    </div>
+      
+    <div class="form-group">
+        <h4 class="site-blue">Publication Year</h4>
         <%= f.text_field :year, class: "form-control mb-3", placeholder: "Year" %>
-      </div>
-      <div class="col-12 justify-content-center">
+    </div>
+    
+    <div class="form-group">
+        <h4 class="site-blue">ISBN</h4>
         <%= f.text_field :isbn, class: "form-control", placeholder: "ISBN" %>
         <small id="titleHelp" class="form-text text-muted">If you have both a 10-digit and a 13-digit ISBN, enter the 13 digit one here. 
         If you do not have one, leave this field blank. <%= link_to "Go here if you need an ISBN.", "https://www.myidentifiers.com/Get-your-isbn-now", class: "title", style: "color: #00b8ac" %></small>
         </small>
-      </div>
-      <div class="col-12 justify-content-center">
+    </div>
+    
+    <div class="form-group">
+        <h4 class="site-blue">Language</h4>
         <%= f.text_field :language, class: "form-control mb-3", placeholder: "Language" %>
-      </div>
-      <div class="col-12 justify-content-center">
+    </div>
+    
+    <div class="form-group">
+        <h4 class="site-blue">Price</h4>
         <%= f.text_field :price, class: "form-control", placeholder: "Price" %>
       <small id="titleHelp" class="form-text text-muted">Do not include the dollar sign. All currency is USD until further notice.</small>
-      </div>
-      <div class="col-12 justify-content-center">
+    </div>
+      
+    <div class="form-group">
+        <h4 class="site-blue">Sale Price</h4>
         <%= f.text_field :sale_price, class: "form-control", placeholder: "Sale Price" %>
       <small id="titleHelp" class="form-text text-muted">Do not include the dollar sign. If this product is not on sale, leave this blank.</small>
-      </div>
-      <div class="col-12 justify-content-center">
-        <small><%= f.label :tag_list, "Genres (separated by commas)", class: "site-blue" %></small><br />
+    </div>
+    
+    <div class="form-group">
+        <h4 class="site-blue">Genres</h4>
         <%= f.text_field :tag_list, class: "form-control", placeholder: "Genres" %>
-        <small id="titleHelp" class="form-text text-muted">Enter up to two genres.</small>
-      </div>
+        <small id="titleHelp" class="form-text text-muted">Enter up to two genres; separate with commas. (error will reference "Tag list" for this)</small>
     </div>
   
   <hr class="colorgraph">
   <h2 class="site-blue">Downloadable File Info</h2>
   <div class="field">
-    <%= f.label "Select File Type", class: "text-white" %><br>
+    <%= f.label "Select File Type" %><br>
     <%= f.radio_button :filetype, 'ebook' %> 
     <%= label :filetype_ebook, 'Ebook' %>
     <%= f.radio_button :filetype, 'audio' %>
@@ -90,13 +106,13 @@
   
   <div class="row">
     <div class="col-12 text-correct justify-content-center">
-      <%= f.label "Cover image", class: "text-white" %><br/>
+      <%= f.label "Cover image" %><br/>
       <%=  f.file_field :image, class: "form-control-file" %>
     </div>
   </div>
   <div class="row">
     <div class="col-12 justify-content-center">
-      <%= f.label "Product File", class: "text-white" %><br/>
+      <%= f.label "Product File" %><br/>
       <%=  f.file_field :file, class: "form-control-file" %><br />
       <div class="small" style="color: #fc0000;"><i>*Image must be less than 1Mb. Product file must be a zip file.</i></div>
     </div>

@@ -4,6 +4,7 @@ class Track < ApplicationRecord
   include Taggable
   #include Elasticsearch::Model
   #include Elasticsearch::Model::Callbacks
+  has_rich_text :body
 
   belongs_to :user, counter_cache: true
   belongs_to :album, optional: true, counter_cache: true

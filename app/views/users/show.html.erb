@@ -190,12 +190,16 @@
 	                      <div class="col-sm-12">
 	                         <div id="divInfo" class="alert alert-warning alert-dismissible fade show shadow-sm" role="alert">
 	                         	
-		                          <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block"><%= @announcement.title %></h5><small>
+		                        <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block"><%= @announcement.title %></h5>
+		                        
+		                        <% if user_signed_in? %>
 		                          	<% if @announcement.user == current_user %>
-		                          	<%= link_to "edit", edit_announcement_path(@announcement.id), class: "ml-2" %></small></div>
+		                          		<small><%= link_to "edit", edit_announcement_path(@announcement.id), class: "ml-3" %></small>
 		                          	<% else %>
-		                          	<%= link_to "edit yours", user_path(current_user.id) %></small></div>
+		                          		<small><%= link_to "edit yours", user_path(current_user.id), class: "ml-3" %></small>
 		                          	<% end %>
+		                        <% end %>
+		                        </div>
 		                          <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
 		                          <small>
 		                            <p class="mb-0"><%= @announcement.body %></p>

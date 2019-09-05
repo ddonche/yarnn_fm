@@ -52,7 +52,11 @@ class TracksController < ApplicationController
 	end
 
   def edit
-    @track = current_user.tracks.find(params[:id])
+    if current_user.role == "admin"
+      @track = Track.find(params[:id])
+    else
+      @track = current_user.tracks.find(params[:id])
+    end
   end
 
   def create

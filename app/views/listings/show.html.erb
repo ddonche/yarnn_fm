@@ -67,7 +67,7 @@
 			<article class="card-body">
 <!-- short-info-wrap -->
 	<h2 class="title mb-1"><%= @listing.title %></h2>
-	<% if @listing.user == current_user %>
+	<% if (@listing.user == current_user) || (current_user.role == "admin") %>
 		<small>
 	        <%= link_to edit_listing_path(@listing) do %>
 	    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit

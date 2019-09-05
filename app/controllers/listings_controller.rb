@@ -61,7 +61,11 @@ class ListingsController < ApplicationController
 	end
 
   def edit
-    @listing = current_user.listings.find(params[:id])
+    if current_user.role == "admin"
+      @listing = Listing.find(params[:id])
+    else
+      @listing = current_user.listings.find(params[:id])
+    end
   end
 
   def create
@@ -117,7 +121,7 @@ class ListingsController < ApplicationController
 	end
 	
   def listing_params
-    params.require(:listing).permit(:title, :body, :description, :user_id, :isbn, :filetype, :pseudonym_id,
+    params.require(:listing).permit(:title, :body, :user_id, :isbn, :filetype, :pseudonym_id,
                                   :year, :price, :sale_price, :publisher, :language, :tag_list, :file, :image)
   end
 end

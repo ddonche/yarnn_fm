@@ -15,7 +15,7 @@
       <%= link_to track_path(item.eventable_id) do %>
 				<%= image_tag Track.find(item.eventable_id).image.url, class: "image-full p-1 border mt-2" %>
 			<% end %>
-      <small><%= truncate(Track.find(item.eventable_id).description, length: 140) %></small>
+      <small><%= truncate(strip_tags(Track.find(item.eventable_id).body.to_s), length: 124)%></small>
     
       <p class="mt-2">
         <%= audio_tag(Track.find(item.eventable_id).audio, autoplay: false, controls: true) %>

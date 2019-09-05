@@ -190,10 +190,27 @@
 	                      <div class="col-sm-12">
 	                         <div id="divInfo" class="alert alert-warning alert-dismissible fade show shadow-sm" role="alert">
 	                         	
-		                          <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block"><%= @announcement.title %></h5></div> 
+		                          <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block"><%= @announcement.title %></h5><small><%= link_to "edit", edit_announcement_path(@announcement.id), class: "ml-2" %></small></div> 
 		                          <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true" class="float-right">&times;</span></button>
 		                          <small>
 		                            <p class="mb-0"><%= @announcement.body %></p>
+		                          </small>
+	                        </div>
+	                      </div>
+	                    </div>
+	                <% else %>
+	                	<div class="row">
+	                      <div class="col-sm-12">
+	                         <div id="divInfo" class="alert alert-warning alert-dismissible fade show shadow-sm" role="alert">
+	                         	
+		                          <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block">Make an Announcement</h5></div> 
+		                          <small>
+		                            <p class="mb-0">Your announcement will appear here always. Just update it whenever you need to make a new one!
+		                            <% if (user_signed_in? && current_user.announcement.present?) %>
+		                            <%= link_to "Edit Yours", user_path(current_user.id), class: "float-right" %></p>
+		                            <% else %>
+		                            <%= link_to "Make One Now", new_announcement_path, class: "float-right" %></p>
+		                            <% end %>
 		                          </small>
 	                        </div>
 	                      </div>

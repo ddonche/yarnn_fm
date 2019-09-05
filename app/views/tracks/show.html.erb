@@ -76,7 +76,7 @@
 							    <% end %>
 								
 								<!-- show edit/delete to owner -->
-								<% if (@track.user == current_user) || (current_user.role == "admin") %>
+								<% if @track.user == current_user %>
 									<small>
 								        <%= link_to edit_track_path(@track) do %>
 								    	    <i class="fas fa-cog site-red" style="font-size: 16px;"></i> Edit
@@ -170,7 +170,7 @@
 														
 												<h2 class="site-blue"><%= number_to_currency(@listing.price) %></h2>
 					                    		<h4>Description:</h4>
-					                    		<p><%= truncate(@listing.description, length: 200) %></p>
+					                    		<p><%= truncate(strip_tags(@listing.body.to_s), length: 250)%></p>
 					                    	</div>
 							
 										<% else %>

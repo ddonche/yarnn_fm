@@ -1,27 +1,32 @@
-<%= form_with(model: log, local: true) do |form| %>
-  <% if log.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(log.errors.count, "error") %> prohibited this log from being saved:</h2>
 
-      <ul>
-        <% log.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <%= form_with(model: log, local: true) do |f| %>
+      
+      <% if log.errors.any? %>
+        <div class="error_messages">
+          <h3>Please correct the following errors.</h3>
+    
+          <ul>
+            <% log.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <h1 class="site-blue">New Log</h1>
+      <%= link_to 'Back', logs_path %>
+        
+      <div class="field">
+        <%= f.text_area :body, :rows => 5, class: "form-control" %>
+      </div>
+      
+      <%= f.hidden_field :user_id, value: current_user.id %>
+          
+      <hr class="colorgraph">
+		  <div class="row">
+  			<div class="col-xs-12 col-sm-12 col-md-6">
+  			  <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %></h3>
+  			</div>
+		  </div>
+  		  
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

@@ -1,13 +1,12 @@
 class IpsumsController < ApplicationController
-
   include Apocalypse
   include Fantasy
   include Horror
   include Military
   include Modern
+  include Names
   include Nature
   include Scifi
-  include Names
   include Western
   
   def show

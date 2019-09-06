@@ -105,7 +105,8 @@ station, so make sure it's a good one!<br><br>
     <div class="col-12 justify-content-center">
       <%= f.label "Audio File", class: "text-secondary" %><br/>
       <%=  f.file_field :audio, class: "form-control-file site-blue" %>
-      <div class="small" style="color: #fc0000;"><i>*Must be in mp3, wav, or ogg format</i></div>
+      <div class="small" style="color: #fc0000;"><i>*Must be in mp3, wav, or ogg format; no larger than 40Mb in size.<br/>
+      If you get a timeout error, refresh the page; sometimes your track will still upload.</i></div>
     </div>
   </div>
   

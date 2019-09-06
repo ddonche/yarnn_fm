@@ -12,8 +12,7 @@
 			</nav>
 			<%= render 'shared/alert' %>
 			
-			<% if current_user.stripe_subscription_id?  %>
-				<div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
+				<div class="container trans-bg my-2 pb-5 pt-2 px-5 rounded">
 			
 					<div class="row text-correct mt-4 pb-6 text-align-center">
 						<div class="col-4 pb-6">
@@ -26,15 +25,5 @@
 					</div>
 			
 				</div>
-			<% else %>
-				<div class="container trans-bg mt-6 pb-5 pt-2 px-5 rounded">
-					<div class="row text-correct mt-4 pb-6 text-align-center">
-						<div class="col-12">
-							<h2>Access Denied</h2>
-							<p>You must be a <%= link_to "premium user", new_subscription_path %> to view this content.</p>
-						</div>
-					</div>
-				</div>
-			<% end %>
 		</div>
 	</section>

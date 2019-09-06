@@ -3,10 +3,11 @@ module Western
     
     def western
         words = [ 
-          "America", "ammunition",
-          "antelope", "antlers", "Apache", "appaloosa", "Arabian", "Arizona Territory", "army", "arrowhead", "arrows",
-          "bacon", "bandits", "baptist", "baptized", "barb wire", "bareback",
-          "barkin up the wrong tree", "barn", "bay", "beans", "bearskin", "bedroll",
+          "above one's bend", "ace in the hole", "acquisitive", "acre", "acreocracy", "Adam's Ale", "America", "ambush", "ammunition",
+          "among the willows", "antelope", "antlers", "Apache", "appaloosa", "Arabian", "Arizona Territory", "army", 
+          "arrowhead", "arrows", "ashes", "ash-hopper", "atween", "axle grease",
+          "backdoor trots", "bacon", "bad hoss", "bad medicine", "bamboozle", "bandero", "bandits", "baptist", "baptized", "barb wire", "bareback",
+          "barkin up the wrong tree", "barn", "barrel fever", "barrens", "bay", "beans", "bearskin", "bedroll",
           "beer", "Bible", "bill of sale", "biscuits", "bison", "blacksmith", "bluffs",
           "boots", "booze", "border raid", "bounty", "bourbon", "Bowie knife", "brambles", "brand", "branding", "branding iron", 
           "breaking horses", "brim",
@@ -59,7 +60,8 @@ module Western
           "republican", "reservation", "reverend", "revolver", "rifle", "rimfire", "Rio Grande", "river",
           "riverboat", "roan", "rockin chair", "Rocky Mountains", "rod",
           "rooster", "ropin", "royal flush", "rural", "rut", 
-          "saddle", "saddle bags", "saddlebred", "saddle horn", "saddle up", "sagebrush", "saloon", "sausage", "savannah", "scalped", "scattergun", 
+          "saddle", "saddle bags", "saddlebred", "saddle horn", "saddle up", "sagebrush", "saloon", "sausage", "savannah", 
+          "scalped", "scattergun", 
           "schoolhouse", "scope", "scripture", "sermon", "shallow grave", "sharpshooter", "sheriff", 
           "shoat", "shootin", "shotgun", "sideburns",  
           "sinner", "Sioux",

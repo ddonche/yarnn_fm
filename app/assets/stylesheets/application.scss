@@ -40,6 +40,10 @@ body {
   margin-top: 0;
 }
 
+.no-underline a:hover, a:focus, a:active, a:visited, a:link{
+    text-decoration: none;
+}
+
 .ellipses {
   white-space: nowrap;
   overflow: hidden;

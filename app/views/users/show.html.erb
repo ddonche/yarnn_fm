@@ -57,7 +57,8 @@
 									        	<%= image_tag('default_track.jpg', class: "card-img-top rounded", title: @user.username) %>
 									        <% end %>
 								    	</div>
-								  		<h4 class="card-title float-left site-blue"><%= @user.username %></h4> 
+								  		<h4 class="card-title float-left site-blue"><%= @user.username %></h4>
+								  		
 								  		<% if @user == current_user %>
 								  			<%= link_to edit_registration_path(current_user) do %>
 								  			<h4 class="float-right site-red">
@@ -65,8 +66,15 @@
 		    								</h4>
 		    							    <% end %>
 								  		<% end %>
+								  		
 	    						    </div>
+	    						   
     						    </div>
+    						    <div class="row">
+	    						   		<div class="col-12">
+	    						   			<h6 class="card-subtitle clear-left text-muted"><%= @user.name %></h6>
+	    						   		</div>
+	    						   </div>
 							    <p class="card-text">
 							    	<% if @user.bio? %>
 							    		<small><%= simple_format(@user.bio) %></small>
@@ -95,93 +103,7 @@
 			    			
 					    </div>
 		    		</div>
-		    		<div class="row mb-2">
-		    			<div class="col-12">
-		    				<div class="card shadow-sm">
-							  <div class="card-body">
-							  	<div class="row">
-							  		<div class="col-12">
-								    	<h4 class="card-title site-blue float-left">Links</h4>
-								    	<% if @user == current_user %>
-										    <% if @user.link.present? %>
-										  			<%= link_to edit_link_path(@user.link) do %>
-										  				<h6 class="site-red float-right align-baseline">edit links</h6>
-				    							    <% end %>
-											<% else %>
-												<%= link_to new_link_path(@user.link) do %>
-									  				<h6 class="site-red float-right align-baseline">add links</h6>
-			    							    <% end %>
-										    <% end %>
-									    <% end %>
-							    	</div>
-							    </div>
-							    <h6 class="card-subtitle mb-2 text-muted"><%= @user.name %></h6>
-								<% if @user.link.present? %>
-							  		<% unless @link.website.blank? %>
-										<%= link_to @link.website  do %>
-											<small><i class="fas fa-globe site-blue mr-2"></i> <%= link_to @link.website, @link.website %></small><br />
-										<% end %>
-									<% end %>
-									<% unless @link.facebook.blank? %>
-										<%= link_to @link.facebook  do %>
-											<small><i class="fab fa-facebook-f site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.twitter.blank? %>
-										<%= link_to @link.twitter do %>
-											<small><i class="fab fa-twitter site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.instagram.blank? %>
-										<%= link_to @link.instagram do %>
-											<small><i class="fab fa-instagram site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.youtube.blank? %>
-										<%= link_to @link.youtube do %>
-											<small><i class="fab fa-youtube site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.snapchat.blank? %>
-										<%= link_to @link.snapchat do %>
-											<small><i class="fab fa-snapchat-ghost site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.patreon.blank? %>
-										<%= link_to @link.patreon do %>
-											<small><i class="fab fa-patreon site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.amazon.blank? %>
-										<%= link_to @link.amazon do %>
-											<small><i class="fab fa-amazon site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.vimeo.blank? %>
-										<%= link_to @link.vimeo do %>
-											<small><i class="fab fa-vimeo-v site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.itunes.blank? %>
-										<%= link_to @link.itunes do %>
-											<small><i class="fab fa-itunes-note site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.stitcher.blank? %>
-										<%= link_to @link.stitcher do %>
-											<small><i class="fas fa-globe site-blue mr-2"></i></small>
-										<% end %>
-									<% end %>
-									<% unless @link.soundcloud.blank? %>
-										<%= link_to @link.soundcloud do %>
-											<small><i class="fab fa-soundcloud site-blue"></i></small>
-										<% end %>
-									<% end %>
-								<% end %>
-							  </div>
-							</div>
-		    			</div>
-		    		</div>
+		    		
 		    	</div><!-- end left column -->
 		    	
 		    	<div class="col-xl-6">
@@ -189,9 +111,7 @@
 			    		<div class="row">
 	                      <div class="col-sm-12">
 	                         <div id="divInfo" class="alert alert-warning alert-dismissible fade show shadow-sm" role="alert">
-	                         	
 		                        <div class="alert-heading mb-2"><i class="fas fa-bullhorn mr-3"></i><h5 style="display:inline-block"><%= @announcement.title %></h5>
-		                        
 		                        <% if user_signed_in? %>
 		                          	<% if @announcement.user == current_user %>
 		                          		<small><%= link_to "edit", edit_announcement_path(@announcement.id), class: "ml-3" %></small>
@@ -225,6 +145,93 @@
 	                      </div>
 	                    </div>
 	                <% end %>
+		    		<div class="row mb-2">
+		    			<div class="col-12">
+		    				<div class="card shadow-sm">
+							  <div class="card-body">
+							  	<div class="row">
+							  		<div class="col-12">
+								    	<h5 class="card-title site-blue float-left">Links</h5>
+								    	<% if @user == current_user %>
+										    <% if @user.link.present? %>
+										  			<%= link_to edit_link_path(@user.link) do %>
+										  				<h6 class="site-red float-right align-baseline">edit links</h6>
+				    							    <% end %>
+											<% else %>
+												<%= link_to new_link_path(@user.link) do %>
+									  				<h6 class="site-red float-right align-baseline">add links</h6>
+			    							    <% end %>
+										    <% end %>
+									    <% end %>
+							    	</div>
+							    </div>
+							    
+								<% if @user.link.present? %>
+							  		<% unless @link.website.blank? %>
+										<%= link_to @link.website  do %>
+											<i class="fas fa-globe site-blue mr-2"></i> <small><%= link_to @link.website, @link.website, class: "mr-2" %></small>
+										<% end %>
+									<% end %>
+									<% unless @link.facebook.blank? %>
+										<%= link_to @link.facebook  do %>
+											<i class="fab fa-facebook-f site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.twitter.blank? %>
+										<%= link_to @link.twitter do %>
+											<i class="fab fa-twitter site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.instagram.blank? %>
+										<%= link_to @link.instagram do %>
+											<i class="fab fa-instagram site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.youtube.blank? %>
+										<%= link_to @link.youtube do %>
+											<i class="fab fa-youtube site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.snapchat.blank? %>
+										<%= link_to @link.snapchat do %>
+											<i class="fab fa-snapchat-ghost site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.patreon.blank? %>
+										<%= link_to @link.patreon do %>
+											<i class="fab fa-patreon site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.amazon.blank? %>
+										<%= link_to @link.amazon do %>
+											<i class="fab fa-amazon site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.vimeo.blank? %>
+										<%= link_to @link.vimeo do %>
+											<i class="fab fa-vimeo-v site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.itunes.blank? %>
+										<%= link_to @link.itunes do %>
+											<i class="fab fa-itunes-note site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.stitcher.blank? %>
+										<%= link_to @link.stitcher do %>
+											<i class="fas fa-globe site-blue mr-2"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.soundcloud.blank? %>
+										<%= link_to @link.soundcloud do %>
+											<i class="fab fa-soundcloud site-blue"></i>
+										<% end %>
+									<% end %>
+								<% end %>
+							  </div>
+							</div>
+		    			</div>
+		    		</div>
 		    		<div class="card mb-2 tab-card shadow-sm">
 				        <div class="card-header tab-card-header">
 				          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">

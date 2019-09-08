@@ -46,6 +46,8 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
         @track_author = track.user.name 
       end
       
+      media_info = MediaInfo.from(track_url(track))
+      
       xml.item do
         xml.title track.title
         xml.description track.description
@@ -61,7 +63,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
         end
         xml.itunes :explicit, @explicit
         # Need to get the duration
-        xml.itunes :duration, track.duration
+        xml.itunes :duration, media_info.audio.duration
       end
     end
   end

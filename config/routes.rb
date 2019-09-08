@@ -124,13 +124,14 @@ Rails.application.routes.draw do
   get 'generators', to: 'ipsums#show'
   get 'apocalypse_ipsum', to: 'ipsums#apocalypse'
   get 'fantasy_ipsum', to: 'ipsums#fantasy'
+  get 'hobbies_ipsum', to: 'ipsums#hobbies'
   get 'horror_ipsum', to: 'ipsums#horror'
-  get 'nature_ipsum', to: 'ipsums#nature'
   get 'military_ipsum', to: 'ipsums#military'
   get 'modern_ipsum', to: 'ipsums#modern'
+  get 'names_gen', to: 'ipsums#names'
+  get 'nature_ipsum', to: 'ipsums#nature'
   get 'scifi_ipsum', to: 'ipsums#scifi'
   get 'western_ipsum', to: 'ipsums#western'
-  get 'names_gen', to: 'ipsums#names'
 
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all

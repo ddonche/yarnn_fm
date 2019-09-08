@@ -1,9 +1,7 @@
-#require 'elasticsearch/model'
-
 class Track < ApplicationRecord
   include Taggable
-  #include Elasticsearch::Model
-  #include Elasticsearch::Model::Callbacks
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   has_rich_text :body
 
   belongs_to :user, counter_cache: true

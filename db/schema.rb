@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "albums", id: :serial, force: :cascade do |t|
+  create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.string "title"
   end
 
-  create_table "blogs", id: :serial, force: :cascade do |t|
+  create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.integer "published_status"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
-  create_table "comments", id: :serial, force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.text "content"
     t.string "commentable_type"
     t.integer "commentable_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.string "youtube"
   end
 
-  create_table "conversations", id: :serial, force: :cascade do |t|
+  create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
     t.datetime "created_at", null: false
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
-  create_table "events", id: :serial, force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.integer "user_id"
     t.integer "followed_id"
     t.integer "eventable_id"
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "favorites", id: :serial, force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "track_id"
     t.datetime "created_at", null: false
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.string "flag_type"
   end
 
-  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.string "website"
   end
 
-  create_table "listings", id: :serial, force: :cascade do |t|
+  create_table "listings", force: :cascade do |t|
     t.string "title"
     t.decimal "price"
     t.string "publisher"
@@ -200,7 +200,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", id: :serial, force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.text "body"
     t.boolean "read", default: false
     t.integer "conversation_id"
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.string "notifiable_type"
   end
 
-  create_table "pseudonyms", id: :serial, force: :cascade do |t|
+  create_table "pseudonyms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -241,7 +241,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.index ["user_id"], name: "index_pseudonyms_on_user_id"
   end
 
-  create_table "relationships", id: :serial, force: :cascade do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -251,7 +251,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "reviews", id: :serial, force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content"
     t.datetime "created_at", null: false
@@ -261,9 +261,9 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.bigint "tag_id"
+    t.integer "tag_id"
     t.string "taggable_type"
-    t.bigint "taggable_id"
+    t.integer "taggable_id"
     t.datetime "created_at"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
     t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
@@ -275,7 +275,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "topics", id: :serial, force: :cascade do |t|
+  create_table "topics", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -286,7 +286,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.datetime "last_comment_at"
   end
 
-  create_table "tracks", id: :serial, force: :cascade do |t|
+  create_table "tracks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -308,7 +308,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 
-  create_table "transactions", id: :serial, force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "listing_id"
@@ -316,7 +316,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
     t.integer "seller_id"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -398,11 +398,4 @@ ActiveRecord::Schema.define(version: 2019_09_05_033235) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "albums", "pseudonyms"
-  add_foreign_key "events", "users"
-  add_foreign_key "listings", "pseudonyms"
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "users"
-  add_foreign_key "pseudonyms", "users"
-  add_foreign_key "tracks", "pseudonyms"
 end

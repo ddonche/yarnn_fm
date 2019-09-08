@@ -1,6 +1,7 @@
 class IpsumsController < ApplicationController
   include Apocalypse
   include Fantasy
+  include Hobbies
   include Horror
   include Military
   include Modern

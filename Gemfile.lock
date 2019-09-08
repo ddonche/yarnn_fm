@@ -1069,6 +1069,8 @@ GEM
     stripe (4.22.0)
       faraday (~> 0.13)
       net-http-persistent (~> 3.0)
+    sucker_punch (2.1.2)
+      concurrent-ruby (~> 1.0)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -1136,6 +1138,7 @@ DEPENDENCIES
   sprockets-rails
   streamio-ffmpeg
   stripe
+  sucker_punch
   turbolinks
   tzinfo-data
   uglifier

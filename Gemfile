@@ -48,7 +48,6 @@ gem 'acts_as_votable', '~> 0.12.0'
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'sucker_punch'
 
-
 group :development, :test do
   gem 'byebug', platform: :mri
 end

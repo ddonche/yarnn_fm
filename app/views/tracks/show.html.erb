@@ -180,11 +180,9 @@
 										<% end %>  <!-- item-property .// -->
 							
 								</div> <!-- row.// -->
-								<hr>
-								
 								<!-- product buy/download button -->
 								<% if @track.listing_id? %>
-								<div class="row">
+								<div class="row mt-2">
 									<div class= "col-12">
 									  
 							    		<% if user_signed_in? %>
@@ -207,6 +205,10 @@
 									</div>
 								</div>
 								<% end %>
+								<hr>
+								
+								
+								<% if @track.user.uid? %>
 									<div class="row">
 										<div class= "col-12">
 										<h3 class="site-blue">Sponsor This Track</h3>
@@ -225,6 +227,7 @@
 										<% end %>
 										</div>
 									</div>
+								<% end %>
 								<!-- short-info-wrap .// -->
 							</article> <!-- card-body.// -->
 						</aside> <!-- col.// -->

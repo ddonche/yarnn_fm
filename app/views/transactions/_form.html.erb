@@ -7,7 +7,7 @@
 </div>
 
 <div class="wrapper_wide_right_right">
-  <% unless @purchased.empty? %>
+  <% unless @purchased.length > 0 %>
   <div class="side-box">
     <div class="side-content">
       <p>You already purchased this item, silly. You can find it in your <%= link_to "Downloads", purchases_path %>.</p>

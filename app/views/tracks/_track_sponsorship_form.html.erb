@@ -1,8 +1,7 @@
 <%= form_for([@track, @sponsorship], id: "new_transaction") do |f| %>
     <% Sponsorship::CONTRIB_AMOUNTS.each do |amt| %>       
     <%= radio_button_tag "amount", amt %>
-    <% @amount = (amt/100) %>
-    <%= label_tag "amount_#{@amount}", number_to_currency(amt, precision: 0), class: "mr-3" %>
+    <%= label_tag "amount_#{amt}", number_to_currency(amt, precision: 0), class: "mr-3" %>
     <% end %>
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"

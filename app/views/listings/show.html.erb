@@ -163,7 +163,7 @@
 		<div class= "col-12">
 		<% if user_signed_in? %>
 			<% unless @listing.user == current_user %>
-				<% if @purchased.empty? %>
+				<% if @purchased.length == 0 %>
 					<%= render 'listing_transaction_form', transaction: @transaction %>
 				<% else %>
 					<div class="btn btn-primary">

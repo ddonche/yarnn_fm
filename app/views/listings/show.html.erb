@@ -94,6 +94,26 @@
 			<h3 class="site-blue">US <%= number_to_currency(@listing.price) %></h3>
 		<% end %>
 	</var>
+		<div class="row mt-1">
+			<div class= "col-12">
+			<% if user_signed_in? %>
+				<% unless @listing.user == current_user %>
+					<% if @purchased.empty? %>
+						<%= render 'listing_transaction_form', transaction: @transaction %>
+					<% else %>
+						<div class="btn btn-primary">
+						  <%= link_to 'Download', purchases_path, :class => "btn text-white" %>
+						</div>
+					<% end %>
+				<% end %>
+			<% else %>
+				<div class="btn btn-primary">
+				  <%= link_to 'Login to Purchase', new_user_session_path, :class => "btn text-white" %>
+				</div><br />
+				<small><i class="site-red">You must be logged in so the product will appear in your downloads.</i></small>
+			<% end %>
+			</div>
+		</div>
 </div> <!-- price-detail-wrap .// -->
 <dl>
   <dt>Description</dt>
@@ -158,27 +178,6 @@
 			<% end %>  <!-- item-property .// -->
 
 	</div> <!-- row.// -->
-	<hr>
-	<div class="row">
-		<div class= "col-12">
-		<% if user_signed_in? %>
-			<% unless @listing.user == current_user %>
-				<% if @purchased.length == 0 %>
-					<%= render 'listing_transaction_form', transaction: @transaction %>
-				<% else %>
-					<div class="btn btn-primary">
-					  <%= link_to 'Download', purchases_path, :class => "btn text-white" %>
-					</div>
-				<% end %>
-			<% end %>
-		<% else %>
-			<div class="btn btn-primary">
-			  <%= link_to 'Login to Purchase', new_user_session_path, :class => "btn text-white" %>
-			</div><br />
-			<small><i class="site-red">You must be logged in so the product will appear in your downloads.</i></small>
-		<% end %>
-		</div>
-	</div>
 <!-- short-info-wrap .// -->
 </article> <!-- card-body.// -->
 		</aside> <!-- col.// -->

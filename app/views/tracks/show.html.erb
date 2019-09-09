@@ -169,6 +169,32 @@
 												<div class="star-rating" data-score=<%= @avg_rating %> ></div>
 														
 												<h2 class="site-blue"><%= number_to_currency(@listing.price) %></h2>
+												
+												<!-- product buy/download button -->
+													<% if @track.listing_id? %>
+													<div class="row my-1">
+														<div class= "col-12">
+														  
+												    		<% if user_signed_in? %>
+												    			<% unless @listing.user == current_user %>
+												    				<% if @purchased.empty? %>
+												    					<%= render 'listings/listing_transaction_form', transaction: @transaction %>
+												    				<% else %>
+												    					<div class="btn btn-primary">
+												    					  <%= link_to 'Download', purchases_path, :class => "btn text-white" %>
+												    					</div>
+												    				<% end %>
+												    			<% end %>
+												    		<% else %>
+												    			<div class="btn btn-primary">
+												    			  <%= link_to 'Login to Purchase', new_user_session_path, :class => "btn text-white" %>
+												    			</div><br />
+												    			<small><i class="site-red">You must be logged in so the product will appear in your downloads.</i></small>
+												    		<% end %>
+												    	  
+														</div>
+													</div>
+													<% end %>
 					                    		<h4>Description:</h4>
 					                    		<p><%= truncate(strip_tags(@listing.body.to_s), length: 250)%></p>
 					                    	</div>
@@ -180,31 +206,6 @@
 										<% end %>  <!-- item-property .// -->
 							
 								</div> <!-- row.// -->
-								<!-- product buy/download button -->
-								<% if @track.listing_id? %>
-								<div class="row mt-2">
-									<div class= "col-12">
-									  
-							    		<% if user_signed_in? %>
-							    			<% unless @listing.user == current_user %>
-							    				<% if @purchased.empty? %>
-							    					<%= render 'listings/listing_transaction_form', transaction: @transaction %>
-							    				<% else %>
-							    					<div class="btn btn-primary">
-							    					  <%= link_to 'Download', purchases_path, :class => "btn text-white" %>
-							    					</div>
-							    				<% end %>
-							    			<% end %>
-							    		<% else %>
-							    			<div class="btn btn-primary">
-							    			  <%= link_to 'Login to Purchase', new_user_session_path, :class => "btn text-white" %>
-							    			</div><br />
-							    			<small><i class="site-red">You must be logged in so the product will appear in your downloads.</i></small>
-							    		<% end %>
-							    	  
-									</div>
-								</div>
-								<% end %>
 								<hr>
 								
 								

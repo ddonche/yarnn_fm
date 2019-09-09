@@ -32,11 +32,11 @@ class TransactionsController < ApplicationController
 
     @total_amount = (@listing.price * 100).to_i
     if user_signed_in? && current_user.stripe_subscription_id?
-      @charged_fee = (@listing.price * 8 - 30).to_i
+      @charged_fee = (@total_amuont * 8 - 30).to_i
     else
-      @charged_fee = (@listing.price * 15 - 30).to_i
+      @charged_fee = (@total_amount * 15 - 30).to_i
     end
-    @transferred_amount = (@listing.price - @charged_fee).to_i
+    @transferred_amount = (@total_amount - @charged_fee).to_i
 
     charge_error = nil
 

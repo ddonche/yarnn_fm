@@ -24,16 +24,15 @@
         <br>  
         
         <%= form_for([@track, @sponsorship], id: "new_transaction") do |f| %>
-            <div class="form-group">
-                <h4 class="site-blue">Amount</h4>
-                <%= f.text_field :amount, class: "form-control" %>
-            </div>
+            <% Sponsorship::CONTRIB_AMOUNTS.each do |amt| %>       
+            <%= radio_button_tag "amount", amt %>
+            <%= label_tag "amount_#{amt}", number_to_currency(amt, precision: 0), class: "mr-3" %>
+            <% end %>
             <script
               src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-amount="<%= @amount %>"
               data-name="Yarnn.fm"
-              data-description="Payment"
+              data-description="Creator Sponsorship"
               data-image="https://s3-us-west-2.amazonaws.com/yarnn/default_yarnn.jpg"
               data-locale="auto">
             </script>

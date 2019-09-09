@@ -2,32 +2,34 @@ class SponsorshipsController < ApplicationController
   before_action :set_sponsorship, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  def sales
-    @sponsorships = sponsorship.all.where(seller: current_user).order("created_at DESC")
+  def sponsors
+    @sponsorships = Sponsorship.all.where(seller: current_user).order("created_at DESC")
   end
 
   def sponsorships
-     @sponsorships = sponsorship.all.where(buyer: current_user).order("created_at DESC").page(params[:page]).per(24)
+     @sponsorships = Sponsorship.all.where(buyer: current_user).order("created_at DESC").page(params[:page]).per(24)
      @pseudo = Pseudonym.find_by(params[:pseudo_id])
   end
 
   def new
-    @sponsorship = sponsorship.new
+    @sponsorship = Sponsorship.new
     @track = Track.find(params[:track_id])
-    @sponsored = sponsorship.all.where(buyer: current_user, track_id: @track.id)
+    @sponsored = Sponsorship.all.where(buyer: current_user, track_id: @track.id)
     @amount = params[:amount]
   end
 
   def create
-    @sponsorship = sponsorship.new(sponsorship_params)
+    @sponsorship = Sponsorship.new(sponsorship_params)
     @sponsorship.buyer_id = current_user.id
     @track = Track.find(params[:track_id])
     @seller = @track.user
     @sponsorship.track_id = @track.id
     @sponsorship.seller_id = @seller.id
-
-    @total_amount = (@amount * 100).to_i
-    @transferred_amount = (@amount - 30).to_i
+    @amount = (params[:amount]).to_i
+    @total_amount = (@amount * 100)
+    
+    @charged_fee = (@total_amount * 2.9 - 30).to_i
+    @transferred_amount = (@total_amount - @charged_fee).to_i
 
     charge_error = nil
 
@@ -52,6 +54,7 @@ class SponsorshipsController < ApplicationController
           transfer_data: {
             destination: @seller.uid,
           },
+          application_fee: @charged_fee
         )
 
       rescue Stripe::CardError => e
@@ -108,6 +111,6 @@ class SponsorshipsController < ApplicationController
     end
 
     def sponsorship_params
-      params.fetch(:sponsorship, {})
+      params.fetch(:sponsorship, {}).permit(:track_id, :buyer_id, :seller_id, :amount)
     end
 end

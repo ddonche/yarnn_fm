@@ -12,6 +12,7 @@ class Track < ApplicationRecord
   has_many :events, as: :eventable, dependent: :destroy
   has_many :flags, as: :flaggable, dependent: :destroy
   has_many :listings
+  has_many :sponsorships, dependent: :destroy
   enum explicit: { standard: 0, explicit: 1 }
 
   mount_uploader :image, ImageUploader

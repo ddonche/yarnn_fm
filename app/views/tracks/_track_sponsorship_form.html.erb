@@ -1,0 +1,17 @@
+<%= form_for([@track, @sponsorship], id: "new_transaction") do |f| %>
+    <div class="form-group">
+        <h4 class="site-blue mt-2">Contribution Amount</h4>
+        
+        <%= f.text_field :amount, class: "form-control" %>
+        <small class="site-red">Common amounts are $1, $5, $10, etc., but you can enter whatever you like.</small>
+    </div>
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-amount="<%= @amount %>"
+      data-name="Yarnn.fm"
+      data-description="Payment"
+      data-image="https://s3-us-west-2.amazonaws.com/yarnn/default_yarnn.jpg"
+      data-locale="auto">
+    </script>
+<% end %>

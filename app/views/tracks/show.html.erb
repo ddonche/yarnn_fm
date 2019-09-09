@@ -207,6 +207,24 @@
 									</div>
 								</div>
 								<% end %>
+									<div class="row">
+										<div class= "col-12">
+										<h3 class="site-blue">Sponsor This Track</h3>
+										<small>One great way to support a creator is to sponsor a track. Your entire amount will go to the creator, minus Stripe's fees.
+								           Yarnn does not take any part of your contribution. Once complete, your avatar and username will appear
+								           on the Track page under the Sponsors section.</small>
+										<% if user_signed_in? %>
+											<% unless @track.user == current_user %>
+												<%= render 'track_sponsorship_form', sponsorship: @sponsorship %>
+											<% end %>
+										<% else %>
+											<div class="btn btn-primary">
+											  <%= link_to 'Login to Sponsor This', new_user_session_path, :class => "btn text-white" %>
+											</div><br />
+											<small><i class="site-red">You must be logged in to sponsor a track.</i></small>
+										<% end %>
+										</div>
+									</div>
 								<!-- short-info-wrap .// -->
 							</article> <!-- card-body.// -->
 						</aside> <!-- col.// -->

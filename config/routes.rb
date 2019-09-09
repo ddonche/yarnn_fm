@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   resources :albums, :path => '/albums'
 
   resources :tracks do
+    resources :sponsorships
     resources :comments do
       member do
         put 'like', to: 'comments#upvote'

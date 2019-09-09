@@ -28,6 +28,7 @@ class TracksController < ApplicationController
     @comment = Comment.new
     @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing&.id)
     @transaction = Transaction.new
+    @sponsorship = Sponsorship.new
     @random_listing = Listing.offset(rand(Listing.count)).first
     @rand_reviews = @random_listing.reviews.order("created_at DESC")
     if @rand_reviews.empty?

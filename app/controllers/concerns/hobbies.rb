@@ -154,6 +154,35 @@ module Hobbies
         @job11 = job_words.sample
         @job12 = job_words.sample
         
+        school_words = [
+            "A.T. Still University (US)", "Abertay University (GB)", "Abilene Christian University (US)", "Abo Akademi (FI)", "Abu Dhabi Polytechnic (AE)", "Abu Dhabi University (AE)", "Acadia University (CA)", "Adams State University (US)", "Adelphi University (US)", "Adler University (US)", "Adrian College (US)", "Agnes Scott College (US)", "Air Force Academy (US)", "Air Force Institute of Technology (US)", "Alabama A&M University (US)", "Alabama University (US)", "Alaska Bible College (US)", "Alaska Pacific University (US)", "Albany State University (US)", "Albert Magnus College (US)", "Albion College (US)", "Albright College (US)", "Alcorn State University (US)", "Alderson Broaddus University (US)", "Alfred Nobel University (UA)", "Alfred State College (US)", "Alfred University (US)", "Algoma University (CA)", "Alice Lloyd College (US)", "Allen University (US)", "Altai State University (RU)", "Alverno College (US)", "Amberton University (US)", "Ambrose University (CA)", "American Baptist College (US)", "American Jewish University (US)", "Amherst College (US)", "Anderson University (US)", "Andrews University (US)", "Appalachian Bible College (US)", "Appalachian State University (US)", "Aquinas College (US)", "Arcadia University (US)", "Argosy University (US)", "Arizona Christian University (US)", "Arizona State University (US)", "Arkansas Baptist College (US)", "Arkansas State University (US)", "Arkansas Tech University (US)", "Arlington Baptist University (US)", "Art Academy of Cincinnati (US)", "Asahikawa University (JP)", "Asbury University (US)", "Aston University (GB)", "Athens School of Fine Arts (GR)", "Athens State University (US)", "Athens University of Economics and Business (GR)", "Auburn University (US)", "Australian Catholic University (AU)", 
+            "Boston College (US)", 
+            "California Institute of Technology (US)", 
+            "Dartmouth College (US)", 
+            "Emory University (US)", 
+            "Florida State University (US)", 
+            "Georgetown College (US)", 
+            "Harvard University (US)", 
+            "Iowa State University of Science and Technology (US)", 
+            "Johns Hopkins University (US)",
+            "Massachussetts Institute of Technology (US)",
+            "Naval Academy (US)",
+            "Westpointe (US)", 
+            ]
+        
+        @school1 = school_words.sample
+        @school2 = school_words.sample
+        @school3 = school_words.sample
+        @school4 = school_words.sample
+        @school5 = school_words.sample
+        @school6 = school_words.sample
+        @school7 = school_words.sample
+        @school8 = school_words.sample
+        @school9 = school_words.sample
+        @school10 = school_words.sample
+        @school11 = school_words.sample
+        @school12 = school_words.sample
+        
     end
   
 end

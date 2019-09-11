@@ -175,7 +175,12 @@ module Hobbies
             "Rama University (IN)", "Reed College (US)", "Regis University (US)", "Rhode Island School of Design (US)", "RIT Croatia (HR)", "Robert Gordon University (GB)", 
             "Sacred Heart College (PH)", "Saigon University (VN)", "Saint Augustine College (US)", "San Diego State University (US)", "San Francisco Art Institute (US)", "Seattle Pacific University (US)", "Sejong University (KR)", "Seoul National University (KR)", "Seton Hall University (US)", "Shanghai Institute of Technology (CN)", "Siberian State Aerospace University (RU)", "Siddharth University (IN)", 
             "Technion - Israel Institute of Technology (IL)", "Technische Universität Hamburg (DE)", "Technological Educational Institute of Crete (GR)", "Temple University (US)", "Texas A&M University (US)", "Texas Tech University (US)", "Thomas Jefferson School of Law (US)", "Tokyo University of Science (JP)", "Toulouse Business School (FR)", "Trent University (CA)", 
-            "United States Air Force Academy (US)", "United States Coast Guard Academy (US)", "United States Military Academy (US)", "United States Naval Academy (US)", "Universidad Andina Simón Bolivar (BO)", "University of Oxford (GB)",
+            "United States Air Force Academy (US)", "United States Coast Guard Academy (US)", "United States Military Academy (US)", "United States Naval Academy (US)", "Universidad Andina Simón Bolivar (BO)", "University of Chicago (US)", "University of Chichester (GB)", "University of Dubai (AE)", "University of Oxford (GB)", "Utah State University (US)",
+            "Valdosta State University (US)", "Vancouver Island University (CA)", "Vanderbilt University (US)", "Vassar College (US)", "Victoria University (AU)", "Virginia State University (US)", 
+            "Wake Forest University (US)", "Washington State University (US)", "Wilmington College (US)", 
+            "Xavier University (US)", 
+            "Yale University (US)", "Yonsei University (KR)", "Youngstown State University (US)", 
+            "Zanzibar University (TZ)", "Zeppelin University (DE)", 
             ]
         
         @school1 = school_words.sample

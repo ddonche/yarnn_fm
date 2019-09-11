@@ -155,7 +155,7 @@ module Hobbies
         @job12 = job_words.sample
         
         school_words = [
-            "A.T. Still University (US)", "Abertay University (GB)", "Abilene Christian University (US)", "Abo Akademi (FI)", "Abu Dhabi Polytechnic (AE)", "Abu Dhabi University (AE)", "Acadia University (CA)", "Adams State University (US)", "Adelphi University (US)", "Adler University (US)", "Adrian College (US)", "Agnes Scott College (US)", "Air Force Academy (US)", "Air Force Institute of Technology (US)", "Alabama A&M University (US)", "Alabama University (US)", "Alaska Bible College (US)", "Alaska Pacific University (US)", "Albany State University (US)", "Albert Magnus College (US)", "Albion College (US)", "Albright College (US)", "Alcorn State University (US)", "Alderson Broaddus University (US)", "Alfred Nobel University (UA)", "Alfred State College (US)", "Alfred University (US)", "Algoma University (CA)", "Alice Lloyd College (US)", "Allen University (US)", "Altai State University (RU)", "Alverno College (US)", "Amberton University (US)", "Ambrose University (CA)", "American Baptist College (US)", "American Jewish University (US)", "Amherst College (US)", "Anderson University (US)", "Andrews University (US)", "Appalachian Bible College (US)", "Appalachian State University (US)", "Aquinas College (US)", "Arcadia University (US)", "Argosy University (US)", "Arizona Christian University (US)", "Arizona State University (US)", "Arkansas Baptist College (US)", "Arkansas State University (US)", "Arkansas Tech University (US)", "Arlington Baptist University (US)", "Art Academy of Cincinnati (US)", "Asahikawa University (JP)", "Asbury University (US)", "Aston University (GB)", "Athens School of Fine Arts (GR)", "Athens State University (US)", "Athens University of Economics and Business (GR)", "Auburn University (US)", "Australian Catholic University (AU)", 
+            "A.T. Still University (US)", "Abertay University (GB)", "Abilene Christian University (US)", "Abo Akademi (FI)", "Abu Dhabi Polytechnic (AE)", "Abu Dhabi University (AE)", "Acadia University (CA)", "Adams State University (US)", "Adelphi University (US)", "Adler University (US)", "Adrian College (US)", "Agnes Scott College (US)", "Air Force Institute of Technology (US)", "Alabama A&M University (US)", "Alabama University (US)", "Alaska Bible College (US)", "Alaska Pacific University (US)", "Albany State University (US)", "Albert Magnus College (US)", "Albion College (US)", "Albright College (US)", "Alcorn State University (US)", "Alderson Broaddus University (US)", "Alfred Nobel University (UA)", "Alfred State College (US)", "Alfred University (US)", "Algoma University (CA)", "Alice Lloyd College (US)", "Allen University (US)", "Altai State University (RU)", "Alverno College (US)", "Amberton University (US)", "Ambrose University (CA)", "American Baptist College (US)", "American Jewish University (US)", "Amherst College (US)", "Anderson University (US)", "Andrews University (US)", "Appalachian Bible College (US)", "Appalachian State University (US)", "Aquinas College (US)", "Arcadia University (US)", "Argosy University (US)", "Arizona Christian University (US)", "Arizona State University (US)", "Arkansas Baptist College (US)", "Arkansas State University (US)", "Arkansas Tech University (US)", "Arlington Baptist University (US)", "Art Academy of Cincinnati (US)", "Asahikawa University (JP)", "Asbury University (US)", "Aston University (GB)", "Athens School of Fine Arts (GR)", "Athens State University (US)", "Athens University of Economics and Business (GR)", "Auburn University (US)", "Australian Catholic University (AU)", 
             "Boston College (US)", 
             "California Institute of Technology (US)", 
             "Dartmouth College (US)", 
@@ -164,10 +164,18 @@ module Hobbies
             "Georgetown College (US)", 
             "Harvard University (US)", 
             "Iowa State University of Science and Technology (US)", 
-            "Johns Hopkins University (US)",
-            "Massachussetts Institute of Technology (US)",
-            "Naval Academy (US)",
-            "Westpointe (US)", 
+            "Johns Hopkins University (US)", "John F. Kennedy University (US)", 
+            "Kansas State University (US)", "Kentucky State University (US)", 
+            "Lake Forest College (US)", "Lancaster University (GB)", "Limerick Institute of Technology (IE)", "Liverpool Hope University (GB)",
+            "Massachussetts Institute of Technology (US)", "Metropolitan State University (US)",
+            "Nagano University (JP)", "Nazareth College (US)", "Nelson Mandela University (ZA)", "New England College of Business (US)", 
+            "Oakland University (US)", "Oberlin College (US)", "Odessa National University (UA)", "Ohio University (US)", 
+            "Penn State University (US)", "Piedmont College (US)", "Portland State University (US)",
+            "Qinzhou University (CN)", "Queen's University (CA)", "Queensland University of Technology (AU)",
+            "Rama University (IN)", "Reed College (US)", "Regis University (US)", "Rhode Island School of Design (US)", "RIT Croatia (HR)", "Robert Gordon University (GB)", 
+            "Sacred Heart College (PH)", "Saigon University (VN)", "Saint Augustine College (US)", "San Diego State University (US)", "San Francisco Art Institute (US)", "Seattle Pacific University (US)", "Sejong University (KR)", "Seoul National University (KR)", "Seton Hall University (US)", "Shanghai Institute of Technology (CN)", "Siberian State Aerospace University (RU)", "Siddharth University (IN)", 
+            "Technion - Israel Institute of Technology (IL)", "Technische Universität Hamburg (DE)", "Technological Educational Institute of Crete (GR)", "Temple University (US)", "Texas A&M University (US)", "Texas Tech University (US)", "Thomas Jefferson School of Law (US)", "Tokyo University of Science (JP)", "Toulouse Business School (FR)", "Trent University (CA)", 
+            "United States Air Force Academy (US)", "United States Coast Guard Academy (US)", "United States Military Academy (US)", "United States Naval Academy (US)", "Universidad Andina Simón Bolivar (BO)", "University of Oxford (GB)",
             ]
         
         @school1 = school_words.sample

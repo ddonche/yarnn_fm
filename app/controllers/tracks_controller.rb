@@ -15,6 +15,7 @@ class TracksController < ApplicationController
     @commentable = @track
 	  if @track.listing_id?
 	    @listing = Listing.find(@track.listing_id)
+	    @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing.id)
       if @listing.reviews.empty?
         @avg_rating = 0
       else
@@ -26,9 +27,9 @@ class TracksController < ApplicationController
 	  end
     @comments = @commentable.comments.order("created_at DESC")
     @comment = Comment.new
-    @purchased = Transaction.all.where(buyer: current_user, listing_id: @listing&.id)
     @transaction = Transaction.new
     @sponsorship = Sponsorship.new
+    @sponsors = Sponsorship.all.where(track_id: @track.id).order("created_at DESC").page(params[:page]).per(24)
     @random_listing = Listing.offset(rand(Listing.count)).first
     @rand_reviews = @random_listing.reviews.order("created_at DESC")
     if @rand_reviews.empty?

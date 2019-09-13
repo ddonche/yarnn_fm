@@ -18,6 +18,16 @@
           <% else %>
             <%= link_to "Stripe Dashboard", @login_link.url, class: "btn btn-primary", style: "color: #FFF;" %>
           <% end %>
+        
+        <div class="row mt-3">
+          <div class="col-6">
+            <h5><%= link_to "Post New Track", new_track_path %></h5>
+          </div>
+          <div class="col-6">
+            <h5><%= link_to "List New Product", new_listing_path %></h5>
+          </div>
+        </div>
       </div>
     </div>
+    
 </div>

@@ -16,7 +16,7 @@
           <% if current_user.uid.blank? %>
             <%= link_to image_tag('icons/blue-on-light.png'), stripe_express_path %>
           <% else %>
-            <%= link_to "Stripe Dashboard", @login_link.url, class: "btn btn-primary", style: "color: #FFF; width: 30%;" %>
+            <%= link_to "Stripe Dashboard", @login_link.url, class: "btn btn-primary", style: "color: #FFF;" %>
           <% end %>
       </div>
     </div>

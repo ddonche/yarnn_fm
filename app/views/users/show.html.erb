@@ -145,6 +145,17 @@
 	                      </div>
 	                    </div>
 	                <% end %>
+	                <% if @user.link.present? %>
+	                	<% unless @link.ad_image.blank? %>
+			                <div class="row mb-2">
+				    			<div class="col-12">
+									<%= link_to @link.ad_link  do %>
+										<%= image_tag(@link.ad_image, class: "image-full rounded shadow") %>
+									<% end %>
+				    			</div>
+				    		</div>
+			    		<% end %>
+			    	<% end %>
 		    		<div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card shadow-sm">
@@ -225,6 +236,11 @@
 									<% unless @link.soundcloud.blank? %>
 										<%= link_to @link.soundcloud do %>
 											<i class="fab fa-soundcloud site-blue"></i>
+										<% end %>
+									<% end %>
+									<% unless @link.twitch.blank? %>
+										<%= link_to @link.twitch do %>
+											<i class="fab fa-twitch site-blue"></i>
 										<% end %>
 									<% end %>
 								<% end %>

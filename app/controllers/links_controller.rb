@@ -52,8 +52,8 @@ class LinksController < ApplicationController
 	private
 	
   def link_params
-    params.require(:link).permit(:website, :facebook, :twitter, :instagram, :youtube,
+    params.require(:link).permit(:ad_link, :ad_image, :website, :facebook, :twitter, :instagram, :youtube,
                                   :amazon, :patreon, :snapchat, :vimeo,
-                                  :soundcloud, :itunes, :stitcher)
+                                  :soundcloud, :itunes, :stitcher, :twitch)
   end
 end

@@ -23,10 +23,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [25, 25]
   end
 
-  version :large do
-    resize_to_fill(600, 600)
-  end
-
   def crop
     if model.crop_x.present?
       resize_to_limit(600, 600)

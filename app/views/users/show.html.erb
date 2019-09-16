@@ -26,6 +26,17 @@
  	<!-- Page Content -->
  	<section class="section-content bg padding-y-sm">
 		<div class="container">
+			<% if @user.link.present? %>
+            	<% unless @link.ad_image.blank? %>
+	                <div class="row my-2">
+		    			<div class="col-12">
+							<%= link_to @link.ad_link  do %>
+								<%= image_tag(@link.ad_image, class: "image-full rounded shadow-sm") %>
+							<% end %>
+		    			</div>
+		    		</div>
+	    		<% end %>
+	    	<% end %>
 			<div class="row mt-2">
 	          <div class="col-sm-12">
 	             <div id="divInfo" class="alert alert-info alert-dismissible fade show" role="alert">
@@ -36,7 +47,7 @@
 	            </div>
 	          </div>
 	        </div>
-		    <div class="row mt-1">
+		    <div class="row">
 		    	<%= render 'shared/alert' %>
 		    	<div class="col-xl-3 rounded">
 		    		<div class="row mb-2">
@@ -146,17 +157,7 @@
 	                    </div>
 	                <% end %>
 	                
-	                <% if @user.link.present? %>
-	                	<% unless @link.ad_image.blank? %>
-			                <div class="row mb-2">
-				    			<div class="col-12">
-									<%= link_to @link.ad_link  do %>
-										<%= image_tag(@link.ad_image, class: "image-full rounded shadow-sm") %>
-									<% end %>
-				    			</div>
-				    		</div>
-			    		<% end %>
-			    	<% end %>
+	                
 		    		<div class="row mb-2">
 		    			<div class="col-12">
 		    				<div class="card shadow-sm">

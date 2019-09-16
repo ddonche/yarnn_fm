@@ -45,7 +45,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
       
       xml.item do
         xml.title track.title
-        xml.description strip_tags(track.body)
+        xml.description strip_tags(track.body.to_s)
         xml.pubDate track.created_at.to_s(:rfc822)
         xml.link track_url(track)
         xml.itunes :author, @track_author

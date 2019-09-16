@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   def show
     @pseudonyms = @user.pseudonyms.order('created_at DESC')
     @page_title = @user.username
-    @tracks = @user.tracks.order('created_at DESC').page(params[:page]).per(4)
-    @albums = @user.albums.order('created_at DESC').page(params[:page]).per(6)
-    @listings = @user.listings.order('created_at DESC').page(params[:page]).per(6)
+    @tracks = @user.tracks.order('created_at DESC').page(params[:page]).per(12)
+    @albums = @user.albums.order('created_at DESC').page(params[:page]).per(12)
+    @listings = @user.listings.order('created_at DESC').page(params[:page]).per(12)
     @blogs = @user.blogs.order('created_at DESC').page(params[:page]).per(4)
     @topics = @user.topics.order('created_at DESC').page(params[:page]).per(4)
     @reviews = @user.reviews.order('created_at DESC').page(params[:page]).per(4)

@@ -49,6 +49,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
         xml.pubDate track.created_at.to_s(:rfc822)
         xml.link track_url(track)
         xml.itunes :author, @track_author
+        xml.guid({:isPermaLink => "true"}, track_url(track))
         xml.itunes :subtitle, truncate(strip_tags(track.body.to_s), length: 150)
         xml.itunes :summary, truncate(strip_tags(track.body.to_s), length: 250)
         if track.explicit == "standard"

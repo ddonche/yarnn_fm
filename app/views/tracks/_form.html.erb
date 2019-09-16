@@ -103,10 +103,18 @@ station, so make sure it's a good one!<br><br>
   <h2 class="site-blue">Audio File Info</h2>
   <div class="row">
     <div class="col-12 justify-content-center">
-      <%= f.label "Audio File", class: "text-secondary" %><br/>
+      <h4 class="site-blue">Audio File</h4>
       <%=  f.file_field :audio, class: "form-control-file site-blue" %>
       <div class="small" style="color: #fc0000;"><i>*Must be in mp3, wav, or ogg format; no larger than 40Mb in size.<br/>
       If you get a timeout error, refresh the page; sometimes your track will still upload.</i></div>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-12 justify-content-center">
+      <h4 class="site-blue">Duration</h4>
+      <%=  f.text_field :duration, class: "form-control", placeholder: "00:00:00" %>
+      <div class="small" style="color: #fc0000;"><i>Please enter the duration in the following format: hh:mm:ss.  i.e. 00:07:54, 00:21:00, 01:34:53.</i></div>
     </div>
   </div>
   

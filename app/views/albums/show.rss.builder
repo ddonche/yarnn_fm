@@ -61,6 +61,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
         end
         xml.itunes :explicit, @explicit
         # Need to get the duration
+        xml.itunes :duration, track.duration
       end
     end
   end

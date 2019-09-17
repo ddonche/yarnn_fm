@@ -5,8 +5,7 @@ class Album < ActiveRecord::Base
   has_many :flags, as: :flaggable, dependent: :destroy
   belongs_to :pseudonym, optional: true
   enum serial: { nonserial: 0, serial: 1 }
-  enum explicit: { standard: 0, explicit: 1 }
-  
+
   validates :title, presence: true
   validates :description, presence: true
   validates :image, presence: true

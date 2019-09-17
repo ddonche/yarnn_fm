@@ -153,19 +153,12 @@ might also make an album for a full-length novel, and upload select audio tracks
                                 class: "form-control" %>
   </div>
   
+  <h2 class="site-blue">Is this album explicit?</h2>
   <div class="form-group">
-      <h4 class="site-blue">Is this album explicit?</h4>
-    </div>
-    <div class="row">
-      <div class="col-6 justify-content-center">
-          <%= f.radio_button :explicit, 'standard' %> 
-          <%= label :explicit_standard, 'Not explicit', class: "text-secondary" %>
-      </div>
-      <div class="col-6 justify-content-center">
-          <%= f.radio_button :explicit, 'explicit' %>
-          <%= label :explicit_explicit, 'Explicit content', class: "text-secondary" %>
-      </div>
-    </div>
+    <%= f.select :explicit, ["clean", "explicit"], 
+                                { :include_blank => 'Select one.' },
+                                class: "form-control" %>
+  </div>
   
   <hr class="colorgraph">
   <h2 class="site-blue">Album Image</h2>

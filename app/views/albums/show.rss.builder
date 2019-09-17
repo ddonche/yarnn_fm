@@ -7,6 +7,7 @@ end
 title = @album.title
 author = album_author
 description = @album.description
+explicit = @album.explicit
 keywords = 
 ext = 'mp3'
 
@@ -25,11 +26,7 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
     xml.lastBuildDate @tracks.first.created_at.to_s(:rfc822)
     xml.itunes :author, author
     xml.itunes :keywords, keywords
-    if @album.explicit == "standard"
-       xml.itunes :explicit, 'clean'
-    else 
-       xml.itunes :explicit, 'explicit' 
-    end
+    xml.itunes :explicit, explicit
     xml.itunes :image, :href => @album.image.url
     xml.itunes :owner do
       xml.itunes :name, author
@@ -38,20 +35,17 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
     xml.itunes :block, 'no'
     
     if @album.itunes_cat1.present?
-      xml.itunes :category do
-        :text => @album.itunes_cat1
+      xml.itunes :category, :text => @album.itunes_cat1 do
       end
     end
     
     if @album.itunes_cat2.present?
-      xml.itunes :category do
-        :text => @album.itunes_cat2
+      xml.itunes :category, :text => @album.itunes_cat2 do
       end
     end
     
     if @album.itunes_cat3.present?
-      xml.itunes :category do
-        :text => @album.itunes_cat3
+      xml.itunes :category, :text => @album.itunes_cat3 do
       end
     end
 

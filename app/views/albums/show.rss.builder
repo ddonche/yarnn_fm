@@ -35,17 +35,17 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
     xml.itunes :block, 'no'
     
     if @album.itunes_cat1.present?
-      xml.itunes :category,
+      xml.itunes :category, :text =>
         @album.itunes_cat1
     end
     
     if @album.itunes_cat2.present?
-      xml.itunes :category,
+      xml.itunes :category, :text =>
         @album.itunes_cat2
     end
     
     if @album.itunes_cat3.present?
-      xml.itunes :category,
+      xml.itunes :category, :text =>
         @album.itunes_cat3
     end
 

@@ -84,6 +84,6 @@ class AlbumsController < ApplicationController
     def album_params
       params.require(:album).permit(:title, :description, :user_id, :pseudonym_id, :editor,
                                     :image, :year, :vocals, :tag_list, :serial, :itunes_cat1, 
-                                    :itunes_cat2, :itunes_cat3)
+                                    :itunes_cat2, :itunes_cat3, :explicit)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_012358) do
+ActiveRecord::Schema.define(version: 2019_09_17_044905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 2019_09_16_012358) do
     t.integer "pseudonym_id"
     t.integer "serial", default: 0, null: false
     t.integer "tracks_count"
+    t.string "itunes_cat1"
+    t.string "itunes_cat2"
+    t.string "itunes_cat3"
     t.index ["pseudonym_id"], name: "index_albums_on_pseudonym_id"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end

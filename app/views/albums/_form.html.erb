@@ -56,7 +56,7 @@ might also make an album for a full-length novel, and upload select audio tracks
     <div class="row">
       <div class="col-12 justify-content-center">
         <%= f.text_field :year, autofocus: true, class: "form-control mb-3", placeholder: "Year" %>
-        <small id="titleHelp" class="form-text text-muted">If there is a year associated with this album, add it here. You can also put a range of years, like 2012-2016.</small>
+        <small id="titleHelp" class="form-text text-muted">If there is a year associated with this album, add it here.</small>
       </div>
     </div>
     <div class="row">
@@ -89,6 +89,69 @@ might also make an album for a full-length novel, and upload select audio tracks
         chapters in sequence.</small>
       </div>
     </div>
+    
+  <hr class="colorgraph">
+  <h2 class="site-blue">iTunes Categories</h2>
+  <div class="form-group">
+    <%= f.select :itunes_cat1, ["Arts","Design","Fashion & Beauty","Food","Literature","Performing Arts","Visual Arts",
+                                "Business","Business News","Careers","Investing","Management & Marketing","Shopping",
+                                "Comedy",
+                                "Education", "Education Technology","Higher Education","K-12","Language Courses","Training",
+                                "Games & Hobbies","Automotive","Aviation","Hobbies","Other Games","Video Games",
+                                "Government & Organizations","Local","National","Non-Profit","Regional",
+                                "Health","Alternative Health","Fitness & Nutrition","Self-Help","Sexuality",
+                                "Kids & Family",
+                                "Music",
+                                "News & Politics",
+                                "Religion & Spirituality","Buddhism","Christianity","Hinduism","Islam","Judaism","Other","Spirituality",
+                                "Science & Medicine","Medicine","Natural Sciences","Social Sciences",
+                                "Society & Culture","History","Personal Journals","Philosophy","Places & Travel",
+                                "Sports & Recreation","Amateur","College & High School","Outdoor","Professional",
+                                "Technology","Gadgets","Tech News","Podcasting","Software How-To","TV & Film"], 
+                                { :include_blank => 'Select a category.' },
+                                class: "form-control" %>
+    <small id="catHelp" class="form-text site-red">If you want to use your album as a podcast on iTunes, select up to 3 categories here.</small>
+  </div>
+  
+  <div class="form-group">
+    <%= f.select :itunes_cat2, ["Arts","Design","Fashion & Beauty","Food","Literature","Performing Arts","Visual Arts",
+                                "Business","Business News","Careers","Investing","Management & Marketing","Shopping",
+                                "Comedy",
+                                "Education", "Education Technology","Higher Education","K-12","Language Courses","Training",
+                                "Games & Hobbies","Automotive","Aviation","Hobbies","Other Games","Video Games",
+                                "Government & Organizations","Local","National","Non-Profit","Regional",
+                                "Health","Alternative Health","Fitness & Nutrition","Self-Help","Sexuality",
+                                "Kids & Family",
+                                "Music",
+                                "News & Politics",
+                                "Religion & Spirituality","Buddhism","Christianity","Hinduism","Islam","Judaism","Other","Spirituality",
+                                "Science & Medicine","Medicine","Natural Sciences","Social Sciences",
+                                "Society & Culture","History","Personal Journals","Philosophy","Places & Travel",
+                                "Sports & Recreation","Amateur","College & High School","Outdoor","Professional",
+                                "Technology","Gadgets","Tech News","Podcasting","Software How-To","TV & Film"], 
+                                { :include_blank => 'Select a category.' },
+                                class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.select :itunes_cat3, ["Arts","Design","Fashion & Beauty","Food","Literature","Performing Arts","Visual Arts",
+                                "Business","Business News","Careers","Investing","Management & Marketing","Shopping",
+                                "Comedy",
+                                "Education", "Education Technology","Higher Education","K-12","Language Courses","Training",
+                                "Games & Hobbies","Automotive","Aviation","Hobbies","Other Games","Video Games",
+                                "Government & Organizations","Local","National","Non-Profit","Regional",
+                                "Health","Alternative Health","Fitness & Nutrition","Self-Help","Sexuality",
+                                "Kids & Family",
+                                "Music",
+                                "News & Politics",
+                                "Religion & Spirituality","Buddhism","Christianity","Hinduism","Islam","Judaism","Other","Spirituality",
+                                "Science & Medicine","Medicine","Natural Sciences","Social Sciences",
+                                "Society & Culture","History","Personal Journals","Philosophy","Places & Travel",
+                                "Sports & Recreation","Amateur","College & High School","Outdoor","Professional",
+                                "Technology","Gadgets","Tech News","Podcasting","Software How-To","TV & Film"], 
+                                { :include_blank => 'Select a category.' },
+                                class: "form-control" %>
+  </div>
   
   <hr class="colorgraph">
   <h2 class="site-blue">Album Image</h2>
@@ -99,12 +162,13 @@ might also make an album for a full-length novel, and upload select audio tracks
       <small id="imageHelp" class="form-text text-secondary">For best results, use an image that's the same height and width.</small>
     </div>
   </div>
-          <hr class="colorgraph">
-  				<div class="row justify-content-center">
-  					<div class="col-xs-12 col-sm-12 col-md-6">
-  					  <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %></h3>
-  					</div>
-  				</div>
+  
+  <hr class="colorgraph">
+	<div class="row justify-content-center">
+		<div class="col-xs-12 col-sm-12 col-md-6">
+		  <h3><%= f.button "Submit", class: "btn btn-lg btn-outline-secondary btn-block mb-2", data: {disable_with: "<i class= 'fa fa-spinner fa-spin'></i> Submitting..." } %></h3>
+		</div>
+	</div>
 
         <% end %>
         </fieldset>

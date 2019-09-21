@@ -67,13 +67,14 @@
                 <div class="bg-white px-3 mt-md-3 mt-1 mb-md-3 mb-0 text-muted crown-border container-shadow">
                 	<div class="row py-2 mb-3 bg-light border-bottom">
                         <div class="col-12">
-                            <h3 class="site-red text-center text-lg-left"><%= @album.title %>
+                            <h3 class="site-red text-lg-left" style="display:inline-block;"><%= @album.title %>
                                 <% if @album.user == current_user %>
     							    <%= link_to edit_album_path(@album) do %>
     								    <i class="fas fa-cog site-red ml-2" style="font-size: 18px;"></i>
     							    <% end %>
     						    <% end %>
                             </h3>
+                            <a href="<%= album_path(@album.id) %>.rss"><i class="fas fa-rss text-warning float-right"></i></a>
                     		<div class="row">
                         		<div class="col-lg-6 col-md-12 text-center text-lg-left">
                             		<% if @album.user.image? %>

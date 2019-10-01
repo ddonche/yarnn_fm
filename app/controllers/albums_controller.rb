@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
 	end
 
 	def show
-	  @tracks = Track.where(album_id: @album).order("created_at DESC").page(params[:page]).per(10)
+	  @tracks = Track.where(album_id: @album).order("created_at DESC")
 	  respond_to do |format|
       format.html
       format.rss { render :layout => false }

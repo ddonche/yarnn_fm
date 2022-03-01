@@ -40,7 +40,7 @@ gem 'bootstrap'
 gem "recaptcha"
 gem 'devise_invitable', '~> 2.0.0'
 gem 'actiontext', require: 'action_text'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'pg'
 gem 'bonsai-elasticsearch-rails', '~> 7'
 gem 'elasticsearch-model'
